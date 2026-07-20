@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: 'Book a Transfer',
   description:
     'Request a private chauffeur transfer anywhere in Austria, or cross-border to Germany, Czech Republic, Slovakia, Hungary, Slovenia, Italy, and Switzerland.',
+  // Canonical points to the clean path — every /service-areas/* page links here
+  // with a ?to= query param to prefill the form, which must not be indexed
+  // as separate near-duplicate pages.
+  alternates: { canonical: '/booking' },
 }
 
 export default function BookingPage() {

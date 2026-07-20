@@ -1,12 +1,45 @@
 import Link from 'next/link'
 import { BookingForm } from '@/components/booking-form'
 import { ServiceIcon } from '@/components/service-icon'
+import { JsonLd } from '@/components/json-ld'
 import { serviceTypes, vehicles } from '@/lib/content/services'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
+import { areaServedCountries, siteName, siteUrl } from '@/lib/content/site'
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': ['LocalBusiness', 'TaxiService'],
+          '@id': `${siteUrl}/#organization`,
+          name: siteName,
+          url: siteUrl,
+          image: `${siteUrl}/opengraph-image`,
+          description:
+            'Licensed private chauffeur service covering all of Austria, including airport transfers, city-to-city travel, and cross-border transfers to neighboring countries.',
+          areaServed: areaServedCountries.map((name) => ({
+            '@type': 'Country',
+            name,
+          })),
+          openingHoursSpecification: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: [
+              'Monday',
+              'Tuesday',
+              'Wednesday',
+              'Thursday',
+              'Friday',
+              'Saturday',
+              'Sunday',
+            ],
+            opens: '00:00',
+            closes: '23:59',
+          },
+        }}
+      />
+
       {/* Hero */}
       <section className="border-b border-brand-line bg-brand-ink text-white">
         <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-24">

@@ -24,6 +24,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-2 text-sm text-brand-cream/80">
             <li><Link href="/services" className="hover:text-white">Services & Fleet</Link></li>
             <li><Link href="/service-areas" className="hover:text-white">Service Areas</Link></li>
+            <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
             <li><Link href="/about" className="hover:text-white">About Us</Link></li>
             <li><Link href="/booking" className="hover:text-white">Book a Transfer</Link></li>
             <li><Link href="/contact" className="hover:text-white">Contact</Link></li>

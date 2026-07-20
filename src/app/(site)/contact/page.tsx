@@ -4,6 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Contact',
   description: 'Get in touch with Austria Chauffeur Service for bookings and inquiries.',
+  alternates: { canonical: '/contact' },
 }
 
 export default function ContactPage() {

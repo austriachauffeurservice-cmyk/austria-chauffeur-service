@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { siteDescription, siteName, siteUrl } from "@/lib/content/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,16 +18,13 @@ const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://austriachauffeurservice.com";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Austria Chauffeur Service | Private Transfers Across Austria",
-    template: "%s | Austria Chauffeur Service",
+    default: `${siteName} | Private Transfers Across Austria`,
+    template: `%s | ${siteName}`,
   },
-  description:
-    "Licensed private chauffeur service covering all of Austria, including airport transfers, city-to-city travel, and cross-border transfers to Germany, Czech Republic, Slovakia, Hungary, Slovenia, Italy, and Switzerland.",
+  description: siteDescription,
   keywords: [
     "chauffeur service Austria",
     "private transfer Austria",
@@ -35,13 +33,31 @@ export const metadata: Metadata = {
     "Vienna to Bratislava transfer",
     "Salzburg to Munich transfer",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     type: "website",
+    locale: "en_US",
     url: siteUrl,
-    siteName: "Austria Chauffeur Service",
-    title: "Austria Chauffeur Service | Private Transfers Across Austria",
-    description:
-      "Licensed private chauffeur service covering all of Austria, including cross-border transfers to neighboring countries.",
+    siteName,
+    title: `${siteName} | Private Transfers Across Austria`,
+    description: siteDescription,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteName} | Private Transfers Across Austria`,
+    description: siteDescription,
   },
 };
 

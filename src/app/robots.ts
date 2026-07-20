@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { siteUrl } from '@/lib/content/site'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,9 +7,9 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: '/admin',
+        disallow: ['/admin', '/api'],
       },
     ],
-    sitemap: 'https://austriachauffeurservice.com/sitemap.xml',
+    sitemap: `${siteUrl}/sitemap.xml`,
   }
 }

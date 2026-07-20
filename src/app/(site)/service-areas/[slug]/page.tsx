@@ -1,13 +1,17 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { JsonLd } from '@/components/json-ld'
 import {
   austrianCities,
   borderCities,
   borderCrossingDestinations,
 } from '@/lib/content/service-areas'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 type Params = { slug: string }
+
+type Breadcrumb = { name: string; path: string }
 
 function findLocation(slug: string) {
   const city = austrianCities.find((c) => c.slug === slug)
@@ -39,11 +43,14 @@ export async function generateMetadata({
   const location = findLocation(slug)
   if (!location) return {}
 
+  const canonical = `/service-areas/${slug}`
+
   if (location.kind === 'city') {
     const { city, region } = location.data
     return {
       title: `Chauffeur Service in ${city}`,
       description: `Private chauffeur transfers to and from ${city}, ${region} — airport pickups, city-to-city travel, and cross-border trips. Fixed pricing, professional drivers.`,
+      alternates: { canonical },
     }
   }
 
@@ -52,6 +59,7 @@ export async function generateMetadata({
     return {
       title: `Chauffeur Transfer to ${city}, ${country}`,
       description: `Private cross-border chauffeur transfer from Austria to ${city}, ${country}. Fixed pricing, licensed driver, no vehicle switch at the border.`,
+      alternates: { canonical },
     }
   }
 
@@ -59,6 +67,49 @@ export async function generateMetadata({
   return {
     title: `Cross-Border Transfers to ${country}`,
     description: `Licensed private chauffeur transfers from Austria to ${cities.join(', ')} (${country}). Fixed pricing, no vehicle switch at the border.`,
+    alternates: { canonical },
+  }
+}
+
+function breadcrumbJsonLd(trail: Breadcrumb[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: trail.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: `${siteUrl}${item.path}`,
+    })),
+  }
+}
+
+function serviceJsonLd({
+  name,
+  areaServedName,
+  areaServedType,
+  url,
+}: {
+  name: string
+  areaServedName: string
+  areaServedType: 'City' | 'Country'
+  url: string
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Private Chauffeur Transfer',
+    name,
+    provider: {
+      '@type': 'LocalBusiness',
+      name: siteName,
+      url: siteUrl,
+    },
+    areaServed: {
+      '@type': areaServedType,
+      name: areaServedName,
+    },
+    url,
   }
 }
 
@@ -69,8 +120,25 @@ export default async function LocationPage({ params }: { params: Promise<Params>
 
   if (location.kind === 'city') {
     const { city, region, airport, popularRoutes, note } = location.data
+    const pageUrl = `${siteUrl}/service-areas/${slug}`
     return (
       <>
+        <JsonLd
+          data={breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Service Areas', path: '/service-areas' },
+            { name: city, path: `/service-areas/${slug}` },
+          ])}
+        />
+        <JsonLd
+          data={serviceJsonLd({
+            name: `Chauffeur Service in ${city}`,
+            areaServedName: city,
+            areaServedType: 'City',
+            url: pageUrl,
+          })}
+        />
+
         <section className="border-b border-brand-line bg-brand-cream">
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
@@ -117,8 +185,27 @@ export default async function LocationPage({ params }: { params: Promise<Params>
 
   if (location.kind === 'borderCity') {
     const { city, country, countrySlug, via, popularRoutes } = location.data
+    const pageUrl = `${siteUrl}/service-areas/${slug}`
+    const countryLabel = borderCrossingDestinations.find((d) => d.slug === countrySlug)?.country ?? country
     return (
       <>
+        <JsonLd
+          data={breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Service Areas', path: '/service-areas' },
+            { name: countryLabel, path: `/service-areas/${countrySlug}` },
+            { name: city, path: `/service-areas/${slug}` },
+          ])}
+        />
+        <JsonLd
+          data={serviceJsonLd({
+            name: `Chauffeur Transfer to ${city}, ${country}`,
+            areaServedName: city,
+            areaServedType: 'City',
+            url: pageUrl,
+          })}
+        />
+
         <section className="border-b border-brand-line bg-brand-ink text-white">
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
@@ -157,9 +244,26 @@ export default async function LocationPage({ params }: { params: Promise<Params>
 
   const { country, popularRoutes, note, via } = location.data
   const citiesInCountry = borderCities.filter((c) => c.countrySlug === location.data.slug)
+  const pageUrl = `${siteUrl}/service-areas/${slug}`
 
   return (
     <>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'Service Areas', path: '/service-areas' },
+          { name: country, path: `/service-areas/${slug}` },
+        ])}
+      />
+      <JsonLd
+        data={serviceJsonLd({
+          name: `Cross-Border Transfers to ${country}`,
+          areaServedName: country,
+          areaServedType: 'Country',
+          url: pageUrl,
+        })}
+      />
+
       <section className="border-b border-brand-line bg-brand-ink text-white">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">

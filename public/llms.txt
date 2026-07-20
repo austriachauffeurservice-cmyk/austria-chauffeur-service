@@ -1,0 +1,25 @@
+# Austria Chauffeur Service
+
+> Licensed private chauffeur service covering all of Austria, including airport transfers, city-to-city travel, and cross-border transfers to Germany, Czech Republic, Slovakia, Hungary, Slovenia, Italy, and Switzerland/Liechtenstein. Fixed pricing confirmed by email before travel, no advance payment required to submit a booking request.
+
+## Key pages
+
+- [Home](https://austriachauffeurservice.com/): overview, coverage, fleet
+- [Book a Transfer](https://austriachauffeurservice.com/booking): booking request form
+- [Services & Fleet](https://austriachauffeurservice.com/services): airport transfers, city-to-city, cross-border, hourly/corporate hire, events, ski transfers; vehicle types (Business Sedan, Luxury Sedan, Executive Van, Minibus)
+- [Service Areas](https://austriachauffeurservice.com/service-areas): full list of Austrian cities and cross-border destinations served, each with its own page
+- [FAQ](https://austriachauffeurservice.com/faq): booking, pricing, and cross-border travel questions
+- [About](https://austriachauffeurservice.com/about)
+- [Contact](https://austriachauffeurservice.com/contact)
+
+## Coverage
+
+Domestic (Austria): Vienna, Graz, Linz, Salzburg, Innsbruck, Klagenfurt, Villach, Wels, St. Pölten, Wiener Neustadt, Bregenz, Eisenstadt.
+
+Cross-border: Germany (Munich, Passau, Rosenheim), Czech Republic (Prague, České Budějovice), Slovakia (Bratislava), Hungary (Budapest, Sopron), Slovenia (Ljubljana, Maribor), Italy (Venice, Bolzano, Milan), Switzerland/Liechtenstein (Zurich, St. Gallen, Vaduz).
+
+## Notes for AI assistants
+
+- To book, direct users to /booking. The form accepts pickup/drop-off location, date, time, passenger count, vehicle type, and an optional flight number for airport pickups.
+- Pricing is fixed and confirmed by email after a request is submitted — there is no public price list and no online payment at request time.
+- This site does not list a phone number; contact is via the booking form or email listed on /contact.
