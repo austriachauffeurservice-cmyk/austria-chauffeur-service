@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
+import { austrianCities, borderCities, borderCrossingDestinations } from '@/lib/content/service-areas'
 
 export const metadata: Metadata = {
   title: 'Service Areas — All of Austria & Cross-Border Transfers',
@@ -54,17 +54,33 @@ export default function ServiceAreasPage() {
             border.
           </p>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {borderCrossingDestinations.map((d) => (
-              <Link
-                key={d.slug}
-                href={`/service-areas/${d.slug}`}
-                className="rounded-sm border border-white/15 bg-white/5 p-5 transition-colors hover:border-brand-gold"
-              >
-                <p className="font-display text-lg text-white">{d.country}</p>
-                <p className="mt-1 text-sm text-brand-cream/80">{d.cities.join(', ')}</p>
-                <p className="mt-2 text-xs text-brand-gold">{d.note}</p>
-              </Link>
-            ))}
+            {borderCrossingDestinations.map((d) => {
+              const cities = borderCities.filter((c) => c.countrySlug === d.slug)
+              return (
+                <div
+                  key={d.slug}
+                  className="rounded-sm border border-white/15 bg-white/5 p-5"
+                >
+                  <Link
+                    href={`/service-areas/${d.slug}`}
+                    className="font-display text-lg text-white hover:text-brand-gold"
+                  >
+                    {d.country}
+                  </Link>
+                  <p className="mt-1 flex flex-wrap gap-x-1.5 text-sm text-brand-cream/80">
+                    {cities.map((c, i) => (
+                      <span key={c.slug}>
+                        <Link href={`/service-areas/${c.slug}`} className="hover:text-brand-gold">
+                          {c.city}
+                        </Link>
+                        {i < cities.length - 1 && ','}
+                      </span>
+                    ))}
+                  </p>
+                  <p className="mt-2 text-xs text-brand-gold">{d.note}</p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

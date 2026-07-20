@@ -1,5 +1,9 @@
 import type { MetadataRoute } from 'next'
-import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
+import {
+  austrianCities,
+  borderCities,
+  borderCrossingDestinations,
+} from '@/lib/content/service-areas'
 
 const siteUrl = 'https://austriachauffeurservice.com'
 
@@ -8,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const locationSlugs = [
     ...austrianCities.map((c) => c.slug),
     ...borderCrossingDestinations.map((d) => d.slug),
+    ...borderCities.map((c) => c.slug),
   ]
 
   return [

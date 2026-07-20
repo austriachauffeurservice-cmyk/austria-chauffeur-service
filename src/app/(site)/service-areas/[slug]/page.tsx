@@ -1,13 +1,20 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
+import {
+  austrianCities,
+  borderCities,
+  borderCrossingDestinations,
+} from '@/lib/content/service-areas'
 
 type Params = { slug: string }
 
 function findLocation(slug: string) {
   const city = austrianCities.find((c) => c.slug === slug)
   if (city) return { kind: 'city' as const, data: city }
+
+  const borderCity = borderCities.find((c) => c.slug === slug)
+  if (borderCity) return { kind: 'borderCity' as const, data: borderCity }
 
   const border = borderCrossingDestinations.find((d) => d.slug === slug)
   if (border) return { kind: 'border' as const, data: border }
@@ -18,6 +25,7 @@ function findLocation(slug: string) {
 export function generateStaticParams(): Params[] {
   return [
     ...austrianCities.map((c) => ({ slug: c.slug })),
+    ...borderCities.map((c) => ({ slug: c.slug })),
     ...borderCrossingDestinations.map((d) => ({ slug: d.slug })),
   ]
 }
@@ -36,6 +44,14 @@ export async function generateMetadata({
     return {
       title: `Chauffeur Service in ${city}`,
       description: `Private chauffeur transfers to and from ${city}, ${region} — airport pickups, city-to-city travel, and cross-border trips. Fixed pricing, professional drivers.`,
+    }
+  }
+
+  if (location.kind === 'borderCity') {
+    const { city, country } = location.data
+    return {
+      title: `Chauffeur Transfer to ${city}, ${country}`,
+      description: `Private cross-border chauffeur transfer from Austria to ${city}, ${country}. Fixed pricing, licensed driver, no vehicle switch at the border.`,
     }
   }
 
@@ -99,7 +115,49 @@ export default async function LocationPage({ params }: { params: Promise<Params>
     )
   }
 
-  const { country, cities, via, popularRoutes, note } = location.data
+  if (location.kind === 'borderCity') {
+    const { city, country, countrySlug, via, popularRoutes } = location.data
+    return (
+      <>
+        <section className="border-b border-brand-line bg-brand-ink text-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+              <Link href={`/service-areas/${countrySlug}`} className="hover:underline">
+                {country}
+              </Link>{' '}
+              · Cross-Border Transfer
+            </p>
+            <h1 className="font-display mt-2 text-3xl sm:text-4xl">
+              Austria → {city}
+            </h1>
+            <p className="mt-4 max-w-xl text-brand-cream/80">
+              Licensed private chauffeur transfer from Austria to {city}, {country} — no need to
+              switch vehicles at the border.
+            </p>
+            <p className="mt-3 text-sm font-semibold text-brand-gold">{via}</p>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+          <h2 className="font-display text-xl text-brand-ink">Popular Routes</h2>
+          <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
+            {popularRoutes.map((route) => (
+              <li key={route} className="flex items-start gap-2">
+                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+                {route}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <LocationCta place={city} />
+      </>
+    )
+  }
+
+  const { country, popularRoutes, note, via } = location.data
+  const citiesInCountry = borderCities.filter((c) => c.countrySlug === location.data.slug)
+
   return (
     <>
       <section className="border-b border-brand-line bg-brand-ink text-white">
@@ -111,8 +169,8 @@ export default async function LocationPage({ params }: { params: Promise<Params>
             Austria → {country}
           </h1>
           <p className="mt-4 max-w-xl text-brand-cream/80">
-            Licensed for international pickups and drop-offs to {cities.join(', ')} — no need to
-            switch vehicles at the border.
+            Licensed for international pickups and drop-offs to {country} — no need to switch
+            vehicles at the border.
           </p>
           <p className="mt-3 text-sm font-semibold text-brand-gold">{note} · {via}</p>
         </div>
@@ -123,10 +181,12 @@ export default async function LocationPage({ params }: { params: Promise<Params>
           <div>
             <h2 className="font-display text-xl text-brand-ink">Destinations</h2>
             <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
-              {cities.map((c) => (
-                <li key={c} className="flex items-start gap-2">
+              {citiesInCountry.map((c) => (
+                <li key={c.slug} className="flex items-start gap-2">
                   <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                  {c}
+                  <Link href={`/service-areas/${c.slug}`} className="hover:text-brand-gold">
+                    {c.city}
+                  </Link>
                 </li>
               ))}
             </ul>

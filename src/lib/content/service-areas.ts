@@ -16,6 +16,15 @@ export type BorderArea = {
   note: string
 }
 
+export type BorderCity = {
+  slug: string
+  city: string
+  countrySlug: string
+  country: string
+  via: string
+  popularRoutes: string[]
+}
+
 export const austrianCities: CityArea[] = [
   {
     slug: 'vienna',
@@ -205,5 +214,136 @@ export const borderCrossingDestinations: BorderArea[] = [
     via: 'via Bregenz / Vorarlberg',
     popularRoutes: ['Bregenz → Zurich', 'Bregenz → St. Gallen', 'Bregenz → Vaduz'],
     note: 'Via Bregenz / Vorarlberg',
+  },
+]
+
+export const borderCities: BorderCity[] = [
+  {
+    slug: 'munich',
+    city: 'Munich',
+    countrySlug: 'germany',
+    country: 'Germany',
+    via: 'via A8 motorway',
+    popularRoutes: ['Salzburg → Munich', 'Innsbruck → Munich', 'Vienna → Munich'],
+  },
+  {
+    slug: 'passau',
+    city: 'Passau',
+    countrySlug: 'germany',
+    country: 'Germany',
+    via: 'via A8 / A3',
+    popularRoutes: ['Linz → Passau', 'Vienna → Passau'],
+  },
+  {
+    slug: 'rosenheim',
+    city: 'Rosenheim',
+    countrySlug: 'germany',
+    country: 'Germany',
+    via: 'via A8 motorway',
+    popularRoutes: ['Salzburg → Rosenheim', 'Innsbruck → Rosenheim'],
+  },
+  {
+    slug: 'prague',
+    city: 'Prague',
+    countrySlug: 'czech-republic',
+    country: 'Czech Republic',
+    via: 'via Linz or Vienna',
+    popularRoutes: ['Linz → Prague', 'Vienna → Prague'],
+  },
+  {
+    slug: 'ceske-budejovice',
+    city: 'České Budějovice',
+    countrySlug: 'czech-republic',
+    country: 'Czech Republic',
+    via: 'via Linz',
+    popularRoutes: ['Linz → České Budějovice'],
+  },
+  {
+    slug: 'bratislava',
+    city: 'Bratislava',
+    countrySlug: 'slovakia',
+    country: 'Slovakia',
+    via: 'via A6 motorway',
+    popularRoutes: ['Vienna → Bratislava', 'Vienna Airport → Bratislava'],
+  },
+  {
+    slug: 'budapest',
+    city: 'Budapest',
+    countrySlug: 'hungary',
+    country: 'Hungary',
+    via: 'via Vienna',
+    popularRoutes: ['Vienna → Budapest', 'Vienna Airport → Budapest'],
+  },
+  {
+    slug: 'sopron',
+    city: 'Sopron',
+    countrySlug: 'hungary',
+    country: 'Hungary',
+    via: 'via Eisenstadt / Wiener Neustadt',
+    popularRoutes: ['Eisenstadt → Sopron', 'Wiener Neustadt → Sopron'],
+  },
+  {
+    slug: 'ljubljana',
+    city: 'Ljubljana',
+    countrySlug: 'slovenia',
+    country: 'Slovenia',
+    via: 'via Graz or Klagenfurt',
+    popularRoutes: ['Graz → Ljubljana', 'Klagenfurt → Ljubljana', 'Villach → Ljubljana'],
+  },
+  {
+    slug: 'maribor',
+    city: 'Maribor',
+    countrySlug: 'slovenia',
+    country: 'Slovenia',
+    via: 'via Graz',
+    popularRoutes: ['Graz → Maribor'],
+  },
+  {
+    slug: 'venice',
+    city: 'Venice',
+    countrySlug: 'italy',
+    country: 'Italy',
+    via: 'via Innsbruck / Brenner Pass',
+    popularRoutes: ['Innsbruck → Venice', 'Villach → Venice'],
+  },
+  {
+    slug: 'bolzano',
+    city: 'Bolzano',
+    countrySlug: 'italy',
+    country: 'Italy',
+    via: 'via Brenner Pass',
+    popularRoutes: ['Innsbruck → Bolzano'],
+  },
+  {
+    slug: 'milan',
+    city: 'Milan',
+    countrySlug: 'italy',
+    country: 'Italy',
+    via: 'via Brenner Pass / A22',
+    popularRoutes: ['Innsbruck → Milan'],
+  },
+  {
+    slug: 'zurich',
+    city: 'Zurich',
+    countrySlug: 'switzerland-liechtenstein',
+    country: 'Switzerland',
+    via: 'via Bregenz',
+    popularRoutes: ['Bregenz → Zurich'],
+  },
+  {
+    slug: 'st-gallen',
+    city: 'St. Gallen',
+    countrySlug: 'switzerland-liechtenstein',
+    country: 'Switzerland',
+    via: 'via Bregenz',
+    popularRoutes: ['Bregenz → St. Gallen'],
+  },
+  {
+    slug: 'vaduz',
+    city: 'Vaduz',
+    countrySlug: 'switzerland-liechtenstein',
+    country: 'Liechtenstein',
+    via: 'via Bregenz',
+    popularRoutes: ['Bregenz → Vaduz'],
   },
 ]
