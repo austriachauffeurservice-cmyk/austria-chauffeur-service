@@ -4,6 +4,7 @@ import {
   borderCities,
   borderCrossingDestinations,
 } from '@/lib/content/service-areas'
+import { blogPosts } from '@/lib/content/blog'
 import { siteUrl } from '@/lib/content/site'
 
 // Bump this whenever page content actually changes — sitemaps with a
@@ -15,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '', priority: 1 },
     { path: '/services', priority: 0.8 },
     { path: '/service-areas', priority: 0.8 },
+    { path: '/blog', priority: 0.7 },
     { path: '/faq', priority: 0.6 },
     { path: '/about', priority: 0.6 },
     { path: '/contact', priority: 0.6 },
@@ -38,6 +40,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.7,
+    })),
+    ...blogPosts.map((post) => ({
+      url: `${siteUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.publishedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
     })),
   ]
 }

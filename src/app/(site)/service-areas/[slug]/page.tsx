@@ -8,6 +8,7 @@ import {
   borderCrossingDestinations,
 } from '@/lib/content/service-areas'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { findRelatedPosts } from '@/lib/content/blog'
 
 type Params = { slug: string }
 
@@ -121,6 +122,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
   if (location.kind === 'city') {
     const { city, region, airport, popularRoutes, note } = location.data
     const pageUrl = `${siteUrl}/service-areas/${slug}`
+    const relatedPosts = findRelatedPosts([city, region])
     return (
       <>
         <JsonLd
@@ -178,6 +180,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
           </div>
         </section>
 
+        <RelatedReading posts={relatedPosts} />
         <LocationCta place={city} />
       </>
     )
@@ -187,6 +190,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
     const { city, country, countrySlug, via, popularRoutes } = location.data
     const pageUrl = `${siteUrl}/service-areas/${slug}`
     const countryLabel = borderCrossingDestinations.find((d) => d.slug === countrySlug)?.country ?? country
+    const relatedPosts = findRelatedPosts([city, country])
     return (
       <>
         <JsonLd
@@ -237,6 +241,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
           </ul>
         </section>
 
+        <RelatedReading posts={relatedPosts} />
         <LocationCta place={city} />
       </>
     )
@@ -245,6 +250,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
   const { country, popularRoutes, note, via } = location.data
   const citiesInCountry = borderCities.filter((c) => c.countrySlug === location.data.slug)
   const pageUrl = `${siteUrl}/service-areas/${slug}`
+  const relatedPosts = findRelatedPosts([country])
 
   return (
     <>
@@ -309,8 +315,30 @@ export default async function LocationPage({ params }: { params: Promise<Params>
         </div>
       </section>
 
+      <RelatedReading posts={relatedPosts} />
       <LocationCta place={country} />
     </>
+  )
+}
+
+function RelatedReading({ posts }: { posts: ReturnType<typeof findRelatedPosts> }) {
+  if (posts.length === 0) return null
+  return (
+    <section className="mx-auto max-w-4xl px-4 pb-16 sm:px-6">
+      <h2 className="font-display text-xl text-brand-ink">Related Reading</h2>
+      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+        {posts.map((post) => (
+          <Link
+            key={post.slug}
+            href={`/blog/${post.slug}`}
+            className="rounded-sm border border-brand-line p-4 text-sm transition-colors hover:border-brand-gold"
+          >
+            <p className="font-semibold text-brand-ink">{post.title}</p>
+            <p className="mt-1 text-brand-ink-2/70">{post.excerpt}</p>
+          </Link>
+        ))}
+      </div>
+    </section>
   )
 }
 
