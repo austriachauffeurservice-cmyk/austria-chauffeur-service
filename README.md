@@ -7,7 +7,7 @@ Next.js (App Router, TypeScript, Tailwind) + Supabase (database) + Resend (email
 ### 1. Supabase
 
 1. Create a project at [supabase.com](https://supabase.com) (region: Central EU / Frankfurt recommended).
-2. Open **SQL Editor** and run [`supabase/schema.sql`](./supabase/schema.sql) to create the `bookings` table.
+2. Open **SQL Editor** and run `supabase/schema.sql` (kept locally, not committed to this repo) to create the `bookings` table.
 3. Go to **Settings -> API** and copy:
    - Project URL -> `SUPABASE_URL`
    - `service_role` key -> `SUPABASE_SERVICE_ROLE_KEY` (server-only, never expose to the browser)
@@ -60,7 +60,7 @@ curl -X POST http://localhost:3000/api/bookings \
 
 ## What's next
 
-Real content (photos, actual pricing, verified contact number) and connecting the real Supabase/Resend credentials in production. `NEXT_PUBLIC_CONTACT_PHONE` is optional — the phone card on `/contact` only renders once it's set.
+Real content (photos, actual pricing) and connecting the real Supabase/Resend credentials in production.
 
 ## Learn More
 
