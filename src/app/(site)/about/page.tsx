@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -34,19 +35,34 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <section className="border-b border-brand-line bg-brand-cream">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-            About Us
-          </p>
-          <h1 className="font-display mt-2 max-w-2xl text-3xl text-brand-ink sm:text-4xl">
-            Built for Austria, ready for the border
-          </h1>
-          <p className="mt-4 max-w-xl text-brand-ink-2/80">
-            Austria Chauffeur Service was founded to give travelers, executives, and event
-            organizers one dependable way to move around the country — and into its neighbors —
-            without switching providers.
-          </p>
+      <section className="border-b border-brand-line bg-brand-cream overflow-hidden">
+        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-20 items-center">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+              About Us
+            </p>
+            <h1 className="font-display mt-2 text-3xl text-brand-ink sm:text-4xl">
+              Built for Austria, ready for the border
+            </h1>
+            <p className="mt-5 text-brand-ink-2/80 leading-relaxed">
+              Austria Chauffeur Service was founded to give travelers, executives, and event
+              organizers one dependable way to move around the country — and into its neighbors —
+              without switching providers.
+            </p>
+            <p className="mt-4 text-brand-ink-2/70 text-sm leading-relaxed">
+              Our fleet is fully licensed and winter-ready, operated by professional drivers who speak English and German, ensuring premium security, comfort, and luxury on every route.
+            </p>
+          </div>
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-brand-line bg-white shadow-lg">
+            <Image
+              src="/images/hero/vienna-palace.png"
+              alt="Premium Private Chauffeur in Vienna, Austria"
+              fill
+              className="object-cover"
+              sizes="(max-w-768px) 100vw, 50vw"
+              priority
+            />
+          </div>
         </div>
       </section>
 

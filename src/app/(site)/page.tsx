@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { BookingForm } from '@/components/booking-form'
 import { ServiceIcon } from '@/components/service-icon'
 import { JsonLd } from '@/components/json-ld'
+import { HeroBackground } from '@/components/hero-background'
 import { serviceTypes, vehicles } from '@/lib/content/services'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
 import { areaServedCountries, siteName, siteUrl } from '@/lib/content/site'
@@ -16,7 +17,7 @@ export default function HomePage() {
           '@id': `${siteUrl}/#organization`,
           name: siteName,
           url: siteUrl,
-          image: `${siteUrl}/opengraph-image`,
+          image: `${siteUrl}/logo.png`,
           description:
             'Licensed private chauffeur service covering all of Austria, including airport transfers, city-to-city travel, and cross-border transfers to neighboring countries.',
           areaServed: areaServedCountries.map((name) => ({
@@ -41,8 +42,9 @@ export default function HomePage() {
       />
 
       {/* Hero */}
-      <section className="border-b border-brand-line bg-brand-ink text-white">
-        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-24">
+      <section className="relative overflow-hidden border-b border-brand-line bg-brand-ink text-white">
+        <HeroBackground />
+        <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-24">
           <div className="flex flex-col justify-center">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
               Private Chauffeur Service

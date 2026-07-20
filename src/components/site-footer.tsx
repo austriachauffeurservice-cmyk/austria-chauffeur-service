@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Logo } from '@/components/logo'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
 
 export function SiteFooter() {
@@ -8,10 +9,8 @@ export function SiteFooter() {
     <footer className="border-t border-brand-line bg-brand-ink text-brand-cream">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
         <div>
-          <p className="font-display text-lg font-semibold text-white">
-            Austria Chauffeur Service
-          </p>
-          <p className="mt-3 text-sm leading-relaxed text-brand-cream/70">
+          <Logo lightText={true} />
+          <p className="mt-4 text-sm leading-relaxed text-brand-cream/70">
             Private chauffeur transfers across all of Austria, with licensed cross-border
             service to neighboring countries.
           </p>
