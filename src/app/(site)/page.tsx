@@ -558,6 +558,61 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Popular Routes */}
+      <section className="bg-white border-t border-brand-line">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+              Popular Routes
+            </p>
+            <h2 className="font-display mt-2 text-3xl text-brand-ink">
+              Top Chauffeur Destinations
+            </h2>
+            <p className="mt-4 text-brand-ink-2/80 text-sm leading-relaxed">
+              We provide fixed-price private transfers on these popular routes. Select your destination to view details and coverage.
+            </p>
+          </div>
+          
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {[
+              { label: 'Vienna Chauffeur Service', slug: 'vienna', route: 'Vienna Airport ↔ City Center' },
+              { label: 'Salzburg Chauffeur Service', slug: 'salzburg', route: 'Salzburg ↔ Vienna / Munich' },
+              { label: 'Innsbruck Airport Shuttle', slug: 'innsbruck', route: 'Innsbruck ↔ Kitzbühel / Munich' },
+              { label: 'Graz Chauffeur Service', slug: 'graz', route: 'Graz ↔ Vienna / Ljubljana' },
+              { label: 'Linz Private Transfer', slug: 'linz', route: 'Linz ↔ Vienna / Prague' },
+              { label: 'Munich Private Transfer', slug: 'munich', route: 'Austria ↔ Munich (Germany)' },
+              { label: 'Prague Chauffeur Hire', slug: 'prague', route: 'Austria ↔ Prague (Czech Rep.)' },
+              { label: 'Bratislava Chauffeur Service', slug: 'bratislava', route: 'Vienna ↔ Bratislava (Slovakia)' },
+              { label: 'Budapest Chauffeur Hire', slug: 'budapest', route: 'Vienna ↔ Budapest (Hungary)' },
+              { label: 'Zurich Private Car Service', slug: 'zurich', route: 'Bregenz ↔ Zurich (Switzerland)' },
+              { label: 'Klagenfurt Private Car', slug: 'klagenfurt', route: 'Klagenfurt ↔ Graz / Ljubljana' },
+              { label: 'Bregenz Chauffeur Service', slug: 'bregenz', route: 'Bregenz ↔ Zurich / Vaduz' },
+            ].map((r) => (
+              <Link
+                key={r.slug}
+                href={`/service-areas/${r.slug}`}
+                className="group rounded-sm border border-brand-line bg-brand-cream p-5 hover:border-brand-gold hover:bg-white hover:shadow-sm transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <h3 className="font-semibold text-brand-ink group-hover:text-brand-gold text-sm transition-colors duration-300">
+                    {r.label}
+                  </h3>
+                  <p className="mt-1 text-[11px] text-brand-ink-2/60 font-mono">
+                    {r.route}
+                  </p>
+                </div>
+                <div className="mt-4 flex items-center justify-between text-xs font-semibold text-brand-ink group-hover:text-brand-gold transition-colors duration-300">
+                  <span>View Details</span>
+                  <svg className="w-3.5 h-3.5 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="border-t border-brand-line bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
+import { contactAddress, contactEmail, contactPhone, licensingInfo } from '@/lib/content/site'
 
 export function SiteFooter() {
   const year = new Date().getFullYear()
@@ -14,6 +15,27 @@ export function SiteFooter() {
             Private chauffeur transfers across all of Austria, with licensed cross-border
             service to neighboring countries.
           </p>
+          <div className="mt-6 space-y-3 text-xs text-brand-cream/60">
+            <p className="flex items-start gap-2">
+              <span className="text-brand-gold shrink-0 mt-0.5">📍</span>
+              <span>{contactAddress}</span>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="text-brand-gold shrink-0">📞</span>
+              <a href={`tel:${contactPhone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors duration-300">
+                {contactPhone}
+              </a>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="text-brand-gold shrink-0">✉️</span>
+              <a href={`mailto:${contactEmail}`} className="hover:text-white transition-colors duration-300">
+                {contactEmail}
+              </a>
+            </p>
+            <p className="mt-4 pt-4 border-t border-white/10 text-[10px] tracking-wide text-brand-gold uppercase font-semibold">
+              {licensingInfo}
+            </p>
+          </div>
         </div>
 
         <div>
