@@ -5,19 +5,19 @@ import Image from 'next/image'
 
 const images = [
   {
-    src: '/images/hero/alpine-road.png',
+    src: '/images/hero/alpine-road.webp',
     alt: 'Luxury sedan on scenic Austrian alpine road',
   },
   {
-    src: '/images/hero/vienna-palace.png',
+    src: '/images/hero/vienna-palace.webp',
     alt: 'Private chauffeur at historic Vienna palace',
   },
   {
-    src: '/images/hero/ski-resort.png',
+    src: '/images/hero/ski-resort.webp',
     alt: 'Premium transfer at Austrian Alps ski resort',
   },
   {
-    src: '/images/hero/airport-transfer.png',
+    src: '/images/hero/airport-transfer.webp',
     alt: 'VIP transfer at Vienna International Airport tarmac',
   },
 ]

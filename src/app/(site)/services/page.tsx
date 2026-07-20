@@ -37,7 +37,7 @@ export default function ServicesPage() {
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-brand-cream border-b border-brand-line">
                 <Image
                   src={s.image}
-                  alt={s.title}
+                  alt={s.alt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-w-768px) 100vw, 33vw"
@@ -70,8 +70,8 @@ export default function ServicesPage() {
               <div key={v.type} className="rounded-sm border border-brand-line bg-white overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-brand-cream border-b border-brand-line">
                   <Image
-                    src={`/images/fleet/${v.type}.png`}
-                    alt={v.name}
+                    src={`/images/fleet/${v.type}.webp`}
+                    alt={v.alt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-w-768px) 100vw, 25vw"

@@ -11,8 +11,8 @@ export function TrustBadges() {
           <div className="flex flex-col items-center group transition-transform duration-300 hover:-translate-y-1">
             <div className="relative h-14 w-14 mb-2">
               <Image
-                src="/images/badges/google-review.png"
-                alt="Google 5.0 Star Reviews"
+                src="/images/badges/google-review.webp"
+                alt="Google 5.0 Star Reviews - Austria Chauffeur Service Vienna"
                 fill
                 className="object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] group-hover:scale-105 transition-transform duration-300"
                 sizes="56px"
@@ -26,8 +26,8 @@ export function TrustBadges() {
           <div className="flex flex-col items-center group transition-transform duration-300 hover:-translate-y-1">
             <div className="relative h-14 w-14 mb-2">
               <Image
-                src="/images/badges/trustpilot.png"
-                alt="Trustpilot Excellent"
+                src="/images/badges/trustpilot.webp"
+                alt="Trustpilot Excellent - Austria Chauffeur Service"
                 fill
                 className="object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] group-hover:scale-105 transition-transform duration-300"
                 sizes="56px"
@@ -41,8 +41,8 @@ export function TrustBadges() {
           <div className="flex flex-col items-center group transition-transform duration-300 hover:-translate-y-1">
             <div className="relative h-14 w-14 mb-2">
               <Image
-                src="/images/badges/tripadvisor.png"
-                alt="TripAdvisor Travellers Choice"
+                src="/images/badges/tripadvisor.webp"
+                alt="TripAdvisor Travellers Choice - Austria Chauffeur Service"
                 fill
                 className="object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] group-hover:scale-105 transition-transform duration-300"
                 sizes="56px"
@@ -56,8 +56,8 @@ export function TrustBadges() {
           <div className="flex flex-col items-center group transition-transform duration-300 hover:-translate-y-1">
             <div className="relative h-14 w-14 mb-2">
               <Image
-                src="/images/badges/licensed-shield.png"
-                alt="100% Licensed & Insured"
+                src="/images/badges/licensed-shield.webp"
+                alt="100% Licensed & Insured Chauffeur Service in Austria"
                 fill
                 className="object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] group-hover:scale-105 transition-transform duration-300"
                 sizes="56px"
@@ -71,8 +71,8 @@ export function TrustBadges() {
           <div className="flex flex-col items-center group transition-transform duration-300 hover:-translate-y-1">
             <div className="relative h-14 w-14 mb-2">
               <Image
-                src="/images/badges/austria-quality.png"
-                alt="Premium Quality Chauffeur Award"
+                src="/images/badges/austria-quality.webp"
+                alt="Premium Quality Chauffeur Award - Austria"
                 fill
                 className="object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.15)] group-hover:scale-105 transition-transform duration-300"
                 sizes="56px"

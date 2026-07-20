@@ -55,7 +55,7 @@ export default function AboutPage() {
           </div>
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-brand-line bg-white shadow-lg">
             <Image
-              src="/images/hero/vienna-palace.png"
+              src="/images/hero/vienna-palace.webp"
               alt="Premium Private Chauffeur in Vienna, Austria"
               fill
               className="object-cover"

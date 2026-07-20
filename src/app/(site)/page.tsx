@@ -22,7 +22,7 @@ export default function HomePage() {
           '@id': `${siteUrl}/#organization`,
           name: siteName,
           url: siteUrl,
-          image: `${siteUrl}/logo.png`,
+          image: `${siteUrl}/logo.webp`,
           description:
             'Licensed private chauffeur service covering all of Austria, including airport transfers, city-to-city travel, and cross-border transfers to neighboring countries.',
           areaServed: areaServedCountries.map((name) => ({
@@ -124,7 +124,7 @@ export default function HomePage() {
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-brand-cream border-b border-brand-line">
                 <Image
                   src={s.image}
-                  alt={s.title}
+                  alt={s.alt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-w-768px) 100vw, 33vw"
@@ -219,12 +219,165 @@ export default function HomePage() {
             {/* Right: GPS Visual Image */}
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-brand-line bg-brand-cream shadow-md lg:col-span-5 group">
               <Image
-                src="/images/why-choose-us.png"
+                src="/images/why-choose-us.webp"
                 alt="Chauffeur navigation and luxury dashboard cockpit in Austria"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-w-1024px) 100vw, 40vw"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="bg-brand-cream border-t border-brand-line">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <div className="grid gap-12 lg:grid-cols-12 items-center">
+            {/* Left Column: Steps */}
+            <div className="lg:col-span-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+                Simple Process
+              </p>
+              <h2 className="font-display mt-2 text-3xl text-brand-ink sm:text-4xl">
+                How to Book Your Private Transfer
+              </h2>
+              <p className="mt-4 text-brand-ink-2/80 text-sm leading-relaxed max-w-xl">
+                Our booking process is designed to be quick, secure, and fully customized. We confirm everything first before finalizing.
+              </p>
+              
+              <div className="mt-8 space-y-8 relative before:absolute before:left-5 before:top-2 before:bottom-2 before:w-0.5 before:bg-brand-line/50">
+                <div className="relative flex gap-6 pl-12 group">
+                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-white text-brand-gold border border-brand-line shadow-sm font-display font-semibold transition-all duration-300 group-hover:bg-brand-gold group-hover:text-brand-ink group-hover:scale-105 select-none">
+                    1
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-brand-ink text-base">Request Your Transfer</h3>
+                    <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed max-w-lg">
+                      Enter your pick-up and destination points, choose your preferred vehicle class (Sedan, SUV, or Van), and provide travel dates.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="relative flex gap-6 pl-12 group">
+                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-white text-brand-gold border border-brand-line shadow-sm font-display font-semibold transition-all duration-300 group-hover:bg-brand-gold group-hover:text-brand-ink group-hover:scale-105 select-none">
+                    2
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-brand-ink text-base">Get Fixed Quote</h3>
+                    <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed max-w-lg">
+                      We check chauffeur availability and email you a guaranteed fixed-rate quote. No payment or credit card details are required to submit a request.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="relative flex gap-6 pl-12 group">
+                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-full bg-white text-brand-gold border border-brand-line shadow-sm font-display font-semibold transition-all duration-300 group-hover:bg-brand-gold group-hover:text-brand-ink group-hover:scale-105 select-none">
+                    3
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-brand-ink text-base">Meet Your Chauffeur</h3>
+                    <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed max-w-lg">
+                      Your driver will greet you at the pickup location. We track your flight arrival automatically, so there are never any delay charges.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Custom CSS/SVG Interactive Smartphone Mockup */}
+            <div className="flex justify-center lg:col-span-5">
+              <div className="w-[300px] h-[520px] bg-brand-ink rounded-[40px] border-[8px] border-brand-line shadow-2xl relative overflow-hidden flex flex-col p-4 group select-none hover:shadow-brand-gold/10 hover:border-brand-gold transition-all duration-500">
+                {/* Smartphone Speaker/Camera notch */}
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-32 h-4 bg-brand-ink border-b border-brand-line/30 rounded-full z-20 flex items-center justify-center">
+                  <div className="w-12 h-1 bg-white/20 rounded-full"></div>
+                </div>
+                
+                {/* Screen Content Wrapper */}
+                <div className="relative flex-grow rounded-[28px] bg-brand-ink-2 overflow-hidden flex flex-col p-4 justify-between border border-white/5">
+                  {/* Decorative background grid and map route line */}
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none opacity-40"></div>
+                  
+                  {/* Animated SVG Route Map */}
+                  <div className="absolute inset-0 flex items-center justify-center p-6">
+                    <svg className="w-full h-full" viewBox="0 0 200 300" fill="none">
+                      <style dangerouslySetInnerHTML={{__html: `
+                        @keyframes dash {
+                          to {
+                            stroke-dashoffset: 0;
+                          }
+                        }
+                      `}} />
+                      {/* Path Line */}
+                      <path
+                        d="M 30,240 C 60,200 60,100 100,80 C 140,60 170,120 170,140"
+                        stroke="rgba(212,175,55,0.15)"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                      />
+                      <path
+                        d="M 30,240 C 60,200 60,100 100,80 C 140,60 170,120 170,140"
+                        stroke="rgb(212,175,55)"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        strokeDasharray="250"
+                        strokeDashoffset="250"
+                        style={{ animation: 'dash 6s ease-in-out infinite' }}
+                      />
+                      {/* Start Node */}
+                      <circle cx="30" cy="240" r="6" fill="#ffffff" stroke="rgb(212,175,55)" strokeWidth="3" />
+                      {/* End Node */}
+                      <circle cx="170" cy="140" r="6" fill="rgb(212,175,55)" />
+                    </svg>
+                  </div>
+
+                  {/* Header info */}
+                  <div className="relative z-10 flex justify-between items-center text-[10px] text-white/40 border-b border-white/5 pb-2">
+                    <span>AUSTRIA CHAUFFEUR</span>
+                    <span className="flex items-center gap-1">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      LIVE STATUS
+                    </span>
+                  </div>
+
+                  {/* Floating cards */}
+                  <div className="relative z-10 space-y-3 mt-4 flex-grow flex flex-col justify-end">
+                    {/* Glass card 1 */}
+                    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3 transform transition-all duration-500 hover:scale-105 hover:bg-white/10">
+                      <p className="text-[9px] uppercase tracking-wider text-brand-gold font-medium">Step 1: Pick-Up</p>
+                      <p className="text-white text-xs font-semibold mt-0.5">Vienna Airport (VIE)</p>
+                    </div>
+
+                    {/* Glass card 2 */}
+                    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3 transform transition-all duration-500 hover:scale-105 hover:bg-white/10">
+                      <p className="text-[9px] uppercase tracking-wider text-brand-gold font-medium">Step 2: Selected Fleet</p>
+                      <p className="text-white text-xs font-semibold mt-0.5">Mercedes S-Class Sedan</p>
+                    </div>
+
+                    {/* Glass card 3 */}
+                    <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3 transform transition-all duration-500 hover:scale-105 hover:bg-white/10">
+                      <p className="text-[9px] uppercase tracking-wider text-emerald-400 font-medium flex justify-between">
+                        <span>Step 3: Service Status</span>
+                        <span className="font-semibold font-mono">FIXED RATE</span>
+                      </p>
+                      <p className="text-white text-xs font-semibold mt-0.5 flex justify-between">
+                        <span>Chauffeur Ready</span>
+                        <span className="text-brand-gold">€120.00</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Interactive Button */}
+                  <div className="relative z-10 mt-4 pt-3 border-t border-white/5">
+                    <button className="w-full py-2.5 bg-brand-gold hover:bg-brand-gold-light text-brand-ink text-xs font-bold rounded-lg tracking-wider transition-all duration-300 shadow-md shadow-brand-gold/10 hover:shadow-brand-gold/20 flex items-center justify-center gap-1 active:scale-95">
+                      <span>REQUEST TRANSFER</span>
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -237,7 +390,7 @@ export default function HomePage() {
             {/* Left: Map Graphic */}
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-brand-line bg-white shadow-md lg:col-span-5 group">
               <Image
-                src="/images/coverage.png"
+                src="/images/coverage.webp"
                 alt="Austria and European cross-border private transfer coverage map"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -308,8 +461,8 @@ export default function HomePage() {
             {/* Left: Passenger Image */}
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-brand-line bg-white shadow-md lg:col-span-5 group">
               <Image
-                src="/images/testimonials.png"
-                alt="Client relaxing in the backseat of a luxury chauffeur driven Mercedes sedan"
+                src="/images/testimonials.webp"
+                alt="Client relaxing in the backseat of a luxury chauffeur driven Mercedes sedan in Vienna, Austria"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-w-1024px) 100vw, 40vw"
@@ -380,8 +533,8 @@ export default function HomePage() {
             <div key={v.type} className="rounded-sm border border-brand-line bg-white overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-brand-cream border-b border-brand-line">
                 <Image
-                  src={`/images/fleet/${v.type}.png`}
-                  alt={v.name}
+                  src={`/images/fleet/${v.type}.webp`}
+                  alt={v.alt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-w-768px) 100vw, 25vw"
@@ -412,8 +565,8 @@ export default function HomePage() {
             {/* Left: Support Graphic */}
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-brand-line bg-brand-cream shadow-md lg:col-span-5 group">
               <Image
-                src="/images/faq-support.png"
-                alt="Frequently Asked Questions - Premium Support Graphic"
+                src="/images/faq-support.webp"
+                alt="Frequently Asked Questions - Premium Chauffeur Support in Austria"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-w-1024px) 100vw, 40vw"
@@ -494,7 +647,7 @@ export default function HomePage() {
             {/* Right: Journal Graphic */}
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-brand-line bg-white shadow-md lg:col-span-5 group">
               <Image
-                src="/images/blog-section.png"
+                src="/images/blog-section.webp"
                 alt="Luxury travel journals and maps of Austria"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -533,8 +686,8 @@ export default function HomePage() {
             {/* Right: Chauffeur Image */}
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-white/10 bg-brand-ink-2/50 shadow-2xl group">
               <Image
-                src="/images/cta-chauffeur.png"
-                alt="Professional chauffeur opening luxury sedan door"
+                src="/images/cta-chauffeur.webp"
+                alt="Professional chauffeur opening luxury sedan door in Vienna, Austria"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-w-1024px) 100vw, 50vw"
