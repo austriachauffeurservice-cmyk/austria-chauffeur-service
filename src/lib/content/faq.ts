@@ -39,4 +39,14 @@ export const faqs = [
     answer:
       'Submit a booking request with your exact pickup and destination anyway. If the route is reachable by road, we can very likely still drive it.',
   },
+  {
+    question: 'Can I request child seats or booster seats for my children?',
+    answer:
+      'Yes. Child seats and booster seats are available on request at no extra charge. Please specify the age and height of your children in the notes field when booking so we can prepare the correct seats.',
+  },
+  {
+    question: 'What is your cancellation policy?',
+    answer:
+      'Cancellations made at least 24 hours before the scheduled pickup time are completely free. Cancellations within 24 hours may incur a fee depending on the specific route and vehicle reserved.',
+  },
 ]

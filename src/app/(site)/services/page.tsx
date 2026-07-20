@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ServiceIcon } from '@/components/service-icon'
 import { serviceTypes, vehicles } from '@/lib/content/services'
 
@@ -32,12 +33,30 @@ export default function ServicesPage() {
         <h2 className="font-display text-2xl text-brand-ink">Services</h2>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {serviceTypes.map((s) => (
-            <div key={s.title} className="rounded-sm border border-brand-line p-6">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-cream text-brand-gold">
-                <ServiceIcon name={s.icon} />
+            <div key={s.title} className="rounded-sm border border-brand-line bg-white overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-brand-cream border-b border-brand-line">
+                <Image
+                  src={s.image}
+                  alt={s.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-w-768px) 100vw, 33vw"
+                />
+                {/* Floating Category Icon */}
+                <div className="absolute bottom-3 left-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/95 backdrop-blur text-brand-gold shadow-sm border border-brand-line">
+                  <ServiceIcon name={s.icon} />
+                </div>
               </div>
-              <h3 className="mt-4 font-semibold text-brand-ink">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-brand-ink-2/80">{s.description}</p>
+              <div className="p-6 flex-grow flex flex-col justify-between">
+                <div>
+                  <h3 className="font-semibold text-brand-ink group-hover:text-brand-gold transition-colors duration-300">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-brand-ink-2/80">
+                    {s.description}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -45,15 +64,32 @@ export default function ServicesPage() {
 
       <section className="border-t border-brand-line bg-brand-cream">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <h2 className="font-display text-2xl text-brand-ink">Fleet</h2>
+          <h2 className="font-display text-2xl text-brand-ink">Our Premium Fleet</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {vehicles.map((v) => (
-              <div key={v.type} className="rounded-sm border border-brand-line bg-white p-6">
-                <h3 className="font-display text-lg text-brand-ink">{v.name}</h3>
-                <p className="mt-1 text-xs uppercase tracking-wide text-brand-gold">
-                  {v.passengers} · {v.luggage}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-brand-ink-2/80">{v.description}</p>
+              <div key={v.type} className="rounded-sm border border-brand-line bg-white overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-brand-cream border-b border-brand-line">
+                  <Image
+                    src={`/images/fleet/${v.type}.png`}
+                    alt={v.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-w-768px) 100vw, 25vw"
+                  />
+                </div>
+                <div className="p-6 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-display text-lg text-brand-ink group-hover:text-brand-gold transition-colors duration-300">
+                      {v.name}
+                    </h3>
+                    <p className="mt-1 text-xs uppercase tracking-wide text-brand-gold font-medium">
+                      {v.passengers} · {v.luggage}
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-brand-ink-2/80">
+                      {v.description}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
