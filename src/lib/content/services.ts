@@ -47,41 +47,41 @@ export const serviceTypes = [
     description:
       'Flight tracking, meet & greet, and fixed pricing to and from Vienna, Salzburg, Graz, Linz, Innsbruck, and nearby international airports.',
     icon: 'plane',
-    image: '/images/services/airport.png',
+    image: '/images/hero/airport-transfer.png',
   },
   {
     title: 'City-to-City Transfers',
     description:
       'Direct, private transfers between any two points in Austria — no transfers, no shared rides.',
     icon: 'route',
-    image: '/images/services/city.png',
+    image: '/images/hero/alpine-road.png',
   },
   {
     title: 'Cross-Border Transfers',
     description:
       'Licensed for international pickups and drop-offs to Germany, Czech Republic, Slovakia, Hungary, Slovenia, Italy, and Switzerland/Liechtenstein.',
     icon: 'border',
-    image: '/images/services/border.png',
+    image: '/images/why-choose-us.png',
   },
   {
     title: 'Hourly & Corporate Hire',
     description:
       'A driver and vehicle on standby for meetings, roadshows, and multi-stop business days — billed by the hour.',
     icon: 'briefcase',
-    image: '/images/services/corporate.png',
+    image: '/images/cta-chauffeur.png',
   },
   {
     title: 'Events & Weddings',
     description:
       'Punctual, discreet transport for weddings, conferences, and private events across the country.',
     icon: 'star',
-    image: '/images/services/events.png',
+    image: '/images/hero/vienna-palace.png',
   },
   {
     title: 'Ski & Alpine Transfers',
     description:
       'Winter-ready vehicles and experienced drivers for transfers to Tyrol, Salzburgerland, and Vorarlberg resorts.',
     icon: 'mountain',
-    image: '/images/services/ski.png',
+    image: '/images/hero/ski-resort.png',
   },
 ]
