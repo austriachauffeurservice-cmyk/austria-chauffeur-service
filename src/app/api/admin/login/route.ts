@@ -28,7 +28,20 @@ export async function POST(request: NextRequest) {
       })
 
       if (!error && data.user) {
-        authenticated = true
+        // Supabase Auth only confirms *a* valid account, not that this
+        // account should have admin access. If an allowlist is configured,
+        // require the signed-in email to be on it. Opt-in (unset = no
+        // extra restriction) so this doesn't change behavior until set.
+        const allowlist = process.env.ADMIN_ALLOWED_EMAILS
+        if (allowlist) {
+          const allowed = allowlist
+            .split(',')
+            .map((e) => e.trim().toLowerCase())
+            .filter(Boolean)
+          authenticated = allowed.includes(data.user.email?.toLowerCase() ?? '')
+        } else {
+          authenticated = true
+        }
       }
     } catch (err) {
       console.warn('Supabase Auth attempt error:', err)

@@ -3,7 +3,14 @@ import { createServiceRoleClient } from '@/lib/supabase/server'
 
 function escapeCsvField(value: unknown): string {
   if (value === null || value === undefined) return '""'
-  const str = String(value).replace(/"/g, '""')
+  let str = String(value)
+  // Booking fields come straight from the public booking form. Prefix any
+  // value starting with a formula trigger character so Excel/Sheets treats
+  // it as plain text instead of evaluating it (CSV/DDE injection defense).
+  if (/^[=+\-@\t\r]/.test(str)) {
+    str = `'${str}`
+  }
+  str = str.replace(/"/g, '""')
   return `"${str}"`
 }
 

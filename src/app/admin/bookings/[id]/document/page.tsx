@@ -51,7 +51,7 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
     receipt: 'REC',
   }
 
-  const docNum = `${docPrefix[docType]}-2026-${booking.id.slice(0, 5).toUpperCase()}`
+  const docNum = `${docPrefix[docType]}-${new Date().getFullYear()}-${booking.id.slice(0, 5).toUpperCase()}`
   const todayDate = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
 
   return (

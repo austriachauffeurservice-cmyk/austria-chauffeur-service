@@ -83,27 +83,50 @@ export default function AdminDashboard() {
     if (res.ok) setAnalytics(await res.json())
   }, [])
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect -- standard load-on-mount data fetch
   useEffect(() => { fetchBookings(); fetchAnalytics() }, [fetchBookings, fetchAnalytics])
 
   async function updateStatus(id: string, status: string) {
     setUpdatingId(id)
-    await fetch(`/api/admin/bookings/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status }),
-    })
-    await fetchBookings()
-    await fetchAnalytics()
-    setUpdatingId(null)
+    try {
+      const res = await fetch(`/api/admin/bookings/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status }),
+      })
+      if (res.status === 401) { router.push('/admin/login'); return }
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        alert(`Failed to update status: ${data.error || res.statusText}`)
+        return
+      }
+      await fetchBookings()
+      await fetchAnalytics()
+    } catch (err) {
+      alert(`Failed to update status: ${String(err)}`)
+    } finally {
+      setUpdatingId(null)
+    }
   }
 
   async function deleteBooking(id: string) {
     if (!confirm('Delete this booking permanently?')) return
     setDeletingId(id)
-    await fetch(`/api/admin/bookings/${id}`, { method: 'DELETE' })
-    await fetchBookings()
-    await fetchAnalytics()
-    setDeletingId(null)
+    try {
+      const res = await fetch(`/api/admin/bookings/${id}`, { method: 'DELETE' })
+      if (res.status === 401) { router.push('/admin/login'); return }
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        alert(`Failed to delete booking: ${data.error || res.statusText}`)
+        return
+      }
+      await fetchBookings()
+      await fetchAnalytics()
+    } catch (err) {
+      alert(`Failed to delete booking: ${String(err)}`)
+    } finally {
+      setDeletingId(null)
+    }
   }
 
   async function handleLogout() {
@@ -197,6 +220,7 @@ export default function AdminDashboard() {
           <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', marginLeft: 4 }}>/ Admin</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- file download endpoint, not a page */}
           <a href="/api/admin/bookings/export" style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 8, color: '#D4AF37', fontSize: 13, fontWeight: 500, textDecoration: 'none', fontFamily: 'inherit' }}>
             ⬇ Export CSV
           </a>

@@ -9,14 +9,14 @@ interface RouteParams {
 export async function POST(request: NextRequest, { params }: RouteParams) {
   try {
     const { id } = await params
-    let body: { subject?: string; message?: string; priceQuote?: string; template?: string }
+    let body: { subject?: string; message?: string; priceQuote?: string }
     try {
       body = await request.json()
     } catch {
       return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 })
     }
 
-    const { subject, message, priceQuote, template } = body
+    const { subject, message, priceQuote } = body
 
     if (!subject || !message) {
       return NextResponse.json({ error: 'Subject and message are required' }, { status: 400 })
