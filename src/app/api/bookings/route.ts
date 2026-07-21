@@ -49,8 +49,11 @@ export async function POST(request: NextRequest) {
 
   const emailData = { ...input, id: booking.id as string }
   const fromAddress =
-    process.env.RESEND_FROM_EMAIL || 'bookings@austriachauffeurservice.com'
-  const adminAddress = process.env.ADMIN_NOTIFICATION_EMAIL
+    process.env.RESEND_FROM_EMAIL ||
+    (process.env.RESEND_EMAIL_DOMAIN
+      ? `bookings@${process.env.RESEND_EMAIL_DOMAIN}`
+      : 'bookings@austriachauffeurservice.com')
+  const adminAddress = process.env.ADMIN_NOTIFICATION_EMAIL || process.env.ADMIN_GMAIL
 
   let customerEmailSent = false
   let adminEmailSent = false
