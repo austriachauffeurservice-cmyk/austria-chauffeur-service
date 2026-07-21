@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { JsonLd } from '@/components/json-ld'
 import { faqs } from '@/lib/content/faq'
 
@@ -28,15 +29,29 @@ export default function FaqPage() {
         }}
       />
 
-      <section className="border-b border-brand-line bg-brand-cream">
-        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">FAQ</p>
-          <h1 className="font-display mt-2 text-3xl text-brand-ink sm:text-4xl">
-            Frequently Asked Questions
-          </h1>
-          <p className="mt-4 max-w-xl text-brand-ink-2/80">
-            Answers to what people usually ask before booking a domestic or cross-border transfer.
-          </p>
+      <section className="border-b border-brand-line bg-brand-cream overflow-hidden">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <div className="grid gap-12 lg:grid-cols-12 items-center">
+            <div className="lg:col-span-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">FAQ</p>
+              <h1 className="font-display mt-2 text-3xl text-brand-ink sm:text-4xl">
+                Frequently Asked Questions
+              </h1>
+              <p className="mt-4 max-w-xl text-brand-ink-2/80 leading-relaxed">
+                Answers to what travelers and executives usually ask before booking a domestic or cross-border private transfer in Austria.
+              </p>
+            </div>
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-brand-line bg-white shadow-md lg:col-span-5 group">
+              <Image
+                src="/images/faq-support.webp"
+                alt="Frequently Asked Questions Support Graphic"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-w-1024px) 100vw, 40vw"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -59,7 +74,7 @@ export default function FaqPage() {
           </div>
           <Link
             href="/contact"
-            className="shrink-0 rounded-sm bg-brand-ink px-7 py-3.5 text-sm font-semibold text-white hover:bg-brand-gold"
+            className="shrink-0 rounded-sm bg-brand-ink px-7 py-3.5 text-sm font-semibold text-white hover:bg-brand-gold transition-colors duration-300"
           >
             Contact Us
           </Link>

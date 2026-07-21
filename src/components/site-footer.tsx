@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
-import { contactAddress, contactEmail, contactPhone, licensingInfo } from '@/lib/content/site'
+import { contactAddress, contactEmail, licensingInfo } from '@/lib/content/site'
 
 export function SiteFooter() {
   const year = new Date().getFullYear()
@@ -19,12 +19,6 @@ export function SiteFooter() {
             <p className="flex items-start gap-2">
               <span className="text-brand-gold shrink-0 mt-0.5">📍</span>
               <span>{contactAddress}</span>
-            </p>
-            <p className="flex items-center gap-2">
-              <span className="text-brand-gold shrink-0">📞</span>
-              <a href={`tel:${contactPhone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors duration-300">
-                {contactPhone}
-              </a>
             </p>
             <p className="flex items-center gap-2">
               <span className="text-brand-gold shrink-0">✉️</span>

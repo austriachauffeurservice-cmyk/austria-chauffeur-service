@@ -2,8 +2,10 @@
 
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
+import { ServiceIcon } from '@/components/service-icon'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { contactPhone } from '@/lib/content/site'
 
 const navLinks = [
   { href: '/services', label: 'Services' },
@@ -35,6 +37,13 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
+          <a
+            href={`tel:${contactPhone.replace(/\s+/g, '')}`}
+            className="flex items-center gap-1.5 text-sm font-semibold text-brand-ink-2 transition-colors hover:text-brand-gold"
+          >
+            <ServiceIcon name="phone" className="h-4 w-4" />
+            <span className="hidden lg:inline">{contactPhone}</span>
+          </a>
           <Link
             href="/booking"
             className="rounded-sm bg-brand-ink px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-gold"
@@ -67,6 +76,14 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
+          <a
+            href={`tel:${contactPhone.replace(/\s+/g, '')}`}
+            onClick={() => setOpen(false)}
+            className="mt-2 flex items-center justify-center gap-2 rounded-sm border border-brand-line px-4 py-3 text-center text-sm font-semibold text-brand-ink hover:border-brand-gold hover:text-brand-gold"
+          >
+            <ServiceIcon name="phone" className="h-4 w-4" />
+            Call {contactPhone}
+          </a>
           <Link
             href="/booking"
             onClick={() => setOpen(false)}

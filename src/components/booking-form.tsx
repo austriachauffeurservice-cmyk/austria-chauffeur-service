@@ -107,6 +107,10 @@ function BookingFormInner() {
           <span className="italic">&quot;Bratislava, Slovakia&quot;</span> or{' '}
           <span className="italic">&quot;Munich, Germany&quot;</span> — as your drop-off.
         </p>
+        <p className="mt-1 text-xs text-brand-ink-2/70">
+          Need an hourly or multi-stop booking instead of a single transfer? Enter your first
+          pickup point and note the hourly hire under Notes below — we&apos;ll quote it separately.
+        </p>
       </div>
 
       <div>

@@ -10,7 +10,7 @@ import { serviceTypes, vehicles } from '@/lib/content/services'
 import { faqs } from '@/lib/content/faq'
 import { blogPosts } from '@/lib/content/blog'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
-import { areaServedCountries, siteName, siteUrl } from '@/lib/content/site'
+import { areaServedCountries, contactPhone, siteName, siteUrl } from '@/lib/content/site'
 
 export default function HomePage() {
   return (
@@ -60,9 +60,10 @@ export default function HomePage() {
               Across the border, too.
             </h1>
             <p className="mt-5 max-w-md text-brand-cream/80">
-              Licensed private transfers to every Austrian city, plus cross-border service to
-              Germany, Czech Republic, Slovakia, Hungary, Slovenia, Italy, and Switzerland.
-              Fixed pricing, professional drivers, flight tracking included.
+              Licensed private transfers from Vienna International Airport (VIE) and every
+              Austrian city, plus cross-border service to Germany, Czech Republic, Slovakia,
+              Hungary, Slovenia, Italy, and Switzerland. Fixed pricing, professional drivers,
+              flight tracking included.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -78,6 +79,13 @@ export default function HomePage() {
                 View Coverage Area
               </Link>
             </div>
+            <a
+              href={`tel:${contactPhone.replace(/\s+/g, '')}`}
+              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-cream/80 hover:text-brand-gold"
+            >
+              <ServiceIcon name="phone" className="h-4 w-4" />
+              Need it today? Call {contactPhone}
+            </a>
             <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-6 text-sm">
               <div>
                 <dt className="text-brand-gold">9</dt>

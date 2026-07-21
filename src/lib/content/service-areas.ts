@@ -1,3 +1,13 @@
+export type Hotel = {
+  name: string
+  area?: string
+}
+
+export type Attraction = {
+  name: string
+  description: string
+}
+
 export type CityArea = {
   slug: string
   city: string
@@ -5,6 +15,9 @@ export type CityArea = {
   airport?: string
   popularRoutes: string[]
   note?: string
+  hotels?: Hotel[]
+  hotelNote?: string
+  attractions?: Attraction[]
 }
 
 export type BorderArea = {
@@ -38,6 +51,41 @@ export const austrianCities: CityArea[] = [
       'Vienna → Budapest, Hungary (cross-border)',
     ],
     note: 'Head office & primary base',
+    hotels: [
+      { name: 'Hotel Sacher Wien', area: 'Innere Stadt' },
+      { name: 'Hotel Imperial', area: 'Kärntner Ring' },
+      { name: 'The Ritz-Carlton Vienna', area: 'Schubertring' },
+      { name: 'Grand Hotel Wien', area: 'Kärntner Ring' },
+      { name: 'Hotel Bristol Vienna', area: 'Kärntner Ring' },
+      { name: 'Palais Hansen Kempinski Vienna', area: 'Ringstraße' },
+      { name: 'Park Hyatt Vienna', area: 'Am Hof' },
+    ],
+    attractions: [
+      {
+        name: 'Schönbrunn Palace',
+        description: 'Former imperial summer residence with formal gardens and the Gloriette.',
+      },
+      {
+        name: "St. Stephen's Cathedral",
+        description: "Vienna's Gothic cathedral and the symbolic heart of the Innere Stadt.",
+      },
+      {
+        name: 'Hofburg Palace',
+        description: 'The former imperial palace, now home to the Spanish Riding School and museums.',
+      },
+      {
+        name: 'Belvedere Palace',
+        description: 'Baroque palace complex housing Klimt\'s "The Kiss" and other Austrian art.',
+      },
+      {
+        name: 'Vienna State Opera',
+        description: 'One of the world\'s leading opera houses, on the Ringstraße.',
+      },
+      {
+        name: 'Prater & Giant Ferris Wheel',
+        description: "Vienna's historic amusement park and the iconic Wiener Riesenrad.",
+      },
+    ],
   },
   {
     slug: 'graz',
@@ -49,6 +97,34 @@ export const austrianCities: CityArea[] = [
       'Graz → Vienna',
       'Graz → Maribor, Slovenia (cross-border)',
       'Graz → Ljubljana, Slovenia (cross-border)',
+    ],
+    hotels: [
+      { name: 'Hotel Wiesler', area: 'Mur riverfront / Lend' },
+      { name: 'Schlossberg Hotel Graz', area: 'Below the Schlossberg' },
+      { name: 'Hotel Daniel Graz', area: 'Near Hauptbahnhof' },
+    ],
+    hotelNote: 'Pickup and drop-off at hotels across the Altstadt and Mur riverfront.',
+    attractions: [
+      {
+        name: 'Schlossberg & Uhrturm (Clock Tower)',
+        description: "Graz's hilltop landmark, reached by funicular, with the city's iconic clock tower.",
+      },
+      {
+        name: 'Kunsthaus Graz',
+        description: 'A striking contemporary art museum known for its biomorphic "friendly alien" facade.',
+      },
+      {
+        name: 'Eggenberg Palace',
+        description: 'A UNESCO-listed Baroque palace with planetary rooms and landscaped gardens.',
+      },
+      {
+        name: 'Graz Armoury (Landeszeughaus)',
+        description: "The world's largest historic armory still at its original location.",
+      },
+      {
+        name: 'Graz Cathedral & Mausoleum',
+        description: "The city's Gothic cathedral beside Emperor Ferdinand II's Mausoleum.",
+      },
     ],
   },
   {
@@ -62,6 +138,33 @@ export const austrianCities: CityArea[] = [
       'Linz → Prague, Czech Republic (cross-border)',
       'Linz → České Budějovice, Czech Republic (cross-border)',
     ],
+    hotels: [
+      { name: 'ARCOTEL Nike Linz', area: 'Danube riverfront' },
+      { name: 'Hotel Schillerpark Linz', area: 'City center' },
+    ],
+    hotelNote: 'Pickup and drop-off at hotels across the Altstadt and Danube riverfront.',
+    attractions: [
+      {
+        name: 'Ars Electronica Center',
+        description: 'A museum of the future exploring digital art, science, and technology.',
+      },
+      {
+        name: 'Pöstlingberg & Pöstlingbergbahn',
+        description: "Linz's landmark hill, reached by one of the steepest adhesion railways in the world.",
+      },
+      {
+        name: 'Linz Castle (Schlossmuseum)',
+        description: "The city's historic hilltop castle, now home to the Upper Austrian state museum.",
+      },
+      {
+        name: 'Lentos Art Museum',
+        description: 'A glass-fronted modern art museum on the banks of the Danube.',
+      },
+      {
+        name: 'Mariendom (New Cathedral)',
+        description: "Austria's largest church, with a Gothic Revival spire overlooking the city.",
+      },
+    ],
   },
   {
     slug: 'salzburg',
@@ -73,6 +176,39 @@ export const austrianCities: CityArea[] = [
       'Salzburg → Munich, Germany (cross-border)',
       'Salzburg → Innsbruck',
       'Salzburg → Vienna',
+    ],
+    hotels: [
+      { name: 'Hotel Sacher Salzburg', area: 'Salzach riverfront' },
+      { name: 'Hotel Goldener Hirsch', area: 'Getreidegasse, Altstadt' },
+      { name: 'Hotel Bristol Salzburg', area: 'Makartplatz' },
+      { name: 'Sheraton Grand Salzburg', area: 'Mirabellplatz' },
+      { name: 'Hotel Schloss Mönchstein', area: 'Mönchsberg' },
+    ],
+    attractions: [
+      {
+        name: 'Hohensalzburg Fortress',
+        description: "One of Europe's largest medieval castles, overlooking the Altstadt.",
+      },
+      {
+        name: 'Mirabell Palace & Gardens',
+        description: 'Baroque palace gardens famous from "The Sound of Music," with views of the fortress.',
+      },
+      {
+        name: 'Getreidegasse',
+        description: "Salzburg's historic shopping street, with wrought-iron guild signs and Mozart's birthplace.",
+      },
+      {
+        name: 'Salzburg Cathedral (Dom)',
+        description: "The city's Baroque cathedral at the heart of the Altstadt.",
+      },
+      {
+        name: "Mozart's Birthplace",
+        description: 'The house where Wolfgang Amadeus Mozart was born in 1756, now a museum.',
+      },
+      {
+        name: '"Sound of Music" Filming Locations',
+        description: 'Mirabell Gardens, Leopoldskron Palace, and other sites from the classic film.',
+      },
     ],
   },
   {
@@ -86,6 +222,34 @@ export const austrianCities: CityArea[] = [
       'Innsbruck → Munich, Germany (cross-border)',
       'Innsbruck → Salzburg',
     ],
+    hotels: [
+      { name: 'Grand Hotel Europa Innsbruck', area: 'Opposite the Hauptbahnhof' },
+      { name: 'Hotel Grauer Bär', area: 'Altstadt' },
+      { name: 'ADLERS Hotel Innsbruck', area: 'City center' },
+    ],
+    hotelNote: 'Pickup and drop-off at hotels across the Altstadt and around the Hauptbahnhof.',
+    attractions: [
+      {
+        name: 'Golden Roof (Goldenes Dachl)',
+        description: "Innsbruck's best-known landmark, a late-Gothic oriel with 2,657 gilded copper tiles.",
+      },
+      {
+        name: 'Swarovski Crystal Worlds (Wattens)',
+        description: 'A museum and crystal wonderland a short drive east of the city.',
+      },
+      {
+        name: 'Nordkette Cable Car',
+        description: 'A cable car climbing from the city center to alpine terrain above 2,000m.',
+      },
+      {
+        name: 'Imperial Palace (Hofburg Innsbruck)',
+        description: "The former Habsburg residence, with Rococo state rooms open to visitors.",
+      },
+      {
+        name: 'Ambras Castle',
+        description: "A Renaissance castle above the city housing Archduke Ferdinand II's collections.",
+      },
+    ],
   },
   {
     slug: 'klagenfurt',
@@ -96,6 +260,25 @@ export const austrianCities: CityArea[] = [
       'Klagenfurt → Ljubljana, Slovenia (cross-border)',
       'Klagenfurt → Graz',
       'Klagenfurt → Villach',
+    ],
+    hotelNote: 'Pickup and drop-off at hotels across the Altstadt and along the Wörthersee lakefront.',
+    attractions: [
+      {
+        name: 'Minimundus',
+        description: "A miniature park with over 150 scale models of the world's famous landmarks.",
+      },
+      {
+        name: 'Wörthersee Lakefront',
+        description: "Carinthia's largest lake, with promenades, beaches, and boat cruises from the city.",
+      },
+      {
+        name: 'Lindwurm Fountain',
+        description: "Klagenfurt's dragon-monument landmark on the Neuer Platz, dating to the 16th century.",
+      },
+      {
+        name: 'Klagenfurt Cathedral',
+        description: "The city's Baroque cathedral in the historic old town.",
+      },
     ],
   },
   {
@@ -108,6 +291,21 @@ export const austrianCities: CityArea[] = [
       'Villach → Venice, Italy (cross-border)',
       'Villach → Klagenfurt',
     ],
+    hotelNote: 'Pickup and drop-off at hotels across the Altstadt and the Warmbad-Villach spa district.',
+    attractions: [
+      {
+        name: 'Villach Old Town (Altstadt)',
+        description: 'A colorful historic center along the Drau river, with Italian-influenced architecture.',
+      },
+      {
+        name: 'Faaker See',
+        description: 'A turquoise alpine lake a short drive from the city, popular for swimming and cycling.',
+      },
+      {
+        name: 'Warmbad Villach',
+        description: "A thermal spa district on the city's edge, built around natural warm springs.",
+      },
+    ],
   },
   {
     slug: 'wels',
@@ -115,6 +313,21 @@ export const austrianCities: CityArea[] = [
     region: 'Upper Austria',
     airport: 'Linz Airport (LNZ)',
     popularRoutes: ['Wels → Linz', 'Wels → Salzburg', 'Wels → Munich, Germany (cross-border)'],
+    hotelNote: 'Pickup and drop-off at hotels throughout the Wels city center and near the fairground (Messe Wels).',
+    attractions: [
+      {
+        name: 'Wels Castle (Burg Wels)',
+        description: "A Renaissance-era castle in the old town, now home to the city's museum.",
+      },
+      {
+        name: 'Wels Old Town (Stadtplatz)',
+        description: 'A pedestrian historic center lined with burgher houses and cafés.',
+      },
+      {
+        name: 'Welios Science Center',
+        description: 'An interactive science and technology center popular with families.',
+      },
+    ],
   },
   {
     slug: 'st-poelten',
@@ -122,6 +335,21 @@ export const austrianCities: CityArea[] = [
     region: 'Lower Austria',
     airport: 'Vienna International Airport (VIE)',
     popularRoutes: ['St. Pölten → Vienna', 'St. Pölten → Vienna Airport', 'St. Pölten → Linz'],
+    hotelNote: 'Pickup and drop-off at hotels across the city center and the Kulturbezirk (cultural district).',
+    attractions: [
+      {
+        name: 'St. Pölten Cathedral (Dom)',
+        description: "The city's Baroque cathedral, a landmark of Lower Austria's capital.",
+      },
+      {
+        name: 'Kulturbezirk & Festspielhaus St. Pölten',
+        description: "The state's cultural district, home to the Landestheater and Festspielhaus concert hall.",
+      },
+      {
+        name: 'Klangturm',
+        description: 'A distinctive glass-and-steel tower and city landmark in the cultural district.',
+      },
+    ],
   },
   {
     slug: 'wiener-neustadt',
@@ -132,6 +360,21 @@ export const austrianCities: CityArea[] = [
       'Wiener Neustadt → Vienna',
       'Wiener Neustadt → Vienna Airport',
       'Wiener Neustadt → Sopron, Hungary (cross-border)',
+    ],
+    hotelNote: 'Pickup and drop-off at hotels throughout the Wiener Neustadt city center.',
+    attractions: [
+      {
+        name: 'Wiener Neustadt Cathedral',
+        description: "The city's historic cathedral in the pedestrianized old town.",
+      },
+      {
+        name: 'Theresian Military Academy',
+        description: "Austria's historic military academy, housed in a former imperial castle.",
+      },
+      {
+        name: 'Wiener Neustadt City Wall & Reckturm',
+        description: 'Remnants of the medieval fortifications that once ringed the city.',
+      },
     ],
   },
   {
@@ -144,6 +387,21 @@ export const austrianCities: CityArea[] = [
       'Bregenz → St. Gallen, Switzerland (cross-border)',
       'Bregenz → Innsbruck',
     ],
+    hotelNote: 'Pickup and drop-off at hotels along the Lake Constance (Bodensee) shoreline and Oberstadt.',
+    attractions: [
+      {
+        name: 'Bregenzer Festspiele Lake Stage (Seebühne)',
+        description: "The famous floating stage on Lake Constance, home to Bregenz's summer opera festival.",
+      },
+      {
+        name: 'Pfänder Cable Car',
+        description: 'A cable car climbing to panoramic views over Lake Constance and three countries.',
+      },
+      {
+        name: 'Bregenz Old Town (Oberstadt)',
+        description: 'A hillside historic quarter with the medieval Martinsturm tower.',
+      },
+    ],
   },
   {
     slug: 'eisenstadt',
@@ -154,6 +412,21 @@ export const austrianCities: CityArea[] = [
       'Eisenstadt → Vienna',
       'Eisenstadt → Sopron, Hungary (cross-border)',
       'Eisenstadt → Vienna Airport',
+    ],
+    hotelNote: 'Pickup and drop-off at hotels throughout the Eisenstadt city center.',
+    attractions: [
+      {
+        name: 'Esterházy Palace',
+        description: 'The grand Baroque seat of the Esterházy family, where Haydn once served as court composer.',
+      },
+      {
+        name: "Haydnhaus",
+        description: 'The former home of composer Joseph Haydn, now a museum.',
+      },
+      {
+        name: 'Bergkirche (Calvary Church)',
+        description: "Eisenstadt's hilltop church, home to the Haydn Mausoleum.",
+      },
     ],
   },
 ]

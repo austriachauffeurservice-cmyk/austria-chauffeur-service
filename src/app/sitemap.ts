@@ -9,7 +9,7 @@ import { siteUrl } from '@/lib/content/site'
 
 // Bump this whenever page content actually changes — sitemaps with a
 // lastmod that's always "now" are ignored/distrusted by crawlers.
-const lastModified = new Date('2026-07-20')
+const lastModified = new Date('2026-07-21')
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
