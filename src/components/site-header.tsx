@@ -10,6 +10,8 @@ import { contactPhone } from '@/lib/content/site'
 const navLinks = [
   { href: '/services', label: 'Services' },
   { href: '/service-areas', label: 'Service Areas' },
+  { href: '/airport-transfers', label: 'Airports' },
+  { href: '/ski-transfers', label: 'Ski Transfers' },
   { href: '/blog', label: 'Blog' },
   { href: '/faq', label: 'FAQ' },
   { href: '/about', label: 'About' },

@@ -12,6 +12,33 @@ import { blogPosts } from '@/lib/content/blog'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
 import { areaServedCountries, contactPhone, siteName, siteUrl } from '@/lib/content/site'
 
+const popularRouteCards: { label: string; slug: string; route: string; href?: string }[] = [
+  { label: 'Vienna Chauffeur Service', slug: 'vienna', route: 'Vienna Airport ↔ City Center' },
+  { label: 'Salzburg Chauffeur Service', slug: 'salzburg', route: 'Salzburg ↔ Vienna / Munich' },
+  { label: 'Innsbruck Airport Shuttle', slug: 'innsbruck', route: 'Innsbruck ↔ Kitzbühel / Munich' },
+  { label: 'Graz Chauffeur Service', slug: 'graz', route: 'Graz ↔ Vienna / Ljubljana' },
+  { label: 'Linz Private Transfer', slug: 'linz', route: 'Linz ↔ Vienna / Prague' },
+  { label: 'Munich Private Transfer', slug: 'munich', route: 'Austria ↔ Munich (Germany)' },
+  { label: 'Prague Chauffeur Hire', slug: 'prague', route: 'Austria ↔ Prague (Czech Rep.)' },
+  { label: 'Bratislava Chauffeur Service', slug: 'bratislava', route: 'Vienna ↔ Bratislava (Slovakia)' },
+  { label: 'Budapest Chauffeur Hire', slug: 'budapest', route: 'Vienna ↔ Budapest (Hungary)' },
+  { label: 'Zurich Private Car Service', slug: 'zurich', route: 'Bregenz ↔ Zurich (Switzerland)' },
+  { label: 'Klagenfurt Private Car', slug: 'klagenfurt', route: 'Klagenfurt ↔ Graz / Ljubljana' },
+  { label: 'Bregenz Chauffeur Service', slug: 'bregenz', route: 'Bregenz ↔ Zurich / Vaduz' },
+  {
+    label: 'Vienna Airport Transfer',
+    slug: 'vienna-airport-transfer',
+    route: 'Vienna Airport (VIE) ↔ City Center',
+    href: '/airport-transfers/vienna-airport',
+  },
+  {
+    label: 'Kitzbühel Ski Transfer',
+    slug: 'kitzbuehel-ski-transfer',
+    route: 'Innsbruck / Salzburg Airport → Kitzbühel',
+    href: '/ski-transfers/kitzbuehel',
+  },
+]
+
 export default function HomePage() {
   return (
     <>
@@ -582,23 +609,10 @@ export default function HomePage() {
           </div>
           
           <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {[
-              { label: 'Vienna Chauffeur Service', slug: 'vienna', route: 'Vienna Airport ↔ City Center' },
-              { label: 'Salzburg Chauffeur Service', slug: 'salzburg', route: 'Salzburg ↔ Vienna / Munich' },
-              { label: 'Innsbruck Airport Shuttle', slug: 'innsbruck', route: 'Innsbruck ↔ Kitzbühel / Munich' },
-              { label: 'Graz Chauffeur Service', slug: 'graz', route: 'Graz ↔ Vienna / Ljubljana' },
-              { label: 'Linz Private Transfer', slug: 'linz', route: 'Linz ↔ Vienna / Prague' },
-              { label: 'Munich Private Transfer', slug: 'munich', route: 'Austria ↔ Munich (Germany)' },
-              { label: 'Prague Chauffeur Hire', slug: 'prague', route: 'Austria ↔ Prague (Czech Rep.)' },
-              { label: 'Bratislava Chauffeur Service', slug: 'bratislava', route: 'Vienna ↔ Bratislava (Slovakia)' },
-              { label: 'Budapest Chauffeur Hire', slug: 'budapest', route: 'Vienna ↔ Budapest (Hungary)' },
-              { label: 'Zurich Private Car Service', slug: 'zurich', route: 'Bregenz ↔ Zurich (Switzerland)' },
-              { label: 'Klagenfurt Private Car', slug: 'klagenfurt', route: 'Klagenfurt ↔ Graz / Ljubljana' },
-              { label: 'Bregenz Chauffeur Service', slug: 'bregenz', route: 'Bregenz ↔ Zurich / Vaduz' },
-            ].map((r) => (
+            {popularRouteCards.map((r) => (
               <Link
                 key={r.slug}
-                href={`/service-areas/${r.slug}`}
+                href={r.href ?? `/service-areas/${r.slug}`}
                 className="group rounded-sm border border-brand-line bg-brand-cream p-5 hover:border-brand-gold hover:bg-white hover:shadow-sm transition-all duration-300 flex flex-col justify-between"
               >
                 <div>

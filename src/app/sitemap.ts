@@ -4,6 +4,8 @@ import {
   borderCities,
   borderCrossingDestinations,
 } from '@/lib/content/service-areas'
+import { skiResorts } from '@/lib/content/ski-resorts'
+import { airports } from '@/lib/content/airports'
 import { blogPosts } from '@/lib/content/blog'
 import { siteUrl } from '@/lib/content/site'
 
@@ -16,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '', priority: 1 },
     { path: '/services', priority: 0.8 },
     { path: '/service-areas', priority: 0.8 },
+    { path: '/airport-transfers', priority: 0.8 },
+    { path: '/ski-transfers', priority: 0.8 },
     { path: '/blog', priority: 0.7 },
     { path: '/faq', priority: 0.6 },
     { path: '/about', priority: 0.6 },
@@ -37,6 +41,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...locationSlugs.map((slug) => ({
       url: `${siteUrl}/service-areas/${slug}`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    })),
+    ...skiResorts.map((r) => ({
+      url: `${siteUrl}/ski-transfers/${r.slug}`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    })),
+    ...airports.map((a) => ({
+      url: `${siteUrl}/airport-transfers/${a.slug}`,
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.7,
