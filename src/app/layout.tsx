@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: { en: "/", de: "/de" },
   },
+  verification: {
+    google: "_pBWPR8VXtw3eiSGw3MM3_pm7VKDXklp-ud2u4PpfCk",
+  },
   other: {
     "geo.region": "AT",
     "geo.placename": "Vienna, Austria",
