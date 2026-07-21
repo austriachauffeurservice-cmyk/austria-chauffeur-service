@@ -47,6 +47,11 @@ export async function POST(request: NextRequest) {
         if (authenticated) actor = data.user.email || 'admin'
       }
     } catch (err) {
+      // Most commonly createServiceRoleClient() throwing because
+      // SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY aren't set in this
+      // environment — falls through to the ADMIN_PASSWORD check below
+      // rather than 500ing, but check these logs first if every Supabase
+      // Auth login fails here regardless of password.
       console.warn('Supabase Auth attempt error:', err)
     }
   }
