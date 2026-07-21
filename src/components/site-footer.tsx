@@ -2,19 +2,69 @@ import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
 import { contactAddress, contactEmail, licensingInfo } from '@/lib/content/site'
+import { localizedHref, type Locale } from '@/lib/i18n'
 
-export function SiteFooter() {
+const copy: Record<
+  Locale,
+  {
+    tagline: string
+    companyHeading: string
+    coverageHeading: string
+    borderHeading: string
+    links: { href: string; label: string }[]
+    rights: string
+  }
+> = {
+  en: {
+    tagline:
+      'Private chauffeur transfers across all of Austria, with licensed cross-border service to neighboring countries.',
+    companyHeading: 'Company',
+    coverageHeading: 'Austria Coverage',
+    borderHeading: 'Cross-Border Transfers',
+    links: [
+      { href: '/services', label: 'Services & Fleet' },
+      { href: '/service-areas', label: 'Service Areas' },
+      { href: '/airport-transfers', label: 'Airport Transfers' },
+      { href: '/ski-transfers', label: 'Ski & Alpine Transfers' },
+      { href: '/blog', label: 'Blog' },
+      { href: '/faq', label: 'FAQ' },
+      { href: '/about', label: 'About Us' },
+      { href: '/booking', label: 'Book a Transfer' },
+      { href: '/contact', label: 'Contact' },
+    ],
+    rights: 'All rights reserved.',
+  },
+  de: {
+    tagline:
+      'Private Chauffeurtransfers in ganz Österreich, mit lizenziertem grenzüberschreitendem Service in die Nachbarländer.',
+    companyHeading: 'Unternehmen',
+    coverageHeading: 'Einsatzgebiete Österreich',
+    borderHeading: 'Grenzüberschreitende Transfers',
+    links: [
+      { href: '/services', label: 'Leistungen & Fahrzeuge' },
+      { href: '/service-areas', label: 'Einsatzgebiete' },
+      { href: '/airport-transfers', label: 'Flughafentransfers' },
+      { href: '/ski-transfers', label: 'Ski- & Alpintransfers' },
+      { href: '/blog', label: 'Blog' },
+      { href: '/faq', label: 'FAQ' },
+      { href: '/about', label: 'Über uns' },
+      { href: '/booking', label: 'Transfer buchen' },
+      { href: '/contact', label: 'Kontakt' },
+    ],
+    rights: 'Alle Rechte vorbehalten.',
+  },
+}
+
+export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
   const year = new Date().getFullYear()
+  const t = copy[locale]
 
   return (
     <footer className="border-t border-brand-line bg-brand-ink text-brand-cream">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
         <div>
           <Logo lightText={true} />
-          <p className="mt-4 text-sm leading-relaxed text-brand-cream/70">
-            Private chauffeur transfers across all of Austria, with licensed cross-border
-            service to neighboring countries.
-          </p>
+          <p className="mt-4 text-sm leading-relaxed text-brand-cream/70">{t.tagline}</p>
           <div className="mt-6 space-y-3 text-xs text-brand-cream/60">
             <p className="flex items-start gap-2">
               <span className="text-brand-gold shrink-0 mt-0.5">📍</span>
@@ -34,29 +84,30 @@ export function SiteFooter() {
 
         <div>
           <p className="text-sm font-semibold uppercase tracking-wider text-brand-gold">
-            Company
+            {t.companyHeading}
           </p>
           <ul className="mt-4 space-y-2 text-sm text-brand-cream/80">
-            <li><Link href="/services" className="hover:text-white">Services & Fleet</Link></li>
-            <li><Link href="/service-areas" className="hover:text-white">Service Areas</Link></li>
-            <li><Link href="/airport-transfers" className="hover:text-white">Airport Transfers</Link></li>
-            <li><Link href="/ski-transfers" className="hover:text-white">Ski & Alpine Transfers</Link></li>
-            <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-            <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
-            <li><Link href="/about" className="hover:text-white">About Us</Link></li>
-            <li><Link href="/booking" className="hover:text-white">Book a Transfer</Link></li>
-            <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
+            {t.links.map((link) => (
+              <li key={link.href}>
+                <Link href={localizedHref(link.href, locale)} className="hover:text-white">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div>
           <p className="text-sm font-semibold uppercase tracking-wider text-brand-gold">
-            Austria Coverage
+            {t.coverageHeading}
           </p>
           <ul className="mt-4 grid grid-cols-2 gap-y-2 text-sm text-brand-cream/80">
             {austrianCities.slice(0, 8).map((c) => (
               <li key={c.slug}>
-                <Link href={`/service-areas/${c.slug}`} className="hover:text-white">
+                <Link
+                  href={localizedHref(`/service-areas/${c.slug}`, locale)}
+                  className="hover:text-white"
+                >
                   {c.city}
                 </Link>
               </li>
@@ -66,12 +117,15 @@ export function SiteFooter() {
 
         <div>
           <p className="text-sm font-semibold uppercase tracking-wider text-brand-gold">
-            Cross-Border Transfers
+            {t.borderHeading}
           </p>
           <ul className="mt-4 space-y-2 text-sm text-brand-cream/80">
             {borderCrossingDestinations.map((d) => (
               <li key={d.slug}>
-                <Link href={`/service-areas/${d.slug}`} className="hover:text-white">
+                <Link
+                  href={localizedHref(`/service-areas/${d.slug}`, locale)}
+                  className="hover:text-white"
+                >
                   {d.country}
                 </Link>
               </li>
@@ -82,7 +136,7 @@ export function SiteFooter() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-brand-cream/60 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p>© {year} Austria Chauffeur Service. All rights reserved.</p>
+          <p>© {year} Austria Chauffeur Service. {t.rights}</p>
           <p>austriachauffeurservice.com</p>
         </div>
       </div>

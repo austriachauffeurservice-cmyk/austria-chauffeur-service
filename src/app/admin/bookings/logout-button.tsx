@@ -12,8 +12,20 @@ export function LogoutButton() {
   }
 
   return (
-    <button onClick={handleLogout} style={{ padding: '6px 12px', cursor: 'pointer' }}>
-      Log out
+    <button
+      onClick={handleLogout}
+      style={{
+        padding: '7px 14px',
+        background: 'rgba(255,255,255,0.06)',
+        border: '1px solid rgba(255,255,255,0.12)',
+        borderRadius: 8,
+        color: 'rgba(255,255,255,0.6)',
+        fontSize: 13,
+        cursor: 'pointer',
+        fontFamily: 'inherit',
+      }}
+    >
+      Sign Out
     </button>
   )
 }
