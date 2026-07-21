@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { airports } from '@/lib/content/de/airports'
 
 export const metadata: Metadata = {
-  title: 'Flughafentransfers — Privater Chauffeur in ganz Österreich',
+  title: 'Flughafentransfers in ganz Österreich',
   description:
     'Private Empfangsservice-Abholung an den Flughäfen Wien, Salzburg, Innsbruck, Graz, Linz und Klagenfurt. Flugverfolgung, Festpreise, kein Warten in der Taxischlange.',
   alternates: {

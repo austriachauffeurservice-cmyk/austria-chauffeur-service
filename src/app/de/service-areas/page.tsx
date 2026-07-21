@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { austrianCities, borderCities, borderCrossingDestinations } from '@/lib/content/de/service-areas'
 
 export const metadata: Metadata = {
-  title: 'Einsatzgebiete — Ganz Österreich & grenzüberschreitende Transfers',
+  title: 'Einsatzgebiete in ganz Österreich',
   description:
     'Private Chauffeurabdeckung in allen neun österreichischen Bundesländern, plus lizenzierte grenzüberschreitende Transfers nach Deutschland, Tschechien, Slowakei, Ungarn, Slowenien, Italien und in die Schweiz.',
   alternates: {

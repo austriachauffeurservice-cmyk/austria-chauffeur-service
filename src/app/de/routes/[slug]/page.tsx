@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!route) return {}
 
   return {
-    title: `Transfer ${route.from} nach ${route.to} — Privater Chauffeur`,
+    title: { absolute: `Transfer ${route.from} nach ${route.to}` },
     description: `Privater Chauffeurtransfer von ${route.from} nach ${route.to}. ${route.distance}, ${route.driveTime} Fahrzeit, Festpreise.`,
     alternates: {
       canonical: `/de/routes/${slug}`,

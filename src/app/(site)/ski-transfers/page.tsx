@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { skiResorts } from '@/lib/content/ski-resorts'
 
 export const metadata: Metadata = {
-  title: 'Ski & Alpine Transfers — Private Chauffeur to Austrian Resorts',
+  title: 'Ski & Alpine Transfers in Austria',
   description:
     'Private airport-to-resort chauffeur transfers to Kitzbühel, St. Anton am Arlberg, Lech-Zürs, Ischgl, Zell am See-Kaprun, Saalbach-Hinterglemm, and Sölden. Winter-ready vehicles, fixed pricing.',
   alternates: { canonical: '/ski-transfers', languages: { en: '/ski-transfers', de: '/de/ski-transfers' } },

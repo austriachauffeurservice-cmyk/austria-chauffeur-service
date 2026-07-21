@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { airports } from '@/lib/content/airports'
 
 export const metadata: Metadata = {
-  title: 'Airport Transfers — Private Chauffeur Pickup Across Austria',
+  title: 'Airport Transfers in Austria',
   description:
     'Private meet-and-greet chauffeur pickup at Vienna, Salzburg, Innsbruck, Graz, Linz, and Klagenfurt airports. Flight tracking, fixed pricing, no waiting in taxi lines.',
   alternates: { canonical: '/airport-transfers', languages: { en: '/airport-transfers', de: '/de/airport-transfers' } },

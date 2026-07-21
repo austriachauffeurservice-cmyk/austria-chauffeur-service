@@ -23,7 +23,7 @@ export async function generateMetadata({
   if (!resort) return {}
 
   return {
-    title: `Ski Transfer to ${resort.name} — Private Chauffeur`,
+    title: { absolute: `Ski Transfer to ${resort.name}` },
     description: `Private airport-to-resort chauffeur transfer to ${resort.name}, ${resort.region}. Winter-ready vehicles, ski/board space, fixed pricing from ${resort.nearestAirports[0].name}.`,
     alternates: {
       canonical: `/ski-transfers/${slug}`,

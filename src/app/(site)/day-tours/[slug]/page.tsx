@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!tour) return {}
 
   return {
-    title: `${tour.name} Day Trip from ${tour.startingPoints[0].from}`,
+    title: { absolute: `${tour.name} Day Trip from ${tour.startingPoints[0].from}` },
     description: `${tour.tagline} Private chauffeur day tour, ${tour.startingPoints[0].driveTime} from ${tour.startingPoints[0].from}, fixed pricing.`,
     alternates: {
       canonical: `/day-tours/${slug}`,

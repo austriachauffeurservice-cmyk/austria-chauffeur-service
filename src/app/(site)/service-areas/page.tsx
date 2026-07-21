@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { austrianCities, borderCities, borderCrossingDestinations } from '@/lib/content/service-areas'
 
 export const metadata: Metadata = {
-  title: 'Service Areas — All of Austria & Cross-Border Transfers',
+  title: 'Service Areas Across Austria',
   description:
     'Private chauffeur coverage across all nine Austrian states, plus licensed cross-border transfers to Germany, Czech Republic, Slovakia, Hungary, Slovenia, Italy, and Switzerland.',
   alternates: { canonical: '/service-areas', languages: { en: '/service-areas', de: '/de/service-areas' } },

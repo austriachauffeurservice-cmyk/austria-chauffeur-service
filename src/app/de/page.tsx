@@ -13,7 +13,6 @@ import { austrianCities, borderCrossingDestinations } from '@/lib/content/de/ser
 import { areaServedCountries, contactPhone, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
-  title: `${siteName} | Private Transfers in ganz Österreich`,
   description:
     'Buchen Sie private Chauffeurtransfers in ganz Österreich, einschließlich Flughafentransfers, Stadt-zu-Stadt-Fahrten und grenzüberschreitenden Transfers in die Nachbarländer — jede Fahrt durchgeführt von einem lizenzierten, geprüften Chauffeurpartner.',
   alternates: {

@@ -22,7 +22,7 @@ export async function generateMetadata({
   if (!resort) return {}
 
   return {
-    title: `Skitransfer nach ${resort.name} — Privater Chauffeur`,
+    title: { absolute: `Skitransfer nach ${resort.name}` },
     description: `Privater Flughafen-zu-Resort-Chauffeurtransfer nach ${resort.name}, ${resort.region}. Winterfeste Fahrzeuge, Platz für Ski/Board, Festpreise ab ${resort.nearestAirports[0].name}.`,
     alternates: {
       canonical: `/de/ski-transfers/${slug}`,

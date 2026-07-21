@@ -23,7 +23,7 @@ export async function generateMetadata({
   if (!airport) return {}
 
   return {
-    title: `${airport.name} (${airport.code}) Transfer — Private Chauffeur Pickup`,
+    title: { absolute: `${airport.name} (${airport.code}) Transfer` },
     description: `Private meet-and-greet chauffeur pickup at ${airport.name} (${airport.code}). Flight tracking, fixed pricing, professional drivers.`,
     alternates: {
       canonical: `/airport-transfers/${slug}`,
