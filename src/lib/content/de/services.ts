@@ -47,6 +47,8 @@ export const vehicles = [
     luggage: '2–3 Gepäckstücke',
     description:
       'Mercedes E-Klasse oder vergleichbar. Die Standardwahl für Flughafentransfers und Stadtfahrten — ruhig, komfortabel, pünktlich.',
+    idealFor: ['Flughafentransfers für ein bis zwei Personen', 'Direkte Stadtfahrten', 'Standard-Geschäftsreisen'],
+    features: ['Wasserflaschen an Bord', 'Kostenloses WLAN, wo verfügbar', 'Ladekabel fürs Handy', 'Klimaanlage'],
   },
   {
     ...vehiclesEn[1],
@@ -55,6 +57,8 @@ export const vehicles = [
     luggage: '2–3 Gepäckstücke',
     description:
       'Mercedes S-Klasse oder BMW 7er. Für Kunden, VIP-Gäste und Anlässe, bei denen der erste Eindruck zählt.',
+    idealFor: ['VIP- und Executive-Ankünfte', 'Kundenorientierte Geschäftsreisen', 'Hochzeiten und besondere Anlässe'],
+    features: ['Hochwertiges Lederinterieur', 'Erweiterte Beinfreiheit', 'Wasser & Erfrischungen', 'Kostenloses WLAN, wo verfügbar'],
   },
   {
     ...vehiclesEn[2],
@@ -63,6 +67,8 @@ export const vehicles = [
     luggage: '6–7 Gepäckstücke',
     description:
       'Mercedes V-Klasse. Ideal für Familien, kleine Gruppen und längere grenzüberschreitende Fahrten mit mehr Gepäck.',
+    idealFor: ['Familien mit Gepäck oder Skiausrüstung', 'Kleine Gruppen-Flughafentransfers', 'Grenzüberschreitende Fahrten'],
+    features: ['Extra Platz für Gepäck & Ski/Board', 'Captain-Sitze hinten', 'Klimaanlage', 'Kindersitze auf Anfrage'],
   },
   {
     ...vehiclesEn[3],
@@ -71,5 +77,7 @@ export const vehicles = [
     luggage: 'Große Kapazität',
     description:
       'Mercedes Sprinter. Für größere Gruppen, Firmenteams und Veranstaltungstransporte in ganz Österreich und darüber hinaus.',
+    idealFor: ['Firmenteams und Roadshows', 'Hochzeitsgesellschaften und Gruppenevents', 'Große Familien- oder Gruppentransfers'],
+    features: ['Große Gepäckkapazität', 'Gruppensitzplätze für bis zu 16 Personen', 'Klimaanlage', 'Verfügbar für Mehrfachstopp-Buchungen'],
   },
 ]

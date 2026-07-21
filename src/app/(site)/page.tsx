@@ -51,7 +51,7 @@ export default function HomePage() {
           url: siteUrl,
           image: `${siteUrl}/logo.webp`,
           description:
-            'Licensed private chauffeur service covering all of Austria, including airport transfers, city-to-city travel, and cross-border transfers to neighboring countries.',
+            'Book private chauffeur transfers covering all of Austria, including airport transfers, city-to-city travel, and cross-border transfers to neighboring countries — every trip completed by a licensed, vetted chauffeur partner.',
           areaServed: areaServedCountries.map((name) => ({
             '@type': 'Country',
             name,
@@ -230,9 +230,9 @@ export default function HomePage() {
                     <ServiceIcon name="route" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-brand-ink text-base">Cross-Border License</h3>
+                    <h3 className="font-semibold text-brand-ink text-base">Cross-Border Network</h3>
                     <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed">
-                      Full commercial license for pickups and drop-offs across 7 European countries.
+                      Licensed partner drivers for pickups and drop-offs across 7 European countries.
                     </p>
                   </div>
                 </div>

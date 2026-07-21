@@ -5,7 +5,7 @@ import Image from 'next/image'
 export const metadata: Metadata = {
   title: 'Über uns',
   description:
-    'Austria Chauffeur Service bietet lizenzierte, professionelle Privattransfers in ganz Österreich und über die Grenzen hinaus.',
+    'Austria Chauffeur Service vermittelt Reisenden lizenzierte, professionelle Chauffeurpartner für Privattransfers in ganz Österreich und über die Grenzen hinaus.',
   alternates: {
     canonical: '/de/about',
     languages: { en: '/about', de: '/de/about' },
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 
 const values = [
   {
-    title: 'Lizenziert & versichert',
+    title: 'Lizenzierte Chauffeurpartner',
     description:
-      'Jedes Fahrzeug und jeder Fahrer arbeitet mit voller gewerblicher Lizenzierung für den nationalen und grenzüberschreitenden Personentransport.',
+      'Jede Fahrt wird von einem eigenständig lizenzierten Chauffeurunternehmen durchgeführt, dessen gewerbliche Zulassung für den Personentransport vor Aufnahme in unser Netzwerk geprüft wird.',
     image: '/images/faq-support.webp',
   },
   {
@@ -53,13 +53,15 @@ export default function AboutPageDe() {
             </h1>
             <p className="mt-5 text-brand-ink-2/80 leading-relaxed">
               Austria Chauffeur Service wurde gegründet, um Reisenden, Führungskräften und
-              Veranstaltungsorganisatoren eine verlässliche Möglichkeit zu geben, sich im Land —
-              und in die Nachbarländer — zu bewegen, ohne den Anbieter zu wechseln.
+              Veranstaltungsorganisatoren eine verlässliche Möglichkeit zu geben, einen
+              Privattransfer im Land — und in die Nachbarländer — zu buchen, ohne den Anbieter zu
+              wechseln.
             </p>
             <p className="mt-4 text-brand-ink-2/70 text-sm leading-relaxed">
-              Unser Fuhrpark ist vollständig lizenziert und winterfest, betrieben von
-              professionellen Fahrern, die Englisch und Deutsch sprechen — für erstklassige
-              Sicherheit, Komfort und Luxus auf jeder Strecke.
+              Wir arbeiten mit einem geprüften Netzwerk eigenständig lizenzierter
+              Chauffeurunternehmen zusammen, die winterfeste Fuhrparks mit professionellen
+              Fahrern betreiben, die Englisch und Deutsch sprechen — damit jede von uns
+              vermittelte Fahrt demselben Standard an Sicherheit, Komfort und Luxus entspricht.
             </p>
           </div>
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-brand-line bg-white shadow-lg group">

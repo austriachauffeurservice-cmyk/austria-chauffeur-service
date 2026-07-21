@@ -15,7 +15,7 @@ import { areaServedCountries, contactPhone, siteName, siteUrl } from '@/lib/cont
 export const metadata: Metadata = {
   title: `${siteName} | Private Transfers in ganz Österreich`,
   description:
-    'Lizenzierter privater Chauffeurservice in ganz Österreich, einschließlich Flughafentransfers, Stadt-zu-Stadt-Fahrten und grenzüberschreitenden Transfers in die Nachbarländer.',
+    'Buchen Sie private Chauffeurtransfers in ganz Österreich, einschließlich Flughafentransfers, Stadt-zu-Stadt-Fahrten und grenzüberschreitenden Transfers in die Nachbarländer — jede Fahrt durchgeführt von einem lizenzierten, geprüften Chauffeurpartner.',
   alternates: {
     canonical: '/de',
     languages: { en: '/', de: '/de' },
@@ -61,7 +61,7 @@ export default function HomePageDe() {
           url: siteUrl,
           image: `${siteUrl}/logo.webp`,
           description:
-            'Lizenzierter privater Chauffeurservice in ganz Österreich, einschließlich Flughafentransfers, Stadt-zu-Stadt-Fahrten und grenzüberschreitenden Transfers in die Nachbarländer.',
+            'Buchen Sie private Chauffeurtransfers in ganz Österreich, einschließlich Flughafentransfers, Stadt-zu-Stadt-Fahrten und grenzüberschreitenden Transfers in die Nachbarländer — jede Fahrt durchgeführt von einem lizenzierten, geprüften Chauffeurpartner.',
           areaServed: areaServedCountries.map((name) => ({ '@type': 'Country', name })),
           openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',
@@ -236,9 +236,9 @@ export default function HomePageDe() {
                     <ServiceIcon name="route" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-brand-ink text-base">Grenzüberschreitende Lizenz</h3>
+                    <h3 className="font-semibold text-brand-ink text-base">Grenzüberschreitendes Netzwerk</h3>
                     <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed">
-                      Volle gewerbliche Lizenz für Abholungen und Ablieferungen in 7 europäischen Ländern.
+                      Lizenzierte Partnerfahrer für Abholungen und Ablieferungen in 7 europäischen Ländern.
                     </p>
                   </div>
                 </div>

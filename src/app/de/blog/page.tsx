@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { blogPosts } from '@/lib/content/blog'
+import { blogPosts } from '@/lib/content/de/blog'
 
 export const metadata: Metadata = {
   title: 'Blog',
   description:
-    'Guides on airport transfers, cross-border routes, and private chauffeur travel across Austria and neighboring countries.',
-  alternates: { canonical: '/blog', languages: { en: '/blog', de: '/de/blog' } },
+    'Leitfäden zu Flughafentransfers, grenzüberschreitenden Strecken und privatem Chauffeurreisen in Österreich und den Nachbarländern.',
+  alternates: { canonical: '/de/blog', languages: { en: '/blog', de: '/de/blog' } },
 }
 
-export default function BlogIndexPage() {
+export default function BlogIndexPageDe() {
   const posts = [...blogPosts].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1))
 
   return (
@@ -20,11 +20,11 @@ export default function BlogIndexPage() {
             Blog
           </p>
           <h1 className="font-display mt-2 max-w-2xl text-3xl text-brand-ink sm:text-4xl">
-            Guides for getting around Austria
+            Leitfäden für unterwegs in Österreich
           </h1>
           <p className="mt-4 max-w-xl text-brand-ink-2/80">
-            Practical notes on airport transfers, cross-border routes, and private travel —
-            written from the routes we actually drive.
+            Praktische Notizen zu Flughafentransfers, grenzüberschreitenden Strecken und privatem
+            Reisen — geschrieben aus den Strecken, die wir tatsächlich fahren.
           </p>
         </div>
       </section>
@@ -34,7 +34,7 @@ export default function BlogIndexPage() {
           {posts.map((post) => (
             <Link
               key={post.slug}
-              href={`/blog/${post.slug}`}
+              href={`/de/blog/${post.slug}`}
               className="flex flex-col rounded-sm border border-brand-line p-6 transition-colors hover:border-brand-gold"
             >
               <div className="flex flex-wrap gap-2">
@@ -52,7 +52,7 @@ export default function BlogIndexPage() {
                 {post.excerpt}
               </p>
               <p className="mt-4 text-xs text-brand-ink-2/60">
-                {new Date(post.publishedAt).toLocaleDateString('en-GB', {
+                {new Date(post.publishedAt).toLocaleDateString('de-AT', {
                   day: 'numeric',
                   month: 'long',
                   year: 'numeric',

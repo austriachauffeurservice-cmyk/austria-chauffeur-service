@@ -7,6 +7,8 @@ export const vehicles: {
   luggage: string
   description: string
   alt: string
+  idealFor?: string[]
+  features?: string[]
 }[] = [
   {
     type: 'sedan',
@@ -16,6 +18,8 @@ export const vehicles: {
     description:
       'Mercedes E-Class or equivalent. The default choice for airport transfers and city travel — quiet, comfortable, on time.',
     alt: 'Mercedes E-Class business sedan chauffeur service in Austria',
+    idealFor: ['Solo and two-passenger airport transfers', 'Point-to-point city travel', 'Standard business trips'],
+    features: ['Bottled water on board', 'Free WiFi where available', 'Phone charging cable', 'Climate control'],
   },
   {
     type: 'luxury',
@@ -25,6 +29,8 @@ export const vehicles: {
     description:
       'Mercedes S-Class or BMW 7 Series. For clients, VIP guests, and occasions where first impressions matter.',
     alt: 'Mercedes S-Class luxury sedan chauffeur service in Vienna, Austria',
+    idealFor: ['VIP and executive arrivals', 'Client-facing business travel', 'Weddings and special occasions'],
+    features: ['Premium leather interior', 'Extended legroom', 'Bottled water & refreshments', 'Free WiFi where available'],
   },
   {
     type: 'van',
@@ -34,6 +40,8 @@ export const vehicles: {
     description:
       'Mercedes V-Class. Ideal for families, small groups, and longer cross-border journeys with extra luggage.',
     alt: 'Mercedes V-Class executive van for group chauffeur transfers across Austria',
+    idealFor: ['Families with luggage or ski equipment', 'Small group airport transfers', 'Cross-border trips'],
+    features: ['Extra luggage & ski/board space', 'Captain-style rear seating', 'Climate control', 'Child seats on request'],
   },
   {
     type: 'minibus',
@@ -43,6 +51,8 @@ export const vehicles: {
     description:
       'Mercedes Sprinter. For larger groups, corporate teams, and event transport across Austria and beyond.',
     alt: 'Mercedes Sprinter minibus for corporate and group transfers in Austria',
+    idealFor: ['Corporate teams and roadshows', 'Wedding parties and group events', 'Large family or group transfers'],
+    features: ['Large luggage capacity', 'Group seating for up to 16', 'Climate control', 'Available for multi-stop hire'],
   },
 ]
 

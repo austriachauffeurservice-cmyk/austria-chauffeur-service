@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
-import { blogPosts } from '@/lib/content/blog'
+import { blogPosts } from '@/lib/content/de/blog'
 import { siteName, siteUrl } from '@/lib/content/site'
 
 type Params = { slug: string }
@@ -24,7 +24,7 @@ export async function generateMetadata({
     title: post.title,
     description: post.excerpt,
     alternates: {
-      canonical: `/blog/${slug}`,
+      canonical: `/de/blog/${slug}`,
       languages: { en: `/blog/${slug}`, de: `/de/blog/${slug}` },
     },
     openGraph: {
@@ -36,12 +36,12 @@ export async function generateMetadata({
   }
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
+export default async function BlogPostPageDe({ params }: { params: Promise<Params> }) {
   const { slug } = await params
   const post = blogPosts.find((p) => p.slug === slug)
   if (!post) notFound()
 
-  const pageUrl = `${siteUrl}/blog/${slug}`
+  const pageUrl = `${siteUrl}/de/blog/${slug}`
 
   return (
     <>
@@ -54,16 +54,8 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           datePublished: post.publishedAt,
           dateModified: post.publishedAt,
           url: pageUrl,
-          author: {
-            '@type': 'Organization',
-            name: siteName,
-            url: siteUrl,
-          },
-          publisher: {
-            '@type': 'Organization',
-            name: siteName,
-            url: siteUrl,
-          },
+          author: { '@type': 'Organization', name: siteName, url: siteUrl },
+          publisher: { '@type': 'Organization', name: siteName, url: siteUrl },
           mainEntityOfPage: pageUrl,
         }}
       />
@@ -72,8 +64,8 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-            { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/blog` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/de` },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteUrl}/de/blog` },
             { '@type': 'ListItem', position: 3, name: post.title, item: pageUrl },
           ],
         }}
@@ -98,7 +90,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             <p className="mt-4 max-w-xl text-brand-ink-2/80">{post.excerpt}</p>
             <p className="mt-4 text-xs text-brand-ink-2/60">
               <time dateTime={post.publishedAt}>
-                {new Date(post.publishedAt).toLocaleDateString('en-GB', {
+                {new Date(post.publishedAt).toLocaleDateString('de-AT', {
                   day: 'numeric',
                   month: 'long',
                   year: 'numeric',
@@ -143,26 +135,26 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
         <section className="border-t border-brand-line bg-brand-cream">
           <div className="mx-auto flex max-w-3xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <div>
-              <h2 className="font-display text-xl text-brand-ink">Ready to book this route?</h2>
+              <h2 className="font-display text-xl text-brand-ink">Bereit, diese Strecke zu buchen?</h2>
               <p className="mt-1 text-sm text-brand-ink-2/80">
-                Submit your trip details and we&apos;ll confirm by email.
+                Senden Sie Ihre Reisedaten und wir bestätigen per E-Mail.
               </p>
             </div>
             <Link
-              href="/booking"
+              href="/de/booking"
               className="shrink-0 rounded-sm bg-brand-ink px-6 py-3 text-sm font-semibold text-white hover:bg-brand-gold"
             >
-              Request a Transfer
+              Transfer anfragen
             </Link>
           </div>
         </section>
 
         <section className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
           <Link
-            href="/blog"
+            href="/de/blog"
             className="text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4"
           >
-            ← Back to all posts
+            ← Zurück zu allen Beiträgen
           </Link>
         </section>
       </article>

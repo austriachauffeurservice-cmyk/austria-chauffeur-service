@@ -5,15 +5,15 @@ import Image from 'next/image'
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Austria Chauffeur Service provides licensed, professional private transfers across Austria and across its borders.',
+    'Austria Chauffeur Service connects travelers with licensed, professional chauffeur partners for private transfers across Austria and across its borders.',
   alternates: { canonical: '/about', languages: { en: '/about', de: '/de/about' } },
 }
 
 const values = [
   {
-    title: 'Licensed & Insured',
+    title: 'Licensed Chauffeur Partners',
     description:
-      'Every vehicle and driver operates under full commercial licensing for domestic and cross-border passenger transport.',
+      'Every trip is completed by an independently licensed chauffeur company, vetted for commercial passenger transport credentials before joining our network.',
     image: '/images/faq-support.webp',
   },
   {
@@ -50,11 +50,13 @@ export default function AboutPage() {
             </h1>
             <p className="mt-5 text-brand-ink-2/80 leading-relaxed">
               Austria Chauffeur Service was founded to give travelers, executives, and event
-              organizers one dependable way to move around the country — and into its neighbors —
-              without switching providers.
+              organizers one dependable way to book a private transfer around the country — and
+              into its neighbors — without switching providers.
             </p>
             <p className="mt-4 text-brand-ink-2/70 text-sm leading-relaxed">
-              Our fleet is fully licensed and winter-ready, operated by professional drivers who speak English and German, ensuring premium security, comfort, and luxury on every route.
+              We work with a vetted network of independently licensed chauffeur companies,
+              running winter-ready fleets with professional drivers who speak English and German,
+              so every trip we arrange meets the same standard of security, comfort, and luxury.
             </p>
           </div>
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-brand-line bg-white shadow-lg group">

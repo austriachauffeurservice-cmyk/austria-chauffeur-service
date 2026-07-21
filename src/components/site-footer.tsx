@@ -8,27 +8,39 @@ const copy: Record<
   Locale,
   {
     tagline: string
+    servicesHeading: string
     companyHeading: string
     coverageHeading: string
     borderHeading: string
-    links: { href: string; label: string }[]
+    serviceLinks: { href: string; label: string }[]
+    companyLinks: { href: string; label: string }[]
     rights: string
   }
 > = {
   en: {
     tagline:
       'Private chauffeur transfers across all of Austria, with licensed cross-border service to neighboring countries.',
+    servicesHeading: 'Services',
     companyHeading: 'Company',
     coverageHeading: 'Austria Coverage',
     borderHeading: 'Cross-Border Transfers',
-    links: [
+    serviceLinks: [
       { href: '/services', label: 'Services & Fleet' },
-      { href: '/service-areas', label: 'Service Areas' },
+      { href: '/fleet', label: 'Our Fleet' },
       { href: '/airport-transfers', label: 'Airport Transfers' },
       { href: '/ski-transfers', label: 'Ski & Alpine Transfers' },
+      { href: '/city-to-city-transfers', label: 'City-to-City Transfers' },
+      { href: '/corporate-transfers', label: 'Corporate & Hourly Hire' },
+      { href: '/wedding-transfers', label: 'Wedding Transfers' },
+    ],
+    companyLinks: [
+      { href: '/service-areas', label: 'Service Areas' },
+      { href: '/routes', label: 'Popular Routes' },
+      { href: '/reviews', label: 'Reviews' },
       { href: '/blog', label: 'Blog' },
       { href: '/faq', label: 'FAQ' },
       { href: '/about', label: 'About Us' },
+      { href: '/corporate-accounts', label: 'Corporate Accounts' },
       { href: '/booking', label: 'Book a Transfer' },
       { href: '/contact', label: 'Contact' },
     ],
@@ -37,17 +49,27 @@ const copy: Record<
   de: {
     tagline:
       'Private Chauffeurtransfers in ganz Österreich, mit lizenziertem grenzüberschreitendem Service in die Nachbarländer.',
+    servicesHeading: 'Leistungen',
     companyHeading: 'Unternehmen',
     coverageHeading: 'Einsatzgebiete Österreich',
     borderHeading: 'Grenzüberschreitende Transfers',
-    links: [
+    serviceLinks: [
       { href: '/services', label: 'Leistungen & Fahrzeuge' },
-      { href: '/service-areas', label: 'Einsatzgebiete' },
+      { href: '/fleet', label: 'Unser Fuhrpark' },
       { href: '/airport-transfers', label: 'Flughafentransfers' },
       { href: '/ski-transfers', label: 'Ski- & Alpintransfers' },
+      { href: '/city-to-city-transfers', label: 'Stadt-zu-Stadt-Transfers' },
+      { href: '/corporate-transfers', label: 'Firmen- & Stundenbuchung' },
+      { href: '/wedding-transfers', label: 'Hochzeitstransfers' },
+    ],
+    companyLinks: [
+      { href: '/service-areas', label: 'Einsatzgebiete' },
+      { href: '/routes', label: 'Beliebte Strecken' },
+      { href: '/reviews', label: 'Bewertungen' },
       { href: '/blog', label: 'Blog' },
       { href: '/faq', label: 'FAQ' },
       { href: '/about', label: 'Über uns' },
+      { href: '/corporate-accounts', label: 'Firmenkonten' },
       { href: '/booking', label: 'Transfer buchen' },
       { href: '/contact', label: 'Kontakt' },
     ],
@@ -61,8 +83,8 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
 
   return (
     <footer className="border-t border-brand-line bg-brand-ink text-brand-cream">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
-        <div>
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="sm:col-span-2 lg:col-span-1">
           <Logo lightText={true} />
           <p className="mt-4 text-sm leading-relaxed text-brand-cream/70">{t.tagline}</p>
           <div className="mt-6 space-y-3 text-xs text-brand-cream/60">
@@ -84,10 +106,25 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
 
         <div>
           <p className="text-sm font-semibold uppercase tracking-wider text-brand-gold">
+            {t.servicesHeading}
+          </p>
+          <ul className="mt-4 space-y-2 text-sm text-brand-cream/80">
+            {t.serviceLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={localizedHref(link.href, locale)} className="hover:text-white">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-wider text-brand-gold">
             {t.companyHeading}
           </p>
           <ul className="mt-4 space-y-2 text-sm text-brand-cream/80">
-            {t.links.map((link) => (
+            {t.companyLinks.map((link) => (
               <li key={link.href}>
                 <Link href={localizedHref(link.href, locale)} className="hover:text-white">
                   {link.label}
@@ -135,9 +172,14 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-brand-cream/60 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6 text-xs text-brand-cream/60 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <p>© {year} Austria Chauffeur Service. {t.rights}</p>
-          <p>austriachauffeurservice.com</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+            <Link href="/impressum" className="hover:text-white">Impressum</Link>
+            <Link href="/datenschutz" className="hover:text-white">Datenschutz</Link>
+            <Link href="/agb" className="hover:text-white">AGB</Link>
+            <span>austriachauffeurservice.com</span>
+          </div>
         </div>
       </div>
     </footer>
