@@ -13,6 +13,24 @@ import { siteUrl } from '@/lib/content/site'
 // lastmod that's always "now" are ignored/distrusted by crawlers.
 const lastModified = new Date('2026-07-21')
 
+// Pages that exist in German at /de/<path> (mirrors the English tree below).
+const germanPaths = [
+  '',
+  '/services',
+  '/service-areas',
+  '/airport-transfers',
+  '/ski-transfers',
+  '/faq',
+  '/about',
+  '/contact',
+  '/booking',
+  ...austrianCities.map((c) => `/service-areas/${c.slug}`),
+  ...borderCrossingDestinations.map((d) => `/service-areas/${d.slug}`),
+  ...borderCities.map((c) => `/service-areas/${c.slug}`),
+  ...skiResorts.map((r) => `/ski-transfers/${r.slug}`),
+  ...airports.map((a) => `/airport-transfers/${a.slug}`),
+]
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     { path: '', priority: 1 },
@@ -62,6 +80,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(post.publishedAt),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
+    })),
+    ...germanPaths.map((path) => ({
+      url: `${siteUrl}/de${path}`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: path === '' ? 0.9 : 0.6,
     })),
   ]
 }

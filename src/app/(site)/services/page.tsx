@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Services & Fleet',
   description:
     'Airport transfers, city-to-city travel, cross-border transfers, hourly hire, and event transport across Austria — with a fleet from business sedans to minibuses.',
-  alternates: { canonical: '/services' },
+  alternates: { canonical: '/services', languages: { en: '/services', de: '/de/services' } },
 }
 
 export default function ServicesPage() {

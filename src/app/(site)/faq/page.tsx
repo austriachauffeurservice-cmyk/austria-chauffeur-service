@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Frequently Asked Questions',
   description:
     'Answers to common questions about booking, pricing, cross-border transfers, and vehicles at Austria Chauffeur Service.',
-  alternates: { canonical: '/faq' },
+  alternates: { canonical: '/faq', languages: { en: '/faq', de: '/de/faq' } },
 }
 
 export default function FaqPage() {

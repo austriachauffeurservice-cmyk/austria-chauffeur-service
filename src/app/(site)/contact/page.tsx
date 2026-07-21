@@ -6,7 +6,7 @@ import { contactAddress, contactEmail, contactPhone } from '@/lib/content/site'
 export const metadata: Metadata = {
   title: 'Contact',
   description: 'Get in touch with Austria Chauffeur Service for bookings and inquiries.',
-  alternates: { canonical: '/contact' },
+  alternates: { canonical: '/contact', languages: { en: '/contact', de: '/de/contact' } },
 }
 
 export default function ContactPage() {

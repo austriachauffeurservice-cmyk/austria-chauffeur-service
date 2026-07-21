@@ -46,13 +46,14 @@ export async function generateMetadata({
   if (!location) return {}
 
   const canonical = `/service-areas/${slug}`
+  const languages = { en: canonical, de: `/de/service-areas/${slug}` }
 
   if (location.kind === 'city') {
     const { city, region } = location.data
     return {
       title: `Chauffeur Service in ${city}`,
       description: `Private chauffeur transfers to and from ${city}, ${region} — airport pickups, city-to-city travel, and cross-border trips. Fixed pricing, professional drivers.`,
-      alternates: { canonical },
+      alternates: { canonical, languages },
     }
   }
 
@@ -61,7 +62,7 @@ export async function generateMetadata({
     return {
       title: `Chauffeur Transfer to ${city}, ${country}`,
       description: `Private cross-border chauffeur transfer from Austria to ${city}, ${country}. Fixed pricing, licensed driver, no vehicle switch at the border.`,
-      alternates: { canonical },
+      alternates: { canonical, languages },
     }
   }
 
@@ -69,7 +70,7 @@ export async function generateMetadata({
   return {
     title: `Cross-Border Transfers to ${country}`,
     description: `Licensed private chauffeur transfers from Austria to ${cities.join(', ')} (${country}). Fixed pricing, no vehicle switch at the border.`,
-    alternates: { canonical },
+    alternates: { canonical, languages },
   }
 }
 

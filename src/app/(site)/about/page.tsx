@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'About Us',
   description:
     'Austria Chauffeur Service provides licensed, professional private transfers across Austria and across its borders.',
-  alternates: { canonical: '/about' },
+  alternates: { canonical: '/about', languages: { en: '/about', de: '/de/about' } },
 }
 
 const values = [

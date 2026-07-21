@@ -2,10 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
-import { airports } from '@/lib/content/airports'
-import { austrianCities } from '@/lib/content/service-areas'
+import { airports } from '@/lib/content/de/airports'
+import { austrianCities } from '@/lib/content/de/service-areas'
 import { siteName, siteUrl } from '@/lib/content/site'
-import { findRelatedPosts } from '@/lib/content/blog'
 
 type Params = { slug: string }
 
@@ -23,23 +22,22 @@ export async function generateMetadata({
   if (!airport) return {}
 
   return {
-    title: `${airport.name} (${airport.code}) Transfer — Private Chauffeur Pickup`,
-    description: `Private meet-and-greet chauffeur pickup at ${airport.name} (${airport.code}). Flight tracking, fixed pricing, professional drivers.`,
+    title: `${airport.name} (${airport.code}) Transfer — Privater Chauffeur`,
+    description: `Privater Empfangsservice-Abholung am ${airport.name} (${airport.code}). Flugverfolgung, Festpreise, professionelle Fahrer.`,
     alternates: {
-      canonical: `/airport-transfers/${slug}`,
+      canonical: `/de/airport-transfers/${slug}`,
       languages: { en: `/airport-transfers/${slug}`, de: `/de/airport-transfers/${slug}` },
     },
   }
 }
 
-export default async function AirportPage({ params }: { params: Promise<Params> }) {
+export default async function AirportPageDe({ params }: { params: Promise<Params> }) {
   const { slug } = await params
   const airport = airports.find((a) => a.slug === slug)
   if (!airport) notFound()
 
   const cityMatch = austrianCities.find((c) => c.city === airport.city)
-  const pageUrl = `${siteUrl}/airport-transfers/${slug}`
-  const relatedPosts = findRelatedPosts([airport.city, airport.region])
+  const pageUrl = `${siteUrl}/de/airport-transfers/${slug}`
 
   return (
     <>
@@ -48,8 +46,8 @@ export default async function AirportPage({ params }: { params: Promise<Params> 
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-            { '@type': 'ListItem', position: 2, name: 'Airport Transfers', item: `${siteUrl}/airport-transfers` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/de` },
+            { '@type': 'ListItem', position: 2, name: 'Flughafentransfers', item: `${siteUrl}/de/airport-transfers` },
             { '@type': 'ListItem', position: 3, name: airport.name, item: pageUrl },
           ],
         }}
@@ -75,8 +73,8 @@ export default async function AirportPage({ params }: { params: Promise<Params> 
             {airport.name} Transfer
           </h1>
           <p className="mt-4 max-w-xl text-brand-ink-2/80">
-            Private, licensed pickup and drop-off at {airport.name}. Flight tracking included, so
-            we adjust automatically if your flight is early or delayed.
+            Private, lizenzierte Abholung und Ablieferung am {airport.name}. Inklusive
+            Flugverfolgung, sodass wir uns automatisch bei Früh- oder Verspätung anpassen.
           </p>
           {airport.note && (
             <p className="mt-3 text-sm font-semibold text-brand-gold">{airport.note}</p>
@@ -87,11 +85,11 @@ export default async function AirportPage({ params }: { params: Promise<Params> 
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
         <div className="grid gap-10 sm:grid-cols-2">
           <div>
-            <h2 className="font-display text-xl text-brand-ink">Distance to the City</h2>
+            <h2 className="font-display text-xl text-brand-ink">Entfernung zur Stadt</h2>
             <p className="mt-2 text-sm text-brand-ink-2/80">{airport.distanceFromCity}</p>
           </div>
           <div>
-            <h2 className="font-display text-xl text-brand-ink">Popular Routes</h2>
+            <h2 className="font-display text-xl text-brand-ink">Beliebte Strecken</h2>
             <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
               {airport.popularRoutes.map((route) => (
                 <li key={route} className="flex items-start gap-2">
@@ -104,73 +102,53 @@ export default async function AirportPage({ params }: { params: Promise<Params> 
         </div>
 
         <div className="mt-10">
-          <h2 className="font-display text-xl text-brand-ink">How Pickup Works</h2>
+          <h2 className="font-display text-xl text-brand-ink">So funktioniert die Abholung</h2>
           <ol className="mt-3 space-y-3 text-sm text-brand-ink-2">
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-              We track your flight and adjust your pickup time automatically for early or delayed
-              arrivals — no extra charge.
+              Wir verfolgen Ihren Flug und passen die Abholzeit automatisch bei Früh- oder
+              Verspätung an — ohne Aufpreis.
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-              Your chauffeur waits in the arrivals hall with a name board.
+              Ihr Chauffeur wartet in der Ankunftshalle mit einem Namensschild.
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-              Fixed price agreed in advance — no metered fare, no surprise fees.
+              Festpreis im Voraus vereinbart — kein Taxameter, keine versteckten Gebühren.
             </li>
           </ol>
         </div>
 
         {cityMatch && (
           <p className="mt-10 text-sm text-brand-ink-2/70">
-            Traveling into {airport.city}? See our full{' '}
+            Reisen Sie nach {airport.city}? Siehe unsere vollständige{' '}
             <Link
-              href={`/service-areas/${cityMatch.slug}`}
+              href={`/de/service-areas/${cityMatch.slug}`}
               className="font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
             >
-              {airport.city} coverage, hotels, and attractions
+              {airport.city}-Abdeckung, Hotels und Sehenswürdigkeiten
             </Link>
             .
           </p>
         )}
       </section>
 
-      {relatedPosts.length > 0 && (
-        <section className="border-t border-brand-line bg-brand-cream">
-          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-            <h2 className="font-display text-xl text-brand-ink">Related Reading</h2>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              {relatedPosts.map((post) => (
-                <Link
-                  key={post.slug}
-                  href={`/blog/${post.slug}`}
-                  className="rounded-sm border border-brand-line bg-white p-4 text-sm transition-colors hover:border-brand-gold"
-                >
-                  <p className="font-semibold text-brand-ink">{post.title}</p>
-                  <p className="mt-1 text-brand-ink-2/70">{post.excerpt}</p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       <section className="border-t border-brand-line bg-white">
         <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">
           <div>
             <h2 className="font-display text-2xl text-brand-ink">
-              Book your {airport.code} transfer
+              Buchen Sie Ihren {airport.code}-Transfer
             </h2>
             <p className="mt-2 text-brand-ink-2/80">
-              Submit your flight details and we&apos;ll confirm availability and pricing by email.
+              Senden Sie Ihre Flugdaten und wir bestätigen Verfügbarkeit und Preis per E-Mail.
             </p>
           </div>
           <Link
-            href={`/booking?to=${encodeURIComponent(airport.city)}`}
+            href={`/de/booking?to=${encodeURIComponent(airport.city)}`}
             className="shrink-0 rounded-sm bg-brand-ink px-7 py-3.5 text-sm font-semibold text-white hover:bg-brand-gold"
           >
-            Request a Transfer
+            Transfer anfragen
           </Link>
         </div>
       </section>

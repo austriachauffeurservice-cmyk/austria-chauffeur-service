@@ -45,6 +45,7 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "/",
+    languages: { en: "/", de: "/de" },
   },
   other: {
     "geo.region": "AT",

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   // Canonical points to the clean path — every /service-areas/* page links here
   // with a ?to= query param to prefill the form, which must not be indexed
   // as separate near-duplicate pages.
-  alternates: { canonical: '/booking' },
+  alternates: { canonical: '/booking', languages: { en: '/booking', de: '/de/booking' } },
 }
 
 export default function BookingPage() {
