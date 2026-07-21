@@ -66,13 +66,6 @@ export default async function ActivityLogPage() {
     <main style={{ minHeight: '100vh', background: '#0d0d0d', color: '#e5e5e5', fontFamily: "'Inter', sans-serif" }}>
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'); * { box-sizing: border-box; }`}</style>
 
-      <nav style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', rowGap: 8 }}>
-        <Link href="/admin/bookings" style={{ color: '#D4AF37', textDecoration: 'none', fontSize: 13, fontWeight: 500 }}>
-          ← Back to Admin Bookings
-        </Link>
-        <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>Activity Log</span>
-      </nav>
-
       <div style={{ maxWidth: 1000, margin: '0 auto', padding: '32px 24px' }}>
         <h1 style={{ fontSize: 22, fontWeight: 600, color: '#fff', margin: '0 0 4px' }}>Activity Log</h1>
         <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', margin: '0 0 24px' }}>

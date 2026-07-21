@@ -169,11 +169,6 @@ export default function AdminDashboard() {
     }
   }
 
-  async function handleLogout() {
-    await fetch('/api/admin/logout', { method: 'POST' })
-    router.push('/admin/login')
-  }
-
   // Open Email Modal with Pre-filled Template
   function openEmailModal(b: BookingRow, templateType: 'quote' | 'confirm' | 'custom' = 'quote') {
     setEmailModalBooking(b)
@@ -251,30 +246,6 @@ export default function AdminDashboard() {
         }
         .doc-btn:hover { background: rgba(212,175,55,0.2); }
       `}</style>
-
-      {/* Top Nav */}
-      <nav style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', rowGap: 10, columnGap: 12 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-          <div style={{ width: 32, height: 32, flexShrink: 0, background: 'linear-gradient(135deg,#D4AF37,#f0d060)', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 14, color: '#0d0d0d' }}>A</div>
-          <span style={{ fontWeight: 600, fontSize: 15, color: '#fff' }}>Austria Chauffeur</span>
-          <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)' }}>/ Admin</span>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-          <Link href="/admin/bookings/new" style={{ padding: '7px 14px', background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 8, color: '#D4AF37', fontSize: 13, fontWeight: 500, textDecoration: 'none', whiteSpace: 'nowrap' }}>
-            + New Booking
-          </Link>
-          <Link href="/admin/activity" style={{ padding: '7px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: 'rgba(255,255,255,0.6)', fontSize: 13, textDecoration: 'none', whiteSpace: 'nowrap' }}>
-            📋 Activity Log
-          </Link>
-          {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- file download endpoint, not a page */}
-          <a href="/api/admin/bookings/export" style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 8, color: '#D4AF37', fontSize: 13, fontWeight: 500, textDecoration: 'none', fontFamily: 'inherit', whiteSpace: 'nowrap' }}>
-            ⬇ Export CSV
-          </a>
-          <button onClick={handleLogout} style={{ padding: '7px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: 'rgba(255,255,255,0.6)', fontSize: 13, cursor: 'pointer', fontFamily: 'inherit', whiteSpace: 'nowrap' }}>
-            Sign Out
-          </button>
-        </div>
-      </nav>
 
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '32px 24px' }}>
 
