@@ -3,14 +3,17 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons'
+import { adminColors as c } from '@/lib/admin/theme'
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
   padding: '10px 14px',
-  background: 'rgba(255,255,255,0.06)',
-  border: '1px solid rgba(255,255,255,0.12)',
+  background: c.panel,
+  border: `1px solid ${c.borderStrong}`,
   borderRadius: 8,
-  color: '#fff',
+  color: c.text,
   fontSize: 14,
   fontFamily: 'inherit',
   outline: 'none',
@@ -19,7 +22,7 @@ const inputStyle: React.CSSProperties = {
 const labelStyle: React.CSSProperties = {
   display: 'block',
   fontSize: 12,
-  color: 'rgba(255,255,255,0.5)',
+  color: c.textMuted,
   marginBottom: 6,
 }
 
@@ -86,7 +89,7 @@ export default function NewBookingPage() {
   }
 
   return (
-    <main style={{ minHeight: '100vh', background: '#0d0d0d', color: '#e5e5e5', fontFamily: "'Inter', sans-serif" }}>
+    <main style={{ minHeight: '100vh', background: c.bg, color: c.text, fontFamily: "'Inter', sans-serif" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * { box-sizing: border-box; }
@@ -96,26 +99,26 @@ export default function NewBookingPage() {
         }
       `}</style>
 
-      <nav style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 16px', display: 'flex', alignItems: 'center' }}>
-        <Link href="/admin/bookings" style={{ color: '#D4AF37', textDecoration: 'none', fontSize: 13, fontWeight: 500 }}>
+      <nav style={{ background: c.panel, borderBottom: `1px solid ${c.border}`, padding: '12px 16px', display: 'flex', alignItems: 'center' }}>
+        <Link href="/admin/bookings" style={{ color: c.gold, textDecoration: 'none', fontSize: 13, fontWeight: 500 }}>
           ← Back to Admin Bookings
         </Link>
       </nav>
 
       <div style={{ maxWidth: 700, margin: '0 auto', padding: '32px 24px' }}>
-        <h1 style={{ fontSize: 22, fontWeight: 600, color: '#fff', margin: '0 0 4px' }}>New Booking (Manual Entry)</h1>
-        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', margin: '0 0 28px' }}>
+        <h1 style={{ fontSize: 22, fontWeight: 600, color: c.text, margin: '0 0 4px' }}>New Booking (Manual Entry)</h1>
+        <p style={{ fontSize: 13, color: c.textFaint, margin: '0 0 28px' }}>
           Log a lead received by phone, WhatsApp, or email — it will appear in the dashboard, generate PDFs, and forward to the fulfillment partner exactly like a website booking.
         </p>
 
-        <form onSubmit={handleSubmit} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: 24 }}>
+        <form onSubmit={handleSubmit} style={{ background: c.panel, border: `1px solid ${c.border}`, borderRadius: 12, padding: 24 }}>
           <div className="new-booking-grid">
             <div style={fieldStyle}>
               <label style={labelStyle}>Lead Source</label>
               <select value={source} onChange={(e) => setSource(e.target.value)} style={{ ...inputStyle, cursor: 'pointer' }}>
-                <option value="phone">📞 Phone Call</option>
-                <option value="whatsapp">💬 WhatsApp</option>
-                <option value="email">📧 Email</option>
+                <option value="phone">Phone Call</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="email">Email</option>
                 <option value="other">Other</option>
               </select>
             </div>
@@ -200,23 +203,23 @@ export default function NewBookingPage() {
             <textarea rows={4} value={notes} onChange={(e) => setNotes(e.target.value)} style={{ ...inputStyle, resize: 'vertical' }} />
           </div>
 
-          <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: 'rgba(255,255,255,0.6)', marginBottom: 20, cursor: 'pointer' }}>
+          <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: c.textMuted, marginBottom: 20, cursor: 'pointer' }}>
             <input type="checkbox" checked={sendConfirmationEmail} onChange={(e) => setSendConfirmationEmail(e.target.checked)} />
             Send confirmation email to customer now
           </label>
 
           {error && (
-            <div style={{ padding: '10px 14px', background: 'rgba(220,38,38,0.12)', border: '1px solid rgba(220,38,38,0.3)', borderRadius: 8, color: '#f87171', fontSize: 13, marginBottom: 16 }}>
-              ⚠ {error}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', background: c.redTint, border: `1px solid ${c.redBorder}`, borderRadius: 8, color: c.red, fontSize: 13, marginBottom: 16 }}>
+              <FontAwesomeIcon icon={faTriangleExclamation} /> {error}
             </div>
           )}
 
           <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 12 }}>
-            <Link href="/admin/bookings" style={{ padding: '10px 18px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: 'rgba(255,255,255,0.6)', fontSize: 13, textDecoration: 'none' }}>
+            <Link href="/admin/bookings" style={{ padding: '10px 18px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 8, color: c.textMuted, fontSize: 13, textDecoration: 'none' }}>
               Cancel
             </Link>
-            <button type="submit" disabled={saving} style={{ padding: '10px 20px', background: '#D4AF37', border: 'none', borderRadius: 8, color: '#0d0d0d', fontWeight: 600, fontSize: 13, cursor: saving ? 'not-allowed' : 'pointer', fontFamily: 'inherit', opacity: saving ? 0.6 : 1 }}>
-              {saving ? 'Saving...' : '+ Create Booking'}
+            <button type="submit" disabled={saving} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 20px', background: c.gold, border: 'none', borderRadius: 8, color: c.bg, fontWeight: 600, fontSize: 13, cursor: saving ? 'not-allowed' : 'pointer', fontFamily: 'inherit', opacity: saving ? 0.6 : 1 }}>
+              <FontAwesomeIcon icon={faPlus} /> {saving ? 'Saving...' : 'Create Booking'}
             </button>
           </div>
         </form>

@@ -3,6 +3,30 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import {
+  faChevronLeft,
+  faChevronRight,
+  faCircleCheck,
+  faCircleXmark,
+  faEnvelope,
+  faEuroSign,
+  faFileInvoice,
+  faFileLines,
+  faGlobe,
+  faLocationDot,
+  faMagnifyingGlass,
+  faPaperPlane,
+  faPen,
+  faPenToSquare,
+  faPhone,
+  faReceipt,
+  faTrash,
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { adminColors as c } from '@/lib/admin/theme'
 
 type BookingRow = {
   id: string
@@ -23,12 +47,12 @@ type BookingRow = {
   source?: string
 }
 
-const SOURCE_LABELS: Record<string, string> = {
-  website: '🌐 Web',
-  phone: '📞 Phone',
-  whatsapp: '💬 WhatsApp',
-  email: '📧 Email',
-  other: '✏️ Other',
+const SOURCE_LABELS: Record<string, { icon: IconDefinition; label: string }> = {
+  website: { icon: faGlobe, label: 'Web' },
+  phone: { icon: faPhone, label: 'Phone' },
+  whatsapp: { icon: faWhatsapp, label: 'WhatsApp' },
+  email: { icon: faEnvelope, label: 'Email' },
+  other: { icon: faPen, label: 'Other' },
 }
 
 type Analytics = {
@@ -49,10 +73,10 @@ type Analytics = {
 const eur = (n: number) => `€${n.toLocaleString('en-IE', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`
 
 const STATUS_COLORS: Record<string, { bg: string; color: string }> = {
-  pending:   { bg: 'rgba(234,179,8,0.15)',   color: '#facc15' },
-  confirmed: { bg: 'rgba(34,197,94,0.15)',   color: '#4ade80' },
-  completed: { bg: 'rgba(99,102,241,0.15)',  color: '#818cf8' },
-  cancelled: { bg: 'rgba(239,68,68,0.15)',   color: '#f87171' },
+  pending: { bg: c.yellowTint, color: c.yellow },
+  confirmed: { bg: c.greenTint, color: c.green },
+  completed: { bg: c.blueTint, color: c.blue },
+  cancelled: { bg: c.redTint, color: c.red },
 }
 
 export default function AdminDashboard() {
@@ -75,7 +99,7 @@ export default function AdminDashboard() {
   const [emailMessage, setEmailMessage] = useState('')
   const [emailPriceQuote, setEmailPriceQuote] = useState('')
   const [sendingEmail, setSendingEmail] = useState(false)
-  const [emailStatusMsg, setEmailStatusMsg] = useState<string | null>(null)
+  const [emailStatus, setEmailStatus] = useState<{ ok: boolean; text: string } | null>(null)
 
   const dateRange = useCallback((): { dateFrom?: string; dateTo?: string } => {
     const toYmd = (d: Date) => d.toISOString().slice(0, 10)
@@ -173,7 +197,7 @@ export default function AdminDashboard() {
   function openEmailModal(b: BookingRow, templateType: 'quote' | 'confirm' | 'custom' = 'quote') {
     setEmailModalBooking(b)
     setEmailPriceQuote(b.price_quote || '180')
-    setEmailStatusMsg(null)
+    setEmailStatus(null)
 
     if (templateType === 'quote') {
       setEmailSubject(`Official Price Quote for your Chauffeur Transfer — ${b.pickup_location} to ${b.dropoff_location}`)
@@ -192,7 +216,7 @@ export default function AdminDashboard() {
     e.preventDefault()
     if (!emailModalBooking) return
     setSendingEmail(true)
-    setEmailStatusMsg(null)
+    setEmailStatus(null)
 
     try {
       const res = await fetch(`/api/admin/bookings/${emailModalBooking.id}/send-email`, {
@@ -207,16 +231,16 @@ export default function AdminDashboard() {
 
       const data = await res.json()
       if (res.ok) {
-        setEmailStatusMsg('✅ Email sent successfully to ' + emailModalBooking.email)
+        setEmailStatus({ ok: true, text: `Email sent successfully to ${emailModalBooking.email}` })
         setTimeout(() => {
           setEmailModalBooking(null)
           fetchBookings()
         }, 1500)
       } else {
-        setEmailStatusMsg('❌ Failed: ' + (data.error || 'Unknown error'))
+        setEmailStatus({ ok: false, text: `Failed: ${data.error || 'Unknown error'}` })
       }
     } catch (err) {
-      setEmailStatusMsg('❌ Error sending email: ' + String(err))
+      setEmailStatus({ ok: false, text: `Error sending email: ${String(err)}` })
     } finally {
       setSendingEmail(false)
     }
@@ -225,26 +249,27 @@ export default function AdminDashboard() {
   const s = analytics?.summary
 
   return (
-    <main style={{ minHeight: '100vh', background: '#0d0d0d', color: '#e5e5e5', fontFamily: "'Inter', sans-serif", padding: '0' }}>
+    <main style={{ minHeight: '100vh', background: c.bg, color: c.text, fontFamily: "'Inter', sans-serif", padding: '0' }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * { box-sizing: border-box; }
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: ${c.border}; border-radius: 4px; }
         .doc-btn {
           padding: 4px 8px;
-          background: rgba(212,175,55,0.1);
-          border: 1px solid rgba(212,175,55,0.3);
+          background: ${c.goldTint};
+          border: 1px solid ${c.goldBorder};
           border-radius: 6px;
-          color: #D4AF37;
+          color: ${c.gold};
           font-size: 11px;
           text-decoration: none;
           display: inline-flex;
           align-items: center;
-          gap: 4px;
+          gap: 5px;
         }
-        .doc-btn:hover { background: rgba(212,175,55,0.2); }
+        .doc-btn:hover { background: rgba(184,147,74,0.22); }
+        .search-input::placeholder { color: ${c.textFaint}; }
       `}</style>
 
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '32px 24px' }}>
@@ -252,15 +277,15 @@ export default function AdminDashboard() {
         {/* Analytics Cards */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 16 }}>
           {[
-            { label: 'Total Leads', value: s?.totalBookings ?? '—', accent: '#D4AF37' },
-            { label: 'This Month', value: s?.leadsThisMonth ?? '—', accent: '#60a5fa' },
-            { label: 'Pending', value: s?.pendingBookings ?? '—', accent: '#facc15' },
-            { label: 'Confirmed', value: s?.confirmedBookings ?? '—', accent: '#4ade80' },
-            { label: 'Completed', value: s?.completedBookings ?? '—', accent: '#818cf8' },
-            { label: 'Cancelled', value: s?.cancelledBookings ?? '—', accent: '#f87171' },
+            { label: 'Total Leads', value: s?.totalBookings ?? '—', accent: c.gold },
+            { label: 'This Month', value: s?.leadsThisMonth ?? '—', accent: c.blue },
+            { label: 'Pending', value: s?.pendingBookings ?? '—', accent: c.yellow },
+            { label: 'Confirmed', value: s?.confirmedBookings ?? '—', accent: c.green },
+            { label: 'Completed', value: s?.completedBookings ?? '—', accent: c.blue },
+            { label: 'Cancelled', value: s?.cancelledBookings ?? '—', accent: c.red },
           ].map((card) => (
-            <div key={card.label} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '20px 24px' }}>
-              <p style={{ margin: '0 0 8px', fontSize: 12, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{card.label}</p>
+            <div key={card.label} style={{ background: c.panel, border: `1px solid ${c.border}`, borderRadius: 12, padding: '20px 24px' }}>
+              <p style={{ margin: '0 0 8px', fontSize: 12, color: c.textFaint, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{card.label}</p>
               <p style={{ margin: 0, fontSize: 32, fontWeight: 700, color: card.accent }}>{card.value}</p>
             </div>
           ))}
@@ -273,18 +298,18 @@ export default function AdminDashboard() {
             { label: 'Total Quoted Value', value: s ? eur(s.totalQuotedValue) : '—', hint: 'All bookings, any status' },
             { label: 'Avg. Booking Value', value: s ? eur(s.avgBookingValue) : '—', hint: 'Per confirmed/completed booking' },
           ].map((card) => (
-            <div key={card.label} style={{ background: 'rgba(212,175,55,0.06)', border: '1px solid rgba(212,175,55,0.2)', borderRadius: 12, padding: '20px 24px' }}>
-              <p style={{ margin: '0 0 8px', fontSize: 12, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{card.label}</p>
-              <p style={{ margin: 0, fontSize: 28, fontWeight: 700, color: '#D4AF37' }}>{card.value}</p>
-              <p style={{ margin: '6px 0 0', fontSize: 11, color: 'rgba(255,255,255,0.3)' }}>{card.hint}</p>
+            <div key={card.label} style={{ background: c.goldTint, border: `1px solid ${c.goldBorder}`, borderRadius: 12, padding: '20px 24px' }}>
+              <p style={{ margin: '0 0 8px', fontSize: 12, color: c.textFaint, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{card.label}</p>
+              <p style={{ margin: 0, fontSize: 28, fontWeight: 700, color: c.gold }}>{card.value}</p>
+              <p style={{ margin: '6px 0 0', fontSize: 11, color: c.textFaint }}>{card.hint}</p>
             </div>
           ))}
         </div>
 
         {/* Vehicle Breakdown */}
         {analytics && Object.keys(analytics.vehicleBreakdown).length > 0 && (
-          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '20px 24px', marginBottom: 32 }}>
-            <p style={{ margin: '0 0 14px', fontSize: 12, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Bookings by Vehicle Type</p>
+          <div style={{ background: c.panel, border: `1px solid ${c.border}`, borderRadius: 12, padding: '20px 24px', marginBottom: 32 }}>
+            <p style={{ margin: '0 0 14px', fontSize: 12, color: c.textFaint, textTransform: 'uppercase', letterSpacing: '0.08em' }}>Bookings by Vehicle Type</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
               {Object.entries(analytics.vehicleBreakdown)
                 .sort((a, b) => b[1] - a[1])
@@ -293,11 +318,11 @@ export default function AdminDashboard() {
                   return (
                     <div key={type} style={{ minWidth: 140 }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 6 }}>
-                        <span style={{ color: '#e5e5e5', textTransform: 'capitalize' }}>{type}</span>
-                        <span style={{ color: 'rgba(255,255,255,0.4)' }}>{count} ({pct}%)</span>
+                        <span style={{ color: c.text, textTransform: 'capitalize' }}>{type}</span>
+                        <span style={{ color: c.textFaint }}>{count} ({pct}%)</span>
                       </div>
-                      <div style={{ width: 140, height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 3, overflow: 'hidden' }}>
-                        <div style={{ width: `${pct}%`, height: '100%', background: '#D4AF37' }} />
+                      <div style={{ width: 140, height: 6, background: c.border, borderRadius: 3, overflow: 'hidden' }}>
+                        <div style={{ width: `${pct}%`, height: '100%', background: c.gold }} />
                       </div>
                     </div>
                   )
@@ -308,17 +333,21 @@ export default function AdminDashboard() {
 
         {/* Search & Filter Bar */}
         <div style={{ display: 'flex', gap: 12, marginBottom: 12, flexWrap: 'wrap' }}>
-          <input
-            type="search"
-            placeholder="🔍  Search by name, email, phone, location..."
-            value={search}
-            onChange={(e) => { setSearch(e.target.value); setPage(1) }}
-            style={{ flex: 1, minWidth: 280, padding: '10px 16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: '#fff', fontSize: 14, fontFamily: 'inherit', outline: 'none' }}
-          />
+          <div style={{ position: 'relative', flex: 1, minWidth: 280 }}>
+            <FontAwesomeIcon icon={faMagnifyingGlass} style={{ position: 'absolute', left: 16, top: '50%', transform: 'translateY(-50%)', color: c.textFaint, fontSize: 13 }} />
+            <input
+              type="search"
+              placeholder="Search by name, email, phone, location..."
+              value={search}
+              onChange={(e) => { setSearch(e.target.value); setPage(1) }}
+              className="search-input"
+              style={{ width: '100%', padding: '10px 16px 10px 38px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 8, color: c.text, fontSize: 14, fontFamily: 'inherit', outline: 'none' }}
+            />
+          </div>
           <select
             value={statusFilter}
             onChange={(e) => { setStatusFilter(e.target.value); setPage(1) }}
-            style={{ padding: '10px 16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: '#e5e5e5', fontSize: 14, fontFamily: 'inherit', outline: 'none', cursor: 'pointer' }}
+            style={{ padding: '10px 16px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 8, color: c.text, fontSize: 14, fontFamily: 'inherit', outline: 'none', cursor: 'pointer' }}
           >
             <option value="all">All Statuses</option>
             <option value="pending">Pending</option>
@@ -326,7 +355,7 @@ export default function AdminDashboard() {
             <option value="completed">Completed</option>
             <option value="cancelled">Cancelled</option>
           </select>
-          <div style={{ display: 'flex', alignItems: 'center', padding: '10px 16px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', padding: '10px 16px', background: c.panel, border: `1px solid ${c.border}`, borderRadius: 8, fontSize: 13, color: c.textFaint }}>
             {total} lead{total !== 1 ? 's' : ''} found
           </div>
         </div>
@@ -344,10 +373,10 @@ export default function AdminDashboard() {
               onClick={() => { setDateFilter(opt.key); setPage(1) }}
               style={{
                 padding: '6px 14px',
-                background: dateFilter === opt.key ? 'rgba(212,175,55,0.15)' : 'rgba(255,255,255,0.04)',
-                border: `1px solid ${dateFilter === opt.key ? 'rgba(212,175,55,0.4)' : 'rgba(255,255,255,0.1)'}`,
+                background: dateFilter === opt.key ? c.goldTint : c.panel,
+                border: `1px solid ${dateFilter === opt.key ? c.goldBorder : c.border}`,
                 borderRadius: 20,
-                color: dateFilter === opt.key ? '#D4AF37' : 'rgba(255,255,255,0.5)',
+                color: dateFilter === opt.key ? c.gold : c.textMuted,
                 fontSize: 12,
                 fontWeight: 500,
                 cursor: 'pointer',
@@ -360,66 +389,70 @@ export default function AdminDashboard() {
         </div>
 
         {/* Bookings Table */}
-        <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, overflow: 'hidden' }}>
+        <div style={{ background: c.panel, border: `1px solid ${c.border}`, borderRadius: 12, overflow: 'hidden' }}>
           {loading ? (
-            <div style={{ padding: 64, textAlign: 'center', color: 'rgba(255,255,255,0.3)', fontSize: 14 }}>Loading leads...</div>
+            <div style={{ padding: 64, textAlign: 'center', color: c.textFaint, fontSize: 14 }}>Loading leads...</div>
           ) : bookings.length === 0 ? (
-            <div style={{ padding: 64, textAlign: 'center', color: 'rgba(255,255,255,0.3)', fontSize: 14 }}>No bookings found</div>
+            <div style={{ padding: 64, textAlign: 'center', color: c.textFaint, fontSize: 14 }}>No bookings found</div>
           ) : (
             <div style={{ overflowX: 'auto' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
                 <thead>
-                  <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+                  <tr style={{ borderBottom: `1px solid ${c.border}` }}>
                     {['Received', 'Name', 'Email / Phone', 'Route', 'Date / Time', 'Pax', 'Vehicle', 'PDF Documents', 'Status', 'Client Email', 'Actions'].map((h) => (
-                      <th key={h} style={{ padding: '12px 14px', textAlign: 'left', fontWeight: 500, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'rgba(255,255,255,0.35)', whiteSpace: 'nowrap' }}>{h}</th>
+                      <th key={h} style={{ padding: '12px 14px', textAlign: 'left', fontWeight: 500, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', color: c.textFaint, whiteSpace: 'nowrap' }}>{h}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
                   {bookings.map((b, i) => {
                     const sc = STATUS_COLORS[b.status] || STATUS_COLORS.pending
+                    const source = b.source ? SOURCE_LABELS[b.source] : undefined
                     return (
-                      <tr key={b.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)', opacity: deletingId === b.id ? 0.4 : 1, transition: 'opacity 0.2s' }}>
-                        <td style={{ padding: '12px 14px', whiteSpace: 'nowrap', color: 'rgba(255,255,255,0.4)', fontSize: 12 }}>
+                      <tr key={b.id} style={{ borderBottom: `1px solid ${c.border}`, background: i % 2 === 0 ? 'transparent' : 'rgba(246,243,238,0.015)', opacity: deletingId === b.id ? 0.4 : 1, transition: 'opacity 0.2s' }}>
+                        <td style={{ padding: '12px 14px', whiteSpace: 'nowrap', color: c.textFaint, fontSize: 12 }}>
                           {new Date(b.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}<br />
                           <span style={{ fontSize: 11 }}>{new Date(b.created_at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</span>
                         </td>
                         <td style={{ padding: '12px 14px', whiteSpace: 'nowrap', fontWeight: 500 }}>
-                          <Link href={`/admin/bookings/${b.id}`} style={{ color: '#fff', textDecoration: 'none' }} title="View full details">
+                          <Link href={`/admin/bookings/${b.id}`} style={{ color: c.text, textDecoration: 'none' }} title="View full details">
                             {b.full_name}
                           </Link>
-                          {b.source && b.source !== 'website' && (
-                            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', fontWeight: 400, marginTop: 2 }}>
-                              {SOURCE_LABELS[b.source] || b.source}
+                          {source && b.source !== 'website' && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 10, color: c.textFaint, fontWeight: 400, marginTop: 2 }}>
+                              <FontAwesomeIcon icon={source.icon} style={{ width: 10 }} /> {source.label}
                             </div>
                           )}
                         </td>
                         <td style={{ padding: '12px 14px' }}>
-                          <div style={{ color: '#D4AF37', fontSize: 12 }}>{b.email}</div>
-                          <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11 }}>{b.phone}</div>
+                          <div style={{ color: c.gold, fontSize: 12 }}>{b.email}</div>
+                          <div style={{ color: c.textMuted, fontSize: 11 }}>{b.phone}</div>
                         </td>
                         <td style={{ padding: '12px 14px', maxWidth: 180 }}>
-                          <div style={{ color: '#e5e5e5', fontSize: 12 }} title={b.pickup_location}>📍 {b.pickup_location.slice(0, 24)}{b.pickup_location.length > 24 ? '…' : ''}</div>
-                          <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: 11 }} title={b.dropoff_location}>→ {b.dropoff_location.slice(0, 24)}{b.dropoff_location.length > 24 ? '…' : ''}</div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 5, color: c.text, fontSize: 12 }} title={b.pickup_location}>
+                            <FontAwesomeIcon icon={faLocationDot} style={{ width: 10, color: c.gold }} />
+                            {b.pickup_location.slice(0, 24)}{b.pickup_location.length > 24 ? '…' : ''}
+                          </div>
+                          <div style={{ color: c.textFaint, fontSize: 11 }} title={b.dropoff_location}>→ {b.dropoff_location.slice(0, 24)}{b.dropoff_location.length > 24 ? '…' : ''}</div>
                         </td>
                         <td style={{ padding: '12px 14px', whiteSpace: 'nowrap', fontSize: 12 }}>
                           <div>{b.pickup_date}</div>
-                          <div style={{ color: 'rgba(255,255,255,0.4)' }}>{b.pickup_time}</div>
+                          <div style={{ color: c.textFaint }}>{b.pickup_time}</div>
                         </td>
                         <td style={{ padding: '12px 14px', textAlign: 'center' }}>{b.passengers}</td>
-                        <td style={{ padding: '12px 14px', whiteSpace: 'nowrap', color: 'rgba(255,255,255,0.6)', fontSize: 12 }}>{b.vehicle_type}</td>
+                        <td style={{ padding: '12px 14px', whiteSpace: 'nowrap', color: c.textMuted, fontSize: 12 }}>{b.vehicle_type}</td>
 
                         {/* PDF Printable Generators */}
                         <td style={{ padding: '12px 14px', whiteSpace: 'nowrap' }}>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
                             <a href={`/admin/bookings/${b.id}/document?type=quote`} target="_blank" className="doc-btn" title="View/Print Quotation PDF">
-                              📄 Quote PDF
+                              <FontAwesomeIcon icon={faFileLines} /> Quote PDF
                             </a>
                             <a href={`/admin/bookings/${b.id}/document?type=invoice`} target="_blank" className="doc-btn" title="View/Print Tax Invoice PDF">
-                              🧾 Invoice PDF
+                              <FontAwesomeIcon icon={faFileInvoice} /> Invoice PDF
                             </a>
                             <a href={`/admin/bookings/${b.id}/document?type=receipt`} target="_blank" className="doc-btn" title="View/Print Payment Receipt PDF">
-                              💳 Receipt PDF
+                              <FontAwesomeIcon icon={faReceipt} /> Receipt PDF
                             </a>
                           </div>
                         </td>
@@ -443,9 +476,9 @@ export default function AdminDashboard() {
                         <td style={{ padding: '12px 14px' }}>
                           <button
                             onClick={() => openEmailModal(b, 'quote')}
-                            style={{ padding: '6px 12px', background: 'rgba(99,102,241,0.15)', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 6, color: '#818cf8', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit', display: 'flex', alignItems: 'center', gap: 4 }}
+                            style={{ padding: '6px 12px', background: c.blueTint, border: `1px solid rgba(143,179,217,0.3)`, borderRadius: 6, color: c.blue, fontSize: 12, cursor: 'pointer', fontFamily: 'inherit', display: 'flex', alignItems: 'center', gap: 5 }}
                           >
-                            ✉️ Email Client
+                            <FontAwesomeIcon icon={faPaperPlane} /> Email Client
                           </button>
                         </td>
 
@@ -455,9 +488,9 @@ export default function AdminDashboard() {
                             onClick={() => deleteBooking(b.id)}
                             disabled={deletingId === b.id}
                             title="Delete booking"
-                            style={{ padding: '5px 10px', background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.25)', borderRadius: 6, color: '#f87171', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit' }}
+                            style={{ padding: '5px 10px', background: c.redTint, border: `1px solid ${c.redBorder}`, borderRadius: 6, color: c.red, fontSize: 12, cursor: 'pointer', fontFamily: 'inherit' }}
                           >
-                            🗑
+                            <FontAwesomeIcon icon={faTrash} />
                           </button>
                         </td>
                       </tr>
@@ -471,86 +504,93 @@ export default function AdminDashboard() {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginTop: 24 }}>
-            <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1} style={{ padding: '8px 16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: page === 1 ? 'rgba(255,255,255,0.2)' : '#fff', cursor: page === 1 ? 'not-allowed' : 'pointer', fontFamily: 'inherit', fontSize: 13 }}>← Prev</button>
-            <span style={{ padding: '8px 16px', color: 'rgba(255,255,255,0.4)', fontSize: 13 }}>Page {page} of {totalPages}</span>
-            <button onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages} style={{ padding: '8px 16px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: page === totalPages ? 'rgba(255,255,255,0.2)' : '#fff', cursor: page === totalPages ? 'not-allowed' : 'pointer', fontFamily: 'inherit', fontSize: 13 }}>Next →</button>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, marginTop: 24 }}>
+            <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 16px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 8, color: page === 1 ? c.textFaint : c.text, cursor: page === 1 ? 'not-allowed' : 'pointer', fontFamily: 'inherit', fontSize: 13 }}>
+              <FontAwesomeIcon icon={faChevronLeft} style={{ fontSize: 11 }} /> Prev
+            </button>
+            <span style={{ padding: '8px 16px', color: c.textFaint, fontSize: 13 }}>Page {page} of {totalPages}</span>
+            <button onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 16px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 8, color: page === totalPages ? c.textFaint : c.text, cursor: page === totalPages ? 'not-allowed' : 'pointer', fontFamily: 'inherit', fontSize: 13 }}>
+              Next <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: 11 }} />
+            </button>
           </div>
         )}
 
         {/* Custom Email Modal */}
         {emailModalBooking && (
           <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(8px)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: 20 }}>
-            <div style={{ width: '100%', maxWidth: 580, background: '#141414', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 16, padding: 28, boxShadow: '0 20px 40px rgba(0,0,0,0.6)', margin: 'auto' }}>
+            <div style={{ width: '100%', maxWidth: 580, background: c.bgPanel, border: `1px solid ${c.borderStrong}`, borderRadius: 16, padding: 28, boxShadow: '0 20px 40px rgba(0,0,0,0.6)', margin: 'auto' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
                 <div>
-                  <h3 style={{ margin: 0, fontSize: 18, color: '#fff' }}>Send Email to Client</h3>
-                  <p style={{ margin: '4px 0 0', fontSize: 12, color: '#D4AF37' }}>{emailModalBooking.full_name} ({emailModalBooking.email})</p>
+                  <h3 style={{ margin: 0, fontSize: 18, color: c.text }}>Send Email to Client</h3>
+                  <p style={{ margin: '4px 0 0', fontSize: 12, color: c.gold }}>{emailModalBooking.full_name} ({emailModalBooking.email})</p>
                 </div>
-                <button onClick={() => setEmailModalBooking(null)} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.4)', fontSize: 20, cursor: 'pointer' }}>✕</button>
+                <button onClick={() => setEmailModalBooking(null)} style={{ background: 'none', border: 'none', color: c.textMuted, fontSize: 18, cursor: 'pointer' }}>
+                  <FontAwesomeIcon icon={faXmark} />
+                </button>
               </div>
 
               {/* Quick Template Switcher */}
-              <div style={{ display: 'flex', gap: 8, marginBottom: 16 }}>
-                <button type="button" onClick={() => openEmailModal(emailModalBooking, 'quote')} style={{ padding: '6px 12px', background: 'rgba(212,175,55,0.15)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 6, color: '#D4AF37', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit' }}>
-                  💰 Send Price Quote
+              <div style={{ display: 'flex', gap: 8, marginBottom: 16, flexWrap: 'wrap' }}>
+                <button type="button" onClick={() => openEmailModal(emailModalBooking, 'quote')} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 12px', background: c.goldTint, border: `1px solid ${c.goldBorder}`, borderRadius: 6, color: c.gold, fontSize: 12, cursor: 'pointer', fontFamily: 'inherit' }}>
+                  <FontAwesomeIcon icon={faEuroSign} /> Send Price Quote
                 </button>
-                <button type="button" onClick={() => openEmailModal(emailModalBooking, 'confirm')} style={{ padding: '6px 12px', background: 'rgba(34,197,94,0.15)', border: '1px solid rgba(34,197,94,0.3)', borderRadius: 6, color: '#4ade80', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit' }}>
-                  ✅ Send Confirmation
+                <button type="button" onClick={() => openEmailModal(emailModalBooking, 'confirm')} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 12px', background: c.greenTint, border: '1px solid rgba(123,191,143,0.3)', borderRadius: 6, color: c.green, fontSize: 12, cursor: 'pointer', fontFamily: 'inherit' }}>
+                  <FontAwesomeIcon icon={faCircleCheck} /> Send Confirmation
                 </button>
-                <button type="button" onClick={() => openEmailModal(emailModalBooking, 'custom')} style={{ padding: '6px 12px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 6, color: '#fff', fontSize: 12, cursor: 'pointer', fontFamily: 'inherit' }}>
-                  ✏️ Custom Message
+                <button type="button" onClick={() => openEmailModal(emailModalBooking, 'custom')} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 12px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 6, color: c.text, fontSize: 12, cursor: 'pointer', fontFamily: 'inherit' }}>
+                  <FontAwesomeIcon icon={faPenToSquare} /> Custom Message
                 </button>
               </div>
 
               <form onSubmit={handleSendEmail}>
                 {/* Price Quote Field */}
                 <div style={{ marginBottom: 14 }}>
-                  <label style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.5)', marginBottom: 6 }}>Quoted Price (EUR €):</label>
+                  <label style={{ display: 'block', fontSize: 12, color: c.textMuted, marginBottom: 6 }}>Quoted Price (EUR €):</label>
                   <input
                     type="number"
                     step="0.01"
                     placeholder="e.g. 180"
                     value={emailPriceQuote}
                     onChange={(e) => setEmailPriceQuote(e.target.value)}
-                    style={{ width: '100%', padding: '10px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: '#D4AF37', fontSize: 15, fontWeight: 700, fontFamily: 'inherit', outline: 'none' }}
+                    style={{ width: '100%', padding: '10px 14px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 8, color: c.gold, fontSize: 15, fontWeight: 700, fontFamily: 'inherit', outline: 'none' }}
                   />
                 </div>
 
                 <div style={{ marginBottom: 14 }}>
-                  <label style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.5)', marginBottom: 6 }}>Subject:</label>
+                  <label style={{ display: 'block', fontSize: 12, color: c.textMuted, marginBottom: 6 }}>Subject:</label>
                   <input
                     type="text"
                     required
                     value={emailSubject}
                     onChange={(e) => setEmailSubject(e.target.value)}
-                    style={{ width: '100%', padding: '10px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: '#fff', fontSize: 13, fontFamily: 'inherit', outline: 'none' }}
+                    style={{ width: '100%', padding: '10px 14px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 8, color: c.text, fontSize: 13, fontFamily: 'inherit', outline: 'none' }}
                   />
                 </div>
 
                 <div style={{ marginBottom: 20 }}>
-                  <label style={{ display: 'block', fontSize: 12, color: 'rgba(255,255,255,0.5)', marginBottom: 6 }}>Message Body:</label>
+                  <label style={{ display: 'block', fontSize: 12, color: c.textMuted, marginBottom: 6 }}>Message Body:</label>
                   <textarea
                     required
                     rows={7}
                     value={emailMessage}
                     onChange={(e) => setEmailMessage(e.target.value)}
-                    style={{ width: '100%', padding: '12px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: '#fff', fontSize: 13, fontFamily: 'inherit', outline: 'none', resize: 'vertical' }}
+                    style={{ width: '100%', padding: '12px 14px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 8, color: c.text, fontSize: 13, fontFamily: 'inherit', outline: 'none', resize: 'vertical' }}
                   />
                 </div>
 
-                {emailStatusMsg && (
-                  <div style={{ padding: '10px 14px', background: emailStatusMsg.startsWith('✅') ? 'rgba(34,197,94,0.15)' : 'rgba(239,68,68,0.15)', border: `1px solid ${emailStatusMsg.startsWith('✅') ? '#4ade8040' : '#f8717140'}`, borderRadius: 8, fontSize: 13, color: emailStatusMsg.startsWith('✅') ? '#4ade80' : '#f87171', marginBottom: 16 }}>
-                    {emailStatusMsg}
+                {emailStatus && (
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 14px', background: emailStatus.ok ? c.greenTint : c.redTint, border: `1px solid ${emailStatus.ok ? 'rgba(123,191,143,0.3)' : c.redBorder}`, borderRadius: 8, fontSize: 13, color: emailStatus.ok ? c.green : c.red, marginBottom: 16 }}>
+                    <FontAwesomeIcon icon={emailStatus.ok ? faCircleCheck : faCircleXmark} />
+                    {emailStatus.text}
                   </div>
                 )}
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 12 }}>
-                  <button type="button" onClick={() => setEmailModalBooking(null)} style={{ padding: '10px 18px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: 'rgba(255,255,255,0.6)', fontSize: 13, cursor: 'pointer', fontFamily: 'inherit' }}>
+                  <button type="button" onClick={() => setEmailModalBooking(null)} style={{ padding: '10px 18px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 8, color: c.textMuted, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit' }}>
                     Cancel
                   </button>
-                  <button type="submit" disabled={sendingEmail} style={{ padding: '10px 20px', background: '#D4AF37', border: 'none', borderRadius: 8, color: '#0d0d0d', fontWeight: 600, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit' }}>
-                    {sendingEmail ? 'Sending Email...' : '✉️ Send Email Now'}
+                  <button type="submit" disabled={sendingEmail} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 20px', background: c.gold, border: 'none', borderRadius: 8, color: c.bg, fontWeight: 600, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit' }}>
+                    <FontAwesomeIcon icon={faPaperPlane} /> {sendingEmail ? 'Sending Email...' : 'Send Email Now'}
                   </button>
                 </div>
               </form>
@@ -558,7 +598,7 @@ export default function AdminDashboard() {
           </div>
         )}
 
-        <p style={{ marginTop: 32, textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.15)' }}>
+        <p style={{ marginTop: 32, textAlign: 'center', fontSize: 11, color: c.textFaint }}>
           Austria Chauffeur Service · Admin Portal · {new Date().getFullYear()}
         </p>
       </div>

@@ -1,6 +1,21 @@
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+import {
+  faCircleCheck,
+  faCircleXmark,
+  faClock,
+  faEnvelope,
+  faFileInvoice,
+  faFileLines,
+  faPhone,
+  faReceipt,
+} from '@fortawesome/free-solid-svg-icons'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { faClock as faClockRegular } from '@fortawesome/free-regular-svg-icons'
+import { adminColors as c } from '@/lib/admin/theme'
 import { BookingEditForm } from './edit-form'
 
 export const dynamic = 'force-dynamic'
@@ -10,15 +25,15 @@ interface Props {
 }
 
 const cardStyle: React.CSSProperties = {
-  background: 'rgba(255,255,255,0.03)',
-  border: '1px solid rgba(255,255,255,0.08)',
+  background: c.panel,
+  border: `1px solid ${c.border}`,
   borderRadius: 12,
   padding: 24,
 }
 
 const fieldLabel: React.CSSProperties = {
   fontSize: 11,
-  color: 'rgba(255,255,255,0.4)',
+  color: c.textFaint,
   textTransform: 'uppercase',
   letterSpacing: '0.06em',
   marginBottom: 4,
@@ -26,16 +41,32 @@ const fieldLabel: React.CSSProperties = {
 
 const fieldValue: React.CSSProperties = {
   fontSize: 14,
-  color: '#e5e5e5',
+  color: c.text,
   marginBottom: 16,
 }
 
-const SOURCE_LABELS: Record<string, string> = {
-  website: 'Website',
-  phone: '📞 Phone',
-  whatsapp: '💬 WhatsApp',
-  email: '📧 Email',
-  other: 'Other',
+const sectionHeading: React.CSSProperties = {
+  fontSize: 13,
+  fontWeight: 600,
+  color: c.gold,
+  margin: '0 0 16px',
+  textTransform: 'uppercase',
+  letterSpacing: '0.06em',
+}
+
+const SOURCE_LABELS: Record<string, { icon: IconDefinition; label: string }> = {
+  phone: { icon: faPhone, label: 'Phone' },
+  whatsapp: { icon: faWhatsapp, label: 'WhatsApp' },
+  email: { icon: faEnvelope, label: 'Email' },
+}
+
+function DeliveryStatus({ ok, label }: { ok: boolean; label: string }) {
+  return (
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+      <FontAwesomeIcon icon={ok ? faCircleCheck : faClockRegular} style={{ color: ok ? c.green : c.textFaint }} />
+      {label}: {ok ? 'sent' : 'not sent'}
+    </span>
+  )
 }
 
 export default async function BookingDetailPage({ params }: Props) {
@@ -53,8 +84,10 @@ export default async function BookingDetailPage({ params }: Props) {
     .order('created_at', { ascending: false })
     .limit(10)
 
+  const source = booking.source && booking.source !== 'website' ? SOURCE_LABELS[booking.source] : undefined
+
   return (
-    <main style={{ minHeight: '100vh', background: '#0d0d0d', color: '#e5e5e5', fontFamily: "'Inter', sans-serif" }}>
+    <main style={{ minHeight: '100vh', background: c.bg, color: c.text, fontFamily: "'Inter', sans-serif" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         * { box-sizing: border-box; }
@@ -64,26 +97,26 @@ export default async function BookingDetailPage({ params }: Props) {
         }
       `}</style>
 
-      <nav style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 16px', display: 'flex', alignItems: 'center' }}>
-        <Link href="/admin/bookings" style={{ color: '#D4AF37', textDecoration: 'none', fontSize: 13, fontWeight: 500 }}>
+      <nav style={{ background: c.panel, borderBottom: `1px solid ${c.border}`, padding: '12px 16px', display: 'flex', alignItems: 'center' }}>
+        <Link href="/admin/bookings" style={{ color: c.gold, textDecoration: 'none', fontSize: 13, fontWeight: 500 }}>
           ← Back to Admin Bookings
         </Link>
       </nav>
 
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '32px 24px' }}>
-        <h1 style={{ fontSize: 22, fontWeight: 600, color: '#fff', margin: '0 0 4px' }}>{booking.full_name}</h1>
-        <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', margin: '0 0 24px' }}>
-          Booking Ref: {booking.id} · Received {new Date(booking.created_at).toLocaleString('en-GB')}
-          {booking.source && booking.source !== 'website' && (
-            <> · Source: {SOURCE_LABELS[booking.source] || booking.source}</>
+        <h1 style={{ fontSize: 22, fontWeight: 600, color: c.text, margin: '0 0 4px' }}>{booking.full_name}</h1>
+        <p style={{ fontSize: 13, color: c.textFaint, margin: '0 0 24px', display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+          <span>Booking Ref: {booking.id} · Received {new Date(booking.created_at).toLocaleString('en-GB')}</span>
+          {source && (
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              · <FontAwesomeIcon icon={source.icon} style={{ width: 10 }} /> {source.label}
+            </span>
           )}
         </p>
 
         <div className="detail-grid">
           <div style={cardStyle}>
-            <p style={{ fontSize: 13, fontWeight: 600, color: '#D4AF37', margin: '0 0 16px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-              Trip Details
-            </p>
+            <p style={sectionHeading}>Trip Details</p>
 
             <div style={fieldLabel}>Pickup Location</div>
             <div style={fieldValue}>{booking.pickup_location}</div>
@@ -120,37 +153,32 @@ export default async function BookingDetailPage({ params }: Props) {
             <div style={fieldLabel}>Customer Notes</div>
             <div style={{ ...fieldValue, whiteSpace: 'pre-wrap' }}>{booking.notes || '—'}</div>
 
-            <p style={{ fontSize: 13, fontWeight: 600, color: '#D4AF37', margin: '20px 0 16px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-              Customer Contact
-            </p>
+            <p style={{ ...sectionHeading, margin: '20px 0 16px' }}>Customer Contact</p>
             <div style={fieldLabel}>Email</div>
             <div style={fieldValue}>{booking.email}</div>
             <div style={fieldLabel}>Phone</div>
             <div style={fieldValue}>{booking.phone}</div>
 
-            <p style={{ fontSize: 13, fontWeight: 600, color: '#D4AF37', margin: '20px 0 16px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-              Delivery Status
-            </p>
-            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>
-              <span>Customer email: {booking.customer_email_sent ? '✅ sent' : '⏳ not sent'}</span>
-              <span>Admin notification: {booking.admin_email_sent ? '✅ sent' : '⏳ not sent'}</span>
-              <span>
-                Partner webhook:{' '}
-                {booking.webhook_status === 'delivered'
-                  ? '✅ delivered'
-                  : booking.webhook_status === 'failed'
-                    ? `❌ failed${booking.webhook_status_code ? ` (HTTP ${booking.webhook_status_code})` : ''}`
-                    : booking.webhook_status === 'not_configured'
-                      ? '— not configured'
-                      : '⏳ pending'}
+            <p style={{ ...sectionHeading, margin: '20px 0 16px' }}>Delivery Status</p>
+            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', fontSize: 13, color: c.textMuted }}>
+              <DeliveryStatus ok={!!booking.customer_email_sent} label="Customer email" />
+              <DeliveryStatus ok={!!booking.admin_email_sent} label="Admin notification" />
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                {booking.webhook_status === 'delivered' ? (
+                  <><FontAwesomeIcon icon={faCircleCheck} style={{ color: c.green }} /> Partner webhook: delivered</>
+                ) : booking.webhook_status === 'failed' ? (
+                  <><FontAwesomeIcon icon={faCircleXmark} style={{ color: c.red }} /> Partner webhook: failed{booking.webhook_status_code ? ` (HTTP ${booking.webhook_status_code})` : ''}</>
+                ) : booking.webhook_status === 'not_configured' ? (
+                  <>Partner webhook: not configured</>
+                ) : (
+                  <><FontAwesomeIcon icon={faClock} style={{ color: c.textFaint }} /> Partner webhook: pending</>
+                )}
               </span>
             </div>
           </div>
 
           <div style={cardStyle}>
-            <p style={{ fontSize: 13, fontWeight: 600, color: '#D4AF37', margin: '0 0 16px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-              Dispatch
-            </p>
+            <p style={sectionHeading}>Dispatch</p>
             <BookingEditForm
               bookingId={booking.id}
               initialStatus={booking.status || 'pending'}
@@ -172,7 +200,7 @@ export default async function BookingDetailPage({ params }: Props) {
 
         {pastBookings && pastBookings.length > 0 && (
           <div style={{ ...cardStyle, marginTop: 24 }}>
-            <p style={{ fontSize: 13, fontWeight: 600, color: '#D4AF37', margin: '0 0 16px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+            <p style={sectionHeading}>
               Repeat Customer · {pastBookings.length} other booking{pastBookings.length !== 1 ? 's' : ''} from {booking.email}
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -180,10 +208,10 @@ export default async function BookingDetailPage({ params }: Props) {
                 <Link
                   key={b.id}
                   href={`/admin/bookings/${b.id}`}
-                  style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.7)', textDecoration: 'none', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}
+                  style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: c.textMuted, textDecoration: 'none', padding: '6px 0', borderBottom: `1px solid ${c.border}` }}
                 >
                   <span>{new Date(b.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })} · Pickup {b.pickup_date}</span>
-                  <span style={{ color: '#D4AF37' }}>{b.status || 'pending'}</span>
+                  <span style={{ color: c.gold }}>{b.status || 'pending'}</span>
                 </Link>
               ))}
             </div>
@@ -194,23 +222,23 @@ export default async function BookingDetailPage({ params }: Props) {
           <a
             href={`/admin/bookings/${booking.id}/document?type=quote`}
             target="_blank"
-            style={{ padding: '8px 16px', background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 8, color: '#D4AF37', fontSize: 13, textDecoration: 'none' }}
+            style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 16px', background: c.goldTint, border: `1px solid ${c.goldBorder}`, borderRadius: 8, color: c.gold, fontSize: 13, textDecoration: 'none' }}
           >
-            📄 Quote PDF
+            <FontAwesomeIcon icon={faFileLines} /> Quote PDF
           </a>
           <a
             href={`/admin/bookings/${booking.id}/document?type=invoice`}
             target="_blank"
-            style={{ padding: '8px 16px', background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 8, color: '#D4AF37', fontSize: 13, textDecoration: 'none' }}
+            style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 16px', background: c.goldTint, border: `1px solid ${c.goldBorder}`, borderRadius: 8, color: c.gold, fontSize: 13, textDecoration: 'none' }}
           >
-            🧾 Invoice PDF
+            <FontAwesomeIcon icon={faFileInvoice} /> Invoice PDF
           </a>
           <a
             href={`/admin/bookings/${booking.id}/document?type=receipt`}
             target="_blank"
-            style={{ padding: '8px 16px', background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 8, color: '#D4AF37', fontSize: 13, textDecoration: 'none' }}
+            style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 16px', background: c.goldTint, border: `1px solid ${c.goldBorder}`, borderRadius: 8, color: c.gold, fontSize: 13, textDecoration: 'none' }}
           >
-            💳 Receipt PDF
+            <FontAwesomeIcon icon={faReceipt} /> Receipt PDF
           </a>
         </div>
       </div>

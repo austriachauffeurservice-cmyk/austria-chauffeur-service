@@ -2,6 +2,9 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleCheck, faCircleXmark, faFloppyDisk } from '@fortawesome/free-solid-svg-icons'
+import { adminColors as c } from '@/lib/admin/theme'
 
 type Props = {
   bookingId: string
@@ -23,10 +26,10 @@ type Props = {
 const inputStyle: React.CSSProperties = {
   width: '100%',
   padding: '10px 14px',
-  background: 'rgba(255,255,255,0.06)',
-  border: '1px solid rgba(255,255,255,0.12)',
+  background: c.panel,
+  border: `1px solid ${c.borderStrong}`,
   borderRadius: 8,
-  color: '#fff',
+  color: c.text,
   fontSize: 14,
   fontFamily: 'inherit',
   outline: 'none',
@@ -35,14 +38,14 @@ const inputStyle: React.CSSProperties = {
 const labelStyle: React.CSSProperties = {
   display: 'block',
   fontSize: 12,
-  color: 'rgba(255,255,255,0.5)',
+  color: c.textMuted,
   marginBottom: 6,
 }
 
 const sectionHeading: React.CSSProperties = {
   fontSize: 12,
   fontWeight: 600,
-  color: '#D4AF37',
+  color: c.gold,
   textTransform: 'uppercase',
   letterSpacing: '0.06em',
   margin: '20px 0 12px',
@@ -79,7 +82,7 @@ export function BookingEditForm({
   const [vehicleType, setVehicleType] = useState(initialVehicleType)
   const [flightNumber, setFlightNumber] = useState(initialFlightNumber)
   const [saving, setSaving] = useState(false)
-  const [message, setMessage] = useState<string | null>(null)
+  const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null)
 
   async function handleSave(e: React.FormEvent) {
     e.preventDefault()
@@ -108,13 +111,13 @@ export function BookingEditForm({
       if (res.status === 401) { router.push('/admin/login'); return }
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
-        setMessage(`❌ ${data.error || 'Failed to save'}`)
+        setMessage({ ok: false, text: data.error || 'Failed to save' })
         return
       }
-      setMessage('✅ Saved')
+      setMessage({ ok: true, text: 'Saved' })
       router.refresh()
     } catch (err) {
-      setMessage(`❌ ${String(err)}`)
+      setMessage({ ok: false, text: String(err) })
     } finally {
       setSaving(false)
     }
@@ -198,13 +201,17 @@ export function BookingEditForm({
         <input id="flightNumber" value={flightNumber} onChange={(e) => setFlightNumber(e.target.value)} style={inputStyle} placeholder="e.g. OS 123" />
       </div>
 
-      {message && <p style={{ fontSize: 13, color: message.startsWith('✅') ? '#4ade80' : '#f87171', margin: 0 }}>{message}</p>}
+      {message && (
+        <p style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: message.ok ? c.green : c.red, margin: 0 }}>
+          <FontAwesomeIcon icon={message.ok ? faCircleCheck : faCircleXmark} /> {message.text}
+        </p>
+      )}
       <button
         type="submit"
         disabled={saving}
-        style={{ padding: '10px 20px', background: '#D4AF37', border: 'none', borderRadius: 8, color: '#0d0d0d', fontWeight: 600, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit', width: 'fit-content' }}
+        style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 20px', background: c.gold, border: 'none', borderRadius: 8, color: c.bg, fontWeight: 600, fontSize: 13, cursor: 'pointer', fontFamily: 'inherit', width: 'fit-content' }}
       >
-        {saving ? 'Saving...' : 'Save Changes'}
+        <FontAwesomeIcon icon={faFloppyDisk} /> {saving ? 'Saving...' : 'Save Changes'}
       </button>
     </form>
   )

@@ -84,7 +84,7 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
         }
 
         .back-link {
-          color: #D4AF37;
+          color: #b8934a;
           text-decoration: none;
           font-size: 13px;
           font-weight: 500;
@@ -109,7 +109,7 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
         }
 
         .btn-print {
-          background: #D4AF37;
+          background: #b8934a;
           color: #000;
         }
 
@@ -154,7 +154,7 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
         .doc-header {
           display: flex;
           justify-content: space-between;
-          border-bottom: 2px solid #D4AF37;
+          border-bottom: 2px solid #b8934a;
           padding-bottom: 20px;
           margin-bottom: 24px;
         }
@@ -183,7 +183,7 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
         .doc-title {
           font-size: 20px;
           font-weight: 700;
-          color: #D4AF37;
+          color: #b8934a;
           letter-spacing: 0.05em;
           margin: 0;
         }
@@ -279,7 +279,7 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
         }
 
         .total-row.grand {
-          border-top: 2px solid #D4AF37;
+          border-top: 2px solid #b8934a;
           margin-top: 6px;
           padding-top: 10px;
           font-size: 16px;
