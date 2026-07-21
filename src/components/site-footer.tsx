@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
-import { contactAddress, contactEmail, contactWhatsApp, licensingInfo } from '@/lib/content/site'
+import { contactAddress, contactEmail, licensingInfo } from '@/lib/content/site'
 import { localizedHref, type Locale } from '@/lib/i18n'
 
 const copy: Record<
@@ -100,17 +100,6 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
               <span className="text-brand-gold shrink-0">✉️</span>
               <a href={`mailto:${contactEmail}`} className="hover:text-white transition-colors duration-300">
                 {contactEmail}
-              </a>
-            </p>
-            <p className="flex items-center gap-2">
-              <span className="text-brand-gold shrink-0">💬</span>
-              <a
-                href={`https://wa.me/${contactWhatsApp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors duration-300"
-              >
-                WhatsApp
               </a>
             </p>
             <p className="mt-4 pt-4 border-t border-white/10 text-[10px] tracking-wide text-brand-gold uppercase font-semibold">

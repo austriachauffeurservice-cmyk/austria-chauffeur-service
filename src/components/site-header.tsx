@@ -5,7 +5,7 @@ import { Logo } from '@/components/logo'
 import { ServiceIcon } from '@/components/service-icon'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { contactPhone, contactWhatsApp } from '@/lib/content/site'
+import { contactPhone } from '@/lib/content/site'
 import { delocalizePath, localizedHref, type Locale } from '@/lib/i18n'
 
 const navLinksByLocale: Record<Locale, { href: string; label: string }[]> = {
@@ -54,12 +54,12 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Logo onClick={() => setOpen(false)} />
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-5 xl:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-brand-gold ${
+              className={`whitespace-nowrap text-sm font-medium transition-colors hover:text-brand-gold ${
                 pathname === link.href ? 'text-brand-gold' : 'text-brand-ink-2'
               }`}
             >
@@ -68,29 +68,20 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
           ))}
           <a
             href={`tel:${contactPhone.replace(/\s+/g, '')}`}
-            className="flex items-center gap-1.5 text-sm font-semibold text-brand-ink-2 transition-colors hover:text-brand-gold"
-          >
-            <ServiceIcon name="phone" className="h-4 w-4" />
-            <span className="hidden lg:inline">{contactPhone}</span>
-          </a>
-          <a
-            href={`https://wa.me/${contactWhatsApp}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
+            aria-label={contactPhone}
             className="flex items-center text-brand-ink-2 transition-colors hover:text-brand-gold"
           >
-            <ServiceIcon name="message" className="h-4 w-4" />
+            <ServiceIcon name="phone" className="h-4 w-4" />
           </a>
           <Link
             href={switchHref}
-            className="rounded-sm border border-brand-line px-2.5 py-1.5 text-xs font-semibold text-brand-ink-2 transition-colors hover:border-brand-gold hover:text-brand-gold"
+            className="shrink-0 rounded-sm border border-brand-line px-2.5 py-1.5 text-xs font-semibold text-brand-ink-2 transition-colors hover:border-brand-gold hover:text-brand-gold"
           >
             {locale === 'en' ? 'DE' : 'EN'}
           </Link>
           <Link
             href={localizedHref('/booking', locale)}
-            className="rounded-sm bg-brand-ink px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-gold"
+            className="shrink-0 whitespace-nowrap rounded-sm bg-brand-ink px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-gold"
           >
             {t.book}
           </Link>
@@ -100,7 +91,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
           type="button"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 xl:hidden"
         >
           <span className="h-0.5 w-6 bg-brand-ink" />
           <span className="h-0.5 w-6 bg-brand-ink" />
@@ -109,7 +100,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-brand-line bg-white px-4 pb-4 md:hidden">
+        <nav className="flex flex-col gap-1 border-t border-brand-line bg-white px-4 pb-4 xl:hidden">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -127,16 +118,6 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
           >
             <ServiceIcon name="phone" className="h-4 w-4" />
             {t.call} {contactPhone}
-          </a>
-          <a
-            href={`https://wa.me/${contactWhatsApp}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
-            className="mt-2 flex items-center justify-center gap-2 rounded-sm border border-brand-line px-4 py-3 text-center text-sm font-semibold text-brand-ink hover:border-brand-gold hover:text-brand-gold"
-          >
-            <ServiceIcon name="message" className="h-4 w-4" />
-            WhatsApp
           </a>
           <Link
             href={switchHref}

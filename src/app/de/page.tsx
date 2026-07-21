@@ -329,7 +329,7 @@ export default function HomePageDe() {
             </div>
 
             <div className="flex justify-center lg:col-span-5">
-              <div className="w-[300px] h-[520px] bg-brand-ink rounded-[40px] border-[8px] border-brand-line shadow-2xl relative overflow-hidden flex flex-col p-4 group select-none hover:shadow-brand-gold/10 hover:border-brand-gold transition-all duration-500">
+              <div className="w-full max-w-[300px] h-[520px] bg-brand-ink rounded-[40px] border-[8px] border-brand-line shadow-2xl relative overflow-hidden flex flex-col p-4 group select-none hover:shadow-brand-gold/10 hover:border-brand-gold transition-all duration-500">
                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-32 h-4 bg-brand-ink border-b border-brand-line/30 rounded-full z-20 flex items-center justify-center">
                   <div className="w-12 h-1 bg-white/20 rounded-full"></div>
                 </div>

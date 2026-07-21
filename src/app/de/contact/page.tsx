@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { contactAddress, contactEmail, contactPhone, contactWhatsApp } from '@/lib/content/site'
+import { contactAddress, contactEmail, contactPhone } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Kontakt',
@@ -57,18 +57,6 @@ export default function ContactPageDe() {
             <h2 className="font-semibold text-brand-ink font-display text-lg">Telefonsupport</h2>
             <a href={`tel:${contactPhone.replace(/\s+/g, '')}`} className="mt-2 block text-sm font-semibold text-brand-gold hover:underline">
               {contactPhone}
-            </a>
-          </div>
-
-          <div className="rounded-sm border border-brand-line p-6 bg-white hover:border-brand-gold transition-colors duration-300">
-            <h2 className="font-semibold text-brand-ink font-display text-lg">WhatsApp</h2>
-            <a
-              href={`https://wa.me/${contactWhatsApp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 block text-sm font-semibold text-brand-gold hover:underline"
-            >
-              Schreiben Sie uns auf WhatsApp
             </a>
           </div>
 

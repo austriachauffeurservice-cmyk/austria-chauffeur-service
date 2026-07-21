@@ -6,9 +6,6 @@ export const siteDescription =
 export const contactPhone = '+43 (0) 664 123 4567'
 export const contactEmail = 'booking@austriachauffeurservice.com'
 export const contactAddress = 'Kärntner Straße 51, 1010 Wien, Austria'
-// wa.me requires the number in international format with no "+", spaces, or
-// trunk-prefix "(0)" — derived here so contactPhone stays the single source of truth.
-export const contactWhatsApp = contactPhone.replace(/\(0\)\s*/, '').replace(/[^\d]/g, '')
 // Trust badge shown site-wide. We broker bookings to independently licensed
 // chauffeur partners — we do not hold the Mietwagen-Gewerbe ourselves, so
 // this must describe the partner network, not our own trade registration.

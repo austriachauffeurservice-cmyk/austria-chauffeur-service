@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ServiceIcon } from '@/components/service-icon'
-import { contactPhone, contactWhatsApp } from '@/lib/content/site'
+import { contactPhone } from '@/lib/content/site'
 import { localizedHref, type Locale } from '@/lib/i18n'
 
 const strings: Record<Locale, { call: string; book: string }> = {
@@ -18,16 +18,6 @@ export function MobileActionBar({ locale = 'en' }: { locale?: Locale }) {
       >
         <ServiceIcon name="phone" className="h-4 w-4" />
         {t.call}
-      </a>
-      <a
-        href={`https://wa.me/${contactWhatsApp}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="WhatsApp"
-        className="flex flex-1 items-center justify-center gap-2 border-r border-brand-line py-3.5 text-sm font-semibold text-brand-ink"
-      >
-        <ServiceIcon name="message" className="h-4 w-4" />
-        WhatsApp
       </a>
       <Link
         href={localizedHref('/booking', locale)}
