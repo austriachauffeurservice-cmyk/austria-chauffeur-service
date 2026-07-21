@@ -3,7 +3,7 @@ import { createBookingSchema } from '@/lib/bookings/schema'
 import { adminNotificationEmail, customerConfirmationEmail } from '@/lib/bookings/emails'
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import { getResendClient } from '@/lib/resend'
-import { dispatchTenantWebhook } from '@/lib/bookings/webhook'
+import { dispatchTenantWebhookAndRecord } from '@/lib/bookings/webhook'
 
 export async function POST(request: NextRequest) {
   let body: unknown
@@ -91,11 +91,11 @@ export async function POST(request: NextRequest) {
   }
 
   // Asynchronously dispatch lead to tenant webhook if configured
-  dispatchTenantWebhook({
+  dispatchTenantWebhookAndRecord({
     ...input,
     id: booking.id,
     created_at: new Date().toISOString(),
-  }).catch((err) => console.error('Failed tenant webhook dispatch:', err))
+  })
 
   await supabase
     .from('bookings')

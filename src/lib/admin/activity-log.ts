@@ -9,6 +9,7 @@ export type AdminAction =
   | 'price_updated'
   | 'driver_assigned'
   | 'booking_deleted'
+  | 'booking_created'
   | 'email_sent'
 
 type LogEntry = {

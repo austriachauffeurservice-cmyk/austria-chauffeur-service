@@ -30,6 +30,14 @@ const fieldValue: React.CSSProperties = {
   marginBottom: 16,
 }
 
+const SOURCE_LABELS: Record<string, string> = {
+  website: 'Website',
+  phone: '📞 Phone',
+  whatsapp: '💬 WhatsApp',
+  email: '📧 Email',
+  other: 'Other',
+}
+
 export default async function BookingDetailPage({ params }: Props) {
   const { id } = await params
   const supabase = createServiceRoleClient()
@@ -39,9 +47,16 @@ export default async function BookingDetailPage({ params }: Props) {
 
   return (
     <main style={{ minHeight: '100vh', background: '#0d0d0d', color: '#e5e5e5', fontFamily: "'Inter', sans-serif" }}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'); * { box-sizing: border-box; }`}</style>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        * { box-sizing: border-box; }
+        .detail-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; }
+        @media (max-width: 720px) {
+          .detail-grid { grid-template-columns: 1fr; }
+        }
+      `}</style>
 
-      <nav style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '0 32px', height: 60, display: 'flex', alignItems: 'center' }}>
+      <nav style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 16px', display: 'flex', alignItems: 'center' }}>
         <Link href="/admin/bookings" style={{ color: '#D4AF37', textDecoration: 'none', fontSize: 13, fontWeight: 500 }}>
           ← Back to Admin Bookings
         </Link>
@@ -51,9 +66,12 @@ export default async function BookingDetailPage({ params }: Props) {
         <h1 style={{ fontSize: 22, fontWeight: 600, color: '#fff', margin: '0 0 4px' }}>{booking.full_name}</h1>
         <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.4)', margin: '0 0 24px' }}>
           Booking Ref: {booking.id} · Received {new Date(booking.created_at).toLocaleString('en-GB')}
+          {booking.source && booking.source !== 'website' && (
+            <> · Source: {SOURCE_LABELS[booking.source] || booking.source}</>
+          )}
         </p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr', gap: 24 }}>
+        <div className="detail-grid">
           <div style={cardStyle}>
             <p style={{ fontSize: 13, fontWeight: 600, color: '#D4AF37', margin: '0 0 16px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
               Trip Details
@@ -105,9 +123,19 @@ export default async function BookingDetailPage({ params }: Props) {
             <p style={{ fontSize: 13, fontWeight: 600, color: '#D4AF37', margin: '20px 0 16px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
               Delivery Status
             </p>
-            <div style={{ display: 'flex', gap: 16, fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>
+            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', fontSize: 13, color: 'rgba(255,255,255,0.6)' }}>
               <span>Customer email: {booking.customer_email_sent ? '✅ sent' : '⏳ not sent'}</span>
               <span>Admin notification: {booking.admin_email_sent ? '✅ sent' : '⏳ not sent'}</span>
+              <span>
+                Partner webhook:{' '}
+                {booking.webhook_status === 'delivered'
+                  ? '✅ delivered'
+                  : booking.webhook_status === 'failed'
+                    ? `❌ failed${booking.webhook_status_code ? ` (HTTP ${booking.webhook_status_code})` : ''}`
+                    : booking.webhook_status === 'not_configured'
+                      ? '— not configured'
+                      : '⏳ pending'}
+              </span>
             </div>
           </div>
 
@@ -124,7 +152,7 @@ export default async function BookingDetailPage({ params }: Props) {
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: 8, marginTop: 24 }}>
+        <div style={{ display: 'flex', gap: 8, marginTop: 24, flexWrap: 'wrap' }}>
           <a
             href={`/admin/bookings/${booking.id}/document?type=quote`}
             target="_blank"

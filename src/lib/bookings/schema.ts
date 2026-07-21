@@ -17,3 +17,15 @@ export const createBookingSchema = z.object({
 })
 
 export type CreateBookingInput = z.infer<typeof createBookingSchema>
+
+export const manualLeadSources = ['phone', 'whatsapp', 'email', 'other'] as const
+export const bookingStatuses = ['pending', 'confirmed', 'completed', 'cancelled'] as const
+
+export const manualBookingSchema = createBookingSchema.extend({
+  source: z.enum(manualLeadSources).default('phone'),
+  status: z.enum(bookingStatuses).default('pending'),
+  priceQuote: z.string().trim().max(30).optional().or(z.literal('')),
+  sendConfirmationEmail: z.boolean().default(false),
+})
+
+export type ManualBookingInput = z.infer<typeof manualBookingSchema>

@@ -20,6 +20,15 @@ type BookingRow = {
   notes: string | null
   status: string
   price_quote?: string | null
+  source?: string
+}
+
+const SOURCE_LABELS: Record<string, string> = {
+  website: '🌐 Web',
+  phone: '📞 Phone',
+  whatsapp: '💬 WhatsApp',
+  email: '📧 Email',
+  other: '✏️ Other',
 }
 
 type Analytics = {
@@ -244,21 +253,24 @@ export default function AdminDashboard() {
       `}</style>
 
       {/* Top Nav */}
-      <nav style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '0 32px', height: 60, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <div style={{ width: 32, height: 32, background: 'linear-gradient(135deg,#D4AF37,#f0d060)', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 14, color: '#0d0d0d' }}>A</div>
+      <nav style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', rowGap: 10, columnGap: 12 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+          <div style={{ width: 32, height: 32, flexShrink: 0, background: 'linear-gradient(135deg,#D4AF37,#f0d060)', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: 14, color: '#0d0d0d' }}>A</div>
           <span style={{ fontWeight: 600, fontSize: 15, color: '#fff' }}>Austria Chauffeur</span>
-          <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', marginLeft: 4 }}>/ Admin</span>
+          <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)' }}>/ Admin</span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <Link href="/admin/activity" style={{ padding: '7px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: 'rgba(255,255,255,0.6)', fontSize: 13, textDecoration: 'none' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+          <Link href="/admin/bookings/new" style={{ padding: '7px 14px', background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 8, color: '#D4AF37', fontSize: 13, fontWeight: 500, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+            + New Booking
+          </Link>
+          <Link href="/admin/activity" style={{ padding: '7px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: 'rgba(255,255,255,0.6)', fontSize: 13, textDecoration: 'none', whiteSpace: 'nowrap' }}>
             📋 Activity Log
           </Link>
           {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- file download endpoint, not a page */}
-          <a href="/api/admin/bookings/export" style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 8, color: '#D4AF37', fontSize: 13, fontWeight: 500, textDecoration: 'none', fontFamily: 'inherit' }}>
+          <a href="/api/admin/bookings/export" style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 8, color: '#D4AF37', fontSize: 13, fontWeight: 500, textDecoration: 'none', fontFamily: 'inherit', whiteSpace: 'nowrap' }}>
             ⬇ Export CSV
           </a>
-          <button onClick={handleLogout} style={{ padding: '7px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: 'rgba(255,255,255,0.6)', fontSize: 13, cursor: 'pointer', fontFamily: 'inherit' }}>
+          <button onClick={handleLogout} style={{ padding: '7px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: 'rgba(255,255,255,0.6)', fontSize: 13, cursor: 'pointer', fontFamily: 'inherit', whiteSpace: 'nowrap' }}>
             Sign Out
           </button>
         </div>
@@ -405,6 +417,11 @@ export default function AdminDashboard() {
                           <Link href={`/admin/bookings/${b.id}`} style={{ color: '#fff', textDecoration: 'none' }} title="View full details">
                             {b.full_name}
                           </Link>
+                          {b.source && b.source !== 'website' && (
+                            <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', fontWeight: 400, marginTop: 2 }}>
+                              {SOURCE_LABELS[b.source] || b.source}
+                            </div>
+                          )}
                         </td>
                         <td style={{ padding: '12px 14px' }}>
                           <div style={{ color: '#D4AF37', fontSize: 12 }}>{b.email}</div>

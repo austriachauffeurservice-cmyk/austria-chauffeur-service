@@ -65,14 +65,22 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
         .top-action-bar {
           background: #1e1e1e;
           color: #fff;
-          padding: 12px 24px;
+          padding: 12px 16px;
           display: flex;
           align-items: center;
           justify-content: space-between;
+          flex-wrap: wrap;
+          row-gap: 10px;
+          column-gap: 12px;
           position: sticky;
           top: 0;
           z-index: 100;
           box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 640px) {
+          .top-action-bar { padding: 12px 16px; justify-content: center; }
+          .top-action-bar .back-link { width: 100%; text-align: center; }
         }
 
         .back-link {

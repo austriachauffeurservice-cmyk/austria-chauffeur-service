@@ -42,6 +42,7 @@ export async function GET() {
       'Vehicle Type',
       'Flight Number',
       'Status',
+      'Source',
       'Notes',
     ]
 
@@ -62,6 +63,7 @@ export async function GET() {
         escapeCsvField(b.vehicle_type),
         escapeCsvField(b.flight_number || ''),
         escapeCsvField(b.status || 'pending'),
+        escapeCsvField(b.source || 'website'),
         escapeCsvField(b.notes || ''),
       ]
       csvRows.push(row.join(','))

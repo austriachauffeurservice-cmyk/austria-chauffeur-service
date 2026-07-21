@@ -20,6 +20,7 @@ const ACTION_LABELS: Record<string, string> = {
   price_updated: 'Changed price quote',
   driver_assigned: 'Assigned transport partner',
   booking_deleted: 'Deleted booking',
+  booking_created: 'Manually created booking',
   email_sent: 'Sent email to client',
 }
 
@@ -31,6 +32,7 @@ const ACTION_COLORS: Record<string, string> = {
   price_updated: '#D4AF37',
   driver_assigned: '#60a5fa',
   booking_deleted: '#f87171',
+  booking_created: '#4ade80',
   email_sent: '#4ade80',
 }
 
@@ -40,6 +42,7 @@ function formatDetails(action: string, details: Record<string, unknown> | null):
   if (action === 'price_updated') return `€${details.from ?? '—'} → €${details.to ?? '—'}`
   if (action === 'driver_assigned') return `${details.from || '(none)'} → ${details.to || '(none)'}`
   if (action === 'booking_deleted') return `${details.full_name || ''} (${details.email || ''})`
+  if (action === 'booking_created') return `${details.full_name || ''} via ${details.source || 'manual entry'}`
   if (action === 'email_sent') return `"${details.subject || ''}" to ${details.to || ''}`
   if (action === 'login_failed') return details.email ? `attempted email: ${details.email}` : ''
   return ''
@@ -60,7 +63,7 @@ export default async function ActivityLogPage() {
     <main style={{ minHeight: '100vh', background: '#0d0d0d', color: '#e5e5e5', fontFamily: "'Inter', sans-serif" }}>
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'); * { box-sizing: border-box; }`}</style>
 
-      <nav style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '0 32px', height: 60, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <nav style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '12px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', rowGap: 8 }}>
         <Link href="/admin/bookings" style={{ color: '#D4AF37', textDecoration: 'none', fontSize: 13, fontWeight: 500 }}>
           ← Back to Admin Bookings
         </Link>
@@ -86,8 +89,8 @@ export default async function ActivityLogPage() {
             No activity recorded yet.
           </div>
         ) : (
-          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, overflow: 'hidden' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
+          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13, minWidth: 600 }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                   {['When', 'Who', 'Action', 'Details'].map((h) => (
