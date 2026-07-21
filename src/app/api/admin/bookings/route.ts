@@ -6,19 +6,34 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url)
     const status = searchParams.get('status')
     const search = searchParams.get('search')
+    const dateFrom = searchParams.get('dateFrom')
+    const dateTo = searchParams.get('dateTo')
     const page = parseInt(searchParams.get('page') || '1', 10)
     const limit = Math.min(parseInt(searchParams.get('limit') || '20', 10), 100)
     const offset = (page - 1) * limit
 
     const supabase = createServiceRoleClient()
 
-    let query = supabase
-      .from('bookings')
-      .select('*', { count: 'exact' })
-      .order('created_at', { ascending: false })
+    let query = supabase.from('bookings').select('*', { count: 'exact' })
+
+    // Default view: newest leads first. Once a date filter narrows this to
+    // a dispatch-style view (e.g. "today"), chronological pickup order is
+    // more useful than lead-received order.
+    if (dateFrom || dateTo) {
+      query = query.order('pickup_date', { ascending: true }).order('pickup_time', { ascending: true })
+    } else {
+      query = query.order('created_at', { ascending: false })
+    }
 
     if (status && status !== 'all') {
       query = query.eq('status', status)
+    }
+
+    if (dateFrom) {
+      query = query.gte('pickup_date', dateFrom)
+    }
+    if (dateTo) {
+      query = query.lte('pickup_date', dateTo)
     }
 
     if (search) {

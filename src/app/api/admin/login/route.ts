@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { ADMIN_SESSION_COOKIE, createSessionToken, verifyPassword } from '@/lib/admin/auth'
 import { createServiceRoleClient } from '@/lib/supabase/server'
+import { logActivity } from '@/lib/admin/activity-log'
 
 export async function POST(request: NextRequest) {
   let body: { email?: string; password?: string }
@@ -17,6 +18,7 @@ export async function POST(request: NextRequest) {
   }
 
   let authenticated = false
+  let actor = 'admin'
 
   // 1. If email is provided, attempt Supabase Auth login
   if (email && email.trim().length > 0) {
@@ -42,6 +44,7 @@ export async function POST(request: NextRequest) {
         } else {
           authenticated = true
         }
+        if (authenticated) actor = data.user.email || 'admin'
       }
     } catch (err) {
       console.warn('Supabase Auth attempt error:', err)
@@ -52,18 +55,26 @@ export async function POST(request: NextRequest) {
   if (!authenticated) {
     if (verifyPassword(password)) {
       authenticated = true
+      actor = 'admin'
     }
   }
 
   if (!authenticated) {
+    await logActivity({
+      action: 'login_failed',
+      details: { email: email?.trim() || null },
+      request,
+    })
     return NextResponse.json(
       { error: 'Invalid credentials. Check email & password.' },
       { status: 401 }
     )
   }
 
+  await logActivity({ actor, action: 'login', request })
+
   const response = NextResponse.json({ ok: true })
-  response.cookies.set(ADMIN_SESSION_COOKIE, createSessionToken(), {
+  response.cookies.set(ADMIN_SESSION_COOKIE, createSessionToken(actor), {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',

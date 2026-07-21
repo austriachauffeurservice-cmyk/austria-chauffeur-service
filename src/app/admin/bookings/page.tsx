@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 type BookingRow = {
   id: string
@@ -29,9 +30,14 @@ type Analytics = {
     completedBookings: number
     cancelledBookings: number
     leadsThisMonth: number
+    confirmedRevenue: number
+    totalQuotedValue: number
+    avgBookingValue: number
   }
   vehicleBreakdown: Record<string, number>
 }
+
+const eur = (n: number) => `€${n.toLocaleString('en-IE', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`
 
 const STATUS_COLORS: Record<string, { bg: string; color: string }> = {
   pending:   { bg: 'rgba(234,179,8,0.15)',   color: '#facc15' },
@@ -47,6 +53,7 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
+  const [dateFilter, setDateFilter] = useState<'all' | 'today' | 'tomorrow' | 'week'>('all')
   const [total, setTotal] = useState(0)
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
@@ -61,13 +68,37 @@ export default function AdminDashboard() {
   const [sendingEmail, setSendingEmail] = useState(false)
   const [emailStatusMsg, setEmailStatusMsg] = useState<string | null>(null)
 
+  const dateRange = useCallback((): { dateFrom?: string; dateTo?: string } => {
+    const toYmd = (d: Date) => d.toISOString().slice(0, 10)
+    const today = new Date()
+    if (dateFilter === 'today') {
+      const ymd = toYmd(today)
+      return { dateFrom: ymd, dateTo: ymd }
+    }
+    if (dateFilter === 'tomorrow') {
+      const t = new Date(today)
+      t.setDate(t.getDate() + 1)
+      const ymd = toYmd(t)
+      return { dateFrom: ymd, dateTo: ymd }
+    }
+    if (dateFilter === 'week') {
+      const end = new Date(today)
+      end.setDate(end.getDate() + 7)
+      return { dateFrom: toYmd(today), dateTo: toYmd(end) }
+    }
+    return {}
+  }, [dateFilter])
+
   const fetchBookings = useCallback(async () => {
     setLoading(true)
+    const { dateFrom, dateTo } = dateRange()
     const params = new URLSearchParams({
       page: String(page),
       limit: '15',
       status: statusFilter,
       ...(search ? { search } : {}),
+      ...(dateFrom ? { dateFrom } : {}),
+      ...(dateTo ? { dateTo } : {}),
     })
     const res = await fetch(`/api/admin/bookings?${params}`)
     if (res.status === 401) { router.push('/admin/login'); return }
@@ -76,7 +107,7 @@ export default function AdminDashboard() {
     setTotal(data.pagination?.total || 0)
     setTotalPages(data.pagination?.totalPages || 1)
     setLoading(false)
-  }, [page, statusFilter, search, router])
+  }, [page, statusFilter, search, dateRange, router])
 
   const fetchAnalytics = useCallback(async () => {
     const res = await fetch('/api/admin/analytics')
@@ -220,6 +251,9 @@ export default function AdminDashboard() {
           <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.3)', marginLeft: 4 }}>/ Admin</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <Link href="/admin/activity" style={{ padding: '7px 14px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 8, color: 'rgba(255,255,255,0.6)', fontSize: 13, textDecoration: 'none' }}>
+            📋 Activity Log
+          </Link>
           {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- file download endpoint, not a page */}
           <a href="/api/admin/bookings/export" style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '7px 14px', background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 8, color: '#D4AF37', fontSize: 13, fontWeight: 500, textDecoration: 'none', fontFamily: 'inherit' }}>
             ⬇ Export CSV
@@ -233,7 +267,7 @@ export default function AdminDashboard() {
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '32px 24px' }}>
 
         {/* Analytics Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 32 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 16 }}>
           {[
             { label: 'Total Leads', value: s?.totalBookings ?? '—', accent: '#D4AF37' },
             { label: 'This Month', value: s?.leadsThisMonth ?? '—', accent: '#60a5fa' },
@@ -249,8 +283,48 @@ export default function AdminDashboard() {
           ))}
         </div>
 
+        {/* Revenue Cards */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, marginBottom: 32 }}>
+          {[
+            { label: 'Confirmed Revenue', value: s ? eur(s.confirmedRevenue) : '—', hint: 'Confirmed + completed bookings' },
+            { label: 'Total Quoted Value', value: s ? eur(s.totalQuotedValue) : '—', hint: 'All bookings, any status' },
+            { label: 'Avg. Booking Value', value: s ? eur(s.avgBookingValue) : '—', hint: 'Per confirmed/completed booking' },
+          ].map((card) => (
+            <div key={card.label} style={{ background: 'rgba(212,175,55,0.06)', border: '1px solid rgba(212,175,55,0.2)', borderRadius: 12, padding: '20px 24px' }}>
+              <p style={{ margin: '0 0 8px', fontSize: 12, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{card.label}</p>
+              <p style={{ margin: 0, fontSize: 28, fontWeight: 700, color: '#D4AF37' }}>{card.value}</p>
+              <p style={{ margin: '6px 0 0', fontSize: 11, color: 'rgba(255,255,255,0.3)' }}>{card.hint}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Vehicle Breakdown */}
+        {analytics && Object.keys(analytics.vehicleBreakdown).length > 0 && (
+          <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '20px 24px', marginBottom: 32 }}>
+            <p style={{ margin: '0 0 14px', fontSize: 12, color: 'rgba(255,255,255,0.4)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Bookings by Vehicle Type</p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 24 }}>
+              {Object.entries(analytics.vehicleBreakdown)
+                .sort((a, b) => b[1] - a[1])
+                .map(([type, count]) => {
+                  const pct = s && s.totalBookings > 0 ? Math.round((count / s.totalBookings) * 100) : 0
+                  return (
+                    <div key={type} style={{ minWidth: 140 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 6 }}>
+                        <span style={{ color: '#e5e5e5', textTransform: 'capitalize' }}>{type}</span>
+                        <span style={{ color: 'rgba(255,255,255,0.4)' }}>{count} ({pct}%)</span>
+                      </div>
+                      <div style={{ width: 140, height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 3, overflow: 'hidden' }}>
+                        <div style={{ width: `${pct}%`, height: '100%', background: '#D4AF37' }} />
+                      </div>
+                    </div>
+                  )
+                })}
+            </div>
+          </div>
+        )}
+
         {/* Search & Filter Bar */}
-        <div style={{ display: 'flex', gap: 12, marginBottom: 20, flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: 12, marginBottom: 12, flexWrap: 'wrap' }}>
           <input
             type="search"
             placeholder="🔍  Search by name, email, phone, location..."
@@ -272,6 +346,34 @@ export default function AdminDashboard() {
           <div style={{ display: 'flex', alignItems: 'center', padding: '10px 16px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 8, fontSize: 13, color: 'rgba(255,255,255,0.4)' }}>
             {total} lead{total !== 1 ? 's' : ''} found
           </div>
+        </div>
+
+        {/* Date Quick Filters (filters by pickup date) */}
+        <div style={{ display: 'flex', gap: 8, marginBottom: 20, flexWrap: 'wrap' }}>
+          {([
+            { key: 'all', label: 'All Pickups' },
+            { key: 'today', label: 'Today' },
+            { key: 'tomorrow', label: 'Tomorrow' },
+            { key: 'week', label: 'Next 7 Days' },
+          ] as const).map((opt) => (
+            <button
+              key={opt.key}
+              onClick={() => { setDateFilter(opt.key); setPage(1) }}
+              style={{
+                padding: '6px 14px',
+                background: dateFilter === opt.key ? 'rgba(212,175,55,0.15)' : 'rgba(255,255,255,0.04)',
+                border: `1px solid ${dateFilter === opt.key ? 'rgba(212,175,55,0.4)' : 'rgba(255,255,255,0.1)'}`,
+                borderRadius: 20,
+                color: dateFilter === opt.key ? '#D4AF37' : 'rgba(255,255,255,0.5)',
+                fontSize: 12,
+                fontWeight: 500,
+                cursor: 'pointer',
+                fontFamily: 'inherit',
+              }}
+            >
+              {opt.label}
+            </button>
+          ))}
         </div>
 
         {/* Bookings Table */}
@@ -299,7 +401,11 @@ export default function AdminDashboard() {
                           {new Date(b.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}<br />
                           <span style={{ fontSize: 11 }}>{new Date(b.created_at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</span>
                         </td>
-                        <td style={{ padding: '12px 14px', whiteSpace: 'nowrap', fontWeight: 500, color: '#fff' }}>{b.full_name}</td>
+                        <td style={{ padding: '12px 14px', whiteSpace: 'nowrap', fontWeight: 500 }}>
+                          <Link href={`/admin/bookings/${b.id}`} style={{ color: '#fff', textDecoration: 'none' }} title="View full details">
+                            {b.full_name}
+                          </Link>
+                        </td>
                         <td style={{ padding: '12px 14px' }}>
                           <div style={{ color: '#D4AF37', fontSize: 12 }}>{b.email}</div>
                           <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: 11 }}>{b.phone}</div>

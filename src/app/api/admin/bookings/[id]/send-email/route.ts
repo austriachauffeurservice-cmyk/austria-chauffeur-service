@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import { getResendClient } from '@/lib/resend'
+import { logActivity } from '@/lib/admin/activity-log'
 
 interface RouteParams {
   params: Promise<{ id: string }>
@@ -119,6 +120,14 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
       console.error('Failed to send custom email:', sendError)
       return NextResponse.json({ error: sendError.message || 'Failed to send email' }, { status: 500 })
     }
+
+    await logActivity({
+      actor: request.headers.get('x-admin-actor') || 'admin',
+      action: 'email_sent',
+      bookingId: id,
+      details: { subject, to: booking.email, priceQuote: priceQuote || null },
+      request,
+    })
 
     return NextResponse.json({ success: true, emailId: emailRes?.id })
   } catch (err) {

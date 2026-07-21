@@ -1,13 +1,19 @@
 import { NextResponse } from 'next/server'
 import { createServiceRoleClient } from '@/lib/supabase/server'
 
+function parsePrice(value: string | null | undefined): number {
+  if (!value) return 0
+  const n = parseFloat(String(value).replace(/[^0-9.]/g, ''))
+  return Number.isFinite(n) ? n : 0
+}
+
 export async function GET() {
   try {
     const supabase = createServiceRoleClient()
 
     const { data: bookings, error } = await supabase
       .from('bookings')
-      .select('id, created_at, status, vehicle_type, pickup_location')
+      .select('id, created_at, status, vehicle_type, pickup_location, price_quote')
 
     if (error) {
       console.error('Failed to fetch analytics data:', error)
@@ -31,6 +37,14 @@ export async function GET() {
       vehicleBreakdown[type] = (vehicleBreakdown[type] || 0) + 1
     }
 
+    // Revenue: "confirmed" covers both confirmed and completed trips (both
+    // represent a booking that was actually going to happen / happened).
+    // Cancelled and pending are excluded from realized revenue.
+    const revenueBookings = all.filter((b) => b.status === 'confirmed' || b.status === 'completed')
+    const confirmedRevenue = revenueBookings.reduce((sum, b) => sum + parsePrice(b.price_quote), 0)
+    const totalQuotedValue = all.reduce((sum, b) => sum + parsePrice(b.price_quote), 0)
+    const avgBookingValue = revenueBookings.length > 0 ? confirmedRevenue / revenueBookings.length : 0
+
     return NextResponse.json({
       summary: {
         totalBookings,
@@ -39,6 +53,9 @@ export async function GET() {
         completedBookings,
         cancelledBookings,
         leadsThisMonth,
+        confirmedRevenue,
+        totalQuotedValue,
+        avgBookingValue,
       },
       vehicleBreakdown,
     })

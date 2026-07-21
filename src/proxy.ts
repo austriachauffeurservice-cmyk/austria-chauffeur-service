@@ -13,7 +13,8 @@ export function proxy(request: NextRequest) {
   }
 
   const token = request.cookies.get(ADMIN_SESSION_COOKIE)?.value
-  if (!verifySessionToken(token)) {
+  const session = verifySessionToken(token)
+  if (!session.valid) {
     if (pathname.startsWith('/api/')) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
@@ -21,7 +22,10 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(loginUrl)
   }
 
-  return NextResponse.next()
+  // Let API routes attribute actions to who's logged in, for the activity log.
+  const requestHeaders = new Headers(request.headers)
+  requestHeaders.set('x-admin-actor', session.actor || 'admin')
+  return NextResponse.next({ request: { headers: requestHeaders } })
 }
 
 export const config = {
