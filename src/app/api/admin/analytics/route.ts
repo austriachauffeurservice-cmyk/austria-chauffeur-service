@@ -1,5 +1,6 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { createServiceRoleClient } from '@/lib/supabase/server'
+import { requireAdminSession } from '@/lib/admin/auth'
 
 function parsePrice(value: string | null | undefined): number {
   if (!value) return 0
@@ -7,7 +8,11 @@ function parsePrice(value: string | null | undefined): number {
   return Number.isFinite(n) ? n : 0
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  if (!requireAdminSession(request).valid) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
   try {
     const supabase = createServiceRoleClient()
 

@@ -1,5 +1,6 @@
 import 'server-only'
 import { createHmac, timingSafeEqual } from 'crypto'
+import type { NextRequest } from 'next/server'
 
 export const ADMIN_SESSION_COOKIE = 'admin_session'
 const SESSION_TTL_MS = 7 * 24 * 60 * 60 * 1000 // 7 days
@@ -61,6 +62,14 @@ export function verifySessionToken(token: string | undefined | null): SessionChe
     // back to the generic actor name rather than reject a good session
   }
   return { valid: true, actor }
+}
+
+// Shared guard for every /api/admin/* route handler. Proxy (src/proxy.ts)
+// covers the same ground for normal browser requests, but a route handler
+// is reachable directly (curl, fetch from elsewhere) regardless of proxy
+// matcher config, so each handler re-checks rather than trusting proxy alone.
+export function requireAdminSession(request: NextRequest): SessionCheck {
+  return verifySessionToken(request.cookies.get(ADMIN_SESSION_COOKIE)?.value)
 }
 
 export function verifyPassword(candidate: string): boolean {

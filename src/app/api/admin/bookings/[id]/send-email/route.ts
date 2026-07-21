@@ -2,12 +2,17 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import { getResendClient } from '@/lib/resend'
 import { logActivity } from '@/lib/admin/activity-log'
+import { requireAdminSession } from '@/lib/admin/auth'
 
 interface RouteParams {
   params: Promise<{ id: string }>
 }
 
 export async function POST(request: NextRequest, { params }: RouteParams) {
+  if (!requireAdminSession(request).valid) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
   try {
     const { id } = await params
     let body: { subject?: string; message?: string; priceQuote?: string }

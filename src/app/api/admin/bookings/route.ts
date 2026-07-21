@@ -5,12 +5,17 @@ import { customerConfirmationEmail } from '@/lib/bookings/emails'
 import { getResendClient } from '@/lib/resend'
 import { dispatchTenantWebhookAndRecord } from '@/lib/bookings/webhook'
 import { logActivity } from '@/lib/admin/activity-log'
+import { requireAdminSession } from '@/lib/admin/auth'
 
 function actorFrom(request: NextRequest): string {
   return request.headers.get('x-admin-actor') || 'admin'
 }
 
 export async function GET(request: NextRequest) {
+  if (!requireAdminSession(request).valid) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
   try {
     const { searchParams } = new URL(request.url)
     const status = searchParams.get('status')
@@ -81,6 +86,10 @@ export async function GET(request: NextRequest) {
 // Manual entry for leads received by phone, WhatsApp, or email — logs them
 // into the same pipeline as web-form bookings (dispatch, PDFs, status).
 export async function POST(request: NextRequest) {
+  if (!requireAdminSession(request).valid) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
   try {
     let body: unknown
     try {

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import { logActivity } from '@/lib/admin/activity-log'
+import { requireAdminSession } from '@/lib/admin/auth'
 
 interface RouteParams {
   params: Promise<{ id: string }>
@@ -11,6 +12,10 @@ function actorFrom(request: NextRequest): string {
 }
 
 export async function PATCH(request: NextRequest, { params }: RouteParams) {
+  if (!requireAdminSession(request).valid) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
   try {
     const { id } = await params
     let body: Record<string, unknown>
@@ -83,6 +88,10 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
 }
 
 export async function DELETE(request: NextRequest, { params }: RouteParams) {
+  if (!requireAdminSession(request).valid) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
   try {
     const { id } = await params
     const supabase = createServiceRoleClient()
