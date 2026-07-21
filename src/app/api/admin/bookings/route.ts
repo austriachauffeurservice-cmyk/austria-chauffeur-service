@@ -126,6 +126,7 @@ export async function POST(request: NextRequest) {
         source: input.source,
         status: input.status,
         price_quote: input.priceQuote || undefined,
+        locale: input.locale,
       })
       .select('*')
       .single()

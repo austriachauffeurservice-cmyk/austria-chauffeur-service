@@ -38,6 +38,7 @@ export async function POST(request: NextRequest) {
       vehicle_type: input.vehicleType,
       flight_number: input.flightNumber || null,
       notes: input.notes || null,
+      locale: input.locale,
     })
     .select('id')
     .single()
