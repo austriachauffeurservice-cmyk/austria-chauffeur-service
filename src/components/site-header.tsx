@@ -5,7 +5,7 @@ import { Logo } from '@/components/logo'
 import { ServiceIcon } from '@/components/service-icon'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { contactPhone } from '@/lib/content/site'
+import { contactPhone, contactWhatsApp } from '@/lib/content/site'
 import { delocalizePath, localizedHref, type Locale } from '@/lib/i18n'
 
 const navLinksByLocale: Record<Locale, { href: string; label: string }[]> = {
@@ -73,6 +73,15 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
             <ServiceIcon name="phone" className="h-4 w-4" />
             <span className="hidden lg:inline">{contactPhone}</span>
           </a>
+          <a
+            href={`https://wa.me/${contactWhatsApp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            className="flex items-center text-brand-ink-2 transition-colors hover:text-brand-gold"
+          >
+            <ServiceIcon name="message" className="h-4 w-4" />
+          </a>
           <Link
             href={switchHref}
             className="rounded-sm border border-brand-line px-2.5 py-1.5 text-xs font-semibold text-brand-ink-2 transition-colors hover:border-brand-gold hover:text-brand-gold"
@@ -118,6 +127,16 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
           >
             <ServiceIcon name="phone" className="h-4 w-4" />
             {t.call} {contactPhone}
+          </a>
+          <a
+            href={`https://wa.me/${contactWhatsApp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="mt-2 flex items-center justify-center gap-2 rounded-sm border border-brand-line px-4 py-3 text-center text-sm font-semibold text-brand-ink hover:border-brand-gold hover:text-brand-gold"
+          >
+            <ServiceIcon name="message" className="h-4 w-4" />
+            WhatsApp
           </a>
           <Link
             href={switchHref}

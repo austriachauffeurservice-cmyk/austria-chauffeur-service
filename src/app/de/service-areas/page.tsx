@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { austrianCities, borderCities, borderCrossingDestinations } from '@/lib/content/de/service-areas'
 
 export const metadata: Metadata = {
@@ -17,16 +18,30 @@ export default function ServiceAreasPageDe() {
     <>
       <section className="border-b border-brand-line bg-brand-cream">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-            Einsatzgebiete
-          </p>
-          <h1 className="font-display mt-2 max-w-2xl text-3xl text-brand-ink sm:text-4xl">
-            Ganz Österreich — und über die Grenze hinaus
-          </h1>
-          <p className="mt-4 max-w-xl text-brand-ink-2/80">
-            Wir fahren landesweit, von Vorarlberg bis Burgenland, und verfügen über die
-            Lizenzierung für alle sieben Nachbarländer Österreichs.
-          </p>
+          <div className="grid gap-12 lg:grid-cols-12 items-center">
+            <div className="lg:col-span-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+                Einsatzgebiete
+              </p>
+              <h1 className="font-display mt-2 text-3xl text-brand-ink sm:text-4xl">
+                Ganz Österreich — und über die Grenze hinaus
+              </h1>
+              <p className="mt-4 max-w-xl text-brand-ink-2/80 leading-relaxed">
+                Wir decken das ganze Land ab, von Vorarlberg bis Burgenland, über ein Netzwerk
+                lizenzierter Partnerfahrer, die auch für grenzüberschreitende Fahrten in alle
+                sieben Nachbarländer Österreichs zugelassen sind — zu transparenten Festpreisen.
+              </p>
+            </div>
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-brand-line bg-white shadow-md lg:col-span-5 group">
+              <Image
+                src="/images/coverage.webp"
+                alt="Österreichische Chauffeur-Abdeckungskarte"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-w-1024px) 100vw, 40vw"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

@@ -46,8 +46,9 @@ export default function ServiceAreasPage() {
                 All of Austria — and across the border
               </h1>
               <p className="mt-4 max-w-xl text-brand-ink-2/80 leading-relaxed">
-                We drive nationwide, from Vorarlberg to Burgenland, and hold the licensing to cross
-                into all seven of Austria&apos;s neighboring countries with fixed transparent rates.
+                We cover the country nationwide, from Vorarlberg to Burgenland, through a network
+                of licensed partner drivers cleared for cross-border trips into all seven of
+                Austria&apos;s neighboring countries, with fixed transparent rates.
               </p>
             </div>
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-brand-line bg-white shadow-md lg:col-span-5 group">

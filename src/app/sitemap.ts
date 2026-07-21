@@ -8,6 +8,7 @@ import { skiResorts } from '@/lib/content/ski-resorts'
 import { airports } from '@/lib/content/airports'
 import { routes } from '@/lib/content/routes'
 import { vehicles } from '@/lib/content/services'
+import { dayTours } from '@/lib/content/day-tours'
 import { blogPosts } from '@/lib/content/blog'
 import { blogPosts as blogPostsDe } from '@/lib/content/de/blog'
 import { siteUrl } from '@/lib/content/site'
@@ -30,6 +31,8 @@ const germanPaths = [
   '/wedding-transfers',
   '/corporate-transfers',
   '/city-to-city-transfers',
+  '/day-tours',
+  '/diplomatic-transfers',
   '/blog',
   '/faq',
   '/about',
@@ -42,6 +45,7 @@ const germanPaths = [
   ...airports.map((a) => `/airport-transfers/${a.slug}`),
   ...vehicles.map((v) => `/fleet/${v.type}`),
   ...routes.map((r) => `/routes/${r.slug}`),
+  ...dayTours.map((t) => `/day-tours/${t.slug}`),
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -58,6 +62,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/wedding-transfers', priority: 0.7 },
     { path: '/corporate-transfers', priority: 0.7 },
     { path: '/city-to-city-transfers', priority: 0.7 },
+    { path: '/day-tours', priority: 0.7 },
+    { path: '/diplomatic-transfers', priority: 0.5 },
     { path: '/blog', priority: 0.7 },
     { path: '/faq', priority: 0.6 },
     { path: '/about', priority: 0.6 },
@@ -106,6 +112,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...routes.map((r) => ({
       url: `${siteUrl}/routes/${r.slug}`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    })),
+    ...dayTours.map((t) => ({
+      url: `${siteUrl}/day-tours/${t.slug}`,
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.7,

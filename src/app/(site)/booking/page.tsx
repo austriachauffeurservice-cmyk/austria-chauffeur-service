@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { BookingForm } from '@/components/booking-form'
+import { BookingTrustStrip } from '@/components/booking-trust-strip'
 
 export const metadata: Metadata = {
   title: 'Book a Transfer',
@@ -27,6 +28,9 @@ export default function BookingPage() {
 
       <div className="mt-10 rounded-sm border border-brand-line bg-white p-6 sm:p-8">
         <BookingForm />
+        <div className="mt-6">
+          <BookingTrustStrip />
+        </div>
       </div>
     </section>
   )

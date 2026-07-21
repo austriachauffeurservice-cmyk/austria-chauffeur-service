@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
-import { contactAddress, contactEmail, licensingInfo } from '@/lib/content/site'
+import { contactAddress, contactEmail, contactWhatsApp, licensingInfo } from '@/lib/content/site'
 import { localizedHref, type Locale } from '@/lib/i18n'
 
 const copy: Record<
@@ -29,9 +29,11 @@ const copy: Record<
       { href: '/fleet', label: 'Our Fleet' },
       { href: '/airport-transfers', label: 'Airport Transfers' },
       { href: '/ski-transfers', label: 'Ski & Alpine Transfers' },
+      { href: '/day-tours', label: 'Day Tours' },
       { href: '/city-to-city-transfers', label: 'City-to-City Transfers' },
       { href: '/corporate-transfers', label: 'Corporate & Hourly Hire' },
       { href: '/wedding-transfers', label: 'Wedding Transfers' },
+      { href: '/diplomatic-transfers', label: 'Diplomatic & Embassy Transport' },
     ],
     companyLinks: [
       { href: '/service-areas', label: 'Service Areas' },
@@ -58,9 +60,11 @@ const copy: Record<
       { href: '/fleet', label: 'Unser Fuhrpark' },
       { href: '/airport-transfers', label: 'Flughafentransfers' },
       { href: '/ski-transfers', label: 'Ski- & Alpintransfers' },
+      { href: '/day-tours', label: 'Tagesausflüge' },
       { href: '/city-to-city-transfers', label: 'Stadt-zu-Stadt-Transfers' },
       { href: '/corporate-transfers', label: 'Firmen- & Stundenbuchung' },
       { href: '/wedding-transfers', label: 'Hochzeitstransfers' },
+      { href: '/diplomatic-transfers', label: 'Diplomaten- & Botschaftstransport' },
     ],
     companyLinks: [
       { href: '/service-areas', label: 'Einsatzgebiete' },
@@ -96,6 +100,17 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
               <span className="text-brand-gold shrink-0">✉️</span>
               <a href={`mailto:${contactEmail}`} className="hover:text-white transition-colors duration-300">
                 {contactEmail}
+              </a>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="text-brand-gold shrink-0">💬</span>
+              <a
+                href={`https://wa.me/${contactWhatsApp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors duration-300"
+              >
+                WhatsApp
               </a>
             </p>
             <p className="mt-4 pt-4 border-t border-white/10 text-[10px] tracking-wide text-brand-gold uppercase font-semibold">
