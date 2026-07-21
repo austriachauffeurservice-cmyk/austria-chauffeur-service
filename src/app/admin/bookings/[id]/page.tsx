@@ -45,6 +45,14 @@ export default async function BookingDetailPage({ params }: Props) {
 
   if (!booking) notFound()
 
+  const { data: pastBookings } = await supabase
+    .from('bookings')
+    .select('id, created_at, pickup_date, status')
+    .eq('email', booking.email)
+    .neq('id', id)
+    .order('created_at', { ascending: false })
+    .limit(10)
+
   return (
     <main style={{ minHeight: '100vh', background: '#0d0d0d', color: '#e5e5e5', fontFamily: "'Inter', sans-serif" }}>
       <style>{`
@@ -148,9 +156,39 @@ export default async function BookingDetailPage({ params }: Props) {
               initialStatus={booking.status || 'pending'}
               initialPriceQuote={booking.price_quote || ''}
               initialAssignedDriver={booking.assigned_driver || ''}
+              initialFullName={booking.full_name}
+              initialEmail={booking.email}
+              initialPhone={booking.phone}
+              initialPickupLocation={booking.pickup_location}
+              initialDropoffLocation={booking.dropoff_location}
+              initialPickupDate={booking.pickup_date}
+              initialPickupTime={booking.pickup_time}
+              initialPassengers={booking.passengers}
+              initialVehicleType={booking.vehicle_type}
+              initialFlightNumber={booking.flight_number || ''}
             />
           </div>
         </div>
+
+        {pastBookings && pastBookings.length > 0 && (
+          <div style={{ ...cardStyle, marginTop: 24 }}>
+            <p style={{ fontSize: 13, fontWeight: 600, color: '#D4AF37', margin: '0 0 16px', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              Repeat Customer · {pastBookings.length} other booking{pastBookings.length !== 1 ? 's' : ''} from {booking.email}
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+              {pastBookings.map((b) => (
+                <Link
+                  key={b.id}
+                  href={`/admin/bookings/${b.id}`}
+                  style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.7)', textDecoration: 'none', padding: '6px 0', borderBottom: '1px solid rgba(255,255,255,0.05)' }}
+                >
+                  <span>{new Date(b.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })} · Pickup {b.pickup_date}</span>
+                  <span style={{ color: '#D4AF37' }}>{b.status || 'pending'}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         <div style={{ display: 'flex', gap: 8, marginTop: 24, flexWrap: 'wrap' }}>
           <a

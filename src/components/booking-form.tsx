@@ -159,6 +159,7 @@ function BookingFormInner({ locale }: { locale: Locale }) {
       vehicleType: String(formData.get('vehicleType') || 'sedan') as VehicleType,
       flightNumber: String(formData.get('flightNumber') || ''),
       notes: String(formData.get('notes') || ''),
+      locale,
     }
 
     try {

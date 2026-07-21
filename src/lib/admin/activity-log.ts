@@ -8,6 +8,7 @@ export type AdminAction =
   | 'status_updated'
   | 'price_updated'
   | 'driver_assigned'
+  | 'trip_details_updated'
   | 'booking_deleted'
   | 'booking_created'
   | 'email_sent'

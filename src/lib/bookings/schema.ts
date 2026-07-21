@@ -14,6 +14,7 @@ export const createBookingSchema = z.object({
   vehicleType: z.enum(vehicleTypes).default('sedan'),
   flightNumber: z.string().trim().max(50).optional().or(z.literal('')),
   notes: z.string().trim().max(2000).optional().or(z.literal('')),
+  locale: z.enum(['en', 'de']).default('en'),
 })
 
 export type CreateBookingInput = z.infer<typeof createBookingSchema>

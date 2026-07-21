@@ -19,6 +19,7 @@ const ACTION_LABELS: Record<string, string> = {
   status_updated: 'Changed booking status',
   price_updated: 'Changed price quote',
   driver_assigned: 'Assigned transport partner',
+  trip_details_updated: 'Edited trip details',
   booking_deleted: 'Deleted booking',
   booking_created: 'Manually created booking',
   email_sent: 'Sent email to client',
@@ -31,6 +32,7 @@ const ACTION_COLORS: Record<string, string> = {
   status_updated: '#818cf8',
   price_updated: '#D4AF37',
   driver_assigned: '#60a5fa',
+  trip_details_updated: '#60a5fa',
   booking_deleted: '#f87171',
   booking_created: '#4ade80',
   email_sent: '#4ade80',
@@ -41,6 +43,7 @@ function formatDetails(action: string, details: Record<string, unknown> | null):
   if (action === 'status_updated') return `${details.from ?? '—'} → ${details.to ?? '—'}`
   if (action === 'price_updated') return `€${details.from ?? '—'} → €${details.to ?? '—'}`
   if (action === 'driver_assigned') return `${details.from || '(none)'} → ${details.to || '(none)'}`
+  if (action === 'trip_details_updated') return Array.isArray(details.fields) ? details.fields.join(', ') : ''
   if (action === 'booking_deleted') return `${details.full_name || ''} (${details.email || ''})`
   if (action === 'booking_created') return `${details.full_name || ''} via ${details.source || 'manual entry'}`
   if (action === 'email_sent') return `"${details.subject || ''}" to ${details.to || ''}`

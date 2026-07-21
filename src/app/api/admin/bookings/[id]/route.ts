@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import { logActivity } from '@/lib/admin/activity-log'
 import { requireAdminSession } from '@/lib/admin/auth'
+import { statusConfirmedEmail, statusCancelledEmail } from '@/lib/bookings/emails'
+import { getResendClient } from '@/lib/resend'
 
 interface RouteParams {
   params: Promise<{ id: string }>
@@ -10,6 +12,22 @@ interface RouteParams {
 function actorFrom(request: NextRequest): string {
   return request.headers.get('x-admin-actor') || 'admin'
 }
+
+// Trip details a customer might get wrong or that dispatch needs to correct
+// after the fact — separate from status/price/driver which already had
+// their own dedicated activity-log entries below.
+const EDITABLE_TRIP_FIELDS = [
+  'full_name',
+  'email',
+  'phone',
+  'pickup_location',
+  'dropoff_location',
+  'pickup_date',
+  'pickup_time',
+  'passengers',
+  'vehicle_type',
+  'flight_number',
+] as const
 
 export async function PATCH(request: NextRequest, { params }: RouteParams) {
   if (!requireAdminSession(request).valid) {
@@ -27,11 +45,28 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
 
     const supabase = createServiceRoleClient()
 
+    // Written as a literal (not a computed join of EDITABLE_TRIP_FIELDS) so
+    // supabase-js can statically parse the select string for typing —
+    // keep this list in sync with EDITABLE_TRIP_FIELDS above.
     const { data: before } = await supabase
       .from('bookings')
-      .select('status, price_quote, assigned_driver')
+      .select(
+        'status, price_quote, assigned_driver, full_name, email, phone, pickup_location, dropoff_location, pickup_date, pickup_time, passengers, vehicle_type, flight_number'
+      )
       .eq('id', id)
       .single()
+
+    const tripFieldUpdates: Record<string, unknown> = {}
+    const changedTripFields: string[] = []
+    for (const field of EDITABLE_TRIP_FIELDS) {
+      if (body[field] === undefined) continue
+      tripFieldUpdates[field] = body[field]
+      // Loose equality: passengers arrives as a number from the form but
+      // Postgres may return it as either — avoid false-positive log noise.
+      if (before && body[field] != (before as unknown as Record<string, unknown>)[field]) {
+        changedTripFields.push(field)
+      }
+    }
 
     const { data: updated, error } = await supabase
       .from('bookings')
@@ -40,6 +75,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
         ...(body.price_quote !== undefined && { price_quote: body.price_quote }),
         ...(body.assigned_driver !== undefined && { assigned_driver: body.assigned_driver }),
         ...(body.notes !== undefined && { notes: body.notes }),
+        ...tripFieldUpdates,
         updated_at: new Date().toISOString(),
       })
       .eq('id', id)
@@ -52,6 +88,16 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
     }
 
     const actor = actorFrom(request)
+    const statusChanged = body.status !== undefined && body.status !== before?.status
+    if (changedTripFields.length > 0) {
+      await logActivity({
+        actor,
+        action: 'trip_details_updated',
+        bookingId: id,
+        details: { fields: changedTripFields },
+        request,
+      })
+    }
     if (body.status !== undefined && body.status !== before?.status) {
       await logActivity({
         actor,
@@ -78,6 +124,41 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
         details: { from: before?.assigned_driver ?? null, to: body.assigned_driver },
         request,
       })
+    }
+
+    // Auto-notify the customer when dispatch confirms or cancels their trip.
+    // Other statuses (pending, completed) don't have a customer-facing email
+    // defined yet — a failure here must never fail the status update itself.
+    if (statusChanged && (updated.status === 'confirmed' || updated.status === 'cancelled')) {
+      try {
+        const resend = getResendClient()
+        const fromAddress =
+          process.env.RESEND_FROM_EMAIL ||
+          (process.env.RESEND_EMAIL_DOMAIN
+            ? `bookings@${process.env.RESEND_EMAIL_DOMAIN}`
+            : 'bookings@austriachauffeurservice.com')
+        const email =
+          updated.status === 'confirmed' ? statusConfirmedEmail(updated) : statusCancelledEmail(updated)
+        const { error: sendError } = await resend.emails.send({
+          from: fromAddress,
+          to: updated.email,
+          subject: email.subject,
+          html: email.html,
+        })
+        if (sendError) {
+          console.error('Failed to send status-change email:', sendError)
+        } else {
+          await logActivity({
+            actor,
+            action: 'email_sent',
+            bookingId: id,
+            details: { subject: email.subject, to: updated.email, trigger: `status_${updated.status}` },
+            request,
+          })
+        }
+      } catch (err) {
+        console.error('Failed to send status-change email:', err)
+      }
     }
 
     return NextResponse.json({ booking: updated })
