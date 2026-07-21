@@ -2,6 +2,13 @@ import { createServiceRoleClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { PrintButton } from './print-button'
+import { contactAddress, contactEmail, contactPhone, siteName } from '@/lib/content/site'
+
+// These identifiers are not fabricated business data — set the real values
+// via env vars once available. Until then the document shows an explicit
+// "not yet issued" placeholder rather than printing something fake.
+const businessUid = process.env.BUSINESS_UID_NUMBER || null
+const businessBankDetails = process.env.BUSINESS_BANK_DETAILS || null
 
 export const dynamic = 'force-dynamic'
 
@@ -374,12 +381,12 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
           <div className="addresses-grid">
             <div className="address-card">
               <div className="address-heading">Service Provider</div>
-              <div className="address-name">Austria Chauffeur Service GmbH</div>
+              <div className="address-name">{siteName}</div>
               <div className="address-text">
-                Kärntner Ring 5-7, 1010 Wien, Austria<br />
-                UID/VAT ID: ATU78912345<br />
-                Email: info@austriachauffeurservice.com<br />
-                Phone: +43 (0) 1 998 7766
+                {contactAddress}<br />
+                UID/VAT ID: {businessUid || 'Not yet issued'}<br />
+                Email: {contactEmail}<br />
+                Phone: {contactPhone}
               </div>
             </div>
 
@@ -463,9 +470,14 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
             </strong>
             {docType === 'receipt' ? (
               <span>Payment processed via credit card / driver terminal. Balance remaining: €0.00 EUR.</span>
+            ) : businessBankDetails ? (
+              <span>
+                {businessBankDetails}<br />
+                Please include Document Number ({docNum}) as reference.
+              </span>
             ) : (
               <span>
-                Bank: Erste Group Bank AG Austria · IBAN: AT89 2011 1000 9876 5432 · BIC/SWIFT: GIBAATWW<br />
+                Bank transfer details will be provided separately — contact {contactEmail}.<br />
                 Please include Document Number ({docNum}) as reference.
               </span>
             )}
@@ -474,8 +486,8 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
 
         {/* Document Footer */}
         <div className="doc-footer">
-          Austria Chauffeur Service GmbH · Commercial Court Vienna FN 543210v · Executive Chauffeur & Transfer Services<br />
-          Thank you for choosing Austria Chauffeur Service. Have a pleasant journey!
+          {siteName} · Executive Chauffeur & Transfer Services · See /impressum for full legal details<br />
+          Thank you for choosing {siteName}. Have a pleasant journey!
         </div>
       </div>
     </div>
