@@ -21,7 +21,7 @@ export function renderRichText(text: string): ReactNode {
       'font-semibold text-brand-gold underline decoration-brand-gold/40 underline-offset-2 hover:decoration-brand-gold'
     parts.push(
       /^https?:\/\//.test(href) ? (
-        <a key={key++} href={href} target="_blank" rel="noopener noreferrer nofollow" className={linkClass}>
+        <a key={key++} href={href} target="_blank" rel="noopener noreferrer" className={linkClass}>
           {match[1]}
         </a>
       ) : (

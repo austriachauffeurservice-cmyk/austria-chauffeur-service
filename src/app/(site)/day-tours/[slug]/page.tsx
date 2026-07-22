@@ -71,7 +71,9 @@ export default async function DayTourPage({ params }: { params: Promise<Params> 
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
             {tour.region} · Day Tour
           </p>
-          <h1 className="font-display mt-2 text-3xl sm:text-4xl">{tour.name} Day Trip</h1>
+          <h1 className="font-display mt-2 text-3xl sm:text-4xl">
+            {tour.name} Day Trip from {tour.startingPoints[0].from}
+          </h1>
           <p className="mt-4 max-w-xl text-brand-cream/80">{tour.tagline}</p>
         </div>
       </section>

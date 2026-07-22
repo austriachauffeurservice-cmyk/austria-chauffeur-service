@@ -45,6 +45,15 @@ export default function HomePage() {
       <JsonLd
         data={{
           '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: siteName,
+          alternateName: 'austriachauffeurservice.com',
+          url: siteUrl,
+        }}
+      />
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
           '@type': ['LocalBusiness', 'TaxiService'],
           '@id': `${siteUrl}/#organization`,
           name: siteName,
