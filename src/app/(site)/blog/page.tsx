@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { blogPosts } from '@/lib/content/blog'
 
@@ -35,8 +36,20 @@ export default function BlogIndexPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="flex flex-col rounded-sm border border-brand-line p-6 transition-colors hover:border-brand-gold"
+              className="group flex flex-col overflow-hidden rounded-sm border border-brand-line p-6 transition-colors hover:border-brand-gold"
             >
+              {post.image && (
+                <div className="-mx-6 -mt-6 mb-4 overflow-hidden border-b border-brand-line">
+                  <Image
+                    src={post.image}
+                    alt={post.imageAlt || post.title}
+                    width={600}
+                    height={338}
+                    loading="lazy"
+                    className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              )}
               <div className="flex flex-wrap gap-2">
                 {post.tags.map((tag) => (
                   <span

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
@@ -33,6 +34,7 @@ export async function generateMetadata({
       title: post.title,
       description: post.excerpt,
       publishedTime: post.publishedAt,
+      images: post.image ? [{ url: `${siteUrl}${post.image}` }] : undefined,
     },
   }
 }
@@ -44,7 +46,9 @@ function wordCount(post: (typeof blogPosts)[number]): number {
         ? block.items.join(' ')
         : block.type === 'table'
           ? [...block.headers, ...block.rows.flat()].join(' ')
-          : block.text
+          : block.type === 'image'
+            ? ''
+            : block.text
     return sum + text.split(/\s+/).filter(Boolean).length
   }, 0)
 }
@@ -64,7 +68,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           '@type': 'BlogPosting',
           headline: post.title,
           description: post.excerpt,
-          image: `${siteUrl}/opengraph-image`,
+          image: post.image ? `${siteUrl}${post.image}` : `${siteUrl}/opengraph-image`,
           datePublished: post.publishedAt,
           dateModified: post.publishedAt,
           url: pageUrl,
@@ -142,6 +146,19 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             >
               Request a Transfer
             </Link>
+
+            {post.image && (
+              <div className="mt-8 overflow-hidden rounded-sm border border-brand-line shadow-sm">
+                <Image
+                  src={post.image}
+                  alt={post.imageAlt || post.title}
+                  width={1200}
+                  height={675}
+                  priority
+                  className="aspect-[16/9] w-full object-cover"
+                />
+              </div>
+            )}
           </div>
         </section>
 
@@ -172,6 +189,27 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
                       </li>
                     ))}
                   </ul>
+                )
+              }
+              if (block.type === 'image') {
+                return (
+                  <figure key={i} className="my-8">
+                    <div className="overflow-hidden rounded-sm border border-brand-line shadow-sm">
+                      <Image
+                        src={block.src}
+                        alt={block.alt}
+                        width={1200}
+                        height={675}
+                        loading="lazy"
+                        className="aspect-[16/9] w-full object-cover"
+                      />
+                    </div>
+                    {block.caption && (
+                      <figcaption className="mt-2 text-center text-xs text-brand-ink-2/70">
+                        {block.caption}
+                      </figcaption>
+                    )}
+                  </figure>
                 )
               }
               if (block.type === 'table') {
