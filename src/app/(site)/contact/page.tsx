@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { LocationMap } from '@/components/location-map'
 import { contactAddress, contactEmail } from '@/lib/content/site'
 
 export const metadata: Metadata = {
@@ -65,8 +66,12 @@ export default function ContactPage() {
             </p>
           </div>
         </div>
+      </section>
 
-        <div className="mt-12 rounded-sm bg-brand-cream p-6 text-center sm:p-10 border border-brand-line">
+      <LocationMap query={contactAddress} label="Find Us" />
+
+      <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+        <div className="rounded-sm bg-brand-cream p-6 text-center sm:p-10 border border-brand-line">
           <h2 className="font-display text-2xl text-brand-ink">Ready to book your transfer?</h2>
           <p className="mt-2 text-sm text-brand-ink-2/80">
             Submit your trip details and we&apos;ll confirm by email with a fixed transparent rate.

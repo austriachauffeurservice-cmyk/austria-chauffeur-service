@@ -1,7 +1,9 @@
 export type BlogBlock =
   | { type: 'paragraph'; text: string }
   | { type: 'heading'; text: string }
+  | { type: 'subheading'; text: string }
   | { type: 'list'; items: string[] }
+  | { type: 'table'; headers: string[]; rows: string[][] }
 
 export type BlogPost = {
   slug: string
@@ -11,6 +13,8 @@ export type BlogPost = {
   readingTime: string
   tags: string[]
   blocks: BlogBlock[]
+  relatedPages?: { label: string; href: string }[]
+  faqs?: { question: string; answer: string }[]
 }
 
 // `names` should be ordered most specific first (e.g. city before region) —
@@ -490,6 +494,154 @@ export const blogPosts: BlogPost[] = [
         type: 'paragraph',
         text: 'Bei einem Selbstfahrer-Mietwagen ist das noch etwas, das Sie kaufen und vor der Abfahrt bedenken müssen. Bei einer Chauffeurbuchung ist es einfach im Fahrzeug und im angebotenen Festpreis enthalten — ein Logistikdetail weniger auf einer Reise, bei der Sie ohnehin schon genug zu planen haben.',
       },
+    ],
+  },
+  {
+    slug: 'austria-cross-border-transfers-guide',
+    title: 'Grenzüberschreitende Transfers aus Österreich: Alle Routen im Vergleich',
+    excerpt:
+      'Österreich grenzt an acht Länder, und ein privater Chauffeur überquert jede davon ohne Halt. So schneiden die sieben Korridore im Vergleich ab.',
+    publishedAt: '2026-07-22',
+    readingTime: '7 Min. Lesezeit',
+    tags: ['Grenzüberschreitend'],
+    blocks: [
+      {
+        type: 'paragraph',
+        text: 'Österreich grenzt an acht Länder, und weil alle davon zum [Schengen-Raum](https://home-affairs.ec.europa.eu/policies/schengen-borders-and-visa/schengen-area_en) gehören, kann ein privater Transfer in jedes von ihnen übertreten, ohne an einer Kontrollstelle anzuhalten. Über die Zeit machen dieselben wenigen Korridore den Großteil der grenzüberschreitenden Buchungen aus — dieser Leitfaden stellt sie zunächst nebeneinander und geht dann jeden einzeln durch, damit Sie sehen, welcher zu Ihrer Reise passt.',
+      },
+      { type: 'heading', text: 'Die sieben wichtigsten Korridore im Überblick' },
+      {
+        type: 'table',
+        headers: ['Korridor', 'Entfernung', 'Fahrzeit', 'Warum er gebucht wird'],
+        rows: [
+          ['Wien → Bratislava', 'ca. 55 km', 'Unter 1 Stunde', 'Kürzester internationaler Transfer Europas; Billigflüge ab BTS'],
+          ['Wien → Budapest', 'ca. 240 km', '2,5–3 Stunden', 'Längeres Ende des Korridors Wien–Bratislava–Budapest'],
+          ['Salzburg → München', 'ca. 140 km', 'ca. 1,5 Stunden', "Münchens Langstreckenflüge übertreffen die ab Salzburg"],
+          ['Innsbruck → Italien (Brenner)', '120–320 km', '1,5–3,5 Stunden', 'Wichtigster Alpenübergang nach Süden, nach Bozen, Venedig oder Mailand'],
+          ['Bregenz → Zürich', 'ca. 120 km', '1,5–2 Stunden', 'Westlichster Korridor, ab Vorarlberg'],
+          ['Linz → Prag', 'ca. 230 km', '2,5–3 Stunden', 'Wichtigste Route nach Norden; České Budějovice als kürzere Alternative'],
+          ['Graz → Ljubljana', 'ca. 200 km', '2–2,5 Stunden', 'Südliche Route nach Slowenien; ab Klagenfurt oder Villach noch kürzer'],
+        ],
+      },
+      { type: 'heading', text: 'Warum genau diese sieben Korridore den Großteil der Buchungen ausmachen' },
+      {
+        type: 'paragraph',
+        text: 'Jeder Korridor besteht aus demselben zugrunde liegenden Grund — eine nahegelegene Hauptstadt oder ein Drehkreuz-Flughafen mit besseren Verbindungen oder günstigeren Tarifen, oder ein Termin auf der anderen Seite einer Grenze, die auf der Straße näher liegt, als es auf der Karte aussieht. Keiner davon erfordert unter normalen Umständen eine Passkontrolle, da Österreich und alle sieben Zielländer Schengen-Mitglieder sind — die Schweiz eingeschlossen, obwohl sie außerhalb der EU liegt. Führen Sie trotzdem einen gültigen Lichtbildausweis mit; die Schengen-Mitgliedschaft garantiert nicht, dass an einer Grenze niemals eine vorübergehende Stichprobenkontrolle stattfindet.',
+      },
+      { type: 'subheading', text: 'Günstigere oder besser angebundene Flughäfen' },
+      {
+        type: 'paragraph',
+        text: 'Bratislava und München sind die zwei klarsten Beispiele: Beide liegen nah genug an Wien beziehungsweise Salzburg, dass ein Flug ab dem Nachbarflughafen plus ein kurzer Transfer regelmäßig günstiger ausfällt als ein Inlandsflug oder ein teurerer Tarif ab einem österreichischen Flughafen für dieselbe Langstrecke.',
+      },
+      { type: 'subheading', text: 'Kurze Hauptstadt-zu-Hauptstadt-Hüpfer' },
+      {
+        type: 'paragraph',
+        text: 'Wien–Bratislava–Budapest sticht hier hervor — drei Landeshauptstädte innerhalb weniger Stunden Fahrzeit voneinander entfernt, was mehrstufige Geschäftsreisen und Wochenendbesuche praktikabel macht, ohne dazwischen ein Flugzeug zu besteigen.',
+      },
+      { type: 'subheading', text: 'Alpen- und Seenland-Übergänge' },
+      {
+        type: 'paragraph',
+        text: 'Innsbruck–Italien und Bregenz–Zürich sind anders geartet — längere, landschaftlich reizvolle Fahrten durch Berg- oder Seengebiet, bei denen der Wert eines privaten Transfers weniger darin liegt, einen Flug zu schlagen, sondern darin, unbekannte Alpenstraßen nicht selbst fahren zu müssen, besonders im Winter.',
+      },
+      { type: 'heading', text: 'Korridor für Korridor: Was jede Route unterscheidet' },
+      { type: 'subheading', text: 'Wien → Bratislava' },
+      {
+        type: 'paragraph',
+        text: 'Mit unter einer Stunde ist dies der kürzeste internationale Transfer, den die meisten Reisenden je erleben. Er existiert fast ausschließlich wegen des [Flughafens Bratislava](/de/blog/vienna-to-bratislava-guide) — eine gängige Billigflieger-Alternative, wenn ein von Wien aus reisender Gast einen günstigeren Tarif möchte und dafür eine kurze Fahrt in Kauf nimmt. Details im [Leitfaden Wien nach Bratislava](/de/blog/vienna-to-bratislava-guide).',
+      },
+      { type: 'subheading', text: 'Wien → Budapest' },
+      {
+        type: 'paragraph',
+        text: 'Der längere Abschnitt desselben Korridors, mit 2,5–3 Stunden. Geschäftsreisende, die alle drei Hauptstädte auf einer Reise besuchen, buchen diese Strecke am häufigsten, da das gesamte Dreieck ohne Fahrzeugwechsel befahrbar ist. Den vollständigen Vergleich mit Flug und Zug finden Sie im [Leitfaden Wien nach Budapest](/de/blog/vienna-to-budapest-guide).',
+      },
+      { type: 'subheading', text: 'Salzburg → München' },
+      {
+        type: 'paragraph',
+        text: 'Mit rund 90 Minuten existiert diese Route, weil der Flughafen München deutlich mehr Langstreckenverbindungen bietet als der in Salzburg — Reisende, die eine internationale Reise beginnen oder beenden, routen deshalb oft über München. Details im [Leitfaden Salzburg nach München](/de/blog/salzburg-to-munich-transfer-options).',
+      },
+      { type: 'subheading', text: 'Innsbruck → Italien über den Brenner' },
+      {
+        type: 'paragraph',
+        text: 'Der wichtigste Alpenübergang nach Süden, mit Bozen in rund 1,5 Stunden oder Venedig und Mailand in etwa 3,5 Stunden. Er ist die natürliche Fortsetzung für alle, die eine Reise zwischen Tirol und Norditalien aufteilen. Was der Brenner selbst bedeutet, steht im [Leitfaden Innsbruck nach Italien](/de/blog/innsbruck-to-italy-brenner-pass-guide).',
+      },
+      { type: 'subheading', text: 'Bregenz → Zürich' },
+      {
+        type: 'paragraph',
+        text: 'Der westlichste Korridor auf dieser Liste, ab Vorarlberg. Der Flughafen Zürich ist für diesen Teil Österreichs oft die besser angebundene Option im Vergleich zu einem Flug über Innsbruck oder München. Vollständiger Beitrag im [Leitfaden Bregenz nach Zürich](/de/blog/bregenz-to-zurich-guide), inklusive des kurzen Abstechers nach Vaduz in Liechtenstein.',
+      },
+      { type: 'subheading', text: 'Linz → Prag' },
+      {
+        type: 'paragraph',
+        text: 'Die wichtigste Route nach Norden, mit 2,5–3 Stunden je nach laufenden Bauarbeiten nahe der Grenze. České Budějovice ist eine kürzere Alternative, wenn nicht Prag selbst das Ziel ist. Den vollständigen Vergleich, inklusive Wien als alternativem Ausgangspunkt, lesen Sie im [Leitfaden Linz nach Prag](/de/blog/linz-to-prague-guide).',
+      },
+      { type: 'subheading', text: 'Graz → Ljubljana' },
+      {
+        type: 'paragraph',
+        text: 'Die südliche Route nach Slowenien, ab Klagenfurt oder Villach in Kärnten noch kürzer. Details zum Karawankentunnel und zur näheren Alternative Maribor finden Sie im [Leitfaden Graz nach Ljubljana](/de/blog/graz-to-ljubljana-guide).',
+      },
+      { type: 'heading', text: 'Den richtigen Korridor für Ihre Reise wählen' },
+      {
+        type: 'paragraph',
+        text: 'Wenn Sie fliegen, geht es meist darum, welcher Flughafen den passenden Tarif oder die passende Verbindung bietet — Bratislava und München sind die zwei gängigsten Alternativen zu Wien beziehungsweise Salzburg. Für Geschäftsreisen speziell entlang des Korridors Wien–Bratislava–Budapest sind alle drei Hauptstädte erreichbar, ohne das Fahrzeug zu wechseln, was in der Regel schneller ist, als zwischen ihnen zu fliegen, sobald man die Flughafenzeiten mitrechnet. Bei Alpenrouten wie Innsbruck–Italien oder Bregenz–Zürich geht es meist weniger um Geschwindigkeit als darum, unbekannte Bergstraßen nicht selbst zu fahren.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Bald eine internationale Reise? Prüfen Sie zuerst, ob der Flughafen des Nachbarlandes den besseren Tarif oder die bessere Verbindung bietet — genau deshalb existieren 3 dieser 7 Korridore',
+          'Besuch mehrerer Hauptstädte? Eine mehrstufige Buchung entlang Wien–Bratislava–Budapest schlägt meist das Fliegen zwischen ihnen, sobald man die Flughafenzeiten mitrechnet',
+          'Reise im Winter? Alpenübergänge (Innsbruck–Italien) profitieren am meisten von einem professionellen Fahrer statt einem Selbstfahrer-Mietwagen',
+          'Reise mit Gruppe oder mehr Gepäck? Ein [Executive Van](/de/fleet/van) bietet auf jedem mehrstündigen Korridor mehr Platz als eine Limousine',
+        ],
+      },
+      { type: 'heading', text: 'Was jeder grenzüberschreitende Transfer beinhaltet' },
+      {
+        type: 'paragraph',
+        text: 'Jede der obigen Routen wird vor der Fahrt per E-Mail bepreist und bestätigt, mit einem einzigen Fahrzeug von Tür zu Tür — keine zweite Buchung an der Grenze, kein hochlaufender Taxameter im grenzüberschreitenden Verkehr und keine separate Gebühr für den Grenzübertritt. Das gilt, ob Sie eine [Business-Limousine](/de/fleet/sedan) für eine kurze Strecke wie Wien–Bratislava buchen oder ein größeres Fahrzeug für eine längere Alpenüberquerung. Sie können [alle festen Routen und Preise](/de/routes) direkt durchsuchen oder das gesamte Angebot an [grenzüberschreitenden und weiteren Leistungen](/de/services) ansehen.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Brauche ich für einen grenzüberschreitenden Transfer aus Österreich meinen Reisepass?',
+        answer:
+          'Führen Sie bei jeder grenzüberschreitenden Fahrt einen gültigen Lichtbildausweis mit, auch wenn Österreich und alle sieben oben genannten Nachbarländer Schengen-Mitglieder sind und routinemäßige Passkontrollen nicht stattfinden. Schengen-Länder behalten sich vor, vorübergehend Stichprobenkontrollen wieder einzuführen, daher lohnt es sich, unabhängig von der Route einen Ausweis dabei zu haben.',
+      },
+      {
+        question: 'Werden grenzüberschreitende Transfers anders bepreist als Inlandsfahrten?',
+        answer:
+          'Jede grenzüberschreitende Route wird wie eine Inlandsfahrt vor der Fahrt per E-Mail mit einem Festpreis angeboten — es gibt keine separate Grenzgebühr oder einen Aufschlag. Der Preis richtet sich nach Entfernung und Fahrzeit, nicht danach, auf welcher Seite einer Grenze Sie landen.',
+      },
+      {
+        question: 'Kann ich mehrere Städte über eine Grenze hinweg in einer Buchung kombinieren?',
+        answer:
+          'Ja — mehrstufige Reisen wie Wien–Bratislava–Budapest sind üblich und können als eine einzige Buchung mit demselben Fahrzeug und Fahrer während der gesamten Fahrt arrangiert werden, statt als separate Punkt-zu-Punkt-Fahrten.',
+      },
+      {
+        question: 'Welches Fahrzeug sollte ich für eine längere grenzüberschreitende Fahrt buchen?',
+        answer:
+          'Eine Business-Limousine deckt die meisten grenzüberschreitenden Fahrten mit 1–3 Passagieren komfortabel ab. Für Gruppen mit mehr Gepäck oder eine Strecke wie Innsbruck nach Italien über den Brennerpass bietet der Executive Van mehr Platz für eine mehrstündige Fahrt.',
+      },
+      {
+        question: 'Ist Winterfahren auf diesen grenzüberschreitenden Routen anders?',
+        answer:
+          'Die Alpenkorridore — insbesondere Innsbruck nach Italien über den Brennerpass — erleben anspruchsvollere Winterbedingungen als die flacheren östlichen Routen wie Wien–Bratislava oder Wien–Budapest. Ein winterfestes Fahrzeug und ein mit dem jeweiligen Pass vertrauter Fahrer sind auf diesen Übergängen besonders wichtig.',
+      },
+      {
+        question: 'Brauche ich für diese Routen eine Vignette?',
+        answer:
+          'Österreichische Autobahnen erfordern eine Vignette, aber bei einer Chauffeurbuchung ist diese im Fahrzeug und Preis enthalten, nicht etwas, das Sie separat kaufen müssen. Details zum System finden Sie in unserem Vignetten-Leitfaden.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Wien nach Bratislava: Zwei Hauptstädte, eine kurze Fahrt', href: '/de/blog/vienna-to-bratislava-guide' },
+      { label: 'Wien nach Budapest: Ein grenzüberschreitender Roadtrip-Guide', href: '/de/blog/vienna-to-budapest-guide' },
+      { label: 'Salzburg nach München: Ihre Transferoptionen im Vergleich', href: '/de/blog/salzburg-to-munich-transfer-options' },
+      { label: 'Innsbruck nach Italien: Über den Brennerpass', href: '/de/blog/innsbruck-to-italy-brenner-pass-guide' },
+      { label: 'Bregenz nach Zürich: Die westlichste grenzüberschreitende Strecke', href: '/de/blog/bregenz-to-zurich-guide' },
+      { label: 'Linz nach Prag: Die nördliche grenzüberschreitende Strecke', href: '/de/blog/linz-to-prague-guide' },
+      { label: 'Graz nach Ljubljana: Über die Grenze nach Slowenien', href: '/de/blog/graz-to-ljubljana-guide' },
+      { label: 'Das österreichische Vignettensystem erklärt', href: '/de/blog/austria-vignette-toll-guide' },
+      { label: 'Alle festen Routen & Preise ansehen', href: '/de/routes' },
+      { label: 'Alle Leistungen ansehen', href: '/de/services' },
     ],
   },
 ]

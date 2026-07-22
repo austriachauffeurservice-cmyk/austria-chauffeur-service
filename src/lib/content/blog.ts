@@ -1,7 +1,9 @@
 export type BlogBlock =
   | { type: 'paragraph'; text: string }
   | { type: 'heading'; text: string }
+  | { type: 'subheading'; text: string }
   | { type: 'list'; items: string[] }
+  | { type: 'table'; headers: string[]; rows: string[][] }
 
 export type BlogPost = {
   slug: string
@@ -11,6 +13,8 @@ export type BlogPost = {
   readingTime: string
   tags: string[]
   blocks: BlogBlock[]
+  relatedPages?: { label: string; href: string }[]
+  faqs?: { question: string; answer: string }[]
 }
 
 // `names` should be ordered most specific first (e.g. city before region) —
@@ -490,6 +494,154 @@ export const blogPosts: BlogPost[] = [
         type: 'paragraph',
         text: 'For a self-drive rental, this is one more thing to buy and remember before setting off. For a chauffeur booking, it is simply built into the vehicle and the fixed price you are quoted — one less logistics detail on a trip where you already have enough to plan.',
       },
+    ],
+  },
+  {
+    slug: 'austria-cross-border-transfers-guide',
+    title: 'Cross-Border Transfers from Austria: Comparing Every Route',
+    excerpt:
+      "Austria borders eight countries, and a private chauffeur can cross into any without stopping. Here's how the seven main corridors compare, route by route.",
+    publishedAt: '2026-07-22',
+    readingTime: '7 min read',
+    tags: ['Cross-Border'],
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "Austria shares a border with eight countries, and because all of them sit inside the [Schengen Area](https://home-affairs.ec.europa.eu/policies/schengen-borders-and-visa/schengen-area_en), a private transfer can cross into any of them without stopping at a checkpoint. Over time, the same handful of corridors account for most cross-border bookings — this guide lines them up side by side, then walks through each one individually, so you can see which matches your trip.",
+      },
+      { type: 'heading', text: 'The seven main corridors at a glance' },
+      {
+        type: 'table',
+        headers: ['Corridor', 'Distance', 'Drive Time', 'Why It Gets Booked'],
+        rows: [
+          ['Vienna → Bratislava', '~55 km', 'Under 1 hour', 'Shortest international transfer in Europe; budget flights out of BTS'],
+          ['Vienna → Budapest', '~240 km', '2.5–3 hours', 'Longer end of the Vienna–Bratislava–Budapest corridor'],
+          ['Salzburg → Munich', '~140 km', '~1.5 hours', "Munich's long-haul flight options beat Salzburg's"],
+          ['Innsbruck → Italy (Brenner Pass)', '120–320 km', '1.5–3.5 hours', 'Main Alpine crossing south, to Bolzano, Venice, or Milan'],
+          ['Bregenz → Zurich', '~120 km', '1.5–2 hours', 'Westernmost corridor, out of Vorarlberg'],
+          ['Linz → Prague', '~230 km', '2.5–3 hours', 'Main northern route; České Budějovice is a shorter alternative'],
+          ['Graz → Ljubljana', '~200 km', '2–2.5 hours', 'Southern route into Slovenia; shorter yet from Klagenfurt or Villach'],
+        ],
+      },
+      { type: 'heading', text: 'Why these seven corridors dominate cross-border bookings' },
+      {
+        type: 'paragraph',
+        text: "Each corridor exists for the same underlying reason — a nearby capital or hub airport with better connections or cheaper fares, or a meeting on the other side of a border that's closer by road than it looks on a map. None of them require a passport check in normal circumstances, since Austria and all seven destination countries are Schengen members — Switzerland included, despite sitting outside the EU. That said, carry valid photo ID regardless; Schengen membership doesn't guarantee a border will never see a temporary spot check.",
+      },
+      { type: 'subheading', text: 'Cheaper or better-connected airports' },
+      {
+        type: 'paragraph',
+        text: "Bratislava and Munich are the two clearest examples: both sit close enough to Vienna and Salzburg respectively that flying out of the neighboring airport, then taking a short transfer, regularly beats flying domestically or paying more for the same long-haul route from an Austrian airport.",
+      },
+      { type: 'subheading', text: 'Short capital-to-capital hops' },
+      {
+        type: 'paragraph',
+        text: 'Vienna–Bratislava–Budapest is the standout here — three national capitals within a few hours of each other by road, which makes multi-city business trips and weekend visits genuinely practical without ever boarding a plane between them.',
+      },
+      { type: 'subheading', text: 'Alpine and lake-district crossings' },
+      {
+        type: 'paragraph',
+        text: 'Innsbruck–Italy and Bregenz–Zurich are different in character — longer, scenic drives through mountain or lake terrain, where the value of a private transfer is less about beating a flight and more about not driving unfamiliar Alpine roads yourself, especially in winter.',
+      },
+      { type: 'heading', text: "Corridor by corridor: what's different about each route" },
+      { type: 'subheading', text: 'Vienna → Bratislava' },
+      {
+        type: 'paragraph',
+        text: 'At under an hour, this is the shortest international transfer most travelers will ever take. It exists almost entirely because of [Bratislava Airport](/blog/vienna-to-bratislava-guide) — a common low-cost alternative when a Vienna-based traveler wants a cheaper fare and is willing to add a short drive. Full detail in the [Vienna to Bratislava guide](/blog/vienna-to-bratislava-guide).',
+      },
+      { type: 'subheading', text: 'Vienna → Budapest' },
+      {
+        type: 'paragraph',
+        text: 'The longer leg of the same corridor, at 2.5–3 hours. Business travelers working all three capitals in one trip are the most common booking here, since the whole triangle is drivable without changing vehicles. See the [Vienna to Budapest guide](/blog/vienna-to-budapest-guide) for the full comparison against flying and the train.',
+      },
+      { type: 'subheading', text: 'Salzburg → Munich' },
+      {
+        type: 'paragraph',
+        text: "At roughly 90 minutes, this route exists because Munich Airport has far more long-haul connections than Salzburg's — travelers starting or ending an international trip often route through Munich for exactly that reason. Details in the [Salzburg to Munich guide](/blog/salzburg-to-munich-transfer-options).",
+      },
+      { type: 'subheading', text: 'Innsbruck → Italy via the Brenner Pass' },
+      {
+        type: 'paragraph',
+        text: "The main Alpine crossing south, reaching Bolzano in about 1.5 hours or Venice and Milan in around 3.5. It's the natural continuation for anyone splitting a trip between Tyrol and northern Italy. See the [Innsbruck to Italy guide](/blog/innsbruck-to-italy-brenner-pass-guide) for what the Brenner Pass itself involves.",
+      },
+      { type: 'subheading', text: 'Bregenz → Zurich' },
+      {
+        type: 'paragraph',
+        text: "The westernmost corridor on this list, out of Vorarlberg. Zurich Airport is often the better-connected option for this part of Austria compared to flying via Innsbruck or Munich. Full write-up in the [Bregenz to Zurich guide](/blog/bregenz-to-zurich-guide), including the short Vaduz, Liechtenstein add-on.",
+      },
+      { type: 'subheading', text: 'Linz → Prague' },
+      {
+        type: 'paragraph',
+        text: 'The main northern route, at 2.5–3 hours depending on ongoing roadworks near the border. České Budějovice is a shorter alternative if Prague itself isn\'t the destination. Read the [Linz to Prague guide](/blog/linz-to-prague-guide) for the full comparison, including Vienna as an alternative starting point.',
+      },
+      { type: 'subheading', text: 'Graz → Ljubljana' },
+      {
+        type: 'paragraph',
+        text: 'The southern route into Slovenia, shorter yet from Klagenfurt or Villach in Carinthia. See the [Graz to Ljubljana guide](/blog/graz-to-ljubljana-guide) for the Karawanks tunnel crossing and the closer Maribor alternative.',
+      },
+      { type: 'heading', text: 'Picking the right corridor for your trip' },
+      {
+        type: 'paragraph',
+        text: "If you're flying, the question is usually which airport has the fare or route you need — Bratislava and Munich are the two most common alternates to Vienna and Salzburg respectively. For business travel across the Vienna–Bratislava–Budapest corridor specifically, all three capitals are reachable without changing vehicles, which is usually faster than flying between them once airport time is counted. For Alpine routes like Innsbruck–Italy or Bregenz–Zurich, the deciding factor is usually less about speed and more about not driving unfamiliar mountain roads yourself.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Flying internationally soon? Check whether the neighboring country's airport has a better fare or route first — it's the reason 3 of these 7 corridors exist",
+          'Visiting more than one capital? A multi-stop booking across Vienna–Bratislava–Budapest usually beats flying between them once airport time is counted',
+          'Traveling in winter? Alpine crossings (Innsbruck–Italy) benefit most from a professional driver over a self-drive rental',
+          'Traveling with a group or extra luggage? An [Executive Van](/fleet/van) gives more room than a sedan on any multi-hour corridor',
+        ],
+      },
+      { type: 'heading', text: 'What every cross-border transfer includes' },
+      {
+        type: 'paragraph',
+        text: "Every route above is priced and confirmed by email before the trip, in a single vehicle door to door — no second booking at the border, no metered fare running up in cross-border traffic, and no separate charge for crossing into a neighboring country. That applies whether you book a [Business Sedan](/fleet/sedan) for a short hop like Vienna–Bratislava or a larger vehicle for a longer Alpine crossing. You can browse [every fixed route and price](/routes) directly, or see the full range of [cross-border and other services](/services) we cover.",
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do I need my passport for a cross-border transfer from Austria?',
+        answer:
+          "Carry valid photo ID for every cross-border trip, even though Austria and all seven neighboring countries above are Schengen members and routine passport checks don't happen. Schengen countries retain the right to reintroduce spot checks temporarily, so it's worth having ID on hand regardless of the route.",
+      },
+      {
+        question: 'Are cross-border transfers priced differently than domestic trips?',
+        answer:
+          "Every cross-border route is quoted as a fixed price by email before the trip, the same as a domestic transfer — there's no separate border fee or surcharge added on top. The price reflects distance and drive time, not which side of a border you end up on.",
+      },
+      {
+        question: 'Can I combine multiple cities across a border in one booking?',
+        answer:
+          'Yes — multi-stop itineraries like Vienna–Bratislava–Budapest are common and can be arranged as a single booking with the same vehicle and driver throughout, rather than separate point-to-point trips.',
+      },
+      {
+        question: 'Which vehicle should I book for a longer cross-border trip?',
+        answer:
+          'A Business Sedan covers most 1–3 passenger cross-border trips comfortably. For groups with more luggage, or a route like Innsbruck to Italy through the Brenner Pass, the Executive Van gives more room for a multi-hour drive.',
+      },
+      {
+        question: 'Is winter driving different on these cross-border routes?',
+        answer:
+          'The Alpine corridors — Innsbruck to Italy over the Brenner Pass in particular — see more demanding winter conditions than the flatter eastern routes like Vienna–Bratislava or Vienna–Budapest. A winter-ready vehicle and a driver familiar with the specific pass matter more on those crossings.',
+      },
+      {
+        question: 'Do I need a toll sticker (vignette) for these routes?',
+        answer:
+          "Austrian motorways require a Vignette, but that's built into the vehicle and price on a chauffeur booking, not something you need to buy separately. See our vignette guide for how the system works if you're curious.",
+      },
+    ],
+    relatedPages: [
+      { label: 'Vienna to Bratislava: Two Capitals, One Short Drive', href: '/blog/vienna-to-bratislava-guide' },
+      { label: 'Vienna to Budapest: A Cross-Border Road Trip Guide', href: '/blog/vienna-to-budapest-guide' },
+      { label: 'Salzburg to Munich: Comparing Your Transfer Options', href: '/blog/salzburg-to-munich-transfer-options' },
+      { label: 'Innsbruck to Italy: Crossing the Brenner Pass', href: '/blog/innsbruck-to-italy-brenner-pass-guide' },
+      { label: 'Bregenz to Zurich: The Westernmost Cross-Border Route', href: '/blog/bregenz-to-zurich-guide' },
+      { label: 'Linz to Prague: The Northern Cross-Border Route', href: '/blog/linz-to-prague-guide' },
+      { label: 'Graz to Ljubljana: Crossing into Slovenia', href: '/blog/graz-to-ljubljana-guide' },
+      { label: "Austria's Vignette System, Explained", href: '/blog/austria-vignette-toll-guide' },
+      { label: 'Browse All Fixed Routes & Pricing', href: '/routes' },
+      { label: 'See All Services', href: '/services' },
     ],
   },
 ]

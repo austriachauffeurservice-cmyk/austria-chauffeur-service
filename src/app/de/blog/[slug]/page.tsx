@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
 import { blogPosts } from '@/lib/content/de/blog'
+import { renderRichText } from '@/lib/content/rich-text'
 import { siteName, siteUrl } from '@/lib/content/site'
 
 type Params = { slug: string }
@@ -36,6 +37,18 @@ export async function generateMetadata({
   }
 }
 
+function wordCount(post: (typeof blogPosts)[number]): number {
+  return post.blocks.reduce((sum, block) => {
+    const text =
+      block.type === 'list'
+        ? block.items.join(' ')
+        : block.type === 'table'
+          ? [...block.headers, ...block.rows.flat()].join(' ')
+          : block.text
+    return sum + text.split(/\s+/).filter(Boolean).length
+  }, 0)
+}
+
 export default async function BlogPostPageDe({ params }: { params: Promise<Params> }) {
   const { slug } = await params
   const post = blogPosts.find((p) => p.slug === slug)
@@ -51,9 +64,13 @@ export default async function BlogPostPageDe({ params }: { params: Promise<Param
           '@type': 'BlogPosting',
           headline: post.title,
           description: post.excerpt,
+          image: `${siteUrl}/de/opengraph-image`,
           datePublished: post.publishedAt,
           dateModified: post.publishedAt,
           url: pageUrl,
+          inLanguage: 'de',
+          keywords: post.tags.join(', '),
+          wordCount: wordCount(post),
           author: { '@type': 'Organization', name: siteName, url: siteUrl },
           publisher: { '@type': 'Organization', name: siteName, url: siteUrl },
           mainEntityOfPage: pageUrl,
@@ -70,6 +87,19 @@ export default async function BlogPostPageDe({ params }: { params: Promise<Param
           ],
         }}
       />
+      {post.faqs && post.faqs.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: post.faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.question,
+              acceptedAnswer: { '@type': 'Answer', text: f.answer },
+            })),
+          }}
+        />
+      )}
 
       <article>
         <section className="border-b border-brand-line bg-brand-cream">
@@ -98,6 +128,12 @@ export default async function BlogPostPageDe({ params }: { params: Promise<Param
               </time>{' '}
               · {post.readingTime}
             </p>
+            <Link
+              href="/de/booking"
+              className="mt-6 inline-flex items-center gap-2 rounded-sm bg-brand-ink px-6 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-brand-gold"
+            >
+              Transfer anfragen
+            </Link>
           </div>
         </section>
 
@@ -111,26 +147,94 @@ export default async function BlogPostPageDe({ params }: { params: Promise<Param
                   </h2>
                 )
               }
+              if (block.type === 'subheading') {
+                return (
+                  <h3 key={i} className="font-display pt-2 text-lg text-brand-ink">
+                    {block.text}
+                  </h3>
+                )
+              }
               if (block.type === 'list') {
                 return (
                   <ul key={i} className="space-y-2 text-sm leading-relaxed text-brand-ink-2/90">
                     {block.items.map((item) => (
                       <li key={item} className="flex items-start gap-2">
                         <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                        {item}
+                        <span>{renderRichText(item)}</span>
                       </li>
                     ))}
                   </ul>
                 )
               }
+              if (block.type === 'table') {
+                return (
+                  <div key={i} className="overflow-x-auto rounded-sm border border-brand-line">
+                    <table className="w-full text-left text-sm">
+                      <thead>
+                        <tr className="bg-brand-cream">
+                          {block.headers.map((h) => (
+                            <th key={h} className="whitespace-nowrap px-4 py-2.5 font-display text-brand-ink">
+                              {h}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {block.rows.map((row, ri) => (
+                          <tr key={ri} className="border-t border-brand-line">
+                            {row.map((cell, ci) => (
+                              <td key={ci} className="px-4 py-2.5 text-brand-ink-2/90">
+                                {cell}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )
+              }
               return (
                 <p key={i} className="text-sm leading-relaxed text-brand-ink-2/90">
-                  {block.text}
+                  {renderRichText(block.text)}
                 </p>
               )
             })}
           </div>
         </section>
+
+        {post.faqs && post.faqs.length > 0 && (
+          <section className="border-t border-brand-line bg-brand-cream">
+            <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-xl text-brand-ink">Häufig gestellte Fragen</h2>
+              <dl className="mt-6 divide-y divide-brand-line">
+                {post.faqs.map((f) => (
+                  <div key={f.question} className="py-5 first:pt-0">
+                    <dt className="font-display text-base text-brand-ink">{f.question}</dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-brand-ink-2/80">{f.answer}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+        )}
+
+        {post.relatedPages && post.relatedPages.length > 0 && (
+          <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Weiterführende Seiten</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {post.relatedPages.map((page) => (
+                <Link
+                  key={page.href}
+                  href={page.href}
+                  className="rounded-sm border border-brand-line p-4 text-sm font-semibold text-brand-ink transition-colors hover:border-brand-gold hover:text-brand-gold"
+                >
+                  {page.label}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="border-t border-brand-line bg-brand-cream">
           <div className="mx-auto flex max-w-3xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">

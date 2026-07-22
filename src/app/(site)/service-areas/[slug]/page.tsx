@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
 import { HotelsSection, AttractionsSection } from '@/components/location-sections'
+import { LocationMap } from '@/components/location-map'
 import {
   austrianCities,
   borderCities,
@@ -196,6 +197,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
 
         <HotelsSection place={city} hotels={hotels} hotelNote={hotelNote} />
         <AttractionsSection place={city} attractions={attractions} />
+        <LocationMap query={`${city}, ${region}, Austria`} label={`${city} on the Map`} />
         <RelatedReading posts={relatedPosts} />
         <LocationCta place={city} />
       </>
