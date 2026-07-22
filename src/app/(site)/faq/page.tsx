@@ -3,12 +3,22 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { JsonLd } from '@/components/json-ld'
 import { faqs } from '@/lib/content/faq'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions',
   description:
     'Answers to common questions about booking, pricing, cross-border transfers, and vehicles at Austria Chauffeur Service.',
-  alternates: { canonical: '/faq', languages: { en: '/faq', de: '/de/faq' } },
+  alternates: { canonical: '/faq', languages: { en: '/faq', de: '/de/faq', 'x-default': '/faq' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/faq`,
+    title: 'Frequently Asked Questions',
+    description:
+      'Answers to common questions about booking, pricing, cross-border transfers, and vehicles at Austria Chauffeur Service.',
+  },
 }
 
 export default function FaqPage() {

@@ -9,7 +9,16 @@ export const metadata: Metadata = {
     'Hourly and day-rate chauffeur hire for meetings, roadshows, and multi-stop business days across Austria. Fixed pricing, professional drivers, corporate accounts available.',
   alternates: {
     canonical: '/corporate-transfers',
-    languages: { en: '/corporate-transfers', de: '/de/corporate-transfers' },
+    languages: { en: '/corporate-transfers', de: '/de/corporate-transfers', 'x-default': '/corporate-transfers' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/corporate-transfers`,
+    title: 'Corporate & Hourly Chauffeur Hire',
+    description:
+      'Hourly and day-rate chauffeur hire for meetings, roadshows, and multi-stop business days across Austria. Fixed pricing, professional drivers, corporate accounts available.',
   },
 }
 

@@ -8,7 +8,16 @@ export const metadata: Metadata = {
   title: 'Client Reviews',
   description:
     'What clients say about Austria Chauffeur Service — airport transfers, weddings, corporate travel, and cross-border trips.',
-  alternates: { canonical: '/reviews', languages: { en: '/reviews', de: '/de/reviews' } },
+  alternates: { canonical: '/reviews', languages: { en: '/reviews', de: '/de/reviews', 'x-default': '/reviews' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/reviews`,
+    title: 'Client Reviews',
+    description:
+      'What clients say about Austria Chauffeur Service — airport transfers, weddings, corporate travel, and cross-border trips.',
+  },
 }
 
 export default function ReviewsPage() {

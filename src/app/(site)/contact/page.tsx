@@ -2,12 +2,20 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { LocationMap } from '@/components/location-map'
-import { contactAddress, contactEmail } from '@/lib/content/site'
+import { siteName, contactAddress, contactEmail, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Contact',
   description: 'Get in touch with Austria Chauffeur Service for bookings and inquiries.',
-  alternates: { canonical: '/contact', languages: { en: '/contact', de: '/de/contact' } },
+  alternates: { canonical: '/contact', languages: { en: '/contact', de: '/de/contact', 'x-default': '/contact' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/contact`,
+    title: 'Contact',
+    description: 'Get in touch with Austria Chauffeur Service for bookings and inquiries.',
+  },
 }
 
 export default function ContactPage() {

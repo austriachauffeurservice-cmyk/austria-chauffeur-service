@@ -20,13 +20,17 @@ export async function generateMetadata({
   const route = routes.find((r) => r.slug === slug)
   if (!route) return {}
 
+  const canonical = `/de/routes/${slug}`
+  const title = `Transfer ${route.from} nach ${route.to}`
+  const description = `Privater Chauffeurtransfer von ${route.from} nach ${route.to}. ${route.distance}, ${route.driveTime} Fahrzeit, Festpreise.`
   return {
-    title: { absolute: `Transfer ${route.from} nach ${route.to}` },
-    description: `Privater Chauffeurtransfer von ${route.from} nach ${route.to}. ${route.distance}, ${route.driveTime} Fahrzeit, Festpreise.`,
+    title: { absolute: title },
+    description,
     alternates: {
-      canonical: `/de/routes/${slug}`,
-      languages: { en: `/routes/${slug}`, de: `/de/routes/${slug}` },
+      canonical,
+      languages: { en: `/routes/${slug}`, de: canonical, 'x-default': `/routes/${slug}` },
     },
+    openGraph: { type: 'website', siteName, locale: 'de_AT', url: `${siteUrl}${canonical}`, title, description },
   }
 }
 

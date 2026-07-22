@@ -3,12 +3,22 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ServiceIcon } from '@/components/service-icon'
 import { serviceTypes, vehicles } from '@/lib/content/services'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Services & Fleet',
   description:
     'Airport transfers, city-to-city travel, cross-border transfers, hourly hire, and event transport across Austria — with a fleet from business sedans to minibuses.',
-  alternates: { canonical: '/services', languages: { en: '/services', de: '/de/services' } },
+  alternates: { canonical: '/services', languages: { en: '/services', de: '/de/services', 'x-default': '/services' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/services`,
+    title: 'Services & Fleet',
+    description:
+      'Airport transfers, city-to-city travel, cross-border transfers, hourly hire, and event transport across Austria — with a fleet from business sedans to minibuses.',
+  },
 }
 
 export default function ServicesPage() {

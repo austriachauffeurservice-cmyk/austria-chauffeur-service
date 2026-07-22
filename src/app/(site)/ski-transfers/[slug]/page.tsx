@@ -22,13 +22,17 @@ export async function generateMetadata({
   const resort = skiResorts.find((r) => r.slug === slug)
   if (!resort) return {}
 
+  const canonical = `/ski-transfers/${slug}`
+  const title = `Ski Transfer to ${resort.name}`
+  const description = `Private airport-to-resort chauffeur transfer to ${resort.name}, ${resort.region}. Winter-ready vehicles, ski/board space, fixed pricing from ${resort.nearestAirports[0].name}.`
   return {
-    title: { absolute: `Ski Transfer to ${resort.name}` },
-    description: `Private airport-to-resort chauffeur transfer to ${resort.name}, ${resort.region}. Winter-ready vehicles, ski/board space, fixed pricing from ${resort.nearestAirports[0].name}.`,
+    title: { absolute: title },
+    description,
     alternates: {
-      canonical: `/ski-transfers/${slug}`,
-      languages: { en: `/ski-transfers/${slug}`, de: `/de/ski-transfers/${slug}` },
+      canonical,
+      languages: { en: canonical, de: `/de/ski-transfers/${slug}`, 'x-default': canonical },
     },
+    openGraph: { type: 'website', siteName, locale: 'en_US', url: `${siteUrl}${canonical}`, title, description },
   }
 }
 

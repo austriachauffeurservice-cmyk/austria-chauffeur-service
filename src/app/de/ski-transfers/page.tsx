@@ -1,14 +1,24 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { skiResorts } from '@/lib/content/de/ski-resorts'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Ski- & Alpintransfers in Österreich',
   description:
     'Private Flughafen-zu-Resort-Chauffeurtransfers nach Kitzbühel, St. Anton am Arlberg, Lech-Zürs, Ischgl, Zell am See-Kaprun, Saalbach-Hinterglemm und Sölden. Winterfeste Fahrzeuge, Festpreise.',
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/ski-transfers`,
+    title: 'Ski- & Alpintransfers in Österreich',
+    description:
+      'Private Flughafen-zu-Resort-Chauffeurtransfers nach Kitzbühel, St. Anton am Arlberg, Lech-Zürs, Ischgl, Zell am See-Kaprun, Saalbach-Hinterglemm und Sölden. Winterfeste Fahrzeuge, Festpreise.',
+  },
   alternates: {
     canonical: '/de/ski-transfers',
-    languages: { en: '/ski-transfers', de: '/de/ski-transfers' },
+    languages: { en: '/ski-transfers', de: '/de/ski-transfers', 'x-default': '/ski-transfers' },
   },
 }
 

@@ -2,12 +2,22 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { vehicles } from '@/lib/content/services'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Our Fleet',
   description:
     'Business Sedan, Luxury Sedan, Executive Van, and Minibus — private chauffeur vehicles for every trip size across Austria.',
-  alternates: { canonical: '/fleet', languages: { en: '/fleet', de: '/de/fleet' } },
+  alternates: { canonical: '/fleet', languages: { en: '/fleet', de: '/de/fleet', 'x-default': '/fleet' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/fleet`,
+    title: 'Our Fleet',
+    description:
+      'Business Sedan, Luxury Sedan, Executive Van, and Minibus — private chauffeur vehicles for every trip size across Austria.',
+  },
 }
 
 export default function FleetPage() {

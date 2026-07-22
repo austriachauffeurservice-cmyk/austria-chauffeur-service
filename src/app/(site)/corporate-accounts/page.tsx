@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { contactEmail } from '@/lib/content/site'
+import { siteName, contactEmail, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Corporate Accounts & Travel Partners',
@@ -8,7 +8,16 @@ export const metadata: Metadata = {
     'Corporate accounts for companies, travel agencies, and hotel concierges — consolidated invoicing, priority dispatch, and negotiated rates for recurring chauffeur bookings across Austria.',
   alternates: {
     canonical: '/corporate-accounts',
-    languages: { en: '/corporate-accounts', de: '/de/corporate-accounts' },
+    languages: { en: '/corporate-accounts', de: '/de/corporate-accounts', 'x-default': '/corporate-accounts' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/corporate-accounts`,
+    title: 'Corporate Accounts & Travel Partners',
+    description:
+      'Corporate accounts for companies, travel agencies, and hotel concierges — consolidated invoicing, priority dispatch, and negotiated rates for recurring chauffeur bookings across Austria.',
   },
 }
 

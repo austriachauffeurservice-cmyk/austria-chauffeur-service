@@ -2,12 +2,22 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { blogPosts } from '@/lib/content/blog'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Blog',
   description:
     'Guides on airport transfers, cross-border routes, and private chauffeur travel across Austria and neighboring countries.',
-  alternates: { canonical: '/blog', languages: { en: '/blog', de: '/de/blog' } },
+  alternates: { canonical: '/blog', languages: { en: '/blog', de: '/de/blog', 'x-default': '/blog' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/blog`,
+    title: 'Blog',
+    description:
+      'Guides on airport transfers, cross-border routes, and private chauffeur travel across Austria and neighboring countries.',
+  },
 }
 
 export default function BlogIndexPage() {

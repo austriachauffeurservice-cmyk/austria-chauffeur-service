@@ -10,7 +10,16 @@ export const metadata: Metadata = {
     'Direct private chauffeur transfers between any two Austrian cities — no ride-sharing, no layovers, one vehicle door to door. Fixed pricing, professional drivers.',
   alternates: {
     canonical: '/city-to-city-transfers',
-    languages: { en: '/city-to-city-transfers', de: '/de/city-to-city-transfers' },
+    languages: { en: '/city-to-city-transfers', de: '/de/city-to-city-transfers', 'x-default': '/city-to-city-transfers' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/city-to-city-transfers`,
+    title: 'City-to-City Transfers in Austria',
+    description:
+      'Direct private chauffeur transfers between any two Austrian cities — no ride-sharing, no layovers, one vehicle door to door. Fixed pricing, professional drivers.',
   },
 }
 

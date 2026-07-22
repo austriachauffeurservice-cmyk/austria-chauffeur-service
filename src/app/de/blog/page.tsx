@@ -2,12 +2,22 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { blogPosts } from '@/lib/content/de/blog'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Blog',
   description:
     'Leitfäden zu Flughafentransfers, grenzüberschreitenden Strecken und privatem Chauffeurreisen in Österreich und den Nachbarländern.',
-  alternates: { canonical: '/de/blog', languages: { en: '/blog', de: '/de/blog' } },
+  alternates: { canonical: '/de/blog', languages: { en: '/blog', de: '/de/blog', 'x-default': '/blog' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/blog`,
+    title: 'Blog',
+    description:
+      'Leitfäden zu Flughafentransfers, grenzüberschreitenden Strecken und privatem Chauffeurreisen in Österreich und den Nachbarländern.',
+  },
 }
 
 export default function BlogIndexPageDe() {

@@ -21,13 +21,17 @@ export async function generateMetadata({
   const vehicle = vehicles.find((v) => v.type === type)
   if (!vehicle) return {}
 
+  const canonical = `/de/fleet/${type}`
+  const title = `${vehicle.name} — Chauffeurfahrzeug`
+  const description = `${vehicle.description} ${vehicle.passengers} Fahrgäste, ${vehicle.luggage}. Buchen Sie mit einem professionellen Chauffeur in ganz Österreich.`
   return {
-    title: `${vehicle.name} — Chauffeurfahrzeug`,
-    description: `${vehicle.description} ${vehicle.passengers} Fahrgäste, ${vehicle.luggage}. Buchen Sie mit einem professionellen Chauffeur in ganz Österreich.`,
+    title,
+    description,
     alternates: {
-      canonical: `/de/fleet/${type}`,
-      languages: { en: `/fleet/${type}`, de: `/de/fleet/${type}` },
+      canonical,
+      languages: { en: `/fleet/${type}`, de: canonical, 'x-default': `/fleet/${type}` },
     },
+    openGraph: { type: 'website', siteName, locale: 'de_AT', url: `${siteUrl}${canonical}`, title, description },
   }
 }
 

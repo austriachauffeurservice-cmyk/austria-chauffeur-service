@@ -9,7 +9,16 @@ export const metadata: Metadata = {
     'Stunden- und Tagesbuchung für Meetings, Roadshows und mehrteilige Geschäftstage in ganz Österreich. Festpreise, professionelle Fahrer, Firmenkonten verfügbar.',
   alternates: {
     canonical: '/de/corporate-transfers',
-    languages: { en: '/corporate-transfers', de: '/de/corporate-transfers' },
+    languages: { en: '/corporate-transfers', de: '/de/corporate-transfers', 'x-default': '/corporate-transfers' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/corporate-transfers`,
+    title: 'Firmen- & Stunden-Chauffeurbuchung',
+    description:
+      'Stunden- und Tagesbuchung für Meetings, Roadshows und mehrteilige Geschäftstage in ganz Österreich. Festpreise, professionelle Fahrer, Firmenkonten verfügbar.',
   },
 }
 

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { contactEmail } from '@/lib/content/site'
+import { siteName, contactEmail, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Firmenkonten & Reisepartner',
@@ -8,7 +8,16 @@ export const metadata: Metadata = {
     'Firmenkonten für Unternehmen, Reisebüros und Hotelrezeptionen — gesammelte Rechnungsstellung, priorisierte Disposition und Sonderkonditionen für wiederkehrende Chauffeurbuchungen in Österreich.',
   alternates: {
     canonical: '/de/corporate-accounts',
-    languages: { en: '/corporate-accounts', de: '/de/corporate-accounts' },
+    languages: { en: '/corporate-accounts', de: '/de/corporate-accounts', 'x-default': '/corporate-accounts' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/corporate-accounts`,
+    title: 'Firmenkonten & Reisepartner',
+    description:
+      'Firmenkonten für Unternehmen, Reisebüros und Hotelrezeptionen — gesammelte Rechnungsstellung, priorisierte Disposition und Sonderkonditionen für wiederkehrende Chauffeurbuchungen in Österreich.',
   },
 }
 

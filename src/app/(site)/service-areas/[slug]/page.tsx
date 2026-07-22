@@ -47,31 +47,41 @@ export async function generateMetadata({
   if (!location) return {}
 
   const canonical = `/service-areas/${slug}`
-  const languages = { en: canonical, de: `/de/service-areas/${slug}` }
+  const languages = { en: canonical, de: `/de/service-areas/${slug}`, 'x-default': canonical }
+  const url = `${siteUrl}${canonical}`
 
   if (location.kind === 'city') {
     const { city, region } = location.data
+    const title = `Chauffeur Service in ${city}`
+    const description = `Private chauffeur transfers to and from ${city}, ${region} — airport pickups, city-to-city travel, and cross-border trips. Fixed pricing, professional drivers.`
     return {
-      title: `Chauffeur Service in ${city}`,
-      description: `Private chauffeur transfers to and from ${city}, ${region} — airport pickups, city-to-city travel, and cross-border trips. Fixed pricing, professional drivers.`,
+      title,
+      description,
       alternates: { canonical, languages },
+      openGraph: { type: 'website', siteName, locale: 'en_US', url, title, description },
     }
   }
 
   if (location.kind === 'borderCity') {
     const { city, country } = location.data
+    const title = `Chauffeur Transfer to ${city}, ${country}`
+    const description = `Private cross-border chauffeur transfer from Austria to ${city}, ${country}. Fixed pricing, licensed driver, no vehicle switch at the border.`
     return {
-      title: `Chauffeur Transfer to ${city}, ${country}`,
-      description: `Private cross-border chauffeur transfer from Austria to ${city}, ${country}. Fixed pricing, licensed driver, no vehicle switch at the border.`,
+      title,
+      description,
       alternates: { canonical, languages },
+      openGraph: { type: 'website', siteName, locale: 'en_US', url, title, description },
     }
   }
 
   const { country, cities } = location.data
+  const title = `Cross-Border Transfers to ${country}`
+  const description = `Licensed private chauffeur transfers from Austria to ${cities.join(', ')} (${country}). Fixed pricing, no vehicle switch at the border.`
   return {
-    title: `Cross-Border Transfers to ${country}`,
-    description: `Licensed private chauffeur transfers from Austria to ${cities.join(', ')} (${country}). Fixed pricing, no vehicle switch at the border.`,
+    title,
+    description,
     alternates: { canonical, languages },
+    openGraph: { type: 'website', siteName, locale: 'en_US', url, title, description },
   }
 }
 

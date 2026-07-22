@@ -45,31 +45,42 @@ export async function generateMetadata({
   if (!location) return {}
 
   const canonical = `/de/service-areas/${slug}`
-  const languages = { en: `/service-areas/${slug}`, de: canonical }
+  const enPath = `/service-areas/${slug}`
+  const languages = { en: enPath, de: canonical, 'x-default': enPath }
+  const url = `${siteUrl}${canonical}`
 
   if (location.kind === 'city') {
     const { city, region } = location.data
+    const title = `Chauffeurservice in ${city}`
+    const description = `Private Chauffeurtransfers von und nach ${city}, ${region} — Flughafenabholungen, Stadt-zu-Stadt-Fahrten und grenzüberschreitende Reisen. Festpreise, professionelle Fahrer.`
     return {
-      title: `Chauffeurservice in ${city}`,
-      description: `Private Chauffeurtransfers von und nach ${city}, ${region} — Flughafenabholungen, Stadt-zu-Stadt-Fahrten und grenzüberschreitende Reisen. Festpreise, professionelle Fahrer.`,
+      title,
+      description,
       alternates: { canonical, languages },
+      openGraph: { type: 'website', siteName, locale: 'de_AT', url, title, description },
     }
   }
 
   if (location.kind === 'borderCity') {
     const { city, country } = location.data
+    const title = `Chauffeurtransfer nach ${city}, ${country}`
+    const description = `Privater grenzüberschreitender Chauffeurtransfer von Österreich nach ${city}, ${country}. Festpreise, lizenzierter Fahrer, kein Fahrzeugwechsel an der Grenze.`
     return {
-      title: `Chauffeurtransfer nach ${city}, ${country}`,
-      description: `Privater grenzüberschreitender Chauffeurtransfer von Österreich nach ${city}, ${country}. Festpreise, lizenzierter Fahrer, kein Fahrzeugwechsel an der Grenze.`,
+      title,
+      description,
       alternates: { canonical, languages },
+      openGraph: { type: 'website', siteName, locale: 'de_AT', url, title, description },
     }
   }
 
   const { country, cities } = location.data
+  const title = `Grenzüberschreitende Transfers nach ${country}`
+  const description = `Lizenzierte private Chauffeurtransfers von Österreich nach ${cities.join(', ')} (${country}). Festpreise, kein Fahrzeugwechsel an der Grenze.`
   return {
-    title: `Grenzüberschreitende Transfers nach ${country}`,
-    description: `Lizenzierte private Chauffeurtransfers von Österreich nach ${cities.join(', ')} (${country}). Festpreise, kein Fahrzeugwechsel an der Grenze.`,
+    title,
+    description,
     alternates: { canonical, languages },
+    openGraph: { type: 'website', siteName, locale: 'de_AT', url, title, description },
   }
 }
 

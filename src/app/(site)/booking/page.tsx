@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { BookingForm } from '@/components/booking-form'
 import { BookingTrustStrip } from '@/components/booking-trust-strip'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Book a Transfer',
@@ -9,7 +10,16 @@ export const metadata: Metadata = {
   // Canonical points to the clean path — every /service-areas/* page links here
   // with a ?to= query param to prefill the form, which must not be indexed
   // as separate near-duplicate pages.
-  alternates: { canonical: '/booking', languages: { en: '/booking', de: '/de/booking' } },
+  alternates: { canonical: '/booking', languages: { en: '/booking', de: '/de/booking', 'x-default': '/booking' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/booking`,
+    title: 'Book a Transfer',
+    description:
+      'Request a private chauffeur transfer anywhere in Austria, or cross-border to Germany, Czech Republic, Slovakia, Hungary, Slovenia, Italy, and Switzerland.',
+  },
 }
 
 export default function BookingPage() {

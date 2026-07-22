@@ -1,11 +1,19 @@
 import type { Metadata } from 'next'
-import { contactAddress, contactEmail, siteName } from '@/lib/content/site'
+import { contactAddress, contactEmail, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Datenschutzerklärung',
   description: 'Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.',
   alternates: { canonical: '/datenschutz' },
   robots: { index: true, follow: true },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/datenschutz`,
+    title: 'Datenschutzerklärung',
+    description: 'Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.',
+  },
 }
 
 export default function DatenschutzPage() {

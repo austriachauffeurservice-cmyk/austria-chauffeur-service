@@ -1,12 +1,22 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { dayTours } from '@/lib/content/de/day-tours'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Private Tagesausflüge ab Wien & Salzburg',
   description:
     'Chauffeurgeführte Tagesausflüge nach Hallstatt, in die Wachau und nach Salzburg — Privatfahrzeug, flexible Zeitplanung, im Voraus vereinbarter Festpreis.',
-  alternates: { canonical: '/de/day-tours', languages: { en: '/day-tours', de: '/de/day-tours' } },
+  alternates: { canonical: '/de/day-tours', languages: { en: '/day-tours', de: '/de/day-tours', 'x-default': '/day-tours' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/day-tours`,
+    title: 'Private Tagesausflüge ab Wien & Salzburg',
+    description:
+      'Chauffeurgeführte Tagesausflüge nach Hallstatt, in die Wachau und nach Salzburg — Privatfahrzeug, flexible Zeitplanung, im Voraus vereinbarter Festpreis.',
+  },
 }
 
 export default function DayToursPageDe() {

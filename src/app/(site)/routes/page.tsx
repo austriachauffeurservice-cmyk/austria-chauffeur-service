@@ -1,12 +1,22 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { routes } from '@/lib/content/routes'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Popular Chauffeur Routes',
   description:
     'Distance, drive time, and route details for the most-booked private chauffeur routes across Austria and cross-border to neighboring countries.',
-  alternates: { canonical: '/routes', languages: { en: '/routes', de: '/de/routes' } },
+  alternates: { canonical: '/routes', languages: { en: '/routes', de: '/de/routes', 'x-default': '/routes' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/routes`,
+    title: 'Popular Chauffeur Routes',
+    description:
+      'Distance, drive time, and route details for the most-booked private chauffeur routes across Austria and cross-border to neighboring countries.',
+  },
 }
 
 export default function RoutesPage() {

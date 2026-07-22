@@ -1,11 +1,19 @@
 import type { Metadata } from 'next'
-import { contactAddress, contactEmail, siteName } from '@/lib/content/site'
+import { contactAddress, contactEmail, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Allgemeine Geschäftsbedingungen',
   description: 'Allgemeine Geschäftsbedingungen (AGB) für Buchungen bei ' + siteName + '.',
   alternates: { canonical: '/agb' },
   robots: { index: true, follow: true },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/agb`,
+    title: 'Allgemeine Geschäftsbedingungen',
+    description: 'Allgemeine Geschäftsbedingungen (AGB) für Buchungen bei ' + siteName + '.',
+  },
 }
 
 export default function AgbPage() {

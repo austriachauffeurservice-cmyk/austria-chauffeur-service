@@ -2,12 +2,22 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { austrianCities, borderCities, borderCrossingDestinations } from '@/lib/content/service-areas'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Service Areas Across Austria',
   description:
     'Private chauffeur coverage across all nine Austrian states, plus licensed cross-border transfers to Germany, Czech Republic, Slovakia, Hungary, Slovenia, Italy, and Switzerland.',
-  alternates: { canonical: '/service-areas', languages: { en: '/service-areas', de: '/de/service-areas' } },
+  alternates: { canonical: '/service-areas', languages: { en: '/service-areas', de: '/de/service-areas', 'x-default': '/service-areas' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/service-areas`,
+    title: 'Service Areas Across Austria',
+    description:
+      'Private chauffeur coverage across all nine Austrian states, plus licensed cross-border transfers to Germany, Czech Republic, Slovakia, Hungary, Slovenia, Italy, and Switzerland.',
+  },
 }
 
 const cityImages: Record<string, string> = {

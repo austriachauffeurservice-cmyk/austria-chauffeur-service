@@ -20,13 +20,17 @@ export async function generateMetadata({
   const tour = dayTours.find((t) => t.slug === slug)
   if (!tour) return {}
 
+  const canonical = `/de/day-tours/${slug}`
+  const title = `Tagesausflug ${tour.name} ab ${tour.startingPoints[0].from}`
+  const description = `${tour.tagline} Privater Chauffeur-Tagesausflug, ${tour.startingPoints[0].driveTime} ab ${tour.startingPoints[0].from}, Festpreise.`
   return {
-    title: { absolute: `Tagesausflug ${tour.name} ab ${tour.startingPoints[0].from}` },
-    description: `${tour.tagline} Privater Chauffeur-Tagesausflug, ${tour.startingPoints[0].driveTime} ab ${tour.startingPoints[0].from}, Festpreise.`,
+    title: { absolute: title },
+    description,
     alternates: {
-      canonical: `/de/day-tours/${slug}`,
-      languages: { en: `/day-tours/${slug}`, de: `/de/day-tours/${slug}` },
+      canonical,
+      languages: { en: `/day-tours/${slug}`, de: canonical, 'x-default': `/day-tours/${slug}` },
     },
+    openGraph: { type: 'website', siteName, locale: 'de_AT', url: `${siteUrl}${canonical}`, title, description },
   }
 }
 

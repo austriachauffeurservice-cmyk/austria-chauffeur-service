@@ -9,7 +9,16 @@ export const metadata: Metadata = {
     'Discreet, punctual chauffeur transport for diplomatic missions, international organizations, and conference delegations in Vienna. Multilingual drivers, fixed pricing.',
   alternates: {
     canonical: '/diplomatic-transfers',
-    languages: { en: '/diplomatic-transfers', de: '/de/diplomatic-transfers' },
+    languages: { en: '/diplomatic-transfers', de: '/de/diplomatic-transfers', 'x-default': '/diplomatic-transfers' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/diplomatic-transfers`,
+    title: 'Diplomatic & Embassy Transport in Vienna',
+    description:
+      'Discreet, punctual chauffeur transport for diplomatic missions, international organizations, and conference delegations in Vienna. Multilingual drivers, fixed pricing.',
   },
 }
 

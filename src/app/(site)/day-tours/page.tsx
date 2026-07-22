@@ -1,12 +1,22 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { dayTours } from '@/lib/content/day-tours'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Private Day Tours from Vienna & Salzburg',
   description:
     'Chauffeur-driven day trips to Hallstatt, the Wachau Valley, and Salzburg — private vehicle, flexible itinerary, fixed pricing agreed in advance.',
-  alternates: { canonical: '/day-tours', languages: { en: '/day-tours', de: '/de/day-tours' } },
+  alternates: { canonical: '/day-tours', languages: { en: '/day-tours', de: '/de/day-tours', 'x-default': '/day-tours' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/day-tours`,
+    title: 'Private Day Tours from Vienna & Salzburg',
+    description:
+      'Chauffeur-driven day trips to Hallstatt, the Wachau Valley, and Salzburg — private vehicle, flexible itinerary, fixed pricing agreed in advance.',
+  },
 }
 
 export default function DayToursPage() {

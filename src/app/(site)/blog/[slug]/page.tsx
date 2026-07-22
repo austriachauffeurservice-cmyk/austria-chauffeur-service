@@ -22,15 +22,19 @@ export async function generateMetadata({
   const post = blogPosts.find((p) => p.slug === slug)
   if (!post) return {}
 
+  const canonical = `/blog/${slug}`
   return {
     title: post.title,
     description: post.excerpt,
     alternates: {
-      canonical: `/blog/${slug}`,
-      languages: { en: `/blog/${slug}`, de: `/de/blog/${slug}` },
+      canonical,
+      languages: { en: canonical, de: `/de/blog/${slug}`, 'x-default': canonical },
     },
     openGraph: {
       type: 'article',
+      siteName,
+      locale: 'en_US',
+      url: `${siteUrl}${canonical}`,
       title: post.title,
       description: post.excerpt,
       publishedTime: post.publishedAt,

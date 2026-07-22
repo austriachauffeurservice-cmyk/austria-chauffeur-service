@@ -9,7 +9,16 @@ export const metadata: Metadata = {
     'Diskreter, pünktlicher Chauffeurtransport für diplomatische Vertretungen, internationale Organisationen und Konferenzdelegationen in Wien. Mehrsprachige Fahrer, Festpreise.',
   alternates: {
     canonical: '/de/diplomatic-transfers',
-    languages: { en: '/diplomatic-transfers', de: '/de/diplomatic-transfers' },
+    languages: { en: '/diplomatic-transfers', de: '/de/diplomatic-transfers', 'x-default': '/diplomatic-transfers' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/diplomatic-transfers`,
+    title: 'Diplomaten- & Botschaftstransport in Wien',
+    description:
+      'Diskreter, pünktlicher Chauffeurtransport für diplomatische Vertretungen, internationale Organisationen und Konferenzdelegationen in Wien. Mehrsprachige Fahrer, Festpreise.',
   },
 }
 

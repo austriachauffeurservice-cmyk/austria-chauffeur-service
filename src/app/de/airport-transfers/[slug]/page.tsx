@@ -21,13 +21,17 @@ export async function generateMetadata({
   const airport = airports.find((a) => a.slug === slug)
   if (!airport) return {}
 
+  const canonical = `/de/airport-transfers/${slug}`
+  const title = `${airport.name} (${airport.code}) Transfer`
+  const description = `Privater Empfangsservice-Abholung am ${airport.name} (${airport.code}). Flugverfolgung, Festpreise, professionelle Fahrer.`
   return {
-    title: { absolute: `${airport.name} (${airport.code}) Transfer` },
-    description: `Privater Empfangsservice-Abholung am ${airport.name} (${airport.code}). Flugverfolgung, Festpreise, professionelle Fahrer.`,
+    title: { absolute: title },
+    description,
     alternates: {
-      canonical: `/de/airport-transfers/${slug}`,
-      languages: { en: `/airport-transfers/${slug}`, de: `/de/airport-transfers/${slug}` },
+      canonical,
+      languages: { en: `/airport-transfers/${slug}`, de: canonical, 'x-default': `/airport-transfers/${slug}` },
     },
+    openGraph: { type: 'website', siteName, locale: 'de_AT', url: `${siteUrl}${canonical}`, title, description },
   }
 }
 

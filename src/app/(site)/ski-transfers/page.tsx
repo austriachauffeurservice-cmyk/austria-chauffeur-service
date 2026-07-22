@@ -1,12 +1,22 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { skiResorts } from '@/lib/content/ski-resorts'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Ski & Alpine Transfers in Austria',
   description:
     'Private airport-to-resort chauffeur transfers to Kitzbühel, St. Anton am Arlberg, Lech-Zürs, Ischgl, Zell am See-Kaprun, Saalbach-Hinterglemm, and Sölden. Winter-ready vehicles, fixed pricing.',
-  alternates: { canonical: '/ski-transfers', languages: { en: '/ski-transfers', de: '/de/ski-transfers' } },
+  alternates: { canonical: '/ski-transfers', languages: { en: '/ski-transfers', de: '/de/ski-transfers', 'x-default': '/ski-transfers' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/ski-transfers`,
+    title: 'Ski & Alpine Transfers in Austria',
+    description:
+      'Private airport-to-resort chauffeur transfers to Kitzbühel, St. Anton am Arlberg, Lech-Zürs, Ischgl, Zell am See-Kaprun, Saalbach-Hinterglemm, and Sölden. Winter-ready vehicles, fixed pricing.',
+  },
 }
 
 export default function SkiTransfersPage() {

@@ -10,7 +10,16 @@ export const metadata: Metadata = {
     'Direkte private Chauffeurtransfers zwischen beliebigen österreichischen Städten — kein Umsteigen, kein Warten, ein Fahrzeug von Tür zu Tür. Festpreise, professionelle Fahrer.',
   alternates: {
     canonical: '/de/city-to-city-transfers',
-    languages: { en: '/city-to-city-transfers', de: '/de/city-to-city-transfers' },
+    languages: { en: '/city-to-city-transfers', de: '/de/city-to-city-transfers', 'x-default': '/city-to-city-transfers' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/city-to-city-transfers`,
+    title: 'Stadt-zu-Stadt-Transfers in Österreich',
+    description:
+      'Direkte private Chauffeurtransfers zwischen beliebigen österreichischen Städten — kein Umsteigen, kein Warten, ein Fahrzeug von Tür zu Tür. Festpreise, professionelle Fahrer.',
   },
 }
 

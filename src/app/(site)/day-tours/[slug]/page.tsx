@@ -20,13 +20,17 @@ export async function generateMetadata({
   const tour = dayTours.find((t) => t.slug === slug)
   if (!tour) return {}
 
+  const canonical = `/day-tours/${slug}`
+  const title = `${tour.name} Day Trip from ${tour.startingPoints[0].from}`
+  const description = `${tour.tagline} Private chauffeur day tour, ${tour.startingPoints[0].driveTime} from ${tour.startingPoints[0].from}, fixed pricing.`
   return {
-    title: { absolute: `${tour.name} Day Trip from ${tour.startingPoints[0].from}` },
-    description: `${tour.tagline} Private chauffeur day tour, ${tour.startingPoints[0].driveTime} from ${tour.startingPoints[0].from}, fixed pricing.`,
+    title: { absolute: title },
+    description,
     alternates: {
-      canonical: `/day-tours/${slug}`,
-      languages: { en: `/day-tours/${slug}`, de: `/de/day-tours/${slug}` },
+      canonical,
+      languages: { en: canonical, de: `/de/day-tours/${slug}`, 'x-default': canonical },
     },
+    openGraph: { type: 'website', siteName, locale: 'en_US', url: `${siteUrl}${canonical}`, title, description },
   }
 }
 

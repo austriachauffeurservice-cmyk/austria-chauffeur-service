@@ -8,7 +8,16 @@ export const metadata: Metadata = {
   title: 'Kundenbewertungen',
   description:
     'Was Kunden über Austria Chauffeur Service sagen — Flughafentransfers, Hochzeiten, Geschäftsreisen und grenzüberschreitende Fahrten.',
-  alternates: { canonical: '/de/reviews', languages: { en: '/reviews', de: '/de/reviews' } },
+  alternates: { canonical: '/de/reviews', languages: { en: '/reviews', de: '/de/reviews', 'x-default': '/reviews' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/reviews`,
+    title: 'Kundenbewertungen',
+    description:
+      'Was Kunden über Austria Chauffeur Service sagen — Flughafentransfers, Hochzeiten, Geschäftsreisen und grenzüberschreitende Fahrten.',
+  },
 }
 
 export default function ReviewsPageDe() {

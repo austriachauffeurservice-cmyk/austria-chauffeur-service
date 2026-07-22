@@ -9,7 +9,16 @@ export const metadata: Metadata = {
     'Koordinierter Hochzeitstransport in ganz Österreich — Brautauto, Gästeshuttle und mehrstufige Zeitplanung zwischen Trauung, Fotos und Feier. Festpreise, professionelle Fahrer.',
   alternates: {
     canonical: '/de/wedding-transfers',
-    languages: { en: '/wedding-transfers', de: '/de/wedding-transfers' },
+    languages: { en: '/wedding-transfers', de: '/de/wedding-transfers', 'x-default': '/wedding-transfers' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/wedding-transfers`,
+    title: 'Hochzeits-Chauffeur & Transferservice',
+    description:
+      'Koordinierter Hochzeitstransport in ganz Österreich — Brautauto, Gästeshuttle und mehrstufige Zeitplanung zwischen Trauung, Fotos und Feier. Festpreise, professionelle Fahrer.',
   },
 }
 

@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: "/",
-    languages: { en: "/", de: "/de" },
+    languages: { en: "/", de: "/de", "x-default": "/" },
   },
   verification: {
     google: "_pBWPR8VXtw3eiSGw3MM3_pm7VKDXklp-ud2u4PpfCk",

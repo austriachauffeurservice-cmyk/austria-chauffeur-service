@@ -21,13 +21,17 @@ export async function generateMetadata({
   const resort = skiResorts.find((r) => r.slug === slug)
   if (!resort) return {}
 
+  const canonical = `/de/ski-transfers/${slug}`
+  const title = `Skitransfer nach ${resort.name}`
+  const description = `Privater Flughafen-zu-Resort-Chauffeurtransfer nach ${resort.name}, ${resort.region}. Winterfeste Fahrzeuge, Platz für Ski/Board, Festpreise ab ${resort.nearestAirports[0].name}.`
   return {
-    title: { absolute: `Skitransfer nach ${resort.name}` },
-    description: `Privater Flughafen-zu-Resort-Chauffeurtransfer nach ${resort.name}, ${resort.region}. Winterfeste Fahrzeuge, Platz für Ski/Board, Festpreise ab ${resort.nearestAirports[0].name}.`,
+    title: { absolute: title },
+    description,
     alternates: {
-      canonical: `/de/ski-transfers/${slug}`,
-      languages: { en: `/ski-transfers/${slug}`, de: `/de/ski-transfers/${slug}` },
+      canonical,
+      languages: { en: `/ski-transfers/${slug}`, de: canonical, 'x-default': `/ski-transfers/${slug}` },
     },
+    openGraph: { type: 'website', siteName, locale: 'de_AT', url: `${siteUrl}${canonical}`, title, description },
   }
 }
 

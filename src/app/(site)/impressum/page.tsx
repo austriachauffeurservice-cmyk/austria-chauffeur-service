@@ -1,11 +1,19 @@
 import type { Metadata } from 'next'
-import { contactAddress, contactEmail, siteName } from '@/lib/content/site'
+import { contactAddress, contactEmail, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Impressum',
   description: 'Impressum gemäß § 5 ECG und § 25 Mediengesetz.',
   alternates: { canonical: '/impressum' },
   robots: { index: true, follow: true },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/impressum`,
+    title: 'Impressum',
+    description: 'Impressum gemäß § 5 ECG und § 25 Mediengesetz.',
+  },
 }
 
 export default function ImpressumPage() {

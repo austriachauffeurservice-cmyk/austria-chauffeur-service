@@ -9,7 +9,16 @@ export const metadata: Metadata = {
     'Coordinated wedding transport across Austria — bridal car, guest shuttles, and multi-vehicle timing between ceremony, photos, and reception. Fixed pricing, professional drivers.',
   alternates: {
     canonical: '/wedding-transfers',
-    languages: { en: '/wedding-transfers', de: '/de/wedding-transfers' },
+    languages: { en: '/wedding-transfers', de: '/de/wedding-transfers', 'x-default': '/wedding-transfers' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/wedding-transfers`,
+    title: 'Wedding Chauffeur & Transfer Service',
+    description:
+      'Coordinated wedding transport across Austria — bridal car, guest shuttles, and multi-vehicle timing between ceremony, photos, and reception. Fixed pricing, professional drivers.',
   },
 }
 

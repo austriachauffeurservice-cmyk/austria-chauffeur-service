@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'Buchen Sie private Chauffeurtransfers in ganz Österreich, einschließlich Flughafentransfers, Stadt-zu-Stadt-Fahrten und grenzüberschreitenden Transfers in die Nachbarländer — jede Fahrt durchgeführt von einem lizenzierten, geprüften Chauffeurpartner.',
   alternates: {
     canonical: '/de',
-    languages: { en: '/', de: '/de' },
+    languages: { en: '/', de: '/de', 'x-default': '/' },
   },
 }
 

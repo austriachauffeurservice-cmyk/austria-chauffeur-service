@@ -2,12 +2,22 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { vehicles } from '@/lib/content/de/services'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Unser Fuhrpark',
   description:
     'Business-Limousine, Luxus-Limousine, Executive Van und Kleinbus — private Chauffeurfahrzeuge für jede Reisegröße in Österreich.',
-  alternates: { canonical: '/de/fleet', languages: { en: '/fleet', de: '/de/fleet' } },
+  alternates: { canonical: '/de/fleet', languages: { en: '/fleet', de: '/de/fleet', 'x-default': '/fleet' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/fleet`,
+    title: 'Unser Fuhrpark',
+    description:
+      'Business-Limousine, Luxus-Limousine, Executive Van und Kleinbus — private Chauffeurfahrzeuge für jede Reisegröße in Österreich.',
+  },
 }
 
 export default function FleetPageDe() {

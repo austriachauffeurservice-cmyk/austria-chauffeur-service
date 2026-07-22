@@ -1,12 +1,25 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { airports } from '@/lib/content/airports'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Airport Transfers in Austria',
   description:
     'Private meet-and-greet chauffeur pickup at Vienna, Salzburg, Innsbruck, Graz, Linz, and Klagenfurt airports. Flight tracking, fixed pricing, no waiting in taxi lines.',
-  alternates: { canonical: '/airport-transfers', languages: { en: '/airport-transfers', de: '/de/airport-transfers' } },
+  alternates: {
+    canonical: '/airport-transfers',
+    languages: { en: '/airport-transfers', de: '/de/airport-transfers', 'x-default': '/airport-transfers' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/airport-transfers`,
+    title: 'Airport Transfers in Austria',
+    description:
+      'Private meet-and-greet chauffeur pickup at Vienna, Salzburg, Innsbruck, Graz, Linz, and Klagenfurt airports. Flight tracking, fixed pricing, no waiting in taxi lines.',
+  },
 }
 
 export default function AirportTransfersPage() {

@@ -2,14 +2,22 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { LocationMap } from '@/components/location-map'
-import { contactAddress, contactEmail } from '@/lib/content/site'
+import { siteName, contactAddress, contactEmail, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Kontakt',
   description: 'Kontaktieren Sie Austria Chauffeur Service für Buchungen und Anfragen.',
   alternates: {
     canonical: '/de/contact',
-    languages: { en: '/contact', de: '/de/contact' },
+    languages: { en: '/contact', de: '/de/contact', 'x-default': '/contact' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/contact`,
+    title: 'Kontakt',
+    description: 'Kontaktieren Sie Austria Chauffeur Service für Buchungen und Anfragen.',
   },
 }
 

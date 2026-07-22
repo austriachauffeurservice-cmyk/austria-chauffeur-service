@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { BookingForm } from '@/components/booking-form'
 import { BookingTrustStrip } from '@/components/booking-trust-strip'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Transfer buchen',
@@ -8,7 +9,16 @@ export const metadata: Metadata = {
     'Fordern Sie einen privaten Chauffeurtransfer überall in Österreich an, oder grenzüberschreitend nach Deutschland, Tschechien, Slowakei, Ungarn, Slowenien, Italien und in die Schweiz.',
   alternates: {
     canonical: '/de/booking',
-    languages: { en: '/booking', de: '/de/booking' },
+    languages: { en: '/booking', de: '/de/booking', 'x-default': '/booking' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/booking`,
+    title: 'Transfer buchen',
+    description:
+      'Fordern Sie einen privaten Chauffeurtransfer überall in Österreich an, oder grenzüberschreitend nach Deutschland, Tschechien, Slowakei, Ungarn, Slowenien, Italien und in die Schweiz.',
   },
 }
 

@@ -2,14 +2,24 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { austrianCities, borderCities, borderCrossingDestinations } from '@/lib/content/de/service-areas'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Einsatzgebiete in ganz Österreich',
   description:
     'Private Chauffeurabdeckung in allen neun österreichischen Bundesländern, plus lizenzierte grenzüberschreitende Transfers nach Deutschland, Tschechien, Slowakei, Ungarn, Slowenien, Italien und in die Schweiz.',
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/service-areas`,
+    title: 'Einsatzgebiete in ganz Österreich',
+    description:
+      'Private Chauffeurabdeckung in allen neun österreichischen Bundesländern, plus lizenzierte grenzüberschreitende Transfers nach Deutschland, Tschechien, Slowakei, Ungarn, Slowenien, Italien und in die Schweiz.',
+  },
   alternates: {
     canonical: '/de/service-areas',
-    languages: { en: '/service-areas', de: '/de/service-areas' },
+    languages: { en: '/service-areas', de: '/de/service-areas', 'x-default': '/service-areas' },
   },
 }
 

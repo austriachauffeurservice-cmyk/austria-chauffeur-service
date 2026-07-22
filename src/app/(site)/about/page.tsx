@@ -1,12 +1,22 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'About Us',
   description:
     'Austria Chauffeur Service connects travelers with licensed, professional chauffeur partners for private transfers across Austria and across its borders.',
-  alternates: { canonical: '/about', languages: { en: '/about', de: '/de/about' } },
+  alternates: { canonical: '/about', languages: { en: '/about', de: '/de/about', 'x-default': '/about' } },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'en_US',
+    url: `${siteUrl}/about`,
+    title: 'About Us',
+    description:
+      'Austria Chauffeur Service connects travelers with licensed, professional chauffeur partners for private transfers across Austria and across its borders.',
+  },
 }
 
 const values = [

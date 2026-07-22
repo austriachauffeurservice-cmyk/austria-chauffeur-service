@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Über uns',
@@ -8,7 +9,16 @@ export const metadata: Metadata = {
     'Austria Chauffeur Service vermittelt Reisenden lizenzierte, professionelle Chauffeurpartner für Privattransfers in ganz Österreich und über die Grenzen hinaus.',
   alternates: {
     canonical: '/de/about',
-    languages: { en: '/about', de: '/de/about' },
+    languages: { en: '/about', de: '/de/about', 'x-default': '/about' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/about`,
+    title: 'Über uns',
+    description:
+      'Austria Chauffeur Service vermittelt Reisenden lizenzierte, professionelle Chauffeurpartner für Privattransfers in ganz Österreich und über die Grenzen hinaus.',
   },
 }
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { airports } from '@/lib/content/de/airports'
+import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Flughafentransfers in ganz Österreich',
@@ -8,7 +9,16 @@ export const metadata: Metadata = {
     'Private Empfangsservice-Abholung an den Flughäfen Wien, Salzburg, Innsbruck, Graz, Linz und Klagenfurt. Flugverfolgung, Festpreise, kein Warten in der Taxischlange.',
   alternates: {
     canonical: '/de/airport-transfers',
-    languages: { en: '/airport-transfers', de: '/de/airport-transfers' },
+    languages: { en: '/airport-transfers', de: '/de/airport-transfers', 'x-default': '/airport-transfers' },
+  },
+  openGraph: {
+    type: 'website',
+    siteName,
+    locale: 'de_AT',
+    url: `${siteUrl}/de/airport-transfers`,
+    title: 'Flughafentransfers in ganz Österreich',
+    description:
+      'Private Empfangsservice-Abholung an den Flughäfen Wien, Salzburg, Innsbruck, Graz, Linz und Klagenfurt. Flugverfolgung, Festpreise, kein Warten in der Taxischlange.',
   },
 }
 
