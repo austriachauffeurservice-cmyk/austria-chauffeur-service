@@ -9,9 +9,18 @@ export type AdminAction =
   | 'price_updated'
   | 'driver_assigned'
   | 'trip_details_updated'
+  | 'tags_updated'
   | 'booking_deleted'
+  | 'booking_restored'
+  | 'booking_purged'
   | 'booking_created'
   | 'email_sent'
+  | 'note_added'
+  | 'bulk_status_updated'
+  | 'bulk_deleted'
+  | 'partner_created'
+  | 'partner_updated'
+  | 'partner_deactivated'
 
 type LogEntry = {
   actor?: string

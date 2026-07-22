@@ -1,8 +1,16 @@
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileInvoiceDollar, faFileLines, faReceipt } from '@fortawesome/free-solid-svg-icons'
 import { PrintButton } from './print-button'
 import { contactAddress, contactEmail, contactPhone, siteName } from '@/lib/content/site'
+
+const docIcons = {
+  quote: faFileLines,
+  invoice: faFileInvoiceDollar,
+  receipt: faReceipt,
+}
 
 // These identifiers are not fabricated business data — set the real values
 // via env vars once available. Until then the document shows an explicit
@@ -53,6 +61,19 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
 
   const docNum = `${docPrefix[docType]}-${new Date().getFullYear()}-${booking.id.slice(0, 5).toUpperCase()}`
   const todayDate = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+
+  const docLabels = {
+    quote: { total: 'Estimated Total', accent: '#b45309' },
+    invoice: { total: 'Total Due', accent: '#b8934a' },
+    receipt: { total: 'Total Paid', accent: '#15803d' },
+  }
+
+  // Client-name + document-number based, since that's what the file should
+  // be called once saved/emailed, not a generic "document" or the site name.
+  const printFileName = `${docTitles[docType]} - ${booking.full_name} - ${docNum}`
+    .replace(/[^a-zA-Z0-9 -]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
 
   return (
     <div className="doc-wrapper">
@@ -362,7 +383,7 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
 
         <div className="btn-group">
           {/* Printable Trigger */}
-          <PrintButton />
+          <PrintButton fileName={printFileName} />
         </div>
       </div>
 
@@ -376,7 +397,10 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
               <div className="brand-sub">Premium Executive Transportation · Austria & Europe</div>
             </div>
             <div className="doc-title-block">
-              <h1 className="doc-title">{docTitles[docType]}</h1>
+              <h1 className="doc-title">
+                <FontAwesomeIcon icon={docIcons[docType]} style={{ marginRight: 8, fontSize: 17 }} />
+                {docTitles[docType]}
+              </h1>
               <div className="doc-meta">
                 <strong>Doc #:</strong> {docNum}<br />
                 <strong>Date:</strong> {todayDate}<br />
@@ -464,9 +488,9 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
                 <span>VAT (20% Incl.):</span>
                 <span>€{vatAmount}</span>
               </div>
-              <div className="total-row grand">
-                <span>Total EUR:</span>
-                <span>€{numericPrice.toFixed(2)}</span>
+              <div className="total-row grand" style={{ borderTopColor: docLabels[docType].accent }}>
+                <span>{docLabels[docType].total}:</span>
+                <span style={{ color: docLabels[docType].accent }}>€{numericPrice.toFixed(2)}</span>
               </div>
             </div>
           </div>
@@ -474,9 +498,14 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
           {/* Payment Details / Notes */}
           <div className="bank-details">
             <strong style={{ color: '#000', display: 'block', marginBottom: 4 }}>
-              {docType === 'receipt' ? 'Payment Information' : 'Bank Payment Details (IBAN/SWIFT)'}
+              {docType === 'quote' ? 'How to Confirm This Booking' : docType === 'receipt' ? 'Payment Information' : 'Bank Payment Details (IBAN/SWIFT)'}
             </strong>
-            {docType === 'receipt' ? (
+            {docType === 'quote' ? (
+              <span>
+                This is a non-binding price estimate, valid for 14 days — not a request for payment. Reply to this
+                email or call {contactPhone} to confirm the booking; we&apos;ll issue a Tax Invoice once confirmed.
+              </span>
+            ) : docType === 'receipt' ? (
               <span>Payment processed via credit card / driver terminal. Balance remaining: €0.00 EUR.</span>
             ) : businessBankDetails ? (
               <span>

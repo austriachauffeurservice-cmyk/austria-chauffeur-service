@@ -7,17 +7,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faBars,
   faCalendarCheck,
+  faCalendarDays,
+  faClipboardList,
   faClockRotateLeft,
-  faDownload,
   faPlus,
   faRightFromBracket,
+  faTrashCan,
+  faUserGroup,
 } from '@fortawesome/free-solid-svg-icons'
 import { adminColors as c } from '@/lib/admin/theme'
 
 const NAV_ITEMS = [
   { href: '/admin/bookings', label: 'Bookings', icon: faCalendarCheck, match: (p: string) => p === '/admin/bookings' || (p.startsWith('/admin/bookings/') && !p.startsWith('/admin/bookings/new')) },
   { href: '/admin/bookings/new', label: 'New Booking', icon: faPlus, match: (p: string) => p.startsWith('/admin/bookings/new') },
+  { href: '/admin/calendar', label: 'Calendar', icon: faCalendarDays, match: (p: string) => p.startsWith('/admin/calendar') },
+  { href: '/admin/dispatch', label: 'Dispatch Sheet', icon: faClipboardList, match: (p: string) => p.startsWith('/admin/dispatch') },
+  { href: '/admin/partners', label: 'Partners', icon: faUserGroup, match: (p: string) => p.startsWith('/admin/partners') },
   { href: '/admin/activity', label: 'Activity Log', icon: faClockRotateLeft, match: (p: string) => p.startsWith('/admin/activity') },
+  { href: '/admin/trash', label: 'Trash', icon: faTrashCan, match: (p: string) => p.startsWith('/admin/trash') },
 ]
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -70,13 +77,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       </nav>
 
       <div style={{ padding: 12, borderTop: `1px solid ${c.border}`, display: 'flex', flexDirection: 'column', gap: 4 }}>
-        {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- file download endpoint, not a page */}
-        <a
-          href="/api/admin/bookings/export"
-          style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', borderRadius: 8, fontSize: 13, fontWeight: 500, color: c.gold, textDecoration: 'none', fontFamily: 'inherit' }}
-        >
-          <FontAwesomeIcon icon={faDownload} style={{ width: 15 }} /> Export CSV
-        </a>
         <button
           onClick={handleLogout}
           style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', borderRadius: 8, fontSize: 13, background: 'none', border: 'none', color: c.textMuted, cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left' }}

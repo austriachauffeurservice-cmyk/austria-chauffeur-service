@@ -4,6 +4,7 @@ import "../globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { MobileActionBar } from "@/components/mobile-action-bar";
+import { AnalyticsScripts } from "@/components/analytics-scripts";
 import { siteName, siteUrl } from "@/lib/content/site";
 
 const geistSans = Geist({
@@ -86,6 +87,7 @@ export default function GermanSiteLayout({
           <SiteFooter locale="de" />
           <MobileActionBar locale="de" />
         </div>
+        <AnalyticsScripts />
       </body>
     </html>
   );

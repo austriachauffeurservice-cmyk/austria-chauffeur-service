@@ -10,6 +10,7 @@ import {
   faChevronRight,
   faCircleCheck,
   faCircleXmark,
+  faDownload,
   faEnvelope,
   faEuroSign,
   faFileInvoice,
@@ -23,6 +24,7 @@ import {
   faPhone,
   faReceipt,
   faTrash,
+  faTriangleExclamation,
   faXmark,
 } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
@@ -45,6 +47,8 @@ type BookingRow = {
   status: string
   price_quote?: string | null
   source?: string
+  tags?: string[]
+  possible_duplicate?: boolean
 }
 
 const SOURCE_LABELS: Record<string, { icon: IconDefinition; label: string }> = {
@@ -86,12 +90,17 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState('all')
+  const [vehicleFilter, setVehicleFilter] = useState('all')
+  const [priceMin, setPriceMin] = useState('')
+  const [priceMax, setPriceMax] = useState('')
   const [dateFilter, setDateFilter] = useState<'all' | 'today' | 'tomorrow' | 'week'>('all')
   const [total, setTotal] = useState(0)
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
   const [updatingId, setUpdatingId] = useState<string | null>(null)
   const [deletingId, setDeletingId] = useState<string | null>(null)
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set())
+  const [bulkBusy, setBulkBusy] = useState(false)
 
   // Email Modal State
   const [emailModalBooking, setEmailModalBooking] = useState<BookingRow | null>(null)
@@ -122,17 +131,23 @@ export default function AdminDashboard() {
     return {}
   }, [dateFilter])
 
-  const fetchBookings = useCallback(async () => {
-    setLoading(true)
+  const buildFilterParams = useCallback((): Record<string, string> => {
     const { dateFrom, dateTo } = dateRange()
-    const params = new URLSearchParams({
-      page: String(page),
-      limit: '15',
+    return {
       status: statusFilter,
       ...(search ? { search } : {}),
       ...(dateFrom ? { dateFrom } : {}),
       ...(dateTo ? { dateTo } : {}),
-    })
+      ...(vehicleFilter !== 'all' ? { vehicleType: vehicleFilter } : {}),
+      ...(priceMin ? { priceMin } : {}),
+      ...(priceMax ? { priceMax } : {}),
+    }
+  }, [statusFilter, search, dateRange, vehicleFilter, priceMin, priceMax])
+
+  const fetchBookings = useCallback(async () => {
+    setLoading(true)
+    setSelectedIds(new Set())
+    const params = new URLSearchParams({ page: String(page), limit: '15', ...buildFilterParams() })
     const res = await fetch(`/api/admin/bookings?${params}`)
     if (res.status === 401) { router.push('/admin/login'); return }
     const data = await res.json()
@@ -140,7 +155,7 @@ export default function AdminDashboard() {
     setTotal(data.pagination?.total || 0)
     setTotalPages(data.pagination?.totalPages || 1)
     setLoading(false)
-  }, [page, statusFilter, search, dateRange, router])
+  }, [page, buildFilterParams, router])
 
   const fetchAnalytics = useCallback(async () => {
     const res = await fetch('/api/admin/analytics')
@@ -149,6 +164,8 @@ export default function AdminDashboard() {
 
   // eslint-disable-next-line react-hooks/set-state-in-effect -- standard load-on-mount data fetch
   useEffect(() => { fetchBookings(); fetchAnalytics() }, [fetchBookings, fetchAnalytics])
+
+  const exportUrl = `/api/admin/bookings/export?${new URLSearchParams(buildFilterParams())}`
 
   async function updateStatus(id: string, status: string) {
     setUpdatingId(id)
@@ -174,7 +191,7 @@ export default function AdminDashboard() {
   }
 
   async function deleteBooking(id: string) {
-    if (!confirm('Delete this booking permanently?')) return
+    if (!confirm('Move this booking to Trash?')) return
     setDeletingId(id)
     try {
       const res = await fetch(`/api/admin/bookings/${id}`, { method: 'DELETE' })
@@ -190,6 +207,51 @@ export default function AdminDashboard() {
       alert(`Failed to delete booking: ${String(err)}`)
     } finally {
       setDeletingId(null)
+    }
+  }
+
+  function toggleSelected(id: string) {
+    setSelectedIds((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) next.delete(id); else next.add(id)
+      return next
+    })
+  }
+
+  function toggleSelectAll() {
+    setSelectedIds((prev) => (prev.size === bookings.length ? new Set() : new Set(bookings.map((b) => b.id))))
+  }
+
+  async function bulkUpdateStatus(status: string) {
+    if (selectedIds.size === 0) return
+    setBulkBusy(true)
+    try {
+      const res = await fetch('/api/admin/bookings/bulk', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ids: Array.from(selectedIds), status }),
+      })
+      if (res.status === 401) { router.push('/admin/login'); return }
+      if (res.ok) { await fetchBookings(); await fetchAnalytics() }
+    } finally {
+      setBulkBusy(false)
+    }
+  }
+
+  async function bulkDelete() {
+    if (selectedIds.size === 0) return
+    if (!confirm(`Move ${selectedIds.size} booking(s) to Trash?`)) return
+    setBulkBusy(true)
+    try {
+      const res = await fetch('/api/admin/bookings/bulk', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ids: Array.from(selectedIds), action: 'delete' }),
+      })
+      if (res.status === 401) { router.push('/admin/login'); return }
+      if (res.ok) { await fetchBookings(); await fetchAnalytics() }
+    } finally {
+      setBulkBusy(false)
     }
   }
 
@@ -270,6 +332,7 @@ export default function AdminDashboard() {
         }
         .doc-btn:hover { background: rgba(184,147,74,0.22); }
         .search-input::placeholder { color: ${c.textFaint}; }
+        .price-input { width: 90px; }
       `}</style>
 
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '32px 24px' }}>
@@ -355,6 +418,39 @@ export default function AdminDashboard() {
             <option value="completed">Completed</option>
             <option value="cancelled">Cancelled</option>
           </select>
+          <select
+            value={vehicleFilter}
+            onChange={(e) => { setVehicleFilter(e.target.value); setPage(1) }}
+            style={{ padding: '10px 16px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 8, color: c.text, fontSize: 14, fontFamily: 'inherit', outline: 'none', cursor: 'pointer' }}
+          >
+            <option value="all">All Vehicles</option>
+            <option value="sedan">Sedan</option>
+            <option value="luxury">Luxury</option>
+            <option value="van">Van</option>
+            <option value="minibus">Minibus</option>
+          </select>
+          <input
+            type="number"
+            placeholder="€ min"
+            value={priceMin}
+            onChange={(e) => { setPriceMin(e.target.value); setPage(1) }}
+            className="price-input"
+            style={{ padding: '10px 12px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 8, color: c.text, fontSize: 14, fontFamily: 'inherit', outline: 'none' }}
+          />
+          <input
+            type="number"
+            placeholder="€ max"
+            value={priceMax}
+            onChange={(e) => { setPriceMax(e.target.value); setPage(1) }}
+            className="price-input"
+            style={{ padding: '10px 12px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 8, color: c.text, fontSize: 14, fontFamily: 'inherit', outline: 'none' }}
+          />
+          <a
+            href={exportUrl}
+            style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '10px 16px', background: c.goldTint, border: `1px solid ${c.goldBorder}`, borderRadius: 8, color: c.gold, fontSize: 13, fontWeight: 500, textDecoration: 'none', whiteSpace: 'nowrap' }}
+          >
+            <FontAwesomeIcon icon={faDownload} /> Export CSV
+          </a>
           <div style={{ display: 'flex', alignItems: 'center', padding: '10px 16px', background: c.panel, border: `1px solid ${c.border}`, borderRadius: 8, fontSize: 13, color: c.textFaint }}>
             {total} lead{total !== 1 ? 's' : ''} found
           </div>
@@ -388,6 +484,30 @@ export default function AdminDashboard() {
           ))}
         </div>
 
+        {/* Bulk Action Toolbar */}
+        {selectedIds.size > 0 && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', background: c.goldTint, border: `1px solid ${c.goldBorder}`, borderRadius: 8, padding: '10px 16px', marginBottom: 12 }}>
+            <span style={{ fontSize: 13, color: c.gold, fontWeight: 600 }}>{selectedIds.size} selected</span>
+            {['pending', 'confirmed', 'completed', 'cancelled'].map((st) => (
+              <button
+                key={st}
+                disabled={bulkBusy}
+                onClick={() => bulkUpdateStatus(st)}
+                style={{ padding: '6px 12px', background: c.panel, border: `1px solid ${c.borderStrong}`, borderRadius: 6, color: c.text, fontSize: 12, cursor: 'pointer', fontFamily: 'inherit', textTransform: 'capitalize' }}
+              >
+                Mark {st}
+              </button>
+            ))}
+            <button
+              disabled={bulkBusy}
+              onClick={bulkDelete}
+              style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '6px 12px', background: c.redTint, border: `1px solid ${c.redBorder}`, borderRadius: 6, color: c.red, fontSize: 12, cursor: 'pointer', fontFamily: 'inherit' }}
+            >
+              <FontAwesomeIcon icon={faTrash} /> Move to Trash
+            </button>
+          </div>
+        )}
+
         {/* Bookings Table */}
         <div style={{ background: c.panel, border: `1px solid ${c.border}`, borderRadius: 12, overflow: 'hidden' }}>
           {loading ? (
@@ -399,6 +519,9 @@ export default function AdminDashboard() {
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
                 <thead>
                   <tr style={{ borderBottom: `1px solid ${c.border}` }}>
+                    <th style={{ padding: '12px 10px' }}>
+                      <input type="checkbox" checked={selectedIds.size === bookings.length && bookings.length > 0} onChange={toggleSelectAll} />
+                    </th>
                     {['Received', 'Name', 'Email / Phone', 'Route', 'Date / Time', 'Pax', 'Vehicle', 'PDF Documents', 'Status', 'Client Email', 'Actions'].map((h) => (
                       <th key={h} style={{ padding: '12px 14px', textAlign: 'left', fontWeight: 500, fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.08em', color: c.textFaint, whiteSpace: 'nowrap' }}>{h}</th>
                     ))}
@@ -410,6 +533,9 @@ export default function AdminDashboard() {
                     const source = b.source ? SOURCE_LABELS[b.source] : undefined
                     return (
                       <tr key={b.id} style={{ borderBottom: `1px solid ${c.border}`, background: i % 2 === 0 ? 'transparent' : 'rgba(246,243,238,0.015)', opacity: deletingId === b.id ? 0.4 : 1, transition: 'opacity 0.2s' }}>
+                        <td style={{ padding: '12px 10px' }}>
+                          <input type="checkbox" checked={selectedIds.has(b.id)} onChange={() => toggleSelected(b.id)} />
+                        </td>
                         <td style={{ padding: '12px 14px', whiteSpace: 'nowrap', color: c.textFaint, fontSize: 12 }}>
                           {new Date(b.created_at).toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })}<br />
                           <span style={{ fontSize: 11 }}>{new Date(b.created_at).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</span>
@@ -418,9 +544,19 @@ export default function AdminDashboard() {
                           <Link href={`/admin/bookings/${b.id}`} style={{ color: c.text, textDecoration: 'none' }} title="View full details">
                             {b.full_name}
                           </Link>
+                          {b.possible_duplicate && (
+                            <FontAwesomeIcon icon={faTriangleExclamation} style={{ color: c.yellow, marginLeft: 6, fontSize: 11 }} title="Possible duplicate booking" />
+                          )}
                           {source && b.source !== 'website' && (
                             <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 10, color: c.textFaint, fontWeight: 400, marginTop: 2 }}>
                               <FontAwesomeIcon icon={source.icon} style={{ width: 10 }} /> {source.label}
+                            </div>
+                          )}
+                          {b.tags && b.tags.length > 0 && (
+                            <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', marginTop: 4 }}>
+                              {b.tags.map((tag) => (
+                                <span key={tag} style={{ padding: '1px 7px', borderRadius: 10, fontSize: 9, background: c.goldTint, border: `1px solid ${c.goldBorder}`, color: c.gold, fontWeight: 400 }}>{tag}</span>
+                              ))}
                             </div>
                           )}
                         </td>
@@ -487,7 +623,7 @@ export default function AdminDashboard() {
                           <button
                             onClick={() => deleteBooking(b.id)}
                             disabled={deletingId === b.id}
-                            title="Delete booking"
+                            title="Move to trash"
                             style={{ padding: '5px 10px', background: c.redTint, border: `1px solid ${c.redBorder}`, borderRadius: 6, color: c.red, fontSize: 12, cursor: 'pointer', fontFamily: 'inherit' }}
                           >
                             <FontAwesomeIcon icon={faTrash} />

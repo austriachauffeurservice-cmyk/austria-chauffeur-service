@@ -4,6 +4,7 @@ import { manualBookingSchema } from '@/lib/bookings/schema'
 import { customerConfirmationEmail } from '@/lib/bookings/emails'
 import { getResendClient } from '@/lib/resend'
 import { dispatchTenantWebhookAndRecord } from '@/lib/bookings/webhook'
+import { flagIfDuplicate } from '@/lib/bookings/duplicates'
 import { logActivity } from '@/lib/admin/activity-log'
 import { requireAdminSession } from '@/lib/admin/auth'
 
@@ -22,6 +23,11 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get('search')
     const dateFrom = searchParams.get('dateFrom')
     const dateTo = searchParams.get('dateTo')
+    const vehicleType = searchParams.get('vehicleType')
+    const priceMin = searchParams.get('priceMin')
+    const priceMax = searchParams.get('priceMax')
+    const tag = searchParams.get('tag')
+    const trash = searchParams.get('trash') === 'true'
     const page = parseInt(searchParams.get('page') || '1', 10)
     const limit = Math.min(parseInt(searchParams.get('limit') || '20', 10), 100)
     const offset = (page - 1) * limit
@@ -29,6 +35,9 @@ export async function GET(request: NextRequest) {
     const supabase = createServiceRoleClient()
 
     let query = supabase.from('bookings').select('*', { count: 'exact' })
+
+    // Trash view shows only soft-deleted rows; the normal view hides them.
+    query = trash ? query.not('deleted_at', 'is', null) : query.is('deleted_at', null)
 
     // Default view: newest leads first. Once a date filter narrows this to
     // a dispatch-style view (e.g. "today"), chronological pickup order is
@@ -48,6 +57,21 @@ export async function GET(request: NextRequest) {
     }
     if (dateTo) {
       query = query.lte('pickup_date', dateTo)
+    }
+
+    if (vehicleType && vehicleType !== 'all') {
+      query = query.eq('vehicle_type', vehicleType)
+    }
+
+    if (priceMin) {
+      query = query.gte('price_quote', priceMin)
+    }
+    if (priceMax) {
+      query = query.lte('price_quote', priceMax)
+    }
+
+    if (tag) {
+      query = query.contains('tags', [tag])
     }
 
     if (search) {
@@ -135,6 +159,8 @@ export async function POST(request: NextRequest) {
       console.error('Failed to insert manual booking', insertError)
       return NextResponse.json({ error: 'Failed to save booking' }, { status: 500 })
     }
+
+    booking.possible_duplicate = await flagIfDuplicate(booking.id, input.email, input.pickupDate)
 
     const actor = actorFrom(request)
     await logActivity({

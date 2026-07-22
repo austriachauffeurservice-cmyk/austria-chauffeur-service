@@ -21,9 +21,18 @@ const ACTION_LABELS: Record<string, string> = {
   price_updated: 'Changed price quote',
   driver_assigned: 'Assigned transport partner',
   trip_details_updated: 'Edited trip details',
-  booking_deleted: 'Deleted booking',
+  tags_updated: 'Updated tags',
+  booking_deleted: 'Moved booking to trash',
+  booking_restored: 'Restored booking from trash',
+  booking_purged: 'Permanently deleted booking',
   booking_created: 'Manually created booking',
   email_sent: 'Sent email to client',
+  note_added: 'Added internal note',
+  bulk_status_updated: 'Bulk status update',
+  bulk_deleted: 'Bulk moved to trash',
+  partner_created: 'Added partner',
+  partner_updated: 'Updated partner',
+  partner_deactivated: 'Deactivated partner',
 }
 
 const ACTION_COLORS: Record<string, string> = {
@@ -34,9 +43,18 @@ const ACTION_COLORS: Record<string, string> = {
   price_updated: c.gold,
   driver_assigned: c.blue,
   trip_details_updated: c.blue,
+  tags_updated: c.blue,
   booking_deleted: c.red,
+  booking_restored: c.green,
+  booking_purged: c.red,
   booking_created: c.green,
   email_sent: c.green,
+  note_added: c.blue,
+  bulk_status_updated: c.blue,
+  bulk_deleted: c.red,
+  partner_created: c.green,
+  partner_updated: c.blue,
+  partner_deactivated: c.red,
 }
 
 function formatDetails(action: string, details: Record<string, unknown> | null): string {
@@ -45,10 +63,15 @@ function formatDetails(action: string, details: Record<string, unknown> | null):
   if (action === 'price_updated') return `€${details.from ?? '—'} → €${details.to ?? '—'}`
   if (action === 'driver_assigned') return `${details.from || '(none)'} → ${details.to || '(none)'}`
   if (action === 'trip_details_updated') return Array.isArray(details.fields) ? details.fields.join(', ') : ''
+  if (action === 'tags_updated') return Array.isArray(details.tags) ? details.tags.join(', ') || '(cleared)' : ''
   if (action === 'booking_deleted') return `${details.full_name || ''} (${details.email || ''})`
   if (action === 'booking_created') return `${details.full_name || ''} via ${details.source || 'manual entry'}`
   if (action === 'email_sent') return `"${details.subject || ''}" to ${details.to || ''}`
   if (action === 'login_failed') return details.email ? `attempted email: ${details.email}` : ''
+  if (action === 'note_added') return String(details.note || '').slice(0, 80)
+  if (action === 'bulk_status_updated') return `${Array.isArray(details.ids) ? details.ids.length : 0} bookings → ${details.status || ''}`
+  if (action === 'bulk_deleted') return `${Array.isArray(details.ids) ? details.ids.length : 0} bookings`
+  if (action === 'partner_created' || action === 'partner_updated') return String(details.name || '')
   return ''
 }
 

@@ -75,6 +75,8 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
         ...(body.price_quote !== undefined && { price_quote: body.price_quote }),
         ...(body.assigned_driver !== undefined && { assigned_driver: body.assigned_driver }),
         ...(body.notes !== undefined && { notes: body.notes }),
+        ...(body.tags !== undefined && { tags: body.tags }),
+        ...(body.restore === true && { deleted_at: null }),
         ...tripFieldUpdates,
         updated_at: new Date().toISOString(),
       })
@@ -122,6 +124,23 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
         action: 'driver_assigned',
         bookingId: id,
         details: { from: before?.assigned_driver ?? null, to: body.assigned_driver },
+        request,
+      })
+    }
+    if (body.tags !== undefined) {
+      await logActivity({
+        actor,
+        action: 'tags_updated',
+        bookingId: id,
+        details: { tags: body.tags },
+        request,
+      })
+    }
+    if (body.restore === true) {
+      await logActivity({
+        actor,
+        action: 'booking_restored',
+        bookingId: id,
         request,
       })
     }
@@ -175,6 +194,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
 
   try {
     const { id } = await params
+    const permanent = new URL(request.url).searchParams.get('permanent') === 'true'
     const supabase = createServiceRoleClient()
 
     const { data: booking } = await supabase
@@ -183,7 +203,11 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
       .eq('id', id)
       .single()
 
-    const { error } = await supabase.from('bookings').delete().eq('id', id)
+    // Default is a soft delete (moves to Trash, recoverable). Permanent
+    // delete is only reachable from the Trash view's own confirm step.
+    const { error } = permanent
+      ? await supabase.from('bookings').delete().eq('id', id)
+      : await supabase.from('bookings').update({ deleted_at: new Date().toISOString() }).eq('id', id)
 
     if (error) {
       console.error(`Failed to delete booking ${id}:`, error)
@@ -192,7 +216,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
 
     await logActivity({
       actor: actorFrom(request),
-      action: 'booking_deleted',
+      action: permanent ? 'booking_purged' : 'booking_deleted',
       bookingId: id,
       details: booking
         ? { full_name: booking.full_name, email: booking.email, pickup_date: booking.pickup_date }
@@ -200,7 +224,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams) {
       request,
     })
 
-    return NextResponse.json({ success: true, message: 'Booking deleted successfully' })
+    return NextResponse.json({ success: true, message: permanent ? 'Booking permanently deleted' : 'Booking moved to trash' })
   } catch (err) {
     console.error('Unexpected error in DELETE /api/admin/bookings/[id]:', err)
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })

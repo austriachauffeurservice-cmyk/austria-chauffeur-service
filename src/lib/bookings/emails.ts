@@ -149,6 +149,72 @@ export function statusCancelledEmail(booking: StatusEmailBooking) {
   }
 }
 
+export function pickupReminderEmail(booking: StatusEmailBooking) {
+  if (loc(booking) === 'de') {
+    return {
+      subject: `Erinnerung: Ihre Abholung morgen — ${booking.pickupTime}`,
+      html: `
+        <div style="font-family: sans-serif; line-height: 1.6;">
+          <h2>Ihre Abholung ist morgen</h2>
+          <p>Liebe/r ${escapeHtml(booking.fullName)},</p>
+          <p>Kurze Erinnerung an Ihren bevorstehenden Chauffeurtransfer:</p>
+          <p><strong>Datum:</strong> ${escapeHtml(booking.pickupDate)}<br /><strong>Uhrzeit:</strong> ${escapeHtml(booking.pickupTime)}<br />
+          <strong>Von:</strong> ${escapeHtml(booking.pickupLocation)}<br /><strong>Nach:</strong> ${escapeHtml(booking.dropoffLocation)}</p>
+          <p>Bei Fragen antworten Sie einfach auf diese E-Mail.</p>
+          <p>Referenz: ${booking.id}</p>
+          <p>— Austria Chauffeur Service</p>
+        </div>
+      `,
+    }
+  }
+  return {
+    subject: `Reminder: Your pickup is tomorrow at ${booking.pickupTime}`,
+    html: `
+      <div style="font-family: sans-serif; line-height: 1.6;">
+        <h2>Your pickup is tomorrow</h2>
+        <p>Dear ${escapeHtml(booking.fullName)},</p>
+        <p>A quick reminder about your upcoming chauffeur transfer:</p>
+        <p><strong>Date:</strong> ${escapeHtml(booking.pickupDate)}<br /><strong>Time:</strong> ${escapeHtml(booking.pickupTime)}<br />
+        <strong>Pickup:</strong> ${escapeHtml(booking.pickupLocation)}<br /><strong>Drop-off:</strong> ${escapeHtml(booking.dropoffLocation)}</p>
+        <p>If you have any questions, just reply to this email.</p>
+        <p>Reference: ${booking.id}</p>
+        <p>— Austria Chauffeur Service</p>
+      </div>
+    `,
+  }
+}
+
+export function reviewRequestEmail(booking: StatusEmailBooking) {
+  if (loc(booking) === 'de') {
+    return {
+      subject: `Wie war Ihre Fahrt, ${booking.fullName.split(' ')[0]}?`,
+      html: `
+        <div style="font-family: sans-serif; line-height: 1.6;">
+          <h2>Danke, dass Sie mit uns gefahren sind</h2>
+          <p>Liebe/r ${escapeHtml(booking.fullName)},</p>
+          <p>Wir hoffen, Ihre Fahrt von ${escapeHtml(booking.pickupLocation)} nach ${escapeHtml(booking.dropoffLocation)} war angenehm.</p>
+          <p>Wir würden uns sehr über eine kurze Bewertung freuen — sie hilft uns, unseren Service weiter zu verbessern.</p>
+          <p>Referenz: ${booking.id}</p>
+          <p>— Austria Chauffeur Service</p>
+        </div>
+      `,
+    }
+  }
+  return {
+    subject: `How was your trip, ${booking.fullName.split(' ')[0]}?`,
+    html: `
+      <div style="font-family: sans-serif; line-height: 1.6;">
+        <h2>Thank you for travelling with us</h2>
+        <p>Dear ${escapeHtml(booking.fullName)},</p>
+        <p>We hope your trip from ${escapeHtml(booking.pickupLocation)} to ${escapeHtml(booking.dropoffLocation)} was a pleasant one.</p>
+        <p>We'd really appreciate a quick review — it helps us keep improving the service.</p>
+        <p>Reference: ${booking.id}</p>
+        <p>— Austria Chauffeur Service</p>
+      </div>
+    `,
+  }
+}
+
 function escapeHtml(value: string) {
   return value
     .replace(/&/g, '&amp;')

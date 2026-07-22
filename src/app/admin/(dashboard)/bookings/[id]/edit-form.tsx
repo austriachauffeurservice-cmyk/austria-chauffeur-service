@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleCheck, faCircleXmark, faFloppyDisk } from '@fortawesome/free-solid-svg-icons'
+import { faCircleCheck, faCircleXmark, faFloppyDisk, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { adminColors as c } from '@/lib/admin/theme'
 
 type Props = {
@@ -21,7 +21,12 @@ type Props = {
   initialPassengers: number
   initialVehicleType: string
   initialFlightNumber: string
+  initialTags: string[]
 }
+
+type Partner = { id: string; name: string }
+
+const SUGGESTED_TAGS = ['VIP', 'Corporate', 'Airport', 'Wedding', 'Urgent']
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
@@ -51,6 +56,8 @@ const sectionHeading: React.CSSProperties = {
   margin: '20px 0 12px',
 }
 
+const OTHER_DRIVER = '__other__'
+
 export function BookingEditForm({
   bookingId,
   initialStatus,
@@ -66,11 +73,15 @@ export function BookingEditForm({
   initialPassengers,
   initialVehicleType,
   initialFlightNumber,
+  initialTags,
 }: Props) {
   const router = useRouter()
   const [status, setStatus] = useState(initialStatus)
   const [priceQuote, setPriceQuote] = useState(initialPriceQuote)
+  const [partners, setPartners] = useState<Partner[]>([])
   const [assignedDriver, setAssignedDriver] = useState(initialAssignedDriver)
+  const [customDriver, setCustomDriver] = useState(initialAssignedDriver)
+  const [useCustomDriver, setUseCustomDriver] = useState(true)
   const [fullName, setFullName] = useState(initialFullName)
   const [email, setEmail] = useState(initialEmail)
   const [phone, setPhone] = useState(initialPhone)
@@ -81,8 +92,36 @@ export function BookingEditForm({
   const [passengers, setPassengers] = useState(String(initialPassengers))
   const [vehicleType, setVehicleType] = useState(initialVehicleType)
   const [flightNumber, setFlightNumber] = useState(initialFlightNumber)
+  const [tags, setTags] = useState<string[]>(initialTags)
+  const [customTag, setCustomTag] = useState('')
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState<{ ok: boolean; text: string } | null>(null)
+
+  useEffect(() => {
+    fetch('/api/admin/partners')
+      .then((res) => (res.ok ? res.json() : { partners: [] }))
+      .then((data) => {
+        const list: Partner[] = data.partners || []
+        setPartners(list)
+        const match = list.find((p) => p.name === initialAssignedDriver)
+        if (match) {
+          setAssignedDriver(match.name)
+          setUseCustomDriver(false)
+        }
+      })
+      .catch(() => {})
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- run once on mount only
+  }, [])
+
+  function toggleTag(tag: string) {
+    setTags((prev) => (prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]))
+  }
+
+  function addCustomTag() {
+    const t = customTag.trim()
+    if (t && !tags.includes(t)) setTags((prev) => [...prev, t])
+    setCustomTag('')
+  }
 
   async function handleSave(e: React.FormEvent) {
     e.preventDefault()
@@ -95,7 +134,7 @@ export function BookingEditForm({
         body: JSON.stringify({
           status,
           price_quote: priceQuote,
-          assigned_driver: assignedDriver,
+          assigned_driver: useCustomDriver ? customDriver : assignedDriver,
           full_name: fullName,
           email,
           phone,
@@ -106,6 +145,7 @@ export function BookingEditForm({
           passengers: Number(passengers) || 1,
           vehicle_type: vehicleType,
           flight_number: flightNumber,
+          tags,
         }),
       })
       if (res.status === 401) { router.push('/admin/login'); return }
@@ -140,13 +180,81 @@ export function BookingEditForm({
       </div>
       <div>
         <label style={labelStyle} htmlFor="driver">Assigned Transport Partner / Driver</label>
-        <input
+        <select
           id="driver"
-          value={assignedDriver}
-          onChange={(e) => setAssignedDriver(e.target.value)}
-          style={inputStyle}
-          placeholder="e.g. Partner company or driver name"
-        />
+          value={useCustomDriver ? OTHER_DRIVER : assignedDriver}
+          onChange={(e) => {
+            if (e.target.value === OTHER_DRIVER) {
+              setUseCustomDriver(true)
+            } else {
+              setUseCustomDriver(false)
+              setAssignedDriver(e.target.value)
+            }
+          }}
+          style={{ ...inputStyle, cursor: 'pointer', marginBottom: useCustomDriver ? 8 : 0 }}
+        >
+          <option value="">— Unassigned —</option>
+          {partners.map((p) => (
+            <option key={p.id} value={p.name}>{p.name}</option>
+          ))}
+          <option value={OTHER_DRIVER}>Other (type manually)…</option>
+        </select>
+        {useCustomDriver && (
+          <input
+            value={customDriver}
+            onChange={(e) => setCustomDriver(e.target.value)}
+            style={inputStyle}
+            placeholder="e.g. Partner company or driver name"
+          />
+        )}
+      </div>
+
+      <div>
+        <label style={labelStyle}>Tags</label>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}>
+          {SUGGESTED_TAGS.map((tag) => {
+            const active = tags.includes(tag)
+            return (
+              <button
+                key={tag}
+                type="button"
+                onClick={() => toggleTag(tag)}
+                style={{
+                  padding: '4px 10px',
+                  borderRadius: 14,
+                  fontSize: 11,
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                  fontFamily: 'inherit',
+                  background: active ? c.goldTint : c.panel,
+                  border: `1px solid ${active ? c.goldBorder : c.border}`,
+                  color: active ? c.gold : c.textMuted,
+                }}
+              >
+                {tag}
+              </button>
+            )
+          })}
+        </div>
+        {tags.filter((t) => !SUGGESTED_TAGS.includes(t)).length > 0 && (
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 8 }}>
+            {tags.filter((t) => !SUGGESTED_TAGS.includes(t)).map((tag) => (
+              <span key={tag} style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '4px 10px', borderRadius: 14, fontSize: 11, background: c.blueTint, border: '1px solid rgba(143,179,217,0.3)', color: c.blue }}>
+                {tag}
+                <FontAwesomeIcon icon={faXmark} style={{ cursor: 'pointer' }} onClick={() => toggleTag(tag)} />
+              </span>
+            ))}
+          </div>
+        )}
+        <div style={{ display: 'flex', gap: 8 }}>
+          <input
+            value={customTag}
+            onChange={(e) => setCustomTag(e.target.value)}
+            onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); addCustomTag() } }}
+            style={{ ...inputStyle, fontSize: 12, padding: '7px 12px' }}
+            placeholder="Custom tag, press Enter"
+          />
+        </div>
       </div>
 
       <p style={sectionHeading}>Trip Details</p>

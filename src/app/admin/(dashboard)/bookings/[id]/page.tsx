@@ -12,11 +12,27 @@ import {
   faFileLines,
   faPhone,
   faReceipt,
+  faTriangleExclamation,
 } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 import { faClock as faClockRegular } from '@fortawesome/free-regular-svg-icons'
 import { adminColors as c } from '@/lib/admin/theme'
 import { BookingEditForm } from './edit-form'
+import { NotesThread } from './notes-thread'
+
+const ACTION_LABELS: Record<string, string> = {
+  login: 'Logged in',
+  status_updated: 'Changed status',
+  price_updated: 'Changed price',
+  driver_assigned: 'Assigned partner',
+  trip_details_updated: 'Edited trip details',
+  tags_updated: 'Updated tags',
+  booking_deleted: 'Moved to trash',
+  booking_restored: 'Restored from trash',
+  booking_created: 'Created booking',
+  email_sent: 'Sent email',
+  note_added: 'Added internal note',
+}
 
 export const dynamic = 'force-dynamic'
 
@@ -81,10 +97,19 @@ export default async function BookingDetailPage({ params }: Props) {
     .select('id, created_at, pickup_date, status')
     .eq('email', booking.email)
     .neq('id', id)
+    .is('deleted_at', null)
     .order('created_at', { ascending: false })
     .limit(10)
 
+  const { data: history } = await supabase
+    .from('admin_activity_log')
+    .select('*')
+    .eq('booking_id', id)
+    .order('created_at', { ascending: false })
+    .limit(50)
+
   const source = booking.source && booking.source !== 'website' ? SOURCE_LABELS[booking.source] : undefined
+  const tags: string[] = booking.tags || []
 
   return (
     <main style={{ minHeight: '100vh', background: c.bg, color: c.text, fontFamily: "'Inter', sans-serif" }}>
@@ -105,7 +130,7 @@ export default async function BookingDetailPage({ params }: Props) {
 
       <div style={{ maxWidth: 900, margin: '0 auto', padding: '32px 24px' }}>
         <h1 style={{ fontSize: 22, fontWeight: 600, color: c.text, margin: '0 0 4px' }}>{booking.full_name}</h1>
-        <p style={{ fontSize: 13, color: c.textFaint, margin: '0 0 24px', display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+        <p style={{ fontSize: 13, color: c.textFaint, margin: '0 0 12px', display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
           <span>Booking Ref: {booking.id} · Received {new Date(booking.created_at).toLocaleString('en-GB')}</span>
           {source && (
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
@@ -113,6 +138,23 @@ export default async function BookingDetailPage({ params }: Props) {
             </span>
           )}
         </p>
+
+        {tags.length > 0 && (
+          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 16 }}>
+            {tags.map((tag) => (
+              <span key={tag} style={{ padding: '3px 10px', borderRadius: 12, fontSize: 11, fontWeight: 500, background: c.goldTint, border: `1px solid ${c.goldBorder}`, color: c.gold }}>
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {booking.possible_duplicate && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: c.yellowTint, border: '1px solid rgba(224,192,125,0.3)', borderRadius: 8, padding: '10px 14px', color: c.yellow, fontSize: 13, marginBottom: 20 }}>
+            <FontAwesomeIcon icon={faTriangleExclamation} />
+            Possible duplicate — this customer already has another booking for the same pickup date.
+          </div>
+        )}
 
         <div className="detail-grid">
           <div style={cardStyle}>
@@ -194,6 +236,7 @@ export default async function BookingDetailPage({ params }: Props) {
               initialPassengers={booking.passengers}
               initialVehicleType={booking.vehicle_type}
               initialFlightNumber={booking.flight_number || ''}
+              initialTags={tags}
             />
           </div>
         </div>
@@ -217,6 +260,31 @@ export default async function BookingDetailPage({ params }: Props) {
             </div>
           </div>
         )}
+
+        <div className="detail-grid" style={{ marginTop: 24 }}>
+          <div style={cardStyle}>
+            <NotesThread bookingId={booking.id} />
+          </div>
+
+          <div style={cardStyle}>
+            <p style={sectionHeading}>Edit History</p>
+            {!history || history.length === 0 ? (
+              <p style={{ fontSize: 13, color: c.textFaint }}>No activity recorded for this booking yet.</p>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, maxHeight: 400, overflowY: 'auto' }}>
+                {history.map((h) => (
+                  <div key={h.id} style={{ fontSize: 12, borderBottom: `1px solid ${c.border}`, paddingBottom: 8 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', color: c.textFaint, marginBottom: 2 }}>
+                      <span>{h.actor}</span>
+                      <span>{new Date(h.created_at).toLocaleString('en-GB', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' })}</span>
+                    </div>
+                    <div style={{ color: c.text }}>{ACTION_LABELS[h.action] || h.action}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
 
         <div style={{ display: 'flex', gap: 8, marginTop: 24, flexWrap: 'wrap' }}>
           <a

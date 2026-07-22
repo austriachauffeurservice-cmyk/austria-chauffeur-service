@@ -21,12 +21,37 @@ export async function GET(request: NextRequest) {
   }
 
   try {
+    const { searchParams } = new URL(request.url)
+    const status = searchParams.get('status')
+    const search = searchParams.get('search')
+    const dateFrom = searchParams.get('dateFrom')
+    const dateTo = searchParams.get('dateTo')
+    const vehicleType = searchParams.get('vehicleType')
+    const priceMin = searchParams.get('priceMin')
+    const priceMax = searchParams.get('priceMax')
+    const tag = searchParams.get('tag')
+    const trash = searchParams.get('trash') === 'true'
+
     const supabase = createServiceRoleClient()
 
-    const { data: bookings, error } = await supabase
-      .from('bookings')
-      .select('*')
-      .order('created_at', { ascending: false })
+    // Mirrors the same filters as GET /api/admin/bookings, so "Export CSV"
+    // exports exactly what's currently on screen, not always everything.
+    let query = supabase.from('bookings').select('*').order('created_at', { ascending: false })
+    query = trash ? query.not('deleted_at', 'is', null) : query.is('deleted_at', null)
+    if (status && status !== 'all') query = query.eq('status', status)
+    if (dateFrom) query = query.gte('pickup_date', dateFrom)
+    if (dateTo) query = query.lte('pickup_date', dateTo)
+    if (vehicleType && vehicleType !== 'all') query = query.eq('vehicle_type', vehicleType)
+    if (priceMin) query = query.gte('price_quote', priceMin)
+    if (priceMax) query = query.lte('price_quote', priceMax)
+    if (tag) query = query.contains('tags', [tag])
+    if (search) {
+      query = query.or(
+        `full_name.ilike.%${search}%,email.ilike.%${search}%,phone.ilike.%${search}%,pickup_location.ilike.%${search}%,dropoff_location.ilike.%${search}%`
+      )
+    }
+
+    const { data: bookings, error } = await query
 
     if (error) {
       console.error('Failed to export bookings CSV:', error)
@@ -48,6 +73,7 @@ export async function GET(request: NextRequest) {
       'Flight Number',
       'Status',
       'Source',
+      'Tags',
       'Notes',
     ]
 
@@ -69,6 +95,7 @@ export async function GET(request: NextRequest) {
         escapeCsvField(b.flight_number || ''),
         escapeCsvField(b.status || 'pending'),
         escapeCsvField(b.source || 'website'),
+        escapeCsvField(Array.isArray(b.tags) ? b.tags.join('; ') : ''),
         escapeCsvField(b.notes || ''),
       ]
       csvRows.push(row.join(','))

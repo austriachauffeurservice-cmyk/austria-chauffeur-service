@@ -19,6 +19,7 @@ export async function GET(request: NextRequest) {
     const { data: bookings, error } = await supabase
       .from('bookings')
       .select('id, created_at, status, vehicle_type, pickup_location, price_quote')
+      .is('deleted_at', null)
 
     if (error) {
       console.error('Failed to fetch analytics data:', error)

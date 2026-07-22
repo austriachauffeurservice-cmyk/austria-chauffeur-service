@@ -4,6 +4,7 @@ import { adminNotificationEmail, customerConfirmationEmail } from '@/lib/booking
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import { getResendClient } from '@/lib/resend'
 import { dispatchTenantWebhookAndRecord } from '@/lib/bookings/webhook'
+import { flagIfDuplicate } from '@/lib/bookings/duplicates'
 
 export async function POST(request: NextRequest) {
   let body: unknown
@@ -47,6 +48,8 @@ export async function POST(request: NextRequest) {
     console.error('Failed to insert booking', insertError)
     return NextResponse.json({ error: 'Failed to save booking' }, { status: 500 })
   }
+
+  await flagIfDuplicate(booking.id, input.email, input.pickupDate)
 
   const emailData = { ...input, id: booking.id as string }
   const fromAddress =
