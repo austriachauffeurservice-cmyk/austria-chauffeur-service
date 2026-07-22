@@ -23,6 +23,9 @@ export const manualLeadSources = ['phone', 'whatsapp', 'email', 'other'] as cons
 export const bookingStatuses = ['pending', 'confirmed', 'completed', 'cancelled'] as const
 
 export const manualBookingSchema = createBookingSchema.extend({
+  // Unlike the public booking form, a manually logged lead (e.g. from an
+  // email inquiry) doesn't always come with a callback number.
+  phone: z.string().trim().max(30).optional().or(z.literal('')),
   source: z.enum(manualLeadSources).default('phone'),
   status: z.enum(bookingStatuses).default('pending'),
   priceQuote: z.string().trim().max(30).optional().or(z.literal('')),

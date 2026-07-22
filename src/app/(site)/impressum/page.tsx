@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { contactAddress, contactEmail, contactPhone, siteName } from '@/lib/content/site'
+import { contactAddress, contactEmail, siteName } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Impressum',
@@ -48,11 +48,6 @@ export default function ImpressumPage() {
             E-Mail:{' '}
             <a href={`mailto:${contactEmail}`} className="text-brand-gold hover:underline">
               {contactEmail}
-            </a>
-            <br />
-            Telefon:{' '}
-            <a href={`tel:${contactPhone.replace(/\s+/g, '')}`} className="text-brand-gold hover:underline">
-              {contactPhone}
             </a>
           </p>
         </div>

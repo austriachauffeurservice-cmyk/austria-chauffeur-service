@@ -10,7 +10,7 @@ import { serviceTypes, vehicles } from '@/lib/content/services'
 import { faqs } from '@/lib/content/faq'
 import { blogPosts } from '@/lib/content/blog'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
-import { areaServedCountries, contactPhone, siteName, siteUrl } from '@/lib/content/site'
+import { areaServedCountries, contactEmail, siteName, siteUrl } from '@/lib/content/site'
 
 const popularRouteCards: { label: string; slug: string; route: string; href?: string }[] = [
   { label: 'Vienna Chauffeur Service', slug: 'vienna', route: 'Vienna Airport ↔ City Center' },
@@ -107,11 +107,11 @@ export default function HomePage() {
               </Link>
             </div>
             <a
-              href={`tel:${contactPhone.replace(/\s+/g, '')}`}
+              href={`mailto:${contactEmail}`}
               className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-cream/80 hover:text-brand-gold"
             >
-              <ServiceIcon name="phone" className="h-4 w-4" />
-              Need it today? Call {contactPhone}
+              <ServiceIcon name="mail" className="h-4 w-4" />
+              Need it today? Email {contactEmail}
             </a>
             <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-6 text-sm">
               <div>

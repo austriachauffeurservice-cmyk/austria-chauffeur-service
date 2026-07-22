@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { contactAddress, contactEmail, contactPhone } from '@/lib/content/site'
+import { contactAddress, contactEmail } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Kontakt',
@@ -46,17 +46,10 @@ export default function ContactPageDe() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <div className="grid gap-6 sm:grid-cols-2">
-          <div className="rounded-sm border border-brand-line p-6 bg-white hover:border-brand-gold transition-colors duration-300">
+          <div className="rounded-sm border border-brand-line p-6 sm:col-span-2 bg-white hover:border-brand-gold transition-colors duration-300">
             <h2 className="font-semibold text-brand-ink font-display text-lg">E-Mail-Anfrage</h2>
             <a href={`mailto:${contactEmail}`} className="mt-2 block text-sm font-semibold text-brand-gold hover:underline">
               {contactEmail}
-            </a>
-          </div>
-
-          <div className="rounded-sm border border-brand-line p-6 bg-white hover:border-brand-gold transition-colors duration-300">
-            <h2 className="font-semibold text-brand-ink font-display text-lg">Telefonsupport</h2>
-            <a href={`tel:${contactPhone.replace(/\s+/g, '')}`} className="mt-2 block text-sm font-semibold text-brand-gold hover:underline">
-              {contactPhone}
             </a>
           </div>
 

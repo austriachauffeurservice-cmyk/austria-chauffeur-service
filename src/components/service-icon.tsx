@@ -11,6 +11,7 @@ const paths: Record<string, string> = {
   shield: 'M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6z M9 12l2 2 4-4',
   clock: 'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 6v6l4 2',
   map: 'M9 3L3 6v15l6-3 6 3 6-3V3l-6 3-6-3zM9 3v15M15 6v15',
+  mail: 'M3 5h18v14H3z M3 5l9 7 9-7',
 }
 
 export function ServiceIcon({ name, className = 'h-6 w-6' }: { name: string; className?: string }) {

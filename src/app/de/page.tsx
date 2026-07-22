@@ -10,7 +10,7 @@ import { FaqAccordion } from '@/components/faq-accordion'
 import { serviceTypes, vehicles } from '@/lib/content/de/services'
 import { faqs } from '@/lib/content/de/faq'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/de/service-areas'
-import { areaServedCountries, contactPhone, siteName, siteUrl } from '@/lib/content/site'
+import { areaServedCountries, contactEmail, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   description:
@@ -113,11 +113,11 @@ export default function HomePageDe() {
               </Link>
             </div>
             <a
-              href={`tel:${contactPhone.replace(/\s+/g, '')}`}
+              href={`mailto:${contactEmail}`}
               className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-cream/80 hover:text-brand-gold"
             >
-              <ServiceIcon name="phone" className="h-4 w-4" />
-              Heute noch nötig? Rufen Sie an: {contactPhone}
+              <ServiceIcon name="mail" className="h-4 w-4" />
+              Heute noch nötig? E-Mail: {contactEmail}
             </a>
             <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-6 text-sm">
               <div>

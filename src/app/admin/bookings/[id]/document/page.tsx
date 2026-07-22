@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileInvoiceDollar, faFileLines, faReceipt } from '@fortawesome/free-solid-svg-icons'
 import { PrintButton } from './print-button'
-import { contactAddress, contactEmail, contactPhone, siteName } from '@/lib/content/site'
+import { contactAddress, contactEmail, siteName } from '@/lib/content/site'
 
 const docIcons = {
   quote: faFileLines,
@@ -417,8 +417,7 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
               <div className="address-text">
                 {contactAddress}<br />
                 UID/VAT ID: {businessUid || 'Not yet issued'}<br />
-                Email: {contactEmail}<br />
-                Phone: {contactPhone}
+                Email: {contactEmail}
               </div>
             </div>
 
@@ -503,7 +502,7 @@ export default async function BookingDocumentPage({ params, searchParams }: Docu
             {docType === 'quote' ? (
               <span>
                 This is a non-binding price estimate, valid for 14 days — not a request for payment. Reply to this
-                email or call {contactPhone} to confirm the booking; we&apos;ll issue a Tax Invoice once confirmed.
+                email to confirm the booking; we&apos;ll issue a Tax Invoice once confirmed.
               </span>
             ) : docType === 'receipt' ? (
               <span>Payment processed via credit card / driver terminal. Balance remaining: €0.00 EUR.</span>

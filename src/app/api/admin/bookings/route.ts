@@ -138,7 +138,7 @@ export async function POST(request: NextRequest) {
       .insert({
         full_name: input.fullName,
         email: input.email,
-        phone: input.phone,
+        phone: input.phone || '',
         pickup_location: input.pickupLocation,
         dropoff_location: input.dropoffLocation,
         pickup_date: input.pickupDate,
@@ -180,7 +180,7 @@ export async function POST(request: NextRequest) {
           (process.env.RESEND_EMAIL_DOMAIN
             ? `bookings@${process.env.RESEND_EMAIL_DOMAIN}`
             : 'bookings@austriachauffeurservice.com')
-        const customerEmail = customerConfirmationEmail({ ...input, id: booking.id })
+        const customerEmail = customerConfirmationEmail({ ...input, id: booking.id, phone: input.phone || '' })
         const { error } = await resend.emails.send({
           from: fromAddress,
           to: input.email,
@@ -202,6 +202,7 @@ export async function POST(request: NextRequest) {
     // Forward to the fulfillment partner the same as a web-form lead
     dispatchTenantWebhookAndRecord({
       ...input,
+      phone: input.phone || '',
       id: booking.id,
       created_at: booking.created_at,
     })
