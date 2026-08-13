@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { LocationMap } from '@/components/location-map'
-import { siteName, contactAddress, contactEmail, siteUrl } from '@/lib/content/site'
+import { siteName, contactAddress, contactEmail, siteUrl, whatsappLink, whatsappNumber } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Kontakt',
@@ -59,6 +59,18 @@ export default function ContactPageDe() {
             <h2 className="font-semibold text-brand-ink font-display text-lg">E-Mail-Anfrage</h2>
             <a href={`mailto:${contactEmail}`} className="mt-2 block text-sm font-semibold text-brand-gold hover:underline">
               {contactEmail}
+            </a>
+          </div>
+
+          <div className="rounded-sm border border-brand-line p-6 sm:col-span-2 bg-white hover:border-[#25D366] transition-colors duration-300">
+            <h2 className="font-semibold text-brand-ink font-display text-lg">WhatsApp</h2>
+            <a
+              href={whatsappLink('Hallo, ich möchte einen privaten Transfer in Österreich anfragen.')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 block text-sm font-semibold text-[#25D366] hover:underline"
+            >
+              {whatsappNumber}
             </a>
           </div>
 

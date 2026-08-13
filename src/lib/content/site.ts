@@ -5,6 +5,12 @@ export const siteDescription =
 
 export const contactEmail = 'booking@austriachauffeurservice.com'
 export const contactAddress = 'Kärntner Straße 51, 1010 Wien, Austria'
+
+export const whatsappNumber = '+973 3442 7708'
+const whatsappDigits = whatsappNumber.replace(/[^\d]/g, '')
+export function whatsappLink(message: string) {
+  return `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(message)}`
+}
 // Trust badge shown site-wide. We broker bookings to independently licensed
 // chauffeur partners — we do not hold the Mietwagen-Gewerbe ourselves, so
 // this must describe the partner network, not our own trade registration.

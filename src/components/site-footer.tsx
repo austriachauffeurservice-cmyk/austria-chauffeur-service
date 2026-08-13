@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
-import { contactAddress, contactEmail, licensingInfo } from '@/lib/content/site'
+import { contactAddress, contactEmail, licensingInfo, whatsappLink, whatsappNumber } from '@/lib/content/site'
 import { localizedHref, type Locale } from '@/lib/i18n'
 
 const copy: Record<
@@ -15,11 +15,13 @@ const copy: Record<
     serviceLinks: { href: string; label: string }[]
     companyLinks: { href: string; label: string }[]
     rights: string
+    whatsappMessage: string
   }
 > = {
   en: {
     tagline:
       'Private chauffeur transfers across all of Austria, with licensed cross-border service to neighboring countries.',
+    whatsappMessage: "Hi, I'd like to request a private transfer in Austria.",
     servicesHeading: 'Services',
     companyHeading: 'Company',
     coverageHeading: 'Austria Coverage',
@@ -51,6 +53,7 @@ const copy: Record<
   de: {
     tagline:
       'Private Chauffeurtransfers in ganz Österreich, mit lizenziertem grenzüberschreitendem Service in die Nachbarländer.',
+    whatsappMessage: 'Hallo, ich möchte einen privaten Transfer in Österreich anfragen.',
     servicesHeading: 'Leistungen',
     companyHeading: 'Unternehmen',
     coverageHeading: 'Einsatzgebiete Österreich',
@@ -100,6 +103,17 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
               <span className="text-brand-gold shrink-0">✉️</span>
               <a href={`mailto:${contactEmail}`} className="hover:text-white transition-colors duration-300">
                 {contactEmail}
+              </a>
+            </p>
+            <p className="flex items-center gap-2">
+              <span className="text-brand-gold shrink-0">💬</span>
+              <a
+                href={whatsappLink(t.whatsappMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors duration-300"
+              >
+                WhatsApp: {whatsappNumber}
               </a>
             </p>
             <p className="mt-4 pt-4 border-t border-white/10 text-[10px] tracking-wide text-brand-gold uppercase font-semibold">

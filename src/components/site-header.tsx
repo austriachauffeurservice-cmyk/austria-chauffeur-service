@@ -5,7 +5,7 @@ import { Logo } from '@/components/logo'
 import { ServiceIcon } from '@/components/service-icon'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { contactEmail } from '@/lib/content/site'
+import { contactEmail, whatsappLink } from '@/lib/content/site'
 import { delocalizePath, localizedHref, type Locale } from '@/lib/i18n'
 
 const navLinksByLocale: Record<Locale, { href: string; label: string }[]> = {
@@ -31,9 +31,19 @@ const navLinksByLocale: Record<Locale, { href: string; label: string }[]> = {
   ],
 }
 
-const strings: Record<Locale, { book: string; email: string }> = {
-  en: { book: 'Book Now', email: 'Email Us' },
-  de: { book: 'Jetzt buchen', email: 'E-Mail' },
+const strings: Record<Locale, { book: string; email: string; whatsapp: string; whatsappMessage: string }> = {
+  en: {
+    book: 'Book Now',
+    email: 'Email Us',
+    whatsapp: 'WhatsApp',
+    whatsappMessage: "Hi, I'd like to request a private transfer in Austria.",
+  },
+  de: {
+    book: 'Jetzt buchen',
+    email: 'E-Mail',
+    whatsapp: 'WhatsApp',
+    whatsappMessage: 'Hallo, ich möchte einen privaten Transfer in Österreich anfragen.',
+  },
 }
 
 export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
@@ -72,6 +82,15 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
             className="flex items-center text-brand-ink-2 transition-colors hover:text-brand-gold"
           >
             <ServiceIcon name="mail" className="h-4 w-4" />
+          </a>
+          <a
+            href={whatsappLink(t.whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t.whatsapp}
+            className="flex items-center text-brand-ink-2 transition-colors hover:text-[#25D366]"
+          >
+            <ServiceIcon name="message" className="h-4 w-4" />
           </a>
           <Link
             href={switchHref}
@@ -118,6 +137,16 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
           >
             <ServiceIcon name="mail" className="h-4 w-4" />
             {t.email}
+          </a>
+          <a
+            href={whatsappLink(t.whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+            className="mt-2 flex items-center justify-center gap-2 rounded-sm bg-[#25D366] px-4 py-3 text-center text-sm font-semibold text-white"
+          >
+            <ServiceIcon name="message" className="h-4 w-4" />
+            {t.whatsapp}
           </a>
           <Link
             href={switchHref}
