@@ -15,7 +15,7 @@ import { siteUrl } from '@/lib/content/site'
 
 // Bump this whenever page content actually changes — sitemaps with a
 // lastmod that's always "now" are ignored/distrusted by crawlers.
-const lastModified = new Date('2026-07-21')
+const lastModified = new Date('2026-08-13')
 
 // Pages that exist in German at /de/<path> (mirrors the English tree below).
 const germanPaths = [

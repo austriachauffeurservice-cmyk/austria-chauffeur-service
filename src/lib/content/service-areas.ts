@@ -429,6 +429,222 @@ export const austrianCities: CityArea[] = [
       },
     ],
   },
+  {
+    slug: 'hallstatt',
+    city: 'Hallstatt',
+    region: 'Upper Austria',
+    airport: 'Salzburg Airport (SZG) / Vienna Airport (VIE)',
+    popularRoutes: [
+      'Salzburg → Hallstatt',
+      'Vienna Airport → Hallstatt',
+      'Salzburg Airport → Hallstatt',
+    ],
+    hotelNote: 'Door-to-door transfer directly to your hotel or the pedestrian entry terminal in Hallstatt village.',
+    attractions: [
+      {
+        name: 'Hallstatt Skywalk & Salt Mine',
+        description: "World's oldest salt mine and a panoramic viewing platform overlooking Lake Hallstatt.",
+      },
+      {
+        name: 'Historic Market Square',
+        description: 'Iconic UNESCO heritage lakeside village square lined with traditional 16th-century Alpine houses.',
+      },
+      {
+        name: 'Beinhaus (Charnel House)',
+        description: 'The famous bone house in St. Michael’s Chapel displaying over 600 hand-painted skulls.',
+      },
+    ],
+  },
+  {
+    slug: 'woerthersee',
+    city: 'Wörthersee',
+    region: 'Carinthia',
+    airport: 'Klagenfurt Airport (KLU) / Ljubljana Airport (LJU)',
+    popularRoutes: [
+      'Klagenfurt Airport ↔ Wörthersee (Velden / Pörtschach)',
+      'Vienna → Wörthersee',
+      'Graz → Wörthersee',
+      'Ljubljana → Wörthersee (cross-border)',
+    ],
+    hotelNote: 'Pickup and drop-off at luxury lakeside resorts in Velden, Pörtschach, and Maria Wörth.',
+    attractions: [
+      {
+        name: 'Pyramidenkogel Observation Tower',
+        description: "The world's tallest wooden observation tower offering 360-degree views across Lake Wörthersee.",
+      },
+      {
+        name: 'Casino Velden',
+        description: 'Renowned lakeside casino and hotspot for luxury lifestyle and summer events.',
+      },
+      {
+        name: 'Maria Wörth Peninsula',
+        description: 'Picturesque church peninsula jutting into the turquoise waters of the lake.',
+      },
+    ],
+  },
+  {
+    slug: 'baden-bei-wien',
+    city: 'Baden bei Wien',
+    region: 'Lower Austria',
+    airport: 'Vienna International Airport (VIE)',
+    popularRoutes: [
+      'Vienna Airport ↔ Baden bei Wien',
+      'Vienna City ↔ Baden bei Wien',
+    ],
+    hotelNote: 'Pickup and drop-off at thermal spa hotels, villas, and casino resorts across Baden.',
+    attractions: [
+      {
+        name: 'Römertherme Baden',
+        description: 'Historic Roman thermal baths fed by natural sulfurous hot springs under a glass roof.',
+      },
+      {
+        name: 'Casino Baden',
+        description: 'One of Europe’s largest and most elegant casinos set in a classic Kurpark spa house.',
+      },
+      {
+        name: 'Doblhoffpark & Rosarium',
+        description: 'Austria’s largest rose garden featuring over 30,000 rose bushes in front of the Orangery.',
+      },
+    ],
+  },
+  {
+    slug: 'salzkammergut',
+    city: 'Salzkammergut Region',
+    region: 'Upper Austria / Salzburg / Styria',
+    airport: 'Salzburg Airport (SZG) / Vienna Airport (VIE)',
+    popularRoutes: [
+      'Salzburg ↔ Salzkammergut Lakes',
+      'Vienna Airport → Salzkammergut',
+      'Munich → Salzkammergut (cross-border)',
+    ],
+    hotelNote: 'Private transfers to luxury lakefront resorts in St. Wolfgang, Bad Ischl, Mondsee, and Fuschl.',
+    attractions: [
+      {
+        name: 'Wolfgangsee & Schafberg Railway',
+        description: 'Iconic alpine lake paired with Austria’s steepest steam-operated cog railway.',
+      },
+      {
+        name: 'Bad Ischl Imperial Villa (Kaiservilla)',
+        description: 'Summer residence of Emperor Franz Joseph and Empress Sisi in the heart of the region.',
+      },
+      {
+        name: 'Mondsee Abbey (Sound of Music Church)',
+        description: 'Historic Basilica of St. Michael, site of the famous wedding scene in The Sound of Music.',
+      },
+    ],
+  },
+  {
+    slug: 'wachau-region',
+    city: 'Wachau Wine Region',
+    region: 'Lower Austria',
+    airport: 'Vienna International Airport (VIE)',
+    popularRoutes: [
+      'Vienna ↔ Wachau Valley Tour / Transfer',
+      'Vienna Airport → Krems an der Donau / Melk',
+    ],
+    hotelNote: 'Direct transfer to boutique wine estates and luxury hotels in Krems, Melk, Dürnstein, and Weißenkirchen.',
+    attractions: [
+      {
+        name: 'Melk Abbey (Stift Melk)',
+        description: 'World-renowned Benedictine abbey overlooking the Danube with a famous Baroque library.',
+      },
+      {
+        name: 'Dürnstein Castle Ruins',
+        description: 'Historic hilltop ruins where King Richard the Lionheart was imprisoned in 1192.',
+      },
+      {
+        name: 'Spitz & Weißenkirchen Vineyards',
+        description: 'UNESCO-listed terraced vineyards producing world-class Grüner Veltliner and Riesling wines.',
+      },
+    ],
+  },
+  {
+    slug: 'zillertal-valley',
+    city: 'Zillertal Valley',
+    region: 'Tyrol',
+    airport: 'Innsbruck Airport (INN) / Munich Airport (MUC)',
+    popularRoutes: [
+      'Innsbruck Airport → Zillertal Valley',
+      'Munich Airport → Zillertal Valley (cross-border)',
+    ],
+    hotelNote: 'Door-to-door transfer service covering Fügen, Zell am Ziller, Mayrhofen, and Tux Valley.',
+    attractions: [
+      {
+        name: 'Zillertal Arena & Penken',
+        description: 'One of Austria’s largest linked ski areas spanning across Tyrol and Salzburg states.',
+      },
+      {
+        name: 'Hintertux Glacier Ice Palace',
+        description: 'Natural underground ice cave and glacier ski slopes open 365 days a year.',
+      },
+    ],
+  },
+  {
+    slug: 'kufstein',
+    city: 'Kufstein',
+    region: 'Tyrol',
+    airport: 'Innsbruck Airport (INN) / Munich Airport (MUC)',
+    popularRoutes: [
+      'Kufstein ↔ Munich Airport (cross-border)',
+      'Kufstein ↔ Innsbruck Airport',
+      'Kufstein ↔ Kitzbühel',
+    ],
+    hotelNote: 'Pickup and drop-off at hotels across Kufstein old town and the Inn riverfront.',
+    attractions: [
+      {
+        name: 'Kufstein Fortress (Festung Kufstein)',
+        description: 'Medieval fortress tower overlooking the Inn river, housing the famous Heroes\' Organ.',
+      },
+      {
+        name: 'Riedel Glassworks Factory',
+        description: 'World-famous luxury crystal wine glass workshop and museum in Kufstein.',
+      },
+    ],
+  },
+  {
+    slug: 'lienz',
+    city: 'Lienz',
+    region: 'Tyrol (East Tyrol)',
+    airport: 'Klagenfurt Airport (KLU) / Salzburg Airport (SZG)',
+    popularRoutes: [
+      'Lienz ↔ Klagenfurt',
+      'Lienz ↔ Cortina d\'Ampezzo, Italy (cross-border)',
+      'Lienz ↔ Salzburg',
+    ],
+    hotelNote: 'Pickup and drop-off at hotels across the sunny Lienzer Dolomiten region.',
+    attractions: [
+      {
+        name: 'Bruck Castle (Schloss Bruck)',
+        description: '13th-century castle housing the museum of Albin Egger-Lienz paintings.',
+      },
+      {
+        name: 'Lienz Dolomites (Lienzer Dolomiten)',
+        description: 'Dramatic limestone peaks offering climbing, hiking, and winter sports.',
+      },
+    ],
+  },
+  {
+    slug: 'dornbirn',
+    city: 'Dornbirn',
+    region: 'Vorarlberg',
+    airport: 'Zurich Airport (ZRH, cross-border) / St. Gallen (ACH)',
+    popularRoutes: [
+      'Dornbirn ↔ Zurich Airport (cross-border)',
+      'Dornbirn ↔ Bregenz',
+      'Dornbirn ↔ Lech am Arlberg',
+    ],
+    hotelNote: 'Pickup and drop-off at business hotels and technology centers across Vorarlberg’s largest city.',
+    attractions: [
+      {
+        name: 'Karren Cable Car',
+        description: 'Panoramas over the Rhine Valley and Lake Constance from the mountain restaurant peak.',
+      },
+      {
+        name: 'Rappenloch Gorge (Rappenlochschlucht)',
+        description: 'One of the largest wild gorges in Central Europe with dramatic boardwalks.',
+      },
+    ],
+  },
 ]
 
 export const borderCrossingDestinations: BorderArea[] = [

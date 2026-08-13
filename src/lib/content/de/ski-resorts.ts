@@ -223,4 +223,194 @@ export const skiResorts: SkiResort[] = [
       },
     ],
   },
+  {
+    slug: 'mayrhofen',
+    name: 'Mayrhofen',
+    region: 'Tirol',
+    skiArea: 'Zillertal (Penken / Ahorn) & Hintertuxer Gletscher',
+    nearestAirports: [
+      { name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std. 10 Min.' },
+      { name: 'Flughafen Salzburg (SZG)', driveTime: '~2 Std. 30 Min.' },
+      { name: 'Flughafen München (MUC)', driveTime: '~2 Std. 30 Min.' },
+    ],
+    popularRoutes: [
+      'Flughafen Innsbruck → Mayrhofen',
+      'Flughafen München → Mayrhofen (grenzüberschreitend)',
+      'Flughafen Salzburg → Mayrhofen',
+    ],
+    highlights: [
+      'Tor zum Skigebiet Zillertal, inklusive ganzjährigem Gletscherskifahren am Hintertuxer Gletscher',
+      'Die Harakiri-Piste ist mit 78 % Gefälle die steilste präparierte Piste Österreichs',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels im Ort Mayrhofen und entlang des Zillertals.',
+    attractions: [
+      {
+        name: 'Hintertuxer Gletscher',
+        description: 'Österreichs einziger ganzjährig geöffneter Skigletscher, an jedem Tag des Jahres befahrbar am Ende des Zillertals.',
+      },
+      {
+        name: 'Penken',
+        description: 'Das Hauptskigebiet oberhalb von Mayrhofen, per Seilbahn mit der weiteren Zillertal Arena verbunden.',
+      },
+      {
+        name: 'Harakiri-Piste',
+        description: 'Die steilste präparierte Skipiste Österreichs, eine Herausforderung für erfahrene Skifahrer.',
+      },
+    ],
+  },
+  {
+    slug: 'seefeld',
+    name: 'Seefeld in Tirol',
+    region: 'Tirol',
+    skiArea: 'Olympiaregion Seefeld',
+    nearestAirports: [
+      { name: 'Flughafen Innsbruck (INN)', driveTime: '~25 Min.' },
+      { name: 'Flughafen München (MUC)', driveTime: '~1 Std. 45 Min.' },
+    ],
+    popularRoutes: [
+      'Flughafen Innsbruck → Seefeld',
+      'Flughafen München → Seefeld (grenzüberschreitend)',
+    ],
+    highlights: [
+      'Zweifacher Olympia-Austragungsort (1964 und 1976) für nordische Ski- und Biathlonwettbewerbe',
+      'Ein autofreies, wellnessorientiertes Resort, das Langlauf mit luxuriösem Dorfflair verbindet',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels und Chalets im gesamten Ort Seefeld.',
+    attractions: [
+      {
+        name: 'Olympia-Loipenzentrum',
+        description: 'Die historische Langlauf- und Biathlonanlage, Schauplatz zweier Winterolympiaden.',
+      },
+      {
+        name: 'Seefelder Ortszentrum',
+        description: 'Ein elegantes Fußgängerdorf mit Luxusboutiquen, Spas und Bergblick.',
+      },
+    ],
+  },
+  {
+    slug: 'bad-gastein',
+    name: 'Bad Gastein',
+    region: 'Salzburg',
+    skiArea: 'Ski Amadé — Gasteinertal (Stubnerkogel / Schlossalm)',
+    nearestAirports: [
+      { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 20 Min.' },
+      { name: 'Flughafen Innsbruck (INN)', driveTime: '~2 Std. 15 Min.' },
+    ],
+    popularRoutes: [
+      'Flughafen Salzburg → Bad Gastein',
+      'Salzburg → Bad Gastein',
+    ],
+    highlights: [
+      'Ein prachtvoller Belle-Époque-Kurort an einem Thermalwasserfall, seit dem 19. Jahrhundert Anziehungspunkt für Königshäuser',
+      'Teil des Ski-Amadé-Verbunds, einem der größten zusammenhängenden Skigebiete der Alpen',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Grandhotels und Kurresorts in Bad Gastein und im benachbarten Bad Hofgastein.',
+    attractions: [
+      {
+        name: 'Gasteiner Wasserfall',
+        description: 'Ein eindrucksvoller Alpenwasserfall, der mitten durch den historischen Kurort donnert.',
+      },
+      {
+        name: 'Stubnerkogel & Felsentherme',
+        description: 'Der Hausberg von Bad Gastein, direkt neben der berühmten Felsentherme an seinem Fuß.',
+      },
+      {
+        name: 'Gasteiner Heilstollen',
+        description: 'Einzigartige unterirdische Thermalstollen für therapeutische Anwendungen, eine Gasteiner Spezialität.',
+      },
+    ],
+  },
+  {
+    slug: 'obertauern',
+    name: 'Obertauern',
+    region: 'Salzburg',
+    skiArea: 'Obertauern (Tauernrunde)',
+    nearestAirports: [
+      { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 20 Min.' },
+      { name: 'Flughafen Klagenfurt (KLU)', driveTime: '~1 Std. 30 Min.' },
+    ],
+    popularRoutes: [
+      'Flughafen Salzburg → Obertauern',
+      'Salzburg → Obertauern',
+    ],
+    highlights: [
+      'Eines der schneesichersten Skigebiete Österreichs, zuverlässig geöffnet von Ende November bis Anfang Mai',
+      'Die Tauernrunde erlaubt es, aus jeder Richtung zu jedem Punkt im Ort zurückzufahren',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Ski-in/Ski-out-Hotels in ganz Obertauern — der Ort ist direkt um die Pisten herum gebaut.',
+    attractions: [
+      {
+        name: 'Tauernrunde',
+        description: 'Eine Rundpiste um das gesamte Skigebiet, die es erlaubt, den Berg in jede Richtung zu umrunden.',
+      },
+      {
+        name: 'Seekareck & Gamskogel',
+        description: 'Die beiden Hauptgipfel des Skigebiets Obertauern mit Panoramablick.',
+      },
+    ],
+  },
+  {
+    slug: 'schladming',
+    name: 'Schladming',
+    region: 'Steiermark',
+    skiArea: 'Ski Amadé — Planai / Hochwurzen / Dachsteingletscher / Hauser Kaibling',
+    nearestAirports: [
+      { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 30 Min.' },
+      { name: 'Flughafen Graz (GRZ)', driveTime: '~1 Std. 30 Min.' },
+      { name: 'Flughafen Innsbruck (INN)', driveTime: '~2 Std. 15 Min.' },
+    ],
+    popularRoutes: [
+      'Flughafen Salzburg → Schladming',
+      'Flughafen Graz → Schladming',
+      'Salzburg → Schladming',
+    ],
+    highlights: [
+      'Austragungsort der FIS Alpinen Ski-Weltmeisterschaft und regelmäßig Schauplatz des Nachtslaloms auf der Planai',
+      'Der Vier-Berge-Skiverbund Ski Amadé verbindet Planai, Hochwurzen, Hauser Kaibling und den Dachsteingletscher',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in Schladming und den umliegenden Ski-Amadé-Ortschaften.',
+    attractions: [
+      {
+        name: 'Planai-Nachtslalom',
+        description: 'Das berühmte Nachtrennen auf der Weltcup-Piste der Planai, unter Flutlicht vor 45.000 Zuschauern.',
+      },
+      {
+        name: 'Dachsteingletscher & Skywalk',
+        description: 'Ein ganzjähriger Gletscher mit der markanten Glasboden-Aussichtsplattform auf über 2.700 m.',
+      },
+      {
+        name: 'Schladminger Altstadt',
+        description: 'Ein traditioneller steirischer Marktort mit gotischer Kirche und lebhaften Après-Ski-Lokalen.',
+      },
+    ],
+  },
+  {
+    slug: 'flachau-wagrain',
+    name: 'Flachau / Wagrain',
+    region: 'Salzburg',
+    skiArea: 'Snow Space Salzburg (Ski Amadé)',
+    nearestAirports: [
+      { name: 'Flughafen Salzburg (SZG)', driveTime: '~45 Min.' },
+      { name: 'Flughafen München (MUC)', driveTime: '~2 Std.' },
+    ],
+    popularRoutes: [
+      'Flughafen Salzburg → Flachau / Wagrain',
+      'Flughafen München → Flachau / Wagrain (grenzüberschreitend)',
+    ],
+    highlights: [
+      'Hermann-Maier-Weltcupstrecke und moderne Hochgeschwindigkeitslifte',
+      'Direkte Verbindung zwischen Grießenkar, Wagrain und Alpendorf über die G-Link-Seilbahn',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Familienhotels und Skihütten in Flachau, Wagrain und St. Johann.',
+    attractions: [
+      {
+        name: 'G-Link Wagrain',
+        description: 'Spektakuläre 3D-Seilbahn, die über das Tal hinweg die Gipfel von Flachau und Wagrain verbindet.',
+      },
+      {
+        name: 'Hermann-Maier-Weltcuppiste',
+        description: 'Der legendäre Weltcup-Slalomhang, benannt nach dem Salzburger Skichampion.',
+      },
+    ],
+  },
 ]

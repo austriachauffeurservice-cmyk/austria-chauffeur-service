@@ -422,6 +422,222 @@ export const austrianCities: CityArea[] = [
       },
     ],
   },
+  {
+    slug: 'hallstatt',
+    city: 'Hallstatt',
+    region: 'Oberösterreich',
+    airport: 'Flughafen Salzburg (SZG) / Flughafen Wien (VIE)',
+    popularRoutes: [
+      'Salzburg → Hallstatt',
+      'Flughafen Wien → Hallstatt',
+      'Flughafen Salzburg → Hallstatt',
+    ],
+    hotelNote: 'Tür-zu-Tür-Transfer direkt zu Ihrem Hotel oder zum Fußgänger-Eingangsterminal im Ort Hallstatt.',
+    attractions: [
+      {
+        name: 'Hallstatt Skywalk & Salzwelten',
+        description: 'Das älteste bekannte Salzbergwerk der Welt und eine Panorama-Aussichtsplattform mit Blick über den Hallstätter See.',
+      },
+      {
+        name: 'Historischer Marktplatz',
+        description: 'Der ikonische UNESCO-Weltkulturerbe-Dorfplatz am See, gesäumt von traditionellen Alpenhäusern aus dem 16. Jahrhundert.',
+      },
+      {
+        name: 'Beinhaus',
+        description: 'Das berühmte Beinhaus in der Michaelskapelle mit über 600 handbemalten Schädeln.',
+      },
+    ],
+  },
+  {
+    slug: 'woerthersee',
+    city: 'Wörthersee',
+    region: 'Kärnten',
+    airport: 'Flughafen Klagenfurt (KLU) / Flughafen Ljubljana (LJU)',
+    popularRoutes: [
+      'Flughafen Klagenfurt ↔ Wörthersee (Velden / Pörtschach)',
+      'Wien → Wörthersee',
+      'Graz → Wörthersee',
+      'Ljubljana → Wörthersee (grenzüberschreitend)',
+    ],
+    hotelNote: 'Abholung und Ablieferung an luxuriösen Seeresorts in Velden, Pörtschach und Maria Wörth.',
+    attractions: [
+      {
+        name: 'Pyramidenkogel',
+        description: 'Der höchste Holzaussichtsturm der Welt mit 360-Grad-Blick über den Wörthersee.',
+      },
+      {
+        name: 'Casino Velden',
+        description: 'Das bekannte Seecasino, ein Hotspot für Luxuslifestyle und Sommer-Events.',
+      },
+      {
+        name: 'Halbinsel Maria Wörth',
+        description: 'Die malerische Kirchenhalbinsel, die ins türkisfarbene Wasser des Sees hineinragt.',
+      },
+    ],
+  },
+  {
+    slug: 'baden-bei-wien',
+    city: 'Baden bei Wien',
+    region: 'Niederösterreich',
+    airport: 'Flughafen Wien (VIE)',
+    popularRoutes: [
+      'Flughafen Wien ↔ Baden bei Wien',
+      'Wien Stadt ↔ Baden bei Wien',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Thermenhotels, Villen und Casino-Resorts in ganz Baden.',
+    attractions: [
+      {
+        name: 'Römertherme Baden',
+        description: 'Historisches römisches Thermalbad, gespeist von natürlichen Schwefelquellen unter einem Glasdach.',
+      },
+      {
+        name: 'Casino Baden',
+        description: 'Eines der größten und elegantesten Casinos Europas, in einem klassischen Kurhaus im Kurpark.',
+      },
+      {
+        name: 'Doblhoffpark & Rosarium',
+        description: 'Österreichs größter Rosengarten mit über 30.000 Rosenstöcken vor der Orangerie.',
+      },
+    ],
+  },
+  {
+    slug: 'salzkammergut',
+    city: 'Salzkammergut',
+    region: 'Oberösterreich / Salzburg / Steiermark',
+    airport: 'Flughafen Salzburg (SZG) / Flughafen Wien (VIE)',
+    popularRoutes: [
+      'Salzburg ↔ Salzkammergut-Seen',
+      'Flughafen Wien → Salzkammergut',
+      'München → Salzkammergut (grenzüberschreitend)',
+    ],
+    hotelNote: 'Private Transfers zu luxuriösen Seeresorts in St. Wolfgang, Bad Ischl, Mondsee und Fuschl.',
+    attractions: [
+      {
+        name: 'Wolfgangsee & Schafbergbahn',
+        description: 'Der bekannte Alpensee, kombiniert mit Österreichs steilster dampfbetriebener Zahnradbahn.',
+      },
+      {
+        name: 'Kaiservilla Bad Ischl',
+        description: 'Die Sommerresidenz von Kaiser Franz Joseph und Kaiserin Sisi im Herzen der Region.',
+      },
+      {
+        name: 'Basilika Mondsee',
+        description: 'Die historische Basilika St. Michael, Schauplatz der berühmten Hochzeitsszene in „The Sound of Music“.',
+      },
+    ],
+  },
+  {
+    slug: 'wachau-region',
+    city: 'Wachau Weinregion',
+    region: 'Niederösterreich',
+    airport: 'Flughafen Wien (VIE)',
+    popularRoutes: [
+      'Wien ↔ Wachau-Tal Tour/Transfer',
+      'Flughafen Wien → Krems an der Donau / Melk',
+    ],
+    hotelNote: 'Direkter Transfer zu Boutique-Weingütern und Luxushotels in Krems, Melk, Dürnstein und Weißenkirchen.',
+    attractions: [
+      {
+        name: 'Stift Melk',
+        description: 'Weltberühmtes Benediktinerstift hoch über der Donau mit einer berühmten Barockbibliothek.',
+      },
+      {
+        name: 'Ruine Dürnstein',
+        description: 'Historische Burgruine, in der König Richard Löwenherz 1192 gefangen gehalten wurde.',
+      },
+      {
+        name: 'Weingärten von Spitz & Weißenkirchen',
+        description: 'UNESCO-gelistete Terrassenweingärten mit Weltklasse-Grünem Veltliner und Riesling.',
+      },
+    ],
+  },
+  {
+    slug: 'zillertal-valley',
+    city: 'Zillertal',
+    region: 'Tirol',
+    airport: 'Flughafen Innsbruck (INN) / Flughafen München (MUC)',
+    popularRoutes: [
+      'Flughafen Innsbruck → Zillertal',
+      'Flughafen München → Zillertal (grenzüberschreitend)',
+    ],
+    hotelNote: 'Tür-zu-Tür-Transfer nach Fügen, Zell am Ziller, Mayrhofen und ins Tuxertal.',
+    attractions: [
+      {
+        name: 'Zillertal Arena & Penken',
+        description: 'Eines der größten zusammenhängenden Skigebiete Österreichs, das sich über Tirol und Salzburg erstreckt.',
+      },
+      {
+        name: 'Naturarena Hintertux',
+        description: 'Natürliche unterirdische Eishöhle und Gletscherpisten, 365 Tage im Jahr geöffnet.',
+      },
+    ],
+  },
+  {
+    slug: 'kufstein',
+    city: 'Kufstein',
+    region: 'Tirol',
+    airport: 'Flughafen Innsbruck (INN) / Flughafen München (MUC)',
+    popularRoutes: [
+      'Kufstein ↔ Flughafen München (grenzüberschreitend)',
+      'Kufstein ↔ Flughafen Innsbruck',
+      'Kufstein ↔ Kitzbühel',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in der Kufsteiner Altstadt und am Innufer.',
+    attractions: [
+      {
+        name: 'Festung Kufstein',
+        description: 'Mittelalterlicher Festungsturm über dem Inn, Heimat der berühmten Heldenorgel.',
+      },
+      {
+        name: 'Riedel Glasmanufaktur',
+        description: 'Weltberühmte Luxus-Kristallglas-Manufaktur und Museum in Kufstein.',
+      },
+    ],
+  },
+  {
+    slug: 'lienz',
+    city: 'Lienz',
+    region: 'Tirol (Osttirol)',
+    airport: 'Flughafen Klagenfurt (KLU) / Flughafen Salzburg (SZG)',
+    popularRoutes: [
+      'Lienz ↔ Klagenfurt',
+      'Lienz ↔ Cortina d\'Ampezzo, Italien (grenzüberschreitend)',
+      'Lienz ↔ Salzburg',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in der sonnigen Region der Lienzer Dolomiten.',
+    attractions: [
+      {
+        name: 'Schloss Bruck',
+        description: 'Burg aus dem 13. Jahrhundert mit dem Museum der Gemälde von Albin Egger-Lienz.',
+      },
+      {
+        name: 'Lienzer Dolomiten',
+        description: 'Eindrucksvolle Kalksteingipfel für Klettern, Wandern und Wintersport.',
+      },
+    ],
+  },
+  {
+    slug: 'dornbirn',
+    city: 'Dornbirn',
+    region: 'Vorarlberg',
+    airport: 'Flughafen Zürich (ZRH, grenzüberschreitend) / St. Gallen-Altenrhein (ACH)',
+    popularRoutes: [
+      'Dornbirn ↔ Flughafen Zürich (grenzüberschreitend)',
+      'Dornbirn ↔ Bregenz',
+      'Dornbirn ↔ Lech am Arlberg',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Business-Hotels und Technologiezentren in Vorarlbergs größter Stadt.',
+    attractions: [
+      {
+        name: 'Karren-Seilbahn',
+        description: 'Panoramablick über das Rheintal und den Bodensee vom Berggasthaus am Gipfel.',
+      },
+      {
+        name: 'Rappenlochschlucht',
+        description: 'Eine der größten Wildschluchten Mitteleuropas mit spektakulären Stegen.',
+      },
+    ],
+  },
 ]
 
 export const borderCrossingDestinations: BorderArea[] = [
