@@ -4,9 +4,9 @@ import { airports } from '@/lib/content/airports'
 import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
-  title: 'Airport Transfers in Austria',
+  title: 'Airport Chauffeur Transfers in Austria | Luxury & Fixed-Price',
   description:
-    'Private meet-and-greet chauffeur pickup at Vienna, Salzburg, Innsbruck, Graz, Linz, and Klagenfurt airports. Flight tracking, fixed pricing, no waiting in taxi lines.',
+    'Private airport chauffeur transfers at every major Austrian airport, plus Munich and Zurich for cross-border arrivals — meet-and-greet, flight tracking, executive vehicles. Fixed price, no taxi queue.',
   alternates: {
     canonical: '/airport-transfers',
     languages: { en: '/airport-transfers', de: '/de/airport-transfers', 'x-default': '/airport-transfers' },
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     siteName,
     locale: 'en_US',
     url: `${siteUrl}/airport-transfers`,
-    title: 'Airport Transfers in Austria',
+    title: 'Airport Chauffeur Transfers in Austria | Luxury & Fixed-Price',
     description:
-      'Private meet-and-greet chauffeur pickup at Vienna, Salzburg, Innsbruck, Graz, Linz, and Klagenfurt airports. Flight tracking, fixed pricing, no waiting in taxi lines.',
+      'Private airport chauffeur transfers at every major Austrian airport, plus Munich and Zurich for cross-border arrivals — meet-and-greet, flight tracking, executive vehicles. Fixed price, no taxi queue.',
   },
 }
 

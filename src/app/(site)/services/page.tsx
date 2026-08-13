@@ -6,18 +6,18 @@ import { serviceTypes, vehicles } from '@/lib/content/services'
 import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
-  title: 'Services & Fleet',
+  title: 'Austria Transfer Services | Airport, City & Cross-Border',
   description:
-    'Airport transfers, city-to-city travel, cross-border transfers, hourly hire, and event transport across Austria — with a fleet from business sedans to minibuses.',
+    'Every Austria transfer service in one place — airport pickups, city-to-city travel, cross-border trips, and hourly hire. Fixed pricing, professional drivers, fleet from sedan to minibus.',
   alternates: { canonical: '/services', languages: { en: '/services', de: '/de/services', 'x-default': '/services' } },
   openGraph: {
     type: 'website',
     siteName,
     locale: 'en_US',
     url: `${siteUrl}/services`,
-    title: 'Services & Fleet',
+    title: 'Austria Transfer Services | Airport, City & Cross-Border',
     description:
-      'Airport transfers, city-to-city travel, cross-border transfers, hourly hire, and event transport across Austria — with a fleet from business sedans to minibuses.',
+      'Every Austria transfer service in one place — airport pickups, city-to-city travel, cross-border trips, and hourly hire. Fixed pricing, professional drivers, fleet from sedan to minibus.',
   },
 }
 

@@ -21,8 +21,10 @@ export async function generateMetadata({
   if (!route) return {}
 
   const canonical = `/de/routes/${slug}`
-  const title = `Transfer ${route.from} nach ${route.to}`
-  const description = `Privater Chauffeurtransfer von ${route.from} nach ${route.to}. ${route.distance}, ${route.driveTime} Fahrzeit, Festpreise.`
+  const title = route.seoTitle ?? `Transfer ${route.from} nach ${route.to}`
+  const description =
+    route.seoDescription ??
+    `Privater Chauffeurtransfer von ${route.from} nach ${route.to}. ${route.distance}, ${route.driveTime} Fahrzeit, Festpreise.`
   return {
     title: { absolute: title },
     description,

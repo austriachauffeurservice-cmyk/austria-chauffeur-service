@@ -11,6 +11,8 @@ export type CityArea = {
   hotels?: Hotel[]
   hotelNote?: string
   attractions?: Attraction[]
+  seoTitle?: string
+  seoDescription?: string
 }
 
 export type BorderArea = {
@@ -20,6 +22,8 @@ export type BorderArea = {
   via: string
   popularRoutes: string[]
   note: string
+  seoTitle?: string
+  seoDescription?: string
 }
 
 export type BorderCity = {
@@ -29,6 +33,8 @@ export type BorderCity = {
   country: string
   via: string
   popularRoutes: string[]
+  seoTitle?: string
+  seoDescription?: string
 }
 
 export const austrianCities: CityArea[] = [
@@ -44,6 +50,9 @@ export const austrianCities: CityArea[] = [
       'Wien → Budapest, Ungarn (grenzüberschreitend)',
     ],
     note: 'Hauptsitz & primärer Standort',
+    seoTitle: 'Privater Chauffeurservice Wien | Flughafen- & Stadttransfers',
+    seoDescription:
+      'Privater Chauffeurservice in Wien — Flughafenabholungen, Stadtfahrten und grenzüberschreitende Fahrten nach Bratislava, Budapest und darüber hinaus. Festpreise, professionelle Fahrer.',
     hotels: [
       { name: 'Hotel Sacher Wien', area: 'Innere Stadt' },
       { name: 'Hotel Imperial', area: 'Kärntner Ring' },
@@ -664,6 +673,9 @@ export const borderCrossingDestinations: BorderArea[] = [
     via: 'über die A6-Autobahn',
     popularRoutes: ['Wien → Bratislava', 'Flughafen Wien → Bratislava'],
     note: 'Unter einer Stunde vom Wiener Zentrum',
+    seoTitle: 'Österreich–Slowakei Transferservice | Wien ↔ Bratislava',
+    seoDescription:
+      'Privater Chauffeur-Transferservice zwischen Österreich und der Slowakei — Wien nach Bratislava in unter einer Stunde, Abholung ab Stadt oder Flughafen, Festpreis, kein Fahrzeugwechsel an der Grenze.',
   },
   {
     slug: 'hungary',
@@ -747,6 +759,9 @@ export const borderCities: BorderCity[] = [
     country: 'Slowakei',
     via: 'über die A6-Autobahn',
     popularRoutes: ['Wien → Bratislava', 'Flughafen Wien → Bratislava'],
+    seoTitle: 'Bratislava Chauffeurtransfer ab Österreich | Festpreis',
+    seoDescription:
+      'Privater Chauffeurservice von Wien oder Flughafen Wien nach Bratislava, Slowakei — unter einer Stunde, Festpreis, lizenzierter Fahrer, kein Fahrzeugwechsel an der Grenze.',
   },
   {
     slug: 'budapest',

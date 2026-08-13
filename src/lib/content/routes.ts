@@ -7,6 +7,11 @@ export type RoutePair = {
   routeDescription: string
   whyBook: string[]
   crossBorder?: boolean
+  // Overrides the generated <title>/description in generateMetadata — only
+  // set this where the templated copy genuinely underperforms (see the GSC
+  // signal audit); leave unset everywhere else so the template stays DRY.
+  seoTitle?: string
+  seoDescription?: string
 }
 
 export const routes: RoutePair[] = [
@@ -107,6 +112,9 @@ export const routes: RoutePair[] = [
       'Popular for business meetings, day trips, and Vienna Airport connections',
     ],
     crossBorder: true,
+    seoTitle: 'Vienna to Bratislava Private Transfer | 1 Hour, Fixed Price',
+    seoDescription:
+      'Private chauffeur transfer from central Vienna to Bratislava — 80km, about an hour, fixed price, no border stop. Ideal for meetings, day trips, and hotel-to-hotel travel.',
   },
   {
     slug: 'vienna-to-budapest',
@@ -357,13 +365,16 @@ export const routes: RoutePair[] = [
     to: 'Bratislava',
     distance: '~65km',
     driveTime: '~45m',
-    routeDescription: 'East via A4 and A6 motorways through Kittsee across the border to Bratislava.',
+    routeDescription: 'East via A4 and A6 motorways through Kittsee across the border to Bratislava — booked in either direction, arrival or departure.',
     whyBook: [
       'Shortest capital-to-capital transfer in Central Europe',
-      'Ideal for international arrivals at VIE heading to Slovakia',
+      'Covers both directions — VIE arrivals heading into Slovakia, and Bratislava departures connecting to a flight at Vienna Airport',
       'Fast, direct, and fixed price door-to-door',
     ],
     crossBorder: true,
+    seoTitle: 'Vienna Airport to Bratislava Transfer | 45 Minutes, Fixed Price',
+    seoDescription:
+      'Private transfer between Vienna Airport and Bratislava — 65km, ~45 minutes, fixed price door-to-door. Covers both arrivals into VIE and departures from Bratislava.',
   },
   {
     slug: 'vienna-airport-to-budapest',

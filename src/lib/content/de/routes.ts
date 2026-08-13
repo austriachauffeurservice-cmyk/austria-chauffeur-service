@@ -7,6 +7,8 @@ export type RoutePair = {
   routeDescription: string
   whyBook: string[]
   crossBorder?: boolean
+  seoTitle?: string
+  seoDescription?: string
 }
 
 export const routes: RoutePair[] = [
@@ -107,6 +109,9 @@ export const routes: RoutePair[] = [
       'Beliebt für Geschäftstermine, Tagesausflüge und Anschlüsse an den Flughafen Wien',
     ],
     crossBorder: true,
+    seoTitle: 'Wien nach Bratislava Privattransfer | 1 Stunde, Festpreis',
+    seoDescription:
+      'Privater Chauffeurtransfer vom Wiener Stadtzentrum nach Bratislava — 80 km, etwa eine Stunde, Festpreis, kein Grenzstopp. Ideal für Geschäftstermine, Tagesausflüge und Fahrten von Hotel zu Hotel.',
   },
   {
     slug: 'vienna-to-budapest',
@@ -357,13 +362,16 @@ export const routes: RoutePair[] = [
     to: 'Bratislava',
     distance: '~65 km',
     driveTime: '~45 Min.',
-    routeDescription: 'Östlich über die Autobahnen A4 und A6 durch Kittsee über die Grenze nach Bratislava.',
+    routeDescription: 'Östlich über die Autobahnen A4 und A6 durch Kittsee über die Grenze nach Bratislava — in beide Richtungen buchbar, Ankunft oder Abfahrt.',
     whyBook: [
       'Kürzester Hauptstadt-zu-Hauptstadt-Transfer Mitteleuropas',
-      'Ideal für internationale Ankünfte am Flughafen Wien mit Ziel Slowakei',
+      'Deckt beide Richtungen ab — Ankünfte am Flughafen Wien mit Ziel Slowakei und Abfahrten aus Bratislava zu einem Flug ab Wien',
       'Schnell, direkt und zum Festpreis, Tür zu Tür',
     ],
     crossBorder: true,
+    seoTitle: 'Flughafen Wien nach Bratislava Transfer | 45 Minuten, Festpreis',
+    seoDescription:
+      'Privater Transfer zwischen Flughafen Wien und Bratislava — 65 km, ca. 45 Minuten, Festpreis Tür zu Tür. Deckt sowohl Ankünfte am Flughafen Wien als auch Abfahrten aus Bratislava ab.',
   },
   {
     slug: 'vienna-airport-to-budapest',

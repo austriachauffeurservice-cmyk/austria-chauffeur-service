@@ -50,9 +50,12 @@ export async function generateMetadata({
   const url = `${siteUrl}${canonical}`
 
   if (location.kind === 'city') {
-    const { city, region } = location.data
-    const title = `Chauffeurservice in ${city}`
-    const description = `Private Chauffeurtransfers von und nach ${city}, ${region} — Flughafenabholungen, Stadt-zu-Stadt-Fahrten und grenzüberschreitende Reisen. Festpreise, professionelle Fahrer.`
+    const { city, region, seoTitle, seoDescription } = location.data
+    const regionSuffix = region === city ? '' : `, ${region}`
+    const title = seoTitle ?? `Chauffeurservice in ${city}`
+    const description =
+      seoDescription ??
+      `Private Chauffeurtransfers von und nach ${city}${regionSuffix} — Flughafenabholungen, Stadt-zu-Stadt-Fahrten und grenzüberschreitende Reisen. Festpreise, professionelle Fahrer.`
     return {
       title,
       description,
@@ -62,9 +65,11 @@ export async function generateMetadata({
   }
 
   if (location.kind === 'borderCity') {
-    const { city, country } = location.data
-    const title = `Chauffeurtransfer nach ${city}, ${country}`
-    const description = `Privater grenzüberschreitender Chauffeurtransfer von Österreich nach ${city}, ${country}. Festpreise, lizenzierter Fahrer, kein Fahrzeugwechsel an der Grenze.`
+    const { city, country, seoTitle, seoDescription } = location.data
+    const title = seoTitle ?? `Chauffeurtransfer nach ${city}, ${country}`
+    const description =
+      seoDescription ??
+      `Privater grenzüberschreitender Chauffeurtransfer von Österreich nach ${city}, ${country}. Festpreise, lizenzierter Fahrer, kein Fahrzeugwechsel an der Grenze.`
     return {
       title,
       description,
@@ -73,9 +78,11 @@ export async function generateMetadata({
     }
   }
 
-  const { country, cities } = location.data
-  const title = `Grenzüberschreitende Transfers nach ${country}`
-  const description = `Lizenzierte private Chauffeurtransfers von Österreich nach ${cities.join(', ')} (${country}). Festpreise, kein Fahrzeugwechsel an der Grenze.`
+  const { country, cities, seoTitle, seoDescription } = location.data
+  const title = seoTitle ?? `Grenzüberschreitende Transfers nach ${country}`
+  const description =
+    seoDescription ??
+    `Lizenzierte private Chauffeurtransfers von Österreich nach ${cities.join(', ')} (${country}). Festpreise, kein Fahrzeugwechsel an der Grenze.`
   return {
     title,
     description,

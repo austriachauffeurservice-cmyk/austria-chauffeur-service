@@ -4,9 +4,9 @@ import { airports } from '@/lib/content/de/airports'
 import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
-  title: 'Flughafentransfers in ganz Österreich',
+  title: 'Flughafen-Chauffeurtransfers in Österreich | Luxus & Festpreis',
   description:
-    'Private Empfangsservice-Abholung an den Flughäfen Wien, Salzburg, Innsbruck, Graz, Linz und Klagenfurt. Flugverfolgung, Festpreise, kein Warten in der Taxischlange.',
+    'Private Flughafen-Chauffeurtransfers an jedem großen österreichischen Flughafen sowie München und Zürich für grenzüberschreitende Ankünfte — Empfangsservice, Flugverfolgung, Executive-Fahrzeuge. Festpreis, keine Taxischlange.',
   alternates: {
     canonical: '/de/airport-transfers',
     languages: { en: '/airport-transfers', de: '/de/airport-transfers', 'x-default': '/airport-transfers' },
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     siteName,
     locale: 'de_AT',
     url: `${siteUrl}/de/airport-transfers`,
-    title: 'Flughafentransfers in ganz Österreich',
+    title: 'Flughafen-Chauffeurtransfers in Österreich | Luxus & Festpreis',
     description:
-      'Private Empfangsservice-Abholung an den Flughäfen Wien, Salzburg, Innsbruck, Graz, Linz und Klagenfurt. Flugverfolgung, Festpreise, kein Warten in der Taxischlange.',
+      'Private Flughafen-Chauffeurtransfers an jedem großen österreichischen Flughafen sowie München und Zürich für grenzüberschreitende Ankünfte — Empfangsservice, Flugverfolgung, Executive-Fahrzeuge. Festpreis, keine Taxischlange.',
   },
 }
 

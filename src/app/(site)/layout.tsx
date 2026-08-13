@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { MobileActionBar } from "@/components/mobile-action-bar";
 import { AnalyticsScripts } from "@/components/analytics-scripts";
-import { siteDescription, siteName, siteUrl } from "@/lib/content/site";
+import { homeTitle, siteDescription, siteName, siteUrl } from "@/lib/content/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +25,7 @@ const playfairDisplay = Playfair_Display({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} | Private Transfers Across Austria`,
+    default: homeTitle,
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
@@ -75,12 +75,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName,
-    title: `${siteName} | Private Transfers Across Austria`,
+    title: homeTitle,
     description: siteDescription,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} | Private Transfers Across Austria`,
+    title: homeTitle,
     description: siteDescription,
   },
 };

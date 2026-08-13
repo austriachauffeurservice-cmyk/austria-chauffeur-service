@@ -51,9 +51,12 @@ export async function generateMetadata({
   const url = `${siteUrl}${canonical}`
 
   if (location.kind === 'city') {
-    const { city, region } = location.data
-    const title = `Chauffeur Service in ${city}`
-    const description = `Private chauffeur transfers to and from ${city}, ${region} — airport pickups, city-to-city travel, and cross-border trips. Fixed pricing, professional drivers.`
+    const { city, region, seoTitle, seoDescription } = location.data
+    const regionSuffix = region === city ? '' : `, ${region}`
+    const title = seoTitle ?? `Chauffeur Service in ${city}`
+    const description =
+      seoDescription ??
+      `Private chauffeur transfers to and from ${city}${regionSuffix} — airport pickups, city-to-city travel, and cross-border trips. Fixed pricing, professional drivers.`
     return {
       title,
       description,
@@ -63,9 +66,11 @@ export async function generateMetadata({
   }
 
   if (location.kind === 'borderCity') {
-    const { city, country } = location.data
-    const title = `Chauffeur Transfer to ${city}, ${country}`
-    const description = `Private cross-border chauffeur transfer from Austria to ${city}, ${country}. Fixed pricing, licensed driver, no vehicle switch at the border.`
+    const { city, country, seoTitle, seoDescription } = location.data
+    const title = seoTitle ?? `Chauffeur Transfer to ${city}, ${country}`
+    const description =
+      seoDescription ??
+      `Private cross-border chauffeur transfer from Austria to ${city}, ${country}. Fixed pricing, licensed driver, no vehicle switch at the border.`
     return {
       title,
       description,
@@ -74,9 +79,11 @@ export async function generateMetadata({
     }
   }
 
-  const { country, cities } = location.data
-  const title = `Cross-Border Transfers to ${country}`
-  const description = `Licensed private chauffeur transfers from Austria to ${cities.join(', ')} (${country}). Fixed pricing, no vehicle switch at the border.`
+  const { country, cities, seoTitle, seoDescription } = location.data
+  const title = seoTitle ?? `Cross-Border Transfers to ${country}`
+  const description =
+    seoDescription ??
+    `Licensed private chauffeur transfers from Austria to ${cities.join(', ')} (${country}). Fixed pricing, no vehicle switch at the border.`
   return {
     title,
     description,

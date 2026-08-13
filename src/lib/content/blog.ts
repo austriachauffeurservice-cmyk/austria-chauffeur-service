@@ -157,7 +157,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedPages: [
-      { label: 'Chauffeur vs Taxi vs Uber in Austria: An Honest Comparison', href: '/blog/chauffeur-vs-taxi-vs-uber-austria' },
+      { label: 'Chauffeur vs. Taxi vs. Uber in Austria: Which to Book?', href: '/blog/chauffeur-vs-taxi-vs-uber-austria' },
       { label: 'How Far in Advance Should You Book a Chauffeur in Austria?', href: '/blog/how-far-in-advance-book-chauffeur' },
       { label: 'Cross-Border Transfers from Austria: Comparing Every Route', href: '/blog/austria-cross-border-transfers-guide' },
       { label: 'Vienna to Bratislava: Two Capitals, One Short Drive', href: '/blog/vienna-to-bratislava-guide' },
@@ -809,7 +809,7 @@ export const blogPosts: BlogPost[] = [
       { label: 'Cross-Border Transfers from Austria: Comparing Every Route', href: '/blog/austria-cross-border-transfers-guide' },
       { label: 'Vienna to Bratislava: Two Capitals, One Short Drive', href: '/blog/vienna-to-bratislava-guide' },
       { label: 'Vienna to Budapest: A Cross-Border Road Trip Guide', href: '/blog/vienna-to-budapest-guide' },
-      { label: 'Chauffeur vs Taxi vs Uber in Austria: An Honest Comparison', href: '/blog/chauffeur-vs-taxi-vs-uber-austria' },
+      { label: 'Chauffeur vs. Taxi vs. Uber in Austria: Which to Book?', href: '/blog/chauffeur-vs-taxi-vs-uber-austria' },
       { label: 'Corporate Accounts', href: '/corporate-accounts' },
       { label: 'View the Fleet', href: '/fleet' },
       { label: 'Start a Booking', href: '/booking' },
@@ -2056,7 +2056,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'chauffeur-vs-taxi-vs-uber-austria',
-    title: 'Chauffeur vs Taxi vs Uber in Austria: An Honest Comparison',
+    title: 'Chauffeur vs. Taxi vs. Uber in Austria: Which to Book?',
     excerpt:
       "Three ways to get a private ride in Austria, compared honestly — pricing, airport pickups, cross-border trips, and when each option actually wins out.",
     publishedAt: '2026-07-22',
@@ -3005,7 +3005,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedPages: [
-      { label: 'Chauffeur vs Taxi vs Uber in Austria: An Honest Comparison', href: '/blog/chauffeur-vs-taxi-vs-uber-austria' },
+      { label: 'Chauffeur vs. Taxi vs. Uber in Austria: Which to Book?', href: '/blog/chauffeur-vs-taxi-vs-uber-austria' },
       { label: 'Vienna to Budapest: A Cross-Border Road Trip Guide', href: '/blog/vienna-to-budapest-guide' },
       { label: "Austria's Vignette System, Explained", href: '/blog/austria-vignette-toll-guide' },
       { label: 'View the Fleet', href: '/fleet' },

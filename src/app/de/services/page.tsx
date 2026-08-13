@@ -6,17 +6,17 @@ import { serviceTypes, vehicles } from '@/lib/content/de/services'
 import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
-  title: 'Leistungen & Fuhrpark',
+  title: 'Österreich Transferservice | Flughafen, Stadt & Grenzüberschreitend',
   description:
-    'Flughafentransfers, Stadt-zu-Stadt-Fahrten, grenzüberschreitende Transfers, Stundenbuchung und Veranstaltungstransport in ganz Österreich — mit einem Fuhrpark von Business-Limousinen bis Kleinbussen.',
+    'Jeder Österreich-Transferservice an einem Ort — Flughafenabholungen, Stadt-zu-Stadt-Fahrten, grenzüberschreitende Fahrten und Stundenbuchung. Festpreise, professionelle Fahrer, Fuhrpark vom Sedan bis zum Kleinbus.',
   openGraph: {
     type: 'website',
     siteName,
     locale: 'de_AT',
     url: `${siteUrl}/de/services`,
-    title: 'Leistungen & Fuhrpark',
+    title: 'Österreich Transferservice | Flughafen, Stadt & Grenzüberschreitend',
     description:
-      'Flughafentransfers, Stadt-zu-Stadt-Fahrten, grenzüberschreitende Transfers, Stundenbuchung und Veranstaltungstransport in ganz Österreich — mit einem Fuhrpark von Business-Limousinen bis Kleinbussen.',
+      'Jeder Österreich-Transferservice an einem Ort — Flughafenabholungen, Stadt-zu-Stadt-Fahrten, grenzüberschreitende Fahrten und Stundenbuchung. Festpreise, professionelle Fahrer, Fuhrpark vom Sedan bis zum Kleinbus.',
   },
   alternates: {
     canonical: '/de/services',

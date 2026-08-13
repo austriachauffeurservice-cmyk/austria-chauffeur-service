@@ -22,13 +22,14 @@ const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
 });
 
+const deTitle = "Privater Chauffeurservice Österreich | Flughafen- & Stadttransfers";
 const deDescription =
-  "Buchen Sie private Chauffeurtransfers in ganz Österreich, einschließlich Flughafentransfers, Stadt-zu-Stadt-Fahrten und grenzüberschreitenden Transfers in die Nachbarländer — jede Fahrt durchgeführt von einem lizenzierten, geprüften Chauffeurpartner.";
+  "Privater Chauffeurservice in ganz Österreich — Flughafentransfers, Stadt-zu-Stadt-Fahrten und grenzüberschreitende Fahrten. Festpreise, geprüfte Chauffeurpartner.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} | Private Transfers in ganz Österreich`,
+    default: deTitle,
     template: `%s | ${siteName}`,
   },
   description: deDescription,
@@ -60,12 +61,12 @@ export const metadata: Metadata = {
     locale: "de_AT",
     url: `${siteUrl}/de`,
     siteName,
-    title: `${siteName} | Private Transfers in ganz Österreich`,
+    title: deTitle,
     description: deDescription,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteName} | Private Transfers in ganz Österreich`,
+    title: deTitle,
     description: deDescription,
   },
 };

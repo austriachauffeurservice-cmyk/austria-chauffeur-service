@@ -18,6 +18,11 @@ export type CityArea = {
   hotels?: Hotel[]
   hotelNote?: string
   attractions?: Attraction[]
+  // Overrides the generated <title>/description in generateMetadata — only
+  // set this where the templated copy genuinely underperforms (see the GSC
+  // signal audit); leave unset everywhere else so the template stays DRY.
+  seoTitle?: string
+  seoDescription?: string
 }
 
 export type BorderArea = {
@@ -27,6 +32,8 @@ export type BorderArea = {
   via: string
   popularRoutes: string[]
   note: string
+  seoTitle?: string
+  seoDescription?: string
 }
 
 export type BorderCity = {
@@ -36,6 +43,8 @@ export type BorderCity = {
   country: string
   via: string
   popularRoutes: string[]
+  seoTitle?: string
+  seoDescription?: string
 }
 
 export const austrianCities: CityArea[] = [
@@ -51,6 +60,9 @@ export const austrianCities: CityArea[] = [
       'Vienna → Budapest, Hungary (cross-border)',
     ],
     note: 'Head office & primary base',
+    seoTitle: 'Private Chauffeur Service Vienna | Airport & City Transfers',
+    seoDescription:
+      'Private chauffeur service in Vienna — airport pickups, city travel, and cross-border trips to Bratislava, Budapest, and beyond. Fixed pricing, professional drivers.',
     hotels: [
       { name: 'Hotel Sacher Wien', area: 'Innere Stadt' },
       { name: 'Hotel Imperial', area: 'Kärntner Ring' },
@@ -671,6 +683,9 @@ export const borderCrossingDestinations: BorderArea[] = [
     via: 'via A6 motorway',
     popularRoutes: ['Vienna → Bratislava', 'Vienna Airport → Bratislava'],
     note: 'Under an hour from central Vienna',
+    seoTitle: 'Austria to Slovakia Transfer Service | Vienna ↔ Bratislava',
+    seoDescription:
+      'Private chauffeur transfer service between Austria and Slovakia — Vienna to Bratislava in under an hour, airport or city pickup, fixed price, no border vehicle switch.',
   },
   {
     slug: 'hungary',
@@ -754,6 +769,9 @@ export const borderCities: BorderCity[] = [
     country: 'Slovakia',
     via: 'via A6 motorway',
     popularRoutes: ['Vienna → Bratislava', 'Vienna Airport → Bratislava'],
+    seoTitle: 'Bratislava Chauffeur Transfer from Austria | Fixed Price',
+    seoDescription:
+      'Private chauffeur service from Vienna or Vienna Airport to Bratislava, Slovakia — under an hour, fixed price, licensed driver, no border vehicle switch.',
   },
   {
     slug: 'budapest',
