@@ -96,6 +96,26 @@ export default function CorporateTransfersPage() {
           </Link>
         </div>
 
+        <h2 className="font-display mt-12 text-xl text-brand-ink">Where We Cover</h2>
+        <p className="mt-2 max-w-xl text-sm text-brand-ink-2/70">
+          Airport pickups for arriving executives, plus standing coverage in Austria&apos;s main
+          business cities.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link href="/airport-transfers" className="rounded-sm border border-brand-line px-4 py-2 text-sm font-semibold text-brand-ink hover:border-brand-gold hover:text-brand-gold">
+            Airport Transfers
+          </Link>
+          <Link href="/service-areas/vienna" className="rounded-sm border border-brand-line px-4 py-2 text-sm font-semibold text-brand-ink hover:border-brand-gold hover:text-brand-gold">
+            Vienna
+          </Link>
+          <Link href="/service-areas/salzburg" className="rounded-sm border border-brand-line px-4 py-2 text-sm font-semibold text-brand-ink hover:border-brand-gold hover:text-brand-gold">
+            Salzburg
+          </Link>
+          <Link href="/service-areas/graz" className="rounded-sm border border-brand-line px-4 py-2 text-sm font-semibold text-brand-ink hover:border-brand-gold hover:text-brand-gold">
+            Graz
+          </Link>
+        </div>
+
         <div className="mt-10 rounded-sm border border-brand-line bg-brand-cream p-6">
           <p className="font-semibold text-brand-ink">Booking regularly for your company?</p>
           <p className="mt-1.5 text-sm text-brand-ink-2/70">

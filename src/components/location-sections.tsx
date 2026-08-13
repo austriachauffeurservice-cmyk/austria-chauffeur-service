@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import type { Locale } from '@/lib/i18n'
 import { localizedHref } from '@/lib/i18n'
+import { matchAirportField, matchPopularRoute } from '@/lib/content/link-match'
+
+type RouteLike = { slug: string; from: string; to: string }
+type AirportLike = { slug: string; code: string; name: string; city: string }
 
 const copy: Record<
   Locale,
@@ -44,6 +48,73 @@ const copy: Record<
       `Fügen Sie einen Stopp hinzu, buchen Sie einen Rücktransfer oder einen stundenweisen Chauffeur, um die Sehenswürdigkeiten von ${place} in Ihrem eigenen Tempo zu erleben.`,
     requestTransferHere: 'Transfer hierher anfragen →',
   },
+}
+
+// Renders a "Popular Routes" list, linking each entry to its matching /routes
+// or /airport-transfers page when one exists (see link-match.ts) — entries
+// with no confident match render as plain text, same as before this existed.
+export function PopularRoutesList({
+  items,
+  routes,
+  airports,
+  currentAirportSlug,
+  locale = 'en',
+}: {
+  items: string[]
+  routes: RouteLike[]
+  airports: AirportLike[]
+  currentAirportSlug?: string
+  locale?: Locale
+}) {
+  return (
+    <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
+      {items.map((route) => {
+        const match = matchPopularRoute(route, routes, airports, currentAirportSlug)
+        return (
+          <li key={route} className="flex items-start gap-2">
+            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+            {match ? (
+              <Link href={localizedHref(match.href, locale)} className="hover:text-brand-gold hover:underline">
+                {route}
+              </Link>
+            ) : (
+              route
+            )}
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
+// Renders the "Nearest Airport" field, linking each airport it names (there
+// can be more than one, separated by "/") to its /airport-transfers page.
+export function AirportField({
+  text,
+  airports,
+  locale = 'en',
+}: {
+  text: string
+  airports: AirportLike[]
+  locale?: Locale
+}) {
+  const segments = matchAirportField(text, airports)
+  return (
+    <p className="mt-2 text-sm text-brand-ink-2/80">
+      {segments.map((seg, i) => (
+        <span key={seg.label}>
+          {seg.href ? (
+            <Link href={localizedHref(seg.href, locale)} className="hover:text-brand-gold hover:underline">
+              {seg.label}
+            </Link>
+          ) : (
+            seg.label
+          )}
+          {i < segments.length - 1 ? ' / ' : ''}
+        </span>
+      ))}
+    </p>
+  )
 }
 
 export function HotelsSection({

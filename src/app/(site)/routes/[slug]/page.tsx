@@ -3,6 +3,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
 import { routes } from '@/lib/content/routes'
+import { airports } from '@/lib/content/airports'
+import { austrianCities } from '@/lib/content/service-areas'
+import { matchLocationText } from '@/lib/content/link-match'
 import { siteName, siteUrl } from '@/lib/content/site'
 
 type Params = { slug: string }
@@ -42,6 +45,10 @@ export default async function RoutePage({ params }: { params: Promise<Params> })
   if (!route) notFound()
 
   const pageUrl = `${siteUrl}/routes/${slug}`
+  const origin = matchLocationText(route.from, airports, austrianCities)
+  const relatedRoutes = routes
+    .filter((r) => r.slug !== route.slug && (r.from === route.from || r.to === route.to))
+    .slice(0, 3)
 
   return (
     <>
@@ -93,6 +100,36 @@ export default async function RoutePage({ params }: { params: Promise<Params> })
           ))}
         </ul>
       </section>
+
+      {(origin || relatedRoutes.length > 0) && (
+        <section className="border-t border-brand-line">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            {origin && (
+              <p className="text-sm text-brand-ink-2/80">
+                More about your starting point:{' '}
+                <Link href={origin.href} className="font-semibold text-brand-ink hover:text-brand-gold hover:underline">
+                  {origin.label}
+                </Link>
+              </p>
+            )}
+            {relatedRoutes.length > 0 && (
+              <div className={origin ? 'mt-6' : ''}>
+                <h2 className="font-display text-xl text-brand-ink">Related Routes</h2>
+                <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
+                  {relatedRoutes.map((r) => (
+                    <li key={r.slug} className="flex items-start gap-2">
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+                      <Link href={`/routes/${r.slug}`} className="hover:text-brand-gold hover:underline">
+                        {r.from} → {r.to}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       <section className="border-t border-brand-line bg-brand-cream">
         <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">

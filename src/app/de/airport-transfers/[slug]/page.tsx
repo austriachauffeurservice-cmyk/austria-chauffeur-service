@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
+import { PopularRoutesList } from '@/components/location-sections'
 import { airports } from '@/lib/content/de/airports'
 import { austrianCities } from '@/lib/content/de/service-areas'
+import { routes } from '@/lib/content/de/routes'
 import { siteName, siteUrl } from '@/lib/content/site'
 
 type Params = { slug: string }
@@ -94,14 +96,13 @@ export default async function AirportPageDe({ params }: { params: Promise<Params
           </div>
           <div>
             <h2 className="font-display text-xl text-brand-ink">Beliebte Strecken</h2>
-            <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
-              {airport.popularRoutes.map((route) => (
-                <li key={route} className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                  {route}
-                </li>
-              ))}
-            </ul>
+            <PopularRoutesList
+              items={airport.popularRoutes}
+              routes={routes}
+              airports={airports}
+              currentAirportSlug={airport.slug}
+              locale="de"
+            />
           </div>
         </div>
 

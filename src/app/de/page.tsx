@@ -23,6 +23,12 @@ export const metadata: Metadata = {
 
 const popularRouteCards: { label: string; slug: string; route: string; href?: string }[] = [
   { label: 'Chauffeurservice Wien', slug: 'vienna', route: 'Flughafen Wien ↔ Stadtzentrum' },
+  {
+    label: 'Flughafentransfers',
+    slug: 'airport-transfers-hub',
+    route: 'Alle österreichischen Flughäfen, plus München & Zürich',
+    href: '/de/airport-transfers',
+  },
   { label: 'Chauffeurservice Salzburg', slug: 'salzburg', route: 'Salzburg ↔ Wien / München' },
   { label: 'Flughafentransfer Innsbruck', slug: 'innsbruck', route: 'Innsbruck ↔ Kitzbühel / München' },
   { label: 'Chauffeurservice Graz', slug: 'graz', route: 'Graz ↔ Wien / Ljubljana' },

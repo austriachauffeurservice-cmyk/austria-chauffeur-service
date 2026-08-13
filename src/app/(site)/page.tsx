@@ -14,6 +14,12 @@ import { areaServedCountries, contactEmail, siteName, siteUrl } from '@/lib/cont
 
 const popularRouteCards: { label: string; slug: string; route: string; href?: string }[] = [
   { label: 'Vienna Chauffeur Service', slug: 'vienna', route: 'Vienna Airport ↔ City Center' },
+  {
+    label: 'Airport Transfers',
+    slug: 'airport-transfers-hub',
+    route: 'All Austrian airports, plus Munich & Zurich',
+    href: '/airport-transfers',
+  },
   { label: 'Salzburg Chauffeur Service', slug: 'salzburg', route: 'Salzburg ↔ Vienna / Munich' },
   { label: 'Innsbruck Airport Shuttle', slug: 'innsbruck', route: 'Innsbruck ↔ Kitzbühel / Munich' },
   { label: 'Graz Chauffeur Service', slug: 'graz', route: 'Graz ↔ Vienna / Ljubljana' },

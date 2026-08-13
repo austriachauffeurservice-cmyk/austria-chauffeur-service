@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
-import { HotelsSection, AttractionsSection } from '@/components/location-sections'
+import { HotelsSection, AttractionsSection, PopularRoutesList } from '@/components/location-sections'
 import { skiResorts } from '@/lib/content/ski-resorts'
+import { routes } from '@/lib/content/routes'
+import { airports } from '@/lib/content/airports'
 import { siteName, siteUrl } from '@/lib/content/site'
 import { findRelatedPosts } from '@/lib/content/blog'
 
@@ -108,14 +110,7 @@ export default async function SkiResortPage({ params }: { params: Promise<Params
           </div>
           <div>
             <h2 className="font-display text-xl text-brand-ink">Popular Routes</h2>
-            <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
-              {resort.popularRoutes.map((route) => (
-                <li key={route} className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                  {route}
-                </li>
-              ))}
-            </ul>
+            <PopularRoutesList items={resort.popularRoutes} routes={routes} airports={airports} locale="en" />
           </div>
         </div>
 
