@@ -413,4 +413,424 @@ export const skiResorts: SkiResort[] = [
       },
     ],
   },
+  {
+    slug: 'serfaus-fiss-ladis',
+    name: 'Serfaus-Fiss-Ladis',
+    region: 'Tirol',
+    skiArea: 'Serfaus-Fiss-Ladis',
+    nearestAirports: [
+      { name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std. 25 Min.' },
+      { name: 'Flughafen Zürich (ZRH, grenzüberschreitend)', driveTime: '~2 Std. 30 Min.' },
+    ],
+    popularRoutes: [
+      'Flughafen Innsbruck → Serfaus-Fiss-Ladis',
+      'Flughafen Zürich → Serfaus-Fiss-Ladis (grenzüberschreitend)',
+    ],
+    highlights: [
+      'Eines der familienfreundlichsten Skigebiete Österreichs mit eigenen Kinderpisten und -liftkarten',
+      'Das Dorf Serfaus verfügt über eine kostenlose unterirdische Dorfbahn, die Gäste autofrei zwischen Talstation und Ortszentrum bringt',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in Serfaus, Fiss und Ladis.',
+    attractions: [
+      {
+        name: 'Serfaus Dorfbahn',
+        description: 'Eine unterirdische Standseilbahn, die das Ortszentrum autofrei hält — eine Seltenheit unter österreichischen Skiorten.',
+      },
+      {
+        name: 'Fiss Panorama',
+        description: 'Weite, sonnige Pisten oberhalb von Fiss mit einer der besten Beschneiungsabdeckungen in Tirol.',
+      },
+    ],
+  },
+  {
+    slug: 'skiwelt',
+    name: 'SkiWelt Wilder Kaiser-Brixental',
+    region: 'Tirol',
+    skiArea: 'SkiWelt Wilder Kaiser–Brixental',
+    nearestAirports: [
+      { name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std. 15 Min.' },
+      { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 25 Min.' },
+      { name: 'Flughafen München (MUC)', driveTime: '~1 Std. 30 Min.' },
+    ],
+    popularRoutes: [
+      'Flughafen Innsbruck → SkiWelt',
+      'Flughafen Salzburg → SkiWelt',
+      'Flughafen München → SkiWelt (grenzüberschreitend)',
+    ],
+    highlights: [
+      'Eines der größten liftverbundenen Skigebiete Österreichs, das die Orte Söll, Ellmau, Going, Scheffau und Westendorf unterhalb des Wilden Kaisers verbindet',
+      'Ein einziger Skipass gilt für alle verbundenen Orte — ideal, um von einem Standort aus das gesamte Netzwerk zu befahren',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in Söll, Ellmau, Going, Scheffau und Westendorf.',
+    attractions: [
+      {
+        name: 'Wilder Kaiser',
+        description: 'Ein markantes Kalksteingebirge, die landschaftliche Kulisse des gesamten SkiWelt-Gebiets.',
+      },
+      {
+        name: 'Hexenwasser Söll',
+        description: 'Ein Familien- und Wassererlebnispark oberhalb von Söll, beliebt im Winter wie im Sommer.',
+      },
+    ],
+  },
+  {
+    slug: 'alpbach',
+    name: 'Alpbach',
+    region: 'Tirol',
+    skiArea: 'Ski Juwel Alpbachtal Wildschönau',
+    nearestAirports: [
+      { name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std.' },
+      { name: 'Flughafen München (MUC)', driveTime: '~1 Std. 45 Min.' },
+    ],
+    popularRoutes: [
+      'Flughafen Innsbruck → Alpbach',
+      'Flughafen München → Alpbach (grenzüberschreitend)',
+    ],
+    highlights: [
+      'Regelmäßig zu einem der schönsten Dörfer Österreichs gekürt, mit einer strengen örtlichen Bauordnung, die den traditionellen Holzhaus-Charakter bewahrt',
+      'Auch ein bedeutender Konferenz- und Wissenschaftsstandort, Sitz des jährlichen Europäischen Forums Alpbach',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels und Chalets in Alpbach und im gesamten Alpbachtal.',
+    attractions: [
+      {
+        name: 'Alpbacher Ortszentrum',
+        description: 'Ein traditionelles Tiroler Dorf, bekannt für seine einheitliche Holzhaus-Architektur.',
+      },
+      {
+        name: 'Ski Juwel Alpbachtal Wildschönau',
+        description: 'Ein verbundenes Skigebiet, das Alpbach mit dem benachbarten Wildschönautal verbindet.',
+      },
+    ],
+  },
+  {
+    slug: 'obergurgl-hochgurgl',
+    name: 'Obergurgl-Hochgurgl',
+    region: 'Tirol',
+    skiArea: 'Ötztal (Obergurgl-Hochgurgl)',
+    nearestAirports: [{ name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std. 30 Min.' }],
+    popularRoutes: ['Flughafen Innsbruck → Obergurgl-Hochgurgl'],
+    highlights: [
+      'Obergurgl ist die höchstgelegene Pfarrgemeinde Österreichs, am Talschluss des Ötztals auf über 1.900 m',
+      'Die Höhenlage sorgt für eine der zuverlässigsten Naturschneelagen aller österreichischen Skiorte',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in Obergurgl und Hochgurgl.',
+    attractions: [
+      {
+        name: 'Top Mountain Star',
+        description: 'Ein markantes Gipfelrestaurant und Aussichtsplattform oberhalb von Hochgurgl, nahe dem Timmelsjoch-Pass nach Italien.',
+      },
+      {
+        name: 'Ötztal-Straße',
+        description: 'Die landschaftliche Anfahrtsstraße in eines der längsten Seitentäler Tirols, vorbei an Sölden.',
+      },
+    ],
+  },
+  {
+    slug: 'hintertux-glacier',
+    name: 'Hintertuxer Gletscher',
+    region: 'Tirol',
+    skiArea: 'Hintertuxer Gletscher (Zillertal)',
+    nearestAirports: [{ name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std. 40 Min.' }],
+    popularRoutes: ['Flughafen Innsbruck → Hintertuxer Gletscher'],
+    highlights: [
+      'Das einzige Skigebiet Österreichs, das an jedem einzelnen Tag des Jahres geöffnet ist, dank seines Gletschergeländes über 3.250 m',
+      'Ganz am Talschluss des Zillertals, hinter Mayrhofen',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in Hintertux und im oberen Zillertal.',
+    attractions: [
+      {
+        name: 'Hintertuxer Gletscher',
+        description: 'Österreichs einziges echtes Ganzjahresskigebiet, mit Sommer- und Winterskilauf auf denselben Pisten.',
+      },
+      {
+        name: 'Tuxertal',
+        description: 'Das hochalpine Tal zum Gletscher hinauf, vorbei an traditionellen Zillertaler Bauerndörfern.',
+      },
+    ],
+  },
+  {
+    slug: 'bad-kleinkirchheim',
+    name: 'Bad Kleinkirchheim',
+    region: 'Kärnten',
+    skiArea: 'Bad Kleinkirchheim / St. Oswald',
+    nearestAirports: [{ name: 'Flughafen Klagenfurt (KLU)', driveTime: '~55 Min.' }],
+    popularRoutes: ['Flughafen Klagenfurt → Bad Kleinkirchheim', 'Villach → Bad Kleinkirchheim'],
+    highlights: [
+      'Heimatort von Franz Klammer, Österreichs Olympiasieger in der Abfahrt, noch heute Austragungsort von Weltcup-Rennen',
+      'Einer der wenigen österreichischen Skiorte, der Skifahren mit einem echten Thermenort verbindet',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels und Thermenresorts in Bad Kleinkirchheim und St. Oswald.',
+    attractions: [
+      {
+        name: 'Römerbad Therme',
+        description: 'Ein Thermalbad am Fuß der Pisten, das ganzjährig geöffnet ist.',
+      },
+      {
+        name: 'Franz-Klammer-Piste',
+        description: 'Die Weltcup-Abfahrtsstrecke, benannt nach dem berühmtesten Skifahrer des Ortes.',
+      },
+    ],
+  },
+  {
+    slug: 'turracher-hoehe',
+    name: 'Turracher Höhe',
+    region: 'Kärnten / Steiermark',
+    skiArea: 'Turracher Höhe',
+    nearestAirports: [
+      { name: 'Flughafen Klagenfurt (KLU)', driveTime: '~1 Std. 15 Min.' },
+      { name: 'Flughafen Graz (GRZ)', driveTime: '~1 Std. 50 Min.' },
+    ],
+    popularRoutes: ['Flughafen Klagenfurt → Turracher Höhe', 'Flughafen Graz → Turracher Höhe'],
+    highlights: [
+      'Ein Passort an der Grenze zwischen Kärnten und der Steiermark, mit zwei Seen direkt im Skigebiet',
+      'Kompakt und ski-in/ski-out, mit steilen Pisten, die direkt ins Dorf führen',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Ski-in/Ski-out-Hotels auf der Turracher Höhe.',
+    attractions: [
+      {
+        name: 'Turracher See & Schwarzsee',
+        description: 'Zwei Bergseen im Resortgebiet, ungewöhnlicherweise direkt an den Pisten gelegen.',
+      },
+      {
+        name: 'Nockberge',
+        description: 'Das sanfte, waldarme Gebirge rund um das Resort.',
+      },
+    ],
+  },
+  {
+    slug: 'nassfeld',
+    name: 'Nassfeld',
+    region: 'Kärnten',
+    skiArea: 'Nassfeld-Pressegger See',
+    nearestAirports: [{ name: 'Flughafen Klagenfurt (KLU)', driveTime: '~1 Std. 5 Min.' }],
+    popularRoutes: ['Flughafen Klagenfurt → Nassfeld', 'Villach → Nassfeld'],
+    highlights: [
+      'Österreichs südlichstes großes Skigebiet, mit Südausrichtung für einige der sonnigsten Skibedingungen des Landes',
+      'Kurze Fahrt zur italienischen Grenze, beliebt für einen grenzüberschreitenden Tagesausflug kombiniert mit Skifahren',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels im Resort Nassfeld und im benachbarten Tröpolach.',
+    attractions: [
+      {
+        name: 'Pressegger See',
+        description: 'Ein See im Tal unterhalb des Resorts, beliebt bei Sommergästen.',
+      },
+      {
+        name: 'Gartnerkofel',
+        description: 'Der Hauptgipfel des Skigebiets Nassfeld, auf dem Grat zur italienischen Grenze.',
+      },
+    ],
+  },
+  {
+    slug: 'katschberg',
+    name: 'Katschberg',
+    region: 'Salzburg / Kärnten',
+    skiArea: 'Katschberg-Aineck',
+    nearestAirports: [{ name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 40 Min.' }],
+    popularRoutes: ['Flughafen Salzburg → Katschberg'],
+    highlights: [
+      'Ein familienfreundliches Resort auf dem Katschbergpass zwischen Salzburg und Kärnten',
+      'Angebunden an die weitere Tauernregion, mit einfachem Zugang zu den benachbarten Ski-Amadé- und Nockberge-Resorts',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels im Resortgebiet Katschberg.',
+    attractions: [
+      {
+        name: 'Katschbergpass',
+        description: 'Eine historische Alpenpassstraße, die das Land Salzburg mit Kärnten verbindet.',
+      },
+      {
+        name: 'Aineck',
+        description: 'Der Hausberg des Katschbergs, mit familienfreundlichem, überwiegend nordseitigem Gelände.',
+      },
+    ],
+  },
+  {
+    slug: 'damuels-mellau',
+    name: 'Damüls-Mellau',
+    region: 'Vorarlberg',
+    skiArea: 'Bregenzerwald (Damüls-Mellau)',
+    nearestAirports: [{ name: 'Flughafen Zürich (ZRH, grenzüberschreitend)', driveTime: '~1 Std. 50 Min.' }],
+    popularRoutes: ['Flughafen Zürich → Damüls-Mellau (grenzüberschreitend)', 'Bregenz → Damüls-Mellau'],
+    highlights: [
+      'Offiziell das schneereichste ganzjährig bewohnte Dorf der Alpen, mit einer durchschnittlichen Jahresschneemenge von über 9 Metern',
+      'Teil des Bregenzerwalds, bekannt für traditionelle Holzarchitektur und Käsereidörfer',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in Damüls und Mellau.',
+    attractions: [
+      {
+        name: 'Damüls Ortszentrum',
+        description: 'Eine der höchstgelegenen ganzjährig bewohnten Siedlungen Vorarlbergs, bekannt für außergewöhnlichen Naturschnee.',
+      },
+      {
+        name: 'Bregenzerwald',
+        description: 'Eine Region traditioneller Holzbauernhöfe und Käsereien zwischen den Skiorten.',
+      },
+    ],
+  },
+  {
+    slug: 'warth-schroecken',
+    name: 'Warth-Schröcken',
+    region: 'Vorarlberg',
+    skiArea: 'Warth-Schröcken (Ski Arlberg)',
+    nearestAirports: [
+      { name: 'Flughafen Zürich (ZRH, grenzüberschreitend)', driveTime: '~2 Std. 10 Min.' },
+      { name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std. 45 Min.' },
+    ],
+    popularRoutes: ['Flughafen Zürich → Warth-Schröcken (grenzüberschreitend)', 'Flughafen Innsbruck → Warth-Schröcken'],
+    highlights: [
+      'Über die Auenfeldjet-Seilbahn direkt an das Ski-Arlberg-Netzwerk angebunden, mit Zugang zu Lech-Zürs und St. Anton auf einem Skipass',
+      'Eines der schneereichsten Dörfer Vorarlbergs, am Ursprung des Lechtals',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in Warth und Schröcken.',
+    attractions: [
+      {
+        name: 'Auenfeldjet',
+        description: 'Die Seilbahnverbindung, die Warth-Schröcken direkt an das Ski-Arlberg-Netzwerk anbindet.',
+      },
+      {
+        name: 'Lechtal',
+        description: 'Das hochalpine Tal am Ursprung des Lech, das dem Resort seine Kulisse gibt.',
+      },
+    ],
+  },
+  {
+    slug: 'montafon',
+    name: 'Montafon',
+    region: 'Vorarlberg',
+    skiArea: 'Montafon (Silvretta Montafon / Golm / Gargellen)',
+    nearestAirports: [{ name: 'Flughafen Zürich (ZRH, grenzüberschreitend)', driveTime: '~2 Std.' }],
+    popularRoutes: ['Flughafen Zürich → Montafon (grenzüberschreitend)', 'Bregenz → Montafon'],
+    highlights: [
+      'Ein langes Alpental mit vier separaten, verbundenen Skigebieten — eine echte Geländeauswahl, ohne den Standort zu wechseln',
+      'Basisorte sind Schruns und Gaschurn, beide eine traditionelle, ruhigere Alternative zu den belebteren Arlberg-Resorts in der Nähe',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in Schruns, Gaschurn und im gesamten Montafon.',
+    attractions: [
+      {
+        name: 'Silvretta Montafon',
+        description: 'Das größte verbundene Skigebiet des Tals, oberhalb des Dorfes Schruns.',
+      },
+      {
+        name: 'Bartholomäberg',
+        description: 'Ein historisches Hangdorf mit Blick über das Montafon, eine der ältesten Siedlungen der Region.',
+      },
+    ],
+  },
+  {
+    slug: 'hochkoenig',
+    name: 'Hochkönig',
+    region: 'Salzburg',
+    skiArea: 'Ski Amadé — Hochkönig (Maria Alm / Dienten / Mühlbach)',
+    nearestAirports: [{ name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 10 Min.' }],
+    popularRoutes: ['Flughafen Salzburg → Hochkönig', 'Salzburg → Hochkönig'],
+    highlights: [
+      'Ein ruhigerer Verbund innerhalb des größeren Ski-Amadé-Netzwerks, unterhalb des markanten Hochkönig-Massivs',
+      'Eine starke Basis traditioneller Salzburger Hotels und Pensionen über die drei verbundenen Orte hinweg',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in Maria Alm, Dienten und Mühlbach am Hochkönig.',
+    attractions: [
+      {
+        name: 'Hochkönig-Massiv',
+        description: 'Ein markanter Kalksteinberg, einer der bekanntesten Gipfel der Salzburger Alpen.',
+      },
+      {
+        name: 'Maria Alm',
+        description: 'Ein traditioneller Wallfahrtsort und der Hauptausgangspunkt für das Skigebiet Hochkönig.',
+      },
+    ],
+  },
+  {
+    slug: 'koenigsleiten-wildkogel',
+    name: 'Königsleiten / Wildkogel-Arena',
+    region: 'Salzburg',
+    skiArea: 'Wildkogel-Arena',
+    nearestAirports: [
+      { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 40 Min.' },
+      { name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std. 30 Min.' },
+    ],
+    popularRoutes: ['Flughafen Salzburg → Königsleiten', 'Flughafen Innsbruck → Königsleiten'],
+    highlights: [
+      'Eine ruhigere Alternative zu den belebteren Zillertal-Resorts in der Nähe, in der benachbarten Wildkogel-Arena oberhalb von Wald im Pinzgau',
+      'Sonnige, überwiegend südseitige Pisten mit Panoramablick auf die Zillertaler Alpen',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in Königsleiten und Wald im Pinzgau.',
+    attractions: [
+      {
+        name: 'Wildkogel-Arena',
+        description: 'Ein sonniges, südseitiges Skigebiet über dem Salzachtal, angrenzend an die Zillertal Arena.',
+      },
+      {
+        name: 'Wald im Pinzgau',
+        description: 'Das Talort an der Basis der Wildkogel-Arena-Liftanlagen.',
+      },
+    ],
+  },
+  {
+    slug: 'gerlos',
+    name: 'Gerlos',
+    region: 'Tirol',
+    skiArea: 'Zillertal Arena',
+    nearestAirports: [{ name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std. 30 Min.' }],
+    popularRoutes: ['Flughafen Innsbruck → Gerlos', 'Flughafen Salzburg → Gerlos'],
+    highlights: [
+      'Ein familienfreundliches Dorf innerhalb der Zillertal Arena, eines der größten verbundenen Skinetzwerke Österreichs',
+      'Die Gerlospass-Straße verbindet direkt mit der Salzburger Seite der Zillertal Arena bei Königsleiten',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels im Dorf Gerlos.',
+    attractions: [
+      {
+        name: 'Zillertal Arena',
+        description: 'Ein großes verbundenes Skinetzwerk, das sowohl die Tiroler als auch die Salzburger Seite des Gerlospasses umfasst.',
+      },
+      {
+        name: 'Gerlospass-Straße',
+        description: 'Eine landschaftliche Alpenpassstraße, die das Zillertal mit dem Salzachtal verbindet.',
+      },
+    ],
+  },
+  {
+    slug: 'filzmoos',
+    name: 'Filzmoos',
+    region: 'Salzburg',
+    skiArea: 'Ski Amadé — Filzmoos',
+    nearestAirports: [{ name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 20 Min.' }],
+    popularRoutes: ['Flughafen Salzburg → Filzmoos', 'Salzburg → Filzmoos'],
+    highlights: [
+      'Ein traditionelles Skisprungdorf, das FIS-Skisprung-Weltcups unterhalb der Bischofsmütze ausgetragen hat',
+      'Teil des größeren Ski-Amadé-Netzwerks, mit einem ruhigeren, familienfreundlichen Ortszentrum',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels im Dorf Filzmoos.',
+    attractions: [
+      {
+        name: 'Bischofsmütze',
+        description: 'Ein markanter, zerklüfteter Kalksteingipfel über Filzmoos, Teil des Dachsteingebirges.',
+      },
+      {
+        name: 'Filzmoos Skisprungschanze',
+        description: 'Eine Weltcup-taugliche Sprungschanze am Ortsrand.',
+      },
+    ],
+  },
+  {
+    slug: 'achensee',
+    name: 'Achensee',
+    region: 'Tirol',
+    skiArea: 'Rofan (Achensee)',
+    nearestAirports: [{ name: 'Flughafen Innsbruck (INN)', driveTime: '~45 Min.' }],
+    popularRoutes: ['Flughafen Innsbruck → Achensee', 'Innsbruck → Achensee'],
+    highlights: [
+      'Tirols größter See, kombiniert leichtes Skifahren im umliegenden Rofangebirge mit Seenlandschaft',
+      'Eines der nächstgelegenen Resortgebiete zum Flughafen Innsbruck, praktisch für kürzere Aufenthalte',
+    ],
+    hotelNote: 'Abholung und Ablieferung an Hotels in den Achensee-Uferorten.',
+    attractions: [
+      {
+        name: 'Achensee',
+        description: 'Tirols größter See, umrahmt vom Rofan- und Karwendelgebirge.',
+      },
+      {
+        name: 'Rofan-Seilbahn',
+        description: 'Eine Seilbahn zum Skigebiet Rofan über dem östlichen Seeufer.',
+      },
+    ],
+  },
 ]

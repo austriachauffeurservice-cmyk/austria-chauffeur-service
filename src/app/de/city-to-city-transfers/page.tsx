@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { JsonLd } from '@/components/json-ld'
 import { austrianCities } from '@/lib/content/de/service-areas'
+import { routes } from '@/lib/content/de/routes'
 import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
@@ -23,14 +24,9 @@ export const metadata: Metadata = {
   },
 }
 
-const popularPairs = [
-  'Wien → Salzburg',
-  'Wien → Graz',
-  'Salzburg → Innsbruck',
-  'Linz → Wien',
-  'Graz → Klagenfurt',
-  'Innsbruck → Kitzbühel',
-]
+const cityToCityRoutes = routes.filter(
+  (r) => !r.crossBorder && !r.from.includes('Flughafen') && !r.to.includes('Flughafen')
+)
 
 export default function CityToCityTransfersPageDe() {
   const pageUrl = `${siteUrl}/de/city-to-city-transfers`
@@ -64,39 +60,55 @@ export default function CityToCityTransfersPageDe() {
       </section>
 
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-        <div className="grid gap-10 sm:grid-cols-2">
-          <div>
-            <h2 className="font-display text-xl text-brand-ink">Warum ein Privattransfer</h2>
-            <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                Direkte Tür-zu-Tür-Route ohne Umsteigen
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                Abfahrt zur gewünschten Zeit, nicht nach festem Fahrplan
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                Platz für Gepäck, Skiausrüstung oder Gruppengrößen, die für den ÖPNV ungeeignet sind
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                Festpreis vor der Fahrt vereinbart
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h2 className="font-display text-xl text-brand-ink">Beliebte Strecken</h2>
-            <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
-              {popularPairs.map((r) => (
-                <li key={r} className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                  {r}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <h2 className="font-display text-xl text-brand-ink">Warum ein Privattransfer</h2>
+        <ul className="mt-3 grid gap-2 text-sm text-brand-ink-2 sm:grid-cols-2">
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+            Direkte Tür-zu-Tür-Route ohne Umsteigen
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+            Abfahrt zur gewünschten Zeit, nicht nach festem Fahrplan
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+            Platz für Gepäck, Skiausrüstung oder Gruppengrößen, die für den ÖPNV ungeeignet sind
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+            Festpreis vor der Fahrt vereinbart
+          </li>
+        </ul>
+
+        <div className="mt-12 flex items-baseline justify-between gap-4">
+          <h2 className="font-display text-xl text-brand-ink">Beliebte Stadt-zu-Stadt-Strecken</h2>
+          <Link href="/de/routes" className="shrink-0 text-xs font-semibold text-brand-gold hover:underline">
+            Alle Strecken durchsuchen →
+          </Link>
+        </div>
+        <p className="mt-2 text-sm text-brand-ink-2/70">
+          Inländische Strecken zwischen österreichischen Städten. Sie fliegen an, fahren zu einem
+          Skigebiet oder überqueren eine Grenze? Der{' '}
+          <Link href="/de/routes" className="font-semibold text-brand-gold hover:underline">
+            vollständige Streckenkatalog
+          </Link>{' '}
+          deckt auch Flughafen- und grenzüberschreitende Strecken ab.
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {cityToCityRoutes.map((r) => (
+            <Link
+              key={r.slug}
+              href={`/de/routes/${r.slug}`}
+              className="group rounded-sm border border-brand-line bg-white p-5 transition-colors hover:border-brand-gold hover:shadow-sm"
+            >
+              <h3 className="font-semibold text-brand-ink group-hover:text-brand-gold text-sm">
+                {r.from} → {r.to}
+              </h3>
+              <p className="mt-1 text-xs font-mono text-brand-ink-2/60">
+                {r.distance} · {r.driveTime}
+              </p>
+            </Link>
+          ))}
         </div>
 
         <h2 className="font-display mt-12 text-xl text-brand-ink">Alle Einsatzgebiete</h2>
