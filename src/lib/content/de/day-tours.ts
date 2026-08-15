@@ -10,6 +10,7 @@ export type DayTour = {
   itinerary: string[]
   attractions: Attraction[]
   bestTime: string
+  relatedServiceArea?: { slug: string; label: string }
 }
 
 export const dayTours: DayTour[] = [
@@ -54,6 +55,7 @@ export const dayTours: DayTour[] = [
       },
     ],
     bestTime: 'Ganzjährig, wobei das Dorf außerhalb von Juli–August deutlich ruhiger ist. Angesichts der langen Fahrt ab Wien empfiehlt sich unabhängig von der Jahreszeit ein früher Aufbruch.',
+    relatedServiceArea: { slug: 'hallstatt', label: 'Hallstatt' },
   },
   {
     slug: 'wachau-valley',
@@ -96,6 +98,7 @@ export const dayTours: DayTour[] = [
       },
     ],
     bestTime: 'Frühling bis Herbst für die Weinlandschaft; Ende September–Oktober zur Weinlese. Von Wien aus bequem an einem einzigen Tag machbar.',
+    relatedServiceArea: { slug: 'wachau-region', label: 'die Wachau' },
   },
   {
     slug: 'salzburg-day-trip',
@@ -136,5 +139,6 @@ export const dayTours: DayTour[] = [
       },
     ],
     bestTime: 'Angesichts der Fahrtstrecke funktioniert dies am besten als Ganztagesbuchung mit frühem Start. Für ein entspannteres Tempo empfiehlt sich eine Übernachtung — wir organisieren dann stattdessen gerne einen einfachen Transfer.',
+    relatedServiceArea: { slug: 'salzburg', label: 'Salzburg' },
   },
 ]

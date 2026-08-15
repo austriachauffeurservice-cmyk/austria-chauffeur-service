@@ -3260,4 +3260,516 @@ export const blogPosts: BlogPost[] = [
       { label: 'Buchung starten', href: '/de/booking' },
     ],
   },
+  {
+    slug: 'munich-airport-transfer-guide',
+    title: 'Flughafentransfer München: Was Sie erwartet',
+    excerpt:
+      'Der Flughafen München ist das wichtigste Langstrecken-Drehkreuz nach Tirol und ins Land Salzburg — so funktioniert ein privater grenzüberschreitender Transfer ab MUC.',
+    publishedAt: '2026-08-13',
+    readingTime: '8 Min. Lesezeit',
+    tags: ['München', 'Flughafentransfers'],
+    blocks: [
+      {
+        type: 'paragraph',
+        text: 'Der Flughafen München (MUC) liegt nicht in Österreich, ist aber für einen großen Teil der Reisenden nach Tirol oder ins Land Salzburg der eigentliche Ankunftsort. Langstreckenfluggesellschaften, die Innsbruck oder Salzburg nicht direkt anfliegen, landen stattdessen in München — oft mit größerer Flugauswahl und günstigeren Preisen. Das macht die 38 km vom Terminal bis zur deutsch-österreichischen Grenze und die Strecke danach zu einer der meistgenutzten grenzüberschreitenden Transferrouten nach Westösterreich.',
+      },
+      { type: 'heading', text: 'Warum Reisende für einen Österreich-Trip nach München fliegen' },
+      {
+        type: 'paragraph',
+        text: 'Die Flughäfen Innsbruck und Salzburg sind kleine Regionalflughäfen — gut für europäische Verbindungen, begrenzt für Langstrecken. München ist ein internationales Großdrehkreuz mit Direktflügen aus Nordamerika, dem Nahen Osten und Asien, dazu deutlich häufigere Kurzstreckenverbindungen aus dem übrigen Europa. Für viele Reisepläne ist die Landung in München mit anschließender Weiterfahrt schlicht schneller und günstiger als ein Anschlussflug direkt nach Österreich.',
+      },
+      { type: 'heading', text: 'Ihren Fahrer am MUC finden' },
+      {
+        type: 'paragraph',
+        text: 'Der Flughafen München hat zwei Terminals — Terminal 1, genutzt von den meisten Nicht-Star-Alliance-Airlines, und Terminal 2, das Drehkreuz von Lufthansa und Star Alliance. Klären Sie bei der Buchung, welches Terminal Ihr Flug nutzt, da beide einen echten Fußweg voneinander entfernt liegen. Ihre Flugnummer ist ohnehin mit der Buchung verknüpft, sodass der Fahrer den Flug verfolgt und die Abholzeit bei früher oder später Landung automatisch anpasst, und dann mit einem Namensschild in der Ankunftshalle wartet.',
+      },
+      { type: 'heading', text: 'Die Einreise nach Österreich' },
+      {
+        type: 'paragraph',
+        text: 'Deutschland und Österreich sind beide Schengen- und EU-Mitglieder, daher gibt es an der Grenze keine Passkontrolle und keinen Zollstopp — die Fahrt geht ohne geplanten Halt weiter. Die österreichische Vignette, die auf österreichischen Autobahnen erforderlich ist, sowie eventuelle deutsche Mautabschnitte sind Teil des Festpreises und werden nicht separat an der Grenze berechnet oder organisiert.',
+      },
+      { type: 'heading', text: 'Festpreis statt Selbstorganisation' },
+      {
+        type: 'paragraph',
+        text: 'Die Alternative zu einem direkten Transfer ist meist ein deutscher Zug oder Shuttle bis zur Grenzregion, gefolgt von einem separat organisierten österreichischen Taxi oder Transfer vor Ort — zwei Buchungen, zwei Fahrzeugwechsel und kein Festpreis, bevor beide Etappen bezahlt sind. Eine einzige Chauffeurbuchung vom MUC-Terminal bis zu Ihrem Ziel wird vor dem Abflug per E-Mail bestätigt, Tür zu Tür, in einem Fahrzeug.',
+      },
+      { type: 'heading', text: 'Die Fahrt selbst' },
+      {
+        type: 'paragraph',
+        text: 'Die meisten Strecken von München nach Tirol führen südlich über die A8 oder A93 bis zur Grenze und dann auf die österreichische A12 Inntal Autobahn — dieselbe Achse, die auch für den Verkehr nach Salzburg, Kitzbühel und Innsbruck genutzt wird. Es ist eine gut ausgebaute, schnelle Route mit regelmäßigen Raststätten, und außerhalb winterlicher Samstage und einzelner Sommerferienwochenenden ist der Verkehr für eine Strecke dieser Länge meist moderat. Im Winter dauert die Fahrt auf den letzten Alpenkilometern etwas länger als bei trockenem Wetter — das ist in die Zeitplanung des Fahrers bereits eingerechnet, statt eine unerwartete Verzögerung zu sein.',
+      },
+      { type: 'heading', text: 'Können Sie noch am Ankunftstag Ski fahren?' },
+      {
+        type: 'paragraph',
+        text: 'Bei den näher gelegenen Zielen — Kitzbühel oder Pisten rund um Innsbruck, etwa zwei Stunden entfernt — kann eine Vormittagslandung bei pünktlichem Flug und ohne lange Wartezeit am Gepäckband oder an der Grenze noch für einen halben Nachmittag auf der Piste reichen. Bei den längeren Strecken wie St. Anton oder Sölden, knapp drei Stunden entfernt, sollten Sie den Ankunftstag eher als Reisetag einplanen und erst am nächsten Morgen mit dem Skifahren beginnen. Ein zeitlicher Puffer ist in jedem Fall die verlässlichere Planung, besonders wenn Sie diese Strecke zum ersten Mal fahren.',
+      },
+      { type: 'heading', text: 'Chauffeur vs. Mietwagen ab MUC' },
+      {
+        type: 'paragraph',
+        text: 'Ein Mietwagen am Flughafen München ist die naheliegende Alternative, und für manche Reisen ist das die richtige Wahl — wenn Sie ein Fahrzeug für die ganze Woche in Österreich brauchen, ist Mieten sinnvoll. Für einen einzelnen Ankunftstransfer lohnt sich ein genauerer Blick: ein unbekanntes Auto auf unbekannten Winterstraßen bei der ersten Fahrt, ein länderübergreifender Mietwagenzuschlag, den viele Anbieter berechnen, die Rückgabelogistik am Ende der Reise, und der Umstand, dass der Tagespreis eines Mietwagens für die gesamte Mietdauer berechnet wird, nicht nur für die eine Fahrt. Ein Chauffeurtransfer wird einmalig für genau die eine Fahrt berechnet, mit einem ortskundigen Fahrer, der die Strecke bereits kennt.',
+      },
+      { type: 'heading', text: 'Die richtige Fahrzeugwahl' },
+      {
+        type: 'list',
+        items: [
+          '[Business-Limousine](/de/fleet/sedan) — 1–3 Passagiere, die Standardwahl für die Strecke München–Tirol',
+          '[Luxus-Limousine](/de/fleet/luxury) — gleiche Kapazität, für Kundenabholungen oder eine komfortablere Fahrt von über zwei Stunden',
+          '[Executive Van](/de/fleet/van) — bis zu 7 Passagiere, häufig gewählt von Familien mit Ski- oder Golfausrüstung',
+          '[Kleinbus](/de/fleet/minibus) — bis zu 16 Passagiere, für Gruppen, die mit demselben Flug ankommen',
+        ],
+      },
+      { type: 'heading', text: 'Beliebte Ziele ab dem Flughafen München' },
+      {
+        type: 'paragraph',
+        text: 'München ist speziell für die Tiroler und Salzburger Skiregionen der verkehrsreichste internationale Zubringerflughafen — der Großteil des Resortverkehrs auf dieser Strecke sind winterliche Ankünfte, wenngleich derselbe Transfer für Innsbruck- und Salzburg-Städtereisen ganzjährig genutzt wird.',
+      },
+      {
+        type: 'table',
+        headers: ['Ziel', 'Ca. Entfernung/Zeit', 'Hinweise'],
+        rows: [
+          ['[Innsbruck](/de/routes/munich-airport-to-innsbruck)', '~160 km, ~2 Std.', 'Tirols Landeshauptstadt, die häufigste Nicht-Ski-Ankunft ab München'],
+          ['[Salzburg](/de/routes/munich-airport-to-salzburg)', '~170 km, ~1 Std. 45 Min.', 'Trotz größerer Distanz kürzer als die Fahrt nach Innsbruck — bessere Autobahnführung'],
+          ['[Kitzbühel](/de/routes/munich-airport-to-kitzbuehel)', '~165 km, ~2 Std.', 'Eine der meistgebuchten Skirouten ab MUC'],
+          ['[Zell am See](/de/routes/munich-airport-to-zell-am-see)', '~200 km, ~2 Std. 15 Min.', 'Kombination aus See- und Gletscherresort'],
+          ['[Saalbach-Hinterglemm](/de/routes/munich-airport-to-saalbach)', '~215 km, ~2 Std. 30 Min.', 'Skigebiet Skicircus'],
+          ['[Mayrhofen](/de/routes/munich-airport-to-mayrhofen)', '~190 km, ~2 Std. 15 Min.', 'Zillertal, höchstes Skibesucher-Aufkommen in Tirol'],
+          ['[St. Anton am Arlberg](/de/routes/munich-airport-to-st-anton)', '~240 km, ~2 Std. 45 Min.', 'Längste der üblichen MUC-Skirouten — für die meisten deutschen Reisepläne dennoch schneller als eine Umsteigeverbindung über Zürich'],
+          ['[Sölden](/de/routes/munich-airport-to-soelden)', '~240 km, ~2 Std. 45 Min.', 'Gletscherresort im Ötztal'],
+        ],
+      },
+      { type: 'heading', text: 'Wann Sie buchen sollten' },
+      {
+        type: 'paragraph',
+        text: 'Für eine Standardankunft reichen in der Regel 48 Stunden Vorlauf. Ausnahme sind winterliche Samstage — der Haupt-Wechseltag der Skisaison in Tirol und im Land Salzburg —, an denen die Nachfrage nach Vans und Kleinbussen auf den München-Strecken deutlich anzieht. Reisen Sie an einem winterlichen Samstag und benötigen ein größeres Fahrzeug, buchen Sie mehrere Tage im Voraus statt erst in der Reisewoche.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'An welchem Terminal des Flughafens München holt mich der Fahrer ab?',
+        answer:
+          'An dem, an dem Ihr Flug landet — Terminal 1 oder Terminal 2. Klären Sie das Terminal bei der Buchung, da beide weit genug auseinanderliegen, dass eine falsche Annahme echte Zeit kostet.',
+      },
+      {
+        question: 'Brauche ich meinen Reisepass für die Einreise von Deutschland nach Österreich?',
+        answer:
+          'Ein gültiger Ausweis sollte mitgeführt werden, es gibt aber keine routinemäßige Passkontrolle — beide Länder gehören zum Schengen-Raum, daher beinhaltet die Einreise keinen geplanten Halt.',
+      },
+      {
+        question: 'Ist ein Flug nach München günstiger als einer direkt nach Innsbruck oder Salzburg?',
+        answer:
+          'Oft ja — München bietet deutlich mehr Langstrecken- und Billigflug-Optionen, und die zusätzliche Fahrzeit von 1,5–2,5 Stunden ist in der Gesamtsumme häufig günstiger als ein Anschlussflug in einen kleineren österreichischen Flughafen.',
+      },
+      {
+        question: 'Was passiert, wenn mein Flug nach München Verspätung hat?',
+        answer:
+          'Ihre Flugnummer wird verfolgt, sodass sich die Abholzeit automatisch und ohne Zusatzkosten anpasst — der Fahrer fährt nicht ab, nur weil die ursprüngliche Landezeit verstrichen ist.',
+      },
+      {
+        question: 'Sind österreichische Mautgebühren und die Vignette im Preis enthalten?',
+        answer:
+          'Ja — die Vignette und eventuelle Mautabschnitte auf beiden Seiten der Grenze sind im Festpreis enthalten, der vor der Fahrt vereinbart wird, nicht unterwegs separat berechnet.',
+      },
+      {
+        question: 'Wie weit im Voraus sollte ich für eine Ankunft an einem winterlichen Samstag buchen?',
+        answer:
+          'Mehrere Tage im Voraus, wenn Sie einen Van oder Kleinbus benötigen — der Samstag ist der Haupt-Wechseltag der Skisaison, und größere Fahrzeuge sind auf den München-Strecken besonders gefragt.',
+      },
+      {
+        question: 'Kann derselbe Fahrer mich zum Skiresort und am Ende der Reise zurück nach München bringen?',
+        answer:
+          'Ja — die Rückfahrt kann als Teil derselben Buchung vereinbart werden oder separat, näher am Abreisedatum, falls Ihre Pläne noch nicht feststehen.',
+      },
+      {
+        question: 'Kann ich eine Gruppe auf zwei Flüge aufteilen und trotzdem eine Abholung organisieren?',
+        answer:
+          'Ja, allerdings empfiehlt es sich, dies als zwei separate Etappen zu buchen, wenn Ihre Flüge mehr als etwa eine Stunde auseinanderliegen, damit das Fahrzeug nicht unnötig wartet — geben Sie bei der Buchung beide Flugnummern an.',
+      },
+      {
+        question: 'Ist ein Transfer ab München teurer als einer ab einem österreichischen Flughafen?',
+        answer:
+          'Er kostet mehr als ein kurzer Transfer ab Innsbruck oder Salzburg, einfach weil die Fahrt länger ist — rechnet man die oft günstigeren und häufigeren Flugoptionen nach München mit ein, sind die Gesamtreisekosten aber häufig niedriger, nicht höher.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Salzburg nach München: Ein Vergleich Ihrer Transferoptionen', href: '/de/blog/salzburg-to-munich-transfer-options' },
+      { label: 'Innsbruck vs. Salzburg vs. München: Welcher Flughafen für Ihre Tirol-Skireise?', href: '/de/blog/innsbruck-salzburg-munich-ski-airport-guide' },
+      { label: 'Flughafentransfers München', href: '/de/airport-transfers/munich-airport' },
+      { label: 'Servicegebiet München', href: '/de/service-areas/munich' },
+      { label: 'Ski- & Alpintransfers', href: '/de/ski-transfers' },
+      { label: 'Buchung starten', href: '/de/booking' },
+    ],
+  },
+  {
+    slug: 'zurich-airport-transfer-guide',
+    title: 'Flughafentransfer Zürich: Was Sie erwartet',
+    excerpt:
+      'Der Flughafen Zürich ist das wichtigste internationale Tor nach Lech, Zürs und St. Anton am Arlberg — so funktioniert ein privater grenzüberschreitender Transfer ab ZRH.',
+    publishedAt: '2026-08-13',
+    readingTime: '7 Min. Lesezeit',
+    tags: ['Zürich', 'Flughafentransfers'],
+    blocks: [
+      {
+        type: 'paragraph',
+        text: 'Der Flughafen Zürich (ZRH) liegt in der Schweiz, ist aber der wichtigste internationale Ankunftspunkt für die exklusivsten Resorts des Arlbergs — Lech, Zürs und St. Anton am Arlberg verzeichnen einen bedeutenden Anteil ihrer internationalen Ankünfte über Zürich statt über den näher gelegenen, aber kleineren Flughafen Innsbruck, vor allem weil Zürichs Langstreckennetz deutlich größer ist.',
+      },
+      { type: 'heading', text: 'Warum Zürich statt Innsbruck für den Arlberg' },
+      {
+        type: 'paragraph',
+        text: 'Der Flughafen Innsbruck liegt geografisch näher am Arlberg, doch Landebahn und umliegendes Gelände begrenzen ihn auf kleinere Flugzeuge und größtenteils europäische Strecken. Zürich ist ein internationales Großdrehkreuz mit Direktverbindungen aus Nordamerika, dem Nahen Osten und Asien — für Reisende von außerhalb Europas ist eine längere Fahrt ab einem besser angebundenen Flughafen oft praktischer als ein Anschlussflug nach Innsbruck.',
+      },
+      { type: 'heading', text: 'Empfang am ZRH' },
+      {
+        type: 'paragraph',
+        text: 'Der Flughafen Zürich ist um ein zentrales Airside Center herum gebaut, das die Terminals verbindet, was den Ankunftsprozess unkomplizierter macht als bei Flughäfen mit getrennten Gebäuden. Ihre Flugnummer wird ab der Buchung verfolgt, sodass sich die Abholzeit bei früher oder späterer Landung automatisch anpasst, und der Fahrer wartet mit einem Namensschild in der Ankunftshalle — ohne Aufpreis in beide Richtungen.',
+      },
+      { type: 'heading', text: 'Die Einreise von der Schweiz nach Österreich' },
+      {
+        type: 'paragraph',
+        text: 'Die Schweiz ist kein EU-Mitglied, gehört aber zum Schengen-Raum, daher gibt es an der österreichischen Grenze keine routinemäßige Passkontrolle — die Fahrt geht ohne geplanten Halt weiter, ein gültiger Ausweis sollte trotzdem mitgeführt werden. Der praktischere Unterschied zu einer Einreise aus Deutschland ist die Währung: Die Schweiz nutzt den Schweizer Franken statt des Euro und hat ein eigenes, von Österreich getrenntes Autobahnvignetten-System. Sowohl die Schweizer als auch die österreichische Vignette sind bei einem lizenzierten Transfer im Festpreis enthalten — das müssen Sie nicht selbst organisieren.',
+      },
+      { type: 'heading', text: 'Festpreis für eine wirklich lange Fahrt' },
+      {
+        type: 'paragraph',
+        text: 'Mit 2 bis 2,5 Stunden je nach genauem Ziel gehört diese Strecke zu den längeren Flughafentransfers im Netzwerk — genau dort zahlt sich ein im Voraus vereinbarter Festpreis am meisten aus. Die Gesamtsumme wird vor dem Abflug per E-Mail bestätigt, unabhängig vom Sonntagsverkehr aus der Schweiz oder winterlichen Straßenverhältnissen durch Vorarlberg.',
+      },
+      { type: 'heading', text: 'Zürich vs. München vs. Innsbruck für eine Arlberg-Reise' },
+      {
+        type: 'paragraph',
+        text: 'Zürich und München bleiben die beiden realistischen Langstrecken-Optionen für den Arlberg, da die Landebahn in Innsbruck nur kürzere Strecken zulässt. Zwischen beiden ist Zürich meist die kürzere und schnellere Fahrt speziell nach Lech, Zürs und St. Anton — Münchens Strecken führen eher in andere Tiroler Regionen (Kitzbühel, Zillertal, Ötztal) als zum Arlberg selbst. Ist Ihr Ziel wirklich Lech, Zürs oder St. Anton und haben Sie die Wahl des Ankunftsflughafens, ist Zürich in der Regel die direktere Option. Der [Vergleich Innsbruck vs. Salzburg vs. München](/de/blog/innsbruck-salzburg-munich-ski-airport-guide) zeigt den entsprechenden Vergleich für das übrige Tirol.',
+      },
+      { type: 'heading', text: 'Die Fahrt durch Vorarlberg' },
+      {
+        type: 'paragraph',
+        text: 'Die Route führt ostwärts durch die Ostschweiz, quert die Grenze bei der Rheintal-Region nach Österreich und steigt dann nach Vorarlberg und weiter zum Arlberg auf — landschaftlich reizvoll, mit Blick auf den Bodensee für einen Teil der Strecke. Winterliche Bedingungen auf der letzten Etappe nach Lech und Zürs, beides hochgelegene Orte, sind fest in die Zeitplanung des Fahrers eingerechnet, statt eine unerwartete Verzögerung zu sein — ein erfahrener Chauffeur auf dieser Strecke berücksichtigt das routinemäßig.',
+      },
+      { type: 'heading', text: 'Chauffeur vs. Mietwagen ab ZRH' },
+      {
+        type: 'paragraph',
+        text: 'Ein Mietwagen ist eine realistische Option, wenn Sie ein Fahrzeug für die gesamte Reise möchten, doch für einen einzelnen Ankunftstransfer bringt das echte Reibungspunkte mit sich: ein unbekanntes Auto auf unbekannten winterlichen Bergstraßen am Ankunftstag, ein wahrscheinlicher länderübergreifender Mietwagenzuschlag für die Fahrt eines Schweizer Fahrzeugs nach Österreich und die Rückgabelogistik am Ende der Reise. Da viele Gäste auf dieser Strecke zu Fünf-Sterne-Resorts für einen entspannten Aufenthalt unterwegs sind, ist eine bereits chauffierte Ankunft statt der letzten zwei Stunden Selbstfahrt schlicht der komfortablere Reisebeginn.',
+      },
+      { type: 'heading', text: 'Die richtige Fahrzeugwahl' },
+      {
+        type: 'list',
+        items: [
+          '[Luxus-Limousine](/de/fleet/luxury) — auf dieser Strecke eine häufige Wahl, angesichts des Profils von Lech und Zürs als einige der exklusivsten Resorts der Alpen',
+          '[Business-Limousine](/de/fleet/sedan) — 1–3 Passagiere, für eine Standardbuchung',
+          '[Executive Van](/de/fleet/van) — bis zu 7 Passagiere, für Familien mit Skiausrüstung',
+          '[Kleinbus](/de/fleet/minibus) — bis zu 16 Passagiere, für gemeinsam anreisende Gruppen',
+        ],
+      },
+      { type: 'heading', text: 'Beliebte Ziele ab dem Flughafen Zürich' },
+      {
+        type: 'table',
+        headers: ['Ziel', 'Ca. Entfernung/Zeit', 'Hinweise'],
+        rows: [
+          ['[Lech am Arlberg](/de/routes/zurich-airport-to-lech)', '~195 km, ~2 Std. 15 Min.', 'Das wichtigste internationale Tor nach Lech-Zürs'],
+          ['[St. Anton am Arlberg](/de/routes/zurich-airport-to-st-anton)', '~200 km, ~2 Std. 15 Min.', 'Der größte Ort im Skigebiet Ski Arlberg'],
+          ['[Ischgl](/de/routes/zurich-airport-to-ischgl)', '~235 km, ~2 Std. 30 Min.', 'Die längste der drei üblichen ZRH-Skirouten'],
+          ['[Bregenz](/de/routes/bregenz-to-zurich-airport)', '~120 km, ~1 Std. 15 Min.', 'Die kürzeste ZRH-Strecke — Vorarlbergs Landeshauptstadt am Bodensee'],
+        ],
+      },
+      { type: 'heading', text: 'Gepäck und Ausrüstung' },
+      {
+        type: 'paragraph',
+        text: 'Gäste nach Lech, Zürs und St. Anton reisen überdurchschnittlich oft mit mehr als einem Standardkoffer — Ski- oder Snowboardtaschen, Skischuhtaschen und im Sommer häufig Golfausrüstung, dank des doppelten Profils des Arlbergs als Ski- und Sommerresort. Erwähnen Sie Ihre Ausrüstung bei der Buchung, damit die passende Fahrzeugklasse reserviert wird — eine Luxus-Limousine fasst bequem zwei Passagiere mit Skitaschen, eine vierköpfige Gruppe mit voller Winterausrüstung passt jedoch meist besser in den Executive Van.',
+      },
+      { type: 'heading', text: 'Wann Sie buchen sollten' },
+      {
+        type: 'paragraph',
+        text: 'Angesichts der Fahrtlänge sind 48 Stunden Vorlauf ein sinnvolles Minimum für eine Standardbuchung. Samstägliche Wechseltage während der Skisaison sind der verkehrsreichste Tag auf dieser Strecke — benötigen Sie ein größeres Fahrzeug und reisen an einem winterlichen Samstag an, buchen Sie mehrere Tage im Voraus statt erst in der Reisewoche.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Warum fliegen Menschen für den Arlberg nach Zürich statt zum näheren Flughafen Innsbruck?',
+        answer:
+          'Zürich verfügt über ein deutlich größeres Langstreckennetz. Für Reisende von außerhalb Europas ist ein Direktflug nach Zürich mit anschließender längerer Fahrt oft praktischer als ein Anschlussflug nach Innsbruck.',
+      },
+      {
+        question: 'Brauche ich meinen Reisepass für die Einreise von der Schweiz nach Österreich?',
+        answer:
+          'Keine routinemäßige Kontrolle — die Schweiz gehört zum Schengen-Raum, auch wenn sie kein EU-Mitglied ist, daher beinhaltet die Einreise keinen geplanten Halt. Ein gültiger Ausweis sollte trotzdem mitgeführt werden.',
+      },
+      {
+        question: 'Ist die Schweizer Vignette im Preis enthalten, oder muss ich sie separat organisieren?',
+        answer:
+          'Sowohl die Schweizer als auch die österreichische Vignette sind im vor der Fahrt vereinbarten Festpreis enthalten — nichts, das Sie an der Grenze separat organisieren oder bezahlen müssen.',
+      },
+      {
+        question: 'Welche Währung brauche ich — Euro oder Schweizer Franken?',
+        answer:
+          'Für den Transfer selbst brauchen Sie kein Bargeld, da der Preis im Voraus per E-Mail fest vereinbart wird, unabhängig davon, auf welcher Seite der Grenze Sie sich gerade befinden.',
+      },
+      {
+        question: 'Was passiert, wenn mein Flug nach Zürich Verspätung hat?',
+        answer:
+          'Ihre Flugnummer wird verfolgt, sodass sich die Abholzeit automatisch und ohne Zusatzkosten anpasst — der Fahrer fährt nicht ab, nur weil die ursprüngliche Landezeit verstrichen ist.',
+      },
+      {
+        question: 'Wie weit im Voraus sollte ich für einen winterlichen Samstag buchen?',
+        answer:
+          'Mehrere Tage im Voraus, wenn Sie ein größeres Fahrzeug benötigen — samstägliche Wechseltage sind der verkehrsreichste Tag auf den Zürich-Arlberg-Strecken.',
+      },
+      {
+        question: 'Muss ich einen Transfer als Hin- und Rückfahrt buchen, oder geht auch nur eine Richtung?',
+        answer:
+          'Nur eine Richtung ist Standard — die meisten Gäste buchen die Anreise separat von der Abreise, da Skiwochen-Pläne und Flugzeiten oft erst kurz vor der Reise feststehen.',
+      },
+      {
+        question: 'Benötige ich für eine Gruppe mit viel Skiausrüstung ein anderes Fahrzeug?',
+        answer:
+          'Für mehr als zwei Passagiere mit vollständiger Skiausrüstung passt der Executive Van meist besser als eine Limousine — geben Sie Gruppengröße und Gepäck bei der Buchung an, damit die passende Klasse reserviert wird.',
+      },
+      {
+        question: 'Hält der Transfer an der Schweizer-Österreichischen Grenze irgendwo an?',
+        answer:
+          'Nein — es gibt keinen geplanten Halt für eine routinemäßige Grenzkontrolle, da beide Länder zum Schengen-Raum gehören. Die einzigen Stopps sind solche, die Sie selbst wünschen, etwa eine Rast bei einer Fahrt dieser Länge.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Bregenz nach Zürich: Die westlichste grenzüberschreitende Route', href: '/de/blog/bregenz-to-zurich-guide' },
+      { label: 'Skitransfers Lech-Zürs am Arlberg', href: '/de/ski-transfers/lech-zuers' },
+      { label: 'Skitransfers St. Anton am Arlberg', href: '/de/ski-transfers/st-anton-am-arlberg' },
+      { label: 'Flughafentransfers Zürich', href: '/de/airport-transfers/zurich-airport' },
+      { label: 'Servicegebiet Zürich', href: '/de/service-areas/zurich' },
+      { label: 'Buchung starten', href: '/de/booking' },
+    ],
+  },
+  {
+    slug: 'how-chauffeur-cancellations-work',
+    title: 'Wie Chauffeur-Stornierungen funktionieren: Was Sie wissen sollten',
+    excerpt:
+      'Was tatsächlich passiert, wenn sich Ihre Pläne nach der Buchung ändern — die 24-Stunden-Grenze für kostenlose Stornierung, der Unterschied zwischen Flugverspätung und Stornierung, und wie Umbuchungen funktionieren.',
+    publishedAt: '2026-08-13',
+    readingTime: '6 Min. Lesezeit',
+    tags: ['Buchungstipps'],
+    blocks: [
+      {
+        type: 'paragraph',
+        text: 'Eine private Chauffeurbuchung funktioniert anders als ein spontan herbeigewinktes Taxi — Sie reservieren einen bestimmten Fahrer und ein bestimmtes Fahrzeug für ein festes Zeitfenster, oft Tage oder Wochen im Voraus bestätigt. Das ist Teil dessen, was den [Festpreis](/de/blog/how-chauffeur-pricing-works) überhaupt erst möglich macht — bedeutet aber auch, dass die Stornierungsbedingungen eine Rolle spielen, die sie bei einer Fahrt, die Sie fünf Minuten vorher buchen, nicht hätten. So funktioniert es tatsächlich.',
+      },
+      { type: 'heading', text: 'Die 24-Stunden-Grenze' },
+      {
+        type: 'paragraph',
+        text: 'Stornieren Sie mindestens 24 Stunden vor Ihrer geplanten Abholzeit, fallen keinerlei Kosten an. Stornieren Sie innerhalb von 24 Stunden vor Abholung, kann je nach gebuchter Strecke und reserviertem Fahrzeug eine Gebühr anfallen — und wenn das der Fall ist, erfahren Sie den Betrag vor Ihrer Fahrt, nicht als Überraschung im Nachhinein.',
+      },
+      { type: 'heading', text: 'Warum „kann anfallen" statt eines festen Betrags' },
+      {
+        type: 'paragraph',
+        text: 'Die Plattform arbeitet als Buchungsvermittler — Ihre Anfrage wird an einen unabhängigen, lizenzierten Chauffeurpartner vermittelt, und der eigentliche Beförderungsvertrag besteht direkt mit diesem Partner, nicht mit der Buchungsplattform selbst. Eine späte Stornierung bei einer langen grenzüberschreitenden Strecke mit einem für Ihre Gruppe bereits reservierten Kleinbus wirkt sich für diesen Partner ganz anders aus als eine späte Stornierung bei einem kurzen lokalen Transfer mit einer Limousine. Deshalb ist die Gebühr, sofern sie anfällt, strecken- und fahrzeugspezifisch statt ein einziger pauschaler Prozentsatz — und deshalb wird sie Ihnen direkt mitgeteilt statt im Kleingedruckten versteckt.',
+      },
+      { type: 'heading', text: 'Ein durchgerechnetes Beispiel' },
+      {
+        type: 'paragraph',
+        text: 'Angenommen, Sie buchen einen Flughafentransfer Wien für eine Ankunft am Samstagvormittag, und Ihre Pläne ändern sich am Donnerstag davor — ein durchaus häufiges Szenario. Eine Stornierung am Donnerstag liegt innerhalb des 24-Stunden-Fensters und ist kostenlos, keine Rückfragen. Passiert dieselbe Änderung am Freitagabend, weniger als 24 Stunden vor der Abholung am Samstagmorgen, kann eine Gebühr anfallen — sie richtet sich jedoch danach, was das konkrete Fahrzeug und der Fahrer für Ihr Zeitfenster bereits zugesagt hatten, ist also keine pauschale Strafe, und Ihnen wird der Betrag mitgeteilt statt einfach in Rechnung gestellt.',
+      },
+      { type: 'heading', text: 'Umbuchen statt stornieren' },
+      {
+        type: 'paragraph',
+        text: 'Wenn sich Ihre Pläne verschieben statt ganz zu entfallen — ein späterer Flug, eine andere Abholadresse, ein zusätzlicher Tag in der Stadt —, antworten Sie so früh wie möglich mit den neuen Details auf Ihre Buchungsbestätigungs-E-Mail. Eine Buchung zu verschieben ist in der Regel flexibler als eine vollständige Stornierung, besonders mit ein paar Tagen Vorlauf, da dadurch nicht zwangsläufig Ihr ursprüngliches Zeitfenster für den Partner leer bleibt.',
+      },
+      { type: 'heading', text: 'Gruppen- und Mehrfahrzeugbuchungen' },
+      {
+        type: 'paragraph',
+        text: 'Bei einer Hochzeit, einem Firmenevent oder jeder Buchung mit mehr als einem Fahrzeug werden Stornierungsbedingungen in der Regel pro Buchung bewertet statt als pauschale Regel über alle Fahrzeuge hinweg — ein für eine Hochzeitsgesellschaft reservierter Kleinbus stellt beispielsweise eine andere Zusage dar als eine einzelne Limousine. Umfasst Ihre Buchung mehrere Fahrzeuge oder eine mehrteilige Reiseroute, lohnt es sich, die Details direkt zu klären statt anzunehmen, dass die Standardbedingungen für einen einzelnen Transfer exakt so gelten.',
+      },
+      { type: 'heading', text: 'Flugverspätungen sind keine Stornierungen' },
+      {
+        type: 'paragraph',
+        text: 'Wichtig zu trennen: Ein verspäteter Flug ist nicht dasselbe wie die Stornierung Ihres Transfers. Bei Flughafenbuchungen wird die Flugnummer standardmäßig verfolgt, sodass sich die Abholzeit automatisch an Ihre tatsächliche Landezeit anpasst, ohne Zusatzkosten für angemessene, flugbedingte Wartezeit. Die oben genannte Stornierungsbedingung wird nur relevant, wenn Sie die Fahrt komplett absagen oder die Abholung gar nicht mehr zutrifft — nicht, weil Ihr Flugzeug verspätet gelandet ist.',
+      },
+      { type: 'heading', text: 'Was, wenn der Fahrer nicht kann?' },
+      {
+        type: 'paragraph',
+        text: 'Dieselbe Verlässlichkeit, auf der das Festpreismodell aufbaut, gilt auch in die andere Richtung. Partnerfahrer sind unabhängige, lizenzierte Unternehmer mit eigenen Fahrzeugen und eigenem Terminplan, speziell für die bestätigte Strecke ausgewählt — echte kurzfristige Nichtverfügbarkeit auf ihrer Seite ist selten, aber sollte sie doch vorkommen, hat die Organisation eines Ersatzfahrzeugs Priorität, statt Sie ohne Transport dastehen zu lassen. Betrifft ein Problem am Fahrttag Ihre konkrete Buchung, kontaktieren Sie so früh wie möglich den Support über Ihre Bestätigungs-E-Mail, damit möglichst viel Zeit für eine Alternative bleibt.',
+      },
+      { type: 'heading', text: 'Firmenkonto-Buchungen' },
+      {
+        type: 'paragraph',
+        text: 'Buchen Sie über ein [Firmenkonto](/de/corporate-accounts) statt als Einzelreisender, werden Stornierung und Umbuchung bei regelmäßigen oder wiederkehrenden Buchungen in der Regel direkt mit Ihrem Ansprechpartner geklärt, da Abrechnung und Terminplanung bereits außerhalb des Standardablaufs pro Fahrt organisiert sind. Das 24-Stunden-Prinzip ist eine vernünftige Grundannahme, klären Sie die genauen Bedingungen für Ihr Konto aber ab, falls das für die Reiseplanung Ihres Unternehmens relevant ist.',
+      },
+      { type: 'heading', text: 'Keine Zahlung für die Anfrage nötig' },
+      {
+        type: 'paragraph',
+        text: 'Eine [Buchungsanfrage](/de/booking) zu stellen erfordert keine Zahlung oder Kartendaten im Voraus — sie ist ein unverbindliches Angebot, bis Sie eine schriftliche Bestätigung von Verfügbarkeit und Festpreis per E-Mail erhalten. Ab diesem Zeitpunkt gelten die oben genannten Stornierungsbedingungen, nicht ab dem Moment, in dem Sie das Formular zum ersten Mal absenden.',
+      },
+      { type: 'heading', text: 'Wenn sich am Tag selbst etwas ändert' },
+      {
+        type: 'paragraph',
+        text: 'Für alles Kurzfristige — eine Änderung am selben Tag, eine Frage, ob eine bestimmte Gebühr für Ihre Buchung gilt, oder eine Situation, die die obigen Regeln nicht eindeutig abdecken — antworten Sie direkt auf Ihre Bestätigungs-E-Mail. Gerade grenzüberschreitende und mehrteilige Buchungen haben oft Besonderheiten, die ein direktes Gespräch eher verdienen als eine allgemeine Regel.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Wie spät kann ich noch kostenlos stornieren?',
+        answer: 'Bis 24 Stunden vor Ihrer geplanten Abholzeit, ohne jegliche Kosten.',
+      },
+      {
+        question: 'Was passiert, wenn ich weniger als 24 Stunden vor der Abholung storniere?',
+        answer:
+          'Es kann eine Gebühr anfallen, abhängig von der konkreten Strecke und dem reservierten Fahrzeug — Sie erfahren den Betrag vor Ihrer Fahrt, statt ohne Vorwarnung belastet zu werden.',
+      },
+      {
+        question: 'Wird eine Flugverspätung wie eine Stornierung behandelt?',
+        answer:
+          'Nein — bei Flughafenbuchungen wird die Flugnummer automatisch verfolgt, und die Abholzeit passt sich ohne Zusatzkosten an Ihre tatsächliche Landung an. Die Stornierungsbedingung gilt nur, wenn Sie die Fahrt selbst absagen.',
+      },
+      {
+        question: 'Muss ich bei der ersten Buchungsanfrage etwas bezahlen?',
+        answer:
+          'Nein — die erste Anfrage ist unverbindlich und erfordert keine Zahlung oder Kartendaten. Die Buchung und die Stornierungsbedingungen gelten ab der schriftlichen Bestätigung mit Festpreis per E-Mail.',
+      },
+      {
+        question: 'Kann ich umbuchen statt stornieren?',
+        answer:
+          'In der Regel ja — antworten Sie so früh wie möglich mit dem neuen Datum, der Uhrzeit oder den Abholdetails auf Ihre Bestätigungs-E-Mail. Umbuchen mit Vorlauf ist meist flexibler als eine vollständige Stornierung.',
+      },
+      {
+        question: 'Mit wem schließe ich eigentlich den Vertrag — mit der Website oder dem Fahrer?',
+        answer:
+          'Die Buchungsplattform vermittelt Ihre Anfrage an einen unabhängigen, lizenzierten Chauffeurpartner; der Beförderungsvertrag für die Fahrt selbst besteht zwischen Ihnen und diesem Partner. Die vollständigen AGB enthalten die genaue Aufschlüsselung.',
+      },
+      {
+        question: 'Gilt die Stornierungsbedingung bei grenzüberschreitenden Fahrten und Skitransfers genauso?',
+        answer:
+          'Das 24-Stunden-Prinzip gilt über alle Buchungsarten hinweg, wobei längere Strecken und größere reservierte Fahrzeuge genau dort sind, wo eine späte Stornierungsgebühr eher anfällt — aus demselben Grund, warum die Gebühr strecken- und fahrzeugspezifisch statt pauschal ist.',
+      },
+      {
+        question: 'Was, wenn ich wegen eines echten Notfalls stornieren muss?',
+        answer:
+          'Melden Sie sich, sobald Sie es wissen, per Antwort auf Ihre Bestätigungs-E-Mail — echte Notfälle sind genau der Fall, der ein direktes Gespräch verdient statt der Annahme, die Standardregel würde starr angewendet.',
+      },
+      {
+        question: 'Beginnt das Stornierungsfenster ab dem Buchungszeitpunkt oder ab der Abholzeit?',
+        answer:
+          'Ab der Abholzeit. Die 24-Stunden-Grenze für kostenlose Stornierung wird immer rückwärts ab Ihrer geplanten Abholzeit gerechnet, unabhängig davon, wie weit im Voraus die ursprüngliche Buchung erfolgt ist.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Wie Chauffeur-Preise funktionieren', href: '/de/blog/how-chauffeur-pricing-works' },
+      { label: 'Wie weit im Voraus sollten Sie einen Chauffeur in Österreich buchen?', href: '/de/blog/how-far-in-advance-book-chauffeur' },
+      { label: 'FAQ', href: '/de/faq' },
+      { label: 'AGB', href: '/de/agb' },
+      { label: 'Buchung starten', href: '/de/booking' },
+    ],
+  },
+  {
+    slug: 'tipping-your-chauffeur-in-austria',
+    title: 'Trinkgeld für Ihren Chauffeur in Österreich: Was üblich ist',
+    excerpt:
+      'Trinkgeld ist nicht im Festpreis einer Chauffeurbuchung enthalten — hier erfahren Sie, was in Österreich tatsächlich üblich ist und wann mehr als der Standardbetrag angebracht ist.',
+    publishedAt: '2026-08-13',
+    readingTime: '5 Min. Lesezeit',
+    tags: ['Buchungstipps'],
+    blocks: [
+      {
+        type: 'paragraph',
+        text: 'Der [Festpreis](/de/blog/how-chauffeur-pricing-works), den man Ihnen für einen Chauffeurtransfer nennt, ist die vollständige Fahrtstrecke — für die Fahrt selbst ist nichts weiter geschuldet. Trinkgeld steht außerhalb davon, als separate, freiwillige Geste direkt an den Fahrer, genauso wie bei einer Restaurantrechnung. Es wird nicht von der Buchungsplattform eingezogen oder zu Ihrer Online-Zahlung hinzugefügt, und läuft nicht über denselben Kanal wie die Fahrtkosten.',
+      },
+      { type: 'heading', text: 'Österreichische Trinkgeldkultur, kurz erklärt' },
+      {
+        type: 'paragraph',
+        text: 'Österreich hat eine ähnliche Trinkgeldkultur wie Deutschland und weite Teile Mitteleuropas: üblich und geschätzt, aber wirklich freiwillig statt ein fest einkalkulierter Prozentsatz im Preis. In Restaurants sind 5–10 % üblich, meist durch Aufrunden der Summe oder durch die Ansage an die Bedienung, wie viel sie behalten soll („stimmt so"), statt Bargeld auf dem Tisch liegen zu lassen, nachdem sie gegangen ist. Dieselbe Logik überträgt sich auf Taxis und private Fahrer.',
+      },
+      { type: 'heading', text: 'Was das für einen Chauffeurtransfer bedeutet' },
+      {
+        type: 'paragraph',
+        text: 'Bei einem Standardtransfer ist Aufrunden auf einen praktischen Betrag am gängigsten — beläuft sich die Fahrt auf 78 €, deckt die Übergabe von 80–85 € mit dem Hinweis, den Rest zu behalten, das ab. Bei längeren Fahrten sind pauschal 5–10 % der Fahrtkosten ein vernünftiger Richtwert, falls Sie lieber so rechnen. Beides ist nicht vorgeschrieben, und ein Fahrer wird eine reine Zahlung ohne Trinkgeld nicht anders behandeln.',
+      },
+      { type: 'heading', text: 'Bargeld ist weiterhin die Norm' },
+      {
+        type: 'paragraph',
+        text: 'Selbst wenn die Fahrtkosten per Karte oder Rechnung beglichen werden, ist Trinkgeld in Österreich nach wie vor überwiegend eine Bargeldgeste — meist gibt es keine Kartenterminal-Abfrage dafür, wie es in den USA manchmal der Fall ist. Ein paar kleine Euroscheine mitzuführen lohnt sich, wenn Sie wissen, dass Sie Trinkgeld geben möchten, statt am Ende der Fahrt eine digitale Option vorauszusetzen.',
+      },
+      { type: 'heading', text: 'Wenn Sie amerikanisches Trinkgeld gewohnt sind' },
+      {
+        type: 'paragraph',
+        text: 'Besonders Besucher aus den USA geben aus Gewohnheit manchmal zu viel Trinkgeld — dort sind 15–20 % bei vielen Dienstleistungen üblich, das ist aber nicht die österreichische Norm und wird hier nicht erwartet. Ein Fahrer wird durch ein kleineres, österreichisch übliches Trinkgeld nicht verstimmt sein, und Sie müssen US-amerikanische Prozentsätze nicht auf eine österreichische Buchung übertragen. Ein moderates Aufrunden gilt hier ohnehin als völlig normal und ausreichend, nicht als zu wenig.',
+      },
+      { type: 'subheading', text: 'Ein konkretes Beispiel' },
+      {
+        type: 'paragraph',
+        text: 'Bei einem 78-€-Flughafentransfer ist ein Aufrunden auf 80–85 € ein typisches österreichisches Trinkgeld. Bei einer längeren, gut verlaufenen grenzüberschreitenden Fahrt für 250 € wären etwa 15–25 € (rund 6–10 %) großzügig, ohne ungewöhnlich zu sein. Keine der beiden Zahlen ist eine feste Regel — sie zeigen einfach, wie „üblich" in der Praxis aussieht.',
+      },
+      { type: 'heading', text: 'Trinkgeld bei Gruppenbuchungen aufteilen' },
+      {
+        type: 'paragraph',
+        text: 'Bei einem von einer Gruppe gebuchten Van oder Kleinbus — eine Hochzeitsgesellschaft, ein Firmenteam, eine Familie — übernimmt meist die Person, die die Buchung koordiniert, das Trinkgeld einmalig, statt dass jeder Passagier einzeln gibt. Das ist für alle einfacher und erspart dem Fahrer mehrere kleine, unkoordinierte Beträge.',
+      },
+      { type: 'heading', text: 'Skisaison-Transfers' },
+      {
+        type: 'paragraph',
+        text: 'Bei winterlichen Flughafen-zu-Resort-Transfers gehen Fahrer besonders häufig über das Übliche hinaus — Ski- und Skischuhtaschen an beiden Enden verladen, alpine Straßen unter wirklich anspruchsvollen Bedingungen befahren und manchmal Ausrüstung bis in den Lager- oder Skiraum von Chalet oder Hotel bringen, nicht nur bis zur Lobby. Das ändert nichts am Festpreis, aber gerade bei dieser Art von Fahrt spiegelt der obere Rand der üblichen Trinkgeldspanne — oder etwas darüber — den zusätzlichen Aufwand besser wider als ein fester Prozentsatz.',
+      },
+      { type: 'heading', text: 'Flughafen-, Firmen- und Hochzeitsbuchungen' },
+      {
+        type: 'paragraph',
+        text: 'Dieselbe allgemeine Richtlinie gilt buchungsübergreifend — Flughafenabholungen, [Firmentransfers](/de/corporate-transfers) und Hochzeitstransporte folgen alle derselben freiwilligen, bargeldbasierten Aufrunden-oder-5–10-%-Norm. Firmenkonten regeln Trinkgelder manchmal als Teil der eigenen Reiserichtlinie des Unternehmens statt es dem Reisenden zu überlassen — ist das für Ihre Buchung relevant, lohnt sich eine interne Nachfrage statt einer Annahme in die eine oder andere Richtung.',
+      },
+      { type: 'heading', text: 'Kontaktlose Zahlungs-Apps fragen meist nicht nach Trinkgeld' },
+      {
+        type: 'paragraph',
+        text: 'Wird Ihre Fahrt per Karte, Überweisung oder Rechnung statt bar beglichen, erwarten Sie keinen Trinkgeld-Bildschirm oder Prozentsatz-Vorschlag, wie ihn manche Apps im Ausland automatisch einbauen — österreichische Zahlungsterminals und Rechnungsstellung enthalten das in der Regel nicht. Möchten Sie Trinkgeld geben und zahlen nicht bar, ist es am einfachsten, das dem Fahrer direkt zu sagen oder zu fragen, ob ein kleiner Bargeldbetrag stattdessen passt.',
+      },
+      { type: 'heading', text: 'Kurz zusammengefasst' },
+      {
+        type: 'paragraph',
+        text: 'Kein Trinkgeld zu geben, wirkt sich nicht auf Ihren Service aus, und ein moderates Trinkgeld für guten Service ist eine normale, geschätzte Geste statt einer ungeschriebenen Pflicht. Im Zweifel ist Aufrunden der Fahrtkosten die einfachste und gängigste Vorgehensweise in Österreich.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Ist Trinkgeld für einen privaten Chauffeur in Österreich Pflicht?',
+        answer:
+          'Nein — der genannte Festpreis ist die vollständige Fahrtstrecke. Trinkgeld ist eine separate, freiwillige Geste, genau wie in einem Restaurant.',
+      },
+      {
+        question: 'Wie viel Trinkgeld ist üblich?',
+        answer:
+          'Aufrunden auf einen praktischen Betrag ist am gängigsten; 5–10 % der Fahrtkosten sind ein vernünftiger Richtwert, falls Sie lieber einen Prozentsatz berechnen möchten.',
+      },
+      {
+        question: 'Soll ich bar geben oder kann ich es zur Kartenzahlung hinzufügen?',
+        answer:
+          'Bargeld ist in Österreich die Norm — es gibt meist keine digitale Trinkgeldabfrage, wie sie anderswo manchmal üblich ist. Führen Sie ein paar kleine Euroscheine mit, wenn Sie Trinkgeld geben möchten.',
+      },
+      {
+        question: 'Gebe ich bei einem Flughafentransfer dasselbe Trinkgeld wie bei einer längeren grenzüberschreitenden Fahrt?',
+        answer:
+          'Dieselbe allgemeine Richtlinie gilt, wobei längere oder komplexere Fahrten — mehrteilige Tage, erhebliche Gepäckhilfe, lange grenzüberschreitende Fahrten — häufiger zum oberen Ende der Spanne führen.',
+      },
+      {
+        question: 'Wird bei Firmenkonto-Buchungen Trinkgeld erwartet?',
+        answer:
+          'Es gilt dieselbe freiwillige Norm, manche Unternehmen bauen Trinkgelder jedoch in ihre eigene Reiserichtlinie ein. Bei Unsicherheit lohnt sich eine interne Nachfrage, wenn Sie über ein Firmenkonto reisen.',
+      },
+      {
+        question: 'Was, wenn ich kein Bargeld dabei habe?',
+        answer:
+          'Kein Problem — Trinkgeld ist freiwillig, und ein Fahrer wird kein nicht angebotenes Trinkgeld erwarten oder einfordern. Es ist eine Höflichkeit, kein Pflichtbestandteil der Fahrt.',
+      },
+      {
+        question: 'Gebe ich für eine Luxus-Limousine mehr Trinkgeld als für eine Business-Limousine?',
+        answer:
+          'Die Fahrzeugklasse ändert nichts an der Trinkgeld-Richtlinie — sie richtet sich nach Fahrtkosten und Service, nicht nach dem gebuchten Auto. Ein höherer Fahrpreis bei einer längeren oder gehobeneren Buchung ergibt bei prozentualer Berechnung naturgemäß ein größeres Trinkgeld, aber es gibt keinen separaten „Luxus"-Trinkgeldsatz.',
+      },
+      {
+        question: 'Ist es unhöflich, gar kein Trinkgeld zu geben?',
+        answer:
+          'Nein — da Trinkgeld in Österreich wirklich freiwillig ist und keinen unterdurchschnittlichen Lohn aufstocken soll, wird der Verzicht darauf nicht als unhöflich gewertet, wie es andernorts interpretiert werden könnte.',
+      },
+      {
+        question: 'Gilt dieselbe Trinkgeld-Richtlinie bei grenzüberschreitenden Fahrten nach Deutschland, in die Schweiz oder anderswohin?',
+        answer:
+          'Grundsätzlich ja — Deutschland und die Schweiz haben beide eine ähnliche Aufrunden-oder-moderater-Prozentsatz-Kultur. Führt Ihre Reise deutlich über Österreich hinaus, können sich lokale Gepflogenheiten leicht verschieben, aber nichts, das dramatisch von hier abweicht.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Wie Chauffeur-Preise funktionieren', href: '/de/blog/how-chauffeur-pricing-works' },
+      { label: 'Wie Chauffeur-Stornierungen funktionieren', href: '/de/blog/how-chauffeur-cancellations-work' },
+      { label: 'Chauffeur vs. Taxi vs. Uber in Österreich', href: '/de/blog/chauffeur-vs-taxi-vs-uber-austria' },
+      { label: 'FAQ', href: '/de/faq' },
+      { label: 'Buchung starten', href: '/de/booking' },
+    ],
+  },
 ]

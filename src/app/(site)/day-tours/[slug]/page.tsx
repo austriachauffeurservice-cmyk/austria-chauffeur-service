@@ -122,6 +122,19 @@ export default async function DayTourPage({ params }: { params: Promise<Params> 
           <p className="text-xs font-semibold uppercase tracking-wide text-brand-gold">Best Time to Visit</p>
           <p className="mt-2 text-sm text-brand-ink-2/80">{tour.bestTime}</p>
         </div>
+
+        {tour.relatedServiceArea && (
+          <p className="mt-6 text-sm text-brand-ink-2/80">
+            Staying overnight in {tour.relatedServiceArea.label} instead of a same-day round trip?{' '}
+            <Link
+              href={`/service-areas/${tour.relatedServiceArea.slug}`}
+              className="font-semibold text-brand-ink hover:text-brand-gold hover:underline"
+            >
+              See our {tour.relatedServiceArea.label} chauffeur service
+            </Link>
+            .
+          </p>
+        )}
       </section>
 
       <section className="border-t border-brand-line bg-white">

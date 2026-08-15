@@ -13,6 +13,7 @@ export type CityArea = {
   attractions?: Attraction[]
   seoTitle?: string
   seoDescription?: string
+  relatedDayTour?: { slug: string; label: string }
 }
 
 export type BorderArea = {
@@ -173,6 +174,7 @@ export const austrianCities: CityArea[] = [
     city: 'Salzburg',
     region: 'Salzburg',
     airport: 'Flughafen Salzburg (SZG)',
+    relatedDayTour: { slug: 'salzburg-day-trip', label: 'Salzburg-Tagesausflug ab Wien' },
     popularRoutes: [
       'Flughafen Salzburg ↔ Stadtzentrum',
       'Salzburg → München, Deutschland (grenzüberschreitend)',
@@ -436,6 +438,7 @@ export const austrianCities: CityArea[] = [
     city: 'Hallstatt',
     region: 'Oberösterreich',
     airport: 'Flughafen Salzburg (SZG) / Flughafen Wien (VIE)',
+    relatedDayTour: { slug: 'hallstatt', label: 'Hallstatt-Tagesausflug' },
     popularRoutes: [
       'Salzburg → Hallstatt',
       'Flughafen Wien → Hallstatt',
@@ -540,6 +543,7 @@ export const austrianCities: CityArea[] = [
     city: 'Wachau Weinregion',
     region: 'Niederösterreich',
     airport: 'Flughafen Wien (VIE)',
+    relatedDayTour: { slug: 'wachau-valley', label: 'Wachau-Tagesausflug' },
     popularRoutes: [
       'Wien ↔ Wachau-Tal Tour/Transfer',
       'Flughafen Wien → Krems an der Donau / Melk',

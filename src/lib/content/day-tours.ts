@@ -10,6 +10,11 @@ export type DayTour = {
   itinerary: string[]
   attractions: Attraction[]
   bestTime: string
+  // Only set where a /service-areas page for the same place also exists —
+  // this is a same-day round-trip tour; that page is a one-way/overnight
+  // transfer. Cross-linking keeps the two from reading as unlinked
+  // duplicates of each other.
+  relatedServiceArea?: { slug: string; label: string }
 }
 
 export const dayTours: DayTour[] = [
@@ -54,6 +59,7 @@ export const dayTours: DayTour[] = [
       },
     ],
     bestTime: 'Year-round, though the village is significantly quieter outside July–August. Given it is a long drive from Vienna, an early departure is recommended regardless of season.',
+    relatedServiceArea: { slug: 'hallstatt', label: 'Hallstatt' },
   },
   {
     slug: 'wachau-valley',
@@ -96,6 +102,7 @@ export const dayTours: DayTour[] = [
       },
     ],
     bestTime: 'Spring through autumn for the vineyard scenery; late September–October for the harvest. A short enough drive from Vienna to do comfortably as a single day.',
+    relatedServiceArea: { slug: 'wachau-region', label: 'the Wachau' },
   },
   {
     slug: 'salzburg-day-trip',
@@ -136,5 +143,6 @@ export const dayTours: DayTour[] = [
       },
     ],
     bestTime: 'Given the round-trip distance, this works best as a full-day booking with an early start. Consider an overnight stay if you want a more relaxed pace — we can arrange a one-way transfer instead.',
+    relatedServiceArea: { slug: 'salzburg', label: 'Salzburg' },
   },
 ]

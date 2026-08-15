@@ -3277,4 +3277,531 @@ export const blogPosts: BlogPost[] = [
       { label: 'Start a Booking', href: '/booking' },
     ],
   },
+  {
+    slug: 'munich-airport-transfer-guide',
+    title: 'Munich Airport Transfer: What to Expect',
+    excerpt:
+      "Munich Airport is the main long-haul gateway into Tyrol and Salzburg state — here's how a private cross-border transfer from MUC actually works.",
+    publishedAt: '2026-08-13',
+    readingTime: '8 min read',
+    tags: ['Munich', 'Airport Transfers'],
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "Munich Airport (MUC) isn't in Austria, but for a large share of visitors heading to Tyrol or Salzburg state, it's the real point of arrival. Long-haul carriers that don't serve Innsbruck or Salzburg directly fly into Munich instead, and the flight choice is often wider and cheaper — which makes the 38km from the terminal to the German-Austrian border, and the further stretch beyond it, one of the more heavily used cross-border transfer routes into Western Austria.",
+      },
+      { type: 'heading', text: 'Why travelers fly into Munich for an Austrian trip' },
+      {
+        type: 'paragraph',
+        text: "Innsbruck and Salzburg airports are small regional airports — good for European connections, limited for long-haul. Munich is a major international hub with direct flights from North America, the Middle East, and Asia, plus far more frequent short-haul options from the rest of Europe. For a lot of itineraries, landing in Munich and driving the rest of the way is simply faster and cheaper than routing through a connecting flight to reach an Austrian airport directly.",
+      },
+      { type: 'heading', text: 'Finding your driver at MUC' },
+      {
+        type: 'paragraph',
+        text: "Munich Airport has two terminals — Terminal 1, used by most non-Star Alliance carriers, and Terminal 2, the Lufthansa and Star Alliance hub. Confirm which one your flight uses when you book, since they're a genuine walk apart and not something to figure out after landing. Your flight number is attached to the booking either way, so the driver tracks it and adjusts the pickup time automatically if you land early or late, then waits in the arrivals hall with a name sign.",
+      },
+      { type: 'heading', text: 'Crossing into Austria' },
+      {
+        type: 'paragraph',
+        text: "Germany and Austria are both Schengen and EU members, so there's no passport check or customs stop at the border — the drive continues without a scheduled stop. The Austrian vignette (motorway toll sticker) required once you're on Austrian roads is handled as part of the fixed price, along with any German toll sections, so nothing extra is charged or arranged separately at the border.",
+      },
+      { type: 'heading', text: 'Fixed price vs. piecing the trip together yourself' },
+      {
+        type: 'paragraph',
+        text: "The alternative to a direct transfer is usually a German train or shuttle to the border area, then a separate Austrian taxi or transfer arranged locally — two bookings, two vehicle changes, and no fixed total until both legs are paid. A single chauffeur booking from the MUC terminal to your final destination is priced and confirmed by email before you fly, door to door, in one vehicle.",
+      },
+      { type: 'heading', text: 'The drive itself' },
+      {
+        type: 'paragraph',
+        text: 'Most Munich-to-Tyrol routes run south on the A8 or A93 Autobahn to the border, then pick up the Austrian A12 Inntal Autobahn once you cross — the same corridor used for Salzburg-, Kitzbühel-, and Innsbruck-bound traffic. It\'s a well-maintained, high-speed route with regular service stations, and outside of winter Saturdays and the odd summer holiday weekend, traffic is generally light for a route of this length. In winter, expect the drive to run a little longer than the dry-weather estimate below once you\'re on Alpine roads near the destination, which is factored into the driver\'s timing rather than something that catches the schedule off guard.',
+      },
+      { type: 'heading', text: 'Can you ski the same day you land?' },
+      {
+        type: 'paragraph',
+        text: "For the closer resorts — Kitzbühel or Innsbruck-area slopes, roughly two hours out — a morning landing can realistically still make for a partial afternoon on snow, provided the flight is on time and there's no queue for luggage or the border. For the longer routes like St. Anton or Sölden, at nearly three hours, treat arrival day as a travel day and plan to start skiing the next morning instead. Building in a buffer rather than cutting it close is the more reliable plan either way, especially the first time you're doing this specific route.",
+      },
+      { type: 'heading', text: 'Chauffeur vs. renting a car at MUC' },
+      {
+        type: 'paragraph',
+        text: "Renting a car at Munich Airport and driving yourself is the obvious alternative, and for some trips it's the right call — if you want a vehicle for the whole week once you're in Austria, renting makes sense. For a one-way arrival transfer specifically, it's worth weighing what a rental adds: unfamiliar winter roads and an unfamiliar car on your first drive, a cross-border rental surcharge that many companies apply, the return-drop logistics at the end of the trip, and the fact that a rental's per-day cost is calculated for the whole rental period, not just the transfer leg. A chauffeur transfer is priced once, for the one drive you actually need done, with a local driver who already knows the route.",
+      },
+      { type: 'heading', text: 'Choosing the right vehicle' },
+      {
+        type: 'list',
+        items: [
+          '[Business Sedan](/fleet/sedan) — 1–3 passengers, the standard choice for the Munich-to-Tyrol run',
+          '[Luxury Sedan](/fleet/luxury) — same capacity, for client pickups or a more comfortable two-hour-plus drive',
+          '[Executive Van](/fleet/van) — up to 7 passengers, the common pick for families with ski or golf equipment',
+          '[Minibus](/fleet/minibus) — up to 16 passengers, for groups arriving on the same flight',
+        ],
+      },
+      { type: 'heading', text: 'Common destinations from Munich Airport' },
+      {
+        type: 'paragraph',
+        text: 'Munich is the busiest international feeder airport for the Tyrol and Salzburg ski regions specifically — most of the resort traffic on this route is winter arrivals, though the same transfer runs year-round for Innsbruck and Salzburg city visits.',
+      },
+      {
+        type: 'table',
+        headers: ['Destination', 'Approx. Distance/Time', 'Notes'],
+        rows: [
+          ['[Innsbruck](/routes/munich-airport-to-innsbruck)', '~160km, ~2h', 'Tyrol\'s capital, the most common non-ski Munich arrival'],
+          ['[Salzburg](/routes/munich-airport-to-salzburg)', '~170km, ~1h 45m', 'Shorter than the drive to Innsbruck despite the extra distance — better Autobahn routing'],
+          ['[Kitzbühel](/routes/munich-airport-to-kitzbuehel)', '~165km, ~2h', 'One of the most-booked ski routes from MUC'],
+          ['[Zell am See](/routes/munich-airport-to-zell-am-see)', '~200km, ~2h 15m', 'Lake and glacier resort combination'],
+          ['[Saalbach-Hinterglemm](/routes/munich-airport-to-saalbach)', '~215km, ~2h 30m', 'Skicircus ski area'],
+          ['[Mayrhofen](/routes/munich-airport-to-mayrhofen)', '~190km, ~2h 15m', 'Zillertal valley, highest ski-visitor volume in Tyrol'],
+          ['[St. Anton am Arlberg](/routes/munich-airport-to-st-anton)', '~240km, ~2h 45m', 'Longest of the common MUC ski routes — still faster than connecting via Zurich for most German itineraries'],
+          ['[Sölden](/routes/munich-airport-to-soelden)', '~240km, ~2h 45m', 'Ötztal glacier resort'],
+        ],
+      },
+      { type: 'heading', text: 'When to book' },
+      {
+        type: 'paragraph',
+        text: "For a standard arrival, 48 hours' notice is usually enough. Winter Saturdays — the main ski-season changeover day across Tyrol and Salzburg state — are the exception, since demand for vans and minibuses on the Munich routes peaks hard on that one day of the week. If you're arriving on a winter Saturday and need a larger vehicle, book several days ahead rather than the week of travel.",
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which Munich Airport terminal will my driver meet me at?',
+        answer:
+          "Whichever one your flight arrives at — Terminal 1 or Terminal 2. Confirm your terminal when booking, since they're far enough apart that guessing wrong costs real time.",
+      },
+      {
+        question: 'Do I need my passport to cross from Germany into Austria?',
+        answer:
+          "Worth carrying valid ID, but there's no routine passport check — both countries are in the Schengen area, so the crossing doesn't involve a scheduled stop.",
+      },
+      {
+        question: 'Is flying into Munich cheaper than flying directly into Innsbruck or Salzburg?',
+        answer:
+          "Often, yes — Munich has far more long-haul and budget-carrier options, and the extra 1.5–2.5 hour drive is frequently less expensive in total than a connecting flight into a smaller Austrian airport.",
+      },
+      {
+        question: 'What if my flight into Munich is delayed?',
+        answer:
+          'Your flight number is tracked, so the pickup time adjusts automatically at no extra charge — the driver won’t leave because your original landing time has passed.',
+      },
+      {
+        question: 'Are Austrian tolls and the vignette included in the price?',
+        answer:
+          'Yes — the vignette and any toll sections on both sides of the border are included in the fixed price agreed before travel, not charged separately en route.',
+      },
+      {
+        question: 'How far in advance should I book for a winter Saturday arrival?',
+        answer:
+          'Several days ahead if you need a van or minibus — Saturday is the main ski-season changeover day and larger vehicles are in high demand on the Munich routes specifically.',
+      },
+      {
+        question: 'Can the same driver take me to a ski resort and back to Munich at the end of the trip?',
+        answer:
+          "Yes — the return leg can be booked as part of the same arrangement, or separately closer to your departure date if your plans aren't fixed yet.",
+      },
+      {
+        question: 'Can I split a group across two flights and still arrange one pickup?',
+        answer:
+          "Yes, though it's worth booking as two separate legs if your flights land more than an hour or so apart, so the vehicle isn't waiting unnecessarily — mention both flight numbers when booking and it can be coordinated either way.",
+      },
+      {
+        question: 'Is a Munich transfer more expensive than one from an Austrian airport?',
+        answer:
+          "It costs more than a short Innsbruck or Salzburg transfer simply because it's a longer drive, but factoring in the often cheaper and more frequent flight options into Munich, the total trip cost is frequently lower, not higher.",
+      },
+    ],
+    relatedPages: [
+      { label: 'Salzburg to Munich: Comparing Your Transfer Options', href: '/blog/salzburg-to-munich-transfer-options' },
+      { label: 'Innsbruck vs Salzburg vs Munich: Which Airport for Your Tyrol Ski Trip?', href: '/blog/innsbruck-salzburg-munich-ski-airport-guide' },
+      { label: 'Munich Airport Transfers', href: '/airport-transfers/munich-airport' },
+      { label: 'Munich Service Area', href: '/service-areas/munich' },
+      { label: 'Ski & Alpine Transfers', href: '/ski-transfers' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
+    slug: 'zurich-airport-transfer-guide',
+    title: 'Zurich Airport Transfer: What to Expect',
+    excerpt:
+      "Zurich Airport is the main international gateway for Lech, Zürs, and St. Anton am Arlberg — here's how a private cross-border transfer from ZRH works.",
+    publishedAt: '2026-08-13',
+    readingTime: '7 min read',
+    tags: ['Zurich', 'Airport Transfers'],
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "Zurich Airport (ZRH) sits in Switzerland, but it's the primary international arrival point for the Arlberg's most exclusive resorts — Lech, Zürs, and St. Anton am Arlberg all draw a meaningful share of their international arrivals through Zurich rather than the smaller, closer Innsbruck Airport, largely because Zurich's long-haul network is considerably larger.",
+      },
+      { type: 'heading', text: 'Why Zurich over Innsbruck for the Arlberg' },
+      {
+        type: 'paragraph',
+        text: "Innsbruck Airport is geographically closer to the Arlberg, but its runway and surrounding terrain limit it to smaller aircraft and mostly European routes. Zurich is a major international hub with direct long-haul connections from North America, the Middle East, and Asia — for travelers coming from outside Europe, a longer drive from a better-connected airport is often the more practical option than a connecting flight into Innsbruck.",
+      },
+      { type: 'heading', text: 'Meet & greet at ZRH' },
+      {
+        type: 'paragraph',
+        text: "Zurich Airport is built around a single central Airside Center connecting its terminals, which makes the arrivals process more straightforward than airports split across separate buildings. Your flight number is tracked from booking, so the pickup time adjusts automatically for an early or delayed landing, and the driver waits in the arrivals hall with a name sign — no extra charge either way.",
+      },
+      { type: 'heading', text: 'Crossing from Switzerland into Austria' },
+      {
+        type: 'paragraph',
+        text: "Switzerland isn't an EU member, but it is part of the Schengen area, so there's no routine passport check at the Austrian border — the drive continues without a scheduled stop, though it's worth carrying valid ID regardless. The more practical difference from a Germany-Austria crossing is currency: Switzerland uses the Swiss franc, not the euro, and has its own motorway vignette system separate from Austria's. Both the Swiss and Austrian vignette costs for a licensed transfer are included in the fixed price agreed before travel, so this isn't something you need to arrange yourself.",
+      },
+      { type: 'heading', text: 'Fixed price for a genuinely long drive' },
+      {
+        type: 'paragraph',
+        text: 'At 2–2.5 hours depending on the exact destination, this is one of the longer airport transfer routes in the network — which is exactly where a fixed price agreed in advance matters most. The total is confirmed by email before you fly, regardless of Sunday traffic on the return-from-Switzerland weekend rush or winter road conditions through Vorarlberg.',
+      },
+      { type: 'heading', text: 'Zurich vs. Munich vs. Innsbruck for an Arlberg trip' },
+      {
+        type: 'paragraph',
+        text: "Zurich and Munich end up as the two realistic long-haul options for reaching the Arlberg, since Innsbruck's runway limits it to shorter-haul aircraft. Between the two, Zurich is usually the shorter and faster drive to Lech, Zürs, and St. Anton specifically — Munich's routes lean more toward Tyrol's other resorts (Kitzbühel, the Zillertal, the Ötztal) than the Arlberg itself. If your resort is genuinely Lech, Zürs, or St. Anton and you have a choice of arrival airport, Zurich is generally the more direct option. See the [Innsbruck vs Salzburg vs Munich guide](/blog/innsbruck-salzburg-munich-ski-airport-guide) for the equivalent comparison across the rest of Tyrol.",
+      },
+      { type: 'heading', text: 'The drive through Vorarlberg' },
+      {
+        type: 'paragraph',
+        text: 'The route runs east from Zurich through eastern Switzerland, crossing into Austria near the Rhine Valley before climbing into Vorarlberg and on to the Arlberg — genuinely scenic driving with Lake Constance visible for part of the route. Winter conditions on the final approach into Lech and Zürs, both high-altitude villages, are factored into the driver\'s timing rather than treated as an unexpected delay; a professional chauffeur experienced on this specific route accounts for it as a matter of course.',
+      },
+      { type: 'heading', text: 'Chauffeur vs. renting a car at ZRH' },
+      {
+        type: 'paragraph',
+        text: "A self-drive rental is a realistic option if you want a car for the full trip, but for a single arrival transfer it comes with real friction: driving an unfamiliar car through an unfamiliar country's winter mountain roads on landing day, a likely cross-border rental surcharge for taking a Swiss-registered car into Austria, and the logistics of returning it at the end. Given how many of the guests on this specific route are heading to five-star resorts for a relaxed stay, arriving already driven rather than navigating the last two hours yourself is also simply a more comfortable way to start the trip.",
+      },
+      { type: 'heading', text: 'Choosing the right vehicle' },
+      {
+        type: 'list',
+        items: [
+          '[Luxury Sedan](/fleet/luxury) — a common choice for this route specifically, given the profile of Lech and Zürs as some of the most exclusive resorts in the Alps',
+          '[Business Sedan](/fleet/sedan) — 1–3 passengers, for a more standard booking',
+          '[Executive Van](/fleet/van) — up to 7 passengers, for families with ski equipment',
+          '[Minibus](/fleet/minibus) — up to 16 passengers, for groups arriving together',
+        ],
+      },
+      { type: 'heading', text: 'Common destinations from Zurich Airport' },
+      {
+        type: 'table',
+        headers: ['Destination', 'Approx. Distance/Time', 'Notes'],
+        rows: [
+          ['[Lech am Arlberg](/routes/zurich-airport-to-lech)', '~195km, ~2h 15m', 'The primary international gateway for Lech-Zürs'],
+          ['[St. Anton am Arlberg](/routes/zurich-airport-to-st-anton)', '~200km, ~2h 15m', 'Ski Arlberg\'s largest resort town'],
+          ['[Ischgl](/routes/zurich-airport-to-ischgl)', '~235km, ~2h 30m', 'Longest of the three common ZRH ski routes'],
+          ['[Bregenz](/routes/bregenz-to-zurich-airport)', '~120km, ~1h 15m', 'The shortest ZRH route — Vorarlberg\'s capital, on Lake Constance'],
+        ],
+      },
+      { type: 'heading', text: 'Luggage and equipment' },
+      {
+        type: 'paragraph',
+        text: "Lech, Zürs, and St. Anton guests are disproportionately traveling with more than a standard suitcase — ski or snowboard bags, boot bags, and often golf equipment in summer, given the Arlberg's dual ski-and-summer-resort profile. Mention equipment when booking so the right vehicle class is reserved; a Luxury Sedan comfortably handles two passengers with ski bags, but a group of four with full winter kit is usually a better fit for the Executive Van.",
+      },
+      { type: 'heading', text: 'When to book' },
+      {
+        type: 'paragraph',
+        text: 'Given the drive length, 48 hours\' notice is a reasonable minimum for a standard booking. Saturday changeover days during ski season are the busiest single day on this route — if you need a larger vehicle and are arriving on a winter Saturday, book several days ahead rather than the week of travel.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Why do people fly into Zurich instead of the closer Innsbruck Airport for the Arlberg?',
+        answer:
+          "Zurich has a much larger long-haul network. For travelers coming from outside Europe, a direct flight into Zurich followed by a longer drive is often more practical than a connecting flight into Innsbruck.",
+      },
+      {
+        question: 'Do I need my passport crossing from Switzerland into Austria?',
+        answer:
+          "No routine check — Switzerland is part of the Schengen area even though it isn't in the EU, so the crossing doesn't involve a scheduled stop. Still worth carrying valid ID.",
+      },
+      {
+        question: 'Is the Swiss vignette included, or do I need to arrange it separately?',
+        answer:
+          'Both the Swiss and Austrian vignette costs are included in the fixed price agreed before travel — nothing to arrange or pay for separately at the border.',
+      },
+      {
+        question: 'What currency should I have — euros or Swiss francs?',
+        answer:
+          "You won't need cash for the transfer itself, since the price is fixed and agreed in advance by email, regardless of which side of the border you're technically on.",
+      },
+      {
+        question: 'What if my flight into Zurich is delayed?',
+        answer:
+          "Your flight number is tracked, so the pickup time adjusts automatically at no extra cost — the driver won't leave because your original landing time has passed.",
+      },
+      {
+        question: 'How far in advance should I book for a winter Saturday?',
+        answer:
+          'Several days ahead if you need a larger vehicle — Saturday changeovers are the busiest single day on the Zurich-to-Arlberg routes.',
+      },
+      {
+        question: 'Can I book a one-way transfer, or does it need to be a round trip?',
+        answer:
+          'One-way is standard — most guests book the arrival leg separately from the departure, since ski-week plans and flight times often aren\'t both fixed until closer to the trip.',
+      },
+      {
+        question: 'Is Zurich or Innsbruck the better airport for St. Anton specifically?',
+        answer:
+          "St. Anton sits close to the Tyrol-Vorarlberg border, so both are realistic — Innsbruck is the shorter drive if you can get a direct flight there, while Zurich is usually better for long-haul arrivals given its larger international network.",
+      },
+      {
+        question: 'Do I need a different vehicle for a group with a lot of ski equipment?',
+        answer:
+          "For more than two passengers with full ski kit, the Executive Van generally fits more comfortably than a sedan — mention your group size and luggage when booking so the right class is reserved.",
+      },
+      {
+        question: 'Does the transfer stop at the Swiss-Austrian border for any reason?',
+        answer:
+          "No — there's no scheduled stop for a routine border check since both countries are in the Schengen area. The only stops are ones you request, such as a rest break on a trip of this length.",
+      },
+    ],
+    relatedPages: [
+      { label: 'Bregenz to Zurich: The Westernmost Cross-Border Route', href: '/blog/bregenz-to-zurich-guide' },
+      { label: 'Lech-Zürs am Arlberg Ski Transfers', href: '/ski-transfers/lech-zuers' },
+      { label: 'St. Anton am Arlberg Ski Transfers', href: '/ski-transfers/st-anton-am-arlberg' },
+      { label: 'Zurich Airport Transfers', href: '/airport-transfers/zurich-airport' },
+      { label: 'Zurich Service Area', href: '/service-areas/zurich' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
+    slug: 'how-chauffeur-cancellations-work',
+    title: 'How Chauffeur Cancellations Work: What to Know Before You Book',
+    excerpt:
+      'What actually happens if your plans change after booking a private transfer — the 24-hour free-cancellation line, what counts as a flight delay versus a cancellation, and how rescheduling works.',
+    publishedAt: '2026-08-13',
+    readingTime: '6 min read',
+    tags: ['Booking Tips'],
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "A private chauffeur booking works differently from hailing a taxi — you're reserving a specific driver and vehicle for a specific window, often confirmed days or weeks in advance. That's part of what makes the [fixed pricing](/blog/how-chauffeur-pricing-works) possible, but it also means cancellation terms matter in a way they don't for a ride you book five minutes before it happens. Here's how it actually works.",
+      },
+      { type: 'heading', text: 'The 24-hour line' },
+      {
+        type: 'paragraph',
+        text: "Cancel at least 24 hours before your scheduled pickup time and there's no charge at all. Cancel within 24 hours of pickup and a fee may apply, depending on the specific route and vehicle you'd reserved — and if it does, you're told the amount before your trip, not billed as a surprise afterward.",
+      },
+      { type: 'heading', text: "Why 'may apply' instead of a fixed number" },
+      {
+        type: 'paragraph',
+        text: "The site works as a booking intermediary — your request is matched to an independent, licensed chauffeur partner, and the actual transport contract is with that partner directly, not with the booking platform itself. A late cancellation on a long cross-border route with a minibus already blocked out for your group affects that partner very differently than a late cancellation on a short local transfer with a sedan. That's why the fee, when one applies, is route- and vehicle-specific rather than a single flat percentage — and why it's communicated to you directly rather than buried in fine print.",
+      },
+      { type: 'heading', text: 'A worked example' },
+      {
+        type: 'paragraph',
+        text: "Say you book a Vienna Airport transfer for a Saturday morning arrival, and your plans change on the Thursday before — a genuinely common scenario. Cancelling on Thursday is inside the 24-hour-plus window, so it's free, no questions asked. If the same change happens Friday night, less than 24 hours before Saturday morning pickup, a fee may apply — but it's tied to what that specific vehicle and driver had already committed to your slot, not a blanket penalty, and you'd be told the figure rather than simply billed for it.",
+      },
+      { type: 'heading', text: 'Rescheduling instead of cancelling' },
+      {
+        type: 'paragraph',
+        text: "If your plans shift rather than disappear — a later flight, a different pickup address, an extra day in the city — reply to your booking confirmation email with the new details as early as you can. Moving a booking is generally more flexible than cancelling it outright, especially with a few days' notice, since it doesn't necessarily leave your original slot empty for the partner.",
+      },
+      { type: 'heading', text: 'Group and multi-vehicle bookings' },
+      {
+        type: 'paragraph',
+        text: "For a wedding, corporate event, or any booking involving more than one vehicle, cancellation terms are generally assessed per booking rather than as a single blanket rule across every vehicle — a minibus reserved for a wedding party, for instance, represents a different commitment than a single sedan. If your booking involves multiple vehicles or a multi-stop itinerary, it's worth confirming the specifics directly rather than assuming the standard single-transfer terms apply exactly as written.",
+      },
+      { type: 'heading', text: "Flight delays aren't cancellations" },
+      {
+        type: 'paragraph',
+        text: "Worth separating clearly: a delayed flight is not the same thing as cancelling your transfer. Flight numbers are tracked as standard on airport bookings, so the pickup time adjusts automatically to match your actual landing time, with no extra charge for reasonable flight-related waiting. You only need to think about the cancellation policy above if you're calling off the trip entirely or the pickup no longer applies at all — not because your plane landed late.",
+      },
+      { type: 'heading', text: 'Corporate account bookings' },
+      {
+        type: 'paragraph',
+        text: "If you're booking through a [corporate account](/corporate-accounts) rather than as an individual traveler, cancellation and rescheduling for regular or recurring bookings is generally handled directly with your account contact, since the billing and scheduling arrangement is already set up outside the standard per-trip flow. The same 24-hour principle is a reasonable baseline to assume, but confirm the specifics for your account if it matters for how your company plans travel.",
+      },
+      { type: 'heading', text: 'No payment required to make a request' },
+      {
+        type: 'paragraph',
+        text: "Submitting a [booking request](/booking) doesn't require payment or card details upfront — it's a non-binding request until you receive written confirmation of availability and a fixed price by email. That confirmation is the point the cancellation terms above start to apply, not the moment you first submit the form.",
+      },
+      { type: 'heading', text: "What if the driver can't make it?" },
+      {
+        type: 'paragraph',
+        text: "The same reliability the fixed-price model is built around applies in the other direction too. Partner drivers are independently licensed operators with their own vehicles and schedules, chosen specifically for the route they're confirmed on — genuine last-minute unavailability on their end is rare, but if it happens, the priority is arranging a replacement vehicle rather than leaving you without transport. If a problem on the day affects your specific booking, contact support through your confirmation email as early as possible so there's the most time to sort out an alternative.",
+      },
+      { type: 'heading', text: 'If something changes on the day' },
+      {
+        type: 'paragraph',
+        text: "For anything last-minute — a same-day change, a question about whether a specific fee applies to your booking, or a situation the policy above doesn't obviously cover — reply directly to your confirmation email. Cross-border and multi-stop bookings in particular tend to have circumstances worth a direct conversation rather than a generic rule.",
+      },
+    ],
+    faqs: [
+      {
+        question: 'How late can I cancel for free?',
+        answer: 'Up to 24 hours before your scheduled pickup time, with no charge at all.',
+      },
+      {
+        question: 'What happens if I cancel less than 24 hours before pickup?',
+        answer:
+          'A fee may apply, depending on the specific route and vehicle reserved — you\'ll be told the amount before your trip rather than charged without notice.',
+      },
+      {
+        question: 'Is a flight delay treated as a cancellation?',
+        answer:
+          "No — flight numbers are tracked automatically on airport bookings, and the pickup time adjusts to match your actual landing with no extra charge. The cancellation policy only applies if you're calling off the trip itself.",
+      },
+      {
+        question: 'Do I need to pay anything when I first submit a booking request?',
+        answer:
+          "No — the initial request is non-binding and doesn't require payment or card details. The booking, and the cancellation terms, apply once you receive written confirmation and a fixed price by email.",
+      },
+      {
+        question: 'Can I reschedule instead of cancelling?',
+        answer:
+          "Usually, yes — reply to your confirmation email with the new date, time, or pickup details as early as possible. Rescheduling with notice is generally more flexible than an outright cancellation.",
+      },
+      {
+        question: 'Who do I actually contract with — the website or the driver?',
+        answer:
+          'The booking platform matches your request to an independent, licensed chauffeur partner; the transport contract for the trip itself is between you and that partner. See the full terms for the complete breakdown.',
+      },
+      {
+        question: 'Does the cancellation policy apply the same way to cross-border and ski-transfer bookings?',
+        answer:
+          "The 24-hour principle applies across booking types, though longer routes and larger reserved vehicles are exactly where a late-cancellation fee is more likely to apply — the same reasoning covered above for why the fee is route- and vehicle-specific rather than fixed.",
+      },
+      {
+        question: 'What if I need to cancel because of a genuine emergency?',
+        answer:
+          "Reach out as soon as you know, by replying to your confirmation email — genuine emergencies are exactly the kind of circumstance worth a direct conversation rather than assuming the standard policy is applied rigidly.",
+      },
+      {
+        question: 'Does the cancellation window start from when I booked, or from the pickup time?',
+        answer:
+          "From the pickup time. The 24-hour free-cancellation line is always measured backward from your scheduled pickup, regardless of how far in advance the original booking was made.",
+      },
+    ],
+    relatedPages: [
+      { label: 'How Chauffeur Pricing Works', href: '/blog/how-chauffeur-pricing-works' },
+      { label: 'How Far in Advance Should You Book a Chauffeur in Austria?', href: '/blog/how-far-in-advance-book-chauffeur' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'Terms & Conditions', href: '/agb' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
+    slug: 'tipping-your-chauffeur-in-austria',
+    title: 'Tipping Your Chauffeur in Austria: What\'s Customary',
+    excerpt:
+      "Tipping isn't built into the fixed price of a chauffeur booking — here's what's actually customary in Austria, and when it's worth going beyond the usual amount.",
+    publishedAt: '2026-08-13',
+    readingTime: '5 min read',
+    tags: ['Booking Tips'],
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "The [fixed price](/blog/how-chauffeur-pricing-works) you're quoted for a chauffeur transfer is the full fare — nothing more is owed for the drive itself. Tipping sits outside that, as a separate, optional gesture directly to the driver, the same way it would with a restaurant bill. It isn't collected by the booking platform or added to your online payment, and it won't be handled through the same channel as the fare.",
+      },
+      { type: 'heading', text: 'Austrian tipping culture, briefly' },
+      {
+        type: 'paragraph',
+        text: 'Austria has a similar tipping culture to Germany and much of Central Europe: customary, appreciated, but genuinely optional rather than an expected percentage baked into the price. In restaurants, 5–10% is typical, usually handled by rounding up the total or telling the server the amount to keep ("stimmt so") rather than leaving cash on the table after they\'ve walked away. The same logic carries over to taxis and private drivers.',
+      },
+      { type: 'heading', text: 'What that looks like for a chauffeur transfer' },
+      {
+        type: 'paragraph',
+        text: "For a standard point-to-point transfer, rounding up to a convenient amount is the most common approach — if the fare comes to €78, handing over €80–85 and saying keep the change covers it. For longer trips, a flat 5–10% of the fare is a reasonable guide if you'd rather calculate it that way. Neither is required, and a driver won't treat a bare payment any differently.",
+      },
+      { type: 'heading', text: 'Cash is still the norm' },
+      {
+        type: 'paragraph',
+        text: "Even where the fare itself is settled by card or invoice, tips in Austria are still overwhelmingly a cash gesture — there usually isn't a card terminal prompt for it the way there sometimes is in the US. Carrying a few small euro notes is worth doing if you know you'll want to tip, rather than assuming there's a digital option at the end of the trip.",
+      },
+      { type: 'heading', text: 'If you\'re used to American-style tipping' },
+      {
+        type: 'paragraph',
+        text: "Visitors from the US in particular sometimes over-tip out of habit — 15–20% is standard practice there for many services, but it isn't the Austrian norm and isn't expected here. A driver won't be offended by a smaller, Austrian-style tip, and there's no need to import US tipping percentages into an Austrian booking. If anything, rounding up modestly is read as perfectly normal and sufficient, not as under-tipping.",
+      },
+      { type: 'subheading', text: 'A concrete example' },
+      {
+        type: 'paragraph',
+        text: 'For a €78 airport transfer, rounding up to €80–85 is a typical Austrian-style tip. For a longer €250 cross-border trip handled well, somewhere around €15–25 (roughly 6–10%) would be generous without being unusual. Neither figure is a rule — they\'re simply what "customary" tends to look like in practice.',
+      },
+      { type: 'heading', text: 'Splitting a tip on a group booking' },
+      {
+        type: 'paragraph',
+        text: "For a van or minibus booked by a group — a wedding party, a corporate team, a family — the tip is usually handled once by whoever is coordinating the booking, rather than each passenger tipping individually. It's simpler for everyone and avoids the driver receiving several small, uncoordinated amounts.",
+      },
+      { type: 'heading', text: 'When people tip more than the standard amount' },
+      {
+        type: 'list',
+        items: [
+          'A full-day or multi-stop hourly hire booking where the driver managed a genuinely complex schedule',
+          'Significant help with heavy luggage, ski equipment, or awkward loads',
+          'A long cross-border drive handled smoothly, including any waiting at the destination',
+          'Christmas and New Year — a modest holiday-season tip is a common courtesy for regular or long bookings',
+        ],
+      },
+      { type: 'heading', text: 'Ski-season transfers' },
+      {
+        type: 'paragraph',
+        text: "Winter airport-to-resort transfers are where drivers most often go beyond the basics — loading and unloading ski bags and boot bags at both ends, navigating Alpine roads in genuinely difficult conditions, and sometimes helping get equipment into a chalet or hotel storage room rather than just the lobby. None of that changes the fixed price, but it's the kind of trip where the higher end of the customary tipping range — or a little beyond it — reflects the extra effort involved better than a flat percentage would.",
+      },
+      { type: 'heading', text: 'Airport, corporate, and wedding bookings' },
+      {
+        type: 'paragraph',
+        text: "The same general guidance applies across booking types — airport pickups, [corporate transfers](/corporate-transfers), and wedding-day transport all follow the same optional, cash-based, round-up-or-5–10% norm. Corporate accounts sometimes handle gratuities as part of a company's own travel policy rather than leaving it to the traveler; if that's relevant to your booking, it's worth confirming internally rather than assuming either way.",
+      },
+      { type: 'heading', text: 'Contactless payment apps don\'t usually include a tip prompt' },
+      {
+        type: 'paragraph',
+        text: 'If your fare is settled by card, bank transfer, or invoice rather than cash, don\'t expect a tip screen or percentage prompt the way some apps abroad build in automatically — Austrian payment terminals and invoicing generally don\'t include one. If you want to tip and aren\'t paying cash, saying so directly to the driver is the simplest way to handle it, or asking whether a small cash tip works instead.',
+      },
+      { type: 'heading', text: 'The short version' },
+      {
+        type: 'paragraph',
+        text: "Not tipping doesn't affect your service, and a modest tip for good service is a normal, appreciated gesture rather than an unwritten obligation. If in doubt, rounding up the fare is the simplest and most common approach in Austria.",
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is tipping mandatory for a private chauffeur in Austria?',
+        answer:
+          "No — the quoted fixed price is the complete fare. Tipping is a separate, optional gesture, the same as it would be at a restaurant.",
+      },
+      {
+        question: 'How much is customary to tip?',
+        answer:
+          'Rounding up to a convenient amount is most common; 5–10% of the fare is a reasonable guide if you\'d rather calculate a percentage.',
+      },
+      {
+        question: 'Should I tip in cash or can I add it to the card payment?',
+        answer:
+          "Cash is the norm in Austria — there usually isn't a digital prompt for a tip the way there sometimes is elsewhere, so carry a few small euro notes if you plan to tip.",
+      },
+      {
+        question: 'Do I tip the same amount for an airport transfer as a longer cross-border trip?',
+        answer:
+          "The same general guidance applies, though longer or more complex trips — multi-stop days, significant luggage help, long cross-border drives — are where people commonly tip toward the higher end.",
+      },
+      {
+        question: 'Is tipping expected on corporate-account bookings?',
+        answer:
+          "It follows the same optional norm, though some companies build gratuities into their own travel policy. Worth checking internally if you're travelling on a corporate account and unsure.",
+      },
+      {
+        question: 'What if I don\'t have cash on me?',
+        answer:
+          "That's fine — tipping is optional, and a driver won't expect or chase a tip that isn't offered. It's a courtesy, not a required part of the transaction.",
+      },
+      {
+        question: 'Do I tip more for a Luxury Sedan than a Business Sedan?',
+        answer:
+          "Vehicle class doesn't change the tipping guidance — it's based on the fare and the service, not which car you booked. A higher fare on a longer or more premium booking naturally works out to a larger tip if you're calculating a percentage, but there's no separate 'luxury' tipping rate.",
+      },
+      {
+        question: 'Is it rude not to tip at all?',
+        answer:
+          "No — since tipping is genuinely optional in Austria rather than an expected top-up to a below-market wage, choosing not to tip isn't read as rude the way it might be interpreted elsewhere.",
+      },
+      {
+        question: 'Does the same tipping guidance apply on cross-border trips into Germany, Switzerland, or elsewhere?',
+        answer:
+          "Broadly yes — Germany and Switzerland both share a similar round-up-or-modest-percentage tipping culture. If your itinerary continues well beyond Austria, local norms can shift slightly, but nothing dramatically different from what's described here.",
+      },
+    ],
+    relatedPages: [
+      { label: 'How Chauffeur Pricing Works', href: '/blog/how-chauffeur-pricing-works' },
+      { label: 'How Chauffeur Cancellations Work', href: '/blog/how-chauffeur-cancellations-work' },
+      { label: 'Chauffeur vs. Taxi vs. Uber in Austria', href: '/blog/chauffeur-vs-taxi-vs-uber-austria' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
 ]

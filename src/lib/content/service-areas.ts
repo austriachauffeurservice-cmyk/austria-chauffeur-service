@@ -23,6 +23,10 @@ export type CityArea = {
   // signal audit); leave unset everywhere else so the template stays DRY.
   seoTitle?: string
   seoDescription?: string
+  // Only set where a /day-tours page for the same place also exists — that
+  // page is a same-day round-trip excursion; this one is a one-way/overnight
+  // transfer. Cross-linking keeps the two from reading as unlinked duplicates.
+  relatedDayTour?: { slug: string; label: string }
 }
 
 export type BorderArea = {
@@ -183,6 +187,7 @@ export const austrianCities: CityArea[] = [
     city: 'Salzburg',
     region: 'Salzburg',
     airport: 'Salzburg Airport (SZG)',
+    relatedDayTour: { slug: 'salzburg-day-trip', label: 'Salzburg day tour from Vienna' },
     popularRoutes: [
       'Salzburg Airport ↔ City Center',
       'Salzburg → Munich, Germany (cross-border)',
@@ -446,6 +451,7 @@ export const austrianCities: CityArea[] = [
     city: 'Hallstatt',
     region: 'Upper Austria',
     airport: 'Salzburg Airport (SZG) / Vienna Airport (VIE)',
+    relatedDayTour: { slug: 'hallstatt', label: 'Hallstatt day tour' },
     popularRoutes: [
       'Salzburg → Hallstatt',
       'Vienna Airport → Hallstatt',
@@ -550,6 +556,7 @@ export const austrianCities: CityArea[] = [
     city: 'Wachau Wine Region',
     region: 'Lower Austria',
     airport: 'Vienna International Airport (VIE)',
+    relatedDayTour: { slug: 'wachau-valley', label: 'Wachau Valley day tour' },
     popularRoutes: [
       'Vienna ↔ Wachau Valley Tour / Transfer',
       'Vienna Airport → Krems an der Donau / Melk',

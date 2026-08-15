@@ -152,7 +152,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
   if (!location) notFound()
 
   if (location.kind === 'city') {
-    const { city, region, airport, popularRoutes, note, hotels, hotelNote, attractions } =
+    const { city, region, airport, popularRoutes, note, hotels, hotelNote, attractions, relatedDayTour } =
       location.data
     const pageUrl = `${siteUrl}/service-areas/${slug}`
     const relatedPosts = findRelatedPosts([city, region])
@@ -205,6 +205,15 @@ export default async function LocationPage({ params }: { params: Promise<Params>
               <PopularRoutesList items={popularRoutes} routes={routes} airports={airports} locale="en" />
             </div>
           </div>
+          {relatedDayTour && (
+            <p className="mt-8 text-sm text-brand-ink-2/80">
+              Visiting for the day rather than staying overnight?{' '}
+              <Link href={`/day-tours/${relatedDayTour.slug}`} className="font-semibold text-brand-ink hover:text-brand-gold hover:underline">
+                See our {relatedDayTour.label}
+              </Link>
+              .
+            </p>
+          )}
         </section>
 
         <HotelsSection place={city} hotels={hotels} hotelNote={hotelNote} />
