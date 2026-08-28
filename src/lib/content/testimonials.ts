@@ -1,56 +1,50 @@
+// Illustrative service scenarios, not attributed customer reviews — do not
+// add names or star ratings here. See /reviews page and homepage "What to
+// Expect" section, which render this as example copy, not verified reviews.
 export type Testimonial = {
   quote: string
-  author: string
   context: string
 }
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Outstanding service. The driver met us at arrivals with a name board, assisted with our heavy ski bags, and took us smoothly to our resort in Lech. Truly premium!",
-    author: 'Sarah Jenkins',
-    context: 'London to Lech Transfer',
+      "A driver meeting arrivals with a name board, assisting with heavy ski bags, and a smooth transfer straight to the resort in Lech.",
+    context: 'Airport to Ski Resort Transfer',
   },
   {
     quote:
-      'Booked an executive transfer for our business guests from Vienna to Munich. Prompt driver, immaculate Mercedes V-Class, and excellent communication throughout.',
-    author: 'Dr. Marcus Weber',
+      'An executive transfer for business guests from Vienna to Munich — on time, in an immaculate Mercedes V-Class, with clear communication throughout.',
     context: 'Corporate Route (Vienna to Munich)',
   },
   {
     quote:
-      'We needed a cross-border transfer from Vienna to Prague. The chauffeur was highly professional, spoke excellent English, and provided a safe, quiet, and comfortable journey.',
-    author: 'Elena Rostova',
+      'A cross-border transfer from Vienna to Prague with a professional, English-speaking chauffeur and a calm, comfortable journey.',
     context: 'Cross-Border Route (Vienna to Prague)',
   },
   {
     quote:
-      'Our wedding party needed three vehicles moving between the ceremony and the reception venue on a tight schedule. Every car was on time, every driver was in a suit, and nobody was left waiting.',
-    author: 'Julia & Thomas Berger',
+      'A wedding party moved between ceremony and reception across three vehicles on a tight schedule — every car on time, every driver in a suit, nobody left waiting.',
     context: 'Wedding Transport, Salzburg',
   },
   {
     quote:
-      "Flight was delayed by almost two hours and I didn't even have to contact anyone — the driver was simply there when I landed. That's the kind of service that's worth paying for.",
-    author: 'Daniel Okafor',
+      "A flight delayed by almost two hours, with no need to contact anyone — the driver adjusts and is simply there on arrival.",
     context: 'Vienna Airport Pickup',
   },
   {
     quote:
-      'We booked a Sprinter for a 12-person company offsite from Graz to a hotel outside the city. Driver handled our luggage and equipment without any fuss, and the price was exactly what was quoted.',
-    author: 'Anna Huber',
+      'A Sprinter booked for a 12-person company offsite from Graz to a hotel outside the city — luggage and equipment handled without fuss, at the price quoted.',
     context: 'Group Corporate Transfer, Graz',
   },
   {
     quote:
-      "Traveling with two young kids and a stroller is never simple, but the driver had a child seat ready and helped us load everything without rushing. Made the whole trip to Salzburg stress-free.",
-    author: 'The Martinez Family',
+      "Traveling with two young kids and a stroller, with a child seat ready and help loading everything without rushing.",
     context: 'Family Transfer, Vienna to Salzburg',
   },
   {
     quote:
-      'Needed a same-week booking for a client visit and got a confirmed quote back within a few hours. Car was spotless, driver was sharp and on time to the minute.',
-    author: 'Richard Voss',
+      'A same-week booking for a client visit, with a confirmed quote back within hours and a driver on time to the minute.',
     context: 'Hourly Corporate Hire, Vienna',
   },
 ]

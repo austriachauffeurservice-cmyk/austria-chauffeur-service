@@ -13,6 +13,7 @@ import { siteName, siteUrl } from '@/lib/content/site'
 import { findRelatedPosts } from '@/lib/content/blog'
 import { routes } from '@/lib/content/routes'
 import { airports } from '@/lib/content/airports'
+import { vehicles } from '@/lib/content/services'
 
 type Params = { slug: string }
 
@@ -279,10 +280,25 @@ export default async function LocationPage({ params }: { params: Promise<Params>
     )
   }
 
-  const { country, popularRoutes, note, via } = location.data
+  const {
+    country,
+    popularRoutes,
+    note,
+    via,
+    intro,
+    serviceIntro,
+    destinationsIntro,
+    borderInfo,
+    whyChauffeur,
+    journeys,
+    bookingSteps,
+    trust,
+    faqs,
+  } = location.data
   const citiesInCountry = borderCities.filter((c) => c.countrySlug === location.data.slug)
   const pageUrl = `${siteUrl}/service-areas/${slug}`
   const relatedPosts = findRelatedPosts([country])
+  const isEnriched = Boolean(intro && intro.length > 0)
 
   return (
     <>
@@ -301,6 +317,19 @@ export default async function LocationPage({ params }: { params: Promise<Params>
           url: pageUrl,
         })}
       />
+      {faqs && faqs.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.question,
+              acceptedAnswer: { '@type': 'Answer', text: f.answer },
+            })),
+          }}
+        />
+      )}
 
       <section className="border-b border-brand-line bg-brand-ink text-white">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
@@ -308,7 +337,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
             Cross-Border Transfers
           </p>
           <h1 className="font-display mt-2 text-3xl sm:text-4xl">
-            Austria → {country}
+            {isEnriched ? `Austria to ${country} Private Chauffeur Transfers` : `Austria → ${country}`}
           </h1>
           <p className="mt-4 max-w-xl text-brand-cream/80">
             Licensed for international pickups and drop-offs to {country} — no need to switch
@@ -318,20 +347,66 @@ export default async function LocationPage({ params }: { params: Promise<Params>
         </div>
       </section>
 
+      {isEnriched && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <div className="space-y-4 text-brand-ink-2/90">
+              {intro!.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {isEnriched && serviceIntro && (
+        <section className="border-b border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">
+              Private Transfers from Austria to {country}
+            </h2>
+            <p className="mt-4 text-brand-ink-2/90">{serviceIntro}</p>
+          </div>
+        </section>
+      )}
+
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
         <div className="grid gap-10 sm:grid-cols-2">
           <div>
-            <h2 className="font-display text-xl text-brand-ink">Destinations</h2>
-            <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
-              {citiesInCountry.map((c) => (
-                <li key={c.slug} className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                  <Link href={`/service-areas/${c.slug}`} className="hover:text-brand-gold">
-                    {c.city}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <h2 className="font-display text-xl text-brand-ink">
+              {isEnriched ? `Popular ${country} Destinations` : 'Destinations'}
+            </h2>
+            {isEnriched && destinationsIntro && (
+              <p className="mt-3 text-sm text-brand-ink-2/80">{destinationsIntro}</p>
+            )}
+            {citiesInCountry.some((c) => c.description) ? (
+              <div className="mt-4 space-y-4">
+                {citiesInCountry.map((c) => (
+                  <div key={c.slug} className="rounded-sm border border-brand-line p-4">
+                    <Link
+                      href={`/service-areas/${c.slug}`}
+                      className="font-semibold text-brand-ink hover:text-brand-gold hover:underline"
+                    >
+                      {c.city}
+                    </Link>
+                    {c.description && (
+                      <p className="mt-1.5 text-sm text-brand-ink-2/70">{c.description}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
+                {citiesInCountry.map((c) => (
+                  <li key={c.slug} className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+                    <Link href={`/service-areas/${c.slug}`} className="hover:text-brand-gold">
+                      {c.city}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
           <div>
             <h2 className="font-display text-xl text-brand-ink">Popular Routes</h2>
@@ -339,6 +414,135 @@ export default async function LocationPage({ params }: { params: Promise<Params>
           </div>
         </div>
       </section>
+
+      {isEnriched && journeys && journeys.length > 0 && (
+        <section className="border-y border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl divide-y divide-brand-line px-4 sm:px-6">
+            {journeys.map((journey) => (
+              <div key={journey.heading} className="py-12 first:pt-16 last:pb-16">
+                <h2 className="font-display text-xl text-brand-ink">{journey.heading}</h2>
+                <p className="mt-2 text-sm font-semibold text-brand-gold">
+                  {journey.distance} · {journey.duration}
+                </p>
+                <p className="mt-3 max-w-2xl text-brand-ink-2/90">{journey.description}</p>
+                <Link
+                  href={journey.routeHref}
+                  className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+                >
+                  See the full route →
+                </Link>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {isEnriched && borderInfo && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">
+              Crossing the Austria–{country} Border
+            </h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{borderInfo}</p>
+          </div>
+        </section>
+      )}
+
+      {isEnriched && whyChauffeur && whyChauffeur.length > 0 && (
+        <section className="border-b border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Why Book a Private Chauffeur</h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {whyChauffeur.map((point) => (
+                <div key={point.title} className="rounded-sm border border-brand-line bg-white p-5">
+                  <p className="font-semibold text-brand-ink">{point.title}</p>
+                  <p className="mt-1.5 text-sm text-brand-ink-2/70">{point.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {isEnriched && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Vehicles &amp; Passenger Capacity</h2>
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full min-w-[480px] text-left text-sm">
+                <thead>
+                  <tr className="border-b border-brand-line text-xs font-semibold uppercase tracking-wide text-brand-ink-2/60">
+                    <th className="pb-3 pr-4">Vehicle</th>
+                    <th className="pb-3 pr-4">Passengers</th>
+                    <th className="pb-3">Luggage</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-brand-line">
+                  {vehicles.map((v) => (
+                    <tr key={v.name}>
+                      <td className="py-3 pr-4 font-semibold text-brand-ink">{v.name}</td>
+                      <td className="py-3 pr-4 text-brand-ink-2/80">{v.passengers}</td>
+                      <td className="py-3 text-brand-ink-2/80">{v.luggage}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-xs text-brand-ink-2/60">
+              <Link href="/fleet" className="underline decoration-brand-gold underline-offset-4 hover:text-brand-gold">
+                See full vehicle details on the fleet page →
+              </Link>
+            </p>
+          </div>
+        </section>
+      )}
+
+      {isEnriched && bookingSteps && bookingSteps.length > 0 && (
+        <section className="border-b border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">
+              Booking Your Austria → {country} Transfer
+            </h2>
+            <ol className="mt-6 space-y-3">
+              {bookingSteps.map((step, i) => (
+                <li key={step} className="flex items-start gap-3 text-sm text-brand-ink-2/90">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-ink text-xs font-semibold text-white">
+                    {i + 1}
+                  </span>
+                  <span className="pt-0.5">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
+
+      {isEnriched && trust && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">
+              A Licensed Cross-Border Chauffeur Service
+            </h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{trust}</p>
+          </div>
+        </section>
+      )}
+
+      {isEnriched && faqs && faqs.length > 0 && (
+        <section className="border-b border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Frequently Asked Questions</h2>
+            <dl className="mt-6 divide-y divide-brand-line">
+              {faqs.map((f) => (
+                <div key={f.question} className="py-6 first:pt-0">
+                  <dt className="font-display text-base text-brand-ink">{f.question}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-brand-ink-2/80">{f.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      )}
 
       <RelatedReading posts={relatedPosts} />
       <LocationCta place={country} />

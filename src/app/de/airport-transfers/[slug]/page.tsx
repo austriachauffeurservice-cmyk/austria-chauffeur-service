@@ -7,6 +7,7 @@ import { airports } from '@/lib/content/de/airports'
 import { austrianCities } from '@/lib/content/de/service-areas'
 import { routes } from '@/lib/content/de/routes'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { findRelatedPosts } from '@/lib/content/de/blog'
 
 type Params = { slug: string }
 
@@ -44,6 +45,8 @@ export default async function AirportPageDe({ params }: { params: Promise<Params
 
   const cityMatch = austrianCities.find((c) => c.city === airport.city)
   const pageUrl = `${siteUrl}/de/airport-transfers/${slug}`
+  const relatedPosts = findRelatedPosts([airport.city, airport.region])
+  const isEnriched = Boolean(airport.intro && airport.intro.length > 0)
 
   return (
     <>
@@ -69,6 +72,19 @@ export default async function AirportPageDe({ params }: { params: Promise<Params
           url: pageUrl,
         }}
       />
+      {airport.faqs && airport.faqs.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: airport.faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.question,
+              acceptedAnswer: { '@type': 'Answer', text: f.answer },
+            })),
+          }}
+        />
+      )}
 
       <section className="border-b border-brand-line bg-brand-cream">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
@@ -87,6 +103,18 @@ export default async function AirportPageDe({ params }: { params: Promise<Params
           )}
         </div>
       </section>
+
+      {isEnriched && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <div className="space-y-4 text-brand-ink-2/90">
+              {airport.intro!.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
         <div className="grid gap-10 sm:grid-cols-2">
@@ -138,6 +166,58 @@ export default async function AirportPageDe({ params }: { params: Promise<Params
           </p>
         )}
       </section>
+
+      {isEnriched && airport.useCases && airport.useCases.length > 0 && (
+        <section className="border-y border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Transfers für jede Art von Reise</h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {airport.useCases.map((u) => (
+                <div key={u.title} className="rounded-sm border border-brand-line bg-white p-5">
+                  <p className="font-semibold text-brand-ink">{u.title}</p>
+                  <p className="mt-1.5 text-sm text-brand-ink-2/70">{u.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {isEnriched && airport.faqs && airport.faqs.length > 0 && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Häufig gestellte Fragen</h2>
+            <dl className="mt-6 divide-y divide-brand-line">
+              {airport.faqs.map((f) => (
+                <div key={f.question} className="py-6 first:pt-0">
+                  <dt className="font-display text-base text-brand-ink">{f.question}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-brand-ink-2/80">{f.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      )}
+
+      {relatedPosts.length > 0 && (
+        <section className="border-t border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Weiterführende Artikel</h2>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {relatedPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/de/blog/${post.slug}`}
+                  className="rounded-sm border border-brand-line bg-white p-4 text-sm transition-colors hover:border-brand-gold"
+                >
+                  <p className="font-semibold text-brand-ink">{post.title}</p>
+                  <p className="mt-1 text-brand-ink-2/70">{post.excerpt}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="border-t border-brand-line bg-white">
         <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">

@@ -1,56 +1,49 @@
+// Illustrative service scenarios, not attributed customer reviews — do not
+// add names or star ratings here.
 export type Testimonial = {
   quote: string
-  author: string
   context: string
 }
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      'Hervorragender Service. Der Fahrer hat uns bei der Ankunft mit einem Namensschild empfangen, unser schweres Skigepäck übernommen und uns sicher zu unserem Resort in Lech gebracht. Wirklich erstklassig!',
-    author: 'Sarah Jenkins',
-    context: 'Transfer London nach Lech',
+      'Empfang bei der Ankunft mit Namensschild, Übernahme von schwerem Skigepäck und eine reibungslose Fahrt direkt zum Resort in Lech.',
+    context: 'Flughafen- zu Skiresort-Transfer',
   },
   {
     quote:
-      'Wir haben einen Executive-Transfer für unsere Geschäftsgäste von Wien nach München gebucht. Pünktlicher Fahrer, makellose Mercedes V-Klasse und ausgezeichnete Kommunikation.',
-    author: 'Dr. Marcus Weber',
+      'Ein Executive-Transfer für Geschäftsgäste von Wien nach München — pünktlich, in einer makellosen Mercedes V-Klasse, mit klarer Kommunikation.',
     context: 'Firmenstrecke (Wien nach München)',
   },
   {
     quote:
-      'Wir brauchten einen grenzüberschreitenden Transfer von Wien nach Prag. Der Chauffeur war sehr professionell, sprach ausgezeichnetes Englisch und sorgte für eine sichere, ruhige und komfortable Fahrt.',
-    author: 'Elena Rostova',
+      'Ein grenzüberschreitender Transfer von Wien nach Prag mit einem professionellen, englischsprachigen Chauffeur und einer ruhigen, komfortablen Fahrt.',
     context: 'Grenzüberschreitende Strecke (Wien nach Prag)',
   },
   {
     quote:
-      'Unsere Hochzeitsgesellschaft musste mit drei Fahrzeugen zwischen Trauung und Feier nach knappem Zeitplan verlegt werden. Jeder Wagen war pünktlich, jeder Fahrer im Anzug, niemand musste warten.',
-    author: 'Julia & Thomas Berger',
+      'Eine Hochzeitsgesellschaft, mit drei Fahrzeugen zwischen Trauung und Feier nach knappem Zeitplan verlegt — jeder Wagen pünktlich, jeder Fahrer im Anzug, niemand musste warten.',
     context: 'Hochzeitstransport, Salzburg',
   },
   {
     quote:
-      'Der Flug hatte fast zwei Stunden Verspätung und ich musste niemanden kontaktieren — der Fahrer war einfach da, als ich gelandet bin. Das ist ein Service, für den es sich zu zahlen lohnt.',
-    author: 'Daniel Okafor',
+      'Ein Flug mit fast zwei Stunden Verspätung, ohne dass jemand kontaktiert werden musste — der Fahrer passt sich an und ist einfach da.',
     context: 'Abholung Flughafen Wien',
   },
   {
     quote:
-      'Wir haben einen Sprinter für einen 12-köpfigen Firmenausflug von Graz zu einem Hotel außerhalb der Stadt gebucht. Der Fahrer hat unser Gepäck und die Ausrüstung ohne Umstände verstaut, und der Preis stimmte genau mit dem Angebot überein.',
-    author: 'Anna Huber',
+      'Ein Sprinter für einen 12-köpfigen Firmenausflug von Graz zu einem Hotel außerhalb der Stadt — Gepäck und Ausrüstung ohne Umstände verstaut, zum genannten Preis.',
     context: 'Firmen-Gruppentransfer, Graz',
   },
   {
     quote:
-      'Mit zwei kleinen Kindern und einem Kinderwagen zu reisen ist nie einfach, aber der Fahrer hatte einen Kindersitz bereit und half uns entspannt beim Einladen. Die ganze Fahrt nach Salzburg war dadurch stressfrei.',
-    author: 'Familie Martinez',
+      'Reisen mit zwei kleinen Kindern und einem Kinderwagen, mit bereitstehendem Kindersitz und entspannter Hilfe beim Einladen.',
     context: 'Familientransfer, Wien nach Salzburg',
   },
   {
     quote:
-      'Brauchte eine kurzfristige Buchung für einen Kundenbesuch und hatte innerhalb weniger Stunden ein bestätigtes Angebot. Der Wagen war makellos, der Fahrer aufmerksam und auf die Minute pünktlich.',
-    author: 'Richard Voss',
+      'Eine kurzfristige Buchung für einen Kundenbesuch, mit einem bestätigten Angebot innerhalb weniger Stunden und einem auf die Minute pünktlichen Fahrer.',
     context: 'Stundenweise Firmenbuchung, Wien',
   },
 ]

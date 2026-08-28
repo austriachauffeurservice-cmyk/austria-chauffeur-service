@@ -46,6 +46,7 @@ export default async function AirportPage({ params }: { params: Promise<Params> 
   const cityMatch = austrianCities.find((c) => c.city === airport.city)
   const pageUrl = `${siteUrl}/airport-transfers/${slug}`
   const relatedPosts = findRelatedPosts([airport.city, airport.region])
+  const isEnriched = Boolean(airport.intro && airport.intro.length > 0)
 
   return (
     <>
@@ -71,6 +72,19 @@ export default async function AirportPage({ params }: { params: Promise<Params> 
           url: pageUrl,
         }}
       />
+      {airport.faqs && airport.faqs.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: airport.faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.question,
+              acceptedAnswer: { '@type': 'Answer', text: f.answer },
+            })),
+          }}
+        />
+      )}
 
       <section className="border-b border-brand-line bg-brand-cream">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
@@ -89,6 +103,18 @@ export default async function AirportPage({ params }: { params: Promise<Params> 
           )}
         </div>
       </section>
+
+      {isEnriched && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <div className="space-y-4 text-brand-ink-2/90">
+              {airport.intro!.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
         <div className="grid gap-10 sm:grid-cols-2">
@@ -140,6 +166,38 @@ export default async function AirportPage({ params }: { params: Promise<Params> 
           </p>
         )}
       </section>
+
+      {isEnriched && airport.useCases && airport.useCases.length > 0 && (
+        <section className="border-y border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Transfers for Every Type of Journey</h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {airport.useCases.map((u) => (
+                <div key={u.title} className="rounded-sm border border-brand-line bg-white p-5">
+                  <p className="font-semibold text-brand-ink">{u.title}</p>
+                  <p className="mt-1.5 text-sm text-brand-ink-2/70">{u.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {isEnriched && airport.faqs && airport.faqs.length > 0 && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Frequently Asked Questions</h2>
+            <dl className="mt-6 divide-y divide-brand-line">
+              {airport.faqs.map((f) => (
+                <div key={f.question} className="py-6 first:pt-0">
+                  <dt className="font-display text-base text-brand-ink">{f.question}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-brand-ink-2/80">{f.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      )}
 
       {relatedPosts.length > 0 && (
         <section className="border-t border-brand-line bg-brand-cream">

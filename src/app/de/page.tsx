@@ -9,8 +9,22 @@ import { TrustBadges } from '@/components/trust-badges'
 import { FaqAccordion } from '@/components/faq-accordion'
 import { serviceTypes, vehicles } from '@/lib/content/de/services'
 import { faqs } from '@/lib/content/de/faq'
+import { testimonials } from '@/lib/content/de/testimonials'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/de/service-areas'
 import { areaServedCountries, contactEmail, siteName, siteUrl } from '@/lib/content/site'
+
+const featuredDestinationSlugs = [
+  'vienna',
+  'salzburg',
+  'innsbruck',
+  'graz',
+  'linz',
+  'klagenfurt',
+  'hallstatt',
+  'wachau-region',
+  'woerthersee',
+  'bregenz',
+]
 
 export const metadata: Metadata = {
   description:
@@ -99,10 +113,10 @@ export default function HomePageDe() {
               Auch über die Grenze.
             </h1>
             <p className="mt-5 max-w-md text-brand-cream/80">
-              Lizenzierte Privattransfers ab dem Flughafen Wien (VIE) und jeder österreichischen
-              Stadt, plus grenzüberschreitender Service nach Deutschland, Tschechien, Slowakei,
-              Ungarn, Slowenien, Italien und in die Schweiz. Festpreise, professionelle Fahrer,
-              inklusive Flugverfolgung.
+              Lizenzierte Privattransfers ab dem Flughafen Wien (VIE) und Zielen in ganz
+              Österreich, plus grenzüberschreitender Service nach Deutschland, Tschechien,
+              Slowakei, Ungarn, Slowenien, Italien und in die Schweiz. Festpreise, professionelle
+              Fahrer, inklusive Flugverfolgung.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -219,7 +233,8 @@ export default function HomePageDe() {
                   <div>
                     <h3 className="font-semibold text-brand-ink text-base">Feste Pauschalpreise</h3>
                     <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed">
-                      Bestätigte Preise vor der Buchung. Keine überraschenden Mautgebühren oder Grenzzuschläge.
+                      Bestätigte Preise vor der Buchung, inklusive anfallender Mautgebühren und
+                      üblicher Straßenabgaben — keine Grenzzuschläge.
                     </p>
                   </div>
                 </div>
@@ -299,8 +314,9 @@ export default function HomePageDe() {
                   <div>
                     <h3 className="font-semibold text-brand-ink text-base">Transfer anfragen</h3>
                     <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed max-w-lg">
-                      Geben Sie Abhol- und Zielort ein, wählen Sie die gewünschte Fahrzeugklasse
-                      (Limousine, SUV oder Van) und Ihre Reisedaten.
+                      Geben Sie Abhol- und Zielort ein, wählen Sie Ihr gewünschtes Fahrzeug
+                      (Business-Limousine, Luxus-Limousine, Executive Van oder Kleinbus) und Ihre
+                      Reisedaten.
                     </p>
                   </div>
                 </div>
@@ -312,7 +328,7 @@ export default function HomePageDe() {
                   <div>
                     <h3 className="font-semibold text-brand-ink text-base">Festpreis erhalten</h3>
                     <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed max-w-lg">
-                      Wir prüfen die Fahrerverfügbarkeit und senden Ihnen ein garantiertes
+                      Wir prüfen die Fahrerverfügbarkeit und senden Ihnen ein bestätigtes
                       Festpreisangebot per E-Mail. Keine Zahlung oder Kreditkartendaten für die Anfrage nötig.
                     </p>
                   </div>
@@ -325,8 +341,9 @@ export default function HomePageDe() {
                   <div>
                     <h3 className="font-semibold text-brand-ink text-base">Ihren Chauffeur treffen</h3>
                     <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed max-w-lg">
-                      Ihr Fahrer empfängt Sie am Abholort. Wir verfolgen Ihre Flugankunft
-                      automatisch — Verspätungen kosten nie extra.
+                      Ihr Fahrer empfängt Sie am Abholort und bringt Sie direkt an Ihr Ziel — ohne
+                      Mitfahrgelegenheit, ohne Fahrzeugwechsel. Wir verfolgen Ihre Flugankunft
+                      automatisch, sodass eine Verspätung Sie nichts extra kostet.
                     </p>
                   </div>
                 </div>
@@ -437,23 +454,26 @@ export default function HomePageDe() {
                   Inlandsabdeckung
                 </p>
                 <h2 className="font-display mt-2 text-2xl text-brand-ink">
-                  Jede größere österreichische Stadt
+                  Beliebte österreichische Ziele
                 </h2>
                 <ul className="mt-5 grid grid-cols-2 gap-y-2 text-sm text-brand-ink-2">
-                  {austrianCities.map((c) => (
-                    <li key={c.slug} className="flex items-center gap-2">
-                      <span className="h-1 w-1 rounded-full bg-brand-gold" />
-                      <Link href={`/de/service-areas/${c.slug}`} className="hover:text-brand-gold">
-                        {c.city}
-                      </Link>
-                    </li>
-                  ))}
+                  {austrianCities
+                    .filter((c) => featuredDestinationSlugs.includes(c.slug))
+                    .sort((a, b) => featuredDestinationSlugs.indexOf(a.slug) - featuredDestinationSlugs.indexOf(b.slug))
+                    .map((c) => (
+                      <li key={c.slug} className="flex items-center gap-2">
+                        <span className="h-1 w-1 rounded-full bg-brand-gold" />
+                        <Link href={`/de/service-areas/${c.slug}`} className="hover:text-brand-gold">
+                          {c.city}
+                        </Link>
+                      </li>
+                    ))}
                 </ul>
                 <Link
                   href="/de/service-areas"
                   className="mt-6 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4"
                 >
-                  Vollständige Abdeckungskarte ansehen →
+                  Alle österreichischen Ziele ansehen →
                 </Link>
               </div>
 
@@ -502,55 +522,30 @@ export default function HomePageDe() {
 
             <div className="lg:col-span-7">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-                Kundenstimmen
+                Was Sie erwarten können
               </p>
               <h2 className="font-display mt-2 mb-8 text-3xl text-brand-ink">
-                Was unsere Gäste über uns sagen
+                Beispielszenarien aus dem echten Servicealltag
               </h2>
 
               <div className="space-y-6">
-                <div className="rounded-sm border border-brand-line bg-white p-5 shadow-sm">
-                  <div className="flex items-center gap-1 text-brand-gold text-sm">
-                    {"★".repeat(5)}
+                {testimonials.slice(0, 3).map((t) => (
+                  <div key={t.context} className="rounded-sm border border-brand-line bg-white p-5 shadow-sm">
+                    <p className="text-sm italic leading-relaxed text-brand-ink-2/80">
+                      &quot;{t.quote}&quot;
+                    </p>
+                    <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-brand-gold">
+                      {t.context}
+                    </p>
                   </div>
-                  <p className="mt-2 text-sm italic leading-relaxed text-brand-ink-2/80">
-                    &quot;Hervorragender Service. Der Fahrer hat uns bei der Ankunft mit einem
-                    Namensschild empfangen, unser schweres Skigepäck übernommen und uns sicher zu
-                    unserem Resort in Lech gebracht. Wirklich erstklassig!&quot;
-                  </p>
-                  <p className="mt-3 text-xs font-semibold text-brand-ink">
-                    Sarah Jenkins · Transfer London nach Lech
-                  </p>
-                </div>
-
-                <div className="rounded-sm border border-brand-line bg-white p-5 shadow-sm">
-                  <div className="flex items-center gap-1 text-brand-gold text-sm">
-                    {"★".repeat(5)}
-                  </div>
-                  <p className="mt-2 text-sm italic leading-relaxed text-brand-ink-2/80">
-                    &quot;Wir haben einen Executive-Transfer für unsere Geschäftsgäste von Wien
-                    nach München gebucht. Pünktlicher Fahrer, makellose Mercedes V-Klasse und
-                    ausgezeichnete Kommunikation.&quot;
-                  </p>
-                  <p className="mt-3 text-xs font-semibold text-brand-ink">
-                    Dr. Marcus Weber · Firmenstrecke (Wien nach München)
-                  </p>
-                </div>
-
-                <div className="rounded-sm border border-brand-line bg-white p-5 shadow-sm">
-                  <div className="flex items-center gap-1 text-brand-gold text-sm">
-                    {"★".repeat(5)}
-                  </div>
-                  <p className="mt-2 text-sm italic leading-relaxed text-brand-ink-2/80">
-                    &quot;Wir brauchten einen grenzüberschreitenden Transfer von Wien nach Prag.
-                    Der Chauffeur war sehr professionell, sprach ausgezeichnetes Englisch und
-                    sorgte für eine sichere, ruhige und komfortable Fahrt.&quot;
-                  </p>
-                  <p className="mt-3 text-xs font-semibold text-brand-ink">
-                    Elena Rostova · Grenzüberschreitende Strecke (Wien nach Prag)
-                  </p>
-                </div>
+                ))}
               </div>
+              <Link
+                href="/de/reviews"
+                className="mt-6 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4"
+              >
+                Weitere Beispielszenarien ansehen →
+              </Link>
             </div>
           </div>
         </div>
@@ -599,14 +594,14 @@ export default function HomePageDe() {
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-              Beliebte Strecken
+              Beliebte Ziele &amp; Strecken
             </p>
             <h2 className="font-display mt-2 text-3xl text-brand-ink">
               Top-Chauffeurziele
             </h2>
             <p className="mt-4 text-brand-ink-2/80 text-sm leading-relaxed">
-              Wir bieten Festpreis-Privattransfers auf diesen beliebten Strecken. Wählen Sie Ihr
-              Ziel für Details und Abdeckung.
+              Eine Mischung aus beliebten Einsatzgebieten und Festpreis-Transferstrecken. Wählen
+              Sie eines für Details und Abdeckung.
             </p>
           </div>
 

@@ -7,6 +7,10 @@ export type Airport = {
   distanceFromCity: string
   popularRoutes: string[]
   note?: string
+  crossBorder?: boolean
+  intro?: string[]
+  useCases?: { title: string; description: string }[]
+  faqs?: { question: string; answer: string }[]
 }
 
 export const airports: Airport[] = [
@@ -24,6 +28,54 @@ export const airports: Airport[] = [
       'Flughafen Wien → Budapest, Ungarn (grenzüberschreitend)',
     ],
     note: 'Österreichs wichtigstes internationales Tor und unser Hauptsitz.',
+    intro: [
+      'Der Flughafen Wien-Schwechat (VIE) ist Österreichs wichtigstes internationales Tor und unser Hauptsitz — deshalb ist es der Flughafen, an dem wir die meisten Abholungen durchführen, egal ob Lang-, Europa- oder Regionalstrecke, unabhängig vom Terminal nach demselben Ablauf.',
+      'Die meisten Buchungen sind ein direkter Transfer ins Wiener Zentrum, aber der Flughafen verbindet auch direkt weiter — nach Salzburg, in andere österreichische Städte und über die Grenze nach Bratislava oder Budapest, ohne das Fahrzeug zu wechseln.',
+    ],
+    useCases: [
+      {
+        title: 'Hotel oder Privatadresse in Wien',
+        description: 'Direkte Ablieferung an jedem Hotel, jeder Wohnadresse oder Geschäftsadresse in der Stadt — kein Bahnhof oder Taxistand dazwischen.',
+      },
+      {
+        title: 'Geschäfts- und Firmenreisen',
+        description: 'Festpreis-Transfers für Führungskräfte und kundenorientierte Termine, mit Firmenkonten für Unternehmen, die regelmäßig reisen.',
+      },
+      {
+        title: 'Weiterfahrt in eine andere österreichische Stadt',
+        description: 'Direkte Weiterfahrt nach Salzburg, Graz, Linz oder anderswo in Österreich im selben Fahrzeug, statt die Flughafenstrecke separat zu buchen.',
+      },
+      {
+        title: 'Grenzüberschreitend in die Slowakei oder nach Ungarn',
+        description: 'Eine direkte Verbindung nach Bratislava (etwa 45 Minuten) oder Budapest, ohne Fahrzeugwechsel an der Grenze.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Wo trifft mich der Chauffeur am Flughafen Wien?',
+        answer: 'In der Ankunftshalle, mit einem Namensschild — derselbe Ablauf unabhängig von Terminal oder Fluggesellschaft.',
+      },
+      {
+        question: 'Wie lange dauert der Transfer vom Flughafen Wien ins Stadtzentrum?',
+        answer: 'Bei normalem Verkehr etwa 20–30 Minuten für die rund 18 km lange Fahrt ins Wiener Zentrum.',
+      },
+      {
+        question: 'Was passiert, wenn mein Flug Verspätung hat oder früher landet?',
+        answer: 'Wir verfolgen die bei der Buchung angegebene Flugnummer, und Ihre Abholzeit passt sich automatisch an Änderungen im Flugplan an — Sie müssen uns nicht kontaktieren oder neu buchen.',
+      },
+      {
+        question: 'Kann ich einen Transfer vom Flughafen Wien direkt nach Bratislava oder Budapest buchen?',
+        answer: 'Ja — beides sind direkte Transfers in einem Fahrzeug ohne Grenzstopp: etwa 45 Minuten nach Bratislava und rund 2 Stunden 15 Minuten nach Budapest.',
+      },
+      {
+        question: 'Kann ich einen Rücktransfer von der Stadt zum Flughafen Wien buchen?',
+        answer: 'Ja — einfache Fahrten und Hin- und Rückfahrten sind beide buchbar; geben Sie einfach Ihre Abflugdaten bei der Buchung der Rückfahrt an.',
+      },
+      {
+        question: 'Eignet sich dieser Transfer für eine Familie oder Gruppe mit Gepäck?',
+        answer: 'Ja. Der Executive Van und der Kleinbus eignen sich für größere Gruppen und mehr Gepäck, und Kindersitze oder Sitzerhöhungen sind auf Anfrage ohne Aufpreis verfügbar.',
+      },
+    ],
   },
   {
     slug: 'salzburg-airport',
@@ -99,7 +151,7 @@ export const airports: Airport[] = [
     name: 'Flughafen München (Franz Josef Strauß)',
     code: 'MUC',
     city: 'München',
-    region: 'Bayern (Deutschland)',
+    region: 'München, Deutschland',
     distanceFromCity: '~38 km nordöstlich des Münchner Stadtzentrums, wichtigstes Langstrecken-Drehkreuz für West- und Zentralösterreich',
     popularRoutes: [
       'Flughafen München → Innsbruck',
@@ -108,14 +160,15 @@ export const airports: Airport[] = [
       'Flughafen München → St. Anton am Arlberg',
     ],
     note: 'Wichtiges internationales Langstrecken-Drehkreuz für Transfers nach Tirol und ins Land Salzburg.',
+    crossBorder: true,
   },
   {
     slug: 'zurich-airport',
     name: 'Flughafen Zürich (Kloten)',
     code: 'ZRH',
     city: 'Zürich',
-    region: 'Zürich (Schweiz)',
-    distanceFromCity: '~13 km vom Zentrum Zürichs entfernt, wichtigstes Einreise-Drehkreuz für Vorarlberg & Arlberg-Resorts',
+    region: 'Zürich, Schweiz',
+    distanceFromCity: '~13 km nördlich des Zentrums von Zürich, wichtigstes Einreise-Drehkreuz für Vorarlberg & Arlberg-Resorts',
     popularRoutes: [
       'Flughafen Zürich → Lech am Arlberg',
       'Flughafen Zürich → St. Anton am Arlberg',
@@ -123,5 +176,6 @@ export const airports: Airport[] = [
       'Flughafen Zürich → Bregenz',
     ],
     note: 'Wichtigstes Einreise-Tor für Luxustransfers nach Lech, Zürs und St. Anton.',
+    crossBorder: true,
   },
 ]

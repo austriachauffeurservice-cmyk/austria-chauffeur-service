@@ -9,8 +9,22 @@ import { FaqAccordion } from '@/components/faq-accordion'
 import { serviceTypes, vehicles } from '@/lib/content/services'
 import { faqs } from '@/lib/content/faq'
 import { blogPosts } from '@/lib/content/blog'
+import { testimonials } from '@/lib/content/testimonials'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
 import { areaServedCountries, contactEmail, siteName, siteUrl } from '@/lib/content/site'
+
+const featuredDestinationSlugs = [
+  'vienna',
+  'salzburg',
+  'innsbruck',
+  'graz',
+  'linz',
+  'klagenfurt',
+  'hallstatt',
+  'wachau-region',
+  'woerthersee',
+  'bregenz',
+]
 
 const popularRouteCards: { label: string; slug: string; route: string; href?: string }[] = [
   { label: 'Vienna Chauffeur Service', slug: 'vienna', route: 'Vienna Airport ↔ City Center' },
@@ -102,8 +116,8 @@ export default function HomePage() {
               Across the border, too.
             </h1>
             <p className="mt-5 max-w-md text-brand-cream/80">
-              Licensed private transfers from Vienna International Airport (VIE) and every
-              Austrian city, plus cross-border service to Germany, Czech Republic, Slovakia,
+              Licensed private transfers from Vienna International Airport (VIE) and destinations
+              across Austria, plus cross-border service to Germany, Czech Republic, Slovakia,
               Hungary, Slovenia, Italy, and Switzerland. Fixed pricing, professional drivers,
               flight tracking included.
             </p>
@@ -223,7 +237,8 @@ export default function HomePage() {
                   <div>
                     <h3 className="font-semibold text-brand-ink text-base">Fixed, Flat Rates</h3>
                     <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed">
-                      Confirmed prices before booking. No surprise toll fees or cross-border premiums.
+                      Confirmed prices before booking, including applicable tolls and standard
+                      road charges — no cross-border premiums.
                     </p>
                   </div>
                 </div>
@@ -304,7 +319,7 @@ export default function HomePage() {
                   <div>
                     <h3 className="font-semibold text-brand-ink text-base">Request Your Transfer</h3>
                     <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed max-w-lg">
-                      Enter your pick-up and destination points, choose your preferred vehicle class (Sedan, SUV, or Van), and provide travel dates.
+                      Enter your pick-up and destination points, choose your preferred vehicle (Business Sedan, Luxury Sedan, Executive Van, or Minibus), and provide travel dates.
                     </p>
                   </div>
                 </div>
@@ -316,7 +331,7 @@ export default function HomePage() {
                   <div>
                     <h3 className="font-semibold text-brand-ink text-base">Get Fixed Quote</h3>
                     <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed max-w-lg">
-                      We check chauffeur availability and email you a guaranteed fixed-rate quote. No payment or credit card details are required to submit a request.
+                      We check chauffeur availability and email you a confirmed fixed-price quote. No payment or credit card details are required to submit a request.
                     </p>
                   </div>
                 </div>
@@ -328,7 +343,9 @@ export default function HomePage() {
                   <div>
                     <h3 className="font-semibold text-brand-ink text-base">Meet Your Chauffeur</h3>
                     <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed max-w-lg">
-                      Your driver will greet you at the pickup location. We track your flight arrival automatically, so there are never any delay charges.
+                      Your driver greets you at the pickup location and takes you directly to your
+                      destination — no shared rides, no vehicle changes. We track your flight
+                      arrival automatically, so a delay won&apos;t cost you extra.
                     </p>
                   </div>
                 </div>
@@ -455,23 +472,26 @@ export default function HomePage() {
                   Domestic Coverage
                 </p>
                 <h2 className="font-display mt-2 text-2xl text-brand-ink">
-                  Every major Austrian city
+                  Popular Austrian Destinations
                 </h2>
                 <ul className="mt-5 grid grid-cols-2 gap-y-2 text-sm text-brand-ink-2">
-                  {austrianCities.map((c) => (
-                    <li key={c.slug} className="flex items-center gap-2">
-                      <span className="h-1 w-1 rounded-full bg-brand-gold" />
-                      <Link href={`/service-areas/${c.slug}`} className="hover:text-brand-gold">
-                        {c.city}
-                      </Link>
-                    </li>
-                  ))}
+                  {austrianCities
+                    .filter((c) => featuredDestinationSlugs.includes(c.slug))
+                    .sort((a, b) => featuredDestinationSlugs.indexOf(a.slug) - featuredDestinationSlugs.indexOf(b.slug))
+                    .map((c) => (
+                      <li key={c.slug} className="flex items-center gap-2">
+                        <span className="h-1 w-1 rounded-full bg-brand-gold" />
+                        <Link href={`/service-areas/${c.slug}`} className="hover:text-brand-gold">
+                          {c.city}
+                        </Link>
+                      </li>
+                    ))}
                 </ul>
                 <Link
                   href="/service-areas"
                   className="mt-6 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4"
                 >
-                  See full coverage map →
+                  View all Austrian destinations →
                 </Link>
               </div>
 
@@ -519,52 +539,33 @@ export default function HomePage() {
               />
             </div>
 
-            {/* Right: Review Quotes */}
+            {/* Right: Example Scenarios */}
             <div className="lg:col-span-7">
               <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-                Client Testimonials
+                What to Expect
               </p>
               <h2 className="font-display mt-2 mb-8 text-3xl text-brand-ink">
-                What our guests say about us
+                Example scenarios from real service situations
               </h2>
-              
+
               <div className="space-y-6">
-                <div className="rounded-sm border border-brand-line bg-white p-5 shadow-sm">
-                  <div className="flex items-center gap-1 text-brand-gold text-sm">
-                    {"★".repeat(5)}
+                {testimonials.slice(0, 3).map((t) => (
+                  <div key={t.context} className="rounded-sm border border-brand-line bg-white p-5 shadow-sm">
+                    <p className="text-sm italic leading-relaxed text-brand-ink-2/80">
+                      &quot;{t.quote}&quot;
+                    </p>
+                    <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-brand-gold">
+                      {t.context}
+                    </p>
                   </div>
-                  <p className="mt-2 text-sm italic leading-relaxed text-brand-ink-2/80">
-                    &quot;Outstanding service. The driver met us at arrivals with a name board, assisted with our heavy ski bags, and took us smoothly to our resort in Lech. Truly premium!&quot;
-                  </p>
-                  <p className="mt-3 text-xs font-semibold text-brand-ink">
-                    Sarah Jenkins · London to Lech Transfer
-                  </p>
-                </div>
-
-                <div className="rounded-sm border border-brand-line bg-white p-5 shadow-sm">
-                  <div className="flex items-center gap-1 text-brand-gold text-sm">
-                    {"★".repeat(5)}
-                  </div>
-                  <p className="mt-2 text-sm italic leading-relaxed text-brand-ink-2/80">
-                    &quot;Booked an executive transfer for our business guests from Vienna to Munich. Prompt driver, immaculate Mercedes V-Class, and excellent communication throughout.&quot;
-                  </p>
-                  <p className="mt-3 text-xs font-semibold text-brand-ink">
-                    Dr. Marcus Weber · Corporate Route (Vienna to Munich)
-                  </p>
-                </div>
-
-                <div className="rounded-sm border border-brand-line bg-white p-5 shadow-sm">
-                  <div className="flex items-center gap-1 text-brand-gold text-sm">
-                    {"★".repeat(5)}
-                  </div>
-                  <p className="mt-2 text-sm italic leading-relaxed text-brand-ink-2/80">
-                    &quot;We needed a cross-border transfer from Vienna to Prague. The chauffeur was highly professional, spoke excellent English, and provided a safe, quiet, and comfortable journey.&quot;
-                  </p>
-                  <p className="mt-3 text-xs font-semibold text-brand-ink">
-                    Elena Rostova · Cross-Border Route (Vienna to Prague)
-                  </p>
-                </div>
+                ))}
               </div>
+              <Link
+                href="/reviews"
+                className="mt-6 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4"
+              >
+                See more example scenarios →
+              </Link>
             </div>
           </div>
         </div>
@@ -613,13 +614,13 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-              Popular Routes
+              Popular Destinations &amp; Transfers
             </p>
             <h2 className="font-display mt-2 text-3xl text-brand-ink">
               Top Chauffeur Destinations
             </h2>
             <p className="mt-4 text-brand-ink-2/80 text-sm leading-relaxed">
-              We provide fixed-price private transfers on these popular routes. Select your destination to view details and coverage.
+              A mix of popular service areas and fixed-price transfer routes. Select one to view details and coverage.
             </p>
           </div>
           

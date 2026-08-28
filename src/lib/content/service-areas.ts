@@ -29,6 +29,16 @@ export type CityArea = {
   relatedDayTour?: { slug: string; label: string }
 }
 
+export type Journey = {
+  heading: string
+  distance: string
+  duration: string
+  description: string
+  routeHref: string
+}
+
+export type WhyChauffeurPoint = { title: string; description: string }
+
 export type BorderArea = {
   slug: string
   country: string
@@ -38,6 +48,19 @@ export type BorderArea = {
   note: string
   seoTitle?: string
   seoDescription?: string
+  // Rich, country-specific content — optional so only pages with genuinely
+  // unique content (see the Aug 2026 thin-content audit) render the expanded
+  // sections; countries without these fields keep the original compact layout
+  // rather than reusing another country's copy with the name swapped.
+  intro?: string[]
+  serviceIntro?: string
+  destinationsIntro?: string
+  borderInfo?: string
+  whyChauffeur?: WhyChauffeurPoint[]
+  journeys?: Journey[]
+  bookingSteps?: string[]
+  trust?: string
+  faqs?: { question: string; answer: string }[]
 }
 
 export type BorderCity = {
@@ -49,6 +72,8 @@ export type BorderCity = {
   popularRoutes: string[]
   seoTitle?: string
   seoDescription?: string
+  // Shown in the parent country page's Destinations section when present.
+  description?: string
 }
 
 export const austrianCities: CityArea[] = [
@@ -689,10 +714,111 @@ export const borderCrossingDestinations: BorderArea[] = [
     cities: ['Bratislava'],
     via: 'via A6 motorway',
     popularRoutes: ['Vienna → Bratislava', 'Vienna Airport → Bratislava'],
-    note: 'Under an hour from central Vienna',
+    note: 'Bratislava: typically under an hour',
     seoTitle: 'Austria to Slovakia Transfer Service | Vienna ↔ Bratislava',
     seoDescription:
       'Private chauffeur transfer service between Austria and Slovakia — Vienna to Bratislava in under an hour, airport or city pickup, fixed price, no border vehicle switch.',
+    intro: [
+      "Slovakia is the closest cross-border destination from Vienna — Bratislava sits about 80km east of the city center, typically around an hour away by road via the A6 motorway, though the exact time depends on traffic and your precise pickup location. A private chauffeur covers the whole trip in a single vehicle, whether you're starting from a Vienna hotel, Vienna International Airport, or another Austrian city.",
+      "The corridor is used for a mix of trips: business travelers attending same-day meetings in Bratislava, visitors combining both capitals in one itinerary, families flying out of Bratislava Airport instead of Vienna, and day-trippers doing the round trip without an overnight stay. Pickup can be a hotel, private address, or airport arrivals hall; drop-off works the same way at the other end.",
+    ],
+    serviceIntro:
+      "Every Austria–Slovakia booking is a direct, private transfer — no ride-sharing, no fixed departure times, and no need to arrange a separate leg on either side of the border. Pickup is available from Vienna hotels and private addresses, from Vienna International Airport (VIE), or from other Austrian cities on request; drop-off works the same way in Bratislava, whether that's a hotel, private address, or Bratislava Airport (BTS). Both one-way and return bookings are available, and the same vehicle and driver stay with you for the whole trip.",
+    destinationsIntro:
+      "Bratislava is our most-requested destination in Slovakia, and the large majority of Austria–Slovakia bookings go there — close enough to Vienna for a same-day round trip, and well connected by the A6 motorway.",
+    borderInfo:
+      "Austria and Slovakia are both part of the Schengen Area, so there's normally no routine passport check or vehicle stop at the border — the drive continues straight through, with no need to switch vehicles or drivers partway. Temporary spot checks are occasionally introduced, particularly around holiday weekends, so we recommend carrying a valid passport or photo ID regardless. The most noticeable change during the drive is the road signage switching from German to Slovak a few kilometers past the border — the route itself stays on well-maintained motorway the whole way.",
+    whyChauffeur: [
+      {
+        title: 'Door-to-door, no station or parking',
+        description:
+          "No need to find parking in Vienna or Bratislava, or navigate either city's public transport with luggage — the car goes directly from where you start to where you're going.",
+      },
+      {
+        title: 'The border crossing is handled for you',
+        description:
+          'The vehicle and driver take care of the border crossing as part of the service — no separate transport to arrange on either side, and no vehicle switch partway.',
+      },
+      {
+        title: 'Fixed price, confirmed in advance',
+        description:
+          'Pricing is confirmed by email before you travel and stays fixed regardless of traffic or minor route changes — no cross-border surcharge and no meter running.',
+      },
+      {
+        title: 'Flight-aware for airport connections',
+        description:
+          'For Vienna Airport or Bratislava Airport pickups, drivers track your flight and adjust the pickup time automatically if it runs late.',
+      },
+    ],
+    journeys: [
+      {
+        heading: 'Vienna to Bratislava Transfer',
+        distance: '~80km',
+        duration: '~1 hour',
+        description:
+          "The most-booked leg of this corridor: central Vienna to Bratislava, around 80km via the A6 motorway through Kittsee to the Slovak border — normally about an hour door to door, though traffic around Vienna or at the border can add to that. It's short enough for a same-day round trip, and one of the shortest capital-to-capital drives in Europe.",
+        routeHref: '/routes/vienna-to-bratislava',
+      },
+      {
+        heading: 'Vienna Airport to Bratislava Transfer',
+        distance: '~65km',
+        duration: '~45 minutes',
+        description:
+          'This route runs in both directions — arriving passengers at Vienna International Airport heading on into Slovakia, and Bratislava-based travelers connecting to a flight at Vienna Airport instead of flying from Bratislava directly. The driver tracks your flight and meets you in the arrivals hall; the same applies in reverse for a Bratislava pickup timed against a VIE departure.',
+        routeHref: '/routes/vienna-airport-to-bratislava',
+      },
+    ],
+    bookingSteps: [
+      'Submit your pickup location (hotel, private address, or Vienna Airport) and your Slovakia drop-off point.',
+      'Add your travel date, time, and passenger count.',
+      'Note your luggage, and mention in the notes field if you need a child seat or booster seat.',
+      "If it's an airport pickup, include your flight number so the driver can track it.",
+      'We confirm availability and a fixed price by email — no payment is required to request a quote.',
+    ],
+    trust:
+      "Cross-border trips on this corridor are operated through our network of independently licensed chauffeur partners, each holding the relevant Austrian commercial passenger transport licensing for international pickups and drop-offs. You book through us — we confirm your driver, vehicle, and fixed price by email — and the same licensed partner handles the trip door to door, including the border crossing.",
+    faqs: [
+      {
+        question: 'How long does a private transfer from Vienna to Bratislava take?',
+        answer:
+          'Around 50–60 minutes door to door in normal traffic via the A6 motorway — it is the shortest of the cross-border corridors out of Austria.',
+      },
+      {
+        question: 'Can I book a transfer from Vienna Airport to Bratislava?',
+        answer:
+          'Yes — around 45 minutes via the A4 and A6 motorways, and it works in both directions: VIE arrivals continuing into Slovakia, or a Bratislava pickup connecting to a flight at Vienna Airport.',
+      },
+      {
+        question: 'Do I need to change vehicles at the Austria–Slovakia border?',
+        answer:
+          'No — both countries are Schengen members, so there is no routine stop or vehicle change. Carry valid photo ID regardless, in case of a temporary spot check.',
+      },
+      {
+        question: 'Can you pick me up from my hotel in Vienna?',
+        answer:
+          'Yes. Hotel and private-address pickup is standard across Vienna and other Austrian cities — just provide the address when booking.',
+      },
+      {
+        question: 'Can I book a return transfer from Slovakia to Austria?',
+        answer:
+          'Yes — one-way and return bookings are both available, and a same-day round trip is realistic given the short drive time.',
+      },
+      {
+        question: 'Do you provide transfers to destinations in Slovakia outside Bratislava?',
+        answer:
+          "Bratislava and Bratislava Airport (BTS) are where the large majority of our Slovakia bookings go, and where the service is best established. If your trip is elsewhere in Slovakia, submit it as your drop-off when booking and we'll confirm whether the route can be driven.",
+      },
+      {
+        question: 'Can I book a transfer for a family with luggage or child seats?',
+        answer:
+          'Yes. The Executive Van handles families with extra luggage, and child seats or booster seats are available on request at no extra charge — mention the age and height of your children in the notes field.',
+      },
+      {
+        question: 'Can I request an early-morning or late-night transfer?',
+        answer:
+          'Yes — the service operates 24/7, so early-morning and late-night pickups, including overnight flight arrivals, are booked the same way as any other time slot.',
+      },
+    ],
   },
   {
     slug: 'hungary',
@@ -779,6 +905,8 @@ export const borderCities: BorderCity[] = [
     seoTitle: 'Bratislava Chauffeur Transfer from Austria | Fixed Price',
     seoDescription:
       'Private chauffeur service from Vienna or Vienna Airport to Bratislava, Slovakia — under an hour, fixed price, licensed driver, no border vehicle switch.',
+    description:
+      "Slovakia's capital, and our most-requested destination in the country — typically under an hour from central Vienna. Most bookings are for hotels in the Old Town, the castle district, or the riverside promenade along the Danube, plus arrivals and departures at Bratislava Airport (BTS); pickup and drop-off go directly to wherever you're staying.",
   },
   {
     slug: 'budapest',

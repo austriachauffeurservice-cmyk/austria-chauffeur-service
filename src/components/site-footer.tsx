@@ -40,7 +40,7 @@ const copy: Record<
     companyLinks: [
       { href: '/service-areas', label: 'Service Areas' },
       { href: '/routes', label: 'Popular Routes' },
-      { href: '/reviews', label: 'Reviews' },
+      { href: '/reviews', label: 'What to Expect' },
       { href: '/blog', label: 'Blog' },
       { href: '/faq', label: 'FAQ' },
       { href: '/about', label: 'About Us' },
@@ -72,7 +72,7 @@ const copy: Record<
     companyLinks: [
       { href: '/service-areas', label: 'Einsatzgebiete' },
       { href: '/routes', label: 'Beliebte Strecken' },
-      { href: '/reviews', label: 'Bewertungen' },
+      { href: '/reviews', label: 'Was Sie erwarten können' },
       { href: '/blog', label: 'Blog' },
       { href: '/faq', label: 'FAQ' },
       { href: '/about', label: 'Über uns' },
