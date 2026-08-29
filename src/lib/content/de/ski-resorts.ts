@@ -12,6 +12,7 @@ export type SkiResort = {
   hotels?: Hotel[]
   hotelNote?: string
   attractions?: Attraction[]
+  airportGuidance?: { airport: string; note: string }[]
 }
 
 export const skiResorts: SkiResort[] = [
@@ -43,6 +44,20 @@ export const skiResorts: SkiResort[] = [
       {
         name: 'Kitzbüheler Altstadt',
         description: 'Ein mittelalterliches Fußgängerzentrum am Fuß der Berge.',
+      },
+    ],
+    airportGuidance: [
+      {
+        airport: 'Flughafen Innsbruck (INN)',
+        note: 'Die nächstgelegene Option mit rund einer Stunde Fahrzeit — die Standardwahl für die meisten Kitzbühel-Buchungen.',
+      },
+      {
+        airport: 'Flughafen Salzburg (SZG)',
+        note: 'Eine praktische Alternative mit rund 1,5 Stunden Fahrzeit, sinnvoll bei besseren Flugverbindungen über Salzburg statt Innsbruck.',
+      },
+      {
+        airport: 'Flughafen München (MUC)',
+        note: 'Sinnvoll für Langstrecken- und internationale Anschlüsse, die an den kleineren österreichischen Flughäfen nicht verfügbar sind, bei einer längeren grenzüberschreitenden Fahrzeit von rund 1 Std. 45 Min.',
       },
     ],
   },

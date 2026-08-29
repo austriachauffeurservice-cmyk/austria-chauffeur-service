@@ -273,6 +273,22 @@ export const routes: RoutePair[] = [
     ],
   },
   {
+    slug: 'salzburg-airport-to-filzmoos',
+    from: 'Flughafen Salzburg (SZG)',
+    to: 'Filzmoos',
+    distance: '~100 km',
+    driveTime: '~1 Std. 20 Min.',
+    routeDescription: 'Südlich über die A10 Tauernautobahn bis zur Ausfahrt Pongau, dann über die B320 ins Ennstal nach Filzmoos.',
+    whyBook: [
+      'Direkt zu Hotels und Chalets in Filzmoos, ohne Regionalzug oder Ortsbus',
+      'Platz für Ski, Snowboards und Gepäck ohne den Aufwand öffentlicher Verkehrsmittel',
+      'Festpreis vor Fahrtantritt vereinbart, inklusive Überwachung von Flugverspätungen',
+    ],
+    seoTitle: 'Flughafen Salzburg nach Filzmoos Transfer | Festpreis',
+    seoDescription:
+      'Privater Chauffeurtransfer vom Flughafen Salzburg nach Filzmoos — etwa 100 km, 1 Std. 20 Min., Festpreis, winterfeste Fahrzeuge mit Platz für Ski und Snowboards.',
+  },
+  {
     slug: 'munich-airport-to-innsbruck',
     from: 'Flughafen München (MUC)',
     to: 'Innsbruck',
@@ -367,11 +383,12 @@ export const routes: RoutePair[] = [
       'Kürzester Hauptstadt-zu-Hauptstadt-Transfer Mitteleuropas',
       'Deckt beide Richtungen ab — Ankünfte am Flughafen Wien mit Ziel Slowakei und Abfahrten aus Bratislava zu einem Flug ab Wien',
       'Schnell, direkt und zum Festpreis, Tür zu Tür',
+      'Gruppentransfers möglich — Executive Van (bis zu 7) oder Kleinbus (bis zu 16) für Familien, Kollegen oder größere Gruppen, je nach Fahrzeugverfügbarkeit',
     ],
     crossBorder: true,
     seoTitle: 'Flughafen Wien nach Bratislava Transfer | 45 Minuten, Festpreis',
     seoDescription:
-      'Privater Transfer zwischen Flughafen Wien und Bratislava — 65 km, ca. 45 Minuten, Festpreis Tür zu Tür. Deckt sowohl Ankünfte am Flughafen Wien als auch Abfahrten aus Bratislava ab.',
+      'Privater Transfer zwischen Flughafen Wien und Bratislava — 65 km, ca. 45 Minuten, Festpreis Tür zu Tür. Einzel- und Gruppentransfers, deckt sowohl Ankünfte am Flughafen Wien als auch Abfahrten aus Bratislava ab.',
   },
   {
     slug: 'vienna-airport-to-budapest',
@@ -826,7 +843,11 @@ export const routes: RoutePair[] = [
       'Der kürzeste Flughafentransfer unter den großen Tiroler Skiorten',
       'Direkt zu den Hotels in Seefeld, ohne Regionalzug oder Ortsshuttle',
       'Gut geeignet für das autofreie Fußgängerzentrum des Orts',
+      'Abholung an zentralen Innsbrucker Hotels funktioniert genauso — der Flughafen liegt nur etwa 4 km außerhalb der Stadt, die Fahrzeit ändert sich kaum',
     ],
+    seoTitle: 'Innsbruck nach Seefeld Transfer | Flughafen oder Stadt, 25 Minuten',
+    seoDescription:
+      'Privater Chauffeurtransfer vom Flughafen Innsbruck oder aus der Innsbrucker Innenstadt nach Seefeld in Tirol — etwa 25 km, 25 Minuten, Festpreis, direkt zum Hotel.',
   },
   {
     slug: 'innsbruck-airport-to-serfaus-fiss-ladis',
@@ -1348,6 +1369,20 @@ export const routes: RoutePair[] = [
     whyBook: [
       'Direkter Stadt-zu-Resort-Transfer zum historischen Kurort',
       'Komfortabel für Wintersport ebenso wie für Wellnessreisen im Sommer',
+      'Festpreis vor Fahrtantritt vereinbart',
+    ],
+  },
+  {
+    slug: 'salzburg-to-filzmoos',
+    from: 'Salzburg',
+    to: 'Filzmoos',
+    distance: '~100 km',
+    driveTime: '~1 Std. 20 Min.',
+    routeDescription:
+      'Südlich über die A10 Tauernautobahn bis zur Ausfahrt Pongau, dann über die B320 ins Ennstal — derselbe Korridor wie ab dem Flughafen Salzburg.',
+    whyBook: [
+      'Direkter Stadt-zu-Resort-Transfer ohne Umsteigen',
+      'Komfortabel für Familien und Gruppen mit Skiausrüstung',
       'Festpreis vor Fahrtantritt vereinbart',
     ],
   },

@@ -906,7 +906,7 @@ export const borderCities: BorderCity[] = [
     seoDescription:
       'Private chauffeur service from Vienna or Vienna Airport to Bratislava, Slovakia — under an hour, fixed price, licensed driver, no border vehicle switch.',
     description:
-      "Slovakia's capital, and our most-requested destination in the country — typically under an hour from central Vienna. Most bookings are for hotels in the Old Town, the castle district, or the riverside promenade along the Danube, plus arrivals and departures at Bratislava Airport (BTS); pickup and drop-off go directly to wherever you're staying.",
+      "Slovakia's capital, and our most-requested destination in the country — typically under an hour from central Vienna. Most bookings are for hotels in the Old Town, the castle district, or the riverside promenade along the Danube, plus arrivals and departures at Bratislava Airport (BTS); pickup and drop-off go directly to wherever you're staying. Wedding and private-event transport, part of our standard service offering, can also be arranged here.",
   },
   {
     slug: 'budapest',

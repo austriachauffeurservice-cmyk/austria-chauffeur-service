@@ -28,11 +28,12 @@ export default function SkiTransfersPage() {
             Ski & Alpine Transfers
           </p>
           <h1 className="font-display mt-2 max-w-2xl text-3xl sm:text-4xl">
-            Private airport-to-resort transfers, all winter long
+            Austria Ski Transfers
           </h1>
           <p className="mt-4 max-w-xl text-brand-cream/80">
-            Winter-ready vehicles, experienced alpine drivers, and space for skis and boards —
-            direct from Innsbruck, Salzburg, Munich, or Zurich to your resort.
+            Private, airport-to-resort chauffeur transfers all winter long — winter-ready
+            vehicles, experienced alpine drivers, and space for skis and boards, direct from
+            Innsbruck, Salzburg, Munich, or Zurich to your resort.
           </p>
         </div>
       </section>

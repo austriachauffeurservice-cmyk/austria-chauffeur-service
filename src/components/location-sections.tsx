@@ -27,7 +27,7 @@ const copy: Record<
       `Direct pickup and drop-off at hotels throughout ${place} — just share your hotel name and address when booking.`,
     bookCta: 'Book →',
     hotelsFootnote: (place) =>
-      `Staying somewhere not listed? We serve every hotel, chalet, and private address in ${place} — just enter it as your pickup or drop-off.`,
+      `Staying somewhere not listed? We can arrange pickup and drop-off at hotels, chalets, and private addresses throughout ${place} — just enter it as your pickup or drop-off.`,
     attractionsEyebrow: 'Places to See',
     attractionsHeading: (heading, place) => `${heading} in ${place}`,
     attractionsBody: (place) =>
@@ -41,7 +41,7 @@ const copy: Record<
       `Direkte Abholung und Ablieferung an Hotels in ganz ${place} — geben Sie einfach Ihren Hotelnamen und die Adresse bei der Buchung an.`,
     bookCta: 'Buchen →',
     hotelsFootnote: (place) =>
-      `Übernachten Sie woanders? Wir bedienen jedes Hotel, Chalet und jede Privatadresse in ${place} — geben Sie es einfach als Abhol- oder Zielort an.`,
+      `Übernachten Sie woanders? Wir organisieren Abholung und Ablieferung an Hotels, Chalets und Privatadressen in ganz ${place} — geben Sie es einfach als Abhol- oder Zielort an.`,
     attractionsEyebrow: 'Sehenswürdigkeiten',
     attractionsHeading: (heading, place) => `${heading} in ${place}`,
     attractionsBody: (place) =>
@@ -174,11 +174,17 @@ export function AttractionsSection({
   attractions,
   heading,
   locale = 'en',
+  showBookingCta = true,
 }: {
   place: string
   attractions?: { name: string; description: string }[]
   heading?: string
   locale?: Locale
+  // Palaces, landmarks, and other addressable places make sense as a
+  // pickup/drop-off point ("Request a transfer here"). Piste names and other
+  // non-addressable highlights (used on ski-resort pages) don't — set this to
+  // false there rather than offering a transfer request that reads oddly.
+  showBookingCta?: boolean
 }) {
   if (!attractions || attractions.length === 0) return null
   const t = copy[locale]
@@ -198,12 +204,14 @@ export function AttractionsSection({
             <div key={item.name} className="rounded-sm border border-brand-line bg-white p-5">
               <p className="font-semibold text-brand-ink">{item.name}</p>
               <p className="mt-1.5 text-sm text-brand-ink-2/70">{item.description}</p>
-              <Link
-                href={localizedHref(`/booking?to=${encodeURIComponent(`${item.name}, ${place}`)}`, locale)}
-                className="mt-3 inline-block text-xs font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
-              >
-                {t.requestTransferHere}
-              </Link>
+              {showBookingCta && (
+                <Link
+                  href={localizedHref(`/booking?to=${encodeURIComponent(`${item.name}, ${place}`)}`, locale)}
+                  className="mt-3 inline-block text-xs font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+                >
+                  {t.requestTransferHere}
+                </Link>
+              )}
             </div>
           ))}
         </div>

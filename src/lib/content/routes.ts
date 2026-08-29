@@ -276,6 +276,22 @@ export const routes: RoutePair[] = [
     ],
   },
   {
+    slug: 'salzburg-airport-to-filzmoos',
+    from: 'Salzburg Airport (SZG)',
+    to: 'Filzmoos',
+    distance: '~100km',
+    driveTime: '~1h 20m',
+    routeDescription: 'South via the A10 Tauern Autobahn to the Pongau exit, then the B320 into the Ennstal valley to Filzmoos.',
+    whyBook: [
+      "Direct to Filzmoos's hotels and chalets, avoiding a regional train and village shuttle",
+      'Space for skis, boards, and luggage without the hassle of public transport',
+      'Fixed price agreed before travel, with flight delay tracking included',
+    ],
+    seoTitle: 'Salzburg Airport to Filzmoos Transfer | Fixed Price',
+    seoDescription:
+      'Private chauffeur transfer from Salzburg Airport to Filzmoos — around 100km, 1h20m, fixed price, winter-ready vehicles with ski/board space.',
+  },
+  {
     slug: 'munich-airport-to-innsbruck',
     from: 'Munich Airport (MUC)',
     to: 'Innsbruck',
@@ -370,11 +386,12 @@ export const routes: RoutePair[] = [
       'Shortest capital-to-capital transfer in Central Europe',
       'Covers both directions — VIE arrivals heading into Slovakia, and Bratislava departures connecting to a flight at Vienna Airport',
       'Fast, direct, and fixed price door-to-door',
+      'Group transfers available — Executive Van (up to 7) or Minibus (up to 16) for families, colleagues, or larger parties, subject to vehicle availability',
     ],
     crossBorder: true,
     seoTitle: 'Vienna Airport to Bratislava Transfer | 45 Minutes, Fixed Price',
     seoDescription:
-      'Private transfer between Vienna Airport and Bratislava — 65km, ~45 minutes, fixed price door-to-door. Covers both arrivals into VIE and departures from Bratislava.',
+      'Private transfer between Vienna Airport and Bratislava — 65km, ~45 minutes, fixed price door-to-door. Individual and group transfers, covering both arrivals into VIE and departures from Bratislava.',
   },
   {
     slug: 'vienna-airport-to-budapest',
@@ -829,7 +846,11 @@ export const routes: RoutePair[] = [
       'The shortest airport transfer of any major Tyrolean resort',
       'Direct to Seefeld\'s hotels, avoiding the regional train and a village shuttle',
       'Well suited to the car-free village\'s pedestrian center',
+      'Pickup from central Innsbruck hotels works the same way — the airport sits only about 4km outside the city, so timing barely changes',
     ],
+    seoTitle: 'Innsbruck to Seefeld Transfer | Airport or City, 25 Minutes',
+    seoDescription:
+      'Private chauffeur transfer from Innsbruck Airport or central Innsbruck to Seefeld in Tirol — about 25km, 25 minutes, fixed price, direct to your hotel.',
   },
   {
     slug: 'innsbruck-airport-to-serfaus-fiss-ladis',
@@ -1354,6 +1375,20 @@ export const routes: RoutePair[] = [
     whyBook: [
       'Direct city-to-resort transfer to the historic spa town',
       'Comfortable for winter ski and summer wellness travel alike',
+      'Fixed price agreed before travel',
+    ],
+  },
+  {
+    slug: 'salzburg-to-filzmoos',
+    from: 'Salzburg',
+    to: 'Filzmoos',
+    distance: '~100km',
+    driveTime: '~1h 20m',
+    routeDescription:
+      'South via the A10 Tauern Autobahn to the Pongau exit, then the B320 into the Ennstal valley — the same corridor used from Salzburg Airport.',
+    whyBook: [
+      'Direct city-to-resort transfer without a station change',
+      'Comfortable for families and groups traveling with ski equipment',
       'Fixed price agreed before travel',
     ],
   },

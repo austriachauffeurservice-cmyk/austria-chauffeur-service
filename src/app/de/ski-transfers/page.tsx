@@ -31,11 +31,12 @@ export default function SkiTransfersPageDe() {
             Ski- & Alpintransfers
           </p>
           <h1 className="font-display mt-2 max-w-2xl text-3xl sm:text-4xl">
-            Private Flughafen-zu-Resort-Transfers, den ganzen Winter über
+            Skitransfers in Österreich
           </h1>
           <p className="mt-4 max-w-xl text-brand-cream/80">
-            Winterfeste Fahrzeuge, erfahrene Alpinfahrer und Platz für Ski und Snowboards — direkt
-            ab Innsbruck, Salzburg, München oder Zürich zu Ihrem Resort.
+            Private Flughafen-zu-Resort-Chauffeurtransfers den ganzen Winter über — winterfeste
+            Fahrzeuge, erfahrene Alpinfahrer und Platz für Ski und Snowboards, direkt ab
+            Innsbruck, Salzburg, München oder Zürich zu Ihrem Resort.
           </p>
         </div>
       </section>

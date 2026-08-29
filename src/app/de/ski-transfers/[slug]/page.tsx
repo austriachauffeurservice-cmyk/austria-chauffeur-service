@@ -7,6 +7,7 @@ import { skiResorts } from '@/lib/content/de/ski-resorts'
 import { routes } from '@/lib/content/de/routes'
 import { airports } from '@/lib/content/de/airports'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { findRelatedPosts } from '@/lib/content/de/blog'
 
 type Params = { slug: string }
 
@@ -43,6 +44,7 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
   if (!resort) notFound()
 
   const pageUrl = `${siteUrl}/de/ski-transfers/${slug}`
+  const relatedPosts = findRelatedPosts([resort.name, resort.region])
 
   return (
     <>
@@ -125,15 +127,81 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
             </ul>
           </div>
         )}
+
+        {resort.airportGuidance && resort.airportGuidance.length > 0 && (
+          <div className="mt-10">
+            <h2 className="font-display text-xl text-brand-ink">
+              Welcher Flughafen eignet sich am besten für {resort.name}?
+            </h2>
+            <div className="mt-4 space-y-4">
+              {resort.airportGuidance.map((g) => (
+                <div key={g.airport}>
+                  <p className="text-sm font-semibold text-brand-ink">{g.airport}</p>
+                  <p className="mt-1 text-sm text-brand-ink-2/80">{g.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="mt-10">
+          <h2 className="font-display text-xl text-brand-ink">Skiausrüstung &amp; Gepäck</h2>
+          <p className="mt-3 text-sm text-brand-ink-2/80">
+            Reisen Sie mit Ski, Snowboards oder zusätzlichem Wintergepäck? Geben Sie dies bei der
+            Buchung an, damit wir ein Fahrzeug mit ausreichend Platz zuweisen können — sowohl der
+            Executive Van als auch der Kleinbus bieten zusätzlich zum normalen Gepäck Platz für
+            Ski und Boards.
+          </p>
+        </div>
+
+        <div className="mt-10">
+          <h2 className="font-display text-xl text-brand-ink">Winterreise nach {resort.name}</h2>
+          <p className="mt-3 text-sm text-brand-ink-2/80">
+            Die Fahrzeit kann im Winter je nach Schneefall, Straßenverhältnissen und Verkehr rund
+            um die Hauptan- und -abreisezeiten variieren. Wir empfehlen, rund um den
+            Samstags-Wechseltag, an dem die Resortstraßen am stärksten befahren sind, zusätzliche
+            Zeit einzuplanen.
+          </p>
+        </div>
+
+        <p className="mt-10 text-sm text-brand-ink-2/70">
+          <Link
+            href="/de/ski-transfers"
+            className="font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+          >
+            Alle österreichischen Skitransfers ansehen →
+          </Link>
+        </p>
       </section>
 
       <HotelsSection place={resort.name} hotels={resort.hotels} hotelNote={resort.hotelNote} locale="de" />
       <AttractionsSection
         place={resort.name}
         attractions={resort.attractions}
-        heading="Auf dem Berg"
+        heading="Höhepunkte"
         locale="de"
+        showBookingCta={false}
       />
+
+      {relatedPosts.length > 0 && (
+        <section className="border-t border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Weiterführende Artikel</h2>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {relatedPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/de/blog/${post.slug}`}
+                  className="rounded-sm border border-brand-line p-4 text-sm transition-colors hover:border-brand-gold"
+                >
+                  <p className="font-semibold text-brand-ink">{post.title}</p>
+                  <p className="mt-1 text-brand-ink-2/70">{post.excerpt}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="border-t border-brand-line bg-brand-cream">
         <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">

@@ -127,13 +127,57 @@ export default async function SkiResortPage({ params }: { params: Promise<Params
             </ul>
           </div>
         )}
+
+        {resort.airportGuidance && resort.airportGuidance.length > 0 && (
+          <div className="mt-10">
+            <h2 className="font-display text-xl text-brand-ink">
+              Which Airport Is Best for {resort.name}?
+            </h2>
+            <div className="mt-4 space-y-4">
+              {resort.airportGuidance.map((g) => (
+                <div key={g.airport}>
+                  <p className="text-sm font-semibold text-brand-ink">{g.airport}</p>
+                  <p className="mt-1 text-sm text-brand-ink-2/80">{g.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div className="mt-10">
+          <h2 className="font-display text-xl text-brand-ink">Ski Equipment &amp; Luggage</h2>
+          <p className="mt-3 text-sm text-brand-ink-2/80">
+            Traveling with skis, snowboards, or extra winter luggage? Mention it when requesting
+            your transfer so we can assign a vehicle with enough space — the Executive Van and
+            Minibus both carry ski and board racks in addition to standard luggage.
+          </p>
+        </div>
+
+        <div className="mt-10">
+          <h2 className="font-display text-xl text-brand-ink">Winter Travel to {resort.name}</h2>
+          <p className="mt-3 text-sm text-brand-ink-2/80">
+            Travel times can vary during winter depending on snowfall, road conditions, and
+            traffic around peak arrival and departure periods. We recommend allowing extra time
+            either side of a Saturday changeover, when resort roads are busiest.
+          </p>
+        </div>
+
+        <p className="mt-10 text-sm text-brand-ink-2/70">
+          <Link
+            href="/ski-transfers"
+            className="font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+          >
+            View all Austrian ski transfers →
+          </Link>
+        </p>
       </section>
 
       <HotelsSection place={resort.name} hotels={resort.hotels} hotelNote={resort.hotelNote} />
       <AttractionsSection
         place={resort.name}
         attractions={resort.attractions}
-        heading="On the Mountain"
+        heading="Highlights"
+        showBookingCta={false}
       />
 
       {relatedPosts.length > 0 && (

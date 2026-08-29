@@ -11,6 +11,9 @@ export type SkiResort = {
   hotels?: Hotel[]
   hotelNote?: string
   attractions?: Attraction[]
+  // Resort-specific airport guidance for the flagship/most-differentiated
+  // pages — optional so other resorts keep the original compact layout.
+  airportGuidance?: { airport: string; note: string }[]
 }
 
 export const skiResorts: SkiResort[] = [
@@ -42,6 +45,20 @@ export const skiResorts: SkiResort[] = [
       {
         name: 'Kitzbühel Old Town',
         description: 'A pedestrian medieval center with Gothic architecture at the foot of the mountains.',
+      },
+    ],
+    airportGuidance: [
+      {
+        airport: 'Innsbruck Airport (INN)',
+        note: "The closest option at around an hour's drive — the default choice for most Kitzbühel bookings.",
+      },
+      {
+        airport: 'Salzburg Airport (SZG)',
+        note: 'A convenient alternative at around 1.5 hours, useful if your flight connections favor Salzburg over Innsbruck.',
+      },
+      {
+        airport: 'Munich Airport (MUC)',
+        note: 'Worth considering for long-haul and international connections not available at the smaller Austrian airports, with a longer cross-border drive of around 1h45m.',
       },
     ],
   },

@@ -888,7 +888,7 @@ export const borderCities: BorderCity[] = [
     seoDescription:
       'Privater Chauffeurservice von Wien oder Flughafen Wien nach Bratislava, Slowakei — unter einer Stunde, Festpreis, lizenzierter Fahrer, kein Fahrzeugwechsel an der Grenze.',
     description:
-      'Die Hauptstadt der Slowakei und unser meistgefragtes Ziel im Land — meist unter einer Stunde vom Wiener Zentrum entfernt. Die meisten Buchungen betreffen Hotels in der Altstadt, das Burgviertel oder die Uferpromenade an der Donau sowie Ankünfte und Abflüge am Flughafen Bratislava (BTS); Abholung und Ablieferung erfolgen direkt an Ihrem Aufenthaltsort.',
+      'Die Hauptstadt der Slowakei und unser meistgefragtes Ziel im Land — meist unter einer Stunde vom Wiener Zentrum entfernt. Die meisten Buchungen betreffen Hotels in der Altstadt, das Burgviertel oder die Uferpromenade an der Donau sowie Ankünfte und Abflüge am Flughafen Bratislava (BTS); Abholung und Ablieferung erfolgen direkt an Ihrem Aufenthaltsort. Hochzeits- und Event-Transport, Teil unseres Standardangebots, kann auch hier organisiert werden.',
   },
   {
     slug: 'budapest',
