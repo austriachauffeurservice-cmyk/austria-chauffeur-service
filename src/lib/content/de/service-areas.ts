@@ -14,6 +14,8 @@ export type CityArea = {
   seoTitle?: string
   seoDescription?: string
   relatedDayTour?: { slug: string; label: string }
+  heroImage?: { src: string; alt: string; title?: string; description?: string }
+  fleetImages?: Partial<Record<'sedan' | 'luxury' | 'van' | 'minibus', string>>
 }
 
 export type Journey = {
@@ -74,6 +76,18 @@ export const austrianCities: CityArea[] = [
     seoTitle: 'Privater Chauffeurservice Wien | Flughafen- & Stadttransfers',
     seoDescription:
       'Privater Chauffeurservice in Wien — Flughafenabholungen, Stadtfahrten und grenzüberschreitende Fahrten nach Bratislava, Budapest und darüber hinaus. Festpreise, professionelle Fahrer.',
+    heroImage: {
+      src: '/images/hero/vienna-austria-cityscape-chauffeur-service.webp',
+      alt: 'Wiener Stadtpanorama mit dem Stephansdom',
+      title: 'Wien Österreich Stadtpanorama – Chauffeurservice',
+      description:
+        'Panoramablick auf Wien bei Sonnenuntergang mit dem Stephansdom und historischer österreichischer Architektur.',
+    },
+    fleetImages: {
+      sedan: '/images/fleet/business-class.webp',
+      luxury: '/images/fleet/first-class.webp',
+      van: '/images/fleet/business-van.webp',
+    },
     hotels: [
       { name: 'Hotel Sacher Wien', area: 'Innere Stadt' },
       { name: 'Hotel Imperial', area: 'Kärntner Ring' },

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
 import { HotelsSection, AttractionsSection, AirportField, PopularRoutesList } from '@/components/location-sections'
@@ -142,9 +143,25 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
   if (!location) notFound()
 
   if (location.kind === 'city') {
-    const { city, region, airport, popularRoutes, note, hotels, hotelNote, attractions, relatedDayTour } =
+    const { city, region, airport, popularRoutes, note, hotels, hotelNote, attractions, relatedDayTour, heroImage, fleetImages } =
       location.data
     const pageUrl = `${siteUrl}/de/service-areas/${slug}`
+    const heroText = (
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+          {region} · Österreich
+        </p>
+        <h1 className="font-display mt-2 text-3xl text-brand-ink sm:text-4xl">
+          Chauffeurservice in {city}
+        </h1>
+        <p className="mt-4 max-w-xl text-brand-ink-2/80">
+          Private, lizenzierte Transfers von und nach {city}. Flughafenabholungen, direkte
+          Stadt-zu-Stadt-Fahrten und grenzüberschreitende Reisen in Nachbarländer — im Voraus
+          gebucht mit Festpreisen.
+        </p>
+        {note && <p className="mt-3 text-sm font-semibold text-brand-gold">{note}</p>}
+      </div>
+    )
     return (
       <>
         <JsonLd
@@ -163,21 +180,39 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
             attractions: attractions?.map((a) => a.name),
           })}
         />
+        {heroImage && (
+          <JsonLd
+            data={{
+              '@context': 'https://schema.org',
+              '@type': 'ImageObject',
+              contentUrl: `${siteUrl}${heroImage.src}`,
+              name: heroImage.title ?? heroImage.alt,
+              description: heroImage.description,
+              caption: heroImage.alt,
+            }}
+          />
+        )}
 
-        <section className="border-b border-brand-line bg-brand-cream">
-          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-              {region} · Österreich
-            </p>
-            <h1 className="font-display mt-2 text-3xl text-brand-ink sm:text-4xl">
-              Chauffeurservice in {city}
-            </h1>
-            <p className="mt-4 max-w-xl text-brand-ink-2/80">
-              Private, lizenzierte Transfers von und nach {city}. Flughafenabholungen, direkte
-              Stadt-zu-Stadt-Fahrten und grenzüberschreitende Reisen in Nachbarländer — im Voraus
-              gebucht mit Festpreisen.
-            </p>
-            {note && <p className="mt-3 text-sm font-semibold text-brand-gold">{note}</p>}
+        <section className="border-b border-brand-line bg-brand-cream overflow-hidden">
+          <div className={`mx-auto px-4 py-16 sm:px-6 ${heroImage ? 'max-w-6xl' : 'max-w-4xl'}`}>
+            {heroImage ? (
+              <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+                <div className="lg:col-span-7">{heroText}</div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-brand-line shadow-md lg:col-span-5">
+                  <Image
+                    src={heroImage.src}
+                    alt={heroImage.alt}
+                    title={heroImage.title}
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                  />
+                </div>
+              </div>
+            ) : (
+              heroText
+            )}
           </div>
         </section>
 
@@ -204,6 +239,50 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
             </p>
           )}
         </section>
+
+        {fleetImages && (
+          <section className="border-t border-brand-line bg-brand-cream">
+            <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-2xl text-brand-ink">Ihr Fahrzeug wählen</h2>
+              <p className="mt-2 max-w-xl text-sm text-brand-ink-2/80">
+                Jeder {city}-Transfer beinhaltet persönlichen Empfang und einen im Voraus
+                vereinbarten Festpreis, unabhängig vom gewählten Fahrzeug.
+              </p>
+              <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {vehicles.map((v) => (
+                  <div key={v.type} className="rounded-sm border border-brand-line bg-white overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-brand-cream border-b border-brand-line">
+                      <Image
+                        src={fleetImages[v.type] ?? `/images/fleet/${v.type}.webp`}
+                        alt={v.alt}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 25vw"
+                      />
+                    </div>
+                    <div className="p-6 flex-grow flex flex-col justify-between">
+                      <div>
+                        <h3 className="font-display text-lg text-brand-ink group-hover:text-brand-gold transition-colors duration-300">
+                          {v.name}
+                        </h3>
+                        <p className="mt-1 text-xs uppercase tracking-wide text-brand-gold font-medium">
+                          {v.passengers} · {v.luggage}
+                        </p>
+                        <p className="mt-3 text-sm leading-relaxed text-brand-ink-2/80">{v.description}</p>
+                      </div>
+                      <Link
+                        href={`/de/fleet/${v.type}`}
+                        className="mt-4 inline-block text-xs font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+                      >
+                        Details ansehen →
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         <HotelsSection place={city} hotels={hotels} hotelNote={hotelNote} locale="de" />
         <AttractionsSection place={city} attractions={attractions} locale="de" />

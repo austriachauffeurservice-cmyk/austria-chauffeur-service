@@ -27,6 +27,15 @@ export type CityArea = {
   // page is a same-day round-trip excursion; this one is a one-way/overnight
   // transfer. Cross-linking keeps the two from reading as unlinked duplicates.
   relatedDayTour?: { slug: string; label: string }
+  // Optional hero photo — set only for flagship pages with a real, sourced
+  // image; other cities keep the plain text hero rather than a stock photo.
+  heroImage?: { src: string; alt: string; title?: string; description?: string }
+  // Per-vehicle photo overrides for the "Choose Your Vehicle" section — keyed
+  // by the real fleet types in lib/content/services.ts. Only set where a real
+  // sourced photo exists; the section itself only renders when this is set,
+  // so other cities are unaffected. Falls back to the generic sitewide fleet
+  // photo (images/fleet/{type}.webp) for any type left out of the map.
+  fleetImages?: Partial<Record<'sedan' | 'luxury' | 'van' | 'minibus', string>>
 }
 
 export type Journey = {
@@ -92,6 +101,18 @@ export const austrianCities: CityArea[] = [
     seoTitle: 'Private Chauffeur Service Vienna | Airport & City Transfers',
     seoDescription:
       'Private chauffeur service in Vienna — airport pickups, city travel, and cross-border trips to Bratislava, Budapest, and beyond. Fixed pricing, professional drivers.',
+    heroImage: {
+      src: '/images/hero/vienna-austria-cityscape-chauffeur-service.webp',
+      alt: "Vienna Austria cityscape with St. Stephen's Cathedral",
+      title: 'Vienna Austria Cityscape – Chauffeur Service',
+      description:
+        "Panoramic Vienna cityscape at sunset with St. Stephen's Cathedral and historic Austrian architecture.",
+    },
+    fleetImages: {
+      sedan: '/images/fleet/business-class.webp',
+      luxury: '/images/fleet/first-class.webp',
+      van: '/images/fleet/business-van.webp',
+    },
     hotels: [
       { name: 'Hotel Sacher Wien', area: 'Innere Stadt' },
       { name: 'Hotel Imperial', area: 'Kärntner Ring' },
