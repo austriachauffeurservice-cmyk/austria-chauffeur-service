@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createBookingSchema } from '@/lib/bookings/schema'
 import { adminNotificationEmail, customerConfirmationEmail } from '@/lib/bookings/emails'
 import { createServiceRoleClient } from '@/lib/supabase/server'
-import { getResendClient } from '@/lib/resend'
+import { getResendClient, getBookingFromAddress, getAdminNotificationAddress } from '@/lib/resend'
 import { dispatchTenantWebhookAndRecord } from '@/lib/bookings/webhook'
 import { flagIfDuplicate } from '@/lib/bookings/duplicates'
 
@@ -52,12 +52,8 @@ export async function POST(request: NextRequest) {
   await flagIfDuplicate(booking.id, input.email, input.pickupDate)
 
   const emailData = { ...input, id: booking.id as string }
-  const fromAddress =
-    process.env.RESEND_FROM_EMAIL ||
-    (process.env.RESEND_EMAIL_DOMAIN
-      ? `bookings@${process.env.RESEND_EMAIL_DOMAIN}`
-      : 'bookings@austriachauffeurservice.com')
-  const adminAddress = process.env.ADMIN_NOTIFICATION_EMAIL || process.env.ADMIN_GMAIL
+  const fromAddress = getBookingFromAddress()
+  const adminAddress = getAdminNotificationAddress()
 
   let customerEmailSent = false
   let adminEmailSent = false

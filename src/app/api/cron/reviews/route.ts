@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import { isAuthorizedCronRequest } from '@/lib/admin/cron-auth'
 import { reviewRequestEmail } from '@/lib/bookings/emails'
-import { getResendClient } from '@/lib/resend'
+import { getResendClient, getBookingFromAddress } from '@/lib/resend'
 
 export const dynamic = 'force-dynamic'
 
@@ -33,9 +33,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Failed to fetch bookings' }, { status: 500 })
   }
 
-  const fromAddress =
-    process.env.RESEND_FROM_EMAIL ||
-    (process.env.RESEND_EMAIL_DOMAIN ? `bookings@${process.env.RESEND_EMAIL_DOMAIN}` : 'bookings@austriachauffeurservice.com')
+  const fromAddress = getBookingFromAddress()
 
   let sent = 0
   let failed = 0

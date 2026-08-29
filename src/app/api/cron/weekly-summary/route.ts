@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import { isAuthorizedCronRequest } from '@/lib/admin/cron-auth'
-import { getResendClient } from '@/lib/resend'
+import { getResendClient, getBookingFromAddress, getAdminNotificationAddress } from '@/lib/resend'
 
 export const dynamic = 'force-dynamic'
 
@@ -19,10 +19,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
-  const adminAddress = process.env.ADMIN_NOTIFICATION_EMAIL || process.env.ADMIN_GMAIL
-  if (!adminAddress) {
-    return NextResponse.json({ skipped: true, reason: 'No ADMIN_NOTIFICATION_EMAIL configured' })
-  }
+  const adminAddress = getAdminNotificationAddress()
 
   const supabase = createServiceRoleClient()
 
@@ -51,9 +48,7 @@ export async function GET(request: NextRequest) {
     .filter((b) => b.status === 'confirmed' || b.status === 'completed')
     .reduce((sum, b) => sum + parsePrice(b.price_quote), 0)
 
-  const fromAddress =
-    process.env.RESEND_FROM_EMAIL ||
-    (process.env.RESEND_EMAIL_DOMAIN ? `bookings@${process.env.RESEND_EMAIL_DOMAIN}` : 'bookings@austriachauffeurservice.com')
+  const fromAddress = getBookingFromAddress()
 
   const html = `
     <div style="font-family: sans-serif; line-height: 1.6;">

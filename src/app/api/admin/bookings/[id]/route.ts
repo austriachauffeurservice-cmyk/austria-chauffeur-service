@@ -3,7 +3,7 @@ import { createServiceRoleClient } from '@/lib/supabase/server'
 import { logActivity } from '@/lib/admin/activity-log'
 import { requireAdminSession } from '@/lib/admin/auth'
 import { statusConfirmedEmail, statusCancelledEmail } from '@/lib/bookings/emails'
-import { getResendClient } from '@/lib/resend'
+import { getResendClient, getBookingFromAddress } from '@/lib/resend'
 
 interface RouteParams {
   params: Promise<{ id: string }>
@@ -151,11 +151,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
     if (statusChanged && (updated.status === 'confirmed' || updated.status === 'cancelled')) {
       try {
         const resend = getResendClient()
-        const fromAddress =
-          process.env.RESEND_FROM_EMAIL ||
-          (process.env.RESEND_EMAIL_DOMAIN
-            ? `bookings@${process.env.RESEND_EMAIL_DOMAIN}`
-            : 'bookings@austriachauffeurservice.com')
+        const fromAddress = getBookingFromAddress()
         const email =
           updated.status === 'confirmed' ? statusConfirmedEmail(updated) : statusCancelledEmail(updated)
         const { error: sendError } = await resend.emails.send({

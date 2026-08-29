@@ -13,3 +13,23 @@ export function getResendClient() {
   }
   return client
 }
+
+// The single address all booking-related mail sends from and, by default,
+// notifies — kept in one place so it can't drift out of sync across the
+// booking, cron, and admin routes that each send email.
+export function getBookingFromAddress() {
+  return (
+    process.env.RESEND_FROM_EMAIL ||
+    (process.env.RESEND_EMAIL_DOMAIN
+      ? `booking@${process.env.RESEND_EMAIL_DOMAIN}`
+      : 'booking@austriachauffeurservice.com')
+  )
+}
+
+export function getAdminNotificationAddress() {
+  return (
+    process.env.ADMIN_NOTIFICATION_EMAIL ||
+    process.env.ADMIN_GMAIL ||
+    'booking@austriachauffeurservice.com'
+  )
+}

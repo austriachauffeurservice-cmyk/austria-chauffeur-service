@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import { manualBookingSchema } from '@/lib/bookings/schema'
 import { customerConfirmationEmail } from '@/lib/bookings/emails'
-import { getResendClient } from '@/lib/resend'
+import { getResendClient, getBookingFromAddress } from '@/lib/resend'
 import { dispatchTenantWebhookAndRecord } from '@/lib/bookings/webhook'
 import { flagIfDuplicate } from '@/lib/bookings/duplicates'
 import { logActivity } from '@/lib/admin/activity-log'
@@ -175,11 +175,7 @@ export async function POST(request: NextRequest) {
     if (input.sendConfirmationEmail) {
       try {
         const resend = getResendClient()
-        const fromAddress =
-          process.env.RESEND_FROM_EMAIL ||
-          (process.env.RESEND_EMAIL_DOMAIN
-            ? `bookings@${process.env.RESEND_EMAIL_DOMAIN}`
-            : 'bookings@austriachauffeurservice.com')
+        const fromAddress = getBookingFromAddress()
         const customerEmail = customerConfirmationEmail({ ...input, id: booking.id, phone: input.phone || '' })
         const { error } = await resend.emails.send({
           from: fromAddress,

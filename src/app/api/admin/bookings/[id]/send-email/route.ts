@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServiceRoleClient } from '@/lib/supabase/server'
-import { getResendClient } from '@/lib/resend'
+import { getResendClient, getBookingFromAddress } from '@/lib/resend'
 import { logActivity } from '@/lib/admin/activity-log'
 import { requireAdminSession } from '@/lib/admin/auth'
 
@@ -50,11 +50,7 @@ export async function POST(request: NextRequest, { params }: RouteParams) {
     }
 
     const resend = getResendClient()
-    const fromAddress =
-      process.env.RESEND_FROM_EMAIL ||
-      (process.env.RESEND_EMAIL_DOMAIN
-        ? `bookings@${process.env.RESEND_EMAIL_DOMAIN}`
-        : 'bookings@austriachauffeurservice.com')
+    const fromAddress = getBookingFromAddress()
 
     const formattedHtml = `
       <!DOCTYPE html>
