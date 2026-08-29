@@ -6,6 +6,7 @@ import { routes } from '@/lib/content/de/routes'
 import { borderCrossingDestinations } from '@/lib/content/de/service-areas'
 import { skiResorts } from '@/lib/content/de/ski-resorts'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { BookingCta } from '@/components/booking-cta'
 
 export const metadata: Metadata = {
   title: 'Österreich Transferservice | Flughafen, Stadt & Grenzüberschreitend',
@@ -312,21 +313,12 @@ export default function ServicesPageDe() {
         </div>
       </section>
 
-      <section className="border-t border-brand-line mx-auto max-w-6xl px-4 py-16 text-center sm:px-6">
-        <h2 className="font-display text-2xl text-brand-ink">Individuelle Reise benötigt?</h2>
-        <p className="mx-auto mt-2 max-w-md text-brand-ink-2/80">
-          Mehrstufige Reiserouten, Roadshows, wiederkehrende Firmentransfers und weitere
-          individuelle Anfragen können organisiert werden. Nicht sicher, welcher Service zu Ihrer
-          Reise passt? Senden Sie uns Abholort, Ziel und Reisedaten — wir empfehlen das passende
-          Fahrzeug und den passenden Service.
-        </p>
-        <Link
-          href="/de/booking"
-          className="mt-6 inline-block rounded-sm bg-brand-ink px-6 py-3 text-sm font-semibold text-white hover:bg-brand-gold"
-        >
-          Transfer anfragen
-        </Link>
-      </section>
+      <BookingCta
+        locale="de"
+        pageType="general"
+        title="Individuelle Reise benötigt?"
+        description="Mehrstufige Reiserouten, Roadshows, wiederkehrende Firmentransfers und weitere individuelle Anfragen können organisiert werden. Nicht sicher, welcher Service zu Ihrer Reise passt? Nennen Sie uns Abholort, Ziel und Reisedaten — wir empfehlen das passende Fahrzeug und den passenden Service."
+      />
     </>
   )
 }

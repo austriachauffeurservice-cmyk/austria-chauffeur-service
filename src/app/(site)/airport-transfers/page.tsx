@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { JsonLd } from '@/components/json-ld'
 import { airports } from '@/lib/content/airports'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { BookingCta } from '@/components/booking-cta'
 
 export const metadata: Metadata = {
   title: 'Airport Chauffeur Transfers in Austria | Luxury & Fixed-Price',
@@ -251,22 +252,11 @@ export default function AirportTransfersPage() {
         </div>
       </section>
 
-      <section className="border-t border-brand-line bg-brand-cream">
-        <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <div>
-            <h2 className="font-display text-2xl text-brand-ink">Book your airport transfer</h2>
-            <p className="mt-2 text-brand-ink-2/80">
-              Submit your flight details and we&apos;ll confirm availability and pricing by email.
-            </p>
-          </div>
-          <Link
-            href="/booking"
-            className="shrink-0 rounded-sm bg-brand-ink px-7 py-3.5 text-sm font-semibold text-white hover:bg-brand-gold"
-          >
-            Request a Transfer
-          </Link>
-        </div>
-      </section>
+      <BookingCta
+        pageType="airport"
+        title="Ready to arrange your airport pickup?"
+        description="Submit your flight details and we'll confirm availability and pricing by email."
+      />
     </>
   )
 }

@@ -7,6 +7,7 @@ import { airports } from '@/lib/content/de/airports'
 import { austrianCities } from '@/lib/content/de/service-areas'
 import { matchLocationText } from '@/lib/content/link-match'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { BookingCta } from '@/components/booking-cta'
 
 type Params = { slug: string }
 
@@ -131,24 +132,14 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
         </section>
       )}
 
-      <section className="border-t border-brand-line bg-brand-cream">
-        <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <div>
-            <h2 className="font-display text-2xl text-brand-ink">
-              {route.from} nach {route.to} buchen
-            </h2>
-            <p className="mt-2 text-brand-ink-2/80">
-              Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail.
-            </p>
-          </div>
-          <Link
-            href={`/de/booking?to=${encodeURIComponent(route.to)}`}
-            className="shrink-0 rounded-sm bg-brand-ink px-7 py-3.5 text-sm font-semibold text-white hover:bg-brand-gold"
-          >
-            Transfer anfragen
-          </Link>
-        </div>
-      </section>
+      <BookingCta
+        locale="de"
+        pageType="route"
+        title={`Festpreis-Transfer ${route.from} → ${route.to} anfragen`}
+        description="Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
+        pickup={route.from}
+        dropoff={route.to}
+      />
     </>
   )
 }

@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/json-ld'
 import { austrianCities } from '@/lib/content/service-areas'
 import { routes } from '@/lib/content/routes'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { BookingCta } from '@/components/booking-cta'
 
 export const metadata: Metadata = {
   title: 'City-to-City Transfers in Austria',
@@ -130,20 +131,11 @@ export default function CityToCityTransfersPage() {
         </div>
       </section>
 
-      <section className="border-t border-brand-line bg-brand-ink py-16 text-center">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
-          <h2 className="font-display text-2xl text-white">Going between two Austrian cities?</h2>
-          <p className="mt-2 text-brand-cream/70">
-            Enter your pickup and destination and we&apos;ll confirm a fixed price by email.
-          </p>
-          <Link
-            href="/booking"
-            className="mt-6 inline-block rounded-sm bg-brand-gold px-6 py-3 text-sm font-semibold text-brand-ink hover:bg-brand-gold-light"
-          >
-            Request a Transfer
-          </Link>
-        </div>
-      </section>
+      <BookingCta
+        pageType="route"
+        title="Going between two Austrian cities?"
+        description="Enter your pickup and destination and we'll confirm a fixed price by email."
+      />
     </>
   )
 }

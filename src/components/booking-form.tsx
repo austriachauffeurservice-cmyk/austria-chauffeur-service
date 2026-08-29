@@ -122,17 +122,38 @@ const strings: Record<
   },
 }
 
-export function BookingForm({ locale = 'en' }: { locale?: Locale }) {
+export function BookingForm({
+  locale = 'en',
+  defaultPickup,
+  defaultDropoff,
+}: {
+  locale?: Locale
+  // Initial values only (rendered as defaultValue, never overwrites what the
+  // visitor types) — used when this form is embedded directly on a
+  // commercial page, as opposed to the ?to= param used when linking to
+  // /booking from elsewhere.
+  defaultPickup?: string
+  defaultDropoff?: string
+}) {
   return (
     <Suspense fallback={null}>
-      <BookingFormInner locale={locale} />
+      <BookingFormInner locale={locale} defaultPickup={defaultPickup} defaultDropoff={defaultDropoff} />
     </Suspense>
   )
 }
 
-function BookingFormInner({ locale }: { locale: Locale }) {
+function BookingFormInner({
+  locale,
+  defaultPickup,
+  defaultDropoff,
+}: {
+  locale: Locale
+  defaultPickup?: string
+  defaultDropoff?: string
+}) {
   const searchParams = useSearchParams()
-  const prefillDropoff = searchParams.get('to') || ''
+  const prefillPickup = defaultPickup || ''
+  const prefillDropoff = defaultDropoff || searchParams.get('to') || ''
   const t = strings[locale]
 
   const [status, setStatus] = useState<Status>('idle')
@@ -232,7 +253,14 @@ function BookingFormInner({ locale }: { locale: Locale }) {
 
       <div>
         <label className={labelClass} htmlFor="pickupLocation">{t.pickupLocation}</label>
-        <input id="pickupLocation" name="pickupLocation" required className={inputClass} placeholder={t.pickupPlaceholder} />
+        <input
+          id="pickupLocation"
+          name="pickupLocation"
+          required
+          defaultValue={prefillPickup}
+          className={inputClass}
+          placeholder={t.pickupPlaceholder}
+        />
       </div>
       <div>
         <label className={labelClass} htmlFor="dropoffLocation">{t.dropoffLocation}</label>

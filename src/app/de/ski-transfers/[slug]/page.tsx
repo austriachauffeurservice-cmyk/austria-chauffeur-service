@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
 import { HotelsSection, AttractionsSection, PopularRoutesList } from '@/components/location-sections'
+import { BookingCta } from '@/components/booking-cta'
 import { skiResorts } from '@/lib/content/de/ski-resorts'
 import { routes } from '@/lib/content/de/routes'
 import { airports } from '@/lib/content/de/airports'
@@ -203,24 +204,14 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
         </section>
       )}
 
-      <section className="border-t border-brand-line bg-brand-cream">
-        <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <div>
-            <h2 className="font-display text-2xl text-brand-ink">
-              Buchen Sie Ihren Transfer nach {resort.name}
-            </h2>
-            <p className="mt-2 text-brand-ink-2/80">
-              Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail.
-            </p>
-          </div>
-          <Link
-            href={`/de/booking?to=${encodeURIComponent(resort.name)}`}
-            className="shrink-0 rounded-sm bg-brand-ink px-7 py-3.5 text-sm font-semibold text-white hover:bg-brand-gold"
-          >
-            Transfer anfragen
-          </Link>
-        </div>
-      </section>
+      <BookingCta
+        locale="de"
+        pageType="ski"
+        title={`Bereit für Ihren ${resort.name}-Skitransfer?`}
+        description="Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
+        pickup={resort.nearestAirports[0]?.name}
+        dropoff={resort.name}
+      />
     </>
   )
 }

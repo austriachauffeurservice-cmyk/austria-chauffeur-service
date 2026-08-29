@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { JsonLd } from '@/components/json-ld'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { BookingCta } from '@/components/booking-cta'
 
 export const metadata: Metadata = {
   title: 'Hochzeits-Chauffeur & Transferservice',
@@ -104,21 +105,12 @@ export default function WeddingTransfersPageDe() {
         </div>
       </section>
 
-      <section className="border-t border-brand-line bg-brand-ink py-16 text-center">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
-          <h2 className="font-display text-2xl text-white">Planen Sie eine Hochzeit?</h2>
-          <p className="mt-2 text-brand-cream/70">
-            Teilen Sie uns die Details zu Trauung und Feier mit — wir erstellen einen Transportplan
-            und ein Festpreisangebot.
-          </p>
-          <Link
-            href="/de/booking"
-            className="mt-6 inline-block rounded-sm bg-brand-gold px-6 py-3 text-sm font-semibold text-brand-ink hover:bg-brand-gold-light"
-          >
-            Hochzeitstransport anfragen
-          </Link>
-        </div>
-      </section>
+      <BookingCta
+        locale="de"
+        pageType="wedding"
+        title="Planen Sie eine Hochzeit?"
+        description="Teilen Sie uns die Details zu Trauung und Feier mit — wir erstellen einen Transportplan und ein Festpreisangebot."
+      />
     </>
   )
 }

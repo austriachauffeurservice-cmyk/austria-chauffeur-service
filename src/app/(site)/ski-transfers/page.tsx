@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { skiResorts } from '@/lib/content/ski-resorts'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { BookingCta } from '@/components/booking-cta'
 
 export const metadata: Metadata = {
   title: 'Ski & Alpine Transfers in Austria',
@@ -61,20 +62,11 @@ export default function SkiTransfersPage() {
         </div>
       </section>
 
-      <section className="border-t border-brand-line bg-brand-cream py-16 text-center">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
-          <h2 className="font-display text-2xl text-brand-ink">Heading to a resort not listed?</h2>
-          <p className="mt-2 text-brand-ink-2/80">
-            Tell us your airport and resort — if it&apos;s reachable by road, we can drive it.
-          </p>
-          <Link
-            href="/booking"
-            className="mt-6 inline-block rounded-sm bg-brand-ink px-6 py-3 text-sm font-semibold text-white hover:bg-brand-gold"
-          >
-            Request a Transfer
-          </Link>
-        </div>
-      </section>
+      <BookingCta
+        pageType="ski"
+        title="Heading to a resort not listed?"
+        description="Tell us your airport and resort — if it's reachable by road, we can drive it."
+      />
     </>
   )
 }

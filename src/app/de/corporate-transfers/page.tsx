@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { JsonLd } from '@/components/json-ld'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { BookingCta } from '@/components/booking-cta'
 
 export const metadata: Metadata = {
   title: 'Firmen- & Stunden-Chauffeurbuchung',
@@ -131,20 +132,12 @@ export default function CorporateTransfersPageDe() {
         </div>
       </section>
 
-      <section className="border-t border-brand-line bg-brand-ink py-16 text-center">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
-          <h2 className="font-display text-2xl text-white">Brauchen Sie einen Fahrer für den Tag?</h2>
-          <p className="mt-2 text-brand-cream/70">
-            Vermerken Sie Ihren Stundenbedarf im Buchungsformular — wir erstellen ein separates Angebot.
-          </p>
-          <Link
-            href="/de/booking"
-            className="mt-6 inline-block rounded-sm bg-brand-gold px-6 py-3 text-sm font-semibold text-brand-ink hover:bg-brand-gold-light"
-          >
-            Stundenbuchung anfragen
-          </Link>
-        </div>
-      </section>
+      <BookingCta
+        locale="de"
+        pageType="corporate"
+        title="Brauchen Sie einen Fahrer für den Tag?"
+        description="Vermerken Sie Ihren Stundenbedarf — Meetings, Wartezeit, mehrere Stopps — und wir erstellen ein separates Angebot."
+      />
     </>
   )
 }

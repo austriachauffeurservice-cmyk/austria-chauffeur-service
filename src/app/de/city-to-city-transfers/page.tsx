@@ -4,6 +4,7 @@ import { JsonLd } from '@/components/json-ld'
 import { austrianCities } from '@/lib/content/de/service-areas'
 import { routes } from '@/lib/content/de/routes'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { BookingCta } from '@/components/booking-cta'
 
 export const metadata: Metadata = {
   title: 'Stadt-zu-Stadt-Transfers in Österreich',
@@ -125,20 +126,12 @@ export default function CityToCityTransfersPageDe() {
         </div>
       </section>
 
-      <section className="border-t border-brand-line bg-brand-ink py-16 text-center">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
-          <h2 className="font-display text-2xl text-white">Fahrt zwischen zwei österreichischen Städten?</h2>
-          <p className="mt-2 text-brand-cream/70">
-            Geben Sie Abhol- und Zielort ein und wir bestätigen einen Festpreis per E-Mail.
-          </p>
-          <Link
-            href="/de/booking"
-            className="mt-6 inline-block rounded-sm bg-brand-gold px-6 py-3 text-sm font-semibold text-brand-ink hover:bg-brand-gold-light"
-          >
-            Transfer anfragen
-          </Link>
-        </div>
-      </section>
+      <BookingCta
+        locale="de"
+        pageType="route"
+        title="Fahrt zwischen zwei österreichischen Städten?"
+        description="Geben Sie Abhol- und Zielort ein und wir bestätigen einen Festpreis per E-Mail."
+      />
     </>
   )
 }

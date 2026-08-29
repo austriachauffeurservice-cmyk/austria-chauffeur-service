@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
 import { HotelsSection, AttractionsSection, PopularRoutesList } from '@/components/location-sections'
+import { BookingCta } from '@/components/booking-cta'
 import { skiResorts } from '@/lib/content/ski-resorts'
 import { routes } from '@/lib/content/routes'
 import { airports } from '@/lib/content/airports'
@@ -198,24 +199,13 @@ export default async function SkiResortPage({ params }: { params: Promise<Params
         </section>
       )}
 
-      <section className="border-t border-brand-line bg-brand-cream">
-        <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <div>
-            <h2 className="font-display text-2xl text-brand-ink">
-              Book your transfer to {resort.name}
-            </h2>
-            <p className="mt-2 text-brand-ink-2/80">
-              Submit your trip details and we&apos;ll confirm availability and pricing by email.
-            </p>
-          </div>
-          <Link
-            href={`/booking?to=${encodeURIComponent(resort.name)}`}
-            className="shrink-0 rounded-sm bg-brand-ink px-7 py-3.5 text-sm font-semibold text-white hover:bg-brand-gold"
-          >
-            Request a Transfer
-          </Link>
-        </div>
-      </section>
+      <BookingCta
+        pageType="ski"
+        title={`Ready to book your ${resort.name} ski transfer?`}
+        description="Submit your trip details and we'll confirm availability and pricing by email."
+        pickup={resort.nearestAirports[0]?.name}
+        dropoff={resort.name}
+      />
     </>
   )
 }

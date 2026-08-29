@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
 import { HotelsSection, AttractionsSection, AirportField, PopularRoutesList } from '@/components/location-sections'
 import { LocationMap } from '@/components/location-map'
+import { BookingCta } from '@/components/booking-cta'
 import {
   austrianCities,
   borderCities,
@@ -221,7 +222,12 @@ export default async function LocationPage({ params }: { params: Promise<Params>
         <AttractionsSection place={city} attractions={attractions} />
         <LocationMap query={`${city}, ${region}, Austria`} label={`${city} on the Map`} />
         <RelatedReading posts={relatedPosts} />
-        <LocationCta place={city} />
+        <BookingCta
+          pageType="service-area"
+          title={`Book your transfer to ${city}`}
+          description="Submit your trip details and we'll confirm availability and pricing by email."
+          dropoff={city}
+        />
       </>
     )
   }
@@ -275,7 +281,12 @@ export default async function LocationPage({ params }: { params: Promise<Params>
         </section>
 
         <RelatedReading posts={relatedPosts} />
-        <LocationCta place={city} />
+        <BookingCta
+          pageType="country"
+          title={`Book your transfer to ${city}`}
+          description="Submit your trip details and we'll confirm availability and pricing by email."
+          dropoff={city}
+        />
       </>
     )
   }
@@ -545,7 +556,12 @@ export default async function LocationPage({ params }: { params: Promise<Params>
       )}
 
       <RelatedReading posts={relatedPosts} />
-      <LocationCta place={country} />
+      <BookingCta
+        pageType="country"
+        title={`Request your Austria → ${country} transfer`}
+        description="Submit your trip details and we'll confirm availability and pricing by email."
+        dropoff={country}
+      />
     </>
   )
 }
@@ -566,29 +582,6 @@ function RelatedReading({ posts }: { posts: ReturnType<typeof findRelatedPosts> 
             <p className="mt-1 text-brand-ink-2/70">{post.excerpt}</p>
           </Link>
         ))}
-      </div>
-    </section>
-  )
-}
-
-function LocationCta({ place }: { place: string }) {
-  return (
-    <section className="border-t border-brand-line bg-brand-cream">
-      <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-        <div>
-          <h2 className="font-display text-2xl text-brand-ink">
-            Book your transfer to {place}
-          </h2>
-          <p className="mt-2 text-brand-ink-2/80">
-            Submit your trip details and we&apos;ll confirm availability and pricing by email.
-          </p>
-        </div>
-        <Link
-          href={`/booking?to=${encodeURIComponent(place)}`}
-          className="shrink-0 rounded-sm bg-brand-ink px-7 py-3.5 text-sm font-semibold text-white hover:bg-brand-gold"
-        >
-          Request a Transfer
-        </Link>
       </div>
     </section>
   )

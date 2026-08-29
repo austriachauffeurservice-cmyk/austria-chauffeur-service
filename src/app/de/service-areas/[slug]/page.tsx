@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
 import { HotelsSection, AttractionsSection, AirportField, PopularRoutesList } from '@/components/location-sections'
 import { LocationMap } from '@/components/location-map'
+import { BookingCta } from '@/components/booking-cta'
 import {
   austrianCities,
   borderCities,
@@ -207,7 +208,13 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
         <HotelsSection place={city} hotels={hotels} hotelNote={hotelNote} locale="de" />
         <AttractionsSection place={city} attractions={attractions} locale="de" />
         <LocationMap query={`${city}, ${region}, Österreich`} label={`${city} auf der Karte`} />
-        <LocationCtaDe place={city} />
+        <BookingCta
+          locale="de"
+          pageType="service-area"
+          title={`Buchen Sie Ihren Transfer nach ${city}`}
+          description="Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
+          dropoff={city}
+        />
       </>
     )
   }
@@ -258,7 +265,13 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
           <PopularRoutesList items={popularRoutes} routes={routes} airports={airports} locale="de" />
         </section>
 
-        <LocationCtaDe place={city} />
+        <BookingCta
+          locale="de"
+          pageType="country"
+          title={`Buchen Sie Ihren Transfer nach ${city}`}
+          description="Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
+          dropoff={city}
+        />
       </>
     )
   }
@@ -528,7 +541,13 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
       )}
 
       <RelatedReading posts={relatedPosts} />
-      <LocationCtaDe place={country} />
+      <BookingCta
+        locale="de"
+        pageType="country"
+        title={`Transfer Österreich → ${country} anfragen`}
+        description="Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
+        dropoff={country}
+      />
     </>
   )
 }
@@ -549,29 +568,6 @@ function RelatedReading({ posts }: { posts: ReturnType<typeof findRelatedPosts> 
             <p className="mt-1 text-brand-ink-2/70">{post.excerpt}</p>
           </Link>
         ))}
-      </div>
-    </section>
-  )
-}
-
-function LocationCtaDe({ place }: { place: string }) {
-  return (
-    <section className="border-t border-brand-line bg-brand-cream">
-      <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-        <div>
-          <h2 className="font-display text-2xl text-brand-ink">
-            Buchen Sie Ihren Transfer nach {place}
-          </h2>
-          <p className="mt-2 text-brand-ink-2/80">
-            Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail.
-          </p>
-        </div>
-        <Link
-          href={`/de/booking?to=${encodeURIComponent(place)}`}
-          className="shrink-0 rounded-sm bg-brand-ink px-7 py-3.5 text-sm font-semibold text-white hover:bg-brand-gold"
-        >
-          Transfer anfragen
-        </Link>
       </div>
     </section>
   )

@@ -6,6 +6,7 @@ import { routes } from '@/lib/content/routes'
 import { borderCrossingDestinations } from '@/lib/content/service-areas'
 import { skiResorts } from '@/lib/content/ski-resorts'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { BookingCta } from '@/components/booking-cta'
 
 export const metadata: Metadata = {
   title: 'Austria Transfer Services | Airport, City & Cross-Border',
@@ -308,21 +309,11 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="border-t border-brand-line mx-auto max-w-6xl px-4 py-16 text-center sm:px-6">
-        <h2 className="font-display text-2xl text-brand-ink">Need a Custom Journey?</h2>
-        <p className="mx-auto mt-2 max-w-md text-brand-ink-2/80">
-          Multi-stop itineraries, roadshows, recurring corporate transfers, and other tailored
-          requests can all be arranged. Not sure which service fits your trip? Send us your
-          pickup, destination, and travel details, and we&apos;ll recommend the right vehicle and
-          service.
-        </p>
-        <Link
-          href="/booking"
-          className="mt-6 inline-block rounded-sm bg-brand-ink px-6 py-3 text-sm font-semibold text-white hover:bg-brand-gold"
-        >
-          Request a Transfer
-        </Link>
-      </section>
+      <BookingCta
+        pageType="general"
+        title="Need a Custom Journey?"
+        description="Multi-stop itineraries, roadshows, recurring corporate transfers, and other tailored requests can all be arranged. Not sure which service fits your trip? Tell us your pickup, destination, and travel details, and we'll recommend the right vehicle and service."
+      />
     </>
   )
 }

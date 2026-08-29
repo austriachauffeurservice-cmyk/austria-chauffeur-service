@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
 import { PopularRoutesList } from '@/components/location-sections'
+import { BookingCta } from '@/components/booking-cta'
 import { airports } from '@/lib/content/de/airports'
 import { austrianCities } from '@/lib/content/de/service-areas'
 import { routes } from '@/lib/content/de/routes'
@@ -219,24 +220,13 @@ export default async function AirportPageDe({ params }: { params: Promise<Params
         </section>
       )}
 
-      <section className="border-t border-brand-line bg-white">
-        <div className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-4 py-16 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <div>
-            <h2 className="font-display text-2xl text-brand-ink">
-              Buchen Sie Ihren {airport.code}-Transfer
-            </h2>
-            <p className="mt-2 text-brand-ink-2/80">
-              Senden Sie Ihre Flugdaten und wir bestätigen Verfügbarkeit und Preis per E-Mail.
-            </p>
-          </div>
-          <Link
-            href={`/de/booking?to=${encodeURIComponent(airport.city)}`}
-            className="shrink-0 rounded-sm bg-brand-ink px-7 py-3.5 text-sm font-semibold text-white hover:bg-brand-gold"
-          >
-            Transfer anfragen
-          </Link>
-        </div>
-      </section>
+      <BookingCta
+        locale="de"
+        pageType="airport"
+        title={`Bereit für Ihre ${airport.code}-Abholung?`}
+        description="Senden Sie Ihre Flugdaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
+        pickup={airport.name}
+      />
     </>
   )
 }
