@@ -59,6 +59,7 @@ export function BookingCta({
   description,
   pickup,
   dropoff,
+  id,
 }: {
   locale?: Locale
   pageType: BookingCtaPageType
@@ -66,10 +67,11 @@ export function BookingCta({
   description?: string
   pickup?: string
   dropoff?: string
+  id?: string
 }) {
   const t = emailBlurbs[locale]
   return (
-    <section className="border-t border-brand-line bg-brand-ink">
+    <section id={id} className="border-t border-brand-line bg-brand-ink scroll-mt-16">
       <div className="mx-auto max-w-2xl px-4 py-16 text-center sm:px-6">
         <h2 className="font-display text-2xl text-white sm:text-3xl">{title}</h2>
         {description && <p className="mt-3 text-brand-cream/70">{description}</p>}

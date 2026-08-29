@@ -61,7 +61,7 @@ export const airports: Airport[] = [
       },
       {
         question: 'Was passiert, wenn mein Flug Verspätung hat oder früher landet?',
-        answer: 'Wir verfolgen die bei der Buchung angegebene Flugnummer, und Ihre Abholzeit passt sich automatisch an Änderungen im Flugplan an — Sie müssen uns nicht kontaktieren oder neu buchen.',
+        answer: 'Wir verfolgen Ihren Flug und passen die Abholzeit bei Verspätung oder frühzeitiger Landung an — Sie müssen nicht neu buchen, nur weil sich Ihr Flugplan ändert.',
       },
       {
         question: 'Kann ich einen Transfer vom Flughafen Wien direkt nach Bratislava oder Budapest buchen?',

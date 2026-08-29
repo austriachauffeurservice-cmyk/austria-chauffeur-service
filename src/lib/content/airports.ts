@@ -66,7 +66,7 @@ export const airports: Airport[] = [
       },
       {
         question: 'What happens if my flight is delayed or lands early?',
-        answer: 'We monitor the flight number provided with your booking, and your pickup time adjusts automatically if the schedule changes — no need to contact us or rebook.',
+        answer: 'We monitor your flight and adjust the pickup timing for delays or early arrivals, so you don\'t need to rebook because your flight schedule changes.',
       },
       {
         question: 'Can I book a transfer from Vienna Airport straight to Bratislava or Budapest?',

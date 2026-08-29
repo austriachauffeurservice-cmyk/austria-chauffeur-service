@@ -96,8 +96,8 @@ export default async function AirportPage({ params }: { params: Promise<Params> 
             {airport.name} Transfer
           </h1>
           <p className="mt-4 max-w-xl text-brand-ink-2/80">
-            Private, licensed pickup and drop-off at {airport.name}. Flight tracking included, so
-            we adjust automatically if your flight is early or delayed.
+            Private, licensed pickup and drop-off at {airport.name}. Flight tracking included — we
+            monitor your flight and adjust the pickup timing if it's early or delayed.
           </p>
           {airport.note && (
             <p className="mt-3 text-sm font-semibold text-brand-gold">{airport.note}</p>
@@ -140,8 +140,8 @@ export default async function AirportPage({ params }: { params: Promise<Params> 
           <ol className="mt-3 space-y-3 text-sm text-brand-ink-2">
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-              We track your flight and adjust your pickup time automatically for early or delayed
-              arrivals — no extra charge.
+              We track your flight and adjust your pickup timing for early or delayed arrivals —
+              no extra charge.
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />

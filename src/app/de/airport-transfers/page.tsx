@@ -1,14 +1,19 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { JsonLd } from '@/components/json-ld'
 import { airports } from '@/lib/content/de/airports'
+import { routes } from '@/lib/content/de/routes'
+import { skiResorts } from '@/lib/content/de/ski-resorts'
 import { siteName, siteUrl } from '@/lib/content/site'
 import { BookingCta } from '@/components/booking-cta'
+import { matchPopularRoute, normalizeLabel } from '@/lib/content/link-match'
+import { localizedHref } from '@/lib/i18n'
 
 export const metadata: Metadata = {
-  title: 'Flughafen-Chauffeurtransfers in Österreich | Luxus & Festpreis',
+  title: 'Flughafentransfers in Österreich | Privater Chauffeurservice',
   description:
-    'Private Flughafen-Chauffeurtransfers an jedem großen österreichischen Flughafen sowie München und Zürich für grenzüberschreitende Ankünfte — Empfangsservice, Flugverfolgung, Executive-Fahrzeuge. Festpreis, keine Taxischlange.',
+    'Private Flughafentransfers in ganz Österreich mit Empfangsservice, Flugverfolgung und Festpreisen. Wien, Salzburg, Innsbruck, Graz, Linz und Klagenfurt, plus München und Zürich für grenzüberschreitende Ankünfte.',
   alternates: {
     canonical: '/de/airport-transfers',
     languages: { en: '/airport-transfers', de: '/de/airport-transfers', 'x-default': '/airport-transfers' },
@@ -18,14 +23,69 @@ export const metadata: Metadata = {
     siteName,
     locale: 'de_AT',
     url: `${siteUrl}/de/airport-transfers`,
-    title: 'Flughafen-Chauffeurtransfers in Österreich | Luxus & Festpreis',
+    title: 'Flughafentransfers in Österreich | Privater Chauffeurservice',
     description:
-      'Private Flughafen-Chauffeurtransfers an jedem großen österreichischen Flughafen sowie München und Zürich für grenzüberschreitende Ankünfte — Empfangsservice, Flugverfolgung, Executive-Fahrzeuge. Festpreis, keine Taxischlange.',
+      'Private Flughafentransfers in ganz Österreich mit Empfangsservice, Flugverfolgung und Festpreisen. Wien, Salzburg, Innsbruck, Graz, Linz und Klagenfurt, plus München und Zürich für grenzüberschreitende Ankünfte.',
   },
 }
 
 const austrianAirports = airports.filter((a) => !a.crossBorder)
 const crossBorderAirports = airports.filter((a) => a.crossBorder)
+const munichAirport = crossBorderAirports.find((a) => a.slug === 'munich-airport')
+const zurichAirport = crossBorderAirports.find((a) => a.slug === 'zurich-airport')
+
+function destinationLabel(route: string, city: string): string {
+  const destination = route.split('→')[1]?.trim() ?? route
+  const clean = normalizeLabel(destination)
+  return clean.toLowerCase() === 'stadtzentrum' ? `${city} Stadtzentrum` : clean
+}
+
+function resortsNearest(airportFragment: string) {
+  return skiResorts.filter((r) => r.nearestAirports[0]?.name.includes(airportFragment))
+}
+function resortsAlsoServedBy(airportFragment: string) {
+  return skiResorts.filter(
+    (r) => !r.nearestAirports[0]?.name.includes(airportFragment) && r.nearestAirports.some((a) => a.name.includes(airportFragment))
+  )
+}
+
+const innsbruckResorts = resortsNearest('Innsbruck').slice(0, 5)
+const salzburgResorts = resortsNearest('Salzburg').slice(0, 5)
+const zurichResorts = resortsNearest('Zürich').slice(0, 4)
+const munichResorts = resortsAlsoServedBy('München').slice(0, 5)
+
+const whyChooseUs = [
+  {
+    icon: '🤝',
+    title: 'Persönlicher Empfang',
+    description: 'Ihr Chauffeur wartet in der Ankunftshalle mit Ihrem Namensschild — kein Suchen nach einem Taxistand.',
+  },
+  {
+    icon: '✈️',
+    title: 'Flugverfolgung',
+    description: 'Wir verfolgen Ihren Flug und passen die Abholzeit bei Verspätung oder frühzeitiger Landung an, ohne Aufpreis.',
+  },
+  {
+    icon: '💶',
+    title: 'Festpreise',
+    description: 'Ihr Preis wird vor der Fahrt per E-Mail bestätigt — kein Taxameter, keine versteckten Kosten.',
+  },
+  {
+    icon: '🚪',
+    title: 'Tür-zu-Tür-Service',
+    description: 'Fahren Sie direkt vom Flughafen zu Ihrem Hotel, Ihrer Wohnadresse, Ihrem Büro oder Resort im selben Fahrzeug.',
+  },
+  {
+    icon: '🚗',
+    title: 'Premium-Fahrzeuge',
+    description: 'Wählen Sie zwischen Business-Limousine, Luxus-Limousine, Executive Van oder Kleinbus je nach Gruppe und Gepäck.',
+  },
+  {
+    icon: '🌍',
+    title: 'Grenzüberschreitende Fahrten',
+    description: 'Weiterfahrt direkt nach Deutschland, Tschechien, in die Slowakei, nach Ungarn, Slowenien, Italien oder in die Schweiz — kein Fahrzeugwechsel an der Grenze.',
+  },
+]
 
 const useCases = [
   {
@@ -37,16 +97,8 @@ const useCases = [
     description: 'Festpreis-Transfers für Führungskräfte und Kundentermine, mit Firmenkonten für Unternehmen, die regelmäßig reisen.',
   },
   {
-    title: 'Flughafen → Skigebiet',
-    description: 'Winterfeste Fahrzeuge ab den Flughäfen Innsbruck, Salzburg, München und Zürich zu Resorts in Tirol, Salzburger Land und Vorarlberg.',
-  },
-  {
     title: 'Flughafen → Andere österreichische Stadt',
     description: 'Direkte Weiterfahrt in eine zweite österreichische Stadt im selben Fahrzeug, statt die Flughafenstrecke separat zu buchen.',
-  },
-  {
-    title: 'Flughafen → Nachbarland',
-    description: 'Direkte grenzüberschreitende Verbindungen — etwa vom Flughafen Wien nach Bratislava oder Budapest — ohne Fahrzeugwechsel an der Grenze.',
   },
   {
     title: 'Familien- und Gruppenreisen',
@@ -68,7 +120,7 @@ const faqs = [
   {
     question: 'Verfolgen Sie Flüge bei Verspätung oder frühzeitiger Landung?',
     answer:
-      'Ja. Geben Sie Ihre Flugnummer bei der Buchung an, und wir verfolgen sie — Ihre Abholzeit passt sich bei Planänderungen automatisch an, ohne Aufpreis.',
+      'Ja. Geben Sie Ihre Flugnummer bei der Buchung an, und wir verfolgen sie — Ihre Abholzeit wird bei Planänderungen angepasst, ohne Aufpreis.',
   },
   {
     question: 'Wo trifft mich mein Chauffeur am Flughafen?',
@@ -90,8 +142,19 @@ const faqs = [
       'Ja. Der Executive Van (bis zu 7) und der Kleinbus (bis zu 16) eignen sich für größere Gruppen und mehr Gepäck, und Kindersitze oder Sitzerhöhungen sind auf Anfrage ohne Aufpreis verfügbar.',
   },
   {
-    question: 'Kann ich einen Rücktransfer zum Flughafen buchen?',
-    answer: 'Ja — einfache Fahrten und Hin- und Rückfahrten sind beide buchbar; geben Sie einfach Ihre Abflugdaten bei der Buchung der Rückfahrt an.',
+    question: 'Was kostet ein Flughafentransfer in Österreich?',
+    answer:
+      'Das hängt von Flughafen, Ziel, Fahrzeug und Personenzahl ab. Senden Sie uns Ihre Flug- und Zieldaten, und wir bestätigen einen Festpreis vor Ihrer Fahrt.',
+  },
+  {
+    question: 'Wie weit im Voraus sollte ich einen Flughafentransfer buchen?',
+    answer:
+      'Wir empfehlen mindestens 24 Stunden im Voraus, besonders bei größeren Fahrzeugen oder grenzüberschreitenden Strecken — aber auch kurzfristige Anfragen lohnen sich.',
+  },
+  {
+    question: 'Welches Fahrzeug eignet sich für Gepäck oder Skiausrüstung?',
+    answer:
+      'Die Business- oder Luxus-Limousine eignet sich für 2–3 normale Koffer; der Executive Van bietet zusätzlich Platz für Ski/Boards für Familien oder kleine Gruppen; der Kleinbus deckt größere Gruppen mit mehr Gepäck ab.',
   },
 ]
 
@@ -110,24 +173,57 @@ export default function AirportTransfersPageDe() {
         }}
       />
 
-      <section className="border-b border-brand-line bg-brand-cream">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b border-brand-line">
+        <Image
+          src="/images/hero/airport-transfer.webp"
+          alt="Privater Chauffeur-Flughafentransfer in Österreich"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/90 via-brand-ink/80 to-brand-ink/55" />
+        <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:px-6">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
             Flughafentransfers
           </p>
-          <h1 className="font-display mt-2 max-w-2xl text-3xl text-brand-ink sm:text-4xl">
+          <h1 className="font-display mt-2 max-w-2xl text-3xl text-white sm:text-4xl">
             Flughafentransfers in Österreich
           </h1>
-          <p className="mt-4 max-w-xl text-brand-ink-2/80">
-            Persönlicher Empfang an jedem großen österreichischen Flughafen. Inklusive
-            Flugverfolgung, sodass wir uns automatisch an Verspätungen anpassen. Ihr Chauffeur
-            wartet in der Ankunftshalle mit einem Namensschild — keine Taxischlange, keine
-            Mitfahr-App.
+          <p className="mt-4 max-w-xl text-brand-cream/80">
+            Private Chauffeur-Flughafentransfers in ganz Österreich, mit Empfangsservice,
+            Flugverfolgung und einem vor der Fahrt bestätigten Festpreis. Ihr Chauffeur wartet in
+            der Ankunftshalle mit einem Namensschild und bringt Sie direkt zu Ihrem Hotel, Ihrer
+            Wohnadresse, Geschäftsadresse oder Ihrem Anschlussziel.
           </p>
+          <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+            {['Persönlicher Empfang', 'Flugverfolgung', 'Festpreis', 'Privates Fahrzeug', 'Tür-zu-Tür'].map((item) => (
+              <span key={item} className="flex items-center gap-1.5 text-sm text-brand-cream/90">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand-gold" />
+                {item}
+              </span>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="#angebot"
+              className="rounded-sm bg-brand-gold px-6 py-3 text-sm font-semibold text-brand-ink hover:bg-brand-gold-light"
+            >
+              Transfer anfragen
+            </Link>
+            <Link
+              href="#flughaefen"
+              className="rounded-sm border border-white/30 px-6 py-3 text-sm font-semibold text-white hover:border-white"
+            >
+              Österreichische Flughäfen ansehen
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      {/* Große österreichische Flughäfen */}
+      <section id="flughaefen" className="mx-auto max-w-6xl scroll-mt-16 px-4 py-16 sm:px-6">
         <h2 className="font-display text-2xl text-brand-ink">Große österreichische Flughäfen</h2>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {austrianAirports.map((a) => (
@@ -148,49 +244,152 @@ export default function AirportTransfersPageDe() {
         </div>
       </section>
 
+      {/* Warum uns wählen */}
       <section className="border-t border-brand-line bg-brand-cream">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <h2 className="font-display text-2xl text-brand-ink">Warum einen privaten Flughafentransfer buchen?</h2>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {whyChooseUs.map((item) => (
+              <div key={item.title} className="rounded-sm border border-brand-line bg-white p-5">
+                <span className="text-2xl" aria-hidden="true">{item.icon}</span>
+                <p className="mt-3 font-semibold text-brand-ink">{item.title}</p>
+                <p className="mt-1.5 text-sm text-brand-ink-2/70">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ablauf */}
+      <section className="border-t border-brand-line bg-white">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
           <h2 className="font-display text-xl text-brand-ink">So funktioniert die Flughafenabholung</h2>
-          <ol className="mt-6 space-y-4">
+          <ol className="mt-6 grid gap-4 sm:grid-cols-2">
             {[
-              { title: 'Teilen Sie uns Ihre Flugdaten mit', body: 'Geben Sie bei der Buchung Ihren Ankunftsflughafen, Ihre Flugnummer, das Datum und den Zielort an.' },
-              { title: 'Wir verfolgen Ihren Flug', body: 'Ihre Flugnummer wird von der Buchung bis zur Ankunft verfolgt, sodass das Timing frühe oder verspätete Landungen berücksichtigt.' },
-              { title: 'Treffen Sie Ihren Chauffeur', body: 'Ihr Chauffeur wartet in der Ankunftshalle mit einem Namensschild — kein Suchen nach Taxistand oder Shuttle.' },
-              { title: 'Direkter Transfer', body: 'Fahren Sie direkt zu Ihrem Hotel, Ihrer Wohnadresse, Ihrem Büro oder Ihrem Anschlussziel im selben Fahrzeug.' },
+              { title: 'Buchen', body: 'Teilen Sie uns Flug, Ziel, Datum und Personenzahl mit.' },
+              { title: 'Wir verfolgen', body: 'Ihre Flugnummer wird von der Buchung bis zur Ankunft überwacht.' },
+              { title: 'Treffen', body: 'Ihr Chauffeur wartet in der Ankunftshalle mit einem Namensschild.' },
+              { title: 'Fahrt', body: 'Direkt, Tür zu Tür — keine Mitfahrgelegenheit, kein Fahrzeugwechsel.' },
             ].map((step, i) => (
-              <li key={step.title} className="flex items-start gap-4 text-sm text-brand-ink-2/90">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-ink text-xs font-semibold text-white">
-                  {i + 1}
+              <li key={step.title} className="rounded-sm border border-brand-line bg-brand-cream p-5">
+                <span className="font-display text-xs font-semibold text-brand-gold">
+                  {String(i + 1).padStart(2, '0')} — {step.title}
                 </span>
-                <span>
-                  <span className="font-semibold text-brand-ink">{step.title}</span> — {step.body}
-                </span>
+                <p className="mt-1.5 text-sm text-brand-ink-2/80">{step.body}</p>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      <section className="border-t border-brand-line bg-white">
+      {/* Flugverfolgung */}
+      <section className="border-t border-brand-line bg-brand-cream">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
           <h2 className="font-display text-xl text-brand-ink">Flugverfolgung &amp; Verspätete Ankünfte</h2>
           <p className="mt-4 max-w-2xl text-brand-ink-2/90">
             Die Flugverfolgung ist bei jedem Flughafentransfer ohne Aufpreis inbegriffen. Wir
-            verfolgen die bei Ihrer Buchung angegebene Flugnummer, und wenn sich der Flugplan
-            ändert, passt sich Ihre Abholzeit automatisch an — Sie müssen uns wegen einer
-            Verspätung nicht anrufen oder neu buchen. Dasselbe gilt für eine frühzeitige Landung.
+            verfolgen Ihren Flug und passen die Abholzeit bei Verspätung oder frühzeitiger Landung
+            an, sodass Sie wegen einer Änderung im Flugplan nicht neu buchen müssen.
           </p>
         </div>
       </section>
 
+      {/* Beliebte Flughafentransfer-Strecken */}
+      <section className="border-t border-brand-line bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <h2 className="font-display text-2xl text-brand-ink">Beliebte Flughafentransfer-Strecken in Österreich</h2>
+          <p className="mt-2 max-w-2xl text-sm text-brand-ink-2/80">
+            Wohin unsere Flughafentransfers tatsächlich gehen — die meistgefragten Ziele ab jedem
+            österreichischen Flughafen.
+          </p>
+          <div className="mt-8 overflow-x-auto">
+            <table className="w-full min-w-[560px] text-left text-sm">
+              <thead>
+                <tr className="border-b border-brand-line text-xs font-semibold uppercase tracking-wide text-brand-ink-2/60">
+                  <th className="pb-3 pr-4">Flughafen</th>
+                  <th className="pb-3">Beliebte Ziele</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-line">
+                {austrianAirports.map((a) => (
+                  <tr key={a.slug}>
+                    <td className="py-4 pr-4 align-top">
+                      <Link href={`/de/airport-transfers/${a.slug}`} className="font-semibold text-brand-ink hover:text-brand-gold hover:underline">
+                        {a.name}
+                      </Link>
+                    </td>
+                    <td className="py-4 text-brand-ink-2/80">
+                      {a.popularRoutes.map((route, i) => {
+                        const match = matchPopularRoute(route, routes, airports, a.slug)
+                        const label = destinationLabel(route, a.city)
+                        return (
+                          <span key={route}>
+                            {match ? (
+                              <Link href={localizedHref(match.href, 'de')} className="hover:text-brand-gold hover:underline">
+                                {label}
+                              </Link>
+                            ) : (
+                              label
+                            )}
+                            {i < a.popularRoutes.length - 1 ? ', ' : ''}
+                          </span>
+                        )
+                      })}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Ski-Flughafentransfers */}
       <section className="border-t border-brand-line bg-brand-cream">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <h2 className="font-display text-2xl text-brand-ink">Flughafentransfers zu Österreichs Skigebieten</h2>
+          <p className="mt-2 max-w-2xl text-sm text-brand-ink-2/80">
+            Winterfeste Fahrzeuge mit Platz für Ski und Boards, direkt vom Flughafen zum Resort —
+            kein Zugwechsel, kein Ortsshuttle.
+          </p>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { heading: 'Ab Flughafen Innsbruck', resorts: innsbruckResorts },
+              { heading: 'Ab Flughafen Salzburg', resorts: salzburgResorts },
+              { heading: 'Ab Flughafen München', resorts: munichResorts },
+              { heading: 'Ab Flughafen Zürich', resorts: zurichResorts },
+            ].map((group) => (
+              <div key={group.heading}>
+                <h3 className="font-display text-sm text-brand-ink">{group.heading}</h3>
+                <ul className="mt-3 space-y-2 text-sm text-brand-ink-2/80">
+                  {group.resorts.map((r) => (
+                    <li key={r.slug}>
+                      <Link href={`/de/ski-transfers/${r.slug}`} className="hover:text-brand-gold hover:underline">
+                        {r.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 text-sm text-brand-ink-2/70">
+            <Link href="/de/ski-transfers" className="font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold">
+              Alle österreichischen Skitransfers ansehen →
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* Geschäft, Familien & Gruppen */}
+      <section className="border-t border-brand-line bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
           <h2 className="font-display text-xl text-brand-ink">
             Private Flughafentransfers für Geschäft, Familien &amp; Gruppen
           </h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {useCases.map((u) => (
-              <div key={u.title} className="rounded-sm border border-brand-line bg-white p-5">
+              <div key={u.title} className="rounded-sm border border-brand-line bg-brand-cream p-5">
                 <p className="font-semibold text-brand-ink">{u.title}</p>
                 <p className="mt-1.5 text-sm text-brand-ink-2/70">{u.description}</p>
               </div>
@@ -199,30 +398,48 @@ export default function AirportTransfersPageDe() {
         </div>
       </section>
 
+      {/* München & Zürich nach Österreich */}
       <section className="border-t border-brand-line bg-brand-ink text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <h2 className="font-display text-2xl text-white">Grenzüberschreitende Flughafentransfers nach Österreich</h2>
+          <h2 className="font-display text-2xl text-white">Flughafentransfers München &amp; Zürich nach Österreich</h2>
           <p className="mt-3 max-w-2xl text-brand-cream/70">
             Ankunft in München oder Zürich? Wir organisieren private Chauffeurtransfers vom
-            Flughafen direkt nach Österreich — hauptsächlich nach Tirol, ins Land Salzburg und
-            nach Vorarlberg/Arlberg — in einem Fahrzeug, ohne Grenzstopp.
+            Flughafen direkt nach Österreich, in einem Fahrzeug, ohne Grenzstopp.
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            {crossBorderAirports.map((a) => (
+            {munichAirport && (
               <Link
-                key={a.slug}
-                href={`/de/airport-transfers/${a.slug}`}
+                href={`/de/airport-transfers/${munichAirport.slug}`}
                 className="group rounded-sm border border-white/15 bg-white/5 p-6 transition-colors hover:border-brand-gold"
               >
                 <p className="text-xs font-semibold uppercase tracking-wide text-brand-gold">
-                  {a.code} · {a.region}
+                  {munichAirport.code} · {munichAirport.region}
                 </p>
                 <h3 className="font-display mt-1 text-xl text-white group-hover:text-brand-gold">
-                  {a.name}
+                  Flughafen München → Österreich
                 </h3>
-                <p className="mt-2 text-sm text-brand-cream/70">{a.distanceFromCity}</p>
+                <p className="mt-2 text-sm text-brand-cream/70">
+                  Direkte Chauffeurtransfers nach Tirol, ins Land Salzburg und in umliegende
+                  Alpendestinationen.
+                </p>
               </Link>
-            ))}
+            )}
+            {zurichAirport && (
+              <Link
+                href={`/de/airport-transfers/${zurichAirport.slug}`}
+                className="group rounded-sm border border-white/15 bg-white/5 p-6 transition-colors hover:border-brand-gold"
+              >
+                <p className="text-xs font-semibold uppercase tracking-wide text-brand-gold">
+                  {zurichAirport.code} · {zurichAirport.region}
+                </p>
+                <h3 className="font-display mt-1 text-xl text-white group-hover:text-brand-gold">
+                  Flughafen Zürich → Österreich
+                </h3>
+                <p className="mt-2 text-sm text-brand-cream/70">
+                  Private Transfers nach Vorarlberg, ins Arlberggebiet und nach Westösterreich.
+                </p>
+              </Link>
+            )}
           </div>
           <p className="mt-8 max-w-2xl text-sm text-brand-cream/70">
             Ankunft am Flughafen{' '}
@@ -239,6 +456,7 @@ export default function AirportTransfersPageDe() {
         </div>
       </section>
 
+      {/* FAQ */}
       <section className="border-t border-brand-line bg-white">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
           <h2 className="font-display text-xl text-brand-ink">Häufig gestellte Fragen</h2>
@@ -254,10 +472,11 @@ export default function AirportTransfersPageDe() {
       </section>
 
       <BookingCta
+        id="angebot"
         locale="de"
         pageType="airport"
         title="Bereit für Ihre Flughafenabholung?"
-        description="Senden Sie Ihre Flugdaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
+        description="Fordern Sie ein Festpreisangebot an — senden Sie Ihre Flugdaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
       />
     </>
   )

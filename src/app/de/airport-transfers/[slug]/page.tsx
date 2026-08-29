@@ -97,7 +97,8 @@ export default async function AirportPageDe({ params }: { params: Promise<Params
           </h1>
           <p className="mt-4 max-w-xl text-brand-ink-2/80">
             Private, lizenzierte Abholung und Ablieferung am {airport.name}. Inklusive
-            Flugverfolgung, sodass wir uns automatisch bei Früh- oder Verspätung anpassen.
+            Flugverfolgung — wir beobachten Ihren Flug und passen die Abholzeit bei Früh- oder
+            Verspätung an.
           </p>
           {airport.note && (
             <p className="mt-3 text-sm font-semibold text-brand-gold">{airport.note}</p>
@@ -140,8 +141,8 @@ export default async function AirportPageDe({ params }: { params: Promise<Params
           <ol className="mt-3 space-y-3 text-sm text-brand-ink-2">
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-              Wir verfolgen Ihren Flug und passen die Abholzeit automatisch bei Früh- oder
-              Verspätung an — ohne Aufpreis.
+              Wir verfolgen Ihren Flug und passen die Abholzeit bei Früh- oder Verspätung an —
+              ohne Aufpreis.
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />

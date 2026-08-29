@@ -14,7 +14,7 @@ type CityLike = { slug: string; city: string }
 // Strips a trailing ", Country" / " (cross-border)" / " (VIE)" style suffix so
 // "Bratislava, Slovakia (cross-border)" and "Bratislava" normalize the same way,
 // and "Vienna Airport (VIE)" normalizes to "Vienna Airport".
-function normalizeLabel(label: string): string {
+export function normalizeLabel(label: string): string {
   return label
     .split(',')[0]
     .replace(/\s*\([^)]*\)\s*$/, '')
