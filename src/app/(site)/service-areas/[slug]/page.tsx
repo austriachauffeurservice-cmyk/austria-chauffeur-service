@@ -159,22 +159,6 @@ export default async function LocationPage({ params }: { params: Promise<Params>
       location.data
     const pageUrl = `${siteUrl}/service-areas/${slug}`
     const relatedPosts = findRelatedPosts([city, region])
-    const heroText = (
-      <div>
-        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-          {region} · Austria
-        </p>
-        <h1 className="font-display mt-2 text-3xl text-brand-ink sm:text-4xl">
-          Chauffeur Service in {city}
-        </h1>
-        <p className="mt-4 max-w-xl text-brand-ink-2/80">
-          Private, licensed transfers to and from {city}. Airport pickups, direct city-to-city
-          travel, and cross-border trips to neighboring countries — booked in advance with
-          fixed pricing.
-        </p>
-        {note && <p className="mt-3 text-sm font-semibold text-brand-gold">{note}</p>}
-      </div>
-    )
     return (
       <>
         <JsonLd
@@ -206,28 +190,51 @@ export default async function LocationPage({ params }: { params: Promise<Params>
           />
         )}
 
-        <section className="border-b border-brand-line bg-brand-cream overflow-hidden">
-          <div className={`mx-auto px-4 py-16 sm:px-6 ${heroImage ? 'max-w-6xl' : 'max-w-4xl'}`}>
-            {heroImage ? (
-              <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
-                <div className="lg:col-span-7">{heroText}</div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-brand-line shadow-md lg:col-span-5">
-                  <Image
-                    src={heroImage.src}
-                    alt={heroImage.alt}
-                    title={heroImage.title}
-                    fill
-                    priority
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                  />
-                </div>
-              </div>
-            ) : (
-              heroText
-            )}
-          </div>
-        </section>
+        {heroImage ? (
+          <section className="relative overflow-hidden border-b border-brand-line">
+            <Image
+              src={heroImage.src}
+              alt={heroImage.alt}
+              title={heroImage.title}
+              fill
+              priority
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/90 via-brand-ink/75 to-brand-ink/50" />
+            <div className="relative z-10 mx-auto max-w-4xl px-4 py-24 sm:px-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+                {region} · Austria
+              </p>
+              <h1 className="font-display mt-2 text-3xl text-white sm:text-4xl">
+                Chauffeur Service in {city}
+              </h1>
+              <p className="mt-4 max-w-xl text-brand-cream/80">
+                Private, licensed transfers to and from {city}. Airport pickups, direct
+                city-to-city travel, and cross-border trips to neighboring countries — booked in
+                advance with fixed pricing.
+              </p>
+              {note && <p className="mt-3 text-sm font-semibold text-brand-gold">{note}</p>}
+            </div>
+          </section>
+        ) : (
+          <section className="border-b border-brand-line bg-brand-cream">
+            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+                {region} · Austria
+              </p>
+              <h1 className="font-display mt-2 text-3xl text-brand-ink sm:text-4xl">
+                Chauffeur Service in {city}
+              </h1>
+              <p className="mt-4 max-w-xl text-brand-ink-2/80">
+                Private, licensed transfers to and from {city}. Airport pickups, direct
+                city-to-city travel, and cross-border trips to neighboring countries — booked in
+                advance with fixed pricing.
+              </p>
+              {note && <p className="mt-3 text-sm font-semibold text-brand-gold">{note}</p>}
+            </div>
+          </section>
+        )}
 
         <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
           <div className="grid gap-10 sm:grid-cols-2">
@@ -262,15 +269,15 @@ export default async function LocationPage({ params }: { params: Promise<Params>
                 advance, whichever vehicle you choose.
               </p>
               <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {vehicles.map((v) => (
+                {vehicles.filter((v) => fleetImages[v.type]).map((v) => (
                   <div key={v.type} className="rounded-sm border border-brand-line bg-white overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
-                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-brand-cream border-b border-brand-line">
+                    <div className="relative aspect-[12/5] w-full overflow-hidden bg-brand-cream border-b border-brand-line">
                       <Image
-                        src={fleetImages[v.type] ?? `/images/fleet/${v.type}.webp`}
+                        src={fleetImages[v.type]!}
                         alt={v.alt}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, 25vw"
+                        sizes="(max-width: 768px) 100vw, 33vw"
                       />
                     </div>
                     <div className="p-6 flex-grow flex flex-col justify-between">

@@ -87,6 +87,7 @@ export const austrianCities: CityArea[] = [
       sedan: '/images/fleet/business-class.webp',
       luxury: '/images/fleet/first-class.webp',
       van: '/images/fleet/business-van.webp',
+      minibus: '/images/fleet/business-electric.webp',
     },
     hotels: [
       { name: 'Hotel Sacher Wien', area: 'Innere Stadt' },
