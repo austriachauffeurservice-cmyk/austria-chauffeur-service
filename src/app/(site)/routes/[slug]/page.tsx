@@ -8,6 +8,7 @@ import { austrianCities } from '@/lib/content/service-areas'
 import { matchLocationText } from '@/lib/content/link-match'
 import { siteName, siteUrl } from '@/lib/content/site'
 import { BookingCta } from '@/components/booking-cta'
+import { HeroQuoteCard } from '@/components/hero-quote-card'
 
 type Params = { slug: string }
 
@@ -76,17 +77,22 @@ export default async function RoutePage({ params }: { params: Promise<Params> })
       />
 
       <section className="border-b border-brand-line bg-brand-ink text-white">
-        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-            {route.crossBorder ? 'Cross-Border Route' : 'Popular Route'}
-          </p>
-          <h1 className="font-display mt-2 text-3xl sm:text-4xl">
-            {route.from} → {route.to}
-          </h1>
-          <p className="mt-4 max-w-xl text-brand-cream/80">{route.routeDescription}</p>
-          <p className="mt-3 text-sm font-semibold text-brand-gold">
-            {route.distance} · {route.driveTime}
-          </p>
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+              {route.crossBorder ? 'Cross-Border Route' : 'Popular Route'}
+            </p>
+            <h1 className="font-display mt-2 text-3xl sm:text-4xl">
+              {route.from} → {route.to}
+            </h1>
+            <p className="mt-4 max-w-xl text-brand-cream/80">{route.routeDescription}</p>
+            <p className="mt-3 text-sm font-semibold text-brand-gold">
+              {route.distance} · {route.driveTime}
+            </p>
+          </div>
+          <div className="lg:col-span-5">
+            <HeroQuoteCard pickup={route.from} dropoff={route.to} />
+          </div>
         </div>
       </section>
 

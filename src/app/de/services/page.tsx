@@ -7,6 +7,7 @@ import { borderCrossingDestinations } from '@/lib/content/de/service-areas'
 import { skiResorts } from '@/lib/content/de/ski-resorts'
 import { siteName, siteUrl } from '@/lib/content/site'
 import { BookingCta } from '@/components/booking-cta'
+import { HeroQuoteCard } from '@/components/hero-quote-card'
 
 export const metadata: Metadata = {
   title: 'Österreich Transferservice | Flughafen, Stadt & Grenzüberschreitend',
@@ -72,18 +73,23 @@ export default function ServicesPageDe() {
   return (
     <>
       <section className="border-b border-brand-line bg-brand-cream">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-            Unsere Leistungen
-          </p>
-          <h1 className="font-display mt-2 max-w-2xl text-3xl text-brand-ink sm:text-4xl">
-            Privater Chauffeurservice in Österreich
-          </h1>
-          <p className="mt-4 max-w-xl text-brand-ink-2/80">
-            Flughafentransfers, Stadt-zu-Stadt-Fahrten, grenzüberschreitende Reisen,
-            Firmenbuchung, Veranstaltungen und Hochzeiten sowie Skitransfers in ganz Österreich
-            und den Nachbarländern — ein Anbieter, ein Festpreis, unabhängig vom Service.
-          </p>
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+              Unsere Leistungen
+            </p>
+            <h1 className="font-display mt-2 max-w-2xl text-3xl text-brand-ink sm:text-4xl">
+              Privater Chauffeurservice in Österreich
+            </h1>
+            <p className="mt-4 max-w-xl text-brand-ink-2/80">
+              Flughafentransfers, Stadt-zu-Stadt-Fahrten, grenzüberschreitende Reisen,
+              Firmenbuchung, Veranstaltungen und Hochzeiten sowie Skitransfers in ganz Österreich
+              und den Nachbarländern — ein Anbieter, ein Festpreis, unabhängig vom Service.
+            </p>
+          </div>
+          <div className="lg:col-span-5">
+            <HeroQuoteCard locale="de" title="Festpreisangebot anfragen" />
+          </div>
         </div>
       </section>
 

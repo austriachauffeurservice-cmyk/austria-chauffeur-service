@@ -6,6 +6,7 @@ import { JsonLd } from '@/components/json-ld'
 import { HotelsSection, AttractionsSection, AirportField, PopularRoutesList } from '@/components/location-sections'
 import { LocationMap } from '@/components/location-map'
 import { BookingCta } from '@/components/booking-cta'
+import { HeroQuoteCard } from '@/components/hero-quote-card'
 import {
   austrianCities,
   borderCities,
@@ -189,36 +190,46 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/90 via-brand-ink/75 to-brand-ink/50" />
-            <div className="relative z-10 mx-auto max-w-4xl px-4 py-24 sm:px-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-                {region} · Österreich
-              </p>
-              <h1 className="font-display mt-2 text-3xl text-white sm:text-4xl">
-                Chauffeurservice in {city}
-              </h1>
-              <p className="mt-4 max-w-xl text-brand-cream/80">
-                Private, lizenzierte Transfers von und nach {city}. Flughafenabholungen, direkte
-                Stadt-zu-Stadt-Fahrten und grenzüberschreitende Reisen in Nachbarländer — im
-                Voraus gebucht mit Festpreisen.
-              </p>
-              {note && <p className="mt-3 text-sm font-semibold text-brand-gold">{note}</p>}
+            <div className="relative z-10 mx-auto grid max-w-6xl gap-10 px-4 py-24 sm:px-6 lg:grid-cols-12 lg:items-start">
+              <div className="lg:col-span-7">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+                  {region} · Österreich
+                </p>
+                <h1 className="font-display mt-2 text-3xl text-white sm:text-4xl">
+                  Chauffeurservice in {city}
+                </h1>
+                <p className="mt-4 max-w-xl text-brand-cream/80">
+                  Private, lizenzierte Transfers von und nach {city}. Flughafenabholungen, direkte
+                  Stadt-zu-Stadt-Fahrten und grenzüberschreitende Reisen in Nachbarländer — im
+                  Voraus gebucht mit Festpreisen.
+                </p>
+                {note && <p className="mt-3 text-sm font-semibold text-brand-gold">{note}</p>}
+              </div>
+              <div className="lg:col-span-5">
+                <HeroQuoteCard locale="de" dropoff={city} />
+              </div>
             </div>
           </section>
         ) : (
           <section className="border-b border-brand-line bg-brand-cream">
-            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-                {region} · Österreich
-              </p>
-              <h1 className="font-display mt-2 text-3xl text-brand-ink sm:text-4xl">
-                Chauffeurservice in {city}
-              </h1>
-              <p className="mt-4 max-w-xl text-brand-ink-2/80">
-                Private, lizenzierte Transfers von und nach {city}. Flughafenabholungen, direkte
-                Stadt-zu-Stadt-Fahrten und grenzüberschreitende Reisen in Nachbarländer — im
-                Voraus gebucht mit Festpreisen.
-              </p>
-              {note && <p className="mt-3 text-sm font-semibold text-brand-gold">{note}</p>}
+            <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
+              <div className="lg:col-span-7">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+                  {region} · Österreich
+                </p>
+                <h1 className="font-display mt-2 text-3xl text-brand-ink sm:text-4xl">
+                  Chauffeurservice in {city}
+                </h1>
+                <p className="mt-4 max-w-xl text-brand-ink-2/80">
+                  Private, lizenzierte Transfers von und nach {city}. Flughafenabholungen, direkte
+                  Stadt-zu-Stadt-Fahrten und grenzüberschreitende Reisen in Nachbarländer — im
+                  Voraus gebucht mit Festpreisen.
+                </p>
+                {note && <p className="mt-3 text-sm font-semibold text-brand-gold">{note}</p>}
+              </div>
+              <div className="lg:col-span-5">
+                <HeroQuoteCard locale="de" dropoff={city} />
+              </div>
             </div>
           </section>
         )}
@@ -361,20 +372,25 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
         )}
 
         <section className="border-b border-brand-line bg-brand-ink text-white">
-          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-              <Link href={`/de/service-areas/${countrySlug}`} className="hover:underline">
-                {country}
-              </Link>{' '}
-              · Grenzüberschreitender Transfer
-            </p>
-            <h1 className="font-display mt-2 text-3xl sm:text-4xl">Österreich → {city}</h1>
-            <p className="mt-4 max-w-xl text-brand-cream/80">
-              {intro ?? (
-                <>Lizenzierter privater Chauffeurtransfer von Österreich nach {city}, {country} — kein Fahrzeugwechsel an der Grenze notwendig.</>
-              )}
-            </p>
-            <p className="mt-3 text-sm font-semibold text-brand-gold">{via}</p>
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-7">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+                <Link href={`/de/service-areas/${countrySlug}`} className="hover:underline">
+                  {country}
+                </Link>{' '}
+                · Grenzüberschreitender Transfer
+              </p>
+              <h1 className="font-display mt-2 text-3xl sm:text-4xl">Österreich → {city}</h1>
+              <p className="mt-4 max-w-xl text-brand-cream/80">
+                {intro ?? (
+                  <>Lizenzierter privater Chauffeurtransfer von Österreich nach {city}, {country} — kein Fahrzeugwechsel an der Grenze notwendig.</>
+                )}
+              </p>
+              <p className="mt-3 text-sm font-semibold text-brand-gold">{via}</p>
+            </div>
+            <div className="lg:col-span-5">
+              <HeroQuoteCard locale="de" dropoff={city} />
+            </div>
           </div>
         </section>
 
@@ -643,18 +659,23 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
       )}
 
       <section className="border-b border-brand-line bg-brand-ink text-white">
-        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-            Grenzüberschreitende Transfers
-          </p>
-          <h1 className="font-display mt-2 text-3xl sm:text-4xl">
-            {isEnriched ? `Private Chauffeurtransfers Österreich – ${country}` : `Österreich → ${country}`}
-          </h1>
-          <p className="mt-4 max-w-xl text-brand-cream/80">
-            Lizenziert für internationale Abholungen und Ablieferungen nach {country} — kein
-            Fahrzeugwechsel an der Grenze notwendig.
-          </p>
-          <p className="mt-3 text-sm font-semibold text-brand-gold">{note} · {via}</p>
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+              Grenzüberschreitende Transfers
+            </p>
+            <h1 className="font-display mt-2 text-3xl sm:text-4xl">
+              {isEnriched ? `Private Chauffeurtransfers Österreich – ${country}` : `Österreich → ${country}`}
+            </h1>
+            <p className="mt-4 max-w-xl text-brand-cream/80">
+              Lizenziert für internationale Abholungen und Ablieferungen nach {country} — kein
+              Fahrzeugwechsel an der Grenze notwendig.
+            </p>
+            <p className="mt-3 text-sm font-semibold text-brand-gold">{note} · {via}</p>
+          </div>
+          <div className="lg:col-span-5">
+            <HeroQuoteCard locale="de" title="Festpreisangebot anfragen" />
+          </div>
         </div>
       </section>
 

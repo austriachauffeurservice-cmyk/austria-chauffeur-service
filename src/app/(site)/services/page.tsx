@@ -7,6 +7,7 @@ import { borderCrossingDestinations } from '@/lib/content/service-areas'
 import { skiResorts } from '@/lib/content/ski-resorts'
 import { siteName, siteUrl } from '@/lib/content/site'
 import { BookingCta } from '@/components/booking-cta'
+import { HeroQuoteCard } from '@/components/hero-quote-card'
 
 export const metadata: Metadata = {
   title: 'Austria Transfer Services | Airport, City & Cross-Border',
@@ -69,18 +70,23 @@ export default function ServicesPage() {
   return (
     <>
       <section className="border-b border-brand-line bg-brand-cream">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-            Our Services
-          </p>
-          <h1 className="font-display mt-2 max-w-2xl text-3xl text-brand-ink sm:text-4xl">
-            Private Chauffeur Services in Austria
-          </h1>
-          <p className="mt-4 max-w-xl text-brand-ink-2/80">
-            Airport transfers, city-to-city journeys, cross-border trips, corporate hire, events
-            and weddings, and ski transfers across Austria and neighboring countries — one
-            provider, one fixed price, no matter which service you need.
-          </p>
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+              Our Services
+            </p>
+            <h1 className="font-display mt-2 max-w-2xl text-3xl text-brand-ink sm:text-4xl">
+              Private Chauffeur Services in Austria
+            </h1>
+            <p className="mt-4 max-w-xl text-brand-ink-2/80">
+              Airport transfers, city-to-city journeys, cross-border trips, corporate hire, events
+              and weddings, and ski transfers across Austria and neighboring countries — one
+              provider, one fixed price, no matter which service you need.
+            </p>
+          </div>
+          <div className="lg:col-span-5">
+            <HeroQuoteCard title="Request a Fixed Quote" />
+          </div>
         </div>
       </section>
 
