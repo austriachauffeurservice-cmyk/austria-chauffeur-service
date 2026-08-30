@@ -636,6 +636,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
     via,
     intro,
     serviceIntro,
+    destinationsHeading,
     destinationsIntro,
     borderInfo,
     whyChauffeur,
@@ -693,7 +694,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
               Licensed for international pickups and drop-offs to {country} — no need to switch
               vehicles at the border.
             </p>
-            <p className="mt-3 text-sm font-semibold text-brand-gold">{note} · {via}</p>
+            <p className="mt-3 text-sm font-semibold text-brand-gold">{isEnriched ? note : `${note} · ${via}`}</p>
           </div>
           <div className="lg:col-span-5">
             <HeroQuoteCard title="Request a Fixed Quote" />
@@ -728,7 +729,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
         <div className="grid gap-10 sm:grid-cols-2">
           <div>
             <h2 className="font-display text-xl text-brand-ink">
-              {isEnriched ? `Popular ${country} Destinations` : 'Destinations'}
+              {isEnriched ? (destinationsHeading ?? `Popular ${country} Destinations`) : 'Destinations'}
             </h2>
             {isEnriched && destinationsIntro && (
               <p className="mt-3 text-sm text-brand-ink-2/80">{destinationsIntro}</p>
@@ -875,7 +876,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
         <section className="border-b border-brand-line bg-white">
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
             <h2 className="font-display text-xl text-brand-ink">
-              A Licensed Cross-Border Chauffeur Service
+              Licensed Chauffeur Network
             </h2>
             <p className="mt-4 max-w-2xl text-brand-ink-2/90">{trust}</p>
           </div>

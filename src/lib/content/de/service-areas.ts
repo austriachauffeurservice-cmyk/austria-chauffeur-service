@@ -39,6 +39,7 @@ export type BorderArea = {
   seoDescription?: string
   intro?: string[]
   serviceIntro?: string
+  destinationsHeading?: string
   destinationsIntro?: string
   borderInfo?: string
   whyChauffeur?: WhyChauffeurPoint[]
@@ -725,22 +726,23 @@ export const borderCrossingDestinations: BorderArea[] = [
     slug: 'slovakia',
     country: 'Slowakei',
     cities: ['Bratislava'],
-    via: 'über die A6-Autobahn',
+    via: 'über die A4 / A6-Autobahn',
     popularRoutes: ['Wien → Bratislava', 'Flughafen Wien → Bratislava'],
-    note: 'Bratislava: meist unter einer Stunde',
+    note: 'Bratislava: meist unter einer Stunde ab Wien',
     seoTitle: 'Österreich–Slowakei Transferservice | Wien ↔ Bratislava',
     seoDescription:
       'Privater Chauffeur-Transferservice zwischen Österreich und der Slowakei — Wien nach Bratislava in unter einer Stunde, Abholung ab Stadt oder Flughafen, Festpreis, kein Fahrzeugwechsel an der Grenze.',
     intro: [
-      'Die Slowakei ist das nächstgelegene grenzüberschreitende Ziel ab Wien — Bratislava liegt etwa 80 km östlich des Stadtzentrums, meist rund eine Stunde Fahrzeit über die A6-Autobahn, wobei die genaue Dauer vom Verkehr und Ihrem genauen Abholort abhängt. Ein privater Chauffeur legt die gesamte Strecke in einem einzigen Fahrzeug zurück, egal ob Sie ab einem Wiener Hotel, dem Flughafen Wien oder einer anderen österreichischen Stadt starten.',
+      'Die Slowakei ist das nächstgelegene grenzüberschreitende Ziel ab Wien — Bratislava liegt etwa 80 km östlich des Stadtzentrums, meist rund eine Stunde Fahrzeit über die Autobahnen A4 und A6, wobei die genaue Dauer vom Verkehr und Ihrem genauen Abholort abhängt. Ein privater Chauffeur legt die gesamte Strecke in einem einzigen Fahrzeug zurück, egal ob Sie ab einem Wiener Hotel, dem Flughafen Wien oder einer anderen österreichischen Stadt starten.',
       'Die Strecke wird für unterschiedliche Reisezwecke genutzt: Geschäftsreisende mit Terminen am selben Tag in Bratislava, Besucher, die beide Hauptstädte in einer Reise verbinden, Familien, die statt ab Wien lieber ab dem Flughafen Bratislava fliegen, und Tagesausflügler, die die Fahrt hin und zurück ohne Übernachtung machen. Die Abholung kann an einem Hotel, einer Privatadresse oder im Ankunftsbereich eines Flughafens erfolgen — die Ablieferung funktioniert am Zielort genauso.',
     ],
     serviceIntro:
       'Jede Buchung zwischen Österreich und der Slowakei ist ein direkter, privater Transfer — keine Mitfahrgelegenheit, keine festen Abfahrtszeiten und keine separate Teilstrecke auf einer der beiden Seiten der Grenze. Die Abholung ist ab Wiener Hotels und Privatadressen, ab dem Flughafen Wien (VIE) oder auf Anfrage ab anderen österreichischen Städten möglich; die Ablieferung in Bratislava funktioniert ebenso — ob Hotel, Privatadresse oder Flughafen Bratislava (BTS). Sowohl einfache Fahrten als auch Hin- und Rückfahrten sind buchbar, und Fahrzeug sowie Fahrer bleiben während der gesamten Fahrt dieselben.',
+    destinationsHeading: 'Bratislava — unser Hauptziel in der Slowakei',
     destinationsIntro:
-      'Bratislava ist unser meistgefragtes Ziel in der Slowakei — der Großteil unserer Buchungen zwischen Österreich und der Slowakei geht dorthin, nah genug an Wien für eine Rückfahrt am selben Tag und gut über die A6-Autobahn angebunden.',
+      'Bratislava ist unser Hauptziel in der Slowakei — nah genug an Wien für eine Rückfahrt am selben Tag und gut über die Autobahnen A4 und A6 angebunden. Weitere Ziele in der Slowakei prüfen wir gerne auf Anfrage.',
     borderInfo:
-      'Österreich und die Slowakei sind beide Teil des Schengen-Raums, daher gibt es an der Grenze normalerweise keine routinemäßige Passkontrolle oder einen Fahrzeugstopp — die Fahrt geht durchgehend weiter, ohne dass Fahrzeug oder Fahrer unterwegs gewechselt werden müssen. Gelegentlich werden vorübergehende Stichprobenkontrollen eingeführt, insbesondere an Feiertagswochenenden, daher empfehlen wir, trotzdem einen gültigen Reisepass oder Lichtbildausweis mitzuführen. Die auffälligste Veränderung während der Fahrt ist der Wechsel von deutscher zu slowakischer Straßenbeschilderung wenige Kilometer nach der Grenze — die Strecke selbst verläuft durchgehend auf gut ausgebauter Autobahn.',
+      'Österreich und die Slowakei sind beide Teil des Schengen-Raums, daher gibt es an der Grenze normalerweise keinen routinemäßigen Halt oder eine Passkontrolle — die Fahrt geht durchgehend weiter, ohne dass Fahrzeug oder Fahrer unterwegs gewechselt werden müssen. Gelegentlich werden vorübergehende Stichprobenkontrollen eingeführt, insbesondere an Feiertagswochenenden, daher empfehlen wir, trotzdem einen gültigen Lichtbildausweis mitzuführen. Nach der Grenze wechselt die Straßenbeschilderung von Deutsch auf Slowakisch, während die Strecke weiter nach Bratislava führt.',
     whyChauffeur: [
       {
         title: 'Tür zu Tür, kein Bahnhof, kein Parkplatzsuchen',
@@ -760,7 +762,7 @@ export const borderCrossingDestinations: BorderArea[] = [
       {
         title: 'Flugüberwachung bei Flughafenanschlüssen',
         description:
-          'Bei Abholungen am Flughafen Wien oder Flughafen Bratislava verfolgen die Fahrer Ihren Flugstatus und passen die Abholzeit bei Verspätung automatisch an.',
+          'Bei Abholungen am Flughafen Wien oder Flughafen Bratislava beobachten wir den angegebenen Flug und passen die Abholzeit bei Verspätung oder früher Ankunft an.',
       },
     ],
     journeys: [
@@ -769,7 +771,7 @@ export const borderCrossingDestinations: BorderArea[] = [
         distance: '~80 km',
         duration: '~1 Stunde',
         description:
-          'Die meistgebuchte Teilstrecke dieses Korridors: vom Wiener Zentrum nach Bratislava, etwa 80 km über die A6-Autobahn durch Kittsee bis zur slowakischen Grenze — normalerweise rund eine Stunde Tür zu Tür, wobei Verkehr rund um Wien oder an der Grenze die Fahrzeit verlängern kann. Kurz genug für eine Rückfahrt am selben Tag, und eine der kürzesten Hauptstadt-zu-Hauptstadt-Fahrten Europas.',
+          'Die meistgenutzte Strecke dieses Korridors: vom Wiener Zentrum nach Bratislava sind es rund 80 km auf der Straße, meist über die Autobahnen A4 und A6 durch Kittsee bis zur slowakischen Grenze — normalerweise rund eine Stunde Tür zu Tür, wobei Verkehr rund um Wien oder an der Grenze die Fahrzeit verlängern kann. Kurz genug für eine Rückfahrt am selben Tag, und eine der kürzesten Hauptstadt-zu-Hauptstadt-Fahrten Europas.',
         routeHref: '/routes/vienna-to-bratislava',
       },
       {
@@ -782,19 +784,19 @@ export const borderCrossingDestinations: BorderArea[] = [
       },
     ],
     bookingSteps: [
-      'Geben Sie Ihren Abholort an (Hotel, Privatadresse oder Flughafen Wien) sowie Ihren Zielort in der Slowakei.',
+      'Geben Sie Ihren Abholort und Ihren Zielort in der Slowakei an.',
       'Ergänzen Sie Reisedatum, Uhrzeit und Anzahl der Passagiere.',
       'Geben Sie Ihr Gepäck an und vermerken Sie im Notizfeld, falls Sie einen Kindersitz oder eine Sitzerhöhung benötigen.',
       'Bei einer Flughafenabholung geben Sie bitte Ihre Flugnummer an, damit der Fahrer den Flug verfolgen kann.',
       'Wir bestätigen Verfügbarkeit und einen Festpreis per E-Mail — für die Anfrage ist keine Zahlung erforderlich.',
     ],
     trust:
-      'Grenzüberschreitende Fahrten auf dieser Strecke werden über unser Netzwerk unabhängig lizenzierter Chauffeurpartner abgewickelt, von denen jeder über die entsprechende österreichische Gewerbeberechtigung für den internationalen Personenverkehr verfügt. Sie buchen bei uns — wir bestätigen Fahrer, Fahrzeug und Festpreis per E-Mail — und derselbe lizenzierte Partner übernimmt die Fahrt Tür zu Tür, einschließlich des Grenzübertritts.',
+      'Grenzüberschreitende Transfers werden über lizenzierte Chauffeurpartner innerhalb unseres Netzwerks durchgeführt. Wir bestätigen den zugeteilten Fahrer, das Fahrzeug und den Festpreis vor Ihrer Fahrt — ein Fahrzeug und ein Fahrer übernehmen den Transfer vom Abholort bis zum Ziel, einschließlich des Grenzübertritts.',
     faqs: [
       {
         question: 'Wie lange dauert ein privater Transfer von Wien nach Bratislava?',
         answer:
-          'Bei normalem Verkehr rund 50–60 Minuten Tür zu Tür über die A6-Autobahn — der kürzeste der grenzüberschreitenden Korridore ab Österreich.',
+          'Bei normalem Verkehr rund 50–60 Minuten Tür zu Tür über die Autobahnen A4 und A6 — einer der kürzesten internationalen Transferwege ab Österreich.',
       },
       {
         question: 'Kann ich einen Transfer vom Flughafen Wien nach Bratislava buchen?',

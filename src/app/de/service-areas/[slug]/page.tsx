@@ -642,6 +642,7 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
     via,
     intro,
     serviceIntro,
+    destinationsHeading,
     destinationsIntro,
     borderInfo,
     whyChauffeur,
@@ -699,7 +700,7 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
               Lizenziert für internationale Abholungen und Ablieferungen nach {country} — kein
               Fahrzeugwechsel an der Grenze notwendig.
             </p>
-            <p className="mt-3 text-sm font-semibold text-brand-gold">{note} · {via}</p>
+            <p className="mt-3 text-sm font-semibold text-brand-gold">{isEnriched ? note : `${note} · ${via}`}</p>
           </div>
           <div className="lg:col-span-5">
             <HeroQuoteCard locale="de" title="Festpreisangebot anfragen" />
@@ -734,7 +735,7 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
         <div className="grid gap-10 sm:grid-cols-2">
           <div>
             <h2 className="font-display text-xl text-brand-ink">
-              {isEnriched ? `${country}: Beliebte Reiseziele` : 'Ziele'}
+              {isEnriched ? (destinationsHeading ?? `${country}: Beliebte Reiseziele`) : 'Ziele'}
             </h2>
             {isEnriched && destinationsIntro && (
               <p className="mt-3 text-sm text-brand-ink-2/80">{destinationsIntro}</p>
@@ -881,7 +882,7 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
         <section className="border-b border-brand-line bg-white">
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
             <h2 className="font-display text-xl text-brand-ink">
-              Ein lizenzierter grenzüberschreitender Chauffeurservice
+              Lizenziertes Chauffeur-Netzwerk
             </h2>
             <p className="mt-4 max-w-2xl text-brand-ink-2/90">{trust}</p>
           </div>
