@@ -227,8 +227,8 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
       )}
 
       <article>
-        <section className="border-b border-brand-line bg-brand-cream">
-          <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+        <div className="border-b border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-3xl px-4 pt-6 sm:px-6">
             <Breadcrumbs
               items={[
                 { label: 'Home', href: '/' },
@@ -236,7 +236,25 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
                 { label: post.title },
               ]}
             />
-            <div className="mt-4 flex flex-wrap gap-2">
+          </div>
+        </div>
+
+        {post.image && (
+          <div className="relative h-64 w-full overflow-hidden border-b border-brand-line sm:h-80 lg:h-[420px]">
+            <Image
+              src={post.image}
+              alt={post.imageAlt || post.title}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        )}
+
+        <section className="border-b border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+            <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <span
                   key={tag}
@@ -265,19 +283,6 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
             >
               Request a Transfer
             </Link>
-
-            {post.image && (
-              <div className="mt-8 overflow-hidden rounded-sm border border-brand-line shadow-sm">
-                <Image
-                  src={post.image}
-                  alt={post.imageAlt || post.title}
-                  width={1200}
-                  height={675}
-                  priority
-                  className="aspect-[16/9] w-full object-cover"
-                />
-              </div>
-            )}
           </div>
         </section>
 
