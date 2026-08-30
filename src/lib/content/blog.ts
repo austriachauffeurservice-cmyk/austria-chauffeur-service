@@ -18,6 +18,11 @@ export type BlogPost = {
   faqs?: { question: string; answer: string }[]
   image?: string
   imageAlt?: string
+  // Overrides the <title>/meta description in generateMetadata — only set
+  // where the templated title/excerpt genuinely underperforms; leave unset
+  // everywhere else so the template stays DRY.
+  seoTitle?: string
+  seoDescription?: string
 }
 
 // `names` should be ordered most specific first (e.g. city before region) —
@@ -175,20 +180,27 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2026-05-18',
     readingTime: '6 min read',
     tags: ['Cross-Border', 'Slovakia'],
+    seoTitle: 'Vienna to Bratislava: Transfer, Border & Travel Guide',
+    seoDescription:
+      'Planning a Vienna to Bratislava trip? Learn about the route, border crossing, travel options, journey time, Bratislava Airport, and private transfers.',
     blocks: [
       {
         type: 'paragraph',
-        text: 'Vienna and Bratislava are the two closest capital cities in the world after Rome and Vatican City — around 55 km apart via the A6 motorway. In normal traffic, that is comfortably under an hour door to door, which is why the route is used constantly for day trips, budget flights out of Bratislava Airport, and same-day business meetings. It is also the shortest of Austria\'s [seven main cross-border corridors](/blog/austria-cross-border-transfers-guide), which makes it an easy add-on to a Vienna trip rather than a destination that needs planning of its own.',
+        text: 'Vienna and Bratislava are the closest national capitals in Europe, with their city centers roughly 60 km apart. By road, the journey is around 80 km and typically takes about an hour, depending on traffic and your exact pickup and destination.',
+      },
+      {
+        type: 'paragraph',
+        text: "The short distance makes the route useful for far more than sightseeing. Travelers use it for Bratislava Airport connections, business meetings, weekend trips, and same-day visits to both capitals. If you're traveling privately, a chauffeur can take you directly between hotels, residences, airports, and business addresses without changing vehicles at the border.",
       },
       { type: 'heading', text: 'Do you need your passport?' },
       {
         type: 'paragraph',
-        text: 'Both Austria and Slovakia are part of the Schengen Area, so there are no routine passport checks at the border — you cross without stopping. Still, carry valid ID; Schengen countries retain the right to reintroduce spot checks temporarily, and you want to be covered if that happens to be the day.',
+        text: 'Both Austria and Slovakia are part of the Schengen Area, so there are normally no routine border checks — you cross without stopping. Temporary controls can be introduced, so carry valid photo ID regardless.',
       },
       { type: 'subheading', text: 'What the crossing actually looks like' },
       {
         type: 'paragraph',
-        text: "In practice, the A6 border point near Kittsee is just another stretch of motorway — there is no barrier to stop at and no booth to pull up to. The only visible sign you have crossed is the change in road signage from German to Slovak. The one thing worth planning around is the Austrian Vignette: it's required on the Austrian side of the A6, and — as with any chauffeur booking — it's already built into the vehicle and the fixed price, so it's not something you need to buy separately.",
+        text: 'In practice, the A4/A6 border point near Kittsee is just another stretch of motorway — there is no barrier to stop at and no booth to pull up to. The only visible sign you have crossed is the change in road signage from German to Slovak.',
       },
       { type: 'heading', text: 'Chauffeur vs. train vs. driving yourself' },
       {
@@ -196,7 +208,7 @@ export const blogPosts: BlogPost[] = [
         items: [
           'Chauffeur — door to door, no parking to find in either city, fixed price agreed in advance',
           'Train — frequent connections between Wien Hauptbahnhof and Bratislava hlavná stanica, roughly an hour, but you still need transport at both ends',
-          'Self-drive — cheapest per kilometer if you already have a rental, but adds toll vignette requirements and city-center parking on both sides',
+          'Self-drive — can be economical for some travelers, but adds parking, toll, and driving responsibilities',
         ],
       },
       {
@@ -211,7 +223,7 @@ export const blogPosts: BlogPost[] = [
       { type: 'heading', text: 'Why people actually make this trip' },
       {
         type: 'paragraph',
-        text: "Bratislava's airport (BTS) is a common budget-carrier alternative to Vienna, so travelers based in Vienna sometimes fly out of Bratislava for a cheaper fare and just need the short transfer to get there. It's also common for consultants and sales teams who split a working day between the two cities, and for weekend visitors doing both capitals in a single trip. See our guide to [corporate chauffeur travel](/blog/corporate-chauffeur-travel-austria) for more on how businesses use this specific corridor for multi-city work.",
+        text: "Bratislava Airport (BTS) can be a useful alternative for travelers whose flight is better priced or better timed from Bratislava, so travelers based in Vienna sometimes fly out of Bratislava instead and just need the short transfer to get there. It's also common for consultants and sales teams who split a working day between the two cities, and for weekend visitors doing both capitals in a single trip. See our guide to [corporate chauffeur travel](/blog/corporate-chauffeur-travel-austria) for more on how businesses use this specific corridor for multi-city work.",
       },
       { type: 'subheading', text: 'A day trip, not just an airport run' },
       {
@@ -226,17 +238,21 @@ export const blogPosts: BlogPost[] = [
       { type: 'heading', text: 'When to book' },
       {
         type: 'paragraph',
-        text: "A standard sedan transfer on this route rarely needs more than 24 hours' notice — see our [booking lead-time guide](/blog/how-far-in-advance-book-chauffeur) for how that changes around Vienna conference weeks or if you need a larger vehicle.",
+        text: "For the best vehicle availability, especially during conferences, holidays, and peak travel periods, booking in advance is recommended. Last-minute requests can also be checked, subject to availability — see our [booking lead-time guide](/blog/how-far-in-advance-book-chauffeur) for more on timing around Vienna conference weeks or larger vehicles.",
       },
-      { type: 'subheading', text: 'One currency, one less thing to plan' },
+      { type: 'heading', text: 'Practical things to know' },
       {
-        type: 'paragraph',
-        text: "Slovakia uses the Euro, same as Austria, so there's no currency exchange to think about before or after the border — unlike the legs of this corridor that continue into Hungary, where the Forint applies instead. That makes Vienna–Bratislava one of the more frictionless short cross-border trips out of Austria purely on the practical side.",
+        type: 'list',
+        items: [
+          "Schengen Area — no routine border stop between Austria and Slovakia, though carrying valid photo ID is still recommended",
+          "Currency — Slovakia uses the Euro, same as Austria, so there's no currency exchange to plan for on this route, unlike the leg of this corridor that continues into Hungary, where the Forint applies",
+          "Tolls — the Austrian Vignette applies on the Austrian side of the route, but it's built into the vehicle and price on a chauffeur booking, so there's nothing to arrange separately",
+        ],
       },
       { type: 'subheading', text: 'What the drive itself looks like' },
       {
         type: 'paragraph',
-        text: "The A6 runs through flat, open countryside for almost its entire length — there's no mountain pass or winding valley road to plan around here, unlike the Alpine crossings further west. The most noticeable change during the drive is the switch from German to Slovak road signage a few kilometers past the border, and the skyline of Bratislava Castle coming into view as the route approaches the city.",
+        text: "The route runs through flat, open countryside for almost its entire length via the A4 and A6 — there's no mountain pass or winding valley road to plan around here, unlike the Alpine crossings further west. The most noticeable change during the drive is the switch from German to Slovak road signage a few kilometers past the border, and the skyline of Bratislava Castle coming into view as the route approaches the city.",
       },
       { type: 'heading', text: 'A realistic itinerary for a same-day round trip' },
       {
@@ -246,29 +262,28 @@ export const blogPosts: BlogPost[] = [
       { type: 'subheading', text: 'Coordinating a Bratislava Airport flight with the same booking' },
       {
         type: 'paragraph',
-        text: "For travelers flying out of Bratislava Airport rather than visiting the city itself, the same transfer works as a one-way airport drop-off — booked the same way as a round trip, just without the return leg, and timed against the flight the same way an Austrian airport pickup would be.",
+        text: "For travelers flying out of Bratislava Airport rather than visiting the city itself, the same transfer works as a one-way airport drop-off — booked the same way as a round trip, just without the return leg, and timed against the flight the same way an Austrian airport pickup would be. The same applies in reverse for a return journey timed against a BTS or Vienna Airport arrival.",
       },
-      { type: 'heading', text: 'What sets this corridor apart from the others' },
+      { type: 'heading', text: 'Why Vienna–Bratislava is so easy to combine' },
       {
         type: 'paragraph',
-        text: "Every other cross-border corridor out of Austria takes at least ninety minutes; this one takes under an hour, which changes the calculation entirely. It's short enough to feel more like a same-city trip than an international one, which is exactly why it gets booked for reasons the longer corridors rarely see — a half-day meeting, a quick sightseeing add-on, or simply the cheaper flight out of BTS rather than any specific reason to visit Slovakia itself.",
+        text: "The short road journey makes Bratislava unusually easy to add to a Vienna itinerary. Travelers can visit for a few hours, attend a business meeting, connect to a flight from BTS, or continue onward toward Budapest without dedicating an entire day to the journey itself.",
       },
       { type: 'subheading', text: 'Vehicle choice on a trip this short' },
       {
         type: 'paragraph',
-        text: "Given the short drive time, most bookings on this route are a Business Sedan regardless of group size, unless luggage specifically calls for more room — the trip is simply too quick for vehicle class to be a major planning factor the way it is on a three-hour cross-border drive.",
+        text: "For couples and smaller groups with standard luggage, a Business Sedan is often sufficient. Larger groups or travelers with additional luggage can choose an Executive Van or Minibus.",
       },
-      { type: 'heading', text: 'A route that also works well as a late addition to a Vienna trip' },
       {
         type: 'paragraph',
-        text: "Because the drive is so short, it's common for visitors to decide on a Bratislava day trip after already arriving in Vienna, rather than planning it in advance — the same-day booking flexibility that applies to domestic Vienna transfers extends to this corridor too, given how little lead time the route itself actually requires.",
+        text: "If you're looking for a private transfer rather than general route information, see our [Austria to Bratislava chauffeur transfer service](/service-areas/bratislava).",
       },
     ],
     faqs: [
       {
         question: 'How long does the Vienna to Bratislava transfer actually take?',
         answer:
-          'Around 50–60 minutes door to door in normal traffic via the A6 motorway. It is the shortest of the cross-border corridors out of Austria.',
+          'Around 50–60 minutes door to door in normal traffic via the A4 and A6 motorways. Actual journey time depends on traffic and your exact pickup and destination.',
       },
       {
         question: 'Do I need to stop at the border between Vienna and Bratislava?',
@@ -1924,7 +1939,7 @@ export const blogPosts: BlogPost[] = [
         type: 'table',
         headers: ['Corridor', 'Distance', 'Drive Time', 'Why It Gets Booked'],
         rows: [
-          ['Vienna → Bratislava', '~55 km', 'Under 1 hour', 'Shortest international transfer in Europe; budget flights out of BTS'],
+          ['Vienna → Bratislava', '~80 km', 'Under 1 hour', 'Shortest international transfer in Europe; budget flights out of BTS'],
           ['Vienna → Budapest', '~240 km', '2.5–3 hours', 'Longer end of the Vienna–Bratislava–Budapest corridor'],
           ['Salzburg → Munich', '~140 km', '~1.5 hours', "Munich's long-haul flight options beat Salzburg's"],
           ['Innsbruck → Italy (Brenner Pass)', '120–320 km', '1.5–3.5 hours', 'Main Alpine crossing south, to Bolzano, Venice, or Milan'],

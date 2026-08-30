@@ -18,6 +18,8 @@ export type BlogPost = {
   faqs?: { question: string; answer: string }[]
   image?: string
   imageAlt?: string
+  seoTitle?: string
+  seoDescription?: string
 }
 
 // `names` should be ordered most specific first (e.g. city before region) —
@@ -175,20 +177,27 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2026-05-18',
     readingTime: '6 Min. Lesezeit',
     tags: ['Grenzüberschreitend', 'Slowakei'],
+    seoTitle: 'Wien nach Bratislava: Transfer, Grenze & Reiseführer',
+    seoDescription:
+      'Planen Sie eine Fahrt von Wien nach Bratislava? Erfahren Sie mehr über die Strecke, den Grenzübertritt, Reisemöglichkeiten, Fahrzeit, den Flughafen Bratislava und private Transfers.',
     blocks: [
       {
         type: 'paragraph',
-        text: 'Wien und Bratislava sind nach Rom und Vatikanstadt die zwei am nächsten beieinander liegenden Hauptstädte der Welt — rund 55 km über die A6-Autobahn. Bei normalem Verkehr sind das bequem unter einer Stunde von Tür zu Tür, weshalb die Strecke ständig für Tagesausflüge, Billigflüge ab dem Flughafen Bratislava und Geschäftstermine am selben Tag genutzt wird. Es ist zudem der kürzeste der [sieben wichtigsten grenzüberschreitenden Korridore](/de/blog/austria-cross-border-transfers-guide) Österreichs, was ihn zu einem einfachen Zusatz zu einer Wien-Reise macht statt zu einem Ziel, das eigene Planung braucht.',
+        text: 'Wien und Bratislava sind die am nächsten beieinander liegenden Hauptstädte Europas — ihre Stadtzentren liegen rund 60 km auseinander. Auf der Straße sind es etwa 80 km, was normalerweise rund eine Stunde dauert, abhängig von Verkehr und Ihrem genauen Abhol- und Zielort.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Die kurze Entfernung macht die Strecke für weit mehr als Sightseeing nützlich. Reisende nutzen sie für Anschlüsse zum Flughafen Bratislava, Geschäftstermine, Wochenendtrips und Tagesbesuche in beiden Hauptstädten. Wenn Sie privat reisen, bringt Sie ein Chauffeur direkt zwischen Hotels, Wohnadressen, Flughäfen und Geschäftsadressen, ohne an der Grenze das Fahrzeug zu wechseln.',
       },
       { type: 'heading', text: 'Brauchen Sie Ihren Reisepass?' },
       {
         type: 'paragraph',
-        text: 'Österreich und die Slowakei gehören beide zum Schengen-Raum, daher gibt es keine routinemäßigen Passkontrollen an der Grenze — Sie überqueren sie ohne anzuhalten. Führen Sie trotzdem einen gültigen Ausweis mit; Schengen-Länder behalten sich das Recht vor, vorübergehend Stichprobenkontrollen wieder einzuführen, und Sie möchten abgesichert sein, falls das gerade an diesem Tag der Fall ist.',
+        text: 'Österreich und die Slowakei gehören beide zum Schengen-Raum, daher gibt es normalerweise keine routinemäßigen Grenzkontrollen — Sie überqueren die Grenze ohne anzuhalten. Vorübergehende Kontrollen können eingeführt werden, führen Sie daher trotzdem einen gültigen Lichtbildausweis mit.',
       },
       { type: 'subheading', text: 'Wie der Grenzübertritt tatsächlich aussieht' },
       {
         type: 'paragraph',
-        text: 'In der Praxis ist der Grenzpunkt an der A6 bei Kittsee nur ein weiteres Autobahnstück — es gibt keine Schranke, an der Sie anhalten, und keine Kabine, zu der Sie vorfahren. Das einzig sichtbare Zeichen des Grenzübertritts ist der Wechsel der Beschilderung von Deutsch auf Slowakisch. Was einzuplanen sich lohnt, ist die österreichische Vignette: Sie ist auf der österreichischen Seite der A6 vorgeschrieben, und wie bei jeder Chauffeurbuchung ist sie bereits im Fahrzeug und im Festpreis enthalten — also nichts, was Sie separat kaufen müssen.',
+        text: 'In der Praxis ist der Grenzpunkt an der A4/A6 bei Kittsee nur ein weiteres Autobahnstück — es gibt keine Schranke, an der Sie anhalten, und keine Kabine, zu der Sie vorfahren. Das einzig sichtbare Zeichen des Grenzübertritts ist der Wechsel der Beschilderung von Deutsch auf Slowakisch.',
       },
       { type: 'heading', text: 'Chauffeur vs. Zug vs. selbst fahren' },
       {
@@ -196,7 +205,7 @@ export const blogPosts: BlogPost[] = [
         items: [
           'Chauffeur — Tür zu Tür, kein Parkplatzsuchen in beiden Städten, Festpreis im Voraus vereinbart',
           'Zug — häufige Verbindungen zwischen Wien Hauptbahnhof und Bratislava hlavná stanica, etwa eine Stunde, aber an beiden Enden brauchen Sie trotzdem Transport',
-          'Selbst fahren — pro Kilometer am günstigsten, wenn Sie bereits einen Mietwagen haben, bringt aber Vignettenpflicht und Innenstadtparkplätze auf beiden Seiten mit sich',
+          'Selbst fahren — kann für manche Reisende wirtschaftlich sein, bringt aber Parkplatzsuche, Vignette und Fahrverantwortung mit sich',
         ],
       },
       {
@@ -211,7 +220,7 @@ export const blogPosts: BlogPost[] = [
       { type: 'heading', text: 'Warum Menschen diese Fahrt tatsächlich machen' },
       {
         type: 'paragraph',
-        text: 'Der Flughafen Bratislava (BTS) ist eine gängige Billigflieger-Alternative zu Wien, weshalb in Wien ansässige Reisende manchmal ab Bratislava fliegen, um einen günstigeren Tarif zu bekommen, und nur den kurzen Transfer dorthin brauchen. Auch für Berater und Vertriebsteams, die einen Arbeitstag zwischen den beiden Städten aufteilen, sowie für Wochenendbesucher, die beide Hauptstädte in einer Reise verbinden, ist es eine übliche Strecke. Mehr dazu, wie Unternehmen genau diesen Korridor für mehrstädtige Arbeit nutzen, finden Sie in unserem Leitfaden zu [Chauffeur-Geschäftsreisen](/de/blog/corporate-chauffeur-travel-austria).',
+        text: 'Der Flughafen Bratislava (BTS) kann eine sinnvolle Alternative für Reisende sein, deren Flug ab Bratislava günstiger oder besser getaktet ist, weshalb in Wien ansässige Reisende manchmal von dort statt ab Wien fliegen und nur den kurzen Transfer dorthin brauchen. Auch für Berater und Vertriebsteams, die einen Arbeitstag zwischen den beiden Städten aufteilen, sowie für Wochenendbesucher, die beide Hauptstädte in einer Reise verbinden, ist es eine übliche Strecke. Mehr dazu, wie Unternehmen genau diesen Korridor für mehrstädtige Arbeit nutzen, finden Sie in unserem Leitfaden zu [Chauffeur-Geschäftsreisen](/de/blog/corporate-chauffeur-travel-austria).',
       },
       { type: 'subheading', text: 'Ein Tagesausflug, nicht nur eine Flughafenfahrt' },
       {
@@ -226,17 +235,21 @@ export const blogPosts: BlogPost[] = [
       { type: 'heading', text: 'Wann Sie buchen sollten' },
       {
         type: 'paragraph',
-        text: 'Ein Standard-Limousinentransfer auf dieser Strecke braucht selten mehr als 24 Stunden Vorlauf — wie sich das rund um Wiener Konferenzwochen oder bei Bedarf an einem größeren Fahrzeug ändert, steht in unserem [Leitfaden zu Vorlaufzeiten](/de/blog/how-far-in-advance-book-chauffeur).',
+        text: 'Für die beste Fahrzeugverfügbarkeit, besonders während Konferenzen, Feiertagen und Reise-Stoßzeiten, empfehlen wir eine Buchung im Voraus. Kurzfristige Anfragen können ebenfalls geprüft werden, je nach Verfügbarkeit — mehr zur Vorlaufzeit rund um Wiener Konferenzwochen oder bei größeren Fahrzeugen steht in unserem [Leitfaden zu Vorlaufzeiten](/de/blog/how-far-in-advance-book-chauffeur).',
       },
-      { type: 'subheading', text: 'Eine Währung, eine Sorge weniger' },
+      { type: 'heading', text: 'Praktisches auf einen Blick' },
       {
-        type: 'paragraph',
-        text: 'Die Slowakei nutzt den Euro, genau wie Österreich, daher gibt es vor oder nach der Grenze keinen Geldwechsel zu bedenken — anders als bei den Abschnitten dieses Korridors, die weiter nach Ungarn führen, wo stattdessen der Forint gilt. Das macht Wien–Bratislava rein praktisch zu einer der reibungslosesten kurzen grenzüberschreitenden Fahrten ab Österreich.',
+        type: 'list',
+        items: [
+          'Schengen-Raum — kein routinemäßiger Grenzstopp zwischen Österreich und der Slowakei, ein gültiger Lichtbildausweis wird trotzdem empfohlen',
+          'Währung — die Slowakei nutzt den Euro, genau wie Österreich, daher gibt es auf dieser Strecke keinen Geldwechsel einzuplanen, anders als beim Abschnitt dieses Korridors, der weiter nach Ungarn führt, wo der Forint gilt',
+          'Maut — die österreichische Vignette gilt auf der österreichischen Seite der Strecke, ist bei einer Chauffeurbuchung aber bereits im Fahrzeug und im Preis enthalten, sodass nichts separat zu organisieren ist',
+        ],
       },
       { type: 'subheading', text: 'Wie die Fahrt selbst aussieht' },
       {
         type: 'paragraph',
-        text: 'Die A6 verläuft fast über ihre gesamte Länge durch flaches, offenes Land — anders als bei den Alpenübergängen weiter westlich gibt es hier keinen Gebirgspass oder eine kurvige Talstraße einzuplanen. Die auffälligste Veränderung während der Fahrt ist der Wechsel von deutscher zu slowakischer Straßenbeschilderung wenige Kilometer nach der Grenze, sowie die Silhouette der Burg von Bratislava, die beim Näherkommen an die Stadt in Sicht kommt.',
+        text: 'Die Strecke verläuft fast über ihre gesamte Länge über die Autobahnen A4 und A6 durch flaches, offenes Land — anders als bei den Alpenübergängen weiter westlich gibt es hier keinen Gebirgspass oder eine kurvige Talstraße einzuplanen. Die auffälligste Veränderung während der Fahrt ist der Wechsel von deutscher zu slowakischer Straßenbeschilderung wenige Kilometer nach der Grenze, sowie die Silhouette der Burg von Bratislava, die beim Näherkommen an die Stadt in Sicht kommt.',
       },
       { type: 'heading', text: 'Eine realistische Reiseroute für einen Tagesausflug' },
       {
@@ -246,29 +259,28 @@ export const blogPosts: BlogPost[] = [
       { type: 'subheading', text: 'Einen Flug ab dem Flughafen Bratislava mit derselben Buchung koordinieren' },
       {
         type: 'paragraph',
-        text: 'Für Reisende, die ab dem Flughafen Bratislava fliegen statt die Stadt zu besuchen, funktioniert derselbe Transfer als einfache Ablieferung am Flughafen — genauso gebucht wie eine Hin- und Rückfahrt, nur ohne den Rückweg, und zeitlich auf den Flug abgestimmt, genau wie bei einer Abholung an einem österreichischen Flughafen.',
+        text: 'Für Reisende, die ab dem Flughafen Bratislava fliegen statt die Stadt zu besuchen, funktioniert derselbe Transfer als einfache Ablieferung am Flughafen — genauso gebucht wie eine Hin- und Rückfahrt, nur ohne den Rückweg, und zeitlich auf den Flug abgestimmt, genau wie bei einer Abholung an einem österreichischen Flughafen. Für eine Rückfahrt, abgestimmt auf eine Ankunft in Bratislava oder am Flughafen Wien, gilt dasselbe umgekehrt.',
       },
-      { type: 'heading', text: 'Was diesen Korridor von den anderen unterscheidet' },
+      { type: 'heading', text: 'Warum sich Wien–Bratislava so leicht kombinieren lässt' },
       {
         type: 'paragraph',
-        text: 'Jeder andere grenzüberschreitende Korridor ab Österreich dauert mindestens neunzig Minuten; dieser hier dauert unter einer Stunde, was die gesamte Rechnung verändert. Er ist kurz genug, um sich eher wie eine Fahrt innerhalb derselben Stadt anzufühlen als wie eine internationale — genau deshalb wird er aus Gründen gebucht, die bei den längeren Korridoren selten vorkommen: ein Halbtagestermin, ein schneller Sightseeing-Zusatz oder einfach der günstigere Flug ab BTS, ohne einen bestimmten Grund, die Slowakei selbst zu besuchen.',
+        text: 'Die kurze Straßenverbindung macht Bratislava ungewöhnlich leicht zu einer Wien-Reise hinzufügbar. Reisende können für ein paar Stunden vorbeischauen, einen Geschäftstermin wahrnehmen, einen Anschlussflug ab BTS nehmen oder weiter nach Budapest reisen, ohne der Fahrt selbst einen ganzen Tag zu widmen.',
       },
       { type: 'subheading', text: 'Fahrzeugwahl bei einer so kurzen Fahrt' },
       {
         type: 'paragraph',
-        text: 'Angesichts der kurzen Fahrzeit ist bei den meisten Buchungen auf dieser Strecke unabhängig von der Gruppengröße eine Business-Limousine die Wahl, außer das Gepäck erfordert ausdrücklich mehr Platz — die Fahrt ist einfach zu kurz, als dass die Fahrzeugklasse ein wichtiger Planungsfaktor wäre, wie es bei einer dreistündigen grenzüberschreitenden Fahrt der Fall ist.',
+        text: 'Für Paare und kleinere Gruppen mit normalem Gepäck reicht meist eine Business-Limousine aus. Größere Gruppen oder Reisende mit zusätzlichem Gepäck können einen Executive Van oder Kleinbus wählen.',
       },
-      { type: 'heading', text: 'Eine Strecke, die sich auch spontan gut zu einer Wien-Reise hinzufügen lässt' },
       {
         type: 'paragraph',
-        text: 'Da die Fahrt so kurz ist, entscheiden sich Besucher häufig erst nach der Ankunft in Wien für einen Tagesausflug nach Bratislava, statt ihn im Voraus zu planen — dieselbe Flexibilität bei Buchungen am selben Tag, die für Inlandstransfers in Wien gilt, gilt auch für diesen Korridor, angesichts dessen, wie wenig Vorlauf die Strecke selbst tatsächlich erfordert.',
+        text: 'Suchen Sie statt allgemeiner Routeninformationen einen privaten Transfer, sehen Sie sich unseren [Chauffeurtransferservice Österreich nach Bratislava](/de/service-areas/bratislava) an.',
       },
     ],
     faqs: [
       {
         question: 'Wie lange dauert der Transfer von Wien nach Bratislava tatsächlich?',
         answer:
-          'Bei normalem Verkehr rund 50–60 Minuten Tür zu Tür über die A6-Autobahn. Es ist der kürzeste der grenzüberschreitenden Korridore ab Österreich.',
+          'Bei normalem Verkehr rund 50–60 Minuten Tür zu Tür über die Autobahnen A4 und A6. Die tatsächliche Fahrzeit hängt von Verkehr und Ihrem genauen Abhol- und Zielort ab.',
       },
       {
         question: 'Muss ich an der Grenze zwischen Wien und Bratislava anhalten?',
@@ -1924,7 +1936,7 @@ export const blogPosts: BlogPost[] = [
         type: 'table',
         headers: ['Korridor', 'Entfernung', 'Fahrzeit', 'Warum er gebucht wird'],
         rows: [
-          ['Wien → Bratislava', 'ca. 55 km', 'Unter 1 Stunde', 'Kürzester internationaler Transfer Europas; Billigflüge ab BTS'],
+          ['Wien → Bratislava', 'ca. 80 km', 'Unter 1 Stunde', 'Kürzester internationaler Transfer Europas; Billigflüge ab BTS'],
           ['Wien → Budapest', 'ca. 240 km', '2,5–3 Stunden', 'Längeres Ende des Korridors Wien–Bratislava–Budapest'],
           ['Salzburg → München', 'ca. 140 km', 'ca. 1,5 Stunden', "Münchens Langstreckenflüge übertreffen die ab Salzburg"],
           ['Innsbruck → Italien (Brenner)', '120–320 km', '1,5–3,5 Stunden', 'Wichtigster Alpenübergang nach Süden, nach Bozen, Venedig oder Mailand'],

@@ -23,9 +23,11 @@ export async function generateMetadata({
   if (!post) return {}
 
   const canonical = `/blog/${slug}`
+  const title = post.seoTitle ?? post.title
+  const description = post.seoDescription ?? post.excerpt
   return {
-    title: post.title,
-    description: post.excerpt,
+    title,
+    description,
     alternates: {
       canonical,
       languages: { en: canonical, de: `/de/blog/${slug}`, 'x-default': canonical },
@@ -35,8 +37,8 @@ export async function generateMetadata({
       siteName,
       locale: 'en_US',
       url: `${siteUrl}${canonical}`,
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
       publishedTime: post.publishedAt,
       images: post.image ? [{ url: `${siteUrl}${post.image}` }] : undefined,
     },
