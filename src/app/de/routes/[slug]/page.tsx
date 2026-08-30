@@ -5,8 +5,10 @@ import { JsonLd } from '@/components/json-ld'
 import { routes } from '@/lib/content/de/routes'
 import { airports } from '@/lib/content/de/airports'
 import { austrianCities } from '@/lib/content/de/service-areas'
-import { matchLocationText } from '@/lib/content/link-match'
+import { skiResorts } from '@/lib/content/de/ski-resorts'
+import { matchLocationText, matchSkiResortText } from '@/lib/content/link-match'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { localizedHref } from '@/lib/i18n'
 import { BookingCta } from '@/components/booking-cta'
 import { HeroQuoteCard } from '@/components/hero-quote-card'
 
@@ -48,6 +50,7 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
 
   const pageUrl = `${siteUrl}/de/routes/${slug}`
   const origin = matchLocationText(route.from, airports, austrianCities)
+  const destination = matchLocationText(route.to, airports, austrianCities) ?? matchSkiResortText(route.to, skiResorts)
   const relatedRoutes = routes
     .filter((r) => r.slug !== route.slug && (r.from === route.from || r.to === route.to))
     .slice(0, 3)
@@ -262,19 +265,27 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
         </section>
       )}
 
-      {(origin || relatedRoutes.length > 0 || route.relatedAirportRoutes) && (
+      {(origin || destination || relatedRoutes.length > 0 || route.relatedAirportRoutes) && (
         <section className="border-t border-brand-line">
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
             {origin && (
               <p className="text-sm text-brand-ink-2/80">
                 Mehr zu Ihrem Startpunkt:{' '}
-                <Link href={origin.href} className="font-semibold text-brand-ink hover:text-brand-gold hover:underline">
+                <Link href={localizedHref(origin.href, 'de')} className="font-semibold text-brand-ink hover:text-brand-gold hover:underline">
                   {origin.label}
                 </Link>
               </p>
             )}
+            {destination && (
+              <p className={origin ? 'mt-2 text-sm text-brand-ink-2/80' : 'text-sm text-brand-ink-2/80'}>
+                Mehr zu Ihrem Ziel:{' '}
+                <Link href={localizedHref(destination.href, 'de')} className="font-semibold text-brand-ink hover:text-brand-gold hover:underline">
+                  {destination.label}
+                </Link>
+              </p>
+            )}
             {route.relatedAirportRoutes ? (
-              <div className={origin ? 'mt-6' : ''}>
+              <div className={origin || destination ? 'mt-6' : ''}>
                 <h2 className="font-display text-xl text-brand-ink">Weitere Transfers ab {route.from}</h2>
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
                   {route.relatedAirportRoutes.map((r) => (
@@ -291,7 +302,7 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
               </div>
             ) : (
               relatedRoutes.length > 0 && (
-                <div className={origin ? 'mt-6' : ''}>
+                <div className={origin || destination ? 'mt-6' : ''}>
                   <h2 className="font-display text-xl text-brand-ink">Ähnliche Strecken</h2>
                   <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
                     {relatedRoutes.map((r) => (

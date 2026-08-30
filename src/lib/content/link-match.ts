@@ -10,6 +10,7 @@
 type RouteLike = { slug: string; from: string; to: string }
 type AirportLike = { slug: string; code: string; name: string; city: string }
 type CityLike = { slug: string; city: string }
+type SkiResortLike = { slug: string; name: string }
 
 // Strips a trailing ", Country" / " (cross-border)" / " (VIE)" style suffix so
 // "Bratislava, Slovakia (cross-border)" and "Bratislava" normalize the same way,
@@ -119,6 +120,19 @@ export function matchLocationText(
   if (city) return { href: `/service-areas/${city.slug}`, label: city.city }
 
   return undefined
+}
+
+// Resolves a route's plain "from"/"to" label to a matching ski-resort page,
+// for linking a route's destination straight to its /ski-transfers page
+// (e.g. "Serfaus-Fiss-Ladis" on the Innsbruck Airport → Serfaus-Fiss-Ladis
+// route). Exact match only — never guesses.
+export function matchSkiResortText(
+  text: string,
+  skiResorts: SkiResortLike[]
+): { href: string; label: string } | undefined {
+  const normalized = normalizeLabel(text)
+  const resort = skiResorts.find((r) => normalizeLabel(r.name) === normalized)
+  return resort ? { href: `/ski-transfers/${resort.slug}`, label: resort.name } : undefined
 }
 
 // For the "Nearest Airport" field, which is sometimes a single airport and

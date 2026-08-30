@@ -10,6 +10,7 @@ import { routes } from '@/lib/content/routes'
 import { airports } from '@/lib/content/airports'
 import { siteName, siteUrl } from '@/lib/content/site'
 import { findRelatedPosts } from '@/lib/content/blog'
+import { matchAirportField } from '@/lib/content/link-match'
 
 type Params = { slug: string }
 
@@ -126,12 +127,22 @@ export default async function SkiResortPage({ params }: { params: Promise<Params
           <div>
             <h2 className="font-display text-xl text-brand-ink">Nearest Airports</h2>
             <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
-              {resort.nearestAirports.map((a) => (
-                <li key={a.name} className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                  {a.name} — {a.driveTime}
-                </li>
-              ))}
+              {resort.nearestAirports.map((a) => {
+                const match = matchAirportField(a.name, airports)[0]
+                return (
+                  <li key={a.name} className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+                    {match?.href ? (
+                      <Link href={match.href} className="hover:text-brand-gold hover:underline">
+                        {a.name}
+                      </Link>
+                    ) : (
+                      a.name
+                    )}{' '}
+                    — {a.driveTime}
+                  </li>
+                )
+              })}
             </ul>
           </div>
           <div>
@@ -218,12 +229,23 @@ export default async function SkiResortPage({ params }: { params: Promise<Params
               Which Airport Is Best for {resort.name}?
             </h2>
             <div className="mt-4 space-y-4">
-              {resort.airportGuidance.map((g) => (
-                <div key={g.airport}>
-                  <p className="text-sm font-semibold text-brand-ink">{g.airport}</p>
-                  <p className="mt-1 text-sm text-brand-ink-2/80">{g.note}</p>
-                </div>
-              ))}
+              {resort.airportGuidance.map((g) => {
+                const match = matchAirportField(g.airport, airports)[0]
+                return (
+                  <div key={g.airport}>
+                    <p className="text-sm font-semibold text-brand-ink">
+                      {match?.href ? (
+                        <Link href={match.href} className="hover:text-brand-gold hover:underline">
+                          {g.airport}
+                        </Link>
+                      ) : (
+                        g.airport
+                      )}
+                    </p>
+                    <p className="mt-1 text-sm text-brand-ink-2/80">{g.note}</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
         )}
