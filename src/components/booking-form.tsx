@@ -50,7 +50,7 @@ const strings: Record<
       </>
     ),
     hourlyHint:
-      'Need an hourly or multi-stop booking instead of a single transfer? Enter your first pickup point and note the hourly hire under Notes below — we’ll quote it separately.',
+      'Need an hourly chauffeur or multi-stop journey? Mention it in the notes and we’ll quote it separately.',
     fullName: 'Full Name',
     phone: 'Phone',
     email: 'Email',
@@ -89,7 +89,7 @@ const strings: Record<
       </>
     ),
     hourlyHint:
-      'Benötigen Sie eine Stunden- oder Mehrfachstopp-Buchung statt eines einzelnen Transfers? Geben Sie Ihren ersten Abholort ein und vermerken Sie die Stundenbuchung unten im Notizfeld — wir erstellen ein separates Angebot.',
+      'Benötigen Sie einen Stundenchauffeur oder eine Mehrfachstopp-Fahrt? Vermerken Sie das im Notizfeld — wir erstellen ein separates Angebot.',
     fullName: 'Vollständiger Name',
     phone: 'Telefon',
     email: 'E-Mail',
@@ -110,7 +110,7 @@ const strings: Record<
     flightNumber: 'Flugnummer (optional)',
     notes: 'Notizen (optional)',
     notesPlaceholder: 'Kindersitze, zusätzliche Stopps, Details zum Grenzübertritt usw.',
-    submit: 'Festpreisangebot anfragen',
+    submit: 'Festpreis anfragen',
     submitting: 'Wird gesendet...',
     genericError: 'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.',
     networkError: 'Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.',
@@ -126,6 +126,8 @@ export function BookingForm({
   locale = 'en',
   defaultPickup,
   defaultDropoff,
+  showCrossBorderHint = true,
+  dropoffHint,
 }: {
   locale?: Locale
   // Initial values only (rendered as defaultValue, never overwrites what the
@@ -134,10 +136,24 @@ export function BookingForm({
   // /booking from elsewhere.
   defaultPickup?: string
   defaultDropoff?: string
+  // False on pages that are definitively domestic (e.g. a non-cross-border
+  // route page) so the Bratislava/Munich example doesn't confuse a Seefeld
+  // customer — see the Aug 2026 route-page audit.
+  showCrossBorderHint?: boolean
+  // Replaces the generic cross-border example text with route-specific
+  // drop-off guidance, for a flagship route page that already knows its own
+  // destination (e.g. "Your destination is Bratislava...").
+  dropoffHint?: string
 }) {
   return (
     <Suspense fallback={null}>
-      <BookingFormInner locale={locale} defaultPickup={defaultPickup} defaultDropoff={defaultDropoff} />
+      <BookingFormInner
+        locale={locale}
+        defaultPickup={defaultPickup}
+        defaultDropoff={defaultDropoff}
+        showCrossBorderHint={showCrossBorderHint}
+        dropoffHint={dropoffHint}
+      />
     </Suspense>
   )
 }
@@ -146,10 +162,14 @@ function BookingFormInner({
   locale,
   defaultPickup,
   defaultDropoff,
+  showCrossBorderHint,
+  dropoffHint,
 }: {
   locale: Locale
   defaultPickup?: string
   defaultDropoff?: string
+  showCrossBorderHint: boolean
+  dropoffHint?: string
 }) {
   const searchParams = useSearchParams()
   const prefillPickup = defaultPickup || ''
@@ -231,10 +251,16 @@ function BookingFormInner({
   return (
     <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
       <div className="sm:col-span-2">
-        <p className="text-xs text-brand-ink-2/70">
-          {t.crossBorderHint('Bratislava, Slovakia', 'Munich, Germany')}
-        </p>
-        <p className="mt-1 text-xs text-brand-ink-2/70">{t.hourlyHint}</p>
+        {dropoffHint ? (
+          <p className="text-xs text-brand-ink-2/70">{dropoffHint}</p>
+        ) : (
+          showCrossBorderHint && (
+            <p className="text-xs text-brand-ink-2/70">
+              {t.crossBorderHint('Bratislava, Slovakia', 'Munich, Germany')}
+            </p>
+          )
+        )}
+        <p className={dropoffHint || showCrossBorderHint ? 'mt-1 text-xs text-brand-ink-2/70' : 'text-xs text-brand-ink-2/70'}>{t.hourlyHint}</p>
       </div>
 
       <div>

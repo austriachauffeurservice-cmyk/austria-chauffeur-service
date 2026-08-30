@@ -9,6 +9,18 @@ export type RoutePair = {
   crossBorder?: boolean
   seoTitle?: string
   seoDescription?: string
+  routeOverview?: { road: string; transferType: string; vehicleNote: string }
+  whyBookPoints?: { title: string; description: string }[]
+  destinationCoverage?: { heading: string; intro: string; items: string[] }
+  winterSection?: { heading: string; description: string; linkHref: string; linkLabel: string }
+  luggageNote?: { heading: string; description: string }
+  returnSection?: { heading: string; description: string }
+  originAlternative?: { heading: string; description: string }
+  borderSection?: { heading: string; description: string }
+  flightTrackingSection?: { heading: string; description: string }
+  relatedAirportRoutes?: { label: string; distance: string; duration: string; href: string }[]
+  faqs?: { question: string; answer: string }[]
+  dropoffHint?: string
 }
 
 export const routes: RoutePair[] = [
@@ -377,18 +389,121 @@ export const routes: RoutePair[] = [
     from: 'Flughafen Wien (VIE)',
     to: 'Bratislava',
     distance: '~65 km',
-    driveTime: '~45 Min.',
-    routeDescription: 'Östlich über die Autobahnen A4 und A6 durch Kittsee über die Grenze nach Bratislava — in beide Richtungen buchbar, Ankunft oder Abfahrt.',
+    driveTime: 'typischerweise ~45–60 Min.',
+    routeDescription:
+      'Über die Autobahnen A4 und A6 durch Kittsee, mit direktem Service zwischen dem Flughafen Wien und Bratislava in beide Richtungen.',
     whyBook: [
-      'Kürzester Hauptstadt-zu-Hauptstadt-Transfer Mitteleuropas',
+      'Ein kurzer, direkter Flughafentransfer nach Bratislava',
       'Deckt beide Richtungen ab — Ankünfte am Flughafen Wien mit Ziel Slowakei und Abfahrten aus Bratislava zu einem Flug ab Wien',
       'Schnell, direkt und zum Festpreis, Tür zu Tür',
       'Gruppentransfers möglich — Executive Van (bis zu 7) oder Kleinbus (bis zu 16) für Familien, Kollegen oder größere Gruppen, je nach Fahrzeugverfügbarkeit',
     ],
     crossBorder: true,
-    seoTitle: 'Flughafen Wien nach Bratislava Transfer | 45 Minuten, Festpreis',
+    seoTitle: 'Flughafen Wien nach Bratislava Transfer | Privater Chauffeur',
     seoDescription:
-      'Privater Transfer zwischen Flughafen Wien und Bratislava — 65 km, ca. 45 Minuten, Festpreis Tür zu Tür. Einzel- und Gruppentransfers, deckt sowohl Ankünfte am Flughafen Wien als auch Abfahrten aus Bratislava ab.',
+      'Privater Chauffeurtransfer vom Flughafen Wien (VIE) nach Bratislava. Tür-zu-Tür-Service, Flugverfolgung, Festpreise und direkte grenzüberschreitende Fahrt.',
+    dropoffHint: 'Ihr Ziel ist Bratislava. Geben Sie Ihr genaues Hotel, Ihre Wohnadresse oder Geschäftsadresse im Feld Zielort an.',
+    routeOverview: {
+      road: 'A4 / A6 über Kittsee',
+      transferType: 'Privat, Tür zu Tür',
+      vehicleNote: 'Limousine, Executive Van oder Kleinbus',
+    },
+    whyBookPoints: [
+      {
+        title: 'Persönlicher Empfang in der Ankunftshalle',
+        description: 'Ihr Chauffeur empfängt Sie in der Ankunftshalle mit Ihrem Namensschild.',
+      },
+      {
+        title: 'Flugverfolgung',
+        description: 'Geben Sie Ihre Flugnummer an, und wir beobachten die Ankunftszeit.',
+      },
+      {
+        title: 'Direkter Tür-zu-Tür-Transfer',
+        description: 'Reisen Sie direkt vom Flughafen Wien zu Ihrem Hotel, Ihrer Wohnadresse oder Geschäftsadresse in Bratislava.',
+      },
+      {
+        title: 'Kein Fahrzeugwechsel an der Grenze',
+        description: 'Bleiben Sie während der gesamten Fahrt im selben privaten Fahrzeug.',
+      },
+      {
+        title: 'Festpreis',
+        description: 'Ihr Transferpreis wird vor der Fahrt bestätigt.',
+      },
+      {
+        title: 'Gruppen & zusätzliches Gepäck',
+        description: 'Executive Vans und Kleinbusse stehen für größere Gruppen zur Verfügung, je nach Fahrzeugverfügbarkeit.',
+      },
+    ],
+    destinationCoverage: {
+      heading: 'Wo können wir Sie in Bratislava absetzen?',
+      intro:
+        'Ob Sie in der Altstadt von Bratislava, in der Nähe der Burg, in einem Hotel im Stadtzentrum oder an einer Privatadresse wohnen — Ihr Chauffeur bringt Sie direkt zum bei der Buchung angegebenen Ziel. Wir fahren auch zu:',
+      items: [
+        'Bratislavas Altstadt',
+        'Hotels im Stadtzentrum',
+        'Umgebung der Burg Bratislava',
+        'Geschäftsadressen',
+        'Privatadressen',
+        'Flughafen Bratislava (BTS)',
+        'Bahnhof',
+      ],
+    },
+    flightTrackingSection: {
+      heading: 'Flugverfolgung für Abholungen am Flughafen Wien',
+      description:
+        'Geben Sie bei der Buchung Ihre Flugnummer an, und wir beobachten die geplante Ankunft. Bei Verspätung oder früher Ankunft kann die Abholzeit entsprechend angepasst werden.',
+    },
+    returnSection: {
+      heading: 'Bratislava zum Flughafen Wien',
+      description:
+        'Fliegen Sie nach einem Aufenthalt in Bratislava ab dem Flughafen Wien? Ihr Chauffeur holt Sie direkt an Ihrem Hotel, Ihrer Wohnadresse oder Geschäftsadresse ab und bringt Sie zum VIE für Ihren Flug. Planen Sie bei der Wahl Ihrer Abholzeit zusätzliche Zeit für Check-in und saisonalen Verkehr ein.',
+    },
+    borderSection: {
+      heading: 'Grenzübertritt von Österreich in die Slowakei',
+      description:
+        'Die Strecke vom Flughafen Wien nach Bratislava überquert die österreichisch-slowakische Grenze bei Kittsee. Österreich und die Slowakei sind beide Teil des Schengen-Raums, daher gibt es normalerweise keinen routinemäßigen Grenzstopp. Vorübergehende Kontrollen können jedoch eingeführt werden, daher sollten Passagiere einen gültigen Lichtbildausweis mitführen. Ihr Chauffeur und Fahrzeug bleiben während der gesamten Fahrt bei Ihnen.',
+    },
+    luggageNote: {
+      heading: 'Reisen Sie mit zusätzlichem Gepäck?',
+      description:
+        'Teilen Sie uns mit, wenn Sie mit großen Koffern, Sportausrüstung, einem Kinderwagen oder anderen sperrigen Gegenständen reisen, damit wir ein passendes Fahrzeug einplanen können. Executive Vans und Kleinbusse stehen für größere Gruppen zur Verfügung, je nach Fahrzeugverfügbarkeit.',
+    },
+    relatedAirportRoutes: [
+      { label: 'Flughafen Wien → Salzburg', distance: '~300 km', duration: '~2 Std. 45 Min. – 3 Std.', href: '/de/routes/vienna-airport-to-salzburg' },
+      { label: 'Flughafen Wien → Graz', distance: '~200 km', duration: '~2 Std. 15 Min.', href: '/de/routes/vienna-airport-to-graz' },
+      { label: 'Flughafen Wien → Budapest', distance: '~230 km', duration: '~2 Std. 15 Min.', href: '/de/routes/vienna-airport-to-budapest' },
+      { label: 'Wien → Bratislava', distance: '~80 km', duration: '~1 Std.', href: '/de/routes/vienna-to-bratislava' },
+    ],
+    faqs: [
+      {
+        question: 'Wie lange dauert der Transfer vom Flughafen Wien nach Bratislava?',
+        answer: 'Die Fahrt dauert typischerweise etwa 45–60 Minuten, abhängig von Verkehr, Wetter und Ihrem genauen Ziel in Bratislava.',
+      },
+      {
+        question: 'Wie weit ist der Flughafen Wien von Bratislava entfernt?',
+        answer: 'Die Straßenentfernung beträgt etwa 65 km, abhängig vom genauen Zielort.',
+      },
+      {
+        question: 'Verfolgen Sie meinen Flug?',
+        answer: 'Ja. Geben Sie bei der Buchung Ihre Flugnummer an, und wir beobachten die geplante Ankunft, sodass die Abholzeit bei Flugänderungen angepasst werden kann.',
+      },
+      {
+        question: 'Wo trifft mich mein Chauffeur am Flughafen Wien?',
+        answer: 'Ihr Chauffeur empfängt Sie in der Ankunftshalle mit einem Namensschild und bringt Sie direkt zu Ihrem Fahrzeug.',
+      },
+      {
+        question: 'Muss ich an der Grenze das Fahrzeug wechseln?',
+        answer: 'Nein. Derselbe Chauffeur und dasselbe private Fahrzeug bleiben während des gesamten Transfers bei Ihnen.',
+      },
+      {
+        question: 'Kann ich Bratislava zum Flughafen Wien buchen?',
+        answer: 'Ja. Transfers sind in beide Richtungen verfügbar, einschließlich Abholungen an Hotels, Wohn- und Geschäftsadressen in Bratislava.',
+      },
+      {
+        question: 'Kann ich mit einer Gruppe oder zusätzlichem Gepäck reisen?',
+        answer: 'Ja. Executive Vans und Kleinbusse stehen für größere Gruppen und zusätzliches Gepäck zur Verfügung, je nach Fahrzeugverfügbarkeit.',
+      },
+    ],
   },
   {
     slug: 'vienna-airport-to-budapest',
@@ -835,19 +950,121 @@ export const routes: RoutePair[] = [
     slug: 'innsbruck-airport-to-seefeld',
     from: 'Flughafen Innsbruck (INN)',
     to: 'Seefeld in Tirol',
-    distance: '~25 km',
-    driveTime: '~25 Min.',
+    distance: '~22–25 km',
+    driveTime: '~20–25 Min.',
     routeDescription:
-      'Nördlich über die B177 Zirler-Berg-Straße, hinauf aus dem Inntal auf das Seefelder Plateau — einer der kürzesten Flughafen-zu-Resort-Wege Österreichs.',
+      'Über die B177 Seefelder Straße und den Zirler Berg, hinauf aus dem Inntal auf das Seefelder Plateau — eine kurze, direkte Strecke ab dem Flughafen.',
     whyBook: [
-      'Der kürzeste Flughafentransfer unter den großen Tiroler Skiorten',
-      'Direkt zu den Hotels in Seefeld, ohne Regionalzug oder Ortsshuttle',
+      'Ein kurzer, direkter Transfer vom Flughafen Innsbruck nach Seefeld',
+      'Direkt zu Ihrem Hotel in Seefeld, ohne Umstieg zwischen Flughafentransport und Regionalbahn',
       'Gut geeignet für das autofreie Fußgängerzentrum des Orts',
-      'Abholung an zentralen Innsbrucker Hotels funktioniert genauso — der Flughafen liegt nur etwa 4 km außerhalb der Stadt, die Fahrzeit ändert sich kaum',
     ],
-    seoTitle: 'Innsbruck nach Seefeld Transfer | Flughafen oder Stadt, 25 Minuten',
+    seoTitle: 'Flughafen Innsbruck nach Seefeld Transfer | Privater Chauffeur',
     seoDescription:
-      'Privater Chauffeurtransfer vom Flughafen Innsbruck oder aus der Innsbrucker Innenstadt nach Seefeld in Tirol — etwa 25 km, 25 Minuten, Festpreis, direkt zum Hotel.',
+      'Privater Chauffeurtransfer vom Flughafen Innsbruck oder aus der Innsbrucker Innenstadt nach Seefeld in Tirol — rund 22–25 km, 20–25 Minuten, Festpreis, Tür zu Tür.',
+    routeOverview: {
+      road: 'B177 / Seefelder Straße',
+      transferType: 'Privat, Tür zu Tür',
+      vehicleNote: 'Limousine, Executive Van oder Kleinbus',
+    },
+    whyBookPoints: [
+      {
+        title: 'Direkt zu Ihrem Hotel',
+        description: 'Reisen Sie direkt vom Flughafen Innsbruck zu Ihrer Unterkunft in Seefeld, ohne separate Anschlüsse zu organisieren.',
+      },
+      {
+        title: 'Einer der kürzesten Flughafen-zu-Alpen-Transfers Österreichs',
+        description: 'Seefeld liegt nur rund 22–25 km vom Flughafen Innsbruck entfernt — ein besonders praktischer Ankunftsort für Tirol.',
+      },
+      {
+        title: 'Persönlicher Empfang in der Ankunftshalle',
+        description: 'Ihr Chauffeur wartet im Ankunftsbereich mit Ihrem Namensschild und hilft beim Gepäck.',
+      },
+      {
+        title: 'Privates Fahrzeug',
+        description: 'Reisen Sie ohne geteilte Fahrgäste und ohne unnötige Zwischenstopps.',
+      },
+      {
+        title: 'Festpreise',
+        description: 'Ihr Transferpreis wird vor der Fahrt bestätigt.',
+      },
+      {
+        title: 'Tür-zu-Tür-Service',
+        description: 'Fahren Sie direkt zu Ihrem Hotel, Chalet, Apartment oder Ihrer Privatadresse in Seefeld.',
+      },
+    ],
+    destinationCoverage: {
+      heading: 'Hotel- & Unterkunftstransfers in Seefeld',
+      intro:
+        'Wir bieten direkte Flughafenabholung zu Hotels, Apartments, Chalets und Privatadressen in ganz Seefeld in Tirol.',
+      items: [
+        'Seefelder Ortszentrum',
+        'Seefelder Fußgängerzone',
+        'Bahnhof Seefeld',
+        'Hotels und Resorts',
+        'Apartments und Ferienwohnungen',
+        'Privatadressen',
+      ],
+    },
+    winterSection: {
+      heading: 'Winter- & Skitransfers nach Seefeld',
+      description:
+        'Reisen Sie zum Skifahren oder für einen Winterurlaub nach Seefeld? Wir bieten private Flughafentransfers mit Platz für Skiausrüstung und zusätzliches Gepäck. Ihr Chauffeur bringt Sie direkt vom Flughafen Innsbruck zu Ihrem Hotel oder Ihrer Unterkunft in Seefeld.',
+      linkHref: '/de/ski-transfers/seefeld',
+      linkLabel: 'Skitransfers nach Seefeld →',
+    },
+    luggageNote: {
+      heading: 'Reisen Sie mit Skiausrüstung oder zusätzlichem Gepäck?',
+      description:
+        'Teilen Sie uns Skitaschen, Snowboards, Kinderausrüstung oder Übergepäck bei der Buchung mit, damit wir ein passendes Fahrzeug einplanen können — bei Bedarf einen Executive Van oder Kleinbus.',
+    },
+    returnSection: {
+      heading: 'Seefeld zum Flughafen Innsbruck',
+      description:
+        'Reisen Sie von Seefeld ab? Wir holen Sie direkt an Ihrem Hotel, Apartment oder Ihrer Privatadresse ab und bringen Sie zum Flughafen Innsbruck. Wir empfehlen, in der Wintersaison und zu Stoßzeiten etwas mehr Zeit einzuplanen.',
+    },
+    originAlternative: {
+      heading: 'Abfahrt ab Innsbruck statt vom Flughafen?',
+      description:
+        'Der gleiche private Chauffeurservice ist auch ab Hotels und Privatadressen in der Innsbrucker Innenstadt verfügbar. Wenn Sie vor der Weiterfahrt nach Seefeld in der Stadt übernachten, geben Sie bei der Buchung einfach Ihr Hotel oder Ihre Adresse als Abholort an.',
+    },
+    relatedAirportRoutes: [
+      { label: 'Kitzbühel', distance: '~90 km', duration: '~1 Std.', href: '/de/routes/innsbruck-airport-to-kitzbuehel' },
+      { label: 'St. Anton am Arlberg', distance: '~100 km', duration: '~1 Std. 10 Min.', href: '/de/routes/innsbruck-airport-to-st-anton' },
+      { label: 'Sölden', distance: '~85 km', duration: '~1 Std. 10 Min.', href: '/de/routes/innsbruck-airport-to-soelden' },
+      { label: 'Mayrhofen', distance: '~75 km', duration: '~1 Std.', href: '/de/routes/innsbruck-airport-to-mayrhofen' },
+      { label: 'Ischgl', distance: '~100 km', duration: '~1 Std. 15 Min.', href: '/de/routes/innsbruck-airport-to-ischgl' },
+      { label: 'Serfaus-Fiss-Ladis', distance: '~85 km', duration: '~1 Std. 15 Min.', href: '/de/routes/innsbruck-airport-to-serfaus-fiss-ladis' },
+    ],
+    faqs: [
+      {
+        question: 'Wie lange dauert der Transfer vom Flughafen Innsbruck nach Seefeld?',
+        answer:
+          'Die Fahrt dauert je nach Verkehr, Wetter und genauem Ziel in Seefeld etwa 20–25 Minuten. Die Straßenentfernung beträgt rund 22–25 km.',
+      },
+      {
+        question: 'Wie komme ich vom Flughafen Innsbruck nach Seefeld?',
+        answer:
+          'Ein privater Chauffeur bringt Sie über die B177 direkt vom Flughafen Innsbruck nach Seefeld, mit Tür-zu-Tür-Service zu Ihrer Unterkunft.',
+      },
+      {
+        question: 'Bieten Sie Skitransfers nach Seefeld an?',
+        answer: 'Ja — Skitaschen, Snowboards und zusätzliches Gepäck können bei entsprechender Fahrzeugbuchung berücksichtigt werden.',
+      },
+      {
+        question: 'Können Sie mich stattdessen an meinem Innsbrucker Hotel abholen?',
+        answer: 'Ja — wir holen Sie auch an zentralen Innsbrucker Hotels, Privatadressen und anderen vereinbarten Orten ab.',
+      },
+      {
+        question: 'Bieten Sie Rücktransfers von Seefeld zum Flughafen Innsbruck an?',
+        answer: 'Ja — einfache Fahrten und Hin- und Rückfahrten zum Flughafen sind beide buchbar.',
+      },
+      {
+        question: 'Welches Fahrzeug sollte ich buchen?',
+        answer:
+          'Limousinen eignen sich für kleinere Gruppen mit normalem Gepäck. Executive Vans und Kleinbusse stehen für größere Gruppen oder zusätzliches Gepäck und Skiausrüstung zur Verfügung.',
+      },
+    ],
   },
   {
     slug: 'innsbruck-airport-to-serfaus-fiss-ladis',

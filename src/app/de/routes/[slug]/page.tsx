@@ -51,6 +51,7 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
   const relatedRoutes = routes
     .filter((r) => r.slug !== route.slug && (r.from === route.from || r.to === route.to))
     .slice(0, 3)
+  const showCrossBorderHint = Boolean(route.crossBorder)
 
   return (
     <>
@@ -75,6 +76,19 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
           url: pageUrl,
         }}
       />
+      {route.faqs && route.faqs.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: route.faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.question,
+              acceptedAnswer: { '@type': 'Answer', text: f.answer },
+            })),
+          }}
+        />
+      )}
 
       <section className="border-b border-brand-line bg-brand-ink text-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
@@ -91,24 +105,164 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
             </p>
           </div>
           <div className="lg:col-span-5">
-            <HeroQuoteCard locale="de" pickup={route.from} dropoff={route.to} />
+            <HeroQuoteCard
+              locale="de"
+              pickup={route.from}
+              dropoff={route.to}
+              showCrossBorderHint={showCrossBorderHint}
+              dropoffHint={route.dropoffHint}
+            />
           </div>
         </div>
       </section>
 
+      {route.routeOverview && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Streckenübersicht</h2>
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full min-w-[420px] text-left text-sm">
+                <tbody className="divide-y divide-brand-line">
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Flughafen</td>
+                    <td className="py-3 text-brand-ink-2/80">{route.from}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Ziel</td>
+                    <td className="py-3 text-brand-ink-2/80">{route.to}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Entfernung</td>
+                    <td className="py-3 text-brand-ink-2/80">{route.distance}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Typische Fahrzeit</td>
+                    <td className="py-3 text-brand-ink-2/80">{route.driveTime}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Strecke</td>
+                    <td className="py-3 text-brand-ink-2/80">{route.routeOverview.road}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Transferart</td>
+                    <td className="py-3 text-brand-ink-2/80">{route.routeOverview.transferType}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Fahrzeug</td>
+                    <td className="py-3 text-brand-ink-2/80">{route.routeOverview.vehicleNote}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 text-xs text-brand-ink-2/60">
+              Die Fahrzeiten sind Näherungswerte und können je nach Verkehr, Wetter und genauem Abhol- oder Hotelort variieren.
+            </p>
+          </div>
+        </section>
+      )}
+
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-        <h2 className="font-display text-xl text-brand-ink">Warum diese Strecke privat buchen</h2>
-        <ul className="mt-4 space-y-2 text-sm text-brand-ink-2">
-          {route.whyBook.map((item) => (
-            <li key={item} className="flex items-start gap-2">
-              <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-              {item}
-            </li>
-          ))}
-        </ul>
+        <h2 className="font-display text-xl text-brand-ink">
+          {route.whyBookPoints ? `Warum einen Transfer ${route.from} → ${route.to} buchen?` : 'Warum diese Strecke privat buchen'}
+        </h2>
+        {route.whyBookPoints ? (
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {route.whyBookPoints.map((point) => (
+              <div key={point.title} className="rounded-sm border border-brand-line p-5">
+                <p className="font-semibold text-brand-ink">{point.title}</p>
+                <p className="mt-1.5 text-sm text-brand-ink-2/70">{point.description}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <ul className="mt-4 space-y-2 text-sm text-brand-ink-2">
+            {route.whyBook.map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
 
-      {(origin || relatedRoutes.length > 0) && (
+      {route.destinationCoverage && (
+        <section className="border-y border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{route.destinationCoverage.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{route.destinationCoverage.intro}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {route.destinationCoverage.items.map((item) => (
+                <span key={item} className="rounded-full border border-brand-line bg-white px-3 py-1 text-xs font-semibold text-brand-ink-2">
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {route.flightTrackingSection && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{route.flightTrackingSection.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{route.flightTrackingSection.description}</p>
+          </div>
+        </section>
+      )}
+
+      {route.winterSection && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{route.winterSection.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{route.winterSection.description}</p>
+            <Link
+              href={route.winterSection.linkHref}
+              className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+            >
+              {route.winterSection.linkLabel}
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {route.returnSection && (
+        <section className="border-b border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{route.returnSection.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{route.returnSection.description}</p>
+          </div>
+        </section>
+      )}
+
+      {route.borderSection && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{route.borderSection.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{route.borderSection.description}</p>
+          </div>
+        </section>
+      )}
+
+      {route.luggageNote && (
+        <section className="border-b border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{route.luggageNote.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{route.luggageNote.description}</p>
+          </div>
+        </section>
+      )}
+
+      {route.originAlternative && (
+        <section className="border-b border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{route.originAlternative.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{route.originAlternative.description}</p>
+          </div>
+        </section>
+      )}
+
+      {(origin || relatedRoutes.length > 0 || route.relatedAirportRoutes) && (
         <section className="border-t border-brand-line">
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
             {origin && (
@@ -119,21 +273,55 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
                 </Link>
               </p>
             )}
-            {relatedRoutes.length > 0 && (
+            {route.relatedAirportRoutes ? (
               <div className={origin ? 'mt-6' : ''}>
-                <h2 className="font-display text-xl text-brand-ink">Ähnliche Strecken</h2>
-                <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
-                  {relatedRoutes.map((r) => (
-                    <li key={r.slug} className="flex items-start gap-2">
-                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                      <Link href={`/de/routes/${r.slug}`} className="hover:text-brand-gold hover:underline">
-                        {r.from} → {r.to}
-                      </Link>
-                    </li>
+                <h2 className="font-display text-xl text-brand-ink">Weitere Transfers ab {route.from}</h2>
+                <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                  {route.relatedAirportRoutes.map((r) => (
+                    <Link
+                      key={r.href}
+                      href={r.href}
+                      className="rounded-sm border border-brand-line p-4 text-sm transition-colors hover:border-brand-gold"
+                    >
+                      <p className="font-semibold text-brand-ink">{r.label}</p>
+                      <p className="mt-1 text-brand-ink-2/70">{r.distance} · {r.duration}</p>
+                    </Link>
                   ))}
-                </ul>
+                </div>
               </div>
+            ) : (
+              relatedRoutes.length > 0 && (
+                <div className={origin ? 'mt-6' : ''}>
+                  <h2 className="font-display text-xl text-brand-ink">Ähnliche Strecken</h2>
+                  <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
+                    {relatedRoutes.map((r) => (
+                      <li key={r.slug} className="flex items-start gap-2">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+                        <Link href={`/de/routes/${r.slug}`} className="hover:text-brand-gold hover:underline">
+                          {r.from} → {r.to}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
             )}
+          </div>
+        </section>
+      )}
+
+      {route.faqs && route.faqs.length > 0 && (
+        <section className="border-t border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Häufig gestellte Fragen</h2>
+            <dl className="mt-6 divide-y divide-brand-line">
+              {route.faqs.map((f) => (
+                <div key={f.question} className="py-6 first:pt-0">
+                  <dt className="font-display text-base text-brand-ink">{f.question}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-brand-ink-2/80">{f.answer}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
       )}
@@ -145,6 +333,8 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
         description="Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
         pickup={route.from}
         dropoff={route.to}
+        showCrossBorderHint={showCrossBorderHint}
+        dropoffHint={route.dropoffHint}
       />
     </>
   )

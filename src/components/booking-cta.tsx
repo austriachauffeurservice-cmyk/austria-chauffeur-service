@@ -60,6 +60,8 @@ export function BookingCta({
   pickup,
   dropoff,
   id,
+  showCrossBorderHint = true,
+  dropoffHint,
 }: {
   locale?: Locale
   pageType: BookingCtaPageType
@@ -68,6 +70,8 @@ export function BookingCta({
   pickup?: string
   dropoff?: string
   id?: string
+  showCrossBorderHint?: boolean
+  dropoffHint?: string
 }) {
   const t = emailBlurbs[locale]
   return (
@@ -78,7 +82,13 @@ export function BookingCta({
       </div>
       <div className="mx-auto max-w-2xl px-4 pb-16 sm:px-6">
         <div className="rounded-sm border border-brand-line bg-white p-6 sm:p-8">
-          <BookingForm locale={locale} defaultPickup={pickup} defaultDropoff={dropoff} />
+          <BookingForm
+            locale={locale}
+            defaultPickup={pickup}
+            defaultDropoff={dropoff}
+            showCrossBorderHint={showCrossBorderHint}
+            dropoffHint={dropoffHint}
+          />
         </div>
         <p className="mt-6 text-center text-sm text-brand-cream/70">{t[pageType](emailLink(locale))}</p>
       </div>

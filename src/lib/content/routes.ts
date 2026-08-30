@@ -12,6 +12,24 @@ export type RoutePair = {
   // signal audit); leave unset everywhere else so the template stays DRY.
   seoTitle?: string
   seoDescription?: string
+  // Flagship enrichment fields — optional so only specifically differentiated
+  // route pages (see the Aug 2026 route-page audit) render the expanded
+  // sections; other routes keep the original compact template.
+  routeOverview?: { road: string; transferType: string; vehicleNote: string }
+  whyBookPoints?: { title: string; description: string }[]
+  destinationCoverage?: { heading: string; intro: string; items: string[] }
+  winterSection?: { heading: string; description: string; linkHref: string; linkLabel: string }
+  luggageNote?: { heading: string; description: string }
+  returnSection?: { heading: string; description: string }
+  originAlternative?: { heading: string; description: string }
+  borderSection?: { heading: string; description: string }
+  flightTrackingSection?: { heading: string; description: string }
+  relatedAirportRoutes?: { label: string; distance: string; duration: string; href: string }[]
+  faqs?: { question: string; answer: string }[]
+  // Replaces the booking form's generic cross-border example text (e.g.
+  // "Bratislava, Slovakia or Munich, Germany") with route-specific guidance,
+  // since a flagship route already knows its own destination.
+  dropoffHint?: string
 }
 
 export const routes: RoutePair[] = [
@@ -380,18 +398,121 @@ export const routes: RoutePair[] = [
     from: 'Vienna Airport (VIE)',
     to: 'Bratislava',
     distance: '~65km',
-    driveTime: '~45m',
-    routeDescription: 'East via A4 and A6 motorways through Kittsee across the border to Bratislava — booked in either direction, arrival or departure.',
+    driveTime: 'typically ~45–60m',
+    routeDescription:
+      'Via the A4 and A6 motorways through Kittsee, with direct service between Vienna Airport and Bratislava in either direction.',
     whyBook: [
-      'Shortest capital-to-capital transfer in Central Europe',
+      'A short, direct airport transfer into Bratislava',
       'Covers both directions — VIE arrivals heading into Slovakia, and Bratislava departures connecting to a flight at Vienna Airport',
       'Fast, direct, and fixed price door-to-door',
       'Group transfers available — Executive Van (up to 7) or Minibus (up to 16) for families, colleagues, or larger parties, subject to vehicle availability',
     ],
     crossBorder: true,
-    seoTitle: 'Vienna Airport to Bratislava Transfer | 45 Minutes, Fixed Price',
+    seoTitle: 'Vienna Airport to Bratislava Transfer | Private Chauffeur',
     seoDescription:
-      'Private transfer between Vienna Airport and Bratislava — 65km, ~45 minutes, fixed price door-to-door. Individual and group transfers, covering both arrivals into VIE and departures from Bratislava.',
+      'Private chauffeur transfer from Vienna Airport (VIE) to Bratislava. Door-to-door service, flight tracking, fixed pricing, and direct cross-border travel.',
+    dropoffHint: 'Your destination is Bratislava. Enter your exact hotel, residence, or business address in the drop-off field.',
+    routeOverview: {
+      road: 'A4 / A6 via Kittsee',
+      transferType: 'Private, door-to-door',
+      vehicleNote: 'Sedan, Executive Van, or Minibus',
+    },
+    whyBookPoints: [
+      {
+        title: 'Meet & Greet at Arrivals',
+        description: 'Your chauffeur meets you in the arrivals hall with a name board.',
+      },
+      {
+        title: 'Flight Tracking',
+        description: "Provide your flight number and we'll monitor the arrival time.",
+      },
+      {
+        title: 'Direct Door-to-Door Transfer',
+        description: 'Travel directly from Vienna Airport to your Bratislava hotel, residence, or business address.',
+      },
+      {
+        title: 'No Vehicle Change at the Border',
+        description: 'Stay in the same private vehicle throughout the journey.',
+      },
+      {
+        title: 'Fixed Price',
+        description: 'Your transfer price is confirmed before travel.',
+      },
+      {
+        title: 'Groups & Extra Luggage',
+        description: 'Executive Vans and Minibuses are available for larger groups, subject to vehicle availability.',
+      },
+    ],
+    destinationCoverage: {
+      heading: 'Where Can We Drop You in Bratislava?',
+      intro:
+        "Whether you're staying in Bratislava's Old Town, near Bratislava Castle, at a city-centre hotel, or at a private residence, your chauffeur takes you directly to the destination provided at booking. We can also continue to:",
+      items: [
+        'Bratislava Old Town',
+        'City-centre hotels',
+        'Bratislava Castle area',
+        'Business addresses',
+        'Private residences',
+        'Bratislava Airport (BTS)',
+        'Railway station',
+      ],
+    },
+    flightTrackingSection: {
+      heading: 'Flight Tracking for Vienna Airport Pickups',
+      description:
+        "Provide your flight number when booking and we monitor the scheduled arrival. If your flight is delayed or arrives early, pickup timing can be adjusted accordingly.",
+    },
+    returnSection: {
+      heading: 'Bratislava to Vienna Airport',
+      description:
+        'Flying from Vienna Airport after staying in Bratislava? Your chauffeur can collect you directly from your hotel, residence, or business address and take you to VIE for your flight. Allow additional time for airport check-in and seasonal traffic when selecting your pickup time.',
+    },
+    borderSection: {
+      heading: 'Crossing from Austria into Slovakia',
+      description:
+        'Vienna Airport to Bratislava crosses the Austrian–Slovak border near Kittsee. Austria and Slovakia are both in the Schengen Area, so there is normally no routine border stop. Temporary controls can be introduced, however, so passengers should carry valid photo ID. Your chauffeur and vehicle remain with you throughout the journey.',
+    },
+    luggageNote: {
+      heading: 'Traveling With Extra Luggage?',
+      description:
+        "Let us know if you're traveling with large suitcases, sports equipment, a stroller, or other bulky items so we can assign a suitable vehicle. Executive Vans and Minibuses are available for larger groups, subject to vehicle availability.",
+    },
+    relatedAirportRoutes: [
+      { label: 'Vienna Airport → Salzburg', distance: '~300km', duration: '~2h 45m – 3h', href: '/routes/vienna-airport-to-salzburg' },
+      { label: 'Vienna Airport → Graz', distance: '~200km', duration: '~2h 15m', href: '/routes/vienna-airport-to-graz' },
+      { label: 'Vienna Airport → Budapest', distance: '~230km', duration: '~2h 15m', href: '/routes/vienna-airport-to-budapest' },
+      { label: 'Vienna → Bratislava', distance: '~80km', duration: '~1h', href: '/routes/vienna-to-bratislava' },
+    ],
+    faqs: [
+      {
+        question: 'How long does Vienna Airport to Bratislava take?',
+        answer: 'The journey is typically around 45–60 minutes, depending on traffic, weather, and your final destination in Bratislava.',
+      },
+      {
+        question: 'How far is Vienna Airport from Bratislava?',
+        answer: 'The road distance is approximately 65 km, depending on the exact destination.',
+      },
+      {
+        question: 'Do you track my flight?',
+        answer: 'Yes. Provide your flight number when booking and we monitor the scheduled arrival so pickup timing can be adjusted if the flight changes.',
+      },
+      {
+        question: 'Where will my chauffeur meet me at Vienna Airport?',
+        answer: 'Your chauffeur meets you in the arrivals hall with a name board and takes you directly to your vehicle.',
+      },
+      {
+        question: 'Do I need to change vehicles at the border?',
+        answer: 'No. The same chauffeur and private vehicle remain with you throughout the transfer.',
+      },
+      {
+        question: 'Can I book Bratislava to Vienna Airport?',
+        answer: 'Yes. Transfers are available in both directions, including hotel, residence, and business-address pickups in Bratislava.',
+      },
+      {
+        question: 'Can I travel with a group or extra luggage?',
+        answer: 'Yes. Executive Vans and Minibuses are available for larger groups and additional luggage, subject to vehicle availability.',
+      },
+    ],
   },
   {
     slug: 'vienna-airport-to-budapest',
@@ -838,19 +959,121 @@ export const routes: RoutePair[] = [
     slug: 'innsbruck-airport-to-seefeld',
     from: 'Innsbruck Airport (INN)',
     to: 'Seefeld in Tirol',
-    distance: '~25km',
-    driveTime: '~25m',
+    distance: '~22–25km',
+    driveTime: '~20–25m',
     routeDescription:
-      'North via the B177 Zirler Berg road, climbing out of the Inn Valley onto the Seefeld plateau — one of the shortest airport-to-resort drives in Austria.',
+      'Via the B177 Seefelder Straße and Zirler Berg, climbing from the Inn Valley to the Seefeld plateau — a short, direct route from the airport.',
     whyBook: [
-      'The shortest airport transfer of any major Tyrolean resort',
-      'Direct to Seefeld\'s hotels, avoiding the regional train and a village shuttle',
+      'A short, direct transfer from Innsbruck Airport to Seefeld',
+      'Direct to your Seefeld hotel, without changing between airport transport and regional rail',
       'Well suited to the car-free village\'s pedestrian center',
-      'Pickup from central Innsbruck hotels works the same way — the airport sits only about 4km outside the city, so timing barely changes',
     ],
-    seoTitle: 'Innsbruck to Seefeld Transfer | Airport or City, 25 Minutes',
+    seoTitle: 'Innsbruck Airport to Seefeld Transfer | Private Chauffeur',
     seoDescription:
-      'Private chauffeur transfer from Innsbruck Airport or central Innsbruck to Seefeld in Tirol — about 25km, 25 minutes, fixed price, direct to your hotel.',
+      'Private chauffeur transfer from Innsbruck Airport or central Innsbruck to Seefeld in Tirol — around 22–25 km, 20–25 minutes, fixed price, door-to-door.',
+    routeOverview: {
+      road: 'B177 / Seefelder Straße',
+      transferType: 'Private, door-to-door',
+      vehicleNote: 'Sedan, Executive Van, or Minibus',
+    },
+    whyBookPoints: [
+      {
+        title: 'Direct to Your Hotel',
+        description: 'Travel directly from Innsbruck Airport to your Seefeld accommodation without arranging separate connections.',
+      },
+      {
+        title: "One of Austria's Shortest Airport-to-Alps Transfers",
+        description: 'Seefeld is only around 22–25 km from Innsbruck Airport, making it a particularly convenient Tyrol arrival point.',
+      },
+      {
+        title: 'Meet & Greet at Arrivals',
+        description: 'Your chauffeur waits in the arrivals area with your name board and helps with luggage.',
+      },
+      {
+        title: 'Private Vehicle',
+        description: 'Travel without shared passengers or unnecessary stops.',
+      },
+      {
+        title: 'Fixed Pricing',
+        description: 'Your transfer price is confirmed before the journey.',
+      },
+      {
+        title: 'Door-to-Door Service',
+        description: 'Go directly to your hotel, chalet, apartment, or private residence in Seefeld.',
+      },
+    ],
+    destinationCoverage: {
+      heading: 'Seefeld Hotel & Accommodation Transfers',
+      intro:
+        'We provide direct airport pickup to hotels, apartments, chalets, and private residences throughout Seefeld in Tirol.',
+      items: [
+        'Seefeld village centre',
+        'Seefeld pedestrian zone',
+        'Seefeld railway station',
+        'Hotels and resorts',
+        'Apartments and holiday homes',
+        'Private residences',
+      ],
+    },
+    winterSection: {
+      heading: 'Winter & Ski Transfers to Seefeld',
+      description:
+        'Traveling to Seefeld for skiing or a winter holiday? We provide private airport transfers with space for ski equipment and additional luggage. Your chauffeur takes you directly from Innsbruck Airport to your hotel or accommodation in Seefeld.',
+      linkHref: '/ski-transfers/seefeld',
+      linkLabel: 'Ski Transfers to Seefeld →',
+    },
+    luggageNote: {
+      heading: 'Traveling with Ski Equipment or Extra Luggage?',
+      description:
+        "Let us know about ski bags, snowboards, children's equipment, or oversized luggage when booking so we can assign a suitable vehicle — an Executive Van or Minibus if space is tight.",
+    },
+    returnSection: {
+      heading: 'Seefeld to Innsbruck Airport',
+      description:
+        'Returning home from Seefeld? We can collect you directly from your hotel, apartment, or private address and take you to Innsbruck Airport for your departure. We recommend allowing extra time during winter and busy travel periods.',
+    },
+    originAlternative: {
+      heading: 'Starting in Innsbruck Instead?',
+      description:
+        "The same private chauffeur service is available from hotels and private addresses in central Innsbruck. If you're staying in the city before continuing to Seefeld, enter your hotel or address as the pickup point when booking.",
+    },
+    relatedAirportRoutes: [
+      { label: 'Kitzbühel', distance: '~90km', duration: '~1h', href: '/routes/innsbruck-airport-to-kitzbuehel' },
+      { label: 'St. Anton am Arlberg', distance: '~100km', duration: '~1h 10m', href: '/routes/innsbruck-airport-to-st-anton' },
+      { label: 'Sölden', distance: '~85km', duration: '~1h 10m', href: '/routes/innsbruck-airport-to-soelden' },
+      { label: 'Mayrhofen', distance: '~75km', duration: '~1h', href: '/routes/innsbruck-airport-to-mayrhofen' },
+      { label: 'Ischgl', distance: '~100km', duration: '~1h 15m', href: '/routes/innsbruck-airport-to-ischgl' },
+      { label: 'Serfaus-Fiss-Ladis', distance: '~85km', duration: '~1h 15m', href: '/routes/innsbruck-airport-to-serfaus-fiss-ladis' },
+    ],
+    faqs: [
+      {
+        question: 'How long is the transfer from Innsbruck Airport to Seefeld?',
+        answer:
+          'The drive takes approximately 20–25 minutes, depending on traffic, weather, and your exact destination in Seefeld. The road distance is around 22–25 km.',
+      },
+      {
+        question: 'How do I get from Innsbruck Airport to Seefeld?',
+        answer:
+          'A private chauffeur takes you directly from Innsbruck Airport via the B177 to Seefeld, with door-to-door service to your accommodation.',
+      },
+      {
+        question: 'Do you provide ski transfers to Seefeld?',
+        answer: 'Yes — ski bags, snowboards, and additional luggage can be accommodated when the appropriate vehicle is booked.',
+      },
+      {
+        question: 'Can you pick me up from my Innsbruck hotel instead?',
+        answer: 'Yes — we can collect passengers from central Innsbruck hotels, private addresses, and other agreed pickup points.',
+      },
+      {
+        question: 'Do you offer return transfers from Seefeld to Innsbruck Airport?',
+        answer: 'Yes — one-way and return airport transfers are both available.',
+      },
+      {
+        question: 'What vehicle should I book?',
+        answer:
+          'Sedans suit smaller parties with standard luggage. Executive Vans and Minibuses are available for larger groups or passengers travelling with additional luggage or ski equipment.',
+      },
+    ],
   },
   {
     slug: 'innsbruck-airport-to-serfaus-fiss-ladis',
