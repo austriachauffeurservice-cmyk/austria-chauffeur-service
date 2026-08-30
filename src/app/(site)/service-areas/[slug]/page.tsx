@@ -338,15 +338,18 @@ export default async function LocationPage({ params }: { params: Promise<Params>
       popularRoutes,
       intro,
       routeOverview,
+      pickupIntro,
       pickupLocations,
       destinationsServed,
       airportSection,
+      destinationAirportSection,
       extraRoutes,
       whyChauffeur,
       borderInfo,
       returnInfo,
       faqs,
     } = location.data
+    const hasRouteDistance = Boolean(routeOverview?.some((r) => r.distance))
     const pageUrl = `${siteUrl}/service-areas/${slug}`
     const countryLabel = borderCrossingDestinations.find((d) => d.slug === countrySlug)?.country ?? country
     const relatedPosts = findRelatedPosts([city, country])
@@ -417,7 +420,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
                   <thead>
                     <tr className="border-b border-brand-line text-xs font-semibold uppercase tracking-wide text-brand-ink-2/60">
                       <th className="pb-3 pr-4">Route</th>
-                      <th className="pb-3 pr-4">Distance</th>
+                      {hasRouteDistance && <th className="pb-3 pr-4">Distance</th>}
                       <th className="pb-3">Typical Drive Time</th>
                     </tr>
                   </thead>
@@ -425,7 +428,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
                     {routeOverview.map((r) => (
                       <tr key={r.route}>
                         <td className="py-3 pr-4 font-semibold text-brand-ink">{r.route}</td>
-                        <td className="py-3 pr-4 text-brand-ink-2/80">{r.distance}</td>
+                        {hasRouteDistance && <td className="py-3 pr-4 text-brand-ink-2/80">{r.distance}</td>}
                         <td className="py-3 text-brand-ink-2/80">{r.duration}</td>
                       </tr>
                     ))}
@@ -433,7 +436,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
                 </table>
               </div>
               <p className="mt-3 text-xs text-brand-ink-2/60">
-                Approximate figures — actual drive time depends on traffic and your exact pickup point.
+                Journey times are approximate and depend on traffic, pickup location, and final destination.
               </p>
             </div>
           </section>
@@ -443,6 +446,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
           <section className="border-b border-brand-line bg-brand-cream">
             <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
               <h2 className="font-display text-xl text-brand-ink">Where Can We Pick You Up in Austria?</h2>
+              {pickupIntro && <p className="mt-3 max-w-2xl text-brand-ink-2/90">{pickupIntro}</p>}
               <ul className="mt-4 space-y-2 text-sm text-brand-ink-2">
                 {pickupLocations.map((p) => (
                   <li key={p} className="flex items-start gap-2">
@@ -501,11 +505,35 @@ export default async function LocationPage({ params }: { params: Promise<Params>
           <section className="border-b border-brand-line bg-white">
             <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
               <h2 className="font-display text-xl text-brand-ink">{city} Destination Coverage</h2>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {destinationsServed.map((d) => (
-                  <span key={d} className="rounded-full border border-brand-line px-3 py-1 text-xs font-semibold text-brand-ink-2">
-                    {d}
-                  </span>
+                  <div key={d.title} className="rounded-sm border border-brand-line p-5">
+                    <p className="font-semibold text-brand-ink">{d.title}</p>
+                    <p className="mt-1.5 text-sm text-brand-ink-2/70">{d.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {isEnriched && destinationAirportSection && (
+          <section className="border-y border-brand-line bg-brand-cream">
+            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-xl text-brand-ink">{destinationAirportSection.heading}</h2>
+              <p className="mt-4 max-w-2xl text-brand-ink-2/90">{destinationAirportSection.description}</p>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {destinationAirportSection.routes.map((r) => (
+                  <div key={r.label} className="rounded-sm border border-brand-line bg-white p-5">
+                    {r.href ? (
+                      <Link href={r.href} className="font-semibold text-brand-ink hover:text-brand-gold hover:underline">
+                        {r.label}
+                      </Link>
+                    ) : (
+                      <p className="font-semibold text-brand-ink">{r.label}</p>
+                    )}
+                    <p className="mt-1.5 text-sm text-brand-ink-2/70">{r.description}</p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -515,7 +543,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
         {isEnriched && whyChauffeur && whyChauffeur.length > 0 && (
           <section className="border-b border-brand-line bg-brand-cream">
             <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-              <h2 className="font-display text-xl text-brand-ink">Why Choose a Private {country}–{city} Chauffeur?</h2>
+              <h2 className="font-display text-xl text-brand-ink">Why Choose a Private Chauffeur from Austria to {city}?</h2>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {whyChauffeur.map((point) => (
                   <div key={point.title} className="rounded-sm border border-brand-line bg-white p-5">

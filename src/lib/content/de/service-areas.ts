@@ -59,10 +59,16 @@ export type BorderCity = {
   seoDescription?: string
   description?: string
   intro?: string
-  routeOverview?: { route: string; distance: string; duration: string }[]
+  routeOverview?: { route: string; distance?: string; duration: string }[]
+  pickupIntro?: string
   pickupLocations?: string[]
-  destinationsServed?: string[]
+  destinationsServed?: { title: string; description: string }[]
   airportSection?: { heading: string; description: string; routeHref: string; routeLabel: string }
+  destinationAirportSection?: {
+    heading: string
+    description: string
+    routes: { label: string; description: string; href?: string }[]
+  }
   extraRoutes?: { label: string; description: string; href?: string }[]
   whyChauffeur?: WhyChauffeurPoint[]
   borderInfo?: string
@@ -907,7 +913,7 @@ export const borderCities: BorderCity[] = [
     city: 'Bratislava',
     countrySlug: 'slovakia',
     country: 'Slowakei',
-    via: 'über die A4 / A6-Autobahn',
+    via: 'über die Autobahnen A4 und A6',
     popularRoutes: ['Wien → Bratislava', 'Flughafen Wien → Bratislava'],
     seoTitle: 'Österreich nach Bratislava Transfer | Privater Chauffeurservice',
     seoDescription:
@@ -917,20 +923,24 @@ export const borderCities: BorderCity[] = [
     intro:
       'Private Chauffeurtransfers von Wien, dem Flughafen Wien und Zielen in ganz Österreich nach Bratislava, Slowakei. Tür-zu-Tür-Service, ein vor der Fahrt bestätigter Festpreis und kein Fahrzeugwechsel an der Grenze.',
     routeOverview: [
-      { route: 'Wien → Bratislava', distance: '~80 km', duration: '~1 Stunde' },
-      { route: 'Flughafen Wien → Bratislava', distance: '~65 km', duration: '~45 Minuten' },
+      { route: 'Wien → Bratislava', duration: '~50–70 Minuten' },
+      { route: 'Flughafen Wien → Bratislava', duration: '~45–60 Minuten' },
     ],
+    pickupIntro:
+      'Wir organisieren private Abholungen ab Wien, dem Flughafen Wien und anderen österreichischen Städten und Regionen auf Anfrage.',
     pickupLocations: [
-      'Wien — Hotels und Privatadressen',
+      'Wiener Hotels & Privatadressen',
       'Flughafen Wien (VIE)',
-      'Andere österreichische Städte und Regionen auf Anfrage',
+      'Geschäftsadressen',
+      'Bahnhöfe',
+      'Andere österreichische Städte und Regionen',
     ],
     destinationsServed: [
-      'Bratislavas Altstadt',
-      'Hotels im Stadtzentrum von Bratislava',
-      'Flughafen Bratislava (BTS)',
-      'Geschäftsadressen und Büros',
-      'Privatadressen',
+      { title: 'Altstadt', description: 'Zentrales Bratislava und die historische Altstadt.' },
+      { title: 'Hotels', description: 'Hotels im Stadtzentrum und Umgebung von Bratislava.' },
+      { title: 'Flughafen Bratislava', description: 'Direkte Transfers von und zum BTS.' },
+      { title: 'Geschäftsadressen', description: 'Büros, Meetings und Geschäftsreisen.' },
+      { title: 'Privatadressen', description: 'Tür-zu-Tür-Abholung und Ablieferung an Wohnadressen.' },
     ],
     airportSection: {
       heading: 'Flughafen Wien nach Bratislava',
@@ -938,6 +948,25 @@ export const borderCities: BorderCity[] = [
         'Ankunft am Flughafen Wien mit Weiterfahrt nach Bratislava? Ihr Chauffeur empfängt Sie in der Ankunftshalle, hilft beim Gepäck und fährt Sie direkt zu Ihrem Hotel, Ihrer Wohnadresse oder Geschäftsadresse in Bratislava — rund 45 Minuten über die Autobahnen A4 und A6.',
       routeHref: '/routes/vienna-airport-to-bratislava',
       routeLabel: 'Route Flughafen Wien nach Bratislava →',
+    },
+    destinationAirportSection: {
+      heading: 'Flughafen Bratislava (BTS) Transfers',
+      description:
+        'Fliegen Sie lieber ab Bratislava statt ab Wien? Wir holen Sie an einem Wiener Hotel, am Flughafen Wien oder einer anderen österreichischen Adresse ab und fahren Sie direkt zum BTS-Terminal — und die gleiche Strecke funktioniert auch umgekehrt für BTS-Ankünfte nach Österreich.',
+      routes: [
+        {
+          label: 'Wien → Flughafen Bratislava',
+          description: 'Privater Transfer von Wiener Hotels, Wohn- oder Geschäftsadressen direkt zum BTS.',
+        },
+        {
+          label: 'Flughafen Wien → Flughafen Bratislava',
+          description: 'Verbindung zwischen den beiden Flughäfen für einen Anschlussflug oder Weitertransport.',
+        },
+        {
+          label: 'Flughafen Bratislava → Wien',
+          description: 'BTS-Ankünfte mit direkter Weiterfahrt zu einer Wiener Hotel-, Wohn- oder Geschäftsadresse.',
+        },
+      ],
     },
     extraRoutes: [
       {
@@ -953,7 +982,6 @@ export const borderCities: BorderCity[] = [
       {
         label: 'Bratislava → Wien / Flughafen Wien',
         description: 'Rückfahrt zu jeder Wiener Adresse oder direkt zu Ihrem Abflug.',
-        href: '/routes/vienna-to-bratislava',
       },
       {
         label: 'Andere österreichische Orte',
@@ -975,7 +1003,7 @@ export const borderCities: BorderCity[] = [
       },
       {
         title: 'Professioneller Chauffeur',
-        description: 'Ein erfahrener Fahrer, der mit der Strecke Österreich–Slowakei und dem Grenzübertritt vertraut ist.',
+        description: 'Ein professioneller Chauffeur, der mit der Strecke Österreich–Slowakei und grenzüberschreitenden Fahrten vertraut ist.',
       },
       {
         title: 'Privates Fahrzeug',
@@ -987,9 +1015,9 @@ export const borderCities: BorderCity[] = [
       },
     ],
     borderInfo:
-      'Ihr Chauffeur und Fahrzeug bleiben während der gesamten Fahrt über die Grenze zwischen Österreich und der Slowakei bei Ihnen — es ist kein Zwischenstopp zum Fahrzeugwechsel nötig. Österreich und die Slowakei sind beide Teil des Schengen-Raums, daher gibt es an dieser Grenze normalerweise keine routinemäßige Passkontrolle, auch wenn gelegentlich vorübergehende Kontrollen eingeführt werden können, insbesondere an Feiertagen. Wir empfehlen trotzdem, einen gültigen Lichtbildausweis mitzuführen.',
+      'Ihr Chauffeur und Fahrzeug bleiben während der gesamten Fahrt über die Grenze zwischen Österreich und der Slowakei bei Ihnen — es ist kein Zwischenstopp zum Fahrzeugwechsel nötig. Österreich und die Slowakei sind beide Teil des Schengen-Raums, daher gibt es an dieser Grenze normalerweise keine routinemäßige Passkontrolle, allerdings können gelegentlich vorübergehende Grenzkontrollen eingeführt werden, insbesondere an Feiertagen. Wir empfehlen trotzdem, einen gültigen Lichtbildausweis mitzuführen.',
     returnInfo:
-      'Rückfahrt nach Wien oder zum Flughafen Wien? Einfache Fahrten und Hin- und Rückfahrten sind beide buchbar — angesichts der kurzen Fahrzeit ist auch eine Rückfahrt am selben Tag realistisch, und ein Rückflug ab dem Flughafen Wien kann genauso gebucht werden wie die Hinfahrt.',
+      'Einfache Fahrten und Hin- und Rückfahrten sind zwischen Bratislava, Wien und dem Flughafen Wien buchbar — ein Rückflug ab dem Flughafen Wien kann genauso gebucht werden wie die Hinfahrt.',
     faqs: [
       {
         question: 'Wie lange dauert ein privater Transfer von Wien nach Bratislava?',
@@ -997,7 +1025,8 @@ export const borderCities: BorderCity[] = [
       },
       {
         question: 'Wie weit ist Wien von Bratislava entfernt?',
-        answer: 'Etwa 80 km vom Wiener Zentrum oder rund 65 km ab dem Flughafen Wien — eine der kürzesten Hauptstadt-zu-Hauptstadt-Fahrten Europas.',
+        answer:
+          'Die Straßenentfernung hängt von Ihrem genauen Abhol- und Zielort ab, aber das Wiener Zentrum und Bratislava liegen etwa 55–80 km auseinander. Die Fahrt dauert normalerweise rund 50–70 Minuten.',
       },
       {
         question: 'Kann ich einen Transfer vom Flughafen Wien nach Bratislava buchen?',
