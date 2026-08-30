@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
 import { HotelsSection, AttractionsSection, PopularRoutesList } from '@/components/location-sections'
 import { BookingCta } from '@/components/booking-cta'
+import { HeroQuoteCard } from '@/components/hero-quote-card'
 import { skiResorts } from '@/lib/content/ski-resorts'
 import { routes } from '@/lib/content/routes'
 import { airports } from '@/lib/content/airports'
@@ -81,18 +82,23 @@ export default async function SkiResortPage({ params }: { params: Promise<Params
       />
 
       <section className="border-b border-brand-line bg-brand-ink text-white">
-        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-            {resort.region} · Ski & Alpine Transfer
-          </p>
-          <h1 className="font-display mt-2 text-3xl sm:text-4xl">
-            Private Ski Transfer to {resort.name}
-          </h1>
-          <p className="mt-4 max-w-xl text-brand-cream/80">
-            Winter-ready vehicles, experienced alpine drivers, and space for skis and boards —
-            booked in advance with fixed pricing.
-          </p>
-          <p className="mt-3 text-sm font-semibold text-brand-gold">{resort.skiArea}</p>
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+              {resort.region} · Ski & Alpine Transfer
+            </p>
+            <h1 className="font-display mt-2 text-3xl sm:text-4xl">
+              Private Ski Transfer to {resort.name}
+            </h1>
+            <p className="mt-4 max-w-xl text-brand-cream/80">
+              Winter-ready vehicles, experienced alpine drivers, and space for skis and boards —
+              booked in advance with fixed pricing.
+            </p>
+            <p className="mt-3 text-sm font-semibold text-brand-gold">{resort.skiArea}</p>
+          </div>
+          <div className="lg:col-span-5">
+            <HeroQuoteCard pickup={resort.nearestAirports[0]?.name} dropoff={resort.name} />
+          </div>
         </div>
       </section>
 

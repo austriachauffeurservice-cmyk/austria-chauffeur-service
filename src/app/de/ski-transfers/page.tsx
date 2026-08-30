@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { skiResorts } from '@/lib/content/de/ski-resorts'
 import { siteName, siteUrl } from '@/lib/content/site'
 import { BookingCta } from '@/components/booking-cta'
+import { HeroQuoteCard } from '@/components/hero-quote-card'
 
 export const metadata: Metadata = {
   title: 'Ski- & Alpintransfers in Österreich',
@@ -27,18 +28,23 @@ export default function SkiTransfersPageDe() {
   return (
     <>
       <section className="border-b border-brand-line bg-brand-ink text-white">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-            Ski- & Alpintransfers
-          </p>
-          <h1 className="font-display mt-2 max-w-2xl text-3xl sm:text-4xl">
-            Skitransfers in Österreich
-          </h1>
-          <p className="mt-4 max-w-xl text-brand-cream/80">
-            Private Flughafen-zu-Resort-Chauffeurtransfers den ganzen Winter über — winterfeste
-            Fahrzeuge, erfahrene Alpinfahrer und Platz für Ski und Snowboards, direkt ab
-            Innsbruck, Salzburg, München oder Zürich zu Ihrem Resort.
-          </p>
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
+              Ski- & Alpintransfers
+            </p>
+            <h1 className="font-display mt-2 max-w-2xl text-3xl sm:text-4xl">
+              Skitransfers in Österreich
+            </h1>
+            <p className="mt-4 max-w-xl text-brand-cream/80">
+              Private Flughafen-zu-Resort-Chauffeurtransfers den ganzen Winter über — winterfeste
+              Fahrzeuge, erfahrene Alpinfahrer und Platz für Ski und Snowboards, direkt ab
+              Innsbruck, Salzburg, München oder Zürich zu Ihrem Resort.
+            </p>
+          </div>
+          <div className="lg:col-span-5">
+            <HeroQuoteCard locale="de" title="Festpreisangebot anfragen" />
+          </div>
         </div>
       </section>
 
