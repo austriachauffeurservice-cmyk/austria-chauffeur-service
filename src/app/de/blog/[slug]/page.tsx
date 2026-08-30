@@ -115,6 +115,14 @@ export default async function BlogPostPageDe({ params }: { params: Promise<Param
         </ul>
       )
     }
+    if (block.type === 'callout') {
+      return (
+        <div key={i} className="rounded-sm border border-brand-gold/40 bg-brand-cream p-5">
+          <p className="font-display text-base text-brand-ink">{block.heading}</p>
+          <p className="mt-2 text-sm leading-[1.6] text-brand-ink-2/90">{renderRichText(block.text)}</p>
+        </div>
+      )
+    }
     if (block.type === 'image') {
       return (
         <figure key={i} className="my-8">

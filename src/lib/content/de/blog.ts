@@ -5,6 +5,7 @@ export type BlogBlock =
   | { type: 'list'; items: string[] }
   | { type: 'table'; headers: string[]; rows: string[][] }
   | { type: 'image'; src: string; alt: string; caption?: string }
+  | { type: 'callout'; heading: string; text: string }
 
 export type BlogPost = {
   slug: string
@@ -3447,6 +3448,289 @@ export const blogPosts: BlogPost[] = [
       { label: 'Flughafentransfers München', href: '/de/airport-transfers/munich-airport' },
       { label: 'Servicegebiet München', href: '/de/service-areas/munich' },
       { label: 'Ski- & Alpintransfers', href: '/de/ski-transfers' },
+      { label: 'Buchung starten', href: '/de/booking' },
+    ],
+  },
+  {
+    slug: 'best-airports-austria-ski-resorts',
+    title: 'Die besten Flughäfen für Skigebiete in Österreich: Innsbruck, Salzburg, München & Zürich',
+    excerpt:
+      'Welcher Flughafen eignet sich am besten für Ihren Skiurlaub in Österreich? Vergleich von Innsbruck, Salzburg, München und Zürich nach Skigebiet, Fahrzeit, Flugoptionen und Winterreise.',
+    publishedAt: '2026-09-01',
+    readingTime: '10 Min. Lesezeit',
+    tags: ['Ski Transfers', 'Tyrol', 'Salzburg'],
+    seoTitle: 'Die besten Flughäfen für Skigebiete in Österreich: Innsbruck, Salzburg, München & Zürich',
+    seoDescription:
+      'Welcher Flughafen eignet sich am besten für Ihren Skiurlaub in Österreich? Vergleich von Innsbruck, Salzburg, München und Zürich nach Skigebiet, Fahrzeit, Flugoptionen und Winterreise.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: 'Die Wahl des Flughafens für einen Skiurlaub in Österreich ist nicht einfach die Frage nach dem nächstgelegenen Punkt auf der Landkarte. Die richtige Wahl hängt von Ihrem Skigebiet, Ihren Flugoptionen, der Menge an Skiausrüstung, die Sie mitbringen, und davon ab, wie viel Zeit Sie nach der Landung noch auf der Straße verbringen möchten.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Für die meisten Tiroler Skigebiete ist der Flughafen Innsbruck (INN) der naheliegende Ausgangspunkt. Für Skigebiete im Salzburger Land liegt man mit dem Flughafen Salzburg (SZG) oft richtig. Der Flughafen München (MUC) wird interessant, wenn Sie bessere internationale oder Langstreckenflugverbindungen brauchen, und der Flughafen Zürich (ZRH) ist besonders nützlich für den Arlberg und westösterreichische Skigebiete. Unser [Vergleich Innsbruck vs. Salzburg vs. München](/de/blog/innsbruck-salzburg-munich-ski-airport-guide) behandelt den Tirol-spezifischen Vergleich ausführlicher — dieser Leitfaden nimmt die breitere, ganz Österreich umfassende Perspektive ein und bezieht Zürich mit ein.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Der beste Flughafen ist mit anderen Worten derjenige, der Ihnen die beste Tür-zu-Tür-Reise ermöglicht — nicht unbedingt der kürzeste Flug oder der kürzeste Transfer für sich genommen.',
+      },
+      { type: 'heading', text: 'Kurzantwort: Welchen Flughafen sollten Sie wählen?' },
+      {
+        type: 'paragraph',
+        text: 'Wenn Sie Ihr Skigebiet bereits kennen, ist dies der einfachste Weg zur Eingrenzung:',
+      },
+      {
+        type: 'table',
+        headers: ['Skigebiet', 'Zuerst zu prüfender Flughafen', 'Typische Fahrzeit'],
+        rows: [
+          ['Kitzbühel', 'Innsbruck', '~1 Stunde'],
+          ['St. Anton am Arlberg', 'Innsbruck', '~1 Std. 10 Min.'],
+          ['Sölden', 'Innsbruck', '~1 Std. 10 Min.'],
+          ['Ischgl', 'Innsbruck', '~1 Std. 15 Min.'],
+          ['Lech-Zürs', 'Innsbruck / Zürich', '~1 Std. 30 Min. / ~2 Std. 15 Min.'],
+          ['Zell am See-Kaprun', 'Salzburg', '~1 Std. 15 Min.'],
+          ['Saalbach-Hinterglemm', 'Salzburg', '~1 Std. 20 Min.'],
+          ['Schladming', 'Salzburg', '~1 Stunde'],
+          ['Obertauern', 'Salzburg', '~1 Std. 10 Min.'],
+          ['Mayrhofen', 'Innsbruck', '~1 Stunde'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Dies sind Näherungswerte und keine Garantien. Winterwetter, Samstags-Wechseltag-Verkehr und Ihre genaue Hoteladresse können die tatsächliche Fahrzeit verändern — unser [Streckennetz](/de/ski-transfers) liefert ähnliche Transferschätzungen für diese Flughafen-Skigebiet-Kombinationen.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Kurz gesagt: Innsbruck ist die stärkste Wahl für die meisten Tiroler Skigebiete, Salzburg ist das natürliche Tor zum Salzburger Land, München lohnt sich, wenn die Flugverfügbarkeit deutlich besser ist, und Zürich wird besonders interessant für den Arlberg und Westösterreich.',
+      },
+      { type: 'heading', text: 'Flughafen Innsbruck: das natürliche Tor nach Tirol' },
+      {
+        type: 'paragraph',
+        text: 'Der [Flughafen Innsbruck](/de/airport-transfers/innsbruck-airport) (INN) ist meist der erste Flughafen, den Sie prüfen sollten, wenn Ihr Ziel in Tirol liegt. Der Flughafen liegt nur rund 15 Minuten vom Innsbrucker Stadtzentrum entfernt, während mehrere große Skigebiete in etwa einer bis anderthalb Stunden erreichbar sind — rund eine Stunde nach [Kitzbühel](/de/ski-transfers/kitzbuehel), 1 Std. 10 Min. nach [St. Anton](/de/ski-transfers/st-anton-am-arlberg) und [Sölden](/de/ski-transfers/soelden), und 1 Std. 15 Min. nach [Ischgl](/de/ski-transfers/ischgl).',
+      },
+      {
+        type: 'list',
+        items: [
+          'Kitzbühel',
+          'St. Anton am Arlberg',
+          'Sölden',
+          'Ischgl',
+          'Mayrhofen',
+          'Seefeld',
+          'Zillertal-Skigebiete',
+          'weitere Tiroler Ziele',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Wenn Ihr Skigebiet in Tirol liegt und es einen passenden Flug nach Innsbruck gibt, ist INN meist die sinnvolle erste Wahl.',
+      },
+      { type: 'subheading', text: 'Warum Innsbruck so gut funktioniert' },
+      {
+        type: 'paragraph',
+        text: 'Der Hauptvorteil ist nicht nur der Flughafen selbst — sondern das, was nach der Landung passiert. Eine kürzere Flughafen-zu-Skigebiet-Fahrt bedeutet weniger Zeit im Fahrzeug, eine einfachere Ankunft nach dem Flug, weniger Ausgesetztsein gegenüber winterlichen Verzögerungen, mehr Zeit an Ihrer Unterkunft und eine einfachere Rückreise am Abreisetag.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Die letzte Anfahrt zu vielen Skigebieten ist auch der Abschnitt, wo winterliches Fahren anspruchsvoller wird. Der Autobahnabschnitt mag unkompliziert sein, aber die letzte Tal- oder Bergstraße kann Schnee, Steigungen und stärkeren Samstagsverkehr mit sich bringen. Deshalb zählen ein wintertaugliches Fahrzeug und ein mit Alpenstrecken vertrauter Fahrer hier mehr als bei einem gewöhnlichen Stadttransfer.',
+      },
+      { type: 'heading', text: 'Flughafen Salzburg: die beste Wahl für das Salzburger Land' },
+      {
+        type: 'paragraph',
+        text: 'Der [Flughafen Salzburg](/de/airport-transfers/salzburg-airport) (SZG) ist für viele Skigebiete im Salzburger Land der zuerst zu prüfende Flughafen. Er liegt nur rund 10–15 Minuten vom Salzburger Zentrum entfernt, aber sein eigentlicher Vorteil für Skireisende ist der Cluster an Skigebieten, die von der Stadt aus erreichbar sind.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Zell am See-Kaprun',
+          'Saalbach-Hinterglemm',
+          'Schladming',
+          'Obertauern',
+          'Flachau-Wagrain',
+          'Bad Gastein',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Aktuelle Transferschätzungen in unserem Streckennetz setzen den Flughafen Salzburg bei rund 1 Std. 15 Min. nach [Zell am See-Kaprun](/de/ski-transfers/zell-am-see-kaprun), rund 1 Std. 20 Min. nach [Saalbach-Hinterglemm](/de/ski-transfers/saalbach-hinterglemm) und rund 1 Std. 10 Min. nach [Obertauern](/de/ski-transfers/obertauern) an — das macht Salzburg zu einer besonders effizienten Wahl, wenn Ihr Ziel auf der Salzburger-Land-Seite der österreichischen Alpen liegt.',
+      },
+      { type: 'subheading', text: 'Salzburg vs. Innsbruck' },
+      {
+        type: 'paragraph',
+        text: 'Hier machen es sich Reisende manchmal unnötig kompliziert. Die Lage des Flughafens relativ zu Ihrem Skigebiet zählt mehr als die Tatsache, dass alle vier Flughäfen „Österreich" bedienen.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Sölden, St. Anton oder Ischgl — zuerst Innsbruck prüfen',
+          'Zell am See oder Saalbach — zuerst Salzburg prüfen',
+        ],
+      },
+      { type: 'heading', text: 'Flughafen München: längerer Transfer, bessere Flugoptionen' },
+      {
+        type: 'paragraph',
+        text: 'Der [Flughafen München](/de/airport-transfers/munich-airport) (MUC) liegt außerhalb Österreichs, was ihn aber nicht zu einer schlechten Wahl für einen österreichischen Skiurlaub macht — im Gegenteil. München kann ein praktischer Einstiegspunkt sein, wenn Sie einen Langstreckenflug haben, es keinen passenden Flug nach Innsbruck gibt, Salzburg nur eingeschränkte Flugpläne bietet, der Preisunterschied erheblich ist, oder Sie einfach eine größere Auswahl an Flugzeiten möchten.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Der Kompromiss ist einfach: Der Flughafen liegt weiter von vielen österreichischen Skigebieten entfernt. Unser Streckennetz setzt den Flughafen München bei rund zwei Stunden nach Innsbruck, etwa 2 Std. 15 Min. nach Zell am See, rund 2 Std. 30 Min. nach Saalbach-Hinterglemm und etwa 2 Std. 45 Min. nach St. Anton an.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Die Frage lautet also nicht „Ist München näher?" — das ist es meist nicht. Die bessere Frage ist, ob der bessere Flug ab München genug Zeit, Geld oder Aufwand spart, um den längeren Straßentransfer zu rechtfertigen. Bei einem Direkt-Langstreckenflug lautet die Antwort oft ja.',
+      },
+      { type: 'heading', text: 'Flughafen Zürich: die clevere Wahl für den Arlberg' },
+      {
+        type: 'paragraph',
+        text: 'Der [Flughafen Zürich](/de/airport-transfers/zurich-airport) (ZRH) ist ein weiterer Flughafen außerhalb Österreichs, der ernsthaft in Betracht gezogen werden sollte, besonders wenn es nach Westösterreich geht — Lech-Zürs, St. Anton am Arlberg, Ischgl und weitere Vorarlberger oder Arlberg-Skigebiete.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Unsere aktuellen Streckendaten setzen den Flughafen Zürich bei rund 2 Std. 15 Min. nach Lech-Zürs und St. Anton, und rund 2 Std. 30 Min. nach Ischgl an. Warum also Zürich wählen, wenn Innsbruck näher liegt? Flugverbindungen — Zürich hat ein deutlich größeres internationales Streckennetz als Innsbruck. Für Reisende von außerhalb Europas kann ein Direkt-Langstreckenflug nach Zürich mit anschließendem privatem Transfer bequemer sein als ein Anschlussflug zu einem kleineren Alpenflughafen. Dieser Kompromiss ist besonders bei Arlberg-Reisen relevant, bei denen das Resort-Erlebnis mehr zählt als 45 Minuten Ersparnis auf der letzten Straßenetappe.',
+      },
+      { type: 'heading', text: 'Welcher Flughafen eignet sich für welches Skigebiet am besten?' },
+      {
+        type: 'table',
+        headers: ['Skigebiet', 'Zuerst zu prüfender Flughafen', 'Warum'],
+        rows: [
+          ['Kitzbühel', 'Innsbruck', '~1 Std. Fahrzeit; Salzburg und München sind länger'],
+          ['St. Anton', 'Innsbruck', '~1 Std. 10 Min.; Zürich ist eine starke internationale Alternative (~2 Std. 15 Min.)'],
+          ['Lech-Zürs', 'Innsbruck / Zürich', 'Innsbruck ist kürzer (~1 Std. 30 Min.); Zürich bietet stärkere internationale Anbindung (~2 Std. 15 Min.)'],
+          ['Ischgl', 'Innsbruck', '~1 Std. 15 Min.; Zürich eignet sich für Langstreckenankünfte (~2 Std. 30 Min.)'],
+          ['Sölden', 'Innsbruck', '~1 Std. 10 Min.; München ist deutlich länger (~2 Std. 45 Min.)'],
+          ['Mayrhofen', 'Innsbruck', '~1 Std.; natürliches Tor zum Zillertal'],
+          ['Zell am See-Kaprun', 'Salzburg', '~1 Std. 15 Min.'],
+          ['Saalbach-Hinterglemm', 'Salzburg', '~1 Std. 20 Min.'],
+          ['Schladming', 'Salzburg', '~1 Std.'],
+          ['Obertauern', 'Salzburg', '~1 Std. 10 Min.'],
+          ['Flachau-Wagrain', 'Salzburg', '~45 Min.'],
+          ['Bad Gastein', 'Salzburg', '~1 Std. 15 Min.'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Unsere bestehenden Flughafen- und [Skitransfer](/de/ski-transfers)-Seiten stützen das Gesamtbild: Innsbruck ist das wichtigste Tor für viele Tiroler Skigebiete, während Salzburg für das Salzburger Land besonders effizient ist.',
+      },
+      { type: 'heading', text: 'Und was ist mit dem Flughafen Wien?' },
+      {
+        type: 'paragraph',
+        text: 'Der Flughafen Wien ist Österreichs größtes internationales Tor, aber meist nicht die erste Wahl, wenn Ihr einziges Ziel ein großes west- oder mittelalpines Skigebiet ist. Unser Streckennetz setzt Flughafen Wien → Salzburg bei rund 300 km und etwa 2 Std. 45 Min.–3 Std. an, deutlich länger als ein Direktflug nach Salzburg für einen Skiurlaub im Salzburger Land. Das macht Wien nicht zu einem schlechten Flughafen — er kann sinnvoll sein, wenn Ihr internationaler Flug ab Wien deutlich besser ist, Sie vor dem Skifahren Zeit in der Stadt verbringen, oder Sie eine mehrstufige Chauffeur-Reiseroute planen. Für einen reinen Skiurlaub sollten Sie aber zuerst den nächstgelegenen praktikablen Flughafen prüfen.',
+      },
+      { type: 'heading', text: 'Der Flughafen mit dem kürzesten Transfer ist nicht immer der beste' },
+      {
+        type: 'paragraph',
+        text: 'Das ist wahrscheinlich der wichtigste Punkt in der ganzen Entscheidung. Stellen Sie sich zwei Optionen vor: einen Flug nach Innsbruck mit einem Anschlussflug und ungünstiger Ankunftszeit, gefolgt von einer einstündigen Fahrt — oder einen direkten, bequemen Flug nach München, gefolgt von einer 2-Std.-15-Min.-Fahrt. Option zwei kann trotzdem die bessere Reise sein. Dieselbe Logik gilt für Zürich und den Arlberg. Vergleichen Sie Flughäfen nicht nur nach Straßenentfernung — vergleichen Sie die gesamte Reise: Flug, Wartezeit am Flughafen, Transfer, winterliche Straßenverhältnisse und Ankunft im Hotel. Das ist Ihre tatsächliche Reisezeit.',
+      },
+      { type: 'heading', text: 'Was ändert sich während der Skisaison?' },
+      {
+        type: 'paragraph',
+        text: 'Der Winter verändert die Rechnung. Eine Fahrt, die auf der Landkarte einfach aussieht, kann an einem Samstag länger dauern, wenn Tausende Gäste gleichzeitig an- und abreisen.',
+      },
+      {
+        type: 'callout',
+        heading: 'Der Winter verändert die Rechnung',
+        text: 'Die verkehrsreichsten Zeiten sind meist Samstags-Wechseltage, Weihnachten und Neujahr, die Semesterferien im Februar sowie Zeiten mit starkem Schneefall. Die letzte Straße in ein Skigebiet kann wichtiger sein als der Autobahnabschnitt — deshalb ist es sinnvoll, zusätzliche Zeit einzuplanen, wenn Ihr Flughafentransfer direkt an einen Hotel-Check-in oder einen Rückflug anschließt.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Dasselbe gilt für das Gepäck. Ein Fahrzeug, das für drei Passagiere mit normalen Koffern perfekt passt, reicht möglicherweise nicht für drei Passagiere mit Skitaschen, Skischuhtaschen, Helmen und Winterkleidung zusätzlich zum normalen Gepäck. Unser [Alpiner Transferleitfaden](/de/blog/alpine-ski-transfer-guide) behandelt die Skitaschen-Kapazität ausdrücklich als häufigen Grund, einen Executive Van statt einer Limousine zu wählen.',
+      },
+      { type: 'heading', text: 'Welches Fahrzeug sollten Sie buchen?' },
+      {
+        type: 'paragraph',
+        text: 'Für ein Paar mit normalem Gepäck kann eine Business-Limousine ausreichen. Sobald aber Skiausrüstung ins Spiel kommt, ist die Personenzahl nicht die einzige Überlegung.',
+      },
+      {
+        type: 'table',
+        headers: ['Fahrzeug', 'Passagiere', 'Am besten geeignet für'],
+        rows: [
+          ['Business-Limousine', 'Bis zu 3', 'Begrenztes Gepäck, keine sperrige Skiausrüstung'],
+          ['Luxus-Limousine', 'Bis zu 3', 'Paare, leichteres Gepäck'],
+          ['Executive Van', 'Bis zu 7', 'Familien, Ski- und Snowboardausrüstung, mehrere Koffer'],
+          ['Kleinbus', 'Bis zu 16', 'Größere Gruppen, Firmenskireisen, Großfamilien'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Wenn Sie unsicher sind, teilen Sie uns einfach mit, wie viele Skitaschen und Koffer Sie haben, statt das Fahrzeug nur nach Personenzahl zu wählen — mehr Details zu jedem Fahrzeug finden Sie auf der [Fuhrpark-Seite](/de/fleet).',
+      },
+      { type: 'heading', text: 'Sollten Sie einfach oder Hin- und Rückfahrt buchen?' },
+      {
+        type: 'paragraph',
+        text: 'Beides funktioniert. Bei der Ankunft ist die übliche Fahrt Flughafen zum Skigebiet, am Ende des Urlaubs Skigebiet zum Flughafen. Sie können beides zusammen buchen, was besonders bei Samstagsabreisen mit hoher Nachfrage nützlich ist. Bei Mehr-Skigebiete-Urlauben kann es auch sinnvoll sein, eine Strecke wie München → Kitzbühel → Innsbruck → Sölden als eine koordinierte Reiseroute statt einzelner Etappen zu arrangieren — geben Sie den gesamten Plan bei der Anfrage an.',
+      },
+      { type: 'heading', text: 'Wie weit im Voraus sollten Sie buchen?' },
+      {
+        type: 'paragraph',
+        text: 'Es gibt keine allgemeingültige Zahl, die für jede Skireise gilt. Ein kleiner Wochentagstransfer außerhalb der Stoßzeiten unterscheidet sich stark von einem Samstag im Februar mit sechs Passagieren und Skiausrüstung. Für verkehrsreiche Winter-Samstage ist eine Buchung mehrere Tage im Voraus sinnvoll, besonders wenn Sie einen Executive Van oder Kleinbus benötigen — unser [Leitfaden zu Vorlaufzeiten](/de/blog/how-far-in-advance-book-chauffeur) behandelt das ausführlicher. Bei feststehenden Reisedaten gibt es kaum einen Vorteil, bis zur Reisewoche zu warten.',
+      },
+      { type: 'heading', text: 'Die einfachste Flughafenentscheidung' },
+      {
+        type: 'list',
+        items: [
+          'Geht es nach Tirol? Zuerst Innsbruck prüfen.',
+          'Geht es ins Salzburger Land? Zuerst Salzburg prüfen.',
+          'Geht es aus Übersee an den Arlberg? Innsbruck und Zürich vergleichen.',
+          'Brauchen Sie Langstreckenverbindungen? Auch München und Zürich vergleichen.',
+          'Kombinieren Sie Wien mit Skifahren? Wien kann sinnvoll sein, auch wenn es nicht der nächstgelegene Skiflughafen ist.',
+          'Bei ähnlichen Flugoptionen: den Flughafen mit der kürzeren, einfacheren Fahrt wählen.',
+        ],
+      },
+      { type: 'heading', text: 'Private Skitransfers ab österreichischen Flughäfen' },
+      {
+        type: 'paragraph',
+        text: 'Nach der Wahl des Flughafens folgt die nächste Entscheidung: wie Sie vom Terminal zum Skigebiet kommen. Ein privater Chauffeurtransfer bietet direkte Flughafenabholung, Tür-zu-Tür-Ablieferung im Skigebiet, flugabhängige Abholzeiten, ein Fahrzeug für die gesamte Fahrt, um Skiausrüstung geplanten Stauraum, Rücktransfers und einen vor der Reise bestätigten Festpreis.',
+      },
+      {
+        type: 'paragraph',
+        text: 'Wir decken derzeit die wichtigsten österreichischen Flughäfen sowie grenzüberschreitende Ankünfte aus München und Zürich ab, mit [Skitransfer-Strecken](/de/ski-transfers), die Ziele in Tirol, im Salzburger Land und am Arlberg abdecken.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Welcher Flughafen eignet sich am besten zum Skifahren in Österreich?',
+        answer:
+          'Das hängt von Ihrem Skigebiet ab. Innsbruck ist meist der praktischste Flughafen für viele Tiroler Skigebiete, während Salzburg besonders für das Salzburger Land nützlich ist. München und Zürich werden interessant, wenn Flugverbindungen die längere Straßenfahrt lohnend machen.',
+      },
+      {
+        question: 'Ist der Flughafen Innsbruck besser als Salzburg zum Skifahren?',
+        answer:
+          'Nicht grundsätzlich. Innsbruck eignet sich meist besser für Tiroler Skigebiete wie Sölden, Ischgl und St. Anton. Salzburg ist meist besser positioniert für Zell am See, Saalbach-Hinterglemm, Obertauern und weitere Ziele im Salzburger Land.',
+      },
+      {
+        question: 'Ist der Flughafen München eine gute Option für einen österreichischen Skiurlaub?',
+        answer:
+          'Ja. München hat ein deutlich größeres internationales Streckennetz und kann für Langstreckenreisende eine praktische Wahl sein, auch wenn der Straßentransfer nach Österreich länger dauert.',
+      },
+      {
+        question: 'Ist der Flughafen Zürich gut für österreichische Skigebiete?',
+        answer:
+          'Ja, besonders für Lech-Zürs, St. Anton und weitere Arlberg- oder westösterreichische Ziele. Das internationale Streckennetz von Zürich kann den längeren Straßentransfer lohnend machen.',
+      },
+      {
+        question: 'Wie lange dauert ein privater Skitransfer ab Flughafen?',
+        answer:
+          'Das hängt ganz vom Skigebiet ab. Beispiele reichen von rund 45 Minuten ab Flughafen Salzburg nach Flachau-Wagrain bis zu etwa 2 Std. 15 Min. ab Flughafen Zürich nach Lech-Zürs oder St. Anton.',
+      },
+      {
+        question: 'Brauche ich für Skiausrüstung ein größeres Fahrzeug?',
+        answer:
+          'Oft ja. Skitaschen und Skischuhtaschen benötigen erheblichen Gepäckraum. Teilen Sie uns bei der Buchung mit, wie viel Ausrüstung Sie mitbringen, damit das passende Fahrzeug zugeteilt werden kann.',
+      },
+      {
+        question: 'Kann ich an einem Flughafen ankommen und von einem anderen abreisen?',
+        answer:
+          'Ja. Eine Mehrflughafen-Reiseroute kann arrangiert werden, wenn der Flugplan das praktischer macht — zum Beispiel Ankunft über Innsbruck und Abreise ab München.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Alpine & Skitransfers: Komfortabel zu Tirols Skigebieten', href: '/de/blog/alpine-ski-transfer-guide' },
+      { label: 'Innsbruck vs. Salzburg vs. München: Welcher Flughafen für Ihre Tirol-Skireise?', href: '/de/blog/innsbruck-salzburg-munich-ski-airport-guide' },
+      { label: 'Flughafentransfer Zürich: Was Sie erwartet', href: '/de/blog/zurich-airport-transfer-guide' },
+      { label: 'Flughafentransfer Innsbruck: Was Sie erwartet', href: '/de/blog/innsbruck-airport-transfer-guide' },
+      { label: 'Flughafentransfer Salzburg: Was Sie erwartet', href: '/de/blog/salzburg-airport-transfer-guide' },
+      { label: 'Skitransfer-Guide Flachau & Wagrain', href: '/de/blog/flachau-wagrain-ski-transfer-guide' },
       { label: 'Buchung starten', href: '/de/booking' },
     ],
   },

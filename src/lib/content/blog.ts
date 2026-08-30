@@ -5,6 +5,9 @@ export type BlogBlock =
   | { type: 'list'; items: string[] }
   | { type: 'table'; headers: string[]; rows: string[][] }
   | { type: 'image'; src: string; alt: string; caption?: string }
+  // A visually distinct highlight box for a single important, self-contained
+  // point (e.g. a seasonal caveat) — use sparingly, not as a general heading.
+  | { type: 'callout'; heading: string; text: string }
 
 export type BlogPost = {
   slug: string
@@ -3470,6 +3473,289 @@ export const blogPosts: BlogPost[] = [
       { label: 'Munich Airport Transfers', href: '/airport-transfers/munich-airport' },
       { label: 'Munich Service Area', href: '/service-areas/munich' },
       { label: 'Ski & Alpine Transfers', href: '/ski-transfers' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
+    slug: 'best-airports-austria-ski-resorts',
+    title: 'Best Airports for Ski Resorts in Austria: Innsbruck, Salzburg, Munich & Zurich',
+    excerpt:
+      'Which airport is best for your Austrian ski holiday? Compare Innsbruck, Salzburg, Munich, and Zurich by resort, transfer time, flight options, and winter travel.',
+    publishedAt: '2026-09-01',
+    readingTime: '10 min read',
+    tags: ['Ski Transfers', 'Tyrol', 'Salzburg'],
+    seoTitle: 'Best Airports for Ski Resorts in Austria: Innsbruck, Salzburg, Munich & Zurich',
+    seoDescription:
+      'Which airport is best for your Austrian ski holiday? Compare Innsbruck, Salzburg, Munich and Zurich by resort, transfer time, flight options and winter travel.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "Choosing an airport for an Austrian ski holiday isn't simply a question of finding the nearest one on a map. The right choice depends on your resort, your flight options, how much ski equipment you're carrying, and how much time you want to spend on the road after landing.",
+      },
+      {
+        type: 'paragraph',
+        text: "For most Tyrol resorts, Innsbruck Airport (INN) is the obvious starting point. For resorts in Salzburgerland, Salzburg Airport (SZG) often wins. Munich Airport (MUC) becomes more attractive when you need better international or long-haul flight connections, and Zurich Airport (ZRH) is particularly useful for the Arlberg and western Austrian resorts. Our [Innsbruck vs Salzburg vs Munich guide](/blog/innsbruck-salzburg-munich-ski-airport-guide) covers the Tyrol-specific comparison in more depth — this guide takes the wider, Austria-wide view and adds Zurich into the decision.",
+      },
+      {
+        type: 'paragraph',
+        text: "The best airport, in other words, is the one that gives you the best door-to-door journey, not necessarily the shortest flight or the shortest transfer on its own.",
+      },
+      { type: 'heading', text: 'Quick answer: which airport should you choose?' },
+      {
+        type: 'paragraph',
+        text: "If you already know your resort, this is the simplest way to narrow it down:",
+      },
+      {
+        type: 'table',
+        headers: ['Ski destination', 'Airport to check first', 'Typical transfer'],
+        rows: [
+          ['Kitzbühel', 'Innsbruck', '~1 hour'],
+          ['St. Anton am Arlberg', 'Innsbruck', '~1h 10m'],
+          ['Sölden', 'Innsbruck', '~1h 10m'],
+          ['Ischgl', 'Innsbruck', '~1h 15m'],
+          ['Lech-Zürs', 'Innsbruck / Zurich', '~1h 30m / ~2h 15m'],
+          ['Zell am See-Kaprun', 'Salzburg', '~1h 15m'],
+          ['Saalbach-Hinterglemm', 'Salzburg', '~1h 20m'],
+          ['Schladming', 'Salzburg', '~1 hour'],
+          ['Obertauern', 'Salzburg', '~1h 10m'],
+          ['Mayrhofen', 'Innsbruck', '~1 hour'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "These are approximate road times rather than guarantees. Winter weather, Saturday changeover traffic, and your exact hotel address can all change the final journey time — our [route network](/ski-transfers) gives similar transfer estimates for these airport-resort combinations.",
+      },
+      {
+        type: 'paragraph',
+        text: "The short version: Innsbruck is the strongest choice for most Tyrol resorts, Salzburg is the natural gateway to Salzburgerland, Munich is worth considering when flight availability is significantly better, and Zurich becomes particularly interesting for the Arlberg and western Austria.",
+      },
+      { type: 'heading', text: 'Innsbruck Airport: the natural gateway to Tyrol' },
+      {
+        type: 'paragraph',
+        text: "[Innsbruck Airport](/airport-transfers/innsbruck-airport) (INN) is usually the first airport to check when your destination is in Tyrol. The airport is only around 15 minutes from Innsbruck city centre, while several major ski resorts can be reached in roughly one to one-and-a-half hours — around one hour to [Kitzbühel](/ski-transfers/kitzbuehel), 1h 10m to [St. Anton](/ski-transfers/st-anton-am-arlberg) and [Sölden](/ski-transfers/soelden), and 1h 15m to [Ischgl](/ski-transfers/ischgl).",
+      },
+      {
+        type: 'list',
+        items: [
+          'Kitzbühel',
+          'St. Anton am Arlberg',
+          'Sölden',
+          'Ischgl',
+          'Mayrhofen',
+          'Seefeld',
+          'Zillertal resorts',
+          'other Tyrolean destinations',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "If your resort is in Tyrol and there is a suitable flight into Innsbruck, starting with INN is usually the sensible move.",
+      },
+      { type: 'subheading', text: 'Why Innsbruck works so well' },
+      {
+        type: 'paragraph',
+        text: "The main advantage isn't just the airport itself — it's what happens after you land. A shorter airport-to-resort journey means less time in the vehicle, an easier arrival after a flight, less exposure to winter road delays, more time at your accommodation, and a simpler return journey on departure day.",
+      },
+      {
+        type: 'paragraph',
+        text: "The final approach into many resorts is also where winter driving becomes more demanding. The motorway section may be straightforward, but the final valley or mountain road can involve snow, gradients, and heavier Saturday traffic. For that reason, a winter-ready vehicle and a driver familiar with Alpine routes matter more than they would on an ordinary city transfer.",
+      },
+      { type: 'heading', text: 'Salzburg Airport: best for Salzburgerland' },
+      {
+        type: 'paragraph',
+        text: "[Salzburg Airport](/airport-transfers/salzburg-airport) (SZG) is the airport to look at first for many resorts in Salzburgerland. The airport is only around 10–15 minutes from central Salzburg, but its real advantage for ski travelers is the cluster of resorts accessible from the city.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Zell am See-Kaprun',
+          'Saalbach-Hinterglemm',
+          'Schladming',
+          'Obertauern',
+          'Flachau-Wagrain',
+          'Bad Gastein',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Current transfer estimates on our route network put Salzburg Airport at roughly 1h 15m from [Zell am See-Kaprun](/ski-transfers/zell-am-see-kaprun), around 1h 20m from [Saalbach-Hinterglemm](/ski-transfers/saalbach-hinterglemm), and around 1h 10m from [Obertauern](/ski-transfers/obertauern) — making Salzburg a particularly efficient choice when your destination is on the Salzburgerland side of the Austrian Alps.",
+      },
+      { type: 'subheading', text: 'Salzburg vs Innsbruck' },
+      {
+        type: 'paragraph',
+        text: "This is where travelers sometimes overcomplicate things. The airport's location relative to your resort matters more than the fact that all four airports serve \"Austria.\"",
+      },
+      {
+        type: 'list',
+        items: [
+          'Sölden, St. Anton, or Ischgl — check Innsbruck first',
+          'Zell am See or Saalbach — check Salzburg first',
+        ],
+      },
+      { type: 'heading', text: 'Munich Airport: longer transfer, better flight options' },
+      {
+        type: 'paragraph',
+        text: "[Munich Airport](/airport-transfers/munich-airport) (MUC) is outside Austria, but that doesn't make it a poor choice for an Austrian ski holiday — quite the opposite. Munich can be a practical entry point when you're flying long-haul, there isn't a convenient flight to Innsbruck, Salzburg has limited schedules, the fare difference is significant, or you simply want a wider choice of flight times.",
+      },
+      {
+        type: 'paragraph',
+        text: "The trade-off is simple: the airport is farther away from many Austrian resorts. Our route network puts Munich Airport at around two hours to Innsbruck, roughly 2h 15m to Zell am See, around 2h 30m to Saalbach-Hinterglemm, and approximately 2h 45m to St. Anton.",
+      },
+      {
+        type: 'paragraph',
+        text: 'So the calculation isn\'t "is Munich closer?" — it usually isn\'t. The better question is whether the better flight from Munich saves enough time, money, or hassle to justify the longer road transfer. For a direct long-haul flight, the answer can easily be yes.',
+      },
+      { type: 'heading', text: 'Zurich Airport: the smart choice for the Arlberg' },
+      {
+        type: 'paragraph',
+        text: "[Zurich Airport](/airport-transfers/zurich-airport) (ZRH) is another airport outside Austria that deserves serious consideration, particularly if you're heading to western Austria — Lech-Zürs, St. Anton am Arlberg, Ischgl, and other Vorarlberg or Arlberg resorts.",
+      },
+      {
+        type: 'paragraph',
+        text: "Our current route data puts Zurich Airport at around 2h 15m from Lech-Zürs and St. Anton, and around 2h 30m from Ischgl. So why choose Zurich when Innsbruck is closer? Flight connectivity — Zurich has a much broader international network than Innsbruck. For travelers coming from outside Europe, a direct long-haul flight into Zurich followed by a private transfer can be more convenient than a connecting flight into a smaller Alpine airport. That trade-off is particularly relevant for Arlberg trips where the resort experience matters more than saving 45 minutes on the final road leg.",
+      },
+      { type: 'heading', text: 'Which airport is best for each major ski resort?' },
+      {
+        type: 'table',
+        headers: ['Resort', 'Best airport to check', 'Why'],
+        rows: [
+          ['Kitzbühel', 'Innsbruck', '~1h transfer; Salzburg and Munich are longer'],
+          ['St. Anton', 'Innsbruck', '~1h 10m; Zurich is a strong international alternative (~2h 15m)'],
+          ['Lech-Zürs', 'Innsbruck / Zurich', 'Innsbruck is shorter (~1h 30m); Zurich offers stronger international connectivity (~2h 15m)'],
+          ['Ischgl', 'Innsbruck', '~1h 15m; Zurich works for long-haul arrivals (~2h 30m)'],
+          ['Sölden', 'Innsbruck', '~1h 10m; Munich is substantially longer (~2h 45m)'],
+          ['Mayrhofen', 'Innsbruck', '~1h; natural gateway to Zillertal'],
+          ['Zell am See-Kaprun', 'Salzburg', '~1h 15m'],
+          ['Saalbach-Hinterglemm', 'Salzburg', '~1h 20m'],
+          ['Schladming', 'Salzburg', '~1h'],
+          ['Obertauern', 'Salzburg', '~1h 10m'],
+          ['Flachau-Wagrain', 'Salzburg', '~45m'],
+          ['Bad Gastein', 'Salzburg', '~1h 15m'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Our existing airport and [ski-transfer](/ski-transfers) pages support the overall pattern: Innsbruck is the primary gateway for many Tyrolean resorts, while Salzburg is particularly efficient for Salzburgerland.",
+      },
+      { type: 'heading', text: 'What about flying into Vienna?' },
+      {
+        type: 'paragraph',
+        text: "Vienna Airport is Austria's biggest international gateway, but it isn't usually the first choice if your only goal is to reach a major western or central Alpine ski resort. Our route network puts Vienna Airport → Salzburg at roughly 300 km and around 2h 45m–3h, considerably longer than flying directly into Salzburg for a Salzburg-area ski holiday. That doesn't make Vienna a bad airport — it can make sense if your international flight is significantly better from Vienna, you're spending time in the city before skiing, or you're arranging a multi-stop chauffeur itinerary. For a dedicated ski holiday, though, check the closest practical airport first.",
+      },
+      { type: 'heading', text: "The airport with the shortest transfer isn't always the best airport" },
+      {
+        type: 'paragraph',
+        text: "This is probably the most important point in the whole decision. Imagine two options: a flight to Innsbruck with one connection and an awkward arrival time, followed by a one-hour transfer — versus a direct, convenient flight to Munich followed by a 2h 15m transfer. Option two may still be the better trip. The same logic applies to Zurich and the Arlberg. Don't compare airports on road distance alone — compare the whole journey: flight, airport wait, transfer, winter road conditions, and final hotel arrival. That's your real travel time.",
+      },
+      { type: 'heading', text: 'What changes during ski season?' },
+      {
+        type: 'paragraph',
+        text: "Winter changes the calculation. A journey that looks simple on a map can take longer on a Saturday, when thousands of guests are arriving and leaving resorts at the same time.",
+      },
+      {
+        type: 'callout',
+        heading: 'Winter changes the calculation',
+        text: "The busiest periods are generally Saturday changeover days, Christmas and New Year, February school holidays, and heavy snowfall periods. The final road into a resort can matter more than the motorway section, so it's sensible to allow additional time when your airport transfer connects directly to a hotel check-in or a return flight.",
+      },
+      {
+        type: 'paragraph',
+        text: "The same principle applies to luggage. A vehicle that works perfectly for three passengers and normal suitcases may not work for three passengers carrying ski bags, boot bags, helmets, and winter clothing on top of regular luggage. Our [Alpine transfer guide](/blog/alpine-ski-transfer-guide) specifically covers ski-bag capacity as a common reason to choose an Executive Van rather than a sedan.",
+      },
+      { type: 'heading', text: 'Which vehicle should you book?' },
+      {
+        type: 'paragraph',
+        text: "For a couple with standard luggage, a Business Sedan may be sufficient. But once ski equipment enters the picture, passenger count isn't the only consideration.",
+      },
+      {
+        type: 'table',
+        headers: ['Vehicle', 'Passengers', 'Best for'],
+        rows: [
+          ['Business Sedan', 'Up to 3', 'Limited luggage, no bulky ski equipment'],
+          ['Luxury Sedan', 'Up to 3', 'Couples, lighter luggage'],
+          ['Executive Van', 'Up to 7', 'Families, ski and snowboard equipment, multiple suitcases'],
+          ['Minibus', 'Up to 16', 'Larger groups, corporate ski trips, extended families'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "If you're unsure, tell us how many ski bags and suitcases you have rather than choosing a vehicle based on passenger count alone — see the [full fleet](/fleet) for more detail on each vehicle.",
+      },
+      { type: 'heading', text: 'Should you book one-way or return?' },
+      {
+        type: 'paragraph',
+        text: "Both work. For an airport arrival, the usual journey is airport to resort; for the end of the holiday, resort to airport. You can arrange both together, which is particularly useful for Saturday departures when demand is high. For multi-resort holidays, it can also make sense to arrange a route like Munich → Kitzbühel → Innsbruck → Sölden as one coordinated itinerary rather than treating every leg separately — mention the full plan when requesting your quote.",
+      },
+      { type: 'heading', text: 'How far in advance should you book?' },
+      {
+        type: 'paragraph',
+        text: "There's no universal number that applies to every ski trip. A small weekday transfer outside peak periods is very different from a Saturday in February with six passengers and ski equipment. For busy winter Saturdays, booking several days ahead is sensible, especially if you need an Executive Van or Minibus — our [booking lead-time guide](/blog/how-far-in-advance-book-chauffeur) covers this in more detail. If your dates are fixed, there's little advantage in waiting until the week of travel.",
+      },
+      { type: 'heading', text: 'The easiest airport decision' },
+      {
+        type: 'list',
+        items: [
+          'Going to Tyrol? Check Innsbruck first.',
+          'Going to Salzburgerland? Check Salzburg first.',
+          'Going to the Arlberg from overseas? Compare Innsbruck and Zurich.',
+          'Need long-haul connections? Compare Munich and Zurich too.',
+          'Combining Vienna with skiing? Vienna can make sense, even if it isn\'t the closest ski airport.',
+          'If two airports have similar flight options, choose the one with the shorter, simpler transfer.',
+        ],
+      },
+      { type: 'heading', text: 'Private ski transfers from Austrian airports' },
+      {
+        type: 'paragraph',
+        text: "Once you've chosen the airport, the next decision is how to get from the terminal to the resort. A private chauffeur transfer gives you direct airport pickup, door-to-door resort drop-off, flight-aware pickup timing, one vehicle throughout the journey, space planned around ski equipment, return transfers, and a fixed price confirmed before travel.",
+      },
+      {
+        type: 'paragraph',
+        text: "We currently cover the major Austrian airports as well as cross-border arrivals from Munich and Zurich, with [ski-transfer routes](/ski-transfers) covering destinations across Tyrol, Salzburgerland, and the Arlberg.",
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which airport is best for skiing in Austria?',
+        answer:
+          'It depends on your resort. Innsbruck is usually the most convenient airport for many Tyrol resorts, while Salzburg is particularly useful for Salzburgerland. Munich and Zurich become attractive when flight connections make the longer road journey worthwhile.',
+      },
+      {
+        question: 'Is Innsbruck Airport better than Salzburg for skiing?',
+        answer:
+          'Not universally. Innsbruck is usually better for Tyrol resorts such as Sölden, Ischgl, and St. Anton. Salzburg is generally better positioned for Zell am See, Saalbach-Hinterglemm, Obertauern, and other Salzburgerland destinations.',
+      },
+      {
+        question: 'Is Munich Airport a good option for an Austrian ski holiday?',
+        answer:
+          'Yes. Munich has a much larger international flight network and can be a practical choice for long-haul travelers, even though the road transfer into Austria is longer.',
+      },
+      {
+        question: 'Is Zurich Airport good for Austrian ski resorts?',
+        answer:
+          "Yes, particularly for Lech-Zürs, St. Anton, and other Arlberg or western Austrian destinations. Zurich's international flight network can make the longer road transfer worthwhile.",
+      },
+      {
+        question: 'How long is a private ski transfer from the airport?',
+        answer:
+          'It depends entirely on the resort. Examples range from roughly 45 minutes from Salzburg Airport to Flachau-Wagrain to around 2h 15m from Zurich Airport to Lech-Zürs or St. Anton.',
+      },
+      {
+        question: 'Do I need a larger vehicle for ski equipment?',
+        answer:
+          'Often, yes. Ski bags and boot bags take up considerable luggage space. Tell us how much equipment you\'re bringing when booking so the right vehicle can be assigned.',
+      },
+      {
+        question: 'Can I arrive at one airport and depart from another?',
+        answer:
+          'Yes. A multi-airport itinerary can be arranged when the flight schedule makes it more convenient — for example, arriving through Innsbruck and departing from Munich.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Alpine & Ski Transfers: Getting to Tyrol\'s Resorts in Comfort', href: '/blog/alpine-ski-transfer-guide' },
+      { label: 'Innsbruck vs Salzburg vs Munich: Which Airport for Your Tyrol Ski Trip?', href: '/blog/innsbruck-salzburg-munich-ski-airport-guide' },
+      { label: 'Zurich Airport Transfer: What to Expect', href: '/blog/zurich-airport-transfer-guide' },
+      { label: 'Innsbruck Airport Transfer: What to Expect', href: '/blog/innsbruck-airport-transfer-guide' },
+      { label: 'Salzburg Airport Transfer: What to Expect', href: '/blog/salzburg-airport-transfer-guide' },
+      { label: 'Flachau & Wagrain Ski Transfer Guide', href: '/blog/flachau-wagrain-ski-transfer-guide' },
       { label: 'Start a Booking', href: '/booking' },
     ],
   },
