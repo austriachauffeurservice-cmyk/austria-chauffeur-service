@@ -14,6 +14,18 @@ export type SkiResort = {
   // Resort-specific airport guidance for the flagship/most-differentiated
   // pages — optional so other resorts keep the original compact layout.
   airportGuidance?: { airport: string; note: string }[]
+  // Flagship enrichment fields — optional so only specifically differentiated
+  // resort pages (see the Aug 2026 ski-transfer page audit) render the
+  // expanded sections; other resorts keep the original compact template.
+  seoTitle?: string
+  seoDescription?: string
+  dropoffHint?: string
+  routeOverview?: { start: string; destination: string; driveTime: string; service: string; vehicles: string; luggage: string }
+  whyBookPoints?: { title: string; description: string }[]
+  accommodationSection?: { heading: string; description: string }
+  returnSection?: { heading: string; description: string }
+  relatedResortRoutes?: { label: string; duration: string; href?: string }[]
+  faqs?: { question: string; answer: string }[]
 }
 
 export const skiResorts: SkiResort[] = [
@@ -435,7 +447,7 @@ export const skiResorts: SkiResort[] = [
     region: 'Tyrol',
     skiArea: 'Serfaus-Fiss-Ladis',
     nearestAirports: [
-      { name: 'Innsbruck Airport (INN)', driveTime: '~1h 25m' },
+      { name: 'Innsbruck Airport (INN)', driveTime: '~1h 15m' },
       { name: 'Zurich Airport (ZRH, cross-border)', driveTime: '~2h 30m' },
     ],
     popularRoutes: [
@@ -443,10 +455,11 @@ export const skiResorts: SkiResort[] = [
       'Zurich Airport → Serfaus-Fiss-Ladis (cross-border)',
     ],
     highlights: [
-      'One of Austria\'s most family-oriented ski areas, with dedicated children\'s slopes and lift passes',
-      'Serfaus village runs a free underground funicular to move visitors car-free between the valley station and the village center',
+      'Family-friendly ski area with dedicated offers for children and families',
+      'Serfaus village runs a free underground funicular connecting the car-free village center with key parts of the resort',
     ],
-    hotelNote: 'Pickup and drop-off at hotels throughout Serfaus, Fiss, and Ladis.',
+    hotelNote:
+      'Direct pickup and drive to hotels, chalets, and holiday apartments in Serfaus, Fiss, and Ladis. Private addresses can be reached directly too.',
     attractions: [
       {
         name: 'Serfaus Dorfbahn',
@@ -455,6 +468,86 @@ export const skiResorts: SkiResort[] = [
       {
         name: 'Fiss Panorama',
         description: 'Wide, sunny pistes above Fiss with some of the best snow-making coverage in the Tyrol.',
+      },
+    ],
+    seoTitle: 'Ski Transfer to Serfaus-Fiss-Ladis | Private Airport Transfer',
+    seoDescription:
+      'Private ski transfer to Serfaus-Fiss-Ladis from Innsbruck and Zurich. Door-to-door service, winter-ready vehicles, space for skis & snowboards, and fixed pricing.',
+    dropoffHint: 'Enter your pickup location and destination. We will confirm availability and a fixed price by email.',
+    routeOverview: {
+      start: 'Innsbruck Airport (INN)',
+      destination: 'Serfaus-Fiss-Ladis',
+      driveTime: '~1h 15m',
+      service: 'Private transfer, door-to-door',
+      vehicles: 'Sedan, Executive Van, Minibus',
+      luggage: 'Ski, snowboard, and standard travel luggage',
+    },
+    whyBookPoints: [
+      {
+        title: 'Direct to Your Accommodation',
+        description: 'No changing vehicles and no extra shuttle.',
+      },
+      {
+        title: 'Fixed Price',
+        description: 'Price confirmed before the journey.',
+      },
+      {
+        title: 'Ski & Snowboard',
+        description: 'Suitable vehicles for winter sports equipment.',
+      },
+      {
+        title: 'Airport Pickup',
+        description: 'A direct meeting point after your arrival.',
+      },
+      {
+        title: 'For Families & Groups',
+        description: 'Vans and minibuses for larger parties and luggage.',
+      },
+    ],
+    accommodationSection: {
+      heading: 'Hotel, Chalet & Apartment Transfer',
+      description:
+        'We take you directly from the airport to your accommodation in Serfaus, Fiss, or Ladis. No changing vehicles and no extra shuttle from the train station — your vehicle takes you directly to the address you provide.',
+    },
+    returnSection: {
+      heading: 'Return Transfer to the Airport',
+      description:
+        'At the end of your ski vacation, we collect you directly from your hotel, chalet, or apartment and take you to the airport of your choice — Innsbruck or Zurich.',
+    },
+    relatedResortRoutes: [
+      { label: 'Innsbruck Airport → Serfaus-Fiss-Ladis', duration: '~1h 15m', href: '/routes/innsbruck-airport-to-serfaus-fiss-ladis' },
+      { label: 'Zurich Airport → Serfaus-Fiss-Ladis (cross-border)', duration: '~2h 30m' },
+    ],
+    faqs: [
+      {
+        question: 'How long does the transfer from Innsbruck Airport to Serfaus take?',
+        answer:
+          'The drive normally takes around 1 hour 15 minutes. In winter, snow, road conditions, and heavy travel traffic can extend the journey time.',
+      },
+      {
+        question: 'Do you provide transfers to Serfaus, Fiss, and Ladis?',
+        answer: 'Yes. We drive directly to hotels, chalets, apartments, and private addresses in Serfaus, Fiss, and Ladis.',
+      },
+      {
+        question: 'Can I bring skis and a snowboard?',
+        answer: 'Yes. Note your ski or snowboard equipment when booking so we can assign a suitable vehicle.',
+      },
+      {
+        question: 'Do you offer transfers from Zurich Airport?',
+        answer: 'Yes, transfers from Zurich to Serfaus-Fiss-Ladis can be arranged as a private cross-border journey.',
+      },
+      {
+        question: 'Do you offer return transfers?',
+        answer: 'Yes. We collect you directly from your accommodation and take you to the agreed airport or destination.',
+      },
+      {
+        question: 'Which vehicle suits a family?',
+        answer:
+          'An Executive Van is often suitable for families with several suitcases and winter sports equipment. A Minibus is available for larger groups.',
+      },
+      {
+        question: 'How is the price set?',
+        answer: 'You receive a fixed price by email before the journey, based on pickup, destination, travel date, passenger count, and vehicle.',
       },
     ],
   },

@@ -27,8 +27,10 @@ export async function generateMetadata({
   if (!resort) return {}
 
   const canonical = `/de/ski-transfers/${slug}`
-  const title = `Skitransfer nach ${resort.name}`
-  const description = `Privater Flughafen-zu-Resort-Chauffeurtransfer nach ${resort.name}, ${resort.region}. Winterfeste Fahrzeuge, Platz für Ski/Board, Festpreise ab ${resort.nearestAirports[0].name}.`
+  const title = resort.seoTitle ?? `Skitransfer nach ${resort.name}`
+  const description =
+    resort.seoDescription ??
+    `Privater Flughafen-zu-Resort-Chauffeurtransfer nach ${resort.name}, ${resort.region}. Wintertaugliche Fahrzeuge, Platz für Ski/Board, Festpreise ab ${resort.nearestAirports[0].name}.`
   return {
     title: { absolute: title },
     description,
@@ -80,6 +82,19 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
             : {}),
         }}
       />
+      {resort.faqs && resort.faqs.length > 0 && (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: resort.faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.question,
+              acceptedAnswer: { '@type': 'Answer', text: f.answer },
+            })),
+          }}
+        />
+      )}
 
       <section className="border-b border-brand-line bg-brand-ink text-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
@@ -91,13 +106,18 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
               Privater Skitransfer nach {resort.name}
             </h1>
             <p className="mt-4 max-w-xl text-brand-cream/80">
-              Winterfeste Fahrzeuge, erfahrene Alpinfahrer und Platz für Ski und Snowboards — im
-              Voraus gebucht mit Festpreisen.
+              Wintertaugliche Fahrzeuge, erfahrene Chauffeure und ausreichend Platz für Ski und
+              Snowboards — vorab gebucht zum Festpreis.
             </p>
             <p className="mt-3 text-sm font-semibold text-brand-gold">{resort.skiArea}</p>
           </div>
           <div className="lg:col-span-5">
-            <HeroQuoteCard locale="de" pickup={resort.nearestAirports[0]?.name} dropoff={resort.name} />
+            <HeroQuoteCard
+              locale="de"
+              pickup={resort.nearestAirports[0]?.name}
+              dropoff={resort.name}
+              dropoffHint={resort.dropoffHint}
+            />
           </div>
         </div>
       </section>
@@ -105,7 +125,7 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
         <div className="grid gap-10 sm:grid-cols-2">
           <div>
-            <h2 className="font-display text-xl text-brand-ink">Nächstgelegene Flughäfen</h2>
+            <h2 className="font-display text-xl text-brand-ink">Flughafentransfers nach {resort.name}</h2>
             <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
               {resort.nearestAirports.map((a) => (
                 <li key={a.name} className="flex items-start gap-2">
@@ -116,10 +136,68 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
             </ul>
           </div>
           <div>
-            <h2 className="font-display text-xl text-brand-ink">Beliebte Strecken</h2>
-            <PopularRoutesList items={resort.popularRoutes} routes={routes} airports={airports} locale="de" />
+            <h2 className="font-display text-xl text-brand-ink">Beliebte Skitransfer-Strecken</h2>
+            {resort.relatedResortRoutes ? (
+              <ul className="mt-3 space-y-2 text-sm text-brand-ink-2">
+                {resort.relatedResortRoutes.map((r) => (
+                  <li key={r.label} className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+                    {r.href ? (
+                      <Link href={r.href} className="hover:text-brand-gold hover:underline">
+                        {r.label} — {r.duration}
+                      </Link>
+                    ) : (
+                      <span>{r.label} — {r.duration}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <PopularRoutesList items={resort.popularRoutes} routes={routes} airports={airports} locale="de" />
+            )}
           </div>
         </div>
+
+        {resort.routeOverview && (
+          <div className="mt-10">
+            <h2 className="font-display text-xl text-brand-ink">
+              {resort.routeOverview.start} → {resort.routeOverview.destination}: Routenübersicht
+            </h2>
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full min-w-[420px] text-left text-sm">
+                <tbody className="divide-y divide-brand-line">
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Start</td>
+                    <td className="py-3 text-brand-ink-2/80">{resort.routeOverview.start}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Ziel</td>
+                    <td className="py-3 text-brand-ink-2/80">{resort.routeOverview.destination}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Fahrzeit</td>
+                    <td className="py-3 text-brand-ink-2/80">{resort.routeOverview.driveTime}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Service</td>
+                    <td className="py-3 text-brand-ink-2/80">{resort.routeOverview.service}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Fahrzeuge</td>
+                    <td className="py-3 text-brand-ink-2/80">{resort.routeOverview.vehicles}</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">Gepäck</td>
+                    <td className="py-3 text-brand-ink-2/80">{resort.routeOverview.luggage}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 text-xs text-brand-ink-2/60">
+              Die tatsächliche Fahrzeit hängt von Wetter, Verkehr und Straßenverhältnissen ab.
+            </p>
+          </div>
+        )}
 
         {resort.highlights.length > 0 && (
           <div className="mt-10">
@@ -151,13 +229,20 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
           </div>
         )}
 
+        {resort.accommodationSection && (
+          <div className="mt-10">
+            <h2 className="font-display text-xl text-brand-ink">{resort.accommodationSection.heading}</h2>
+            <p className="mt-3 text-sm text-brand-ink-2/80">{resort.accommodationSection.description}</p>
+          </div>
+        )}
+
         <div className="mt-10">
-          <h2 className="font-display text-xl text-brand-ink">Skiausrüstung &amp; Gepäck</h2>
+          <h2 className="font-display text-xl text-brand-ink">Ski- &amp; Snowboardausrüstung</h2>
           <p className="mt-3 text-sm text-brand-ink-2/80">
-            Reisen Sie mit Ski, Snowboards oder zusätzlichem Wintergepäck? Geben Sie dies bei der
-            Buchung an, damit wir ein Fahrzeug mit ausreichend Platz zuweisen können — sowohl der
-            Executive Van als auch der Kleinbus bieten zusätzlich zum normalen Gepäck Platz für
-            Ski und Boards.
+            Reisen Sie mit Ski, Snowboard, Skischuhen oder zusätzlichem Wintergepäck? Geben Sie
+            dies bei der Buchung an, damit wir ein geeignetes Fahrzeug mit ausreichend Stauraum
+            einplanen können. Für Familien und Gruppen stehen Executive Vans und Kleinbusse zur
+            Verfügung.
           </p>
         </div>
 
@@ -167,9 +252,30 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
             Die Fahrzeit kann im Winter je nach Schneefall, Straßenverhältnissen und Verkehr rund
             um die Hauptan- und -abreisezeiten variieren. Wir empfehlen, rund um den
             Samstags-Wechseltag, an dem die Resortstraßen am stärksten befahren sind, zusätzliche
-            Zeit einzuplanen.
+            Fahrzeit einzuplanen.
           </p>
         </div>
+
+        {resort.returnSection && (
+          <div className="mt-10">
+            <h2 className="font-display text-xl text-brand-ink">{resort.returnSection.heading}</h2>
+            <p className="mt-3 text-sm text-brand-ink-2/80">{resort.returnSection.description}</p>
+          </div>
+        )}
+
+        {resort.whyBookPoints && resort.whyBookPoints.length > 0 && (
+          <div className="mt-10">
+            <h2 className="font-display text-xl text-brand-ink">Warum einen privaten Skitransfer buchen?</h2>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {resort.whyBookPoints.map((point) => (
+                <div key={point.title} className="rounded-sm border border-brand-line p-5">
+                  <p className="font-semibold text-brand-ink">{point.title}</p>
+                  <p className="mt-1.5 text-sm text-brand-ink-2/70">{point.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         <p className="mt-10 text-sm text-brand-ink-2/70">
           <Link
@@ -189,6 +295,22 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
         locale="de"
         showBookingCta={false}
       />
+
+      {resort.faqs && resort.faqs.length > 0 && (
+        <section className="border-t border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Häufig gestellte Fragen</h2>
+            <dl className="mt-6 divide-y divide-brand-line">
+              {resort.faqs.map((f) => (
+                <div key={f.question} className="py-6 first:pt-0">
+                  <dt className="font-display text-base text-brand-ink">{f.question}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-brand-ink-2/80">{f.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      )}
 
       {relatedPosts.length > 0 && (
         <section className="border-t border-brand-line bg-white">
@@ -214,9 +336,10 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
         locale="de"
         pageType="ski"
         title={`Bereit für Ihren ${resort.name}-Skitransfer?`}
-        description="Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
+        description="Senden Sie uns Ihre Reisedaten und wir bestätigen Verfügbarkeit und Festpreis per E-Mail."
         pickup={resort.nearestAirports[0]?.name}
         dropoff={resort.name}
+        dropoffHint={resort.dropoffHint}
       />
     </>
   )

@@ -13,6 +13,18 @@ export type SkiResort = {
   hotelNote?: string
   attractions?: Attraction[]
   airportGuidance?: { airport: string; note: string }[]
+  // Flagship enrichment fields — optional so only specifically differentiated
+  // resort pages (see the Aug 2026 ski-transfer page audit) render the
+  // expanded sections; other resorts keep the original compact template.
+  seoTitle?: string
+  seoDescription?: string
+  dropoffHint?: string
+  routeOverview?: { start: string; destination: string; driveTime: string; service: string; vehicles: string; luggage: string }
+  whyBookPoints?: { title: string; description: string }[]
+  accommodationSection?: { heading: string; description: string }
+  returnSection?: { heading: string; description: string }
+  relatedResortRoutes?: { label: string; duration: string; href?: string }[]
+  faqs?: { question: string; answer: string }[]
 }
 
 export const skiResorts: SkiResort[] = [
@@ -434,7 +446,7 @@ export const skiResorts: SkiResort[] = [
     region: 'Tirol',
     skiArea: 'Serfaus-Fiss-Ladis',
     nearestAirports: [
-      { name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std. 25 Min.' },
+      { name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std. 15 Min.' },
       { name: 'Flughafen Zürich (ZRH, grenzüberschreitend)', driveTime: '~2 Std. 30 Min.' },
     ],
     popularRoutes: [
@@ -442,10 +454,11 @@ export const skiResorts: SkiResort[] = [
       'Flughafen Zürich → Serfaus-Fiss-Ladis (grenzüberschreitend)',
     ],
     highlights: [
-      'Eines der familienfreundlichsten Skigebiete Österreichs mit eigenen Kinderpisten und -liftkarten',
-      'Das Dorf Serfaus verfügt über eine kostenlose unterirdische Dorfbahn, die Gäste autofrei zwischen Talstation und Ortszentrum bringt',
+      'Familienfreundliches Skigebiet mit speziellen Angeboten für Kinder und Familien',
+      'Serfaus verfügt über eine kostenlose unterirdische Dorfbahn, die das autofreie Ortszentrum mit wichtigen Bereichen des Dorfes verbindet',
     ],
-    hotelNote: 'Abholung und Ablieferung an Hotels in Serfaus, Fiss und Ladis.',
+    hotelNote:
+      'Direkte Abholung und Fahrt zu Hotels, Chalets und Ferienwohnungen in Serfaus, Fiss und Ladis. Auch Privatadressen können direkt angefahren werden.',
     attractions: [
       {
         name: 'Serfaus Dorfbahn',
@@ -454,6 +467,86 @@ export const skiResorts: SkiResort[] = [
       {
         name: 'Fiss Panorama',
         description: 'Weite, sonnige Pisten oberhalb von Fiss mit einer der besten Beschneiungsabdeckungen in Tirol.',
+      },
+    ],
+    seoTitle: 'Skitransfer nach Serfaus-Fiss-Ladis | Privater Flughafentransfer',
+    seoDescription:
+      'Privater Skitransfer nach Serfaus-Fiss-Ladis ab Innsbruck und Zürich. Tür-zu-Tür-Service, wintertaugliche Fahrzeuge, Platz für Ski & Snowboards und Festpreis.',
+    dropoffHint: 'Geben Sie Ihren Abholort und Ihr Ziel ein. Wir bestätigen Verfügbarkeit und Festpreis per E-Mail.',
+    routeOverview: {
+      start: 'Flughafen Innsbruck (INN)',
+      destination: 'Serfaus-Fiss-Ladis',
+      driveTime: 'ca. 1 Std. 15 Min.',
+      service: 'Privater Transfer, Tür-zu-Tür',
+      vehicles: 'Limousine, Executive Van, Kleinbus',
+      luggage: 'Ski-, Snowboard- und normales Reisegepäck',
+    },
+    whyBookPoints: [
+      {
+        title: 'Direkt zur Unterkunft',
+        description: 'Kein Umsteigen und kein zusätzlicher Shuttle.',
+      },
+      {
+        title: 'Festpreis',
+        description: 'Preis vor der Fahrt bestätigt.',
+      },
+      {
+        title: 'Ski & Snowboard',
+        description: 'Geeignete Fahrzeuge für Wintersportausrüstung.',
+      },
+      {
+        title: 'Flughafen-Abholung',
+        description: 'Direkter Treffpunkt nach Ihrer Ankunft.',
+      },
+      {
+        title: 'Für Familien & Gruppen',
+        description: 'Vans und Kleinbusse für mehrere Personen und Gepäck.',
+      },
+    ],
+    accommodationSection: {
+      heading: 'Hotel-, Chalet- & Ferienwohnung-Transfer',
+      description:
+        'Wir bringen Sie direkt vom Flughafen zu Ihrer Unterkunft in Serfaus, Fiss oder Ladis. Kein Umsteigen und kein zusätzlicher Shuttle vom Bahnhof — Ihr Fahrzeug bringt Sie direkt zur angegebenen Adresse.',
+    },
+    returnSection: {
+      heading: 'Rücktransfer zum Flughafen',
+      description:
+        'Am Ende Ihres Skiurlaubs holen wir Sie direkt an Ihrem Hotel, Chalet oder Ihrer Ferienwohnung ab und bringen Sie zum Flughafen Ihrer Wahl — Innsbruck oder Zürich.',
+    },
+    relatedResortRoutes: [
+      { label: 'Flughafen Innsbruck → Serfaus-Fiss-Ladis', duration: 'ca. 1 Std. 15 Min.', href: '/de/routes/innsbruck-airport-to-serfaus-fiss-ladis' },
+      { label: 'Flughafen Zürich → Serfaus-Fiss-Ladis (grenzüberschreitend)', duration: 'ca. 2 Std. 30 Min.' },
+    ],
+    faqs: [
+      {
+        question: 'Wie lange dauert der Transfer vom Flughafen Innsbruck nach Serfaus?',
+        answer:
+          'Die Fahrt dauert normalerweise etwa 1 Stunde und 15 Minuten. Im Winter können Schnee, Straßenverhältnisse und starker Reiseverkehr die Fahrzeit verlängern.',
+      },
+      {
+        question: 'Bieten Sie Transfers nach Serfaus, Fiss und Ladis an?',
+        answer: 'Ja. Wir fahren direkt zu Hotels, Chalets, Ferienwohnungen und Privatadressen in Serfaus, Fiss und Ladis.',
+      },
+      {
+        question: 'Kann ich Ski und Snowboard mitnehmen?',
+        answer: 'Ja. Geben Sie Ihre Ski- oder Snowboardausrüstung bei der Buchung an, damit wir ein geeignetes Fahrzeug einplanen können.',
+      },
+      {
+        question: 'Bieten Sie Transfers vom Flughafen Zürich an?',
+        answer: 'Ja, Transfers von Zürich nach Serfaus-Fiss-Ladis können als grenzüberschreitende Privatfahrt arrangiert werden.',
+      },
+      {
+        question: 'Gibt es auch Rücktransfers?',
+        answer: 'Ja. Wir holen Sie direkt an Ihrer Unterkunft ab und bringen Sie zum vereinbarten Flughafen oder Zielort.',
+      },
+      {
+        question: 'Welches Fahrzeug eignet sich für eine Familie?',
+        answer:
+          'Für Familien mit mehreren Koffern und Wintersportausrüstung eignet sich häufig ein Executive Van. Für größere Gruppen steht ein Kleinbus zur Verfügung.',
+      },
+      {
+        question: 'Wie wird der Preis festgelegt?',
+        answer: 'Sie erhalten vor der Fahrt einen Festpreis per E-Mail, basierend auf Abholort, Ziel, Reisedatum, Fahrgastzahl und Fahrzeug.',
       },
     ],
   },

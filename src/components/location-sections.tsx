@@ -36,12 +36,12 @@ const copy: Record<
   },
   de: {
     hotelsEyebrow: 'Hoteltransfers',
-    hotelsHeading: (place) => `Hotelabholung & -ablieferung in ${place}`,
+    hotelsHeading: (place) => `Hoteltransfer in ${place}`,
     hotelsDefaultNote: (place) =>
-      `Direkte Abholung und Ablieferung an Hotels in ganz ${place} — geben Sie einfach Ihren Hotelnamen und die Adresse bei der Buchung an.`,
+      `Direkte Abholung und Fahrt zu Hotels in ganz ${place} — geben Sie einfach Ihren Hotelnamen und die Adresse bei der Buchung an.`,
     bookCta: 'Buchen →',
     hotelsFootnote: (place) =>
-      `Übernachten Sie woanders? Wir organisieren Abholung und Ablieferung an Hotels, Chalets und Privatadressen in ganz ${place} — geben Sie es einfach als Abhol- oder Zielort an.`,
+      `Übernachten Sie woanders? Wir organisieren Abholung und Fahrt zu Hotels, Chalets und Privatadressen in ganz ${place} — geben Sie es einfach als Abhol- oder Zielort an.`,
     attractionsEyebrow: 'Sehenswürdigkeiten',
     attractionsHeading: (heading, place) => `${heading} in ${place}`,
     attractionsBody: (place) =>
