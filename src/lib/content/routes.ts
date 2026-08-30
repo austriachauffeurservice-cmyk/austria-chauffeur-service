@@ -123,7 +123,7 @@ export const routes: RoutePair[] = [
     distance: '~80km',
     driveTime: '~1h',
     routeDescription:
-      'One of the shortest cross-border capital-to-capital drives in Europe, via the A6 motorway through Kittsee to the Slovak border.',
+      'A short cross-border capital-to-capital drive, via the A6 motorway through Kittsee to the Slovak border.',
     whyBook: [
       'Fast enough for a same-day round trip',
       'No vehicle switch or paperwork at the border — it\'s handled as part of the service',
@@ -155,7 +155,7 @@ export const routes: RoutePair[] = [
     to: 'Munich',
     distance: '~145km',
     driveTime: '~1h 30m',
-    routeDescription: 'A short cross-border run north on the German A8 Autobahn — one of the most frequently booked international routes from Salzburg.',
+    routeDescription: 'A short cross-border run north on the German A8 Autobahn — a frequently used international route from Salzburg.',
     whyBook: [
       'Popular for connecting to Munich Airport (MUC) for onward international flights',
       'No need to book a separate cross-border taxi or transfer service',
@@ -173,7 +173,7 @@ export const routes: RoutePair[] = [
     whyBook: [
       'Winter-ready vehicles with space for skis and boards',
       'Direct to your chalet or hotel, no shuttle bus transfer',
-      'The shortest airport-to-resort drive time of any major Tyrolean ski town',
+      'A direct airport-to-resort transfer, without a shuttle-bus connection',
     ],
   },
   {
@@ -184,7 +184,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1h 10m',
     routeDescription: 'West on the A12 Inntal Autobahn and S16 Arlberg Schnellstraße directly into St. Anton.',
     whyBook: [
-      'Direct 4x4 luxury transfer to your Arlberg chalet',
+      'Direct private transfer to your Arlberg chalet',
       'Spacious vans for ski equipment and large bags',
       'Flight tracking and driver meet & greet inside INN arrival hall',
     ],
@@ -210,7 +210,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1h 10m',
     routeDescription: 'West via A12 to Ötztal exit, then south along the B186 Ötztaler Straße into Sölden.',
     whyBook: [
-      'Fastest private transfer from INN to the Ötztal glacier area',
+      'Direct private transfer from INN to the Ötztal glacier area',
       'Direct delivery to Sölden hotels and 007 Elements base',
       'All-inclusive fixed rate with flight delay monitoring',
     ],
@@ -236,7 +236,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1h 30m',
     routeDescription: 'West via A12 and S16 through the Arlberg Pass or Flexenpass tunnel into Lech.',
     whyBook: [
-      'Exclusive VIP transfer service to luxury 5-star Arlberg hotels',
+      'Private transfer service to Arlberg hotels and chalets',
       'Professional chauffeurs trained for heavy winter pass driving',
       'Spacious V-Class and S-Class vehicles available',
     ],
@@ -345,8 +345,8 @@ export const routes: RoutePair[] = [
     driveTime: '~2h',
     routeDescription: 'South via A8 towards Inntal Dreieck, continuing via A93/B173 through Kufstein to Kitzbühel.',
     whyBook: [
-      'Top choice for international long-haul travelers heading to Kitzbühel',
-      '4x4 vehicles equipped for winter snow conditions across Bavaria/Tyrol',
+      'Direct option for international long-haul travelers heading to Kitzbühel',
+      'Winter-ready vehicles equipped for snow conditions across Bavaria/Tyrol',
       'One vehicle and driver door-to-door without border delays',
     ],
     crossBorder: true,
@@ -359,8 +359,8 @@ export const routes: RoutePair[] = [
     driveTime: '~2h 45m',
     routeDescription: 'South via A95 or A8/A12 through the Inntal valley to Arlberg.',
     whyBook: [
-      'Direct executive transfer for overseas visitors arriving in Munich',
-      'Spacious V-Class and SUV fleet for ski luggage',
+      'Direct transfer for overseas visitors arriving in Munich',
+      'Spacious V-Class vans for ski luggage',
       'All border toll vignettes and fees included in fixed fare',
     ],
     crossBorder: true,
@@ -373,9 +373,9 @@ export const routes: RoutePair[] = [
     driveTime: '~2h 15m',
     routeDescription: 'East via Swiss A1/A3 motorways, past Lake Walen, entering Austria near Feldkirch to Lech.',
     whyBook: [
-      'The premier luxury transfer route from Zurich to Arlberg 5-star resorts',
-      'Licensed for Swiss-Austrian international chauffeur transfers',
-      'Discreet executive service for high-net-worth travelers',
+      'A private cross-border transfer from Zurich to the Arlberg resorts',
+      'Handled as a single cross-border booking, with the border crossing included',
+      'Private, door-to-door service with no shared passengers',
     ],
     crossBorder: true,
   },
@@ -549,7 +549,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1h 15m',
     routeDescription: 'East via B158 Wolfgangsee Straße through Fuschl and St. Gilgen, then B145 to Hallstatt.',
     whyBook: [
-      'Most popular day trip and private transfer route from Salzburg',
+      'A popular day-trip route from Salzburg',
       'Stunning scenic drive through Lake Fuschl and Wolfgangsee',
       'Flexible departure times tailored to your itinerary',
     ],
@@ -562,7 +562,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1h',
     routeDescription: 'South via A10 Tauern Autobahn and B320 Ennstal Straße directly to Schladming.',
     whyBook: [
-      'Fastest gateway access to Planai and Ski Amadé 4-Mountain area',
+      'Direct gateway access to Planai and the Ski Amadé 4-Mountain area',
       'Fixed rate including Tauern motorway toll fees',
       'Direct hotel drop-off without carrying ski gear on public trains',
     ],
@@ -576,7 +576,7 @@ export const routes: RoutePair[] = [
     routeDescription: 'South via A10 Tauern Autobahn to Radstadt exit, up B99 Radstädter Tauern Straße to Obertauern.',
     whyBook: [
       'Direct transfer to snow-sure high altitude pass resort',
-      '4x4 luxury vehicles experienced in heavy winter mountain driving',
+      'Winter-ready vehicles suited to mountain driving conditions',
       'All-inclusive fixed price with flight delay monitoring',
     ],
   },
@@ -632,7 +632,7 @@ export const routes: RoutePair[] = [
     whyBook: [
       'Reliable cross-border transfer for long-haul international visitors',
       'All toll fees and vignettes included in fixed quote',
-      '4x4 Mercedes vehicles tailored for Alpine snow roads',
+      'Winter-ready Mercedes vehicles suited to Alpine snow roads',
     ],
     crossBorder: true,
   },
@@ -644,9 +644,9 @@ export const routes: RoutePair[] = [
     driveTime: '~2h 30m',
     routeDescription: 'East across Swiss motorways A3/A13, entering Austria at Feldkirch onto S16/B188 Paznaun.',
     whyBook: [
-      'High-end VIP cross-border transfer service for Zurich arrivals',
-      'Experienced Swiss-Austrian cross-border chauffeurs',
-      'Discreet and comfortable executive travel',
+      'Private cross-border transfer service for Zurich arrivals',
+      'Chauffeurs familiar with the Swiss-Austrian border crossing',
+      'Private, comfortable travel',
     ],
     crossBorder: true,
   },
@@ -672,7 +672,7 @@ export const routes: RoutePair[] = [
     driveTime: '~3h 45m',
     routeDescription: 'Southwest via A2 Süd Autobahn, crossing Tarvisio border into Italy on A23/A4 to Venice.',
     whyBook: [
-      'Exclusive private intercity transfer to the Venetian lagoon (Piazzale Roma)',
+      'Direct private intercity transfer to the Venetian lagoon (Piazzale Roma)',
       'Comfortable long-distance Mercedes sedan or van ride',
       'Flexible stops along the route in Carinthia or Friuli',
     ],
@@ -686,7 +686,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1h',
     routeDescription: 'South via B91 Loiblpass or A11 Karawankentunnel directly into Slovenia.',
     whyBook: [
-      'Fastest cross-border transfer between Carinthia and Ljubljana',
+      'Direct cross-border transfer between Carinthia and Ljubljana',
       'Karawankentunnel toll fees included in fixed quote',
       'Door-to-door hotel and business transfer',
     ],
@@ -700,9 +700,9 @@ export const routes: RoutePair[] = [
     driveTime: '~2h 45m',
     routeDescription: 'Southwest via A2 Süd Autobahn across the Italian border via Udine (A23) to Venice.',
     whyBook: [
-      'Direct Alpine-to-Adriatic luxury chauffeur transfer',
+      'Direct Alpine-to-Adriatic chauffeur transfer',
       'No train transfers carrying heavy cruise or holiday luggage',
-      'Licensed for international Italian pickups and drop-offs',
+      'Handled as a single cross-border booking, with the border crossing included',
     ],
     crossBorder: true,
   },
@@ -728,7 +728,7 @@ export const routes: RoutePair[] = [
     driveTime: '~2h 45m',
     routeDescription: 'Southeast via A10 Tauern Autobahn and A9 Pyhrn Autobahn through Ennstal valley.',
     whyBook: [
-      'Connects Austria’s premier festival city with Styria’s capital',
+      'Direct connection between Salzburg and Styria’s capital',
       'Comfortable intercity transfer avoiding regional train connections',
       'Fixed pricing with mountain tunnel tolls included',
     ],
@@ -756,7 +756,7 @@ export const routes: RoutePair[] = [
     routeDescription: 'West via A12/S16 through Arlberg, crossing Liechtenstein/Switzerland border on A3 to Zurich.',
     whyBook: [
       'Direct city-to-city transfer connecting Tyrol with Zurich financial district',
-      'Comfortable executive ride with optional stops in Vaduz or Bregenz',
+      'Comfortable direct ride with optional stops in Vaduz or Bregenz',
       'Fixed rate covering all international transit fees',
     ],
     crossBorder: true,
@@ -782,7 +782,7 @@ export const routes: RoutePair[] = [
     driveTime: '~35m',
     routeDescription: 'South via A2 Süd Autobahn directly into the spa town of Baden.',
     whyBook: [
-      'Quick executive transfer to Baden Thermal Spa and Casino',
+      'Quick, direct transfer to Baden Thermal Spa and Casino',
       'Ideal for hotel guests, evening casino visits, and wellness retreats',
       'Fixed price door-to-door',
     ],
@@ -834,9 +834,9 @@ export const routes: RoutePair[] = [
     driveTime: '~2h 30m',
     routeDescription: 'Southwest via A2 Süd Autobahn across Tarvisio Italian border via Udine (A23/A4) to Venice.',
     whyBook: [
-      'Shortest luxury cross-border drive from Carinthia to the Venetian coast',
+      'A direct cross-border drive from Carinthia to the Venetian coast',
       'Direct drop-off at Piazzale Roma or Venice cruise port terminal',
-      'Licensed for international Italian pickups and drop-offs',
+      'Handled as a single cross-border booking, with the border crossing included',
     ],
     crossBorder: true,
   },
@@ -848,7 +848,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1h',
     routeDescription: 'South via A11 Karawankentunnel directly into Slovenia to Ljubljana.',
     whyBook: [
-      'Fastest cross-border connection between Carinthia and Ljubljana Airport/City',
+      'Direct cross-border connection between Carinthia and Ljubljana Airport/City',
       'Tunnel tolls and Slovenian highway vignette included',
       '24/7 private transfer availability',
     ],
@@ -863,7 +863,7 @@ export const routes: RoutePair[] = [
     routeDescription:
       'A short cross-border run southwest on the B305/B20, crossing into Bavaria near Hangender Stein and continuing directly into Berchtesgaden.',
     whyBook: [
-      'One of the shortest airport transfers on the network, ideal for a same-day Eagle\'s Nest or Königssee visit',
+      'A short airport transfer, ideal for a same-day Eagle\'s Nest or Königssee visit',
       'No rental car or local bus connections needed for a day trip across the border',
       'Fixed price with the border crossing included',
     ],
@@ -1504,7 +1504,7 @@ export const routes: RoutePair[] = [
     driveTime: '~45m',
     routeDescription: 'South via the A10 Tauern Autobahn, the closest of the Ski Amadé resort villages to Salzburg Airport.',
     whyBook: [
-      'One of the shortest airport-to-resort drives in the Ski Amadé network',
+      'A short airport-to-resort drive within the Ski Amadé network',
       'Popular for weekend breaks from Salzburg, Vienna, and Munich',
       'Fixed price with flight tracking included',
     ],
@@ -1772,7 +1772,7 @@ export const routes: RoutePair[] = [
     driveTime: '~20m',
     routeDescription: 'A very short cross-border run along the Rhine Valley into Liechtenstein\'s capital.',
     whyBook: [
-      'The shortest cross-border route on the network',
+      'A very short cross-border route, ideal for a same-day trip',
       'Popular for Liechtenstein business and banking travel',
       'Fixed price with the border crossing included',
     ],

@@ -114,7 +114,7 @@ export const routes: RoutePair[] = [
     distance: '~80 km',
     driveTime: '~1 Std.',
     routeDescription:
-      'Eine der kürzesten grenzüberschreitenden Hauptstadt-zu-Hauptstadt-Fahrten Europas, über die A6-Autobahn durch Kittsee bis zur slowakischen Grenze.',
+      'Eine kurze grenzüberschreitende Hauptstadt-zu-Hauptstadt-Fahrt, über die A6-Autobahn durch Kittsee bis zur slowakischen Grenze.',
     whyBook: [
       'Schnell genug für eine Rückfahrt am selben Tag',
       'Kein Fahrzeugwechsel oder Papierkram an der Grenze — das übernehmen wir',
@@ -146,7 +146,7 @@ export const routes: RoutePair[] = [
     to: 'München',
     distance: '~145 km',
     driveTime: '~1 Std. 30 Min.',
-    routeDescription: 'Eine kurze grenzüberschreitende Fahrt nordwärts auf der deutschen A8 — eine der meistgebuchten internationalen Strecken ab Salzburg.',
+    routeDescription: 'Eine kurze grenzüberschreitende Fahrt nordwärts auf der deutschen A8 — eine häufig genutzte internationale Strecke ab Salzburg.',
     whyBook: [
       'Beliebt für Anschlüsse zum Flughafen München (MUC) für Weiterflüge',
       'Keine separate Buchung eines grenzüberschreitenden Taxis nötig',
@@ -164,7 +164,7 @@ export const routes: RoutePair[] = [
     whyBook: [
       'Winterfeste Fahrzeuge mit Platz für Ski und Snowboards',
       'Direkt zu Ihrem Chalet oder Hotel, kein Shuttlebus-Transfer',
-      'Die kürzeste Flughafen-zu-Resort-Fahrzeit unter den großen Tiroler Skiorten',
+      'Ein direkter Flughafen-zu-Resort-Transfer, ohne Shuttlebus-Verbindung',
     ],
   },
   {
@@ -175,7 +175,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1 Std. 10 Min.',
     routeDescription: 'Westlich auf der A12 Inntalautobahn und der S16 Arlberg Schnellstraße direkt nach St. Anton.',
     whyBook: [
-      'Direkter Transfer mit Allradfahrzeug zu Ihrem Arlberg-Chalet',
+      'Direkter privater Transfer zu Ihrem Arlberg-Chalet',
       'Geräumige Vans für Skiausrüstung und großes Gepäck',
       'Flugverfolgung und Fahrerempfang direkt in der Ankunftshalle des Flughafens Innsbruck',
     ],
@@ -201,7 +201,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1 Std. 10 Min.',
     routeDescription: 'Westlich auf der A12 bis zur Ausfahrt Ötztal, dann südlich auf der B186 Ötztaler Straße nach Sölden.',
     whyBook: [
-      'Schnellster privater Transfer vom Flughafen Innsbruck ins Gletschergebiet Ötztal',
+      'Direkter privater Transfer vom Flughafen Innsbruck ins Gletschergebiet Ötztal',
       'Direkt zu den Hotels in Sölden und zur „007 Elements“-Basis',
       'Alles inklusive zum Festpreis, mit Überwachung von Flugverspätungen',
     ],
@@ -227,7 +227,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1 Std. 30 Min.',
     routeDescription: 'Westlich über die A12 und die S16 durch den Arlbergpass oder den Flexenpass-Tunnel nach Lech.',
     whyBook: [
-      'Exklusiver VIP-Transfer zu luxuriösen 5-Sterne-Hotels am Arlberg',
+      'Privater Transfer zu Hotels und Chalets am Arlberg',
       'Professionelle Chauffeure mit Erfahrung im winterlichen Passverkehr',
       'Geräumige V-Klasse- und S-Klasse-Fahrzeuge verfügbar',
     ],
@@ -336,8 +336,8 @@ export const routes: RoutePair[] = [
     driveTime: '~2 Std.',
     routeDescription: 'Südlich über die A8 Richtung Inntaldreieck, weiter über die A93/B173 durch Kufstein nach Kitzbühel.',
     whyBook: [
-      'Erste Wahl für internationale Langstreckenreisende nach Kitzbühel',
-      'Allradfahrzeuge für winterliche Schneeverhältnisse zwischen Bayern und Tirol',
+      'Direkte Option für internationale Langstreckenreisende nach Kitzbühel',
+      'Fahrzeuge, ausgestattet für winterliche Verhältnisse zwischen Bayern und Tirol',
       'Ein Fahrzeug und ein Fahrer Tür zu Tür, ohne Verzögerungen an der Grenze',
     ],
     crossBorder: true,
@@ -350,8 +350,8 @@ export const routes: RoutePair[] = [
     driveTime: '~2 Std. 45 Min.',
     routeDescription: 'Südlich über die A95 oder A8/A12 durch das Inntal zum Arlberg.',
     whyBook: [
-      'Direkter Executive-Transfer für internationale Gäste ab München',
-      'Geräumige V-Klasse- und SUV-Flotte für Skigepäck',
+      'Direkter Transfer für internationale Gäste ab München',
+      'Geräumige V-Klasse-Fahrzeuge für Skigepäck',
       'Alle Grenzvignetten und Mautgebühren im Festpreis inbegriffen',
     ],
     crossBorder: true,
@@ -364,9 +364,9 @@ export const routes: RoutePair[] = [
     driveTime: '~2 Std. 15 Min.',
     routeDescription: 'Östlich über die Schweizer Autobahnen A1/A3, vorbei am Walensee, Grenzübertritt bei Feldkirch nach Lech.',
     whyBook: [
-      'Die führende Luxustransferroute von Zürich zu den 5-Sterne-Resorts am Arlberg',
-      'Lizenziert für schweizerisch-österreichische internationale Chauffeurtransfers',
-      'Diskreter Executive-Service für anspruchsvolle Reisende',
+      'Ein privater grenzüberschreitender Transfer von Zürich zu den Arlberg-Resorts',
+      'Als durchgehende grenzüberschreitende Buchung organisiert, inklusive Grenzübertritt',
+      'Privater Tür-zu-Tür-Service ohne weitere Mitfahrer',
     ],
     crossBorder: true,
   },
@@ -540,7 +540,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1 Std. 15 Min.',
     routeDescription: 'Östlich über die Wolfgangsee-Straße (B158) durch Fuschl und St. Gilgen, dann auf der B145 nach Hallstatt.',
     whyBook: [
-      'Die beliebteste Tagesausflugs- und Privattransferroute ab Salzburg',
+      'Eine beliebte Tagesausflugsroute ab Salzburg',
       'Landschaftlich beeindruckende Fahrt vorbei am Fuschlsee und Wolfgangsee',
       'Flexible Abfahrtszeiten, abgestimmt auf Ihren Reiseplan',
     ],
@@ -553,7 +553,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1 Std.',
     routeDescription: 'Südlich über die A10 Tauernautobahn und die B320 Ennstal Straße direkt nach Schladming.',
     whyBook: [
-      'Schnellste Anbindung an die Planai und das Ski-Amadé-4-Berge-Skigebiet',
+      'Direkte Anbindung an die Planai und das Ski-Amadé-4-Berge-Skigebiet',
       'Festpreis inklusive Tauernautobahn-Mautgebühren',
       'Direkte Ablieferung am Hotel, ohne Skiausrüstung im Zug zu transportieren',
     ],
@@ -567,7 +567,7 @@ export const routes: RoutePair[] = [
     routeDescription: 'Südlich über die A10 Tauernautobahn bis zur Ausfahrt Radstadt, dann auf der B99 Radstädter Tauernstraße nach Obertauern.',
     whyBook: [
       'Direkter Transfer zum schneesicheren Passresort in Höhenlage',
-      'Allradfahrzeuge mit Erfahrung im winterlichen Bergverkehr',
+      'Wintertaugliche Fahrzeuge für winterliche Bergstraßen',
       'Alles inklusive zum Festpreis, mit Überwachung von Flugverspätungen',
     ],
   },
@@ -623,7 +623,7 @@ export const routes: RoutePair[] = [
     whyBook: [
       'Zuverlässiger grenzüberschreitender Transfer für internationale Langstreckengäste',
       'Alle Mautgebühren und Vignetten im Festpreis inbegriffen',
-      'Allrad-Mercedes-Fahrzeuge, geeignet für winterliche Alpenstraßen',
+      'Wintertaugliche Mercedes-Fahrzeuge, geeignet für winterliche Alpenstraßen',
     ],
     crossBorder: true,
   },
@@ -635,9 +635,9 @@ export const routes: RoutePair[] = [
     driveTime: '~2 Std. 30 Min.',
     routeDescription: 'Östlich über die Schweizer Autobahnen A3/A13, Einreise nach Österreich bei Feldkirch auf die S16/B188 ins Paznauntal.',
     whyBook: [
-      'Exklusiver VIP-Transfer für grenzüberschreitende Ankünfte aus Zürich',
-      'Erfahrene schweizerisch-österreichische Grenz-Chauffeure',
-      'Diskretes und komfortables Executive-Reisen',
+      'Privater grenzüberschreitender Transfer für Ankünfte aus Zürich',
+      'Chauffeure, die mit dem Grenzübergang Schweiz–Österreich vertraut sind',
+      'Private, komfortable Fahrt',
     ],
     crossBorder: true,
   },
@@ -663,7 +663,7 @@ export const routes: RoutePair[] = [
     driveTime: '~3 Std. 45 Min.',
     routeDescription: 'Südwestlich über die A2 Süd Autobahn, Grenzübertritt bei Tarvisio nach Italien auf die A23/A4 nach Venedig.',
     whyBook: [
-      'Exklusiver privater Intercity-Transfer in die venezianische Lagune (Piazzale Roma)',
+      'Direkter privater Intercity-Transfer in die venezianische Lagune (Piazzale Roma)',
       'Komfortable Langstreckenfahrt in Mercedes-Limousine oder -Van',
       'Flexible Zwischenstopps in Kärnten oder Friaul möglich',
     ],
@@ -677,7 +677,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1 Std.',
     routeDescription: 'Südlich über die B91 Loiblpass-Straße oder die A11 durch den Karawankentunnel direkt nach Slowenien.',
     whyBook: [
-      'Schnellster grenzüberschreitender Transfer zwischen Kärnten und Ljubljana',
+      'Direkter grenzüberschreitender Transfer zwischen Kärnten und Ljubljana',
       'Mautgebühren für den Karawankentunnel im Festpreis inbegriffen',
       'Tür-zu-Tür-Transfer für Hotel- und Geschäftstermine',
     ],
@@ -693,7 +693,7 @@ export const routes: RoutePair[] = [
     whyBook: [
       'Direkter Luxustransfer von den Alpen an die Adria',
       'Kein Zugumstieg mit schwerem Kreuzfahrt- oder Urlaubsgepäck',
-      'Lizenziert für internationale Abholungen und Ablieferungen in Italien',
+      'Als durchgehende grenzüberschreitende Buchung organisiert, inklusive Grenzübertritt',
     ],
     crossBorder: true,
   },
@@ -719,7 +719,7 @@ export const routes: RoutePair[] = [
     driveTime: '~2 Std. 45 Min.',
     routeDescription: 'Südöstlich über die A10 Tauernautobahn und die A9 Pyhrn Autobahn durchs Ennstal.',
     whyBook: [
-      'Verbindet Österreichs führende Festspielstadt mit der steirischen Landeshauptstadt',
+      'Direkte Verbindung zwischen Salzburg und der steirischen Landeshauptstadt',
       'Komfortabler Intercity-Transfer ohne Umsteigen im Regionalzug',
       'Festpreis inklusive Bergtunnel-Mautgebühren',
     ],
@@ -747,7 +747,7 @@ export const routes: RoutePair[] = [
     routeDescription: 'Westlich über die A12/S16 durch den Arlberg, Grenzübertritt über Liechtenstein/Schweiz auf der A3 nach Zürich.',
     whyBook: [
       'Direkter Stadt-zu-Stadt-Transfer zwischen Tirol und dem Finanzplatz Zürich',
-      'Komfortable Executive-Fahrt mit optionalen Zwischenstopps in Vaduz oder Bregenz',
+      'Komfortable direkte Fahrt mit optionalen Zwischenstopps in Vaduz oder Bregenz',
       'Festpreis inklusive aller internationalen Transitgebühren',
     ],
     crossBorder: true,
@@ -773,7 +773,7 @@ export const routes: RoutePair[] = [
     driveTime: '~35 Min.',
     routeDescription: 'Südlich über die A2 Süd Autobahn direkt in den Kurort Baden.',
     whyBook: [
-      'Schneller Executive-Transfer zur Therme und zum Casino Baden',
+      'Schneller, direkter Transfer zur Therme und zum Casino Baden',
       'Ideal für Hotelgäste, abendliche Casinobesuche und Wellness-Aufenthalte',
       'Festpreis, Tür zu Tür',
     ],
@@ -825,9 +825,9 @@ export const routes: RoutePair[] = [
     driveTime: '~2 Std. 30 Min.',
     routeDescription: 'Südwestlich über die A2 Süd Autobahn über die italienische Grenze bei Tarvisio via Udine (A23/A4) nach Venedig.',
     whyBook: [
-      'Kürzeste Luxus-Grenzfahrt von Kärnten an die venezianische Küste',
+      'Eine direkte grenzüberschreitende Fahrt von Kärnten an die venezianische Küste',
       'Direkte Ablieferung am Piazzale Roma oder Kreuzfahrtterminal Venedig',
-      'Lizenziert für internationale Abholungen und Ablieferungen in Italien',
+      'Als durchgehende grenzüberschreitende Buchung organisiert, inklusive Grenzübertritt',
     ],
     crossBorder: true,
   },
@@ -839,7 +839,7 @@ export const routes: RoutePair[] = [
     driveTime: '~1 Std.',
     routeDescription: 'Südlich über die A11 durch den Karawankentunnel direkt nach Slowenien nach Ljubljana.',
     whyBook: [
-      'Schnellste grenzüberschreitende Verbindung zwischen Kärnten und Flughafen/Stadt Ljubljana',
+      'Direkte grenzüberschreitende Verbindung zwischen Kärnten und Flughafen/Stadt Ljubljana',
       'Tunnelmaut und slowenische Autobahnvignette inbegriffen',
       'Rund um die Uhr als Privattransfer verfügbar',
     ],
@@ -854,7 +854,7 @@ export const routes: RoutePair[] = [
     routeDescription:
       'Eine kurze grenzüberschreitende Fahrt südwestlich auf der B305/B20, Grenzübertritt nach Bayern bei Hangender Stein, direkt weiter nach Berchtesgaden.',
     whyBook: [
-      'Einer der kürzesten Flughafentransfers im Netzwerk, ideal für einen Tagesausflug zum Kehlsteinhaus oder Königssee',
+      'Ein kurzer Flughafentransfer, ideal für einen Tagesausflug zum Kehlsteinhaus oder Königssee',
       'Kein Mietwagen oder lokale Busverbindungen für einen Tagesausflug über die Grenze nötig',
       'Festpreis inklusive Grenzübertritt',
     ],
@@ -1493,7 +1493,7 @@ export const routes: RoutePair[] = [
     driveTime: '~45 Min.',
     routeDescription: 'Südlich über die A10 Tauernautobahn, das nächstgelegene Ski-Amadé-Dorf zum Flughafen Salzburg.',
     whyBook: [
-      'Einer der kürzesten Flughafen-zu-Resort-Wege im Ski-Amadé-Netzwerk',
+      'Ein kurzer Flughafen-zu-Resort-Weg im Ski-Amadé-Netzwerk',
       'Beliebt für Wochenendausflüge ab Salzburg, Wien und München',
       'Festpreis inklusive Flugverfolgung',
     ],
@@ -1760,7 +1760,7 @@ export const routes: RoutePair[] = [
     driveTime: '~20 Min.',
     routeDescription: 'Eine sehr kurze grenzüberschreitende Fahrt durchs Rheintal in Liechtensteins Hauptstadt.',
     whyBook: [
-      'Die kürzeste grenzüberschreitende Route im Netzwerk',
+      'Eine sehr kurze grenzüberschreitende Route, ideal für einen Tagesausflug',
       'Beliebt für Liechtensteiner Geschäfts- und Bankreisen',
       'Festpreis inklusive Grenzübertritt',
     ],
