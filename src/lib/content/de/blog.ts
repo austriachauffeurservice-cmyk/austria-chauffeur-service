@@ -11,6 +11,7 @@ export type BlogPost = {
   title: string
   excerpt: string
   publishedAt: string
+  updatedAt?: string
   readingTime: string
   tags: string[]
   blocks: BlogBlock[]

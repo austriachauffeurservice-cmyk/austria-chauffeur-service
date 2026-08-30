@@ -3,9 +3,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
-import { blogPosts } from '@/lib/content/blog'
+import { Breadcrumbs } from '@/components/breadcrumbs'
+import { HeroQuoteCard } from '@/components/hero-quote-card'
+import { blogPosts, type BlogBlock } from '@/lib/content/blog'
 import { renderRichText } from '@/lib/content/rich-text'
 import { siteName, siteUrl } from '@/lib/content/site'
+import { uniqueSlugs } from '@/lib/slugify'
 
 type Params = { slug: string }
 
@@ -59,12 +62,116 @@ function wordCount(post: (typeof blogPosts)[number]): number {
   }, 0)
 }
 
+function formatDate(iso: string): string {
+  return new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params
   const post = blogPosts.find((p) => p.slug === slug)
   if (!post) notFound()
 
   const pageUrl = `${siteUrl}/blog/${slug}`
+  const dateModified = post.updatedAt ?? post.publishedAt
+
+  // Anchor ids for every heading/subheading, keyed by the block's original
+  // index so the render loop below and the sidebar TOC agree on the same id
+  // — collisions (two headings with the same text) get a -2/-3 suffix rather
+  // than producing duplicate ids.
+  const headingEntries = post.blocks
+    .map((block, i) => ({ block, i }))
+    .filter((e): e is { block: Extract<typeof e.block, { type: 'heading' | 'subheading' }>; i: number } =>
+      e.block.type === 'heading' || e.block.type === 'subheading'
+    )
+  const headingIds = uniqueSlugs(headingEntries, (e) => e.block.text)
+  const idByIndex = new Map(headingEntries.map((e, idx) => [e.i, headingIds[idx]]))
+  const tocEntries = headingEntries
+    .map((e, idx) => ({ text: e.block.text, id: headingIds[idx], level: e.block.type }))
+    .filter((e) => e.level === 'heading')
+
+  const midpoint = Math.ceil(post.blocks.length / 2)
+
+  function renderBlock(block: BlogBlock, i: number) {
+    const id = idByIndex.get(i)
+    if (block.type === 'heading') {
+      return (
+        <h2 key={i} id={id} className="font-display scroll-mt-28 pt-4 text-xl text-brand-ink">
+          {block.text}
+        </h2>
+      )
+    }
+    if (block.type === 'subheading') {
+      return (
+        <h3 key={i} id={id} className="font-display scroll-mt-28 pt-2 text-lg text-brand-ink">
+          {block.text}
+        </h3>
+      )
+    }
+    if (block.type === 'list') {
+      return (
+        <ul key={i} className="space-y-2 text-sm leading-[1.6] text-brand-ink-2/90">
+          {block.items.map((item) => (
+            <li key={item} className="flex items-start gap-2">
+              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+              <span>{renderRichText(item)}</span>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+    if (block.type === 'image') {
+      return (
+        <figure key={i} className="my-8">
+          <div className="overflow-hidden rounded-sm border border-brand-line shadow-sm">
+            <Image
+              src={block.src}
+              alt={block.alt}
+              width={1200}
+              height={675}
+              loading="lazy"
+              className="aspect-[16/9] w-full object-cover"
+            />
+          </div>
+          {block.caption && (
+            <figcaption className="mt-2 text-center text-xs text-brand-ink-2/70">{block.caption}</figcaption>
+          )}
+        </figure>
+      )
+    }
+    if (block.type === 'table') {
+      return (
+        <div key={i} className="overflow-x-auto rounded-sm border border-brand-line">
+          <table className="w-full text-left text-sm">
+            <thead>
+              <tr className="bg-brand-cream">
+                {block.headers.map((h) => (
+                  <th key={h} className="whitespace-nowrap px-4 py-2.5 font-display text-brand-ink">
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {block.rows.map((row, ri) => (
+                <tr key={ri} className="border-t border-brand-line">
+                  {row.map((cell, ci) => (
+                    <td key={ci} className="px-4 py-2.5 text-brand-ink-2/90">
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )
+    }
+    return (
+      <p key={i} className="text-sm leading-[1.6] text-brand-ink-2/90">
+        {renderRichText(block.text)}
+      </p>
+    )
+  }
 
   return (
     <>
@@ -76,7 +183,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           description: post.excerpt,
           image: post.image ? `${siteUrl}${post.image}` : `${siteUrl}/opengraph-image`,
           datePublished: post.publishedAt,
-          dateModified: post.publishedAt,
+          dateModified,
           url: pageUrl,
           inLanguage: 'en',
           keywords: post.tags.join(', '),
@@ -122,7 +229,14 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
       <article>
         <section className="border-b border-brand-line bg-brand-cream">
           <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-            <div className="flex flex-wrap gap-2">
+            <Breadcrumbs
+              items={[
+                { label: 'Home', href: '/' },
+                { label: 'Blog', href: '/blog' },
+                { label: post.title },
+              ]}
+            />
+            <div className="mt-4 flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <span
                   key={tag}
@@ -132,18 +246,17 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
                 </span>
               ))}
             </div>
-            <h1 className="font-display mt-4 text-3xl text-brand-ink sm:text-4xl">
-              {post.title}
-            </h1>
+            <h1 className="font-display mt-4 text-3xl text-brand-ink sm:text-4xl">{post.title}</h1>
             <p className="mt-4 max-w-xl text-brand-ink-2/80">{post.excerpt}</p>
             <p className="mt-4 text-xs text-brand-ink-2/60">
-              <time dateTime={post.publishedAt}>
-                {new Date(post.publishedAt).toLocaleDateString('en-GB', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric',
-                })}
-              </time>{' '}
+              By {siteName} Team · Published{' '}
+              <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
+              {post.updatedAt && (
+                <>
+                  {' '}
+                  · Updated <time dateTime={post.updatedAt}>{formatDate(post.updatedAt)}</time>
+                </>
+              )}{' '}
               · {post.readingTime}
             </p>
             <Link
@@ -168,90 +281,60 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           </div>
         </section>
 
-        <section className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-          <div className="space-y-6">
-            {post.blocks.map((block, i) => {
-              if (block.type === 'heading') {
-                return (
-                  <h2 key={i} className="font-display pt-4 text-xl text-brand-ink">
-                    {block.text}
-                  </h2>
-                )
-              }
-              if (block.type === 'subheading') {
-                return (
-                  <h3 key={i} className="font-display pt-2 text-lg text-brand-ink">
-                    {block.text}
-                  </h3>
-                )
-              }
-              if (block.type === 'list') {
-                return (
-                  <ul key={i} className="space-y-2 text-sm leading-relaxed text-brand-ink-2/90">
-                    {block.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2">
-                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
-                        <span>{renderRichText(item)}</span>
+        <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px]">
+            <div className="max-w-[700px] space-y-6">
+              {post.blocks.slice(0, midpoint).map((block, i) => renderBlock(block, i))}
+
+              <div className="rounded-sm border border-brand-line bg-brand-cream p-6 text-center sm:p-8">
+                <p className="font-display text-lg text-brand-ink">Ready to arrange this transfer?</p>
+                <p className="mt-1.5 text-sm text-brand-ink-2/80">
+                  Submit your trip details and we&apos;ll confirm availability and a fixed price by email.
+                </p>
+                <Link
+                  href="/booking"
+                  className="mt-4 inline-flex items-center gap-2 rounded-sm bg-brand-ink px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-gold"
+                >
+                  Request a Fixed Quote
+                </Link>
+              </div>
+
+              {post.blocks.slice(midpoint).map((block, i) => renderBlock(block, i + midpoint))}
+            </div>
+
+            <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+              <HeroQuoteCard title="Request a Fixed Quote" />
+
+              {tocEntries.length > 0 && (
+                <div className="rounded-sm border border-brand-line bg-white p-5">
+                  <p className="font-display text-sm text-brand-ink">In This Article</p>
+                  <ul className="mt-3 space-y-2 border-l border-brand-line pl-3 text-sm">
+                    {tocEntries.map((entry) => (
+                      <li key={entry.id}>
+                        <a href={`#${entry.id}`} className="text-brand-ink-2/80 hover:text-brand-gold hover:underline">
+                          {entry.text}
+                        </a>
                       </li>
                     ))}
                   </ul>
-                )
-              }
-              if (block.type === 'image') {
-                return (
-                  <figure key={i} className="my-8">
-                    <div className="overflow-hidden rounded-sm border border-brand-line shadow-sm">
-                      <Image
-                        src={block.src}
-                        alt={block.alt}
-                        width={1200}
-                        height={675}
-                        loading="lazy"
-                        className="aspect-[16/9] w-full object-cover"
-                      />
-                    </div>
-                    {block.caption && (
-                      <figcaption className="mt-2 text-center text-xs text-brand-ink-2/70">
-                        {block.caption}
-                      </figcaption>
-                    )}
-                  </figure>
-                )
-              }
-              if (block.type === 'table') {
-                return (
-                  <div key={i} className="overflow-x-auto rounded-sm border border-brand-line">
-                    <table className="w-full text-left text-sm">
-                      <thead>
-                        <tr className="bg-brand-cream">
-                          {block.headers.map((h) => (
-                            <th key={h} className="whitespace-nowrap px-4 py-2.5 font-display text-brand-ink">
-                              {h}
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {block.rows.map((row, ri) => (
-                          <tr key={ri} className="border-t border-brand-line">
-                            {row.map((cell, ci) => (
-                              <td key={ci} className="px-4 py-2.5 text-brand-ink-2/90">
-                                {cell}
-                              </td>
-                            ))}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )
-              }
-              return (
-                <p key={i} className="text-sm leading-relaxed text-brand-ink-2/90">
-                  {renderRichText(block.text)}
-                </p>
-              )
-            })}
+                </div>
+              )}
+
+              {post.relatedPages && post.relatedPages.length > 0 && (
+                <div className="rounded-sm border border-brand-line bg-white p-5">
+                  <p className="font-display text-sm text-brand-ink">Related Pages</p>
+                  <ul className="mt-3 space-y-2 text-sm">
+                    {post.relatedPages.map((page) => (
+                      <li key={page.href}>
+                        <Link href={page.href} className="text-brand-ink-2/80 hover:text-brand-gold hover:underline">
+                          {page.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </aside>
           </div>
         </section>
 

@@ -11,6 +11,10 @@ export type BlogPost = {
   title: string
   excerpt: string
   publishedAt: string
+  // Only set when a post is genuinely revised after publishing — leave unset
+  // so dateModified/"Last updated" correctly falls back to publishedAt
+  // rather than implying a freshness that isn't real.
+  updatedAt?: string
   readingTime: string
   tags: string[]
   blocks: BlogBlock[]
