@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
+import { Breadcrumbs } from '@/components/breadcrumbs'
 import { HotelsSection, AttractionsSection, PopularRoutesList } from '@/components/location-sections'
 import { BookingCta } from '@/components/booking-cta'
 import { HeroQuoteCard } from '@/components/hero-quote-card'
@@ -98,6 +99,18 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
         />
       )}
 
+      <div className="border-b border-brand-line bg-brand-cream">
+        <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-6">
+          <Breadcrumbs
+            items={[
+              { label: 'Startseite', href: '/de' },
+              { label: 'Ski- & Alpintransfers', href: '/de/ski-transfers' },
+              { label: resort.name },
+            ]}
+          />
+        </div>
+      </div>
+
       <section className="border-b border-brand-line bg-brand-ink text-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-7">
@@ -105,13 +118,25 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
               {resort.region} · Ski- & Alpintransfer
             </p>
             <h1 className="font-display mt-2 text-3xl sm:text-4xl">
-              Privater Skitransfer nach {resort.name}
+              {resort.heroHeading ?? `Privater Skitransfer nach ${resort.name}`}
             </h1>
             <p className="mt-4 max-w-xl text-brand-cream/80">
               Wintertaugliche Fahrzeuge, erfahrene Chauffeure und ausreichend Platz für Ski und
               Snowboards — vorab gebucht zum Festpreis.
             </p>
             <p className="mt-3 text-sm font-semibold text-brand-gold">{resort.skiArea}</p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {resort.nearestAirports.map((a) => (
+                <div key={a.name} className="rounded-sm border border-white/20 bg-white/5 px-3 py-2 text-xs">
+                  <span className="text-brand-cream/70">{a.name.replace(/\s*\([A-Z]+\)$/, '')}: </span>
+                  <span className="font-semibold text-white">{a.driveTime}</span>
+                </div>
+              ))}
+              <div className="rounded-sm border border-white/20 bg-white/5 px-3 py-2 text-xs">
+                <span className="text-brand-cream/70">Tür zu Tür: </span>
+                <span className="font-semibold text-white">Ja</span>
+              </div>
+            </div>
           </div>
           <div className="lg:col-span-5">
             <HeroQuoteCard
@@ -268,6 +293,46 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
             Verfügung.
           </p>
         </div>
+
+        {resort.transferComparison && resort.transferComparison.length > 0 && (
+          <div className="mt-10">
+            <h2 className="font-display text-xl text-brand-ink">Privater Chauffeur vs. Zug vs. Mietwagen</h2>
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full min-w-[480px] text-left text-sm">
+                <thead>
+                  <tr className="border-b border-brand-line text-xs uppercase tracking-wide text-brand-ink-2/60">
+                    <th className="py-2 pr-4 font-semibold">Option</th>
+                    <th className="py-2 pr-4 font-semibold">Am besten für</th>
+                    <th className="py-2 font-semibold">Zu bedenken</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-brand-line">
+                  {resort.transferComparison.map((c) => (
+                    <tr key={c.option}>
+                      <td className="py-3 pr-4 font-semibold text-brand-ink">{c.option}</td>
+                      <td className="py-3 pr-4 text-brand-ink-2/80">{c.bestFor}</td>
+                      <td className="py-3 text-brand-ink-2/80">{c.tradeoff}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {resort.familySection && (
+          <div className="mt-10">
+            <h2 className="font-display text-xl text-brand-ink">{resort.familySection.heading}</h2>
+            <p className="mt-3 text-sm text-brand-ink-2/80">{resort.familySection.description}</p>
+          </div>
+        )}
+
+        {resort.groupSection && (
+          <div className="mt-10">
+            <h2 className="font-display text-xl text-brand-ink">{resort.groupSection.heading}</h2>
+            <p className="mt-3 text-sm text-brand-ink-2/80">{resort.groupSection.description}</p>
+          </div>
+        )}
 
         <div className="mt-10">
           <h2 className="font-display text-xl text-brand-ink">Winterreise nach {resort.name}</h2>

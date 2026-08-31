@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
+import { Breadcrumbs } from '@/components/breadcrumbs'
 import { routes } from '@/lib/content/routes'
 import { airports } from '@/lib/content/airports'
 import { austrianCities } from '@/lib/content/service-areas'
@@ -92,6 +93,18 @@ export default async function RoutePage({ params }: { params: Promise<Params> })
         />
       )}
 
+      <div className="border-b border-brand-line bg-brand-cream">
+        <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-6">
+          <Breadcrumbs
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Routes', href: '/routes' },
+              { label: `${route.from} to ${route.to}` },
+            ]}
+          />
+        </div>
+      </div>
+
       <section className="border-b border-brand-line bg-brand-ink text-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-7">
@@ -162,6 +175,15 @@ export default async function RoutePage({ params }: { params: Promise<Params> })
         </section>
       )}
 
+      {route.routeExplanation && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{route.routeExplanation.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{route.routeExplanation.description}</p>
+          </div>
+        </section>
+      )}
+
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
         <h2 className="font-display text-xl text-brand-ink">
           {route.whyBookPoints ? `Why Book an ${route.from} to ${route.to} Transfer?` : 'Why Book This Route Privately'}
@@ -186,6 +208,33 @@ export default async function RoutePage({ params }: { params: Promise<Params> })
           </ul>
         )}
       </section>
+
+      {route.originComparison && (
+        <section className="border-y border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{route.originComparison.heading}</h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {route.originComparison.options.map((opt) => (
+                <div key={opt.label} className="rounded-sm border border-brand-line bg-white p-5">
+                  <p className="font-semibold text-brand-ink">{opt.label}</p>
+                  <p className="mt-1 text-sm font-semibold text-brand-gold">
+                    {opt.distance} · {opt.driveTime}
+                  </p>
+                  <p className="mt-2 text-sm text-brand-ink-2/70">{opt.bestFor}</p>
+                  {opt.href && (
+                    <Link
+                      href={opt.href}
+                      className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+                    >
+                      View this route →
+                    </Link>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {route.destinationCoverage && (
         <section className="border-y border-brand-line bg-brand-cream">
@@ -254,6 +303,52 @@ export default async function RoutePage({ params }: { params: Promise<Params> })
         </section>
       )}
 
+      {route.familySection && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{route.familySection.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{route.familySection.description}</p>
+          </div>
+        </section>
+      )}
+
+      {route.groupSection && (
+        <section className="border-b border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{route.groupSection.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{route.groupSection.description}</p>
+          </div>
+        </section>
+      )}
+
+      {route.transferComparison && route.transferComparison.length > 0 && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Private Transfer vs Train</h2>
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full min-w-[480px] text-left text-sm">
+                <thead>
+                  <tr className="border-b border-brand-line text-xs uppercase tracking-wide text-brand-ink-2/60">
+                    <th className="py-2 pr-4 font-semibold">Option</th>
+                    <th className="py-2 pr-4 font-semibold">Best for</th>
+                    <th className="py-2 font-semibold">Trade-off</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-brand-line">
+                  {route.transferComparison.map((c) => (
+                    <tr key={c.option}>
+                      <td className="py-3 pr-4 font-semibold text-brand-ink">{c.option}</td>
+                      <td className="py-3 pr-4 text-brand-ink-2/80">{c.bestFor}</td>
+                      <td className="py-3 text-brand-ink-2/80">{c.tradeoff}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      )}
+
       {route.originAlternative && (
         <section className="border-b border-brand-line bg-brand-cream">
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
@@ -284,7 +379,7 @@ export default async function RoutePage({ params }: { params: Promise<Params> })
             )}
             {route.relatedAirportRoutes ? (
               <div className={origin || destination ? 'mt-6' : ''}>
-                <h2 className="font-display text-xl text-brand-ink">More {route.from} Transfers</h2>
+                <h2 className="font-display text-xl text-brand-ink">{route.relatedRoutesHeading ?? `More ${route.from} Transfers`}</h2>
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
                   {route.relatedAirportRoutes.map((r) => (
                     <Link

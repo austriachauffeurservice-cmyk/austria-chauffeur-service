@@ -10,15 +10,21 @@ export type RoutePair = {
   seoTitle?: string
   seoDescription?: string
   routeOverview?: { road: string; transferType: string; vehicleNote: string }
+  routeExplanation?: { heading: string; description: string }
   whyBookPoints?: { title: string; description: string }[]
   destinationCoverage?: { heading: string; intro: string; items: string[] }
   winterSection?: { heading: string; description: string; linkHref: string; linkLabel: string }
   luggageNote?: { heading: string; description: string }
   returnSection?: { heading: string; description: string }
   originAlternative?: { heading: string; description: string }
+  originComparison?: { heading: string; options: { label: string; distance: string; driveTime: string; bestFor: string; href?: string }[] }
+  transferComparison?: { option: string; bestFor: string; tradeoff: string }[]
+  familySection?: { heading: string; description: string }
+  groupSection?: { heading: string; description: string }
   borderSection?: { heading: string; description: string }
   flightTrackingSection?: { heading: string; description: string }
   relatedAirportRoutes?: { label: string; distance: string; duration: string; href: string }[]
+  relatedRoutesHeading?: string
   faqs?: { question: string; answer: string }[]
   dropoffHint?: string
 }
@@ -1139,11 +1145,130 @@ export const routes: RoutePair[] = [
     distance: '~95 km',
     driveTime: '~1 Std. 15 Min.',
     routeDescription:
-      'Südwestlich über die Loferer Straße (B178) durch Unken und Waidring nach Kitzbühel — derselbe Korridor wie ab dem Flughafen Salzburg.',
+      'Privater Tür-zu-Tür-Transfer von Salzburg nach Kitzbühel über die B178, mit direkter Hotel- und Chalet-Abholung sowie Platz für Skiausrüstung.',
     whyBook: [
       'Direkter Stadt-zu-Resort-Transfer ohne Bahnhofsumstieg',
-      'Komfortabel für Gruppen mit Ski- oder Golfausrüstung',
+      'Komfortabel für Gruppen mit Skiausrüstung',
       'Festpreis vor Fahrtantritt vereinbart',
+    ],
+    seoTitle: 'Transfer Salzburg nach Kitzbühel | Privater Chauffeur',
+    seoDescription:
+      'Privater Chauffeurtransfer von Salzburg nach Kitzbühel. Tür-zu-Tür-Service, Festpreise und Platz für Skiausrüstung. ~95 km, ~1 Std. 15 Min.',
+    dropoffHint:
+      'Geben Sie Ihr Hotel, Chalet oder Ihre Adresse in Kitzbühel oder Kirchberg als Ziel an. Wir bestätigen Verfügbarkeit und Festpreis per E-Mail.',
+    routeOverview: {
+      road: 'B178 Loferer Straße über Unken und Waidring',
+      transferType: 'Privat, Tür zu Tür',
+      vehicleNote: 'Limousine, Executive Van oder Kleinbus',
+    },
+    routeExplanation: {
+      heading: 'Die Fahrt von Salzburg nach Kitzbühel',
+      description:
+        'Die Strecke führt südwestlich von Salzburg in Richtung des österreichisch-deutschen Grenzgebiets, weiter durch den Pinzgau/Lofer-Korridor über Unken und Waidring, und schließlich nach Kitzbühel. Die B178 Loferer Straße bildet die Hauptanfahrt in die Kitzbühel-Region — derselbe Korridor, der auch für Transfers ab dem Flughafen Salzburg genutzt wird.',
+    },
+    whyBookPoints: [
+      { title: 'Tür zu Tür', description: 'Abholung von Ihrem Salzburger Hotel oder Ihrer Privatadresse, direkt zu Ihrer Unterkunft in Kitzbühel.' },
+      { title: 'Kein Bahnhofsumstieg', description: 'Direkte Fahrt nach Kitzbühel ohne Zug- oder Shuttle-Wechsel.' },
+      { title: 'Skigepäck', description: 'Das Fahrzeug wird passend zu Personenanzahl und Ski- oder Snowboardausrüstung ausgewählt.' },
+      { title: 'Festpreis', description: 'Ihr Preis wird vor der Fahrt vereinbart.' },
+      { title: 'Flexible Abfahrt', description: 'Reisen Sie nach Ihrem bevorzugten Zeitplan, nicht nach einem festen Fahrplan.' },
+      { title: 'Rücktransfer', description: 'Buchen Sie Kitzbühel → Salzburg für dieselbe Reise.' },
+    ],
+    originComparison: {
+      heading: 'Salzburg Stadt vs. Flughafen Salzburg',
+      options: [
+        {
+          label: 'Salzburg Stadt',
+          distance: '~95 km',
+          driveTime: '~1 Std. 15 Min.',
+          bestFor: 'Hotelgäste, Geschäftsreisende und Städtereisende vor der Weiterfahrt nach Kitzbühel',
+        },
+        {
+          label: 'Flughafen Salzburg (SZG)',
+          distance: '~75 km',
+          driveTime: '~1 Std. 15 Min.',
+          bestFor: 'Ankommende Passagiere und direkte Flughafen-zu-Resort-Transfers',
+          href: '/de/routes/salzburg-airport-to-kitzbuehel',
+        },
+      ],
+    },
+    destinationCoverage: {
+      heading: 'Abholung an Hotel & Chalet',
+      intro:
+        'Die Abholung kann von Salzburger Stadthotels, Privatadressen, Ferienwohnungen und Geschäftsadressen aus organisiert werden — geben Sie bei der Anfrage Ihre genaue Abholadresse an. Dasselbe gilt am Kitzbühel-Ende:',
+      items: ['Hotels in Kitzbühel', 'Chalets in Kitzbühel', 'Ferienwohnungen in Kitzbühel', 'Privatadressen', 'Kirchberg (auf Anfrage)'],
+    },
+    luggageNote: {
+      heading: 'Reisen Sie mit Ski oder Snowboard?',
+      description:
+        'Geben Sie bei der Anfrage Ihre Ski- und Snowboardtaschen, Skischuhe, Helme sowie eventuelle Kinderausrüstung zusätzlich zu Ihren normalen Koffern an. Personenanzahl und Gepäckkapazität sind zwei unterschiedliche Dinge — der Executive Van und der Kleinbus bieten zusätzlichen Stauraum für Wintersportausrüstung neben dem normalen Gepäck.',
+    },
+    familySection: {
+      heading: 'Familien auf der Fahrt von Salzburg nach Kitzbühel',
+      description:
+        'Reisen mit Kindern bringt zusätzliches Gepäck und Logistik mit sich — Kindersitze, Sitzerhöhungen, Kinderwagen und Skiausrüstung zusätzlich zu den normalen Koffern. Geben Sie bei der Anfrage die Anzahl und das Alter der Kinder, benötigte Kindersitze sowie Ihr Gepäck und Ihre Skiausrüstung an, und wir stellen einen Executive Van oder Kleinbus mit ausreichend Platz bereit.',
+    },
+    groupSection: {
+      heading: 'Gruppen & Skigruppen',
+      description:
+        'Diese Strecke eignet sich auch für größere Skigruppen und Firmengruppen. Für größere Gruppen können mehrere Fahrzeuge oder ein Kleinbus organisiert werden — geben Sie bei der Anfrage Ihre vollständige Reiseroute, Personenanzahl und Ihr Gepäck an. Die genauen Fahrzeugkapazitäten finden Sie auf unserer Flottenseite.',
+    },
+    winterSection: {
+      heading: 'Salzburg nach Kitzbühel im Winter',
+      description:
+        'Schneefall, Straßenverhältnisse und Verkehr rund um Samstags-Wechseltage, Weihnachten/Neujahr und die Februar-Ferien können diese Fahrt verlängern. Winterreifen und mit Alpenstraßen erfahrene Fahrer sind Standard für Resort-Transfers — planen Sie rund um die Haupt-Wechseltage zusätzliche Zeit ein.',
+      linkHref: '/de/blog/alpine-ski-transfer-guide',
+      linkLabel: 'Unseren Alpine- & Skitransfer-Guide lesen →',
+    },
+    returnSection: {
+      heading: 'Kitzbühel → Salzburg Rücktransfer',
+      description:
+        'Derselbe private Service funktioniert auch in umgekehrter Richtung. Wir holen Sie von Ihrem Hotel, Chalet oder Ihrer Ferienwohnung in Kitzbühel oder Kirchberg ab und fahren Sie nach Salzburg — egal ob zu einem Stadthotel, zum Bahnhof oder zum Flughafen Salzburg für einen Flug. Teilen Sie uns bei der Buchung Ihre bevorzugte Abfahrtszeit, Ihr Gepäck und etwaige Flug- oder Zuganschlüsse mit.',
+    },
+    transferComparison: [
+      { option: 'Privater Transfer', bestFor: 'Tür zu Tür, Skigepäck, Familien und Gruppen', tradeoff: 'Höhere Kosten als der Zug' },
+      { option: 'Zug', bestFor: 'Kostenbewusste Einzelreisende, die Bahnhofswechsel in Kauf nehmen', tradeoff: 'Bahnhofswechsel, eigenständiger Gepäcktransport und fester Fahrplan' },
+    ],
+    relatedRoutesHeading: 'Weitere Wege nach Kitzbühel',
+    relatedAirportRoutes: [
+      { label: 'Flughafen Salzburg → Kitzbühel', distance: '~75 km', duration: '~1 Std. 15 Min.', href: '/de/routes/salzburg-airport-to-kitzbuehel' },
+      { label: 'Flughafen Innsbruck → Kitzbühel', distance: '~90 km', duration: '~1 Std.', href: '/de/routes/innsbruck-airport-to-kitzbuehel' },
+      { label: 'Flughafen München → Kitzbühel (grenzüberschreitend)', distance: '~165 km', duration: '~2 Std.', href: '/de/routes/munich-airport-to-kitzbuehel' },
+    ],
+    faqs: [
+      {
+        question: 'Wie weit ist Salzburg von Kitzbühel entfernt?',
+        answer: 'Die Straßenentfernung beträgt etwa 95 km.',
+      },
+      {
+        question: 'Wie lange dauert die Fahrt von Salzburg nach Kitzbühel?',
+        answer: 'Unter normalen Bedingungen etwa 1 Stunde 15 Minuten. Verkehr, Wetter und Straßenverhältnisse können dies verlängern.',
+      },
+      {
+        question: 'Kann ich stattdessen einen privaten Transfer ab dem Flughafen Salzburg buchen?',
+        answer:
+          'Ja — der Flughafen Salzburg ist mit rund 75 km und einer ähnlichen Fahrzeit von 1 Std. 15 Min. der kürzere Ausgangspunkt. Siehe unsere eigene Streckenseite Flughafen Salzburg nach Kitzbühel.',
+      },
+      {
+        question: 'Kann ich mit Ski oder Snowboard reisen?',
+        answer: 'Ja. Geben Sie Ihre Ski- oder Snowboardausrüstung bei der Buchung an, damit wir ein Fahrzeug mit ausreichend Platz einplanen können.',
+      },
+      {
+        question: 'Können Sie mich von meinem Salzburger Hotel abholen?',
+        answer: 'Ja. Wir fahren direkt von Ihrem Salzburger Hotel oder Ihrer Privatadresse zu Ihrer Unterkunft in Kitzbühel.',
+      },
+      {
+        question: 'Bieten Sie Rücktransfers von Kitzbühel nach Salzburg an?',
+        answer: 'Ja. Wir holen Sie von Ihrer Unterkunft in Kitzbühel oder Kirchberg ab und fahren Sie nach Salzburg, einschließlich zum Flughafen Salzburg, falls Sie einen Flug haben.',
+      },
+      {
+        question: 'Können Familien oder Gruppen ein größeres Fahrzeug buchen?',
+        answer: 'Ja. Executive Vans und Kleinbusse stehen je nach Verfügbarkeit für Familien und Gruppen zur Verfügung.',
+      },
+      {
+        question: 'Beeinflusst winterliches Wetter die Fahrt?',
+        answer: 'Ja. Schneefall und Verkehr rund um Haupt-Wechseltage können die Fahrzeit verlängern — planen Sie während verkehrsreicher Winterzeiten zusätzliche Zeit ein.',
+      },
     ],
   },
   {

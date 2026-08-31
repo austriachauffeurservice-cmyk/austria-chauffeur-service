@@ -19,12 +19,16 @@ export type SkiResort = {
   // expanded sections; other resorts keep the original compact template.
   seoTitle?: string
   seoDescription?: string
+  heroHeading?: string
   dropoffHint?: string
   routeOverview?: { start: string; destination: string; driveTime: string; service: string; vehicles: string; luggage: string }
   whyBookPoints?: { title: string; description: string }[]
   accommodationSection?: { heading: string; description: string }
   returnSection?: { heading: string; description: string }
   relatedResortRoutes?: { label: string; duration: string; href?: string }[]
+  transferComparison?: { option: string; bestFor: string; tradeoff: string }[]
+  familySection?: { heading: string; description: string }
+  groupSection?: { heading: string; description: string }
   faqs?: { question: string; answer: string }[]
 }
 
@@ -36,8 +40,8 @@ export const skiResorts: SkiResort[] = [
     skiArea: 'Kitzbüheler Alpen (SkiWelt / KitzSki)',
     nearestAirports: [
       { name: 'Innsbruck Airport (INN)', driveTime: '~1h' },
-      { name: 'Salzburg Airport (SZG)', driveTime: '~1h 30m' },
-      { name: 'Munich Airport (MUC)', driveTime: '~1h 45m' },
+      { name: 'Salzburg Airport (SZG)', driveTime: '~1h 15m' },
+      { name: 'Munich Airport (MUC)', driveTime: '~2h' },
     ],
     popularRoutes: [
       'Innsbruck Airport → Kitzbühel',
@@ -48,7 +52,8 @@ export const skiResorts: SkiResort[] = [
       'Home to the Hahnenkamm downhill race and the famous Streif piste',
       'Medieval old town with colorful facades at the base of the slopes',
     ],
-    hotelNote: 'Pickup and drop-off at chalets and hotels throughout Kitzbühel and neighboring Kirchberg.',
+    hotelNote:
+      'Direct pickup and drive to chalets and hotels throughout Kitzbühel and neighboring Kirchberg — provide your exact address when requesting a quote.',
     attractions: [
       {
         name: 'Streif (Hahnenkamm Piste)',
@@ -58,19 +63,117 @@ export const skiResorts: SkiResort[] = [
         name: 'Kitzbühel Old Town',
         description: 'A pedestrian medieval center with Gothic architecture at the foot of the mountains.',
       },
+      {
+        name: 'Lake Schwarzsee',
+        description: 'A scenic lake just outside Kitzbühel, popular for a relaxed stop away from the slopes.',
+      },
     ],
     airportGuidance: [
       {
         airport: 'Innsbruck Airport (INN)',
-        note: "The closest option at around an hour's drive — the default choice for most Kitzbühel bookings.",
+        note: "At around 90 km and roughly an hour's drive, Innsbruck Airport is the closest of the three and the default choice for most Kitzbühel bookings. The route runs east on the A12 Inntal Autobahn before joining the B170/B161 directly into town — the most direct airport-to-resort option in the region. If your flight lands at Innsbruck, this is normally the fastest and simplest way to reach Kitzbühel or neighboring Kirchberg.",
       },
       {
         airport: 'Salzburg Airport (SZG)',
-        note: 'A convenient alternative at around 1.5 hours, useful if your flight connections favor Salzburg over Innsbruck.',
+        note: "Salzburg Airport is roughly 75 km away, with a typical drive of around 1 hour 15 minutes via the Loferer Straße (B178) through Unken and Waidring. It's a practical alternative when your flight options favor Salzburg over Innsbruck, or when you're combining a Kitzbühel trip with time in Salzburg itself — and the drive stays entirely within Austria, without a border crossing.",
       },
       {
         airport: 'Munich Airport (MUC)',
-        note: 'Worth considering for long-haul and international connections not available at the smaller Austrian airports, with a longer cross-border drive of around 1h45m.',
+        note: "Munich Airport is around 165 km from Kitzbühel, with a drive of roughly 2 hours via the A8 towards the Inntal Dreieck and A93/B173 through Kufstein. It's worth considering for long-haul or international connections not available at the smaller Austrian airports, even though it's a longer, cross-border journey — travelers arriving from overseas often find Munich's wider flight network outweighs the extra driving time.",
+      },
+    ],
+    seoTitle: 'Kitzbühel Ski Transfers: Private Airport Chauffeur Service',
+    seoDescription:
+      'Private ski transfer to Kitzbühel from Innsbruck, Salzburg, and Munich Airport. Door-to-door service, fixed pricing, and space for skis and snowboards.',
+    heroHeading: 'Kitzbühel Ski Transfers: Private Airport Chauffeur Service',
+    dropoffHint:
+      'Enter your Kitzbühel or Kirchberg hotel, chalet, or address as the destination. We will confirm availability and a fixed price by email.',
+    whyBookPoints: [
+      {
+        title: 'Direct to Your Accommodation',
+        description: 'No changing vehicles or shuttles — travel directly from the airport to your Kitzbühel or Kirchberg hotel, chalet, or address.',
+      },
+      {
+        title: 'Fixed Price',
+        description: 'Your price is confirmed by email before the journey, based on pickup, destination, passengers, and luggage.',
+      },
+      {
+        title: 'Ski & Snowboard Space',
+        description: 'Extra luggage and ski/board space is available on request for winter sports equipment.',
+      },
+      {
+        title: 'Airport Pickup',
+        description: "Share your flight number and we'll coordinate pickup timing around your arrival.",
+      },
+      {
+        title: 'For Families & Groups',
+        description: 'Executive Vans and Minibuses are available for larger parties, plus luggage and ski equipment.',
+      },
+    ],
+    accommodationSection: {
+      heading: 'Kitzbühel & Kirchberg: Hotel, Chalet & Apartment Transfer',
+      description:
+        "Kitzbühel and neighboring Kirchberg both attract chalet and hotel guests throughout the winter season, and your exact accommodation — not just the town name — determines the best pickup and drop-off plan. We drive directly to hotels, chalets, apartments, and private addresses in both villages; provide the exact address when requesting your quote rather than just \"Kitzbühel\" or \"Kirchberg.\"",
+    },
+    returnSection: {
+      heading: 'Kitzbühel → Airport: Return Transfers',
+      description:
+        "The same private service works in reverse for your departure. We collect you directly from your hotel, chalet, or apartment in Kitzbühel or Kirchberg and drive you to Innsbruck, Salzburg, or Munich Airport. For a flight departure, allow extra buffer for winter road conditions and airport check-in — share your flight details when booking and we'll plan the pickup time around it.",
+    },
+    relatedResortRoutes: [
+      { label: 'Innsbruck Airport → Kitzbühel', duration: '~1h', href: '/routes/innsbruck-airport-to-kitzbuehel' },
+      { label: 'Salzburg Airport → Kitzbühel', duration: '~1h 15m', href: '/routes/salzburg-airport-to-kitzbuehel' },
+      { label: 'Munich Airport → Kitzbühel (cross-border)', duration: '~2h', href: '/routes/munich-airport-to-kitzbuehel' },
+    ],
+    transferComparison: [
+      { option: 'Private chauffeur', bestFor: 'Families, groups, and ski luggage', tradeoff: 'Higher cost than shared options' },
+      { option: 'Train', bestFor: 'Budget-conscious solo travelers', tradeoff: 'Station transfers and handling your own luggage' },
+      { option: 'Rental car', bestFor: 'Independent travel and flexibility', tradeoff: 'Winter driving and parking at the resort' },
+      { option: 'Shared shuttle', bestFor: 'Lower-cost, flexible-schedule travelers', tradeoff: 'Shared stops and less flexibility' },
+    ],
+    familySection: {
+      heading: 'Family Ski Transfers to Kitzbühel',
+      description:
+        "Traveling with children adds extra luggage and logistics to a ski trip — car seats, boosters, strollers, and ski equipment on top of regular suitcases. Mention the number and ages of children, any child-seat needs, and your luggage and ski equipment when requesting a quote, and we'll assign an Executive Van or Minibus with enough space for the whole family.",
+    },
+    groupSection: {
+      heading: 'Group & Corporate Transfers',
+      description:
+        "Kitzbühel is also a common destination for ski groups, corporate retreats, and events. For larger parties, multiple vehicles or a Minibus can be arranged, with pickup coordinated around your group's arrival times. Provide your full itinerary — passenger count, luggage, and any multiple stops — when requesting a quote.",
+    },
+    faqs: [
+      {
+        question: 'Which airport is closest to Kitzbühel?',
+        answer: "Innsbruck Airport is the closest, at around 90 km and roughly an hour's drive.",
+      },
+      {
+        question: 'How long is the transfer from Innsbruck Airport to Kitzbühel?',
+        answer: 'Around 1 hour in normal conditions. Winter weather and traffic can extend this.',
+      },
+      {
+        question: 'How long is the transfer from Salzburg Airport to Kitzbühel?',
+        answer: 'Around 1 hour 15 minutes, on a route that stays entirely within Austria.',
+      },
+      {
+        question: 'Can I travel with skis and a snowboard?',
+        answer: 'Yes. Mention your ski or snowboard equipment when booking so we can assign a vehicle with enough space.',
+      },
+      {
+        question: 'Can you pick me up from my hotel or chalet in Kitzbühel or Kirchberg?',
+        answer: 'Yes. We drive directly to hotels, chalets, apartments, and private addresses in both villages — just share the exact address.',
+      },
+      {
+        question: 'Do you offer return transfers to the airport?',
+        answer: 'Yes. We collect you from your Kitzbühel or Kirchberg accommodation and drive you to Innsbruck, Salzburg, or Munich Airport.',
+      },
+      {
+        question: 'Is Munich Airport a practical option for Kitzbühel?',
+        answer:
+          "It's a longer, cross-border drive at around 2 hours, but it can be worth it for long-haul or international flight connections not available at the smaller Austrian airports.",
+      },
+      {
+        question: 'Can I book a larger vehicle for a family or group?',
+        answer: 'Yes. Executive Vans and Minibuses are available for families and groups, subject to availability — mention passenger and luggage numbers when booking.',
       },
     ],
   },

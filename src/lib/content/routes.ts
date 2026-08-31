@@ -16,15 +16,21 @@ export type RoutePair = {
   // route pages (see the Aug 2026 route-page audit) render the expanded
   // sections; other routes keep the original compact template.
   routeOverview?: { road: string; transferType: string; vehicleNote: string }
+  routeExplanation?: { heading: string; description: string }
   whyBookPoints?: { title: string; description: string }[]
   destinationCoverage?: { heading: string; intro: string; items: string[] }
   winterSection?: { heading: string; description: string; linkHref: string; linkLabel: string }
   luggageNote?: { heading: string; description: string }
   returnSection?: { heading: string; description: string }
   originAlternative?: { heading: string; description: string }
+  originComparison?: { heading: string; options: { label: string; distance: string; driveTime: string; bestFor: string; href?: string }[] }
+  transferComparison?: { option: string; bestFor: string; tradeoff: string }[]
+  familySection?: { heading: string; description: string }
+  groupSection?: { heading: string; description: string }
   borderSection?: { heading: string; description: string }
   flightTrackingSection?: { heading: string; description: string }
   relatedAirportRoutes?: { label: string; distance: string; duration: string; href: string }[]
+  relatedRoutesHeading?: string
   faqs?: { question: string; answer: string }[]
   // Replaces the booking form's generic cross-border example text (e.g.
   // "Bratislava, Slovakia or Munich, Germany") with route-specific guidance,
@@ -1148,11 +1154,130 @@ export const routes: RoutePair[] = [
     distance: '~95km',
     driveTime: '~1h 15m',
     routeDescription:
-      'Southwest via the B178 Loferer Straße through Unken and Waidring into Kitzbühel — the same corridor used from Salzburg Airport.',
+      'Private door-to-door transfer from Salzburg to Kitzbühel via the B178, with direct hotel and chalet pickup and space for ski equipment.',
     whyBook: [
       'Direct city-to-resort transfer without a station change',
-      'Comfortable for groups traveling with ski or golf equipment',
+      'Comfortable for groups traveling with ski equipment',
       'Fixed price agreed before travel',
+    ],
+    seoTitle: 'Salzburg to Kitzbühel Transfer | Private Chauffeur',
+    seoDescription:
+      'Private chauffeur transfer from Salzburg to Kitzbühel. Door-to-door service, fixed pricing, and space for ski equipment. ~95km, ~1h 15m.',
+    dropoffHint:
+      'Enter your Kitzbühel or Kirchberg hotel, chalet, or address as the destination. We will confirm availability and a fixed price by email.',
+    routeOverview: {
+      road: 'B178 Loferer Straße via Unken and Waidring',
+      transferType: 'Private, door-to-door',
+      vehicleNote: 'Sedan, Executive Van, or Minibus',
+    },
+    routeExplanation: {
+      heading: 'The Drive from Salzburg to Kitzbühel',
+      description:
+        "The route heads southwest from Salzburg toward the Austrian-German border area before continuing through the Pinzgau/Lofer corridor via Unken and Waidring, and on toward Kitzbühel. The B178 Loferer Straße forms the main approach into the Kitzbühel area — the same corridor used for transfers starting at Salzburg Airport.",
+    },
+    whyBookPoints: [
+      { title: 'Door-to-Door', description: 'Pickup from your Salzburg hotel or private address, straight to your Kitzbühel accommodation.' },
+      { title: 'No Station Change', description: 'Travel directly to Kitzbühel without a train or shuttle transfer.' },
+      { title: 'Ski Luggage', description: 'Vehicle selected around your passengers and ski or snowboard equipment.' },
+      { title: 'Fixed Price', description: 'Your price is agreed before travel.' },
+      { title: 'Flexible Departure', description: 'Travel around your preferred schedule, not a fixed timetable.' },
+      { title: 'Return Transfer', description: 'Book Kitzbühel → Salzburg for the same trip.' },
+    ],
+    originComparison: {
+      heading: 'Salzburg City vs Salzburg Airport',
+      options: [
+        {
+          label: 'Salzburg City',
+          distance: '~95km',
+          driveTime: '~1h 15m',
+          bestFor: 'Hotel guests, business travelers, and city stays before continuing to Kitzbühel',
+        },
+        {
+          label: 'Salzburg Airport (SZG)',
+          distance: '~75km',
+          driveTime: '~1h 15m',
+          bestFor: 'Arriving passengers and direct airport-to-resort transfers',
+          href: '/routes/salzburg-airport-to-kitzbuehel',
+        },
+      ],
+    },
+    destinationCoverage: {
+      heading: 'Hotel & Chalet Pickup',
+      intro:
+        "Pickup can be arranged from Salzburg city hotels, private residences, apartments, and business addresses — enter your exact pickup address when requesting your quote. The same applies at the Kitzbühel end:",
+      items: ['Kitzbühel hotels', 'Kitzbühel chalets', 'Kitzbühel apartments', 'Private residences', 'Kirchberg (on request)'],
+    },
+    luggageNote: {
+      heading: 'Travelling with Skis or Snowboards?',
+      description:
+        "Mention your ski bags, snowboard bags, boots, helmets, and any child equipment when requesting your transfer, alongside your regular suitcases. Passenger capacity and luggage capacity aren't the same thing — the Executive Van and Minibus offer extra space for winter sports equipment in addition to standard luggage.",
+    },
+    familySection: {
+      heading: 'Families Travelling from Salzburg to Kitzbühel',
+      description:
+        "Traveling with children means extra luggage and logistics — car seats, boosters, strollers, and ski equipment alongside regular suitcases. Mention the number and ages of children, any child-seat needs, and your luggage and ski equipment when requesting a quote, and we'll assign an Executive Van or Minibus with enough space.",
+    },
+    groupSection: {
+      heading: 'Groups & Ski Parties',
+      description:
+        'This route also suits larger ski groups and corporate parties. Multiple vehicles or a Minibus can be arranged for bigger groups — provide your full itinerary, passenger count, and luggage when requesting a quote. See our fleet page for exact vehicle capacities.',
+    },
+    winterSection: {
+      heading: 'Salzburg to Kitzbühel in Winter',
+      description:
+        'Snowfall, road conditions, and traffic around Saturday changeovers, Christmas/New Year, and February school holidays can all add time to this drive. Winter tires and drivers experienced with Alpine roads are standard for resort transfers — allow extra time either side of peak changeover days.',
+      linkHref: '/blog/alpine-ski-transfer-guide',
+      linkLabel: 'Read our Alpine & ski transfer guide →',
+    },
+    returnSection: {
+      heading: 'Kitzbühel → Salzburg Return Transfer',
+      description:
+        "The same private service works in reverse. We collect you from your Kitzbühel or Kirchberg hotel, chalet, or apartment and drive you to Salzburg — whether that's a city hotel, the railway station, or Salzburg Airport for a flight. Share your preferred departure time, luggage, and any flight or train connection when booking.",
+    },
+    transferComparison: [
+      { option: 'Private transfer', bestFor: 'Door-to-door, ski luggage, families and groups', tradeoff: 'Higher cost than the train' },
+      { option: 'Train', bestFor: 'Budget-conscious solo travelers comfortable changing stations', tradeoff: 'Station changes, handling your own luggage, and a fixed timetable' },
+    ],
+    relatedRoutesHeading: 'More Ways to Reach Kitzbühel',
+    relatedAirportRoutes: [
+      { label: 'Salzburg Airport → Kitzbühel', distance: '~75km', duration: '~1h 15m', href: '/routes/salzburg-airport-to-kitzbuehel' },
+      { label: 'Innsbruck Airport → Kitzbühel', distance: '~90km', duration: '~1h', href: '/routes/innsbruck-airport-to-kitzbuehel' },
+      { label: 'Munich Airport → Kitzbühel (cross-border)', distance: '~165km', duration: '~2h', href: '/routes/munich-airport-to-kitzbuehel' },
+    ],
+    faqs: [
+      {
+        question: 'How far is Salzburg from Kitzbühel?',
+        answer: 'The road distance is approximately 95 km.',
+      },
+      {
+        question: 'How long does Salzburg to Kitzbühel take?',
+        answer: 'Around 1 hour 15 minutes in normal conditions. Traffic, weather, and road conditions can extend this.',
+      },
+      {
+        question: 'Can I book a private transfer from Salzburg Airport instead?',
+        answer:
+          'Yes — Salzburg Airport is a shorter starting point, at around 75 km and roughly the same 1h 15m drive. See our dedicated Salzburg Airport to Kitzbühel route page.',
+      },
+      {
+        question: 'Can I travel with skis or a snowboard?',
+        answer: 'Yes. Mention your ski or snowboard equipment when booking so we can assign a vehicle with enough space.',
+      },
+      {
+        question: 'Can you pick me up from my Salzburg hotel?',
+        answer: 'Yes. We drive directly from your Salzburg hotel or private address to your accommodation in Kitzbühel.',
+      },
+      {
+        question: 'Do you offer Kitzbühel to Salzburg return transfers?',
+        answer: "Yes. We collect you from your Kitzbühel or Kirchberg accommodation and drive you to Salzburg, including Salzburg Airport if you're catching a flight.",
+      },
+      {
+        question: 'Can families or groups book a larger vehicle?',
+        answer: 'Yes. Executive Vans and Minibuses are available for families and groups, subject to availability.',
+      },
+      {
+        question: 'Does winter weather affect the journey?',
+        answer: 'Yes. Snowfall and traffic around peak changeover days can add to the journey time — allow extra time during busy winter periods.',
+      },
     ],
   },
   {
