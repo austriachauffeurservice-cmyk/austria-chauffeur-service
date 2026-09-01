@@ -28,7 +28,7 @@ export default function ReviewsPageDe() {
             Was Sie erwarten können
           </p>
           <h1 className="font-display mt-2 max-w-2xl text-3xl text-brand-ink sm:text-4xl">
-            Beispielszenarien aus dem echten Servicealltag
+            So könnte Ihr Transfer aussehen
           </h1>
           <p className="mt-4 max-w-xl text-brand-ink-2/80">
             Illustrative Beispiele, wie Buchungen typischerweise ablaufen — Flughafenabholungen,

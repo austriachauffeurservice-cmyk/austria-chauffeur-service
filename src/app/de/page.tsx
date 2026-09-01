@@ -35,37 +35,15 @@ export const metadata: Metadata = {
   },
 }
 
-const popularRouteCards: { label: string; slug: string; route: string; href?: string }[] = [
-  { label: 'Chauffeurservice Wien', slug: 'vienna', route: 'Flughafen Wien ↔ Stadtzentrum' },
-  {
-    label: 'Flughafentransfers',
-    slug: 'airport-transfers-hub',
-    route: 'Alle österreichischen Flughäfen, plus München & Zürich',
-    href: '/de/airport-transfers',
-  },
-  { label: 'Chauffeurservice Salzburg', slug: 'salzburg', route: 'Salzburg ↔ Wien / München' },
-  { label: 'Flughafentransfer Innsbruck', slug: 'innsbruck', route: 'Innsbruck ↔ Kitzbühel / München' },
-  { label: 'Chauffeurservice Graz', slug: 'graz', route: 'Graz ↔ Wien / Ljubljana' },
-  { label: 'Privattransfer Linz', slug: 'linz', route: 'Linz ↔ Wien / Prag' },
-  { label: 'Privattransfer München', slug: 'munich', route: 'Österreich ↔ München (Deutschland)' },
-  { label: 'Chauffeur Prag', slug: 'prague', route: 'Österreich ↔ Prag (Tschechien)' },
-  { label: 'Chauffeurservice Bratislava', slug: 'bratislava', route: 'Wien ↔ Bratislava (Slowakei)' },
-  { label: 'Chauffeur Budapest', slug: 'budapest', route: 'Wien ↔ Budapest (Ungarn)' },
-  { label: 'Privatfahrer Zürich', slug: 'zurich', route: 'Bregenz ↔ Zürich (Schweiz)' },
-  { label: 'Privatfahrer Klagenfurt', slug: 'klagenfurt', route: 'Klagenfurt ↔ Graz / Ljubljana' },
-  { label: 'Chauffeurservice Bregenz', slug: 'bregenz', route: 'Bregenz ↔ Zürich / Vaduz' },
-  {
-    label: 'Flughafentransfer Wien',
-    slug: 'vienna-airport-transfer',
-    route: 'Flughafen Wien (VIE) ↔ Stadtzentrum',
-    href: '/de/airport-transfers/vienna-airport',
-  },
-  {
-    label: 'Skitransfer Kitzbühel',
-    slug: 'kitzbuehel-ski-transfer',
-    route: 'Flughafen Innsbruck / Salzburg → Kitzbühel',
-    href: '/de/ski-transfers/kitzbuehel',
-  },
+const popularRoutes: { label: string; distance: string; duration: string; href: string }[] = [
+  { label: 'Wien → Salzburg', distance: '~295 km', duration: '~2 Std. 45 Min.', href: '/de/routes/vienna-to-salzburg' },
+  { label: 'Wien → Bratislava', distance: '~80 km', duration: '~1 Std.', href: '/de/routes/vienna-to-bratislava' },
+  { label: 'Flughafen Wien → Bratislava', distance: '~65 km', duration: '~45–60 Min.', href: '/de/routes/vienna-airport-to-bratislava' },
+  { label: 'Salzburg → München', distance: '~145 km', duration: '~1 Std. 30 Min.', href: '/de/routes/salzburg-to-munich' },
+  { label: 'Flughafen Innsbruck → Kitzbühel', distance: '~90 km', duration: '~1 Std.', href: '/de/routes/innsbruck-airport-to-kitzbuehel' },
+  { label: 'Wien → Budapest', distance: '~245 km', duration: '~2 Std. 30 Min.–3 Std.', href: '/de/routes/vienna-to-budapest' },
+  { label: 'Wien → Prag', distance: '~310 km', duration: '~3 Std. 15 Min.', href: '/de/routes/vienna-to-prague' },
+  { label: 'Bregenz → Flughafen Zürich', distance: '~120 km', duration: '~1 Std. 15 Min.', href: '/de/routes/bregenz-to-zurich-airport' },
 ]
 
 export default function HomePageDe() {
@@ -98,6 +76,17 @@ export default function HomePageDe() {
           },
         }}
       />
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.question,
+            acceptedAnswer: { '@type': 'Answer', text: f.answer },
+          })),
+        }}
+      />
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-brand-line bg-brand-ink text-white">
@@ -113,10 +102,10 @@ export default function HomePageDe() {
               Auch über die Grenze.
             </h1>
             <p className="mt-5 max-w-md text-brand-cream/80">
-              Lizenzierte Privattransfers ab dem Flughafen Wien (VIE) und Zielen in ganz
-              Österreich, plus grenzüberschreitender Service nach Deutschland, Tschechien,
-              Slowakei, Ungarn, Slowenien, Italien und in die Schweiz. Festpreise, professionelle
-              Fahrer, inklusive Flugverfolgung.
+              Private Chauffeurtransfers ab dem Flughafen Wien (VIE) und Zielen in ganz Österreich,
+              mit lizenzierter Partnerabdeckung für grenzüberschreitende Fahrten nach Deutschland,
+              Tschechien, Slowakei, Ungarn, Slowenien, Italien und in die Schweiz &amp;
+              Liechtenstein. Festpreise, professionelle Fahrer, inklusive Flugverfolgung.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -150,7 +139,7 @@ export default function HomePageDe() {
               </div>
               <div>
                 <dt className="text-brand-gold">24/7</dt>
-                <dd className="text-brand-cream/70">Buchung verfügbar</dd>
+                <dd className="text-brand-cream/70">Buchungsanfragen</dd>
               </div>
             </dl>
           </div>
@@ -221,8 +210,9 @@ export default function HomePageDe() {
                 Erstklassige Zuverlässigkeit auf jedem Kilometer
               </h2>
               <p className="mt-4 text-brand-ink-2/80 text-sm leading-relaxed max-w-xl">
-                Wir verbinden die Standards eines internationalen Premium-Geschäftsreiseservices
-                mit lokaler österreichischer Erfahrung für nahtlose Transfers.
+                Wir verbinden professionelle Chauffeurstandards mit lokaler österreichischer
+                Streckenkenntnis für zuverlässige Privattransfers in ganz Österreich und darüber
+                hinaus.
               </p>
 
               <div className="mt-8 grid gap-6 sm:grid-cols-2">
@@ -258,7 +248,8 @@ export default function HomePageDe() {
                   <div>
                     <h3 className="font-semibold text-brand-ink text-base">Grenzüberschreitendes Netzwerk</h3>
                     <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed">
-                      Lizenzierte Partnerfahrer für Abholungen und Ablieferungen in 7 europäischen Ländern.
+                      Lizenzierte Partnerabdeckung für internationale Abholungen und Ablieferungen
+                      in 7 Nachbarländern.
                     </p>
                   </div>
                 </div>
@@ -270,7 +261,8 @@ export default function HomePageDe() {
                   <div>
                     <h3 className="font-semibold text-brand-ink text-base font-display">Professionelle Fahrer</h3>
                     <p className="mt-1 text-xs text-brand-ink-2/70 leading-relaxed">
-                      Englisch- und deutschsprachige professionelle Fahrer, geschult für Luxusservice.
+                      Englisch- und deutschsprachige professionelle Fahrer mit Erfahrung im
+                      Premium-Chauffeurservice.
                     </p>
                   </div>
                 </div>
@@ -302,7 +294,7 @@ export default function HomePageDe() {
                 So buchen Sie Ihren Privattransfer
               </h2>
               <p className="mt-4 text-brand-ink-2/80 text-sm leading-relaxed max-w-xl">
-                Unser Buchungsprozess ist schnell, sicher und vollständig anpassbar. Wir
+                Unser Buchungsprozess ist schnell, unkompliziert und vollständig anpassbar. Wir
                 bestätigen alles, bevor es verbindlich wird.
               </p>
 
@@ -482,7 +474,7 @@ export default function HomePageDe() {
                   Grenzüberschreitend
                 </p>
                 <h2 className="font-display mt-2 text-2xl text-brand-ink">
-                  Über Österreichs Grenzen hinaus
+                  Grenzüberschreitende Chauffeurtransfers ab Österreich
                 </h2>
                 <ul className="mt-5 space-y-3 text-sm text-brand-ink-2">
                   {borderCrossingDestinations.map((d) => (
@@ -525,7 +517,7 @@ export default function HomePageDe() {
                 Was Sie erwarten können
               </p>
               <h2 className="font-display mt-2 mb-8 text-3xl text-brand-ink">
-                Beispielszenarien aus dem echten Servicealltag
+                So könnte Ihr Transfer aussehen
               </h2>
 
               <div className="space-y-6">
@@ -544,7 +536,7 @@ export default function HomePageDe() {
                 href="/de/reviews"
                 className="mt-6 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4"
               >
-                Weitere Beispielszenarien ansehen →
+                Weitere Beispiele ansehen →
               </Link>
             </div>
           </div>
@@ -587,6 +579,11 @@ export default function HomePageDe() {
             </div>
           ))}
         </div>
+        <p className="mt-6 max-w-2xl text-xs text-brand-ink-2/60">
+          Die Gepäckkapazität variiert je nach Personenanzahl und Gepäckgröße. Geben Sie bei
+          Skiausrüstung oder ungewöhnlich großem Gepäck die Details in Ihrer Anfrage an, damit wir
+          das passende Fahrzeug zuweisen können.
+        </p>
       </section>
 
       {/* Popular Routes */}
@@ -594,22 +591,22 @@ export default function HomePageDe() {
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-              Beliebte Ziele &amp; Strecken
+              Beliebte Strecken
             </p>
             <h2 className="font-display mt-2 text-3xl text-brand-ink">
-              Top-Chauffeurziele
+              Beliebte Chauffeur-Strecken
             </h2>
             <p className="mt-4 text-brand-ink-2/80 text-sm leading-relaxed">
-              Eine Mischung aus beliebten Einsatzgebieten und Festpreis-Transferstrecken. Wählen
-              Sie eines für Details und Abdeckung.
+              Festpreis-Strecken, die unsere Chauffeure am häufigsten fahren. Wählen Sie eine für
+              die vollständigen Streckendetails.
             </p>
           </div>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {popularRouteCards.map((r) => (
+            {popularRoutes.map((r) => (
               <Link
-                key={r.slug}
-                href={r.href ?? `/de/service-areas/${r.slug}`}
+                key={r.href}
+                href={r.href}
                 className="group rounded-sm border border-brand-line bg-brand-cream p-5 hover:border-brand-gold hover:bg-white hover:shadow-sm transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
@@ -617,7 +614,7 @@ export default function HomePageDe() {
                     {r.label}
                   </h3>
                   <p className="mt-1 text-[11px] text-brand-ink-2/60 font-mono">
-                    {r.route}
+                    {r.distance} · {r.duration}
                   </p>
                 </div>
                 <div className="mt-4 flex items-center justify-between text-xs font-semibold text-brand-ink group-hover:text-brand-gold transition-colors duration-300">
@@ -628,6 +625,14 @@ export default function HomePageDe() {
                 </div>
               </Link>
             ))}
+          </div>
+          <div className="mt-8">
+            <Link
+              href="/de/routes"
+              className="text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+            >
+              Alle Strecken ansehen →
+            </Link>
           </div>
         </div>
       </section>

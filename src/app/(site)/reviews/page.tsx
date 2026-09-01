@@ -28,7 +28,7 @@ export default function ReviewsPage() {
             What to Expect
           </p>
           <h1 className="font-display mt-2 max-w-2xl text-3xl text-brand-ink sm:text-4xl">
-            Example scenarios from real service situations
+            What Your Transfer Can Look Like
           </h1>
           <p className="mt-4 max-w-xl text-brand-ink-2/80">
             Illustrative examples of how bookings typically play out — airport pickups, weddings,

@@ -5,7 +5,7 @@ export const serviceTypes = [
     ...serviceTypesEn[0],
     title: 'Flughafentransfers',
     description:
-      'Flugverfolgung, persönlicher Empfang und Festpreise zu und von Wien, Salzburg, Graz, Linz, Innsbruck und nahegelegenen internationalen Flughäfen.',
+      'Flugverfolgung, persönlicher Empfang und Festpreis-Transfers zu und von Österreichs großen Flughäfen, sowie ausgewählten internationalen Flughäfen wie München und Zürich.',
   },
   {
     ...serviceTypesEn[1],

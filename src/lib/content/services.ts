@@ -60,7 +60,7 @@ export const serviceTypes = [
   {
     title: 'Airport Transfers',
     description:
-      'Flight tracking, meet & greet, and fixed pricing to and from Vienna, Salzburg, Graz, Linz, Innsbruck, and nearby international airports.',
+      "Flight tracking, meet & greet, and fixed-price transfers to and from Austria's major airports, plus selected international airports such as Munich and Zurich.",
     icon: 'plane',
     image: '/images/hero/airport-transfer.webp',
     alt: 'Vienna International Airport (VIE) private chauffeur transfer, Austria',
