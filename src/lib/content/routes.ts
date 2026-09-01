@@ -175,11 +175,148 @@ export const routes: RoutePair[] = [
     to: 'Kitzbühel',
     distance: '~90km',
     driveTime: '~1h',
-    routeDescription: 'East on the A12 Inntal Autobahn before turning onto the B170/B161 into Kitzbühel — the most direct airport-to-resort route in the region.',
+    routeDescription:
+      'East via the A12 Inntal Autobahn before continuing toward Kitzbühel via the B170/B161 — a direct airport-to-resort journey through Tyrol.',
     whyBook: [
-      'Winter-ready vehicles with space for skis and boards',
+      'Winter-ready vehicle selection with space for skis and boards',
       'Direct to your chalet or hotel, no shuttle bus transfer',
-      'A direct airport-to-resort transfer, without a shuttle-bus connection',
+      'Fixed price agreed before travel',
+    ],
+    seoTitle: 'Innsbruck Airport to Kitzbühel Transfer | Private Chauffeur',
+    seoDescription:
+      'Private chauffeur transfer from Innsbruck Airport to Kitzbühel. Door-to-door service, flight tracking, fixed pricing. ~90km, ~1 hour.',
+    dropoffHint:
+      'Enter your Kitzbühel or Kirchberg hotel, chalet, or address as the destination. We will confirm availability and a fixed price by email.',
+    routeOverview: {
+      road: 'A12 Inntal Autobahn via B170/B161',
+      transferType: 'Private, door-to-door',
+      vehicleNote: 'Sedan, Executive Van, or Minibus',
+    },
+    routeExplanation: {
+      heading: 'The Drive from Innsbruck Airport to Kitzbühel',
+      description:
+        'From Innsbruck Airport, the journey heads east through the Inn Valley before continuing toward the Kitzbühel area. The main route uses the A12 Inntal Autobahn before connecting onto the B170/B161 regional roads into the resort. Under normal conditions, the drive takes around an hour, although winter weather and traffic can extend the journey.',
+    },
+    originAlternative: {
+      heading: 'Why Innsbruck Airport Is a Convenient Gateway to Kitzbühel',
+      description:
+        "Innsbruck Airport offers one of the shortest road journeys to Kitzbühel of any airport serving Tyrol, on a domestic transfer that stays entirely within Austria — no border crossing involved. For travelers already flying into Innsbruck for a wider Tyrol ski holiday, it's usually the most direct way to reach Kitzbühel and other resorts in the region.",
+    },
+    whyBookPoints: [
+      { title: 'Door-to-Door', description: 'Your chauffeur takes you directly from Innsbruck Airport to your Kitzbühel accommodation.' },
+      { title: 'Ski-Friendly Vehicle Planning', description: 'Tell us about skis, snowboards, and additional luggage when booking.' },
+      { title: 'No Shuttle Connection', description: 'Stay in the same private vehicle throughout the journey.' },
+      { title: 'Fixed Price', description: 'Your transfer price is confirmed before travel.' },
+      { title: 'Flexible Pickup', description: 'Your airport pickup is arranged around your arrival.' },
+      { title: 'Return Transfer', description: 'Book Kitzbühel → Innsbruck Airport as well.' },
+    ],
+    flightTrackingSection: {
+      heading: 'Airport Pickup & Flight Tracking',
+      description:
+        'Provide your flight number when booking and we monitor the scheduled arrival at Innsbruck Airport. If your flight is early or delayed, pickup timing is adjusted accordingly.',
+    },
+    originComparison: {
+      heading: 'Innsbruck vs Salzburg vs Munich Airport for Kitzbühel',
+      options: [
+        {
+          label: 'Innsbruck Airport (INN)',
+          distance: '~90km',
+          driveTime: '~1h',
+          bestFor: 'The shortest journey and the default choice for most Kitzbühel bookings',
+        },
+        {
+          label: 'Salzburg Airport (SZG)',
+          distance: '~75km',
+          driveTime: '~1h 15m',
+          bestFor: 'Alternative flight connections into Austria',
+          href: '/routes/salzburg-airport-to-kitzbuehel',
+        },
+        {
+          label: 'Munich Airport (MUC)',
+          distance: '~165km',
+          driveTime: '~2h',
+          bestFor: 'Long-haul and international flight connections',
+          href: '/routes/munich-airport-to-kitzbuehel',
+        },
+      ],
+    },
+    destinationCoverage: {
+      heading: 'Kitzbühel Hotel & Chalet Pickup',
+      intro:
+        'Your final destination isn\'t necessarily "Kitzbühel" itself — Kirchberg and surrounding chalets are common too. Provide your exact accommodation when requesting your quote. We drive directly to:',
+      items: ['Kitzbühel hotels', 'Kitzbühel chalets', 'Kitzbühel apartments', 'Private residences', 'Kirchberg (on request)'],
+    },
+    luggageNote: {
+      heading: 'Travelling with Skis or Snowboards?',
+      description:
+        "Mention your ski bags, snowboard bags, boots, helmets, and any child equipment when requesting your transfer, alongside your regular suitcases. Passenger capacity doesn't automatically mean enough luggage capacity — vehicles can be selected around your passengers, luggage, and ski equipment requirements.",
+    },
+    familySection: {
+      heading: 'Family Ski Transfers',
+      description:
+        "Traveling with children adds car seats, boosters, strollers, and ski equipment on top of regular suitcases. Mention the number and ages of children, any child-seat needs, and your luggage and ski equipment when requesting a quote, and we'll assign an Executive Van or Minibus with enough space, subject to availability.",
+    },
+    groupSection: {
+      heading: 'Group Transfers to Kitzbühel',
+      description:
+        'This route also suits ski groups, corporate groups, and larger parties of friends. Multiple vehicles or a Minibus can be arranged for bigger groups — provide your full itinerary, passenger count, and luggage when requesting a quote.',
+    },
+    winterSection: {
+      heading: 'Innsbruck Airport to Kitzbühel in Winter',
+      description:
+        'Snowfall, icy roads, and traffic around Saturday changeovers, Christmas/New Year, and February school holidays can all add time to this drive, including for early-morning airport arrivals. Allow additional time during periods of heavy snowfall or peak ski-season traffic rather than assuming a fixed one-hour journey.',
+      linkHref: '/blog/alpine-ski-transfer-guide',
+      linkLabel: 'Read our Alpine & ski transfer guide →',
+    },
+    returnSection: {
+      heading: 'Kitzbühel → Innsbruck Airport',
+      description:
+        'The same private service works in reverse for your departure. We collect you directly from your hotel, chalet, or apartment in Kitzbühel or Kirchberg and take you to Innsbruck Airport. Share your flight time, luggage, and preferred pickup time when booking — allow extra buffer for winter road conditions and airport check-in.',
+    },
+    transferComparison: [
+      { option: 'Private chauffeur', bestFor: 'Direct airport pickup, hotel drop-off, and ski luggage', tradeoff: 'Higher cost than public transport' },
+      { option: 'Public transport', bestFor: 'Budget-conscious travelers comfortable with connections', tradeoff: 'Additional transfers, more luggage handling, and a fixed timetable' },
+    ],
+    relatedRoutesHeading: 'More Ski Transfer Routes',
+    relatedAirportRoutes: [
+      { label: 'Innsbruck Airport → St. Anton am Arlberg', distance: '~100km', duration: '~1h 10m', href: '/routes/innsbruck-airport-to-st-anton' },
+      { label: 'Innsbruck Airport → Ischgl', distance: '~100km', duration: '~1h 15m', href: '/routes/innsbruck-airport-to-ischgl' },
+      { label: 'Innsbruck Airport → Sölden', distance: '~85km', duration: '~1h 10m', href: '/routes/innsbruck-airport-to-soelden' },
+      { label: 'Salzburg Airport → Kitzbühel', distance: '~75km', duration: '~1h 15m', href: '/routes/salzburg-airport-to-kitzbuehel' },
+    ],
+    faqs: [
+      {
+        question: 'How far is Innsbruck Airport from Kitzbühel?',
+        answer: 'The road distance is approximately 90 km.',
+      },
+      {
+        question: 'How long does the transfer take?',
+        answer: 'Around 1 hour in normal conditions. Traffic and winter weather can extend this.',
+      },
+      {
+        question: 'Can I travel with skis?',
+        answer: 'Yes. Tell us your ski or snowboard equipment when booking so we can plan a suitable vehicle.',
+      },
+      {
+        question: 'Can you pick me up directly at Innsbruck Airport?',
+        answer: 'Yes. Your chauffeur meets you after arrivals and takes you directly to your vehicle.',
+      },
+      {
+        question: 'Can you take me directly to my hotel?',
+        answer: 'Yes. We drive directly to your hotel, chalet, apartment, or private address in Kitzbühel or Kirchberg.',
+      },
+      {
+        question: 'Do you offer return transfers?',
+        answer: 'Yes. We collect you from your Kitzbühel or Kirchberg accommodation and drive you to Innsbruck Airport.',
+      },
+      {
+        question: 'Is Innsbruck Airport the closest airport to Kitzbühel?',
+        answer: "Yes — it's the closest of the three airports most commonly used for Kitzbühel: Innsbruck, Salzburg, and Munich.",
+      },
+      {
+        question: 'Can families book a larger vehicle?',
+        answer: 'Yes. Executive Vans and Minibuses are available for families and larger groups, subject to availability.',
+      },
     ],
   },
   {

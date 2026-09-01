@@ -166,11 +166,148 @@ export const routes: RoutePair[] = [
     to: 'Kitzbühel',
     distance: '~90 km',
     driveTime: '~1 Std.',
-    routeDescription: 'Ostwärts auf der A12 Inntalautobahn, dann über die B170/B161 nach Kitzbühel — die direkteste Flughafen-zu-Resort-Strecke der Region.',
+    routeDescription:
+      'Ostwärts über die A12 Inntalautobahn, bevor es weiter über die B170/B161 nach Kitzbühel geht — eine direkte Flughafen-zu-Resort-Fahrt durch Tirol.',
     whyBook: [
-      'Winterfeste Fahrzeuge mit Platz für Ski und Snowboards',
+      'Fahrzeugauswahl mit Platz für Ski und Snowboards',
       'Direkt zu Ihrem Chalet oder Hotel, kein Shuttlebus-Transfer',
-      'Ein direkter Flughafen-zu-Resort-Transfer, ohne Shuttlebus-Verbindung',
+      'Festpreis vor Fahrtantritt vereinbart',
+    ],
+    seoTitle: 'Transfer Flughafen Innsbruck nach Kitzbühel | Privater Chauffeur',
+    seoDescription:
+      'Privater Chauffeurtransfer vom Flughafen Innsbruck nach Kitzbühel. Tür-zu-Tür-Service, Flugüberwachung, Festpreise. ~90 km, ~1 Stunde.',
+    dropoffHint:
+      'Geben Sie Ihr Hotel, Chalet oder Ihre Adresse in Kitzbühel oder Kirchberg als Ziel an. Wir bestätigen Verfügbarkeit und Festpreis per E-Mail.',
+    routeOverview: {
+      road: 'A12 Inntalautobahn über B170/B161',
+      transferType: 'Privat, Tür zu Tür',
+      vehicleNote: 'Limousine, Executive Van oder Kleinbus',
+    },
+    routeExplanation: {
+      heading: 'Die Fahrt vom Flughafen Innsbruck nach Kitzbühel',
+      description:
+        'Vom Flughafen Innsbruck führt die Fahrt ostwärts durch das Inntal, bevor sie weiter in Richtung Kitzbühel verläuft. Die Hauptstrecke nutzt die A12 Inntalautobahn, bevor sie über die Regionalstraßen B170/B161 in den Ort führt. Unter normalen Bedingungen dauert die Fahrt etwa eine Stunde, wobei winterliches Wetter und Verkehr die Fahrzeit verlängern können.',
+    },
+    originAlternative: {
+      heading: 'Warum der Flughafen Innsbruck ein praktisches Tor nach Kitzbühel ist',
+      description:
+        'Der Flughafen Innsbruck bietet eine der kürzesten Straßenverbindungen nach Kitzbühel unter allen Flughäfen, die Tirol bedienen, bei einem inländischen Transfer, der vollständig innerhalb Österreichs verläuft — ohne Grenzübertritt. Für Reisende, die ohnehin für einen umfassenderen Tirol-Skiurlaub nach Innsbruck fliegen, ist dies meist der direkteste Weg nach Kitzbühel und zu anderen Skigebieten der Region.',
+    },
+    whyBookPoints: [
+      { title: 'Tür zu Tür', description: 'Ihr Chauffeur bringt Sie direkt vom Flughafen Innsbruck zu Ihrer Unterkunft in Kitzbühel.' },
+      { title: 'Skifreundliche Fahrzeugplanung', description: 'Teilen Sie uns Ski, Snowboards und zusätzliches Gepäck bei der Buchung mit.' },
+      { title: 'Kein Shuttle-Wechsel', description: 'Bleiben Sie während der gesamten Fahrt im selben privaten Fahrzeug.' },
+      { title: 'Festpreis', description: 'Ihr Transferpreis wird vor der Fahrt bestätigt.' },
+      { title: 'Flexible Abholung', description: 'Ihre Flughafenabholung wird auf Ihre Ankunft abgestimmt.' },
+      { title: 'Rücktransfer', description: 'Buchen Sie auch Kitzbühel → Flughafen Innsbruck.' },
+    ],
+    flightTrackingSection: {
+      heading: 'Flughafenabholung & Flugüberwachung',
+      description:
+        'Geben Sie bei der Buchung Ihre Flugnummer an, und wir überwachen die geplante Ankunft am Flughafen Innsbruck. Bei Verspätung oder frühzeitiger Ankunft wird die Abholzeit entsprechend angepasst.',
+    },
+    originComparison: {
+      heading: 'Innsbruck vs. Salzburg vs. München: Welcher Flughafen für Kitzbühel?',
+      options: [
+        {
+          label: 'Flughafen Innsbruck (INN)',
+          distance: '~90 km',
+          driveTime: '~1 Std.',
+          bestFor: 'Die kürzeste Fahrt und die Standardwahl für die meisten Kitzbühel-Buchungen',
+        },
+        {
+          label: 'Flughafen Salzburg (SZG)',
+          distance: '~75 km',
+          driveTime: '~1 Std. 15 Min.',
+          bestFor: 'Alternative Flugverbindungen nach Österreich',
+          href: '/de/routes/salzburg-airport-to-kitzbuehel',
+        },
+        {
+          label: 'Flughafen München (MUC)',
+          distance: '~165 km',
+          driveTime: '~2 Std.',
+          bestFor: 'Langstrecken- und internationale Flugverbindungen',
+          href: '/de/routes/munich-airport-to-kitzbuehel',
+        },
+      ],
+    },
+    destinationCoverage: {
+      heading: 'Abholung an Hotel & Chalet in Kitzbühel',
+      intro:
+        'Ihr Ziel ist nicht zwangsläufig „Kitzbühel" selbst — auch Kirchberg und umliegende Chalets sind üblich. Geben Sie bei der Anfrage Ihre genaue Unterkunft an. Wir fahren direkt zu:',
+      items: ['Hotels in Kitzbühel', 'Chalets in Kitzbühel', 'Ferienwohnungen in Kitzbühel', 'Privatadressen', 'Kirchberg (auf Anfrage)'],
+    },
+    luggageNote: {
+      heading: 'Reisen Sie mit Ski oder Snowboard?',
+      description:
+        'Geben Sie bei der Anfrage Ihre Ski- und Snowboardtaschen, Skischuhe, Helme sowie eventuelle Kinderausrüstung zusätzlich zu Ihren normalen Koffern an. Personenanzahl bedeutet nicht automatisch ausreichend Gepäckkapazität — Fahrzeuge können passend zu Personenanzahl, Gepäck und Skiausrüstung ausgewählt werden.',
+    },
+    familySection: {
+      heading: 'Familien-Skitransfer',
+      description:
+        'Reisen mit Kindern bringt Kindersitze, Sitzerhöhungen, Kinderwagen und Skiausrüstung zusätzlich zu den normalen Koffern mit sich. Geben Sie bei der Anfrage die Anzahl und das Alter der Kinder, benötigte Kindersitze sowie Ihr Gepäck und Ihre Skiausrüstung an, und wir stellen je nach Verfügbarkeit einen Executive Van oder Kleinbus mit ausreichend Platz bereit.',
+    },
+    groupSection: {
+      heading: 'Gruppentransfers nach Kitzbühel',
+      description:
+        'Diese Strecke eignet sich auch für Skigruppen, Firmengruppen und größere Freundesgruppen. Für größere Gruppen können mehrere Fahrzeuge oder ein Kleinbus organisiert werden — geben Sie bei der Anfrage Ihre vollständige Reiseroute, Personenanzahl und Ihr Gepäck an.',
+    },
+    winterSection: {
+      heading: 'Flughafen Innsbruck nach Kitzbühel im Winter',
+      description:
+        'Schneefall, vereiste Straßen und Verkehr rund um Samstags-Wechseltage, Weihnachten/Neujahr und die Februar-Ferien können diese Fahrt verlängern — auch bei frühmorgendlichen Flughafenankünften. Planen Sie bei starkem Schneefall oder verkehrsreicher Hauptsaison zusätzliche Zeit ein, statt von einer festen Fahrzeit von einer Stunde auszugehen.',
+      linkHref: '/de/blog/alpine-ski-transfer-guide',
+      linkLabel: 'Unseren Alpine- & Skitransfer-Guide lesen →',
+    },
+    returnSection: {
+      heading: 'Kitzbühel → Flughafen Innsbruck',
+      description:
+        'Derselbe private Service funktioniert auch für Ihre Abreise in umgekehrter Richtung. Wir holen Sie direkt von Ihrem Hotel, Chalet oder Ihrer Ferienwohnung in Kitzbühel oder Kirchberg ab und bringen Sie zum Flughafen Innsbruck. Teilen Sie uns bei der Buchung Ihre Flugzeit, Ihr Gepäck und Ihre bevorzugte Abholzeit mit — planen Sie zusätzlichen Puffer für winterliche Straßenverhältnisse und den Check-in ein.',
+    },
+    transferComparison: [
+      { option: 'Privater Chauffeur', bestFor: 'Direkte Flughafenabholung, Hoteltransfer und Skigepäck', tradeoff: 'Höhere Kosten als öffentliche Verkehrsmittel' },
+      { option: 'Öffentliche Verkehrsmittel', bestFor: 'Kostenbewusste Reisende, die Umstiege in Kauf nehmen', tradeoff: 'Zusätzliche Umstiege, mehr Gepäckaufwand und fester Fahrplan' },
+    ],
+    relatedRoutesHeading: 'Weitere Skitransfer-Strecken',
+    relatedAirportRoutes: [
+      { label: 'Flughafen Innsbruck → St. Anton am Arlberg', distance: '~100 km', duration: '~1 Std. 10 Min.', href: '/de/routes/innsbruck-airport-to-st-anton' },
+      { label: 'Flughafen Innsbruck → Ischgl', distance: '~100 km', duration: '~1 Std. 15 Min.', href: '/de/routes/innsbruck-airport-to-ischgl' },
+      { label: 'Flughafen Innsbruck → Sölden', distance: '~85 km', duration: '~1 Std. 10 Min.', href: '/de/routes/innsbruck-airport-to-soelden' },
+      { label: 'Flughafen Salzburg → Kitzbühel', distance: '~75 km', duration: '~1 Std. 15 Min.', href: '/de/routes/salzburg-airport-to-kitzbuehel' },
+    ],
+    faqs: [
+      {
+        question: 'Wie weit ist der Flughafen Innsbruck von Kitzbühel entfernt?',
+        answer: 'Die Straßenentfernung beträgt etwa 90 km.',
+      },
+      {
+        question: 'Wie lange dauert der Transfer?',
+        answer: 'Unter normalen Bedingungen etwa 1 Stunde. Verkehr und winterliches Wetter können dies verlängern.',
+      },
+      {
+        question: 'Kann ich mit Ski reisen?',
+        answer: 'Ja. Teilen Sie uns Ihre Ski- oder Snowboardausrüstung bei der Buchung mit, damit wir ein geeignetes Fahrzeug einplanen können.',
+      },
+      {
+        question: 'Können Sie mich direkt am Flughafen Innsbruck abholen?',
+        answer: 'Ja. Ihr Chauffeur empfängt Sie nach der Ankunft und bringt Sie direkt zu Ihrem Fahrzeug.',
+      },
+      {
+        question: 'Können Sie mich direkt zu meinem Hotel bringen?',
+        answer: 'Ja. Wir fahren direkt zu Ihrem Hotel, Chalet, Ihrer Ferienwohnung oder Privatadresse in Kitzbühel oder Kirchberg.',
+      },
+      {
+        question: 'Bieten Sie Rücktransfers an?',
+        answer: 'Ja. Wir holen Sie von Ihrer Unterkunft in Kitzbühel oder Kirchberg ab und bringen Sie zum Flughafen Innsbruck.',
+      },
+      {
+        question: 'Ist der Flughafen Innsbruck der nächstgelegene Flughafen zu Kitzbühel?',
+        answer: 'Ja — er ist der nächstgelegene der drei für Kitzbühel am häufigsten genutzten Flughäfen: Innsbruck, Salzburg und München.',
+      },
+      {
+        question: 'Können Familien ein größeres Fahrzeug buchen?',
+        answer: 'Ja. Executive Vans und Kleinbusse stehen je nach Verfügbarkeit für Familien und größere Gruppen zur Verfügung.',
+      },
     ],
   },
   {

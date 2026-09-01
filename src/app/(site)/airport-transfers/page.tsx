@@ -2,9 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { JsonLd } from '@/components/json-ld'
+import { Breadcrumbs } from '@/components/breadcrumbs'
+import { WeatherWidget } from '@/components/weather-widget'
+import { AustriaTimeWidget } from '@/components/austria-time-widget'
 import { airports } from '@/lib/content/airports'
 import { routes } from '@/lib/content/routes'
 import { skiResorts } from '@/lib/content/ski-resorts'
+import { vehicles } from '@/lib/content/services'
 import { siteName, siteUrl } from '@/lib/content/site'
 import { BookingCta } from '@/components/booking-cta'
 import { matchPopularRoute, normalizeLabel } from '@/lib/content/link-match'
@@ -86,6 +90,25 @@ const whyChooseUs = [
   },
 ]
 
+const airportComparison = [
+  { code: 'VIE', name: 'Vienna Airport', bestFor: 'Vienna and eastern Austria' },
+  { code: 'SZG', name: 'Salzburg Airport', bestFor: 'Salzburg and the northern Alpine resorts' },
+  { code: 'INN', name: 'Innsbruck Airport', bestFor: 'Tyrol ski resorts' },
+  { code: 'GRZ', name: 'Graz Airport', bestFor: 'Styria' },
+  { code: 'LNZ', name: 'Linz Airport', bestFor: 'Upper Austria' },
+  { code: 'KLU', name: 'Klagenfurt Airport', bestFor: 'Carinthia' },
+]
+
+const bookingChecklist = [
+  'Airport and flight number',
+  'Travel date and arrival time',
+  'Number of passengers',
+  'Destination — hotel, resort, or exact address',
+  'Luggage, including ski or snowboard bags',
+  'Child seat requirements, if any',
+  'Whether you also need a return transfer',
+]
+
 const useCases = [
   {
     title: 'Airport → Hotel or Private Residence',
@@ -153,7 +176,17 @@ const faqs = [
   {
     question: 'What vehicle should I choose for luggage or ski equipment?',
     answer:
-      'The Business or Luxury Sedan suits 2–3 standard bags; the Executive Van adds ski/board space for families or small groups; the Minibus covers larger groups with more luggage.',
+      'Vehicle selection depends on your passenger count, luggage, and ski or snowboard equipment together — passenger capacity alone doesn\'t guarantee enough luggage space. Tell us what you\'re carrying when booking and we\'ll recommend a suitable vehicle.',
+  },
+  {
+    question: 'Can you take me directly from the airport to a ski resort?',
+    answer:
+      'Yes. Many of our airport transfers continue directly to Austria\'s ski resorts — see our ski transfer routes for specific airport-to-resort journeys.',
+  },
+  {
+    question: 'Can I book a return airport transfer?',
+    answer:
+      'Yes. One-way and return transfers are both available — provide your airport and accommodation details for both legs when requesting your quote.',
   },
 ]
 
@@ -171,6 +204,12 @@ export default function AirportTransfersPage() {
           })),
         }}
       />
+
+      <div className="border-b border-brand-line bg-brand-cream">
+        <div className="mx-auto max-w-6xl px-4 pt-6 sm:px-6">
+          <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Airport Transfers' }]} />
+        </div>
+      </div>
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-brand-line">
@@ -215,7 +254,7 @@ export default function AirportTransfersPage() {
               href="#airports"
               className="rounded-sm border border-white/30 px-6 py-3 text-sm font-semibold text-white hover:border-white"
             >
-              View Austrian Airports
+              Explore Austrian Airports
             </Link>
           </div>
         </div>
@@ -224,6 +263,9 @@ export default function AirportTransfersPage() {
       {/* Major Austrian Airports */}
       <section id="airports" className="mx-auto max-w-6xl scroll-mt-16 px-4 py-16 sm:px-6">
         <h2 className="font-display text-2xl text-brand-ink">Major Austrian Airports</h2>
+        <p className="mt-2 max-w-2xl text-sm text-brand-ink-2/70">
+          Our Austrian airport network covers Vienna, Salzburg, Innsbruck, Graz, Linz, and Klagenfurt.
+        </p>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {austrianAirports.map((a) => (
             <Link
@@ -240,6 +282,35 @@ export default function AirportTransfersPage() {
               <p className="mt-2 text-sm text-brand-ink-2/70">{a.distanceFromCity}</p>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Which Austrian Airport Is Right for You */}
+      <section className="border-t border-brand-line bg-brand-cream">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+          <h2 className="font-display text-xl text-brand-ink">Which Austrian Airport Is Right for Your Journey?</h2>
+          <p className="mt-3 max-w-2xl text-sm text-brand-ink-2/80">
+            If you have a choice of airports, the closest one to your final destination is usually
+            the most convenient — but flight availability and connections often matter just as much.
+          </p>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[420px] text-left text-sm">
+              <thead>
+                <tr className="border-b border-brand-line text-xs font-semibold uppercase tracking-wide text-brand-ink-2/60">
+                  <th className="pb-3 pr-4">Airport</th>
+                  <th className="pb-3">Best For</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-line">
+                {airportComparison.map((a) => (
+                  <tr key={a.code}>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">{a.name} ({a.code})</td>
+                    <td className="py-3 text-brand-ink-2/80">{a.bestFor}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -346,17 +417,18 @@ export default function AirportTransfersPage() {
       {/* Ski Airport Transfers */}
       <section className="border-t border-brand-line bg-brand-cream">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <h2 className="font-display text-2xl text-brand-ink">Airport Transfers to Austria&apos;s Ski Resorts</h2>
+          <h2 className="font-display text-2xl text-brand-ink">Airport Transfers to Austrian Ski Resorts</h2>
           <p className="mt-2 max-w-2xl text-sm text-brand-ink-2/80">
-            Winter-ready vehicles with ski and board space, direct from the airport to the resort
-            — no train changes, no village shuttle.
+            Winter-ready vehicles with ski and board space, direct from the airport to the resort —
+            no train changes, no village shuttle. From Austrian airports, plus the international
+            airports at Munich and Zurich that also serve Austrian resorts.
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { heading: 'From Innsbruck Airport', resorts: innsbruckResorts },
-              { heading: 'From Salzburg Airport', resorts: salzburgResorts },
-              { heading: 'From Munich Airport', resorts: munichResorts },
-              { heading: 'From Zurich Airport', resorts: zurichResorts },
+              { heading: 'From Innsbruck Airport (Austria)', resorts: innsbruckResorts },
+              { heading: 'From Salzburg Airport (Austria)', resorts: salzburgResorts },
+              { heading: 'From Munich Airport (Germany)', resorts: munichResorts },
+              { heading: 'From Zurich Airport (Switzerland)', resorts: zurichResorts },
             ].map((group) => (
               <div key={group.heading}>
                 <h3 className="font-display text-sm text-brand-ink">{group.heading}</h3>
@@ -397,13 +469,71 @@ export default function AirportTransfersPage() {
         </div>
       </section>
 
+      {/* Vehicle & Luggage Guide */}
+      <section className="border-t border-brand-line bg-brand-cream">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+          <h2 className="font-display text-xl text-brand-ink">Vehicle &amp; Luggage Guide</h2>
+          <p className="mt-3 max-w-2xl text-sm text-brand-ink-2/80">
+            Passenger capacity and luggage capacity aren&apos;t the same thing — tell us what
+            you&apos;re carrying, including ski or snowboard bags, and we&apos;ll recommend the
+            right vehicle.
+          </p>
+          <div className="mt-6 overflow-x-auto">
+            <table className="w-full min-w-[480px] text-left text-sm">
+              <thead>
+                <tr className="border-b border-brand-line text-xs font-semibold uppercase tracking-wide text-brand-ink-2/60">
+                  <th className="pb-3 pr-4">Vehicle</th>
+                  <th className="pb-3 pr-4">Passengers</th>
+                  <th className="pb-3">Luggage</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-line">
+                {vehicles.map((v) => (
+                  <tr key={v.type}>
+                    <td className="py-3 pr-4 font-semibold text-brand-ink">{v.name}</td>
+                    <td className="py-3 pr-4 text-brand-ink-2/80">{v.passengers}</td>
+                    <td className="py-3 text-brand-ink-2/80">{v.luggage}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-4 text-sm text-brand-ink-2/70">
+            <Link href="/fleet" className="font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold">
+              View the full fleet →
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* What to Tell Us When Booking */}
+      <section className="border-t border-brand-line bg-white">
+        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+          <h2 className="font-display text-xl text-brand-ink">What to Tell Us When Booking</h2>
+          <p className="mt-3 max-w-2xl text-sm text-brand-ink-2/80">
+            The more we know upfront, the more accurately we can quote and assign the right
+            vehicle:
+          </p>
+          <ul className="mt-4 grid gap-2 text-sm text-brand-ink-2 sm:grid-cols-2">
+            {bookingChecklist.map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Munich & Zurich into Austria */}
       <section className="border-t border-brand-line bg-brand-ink text-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <h2 className="font-display text-2xl text-white">Munich &amp; Zurich Airport Transfers into Austria</h2>
+          <h2 className="font-display text-2xl text-white">Munich &amp; Zurich: International Airports Serving Austrian Destinations</h2>
           <p className="mt-3 max-w-2xl text-brand-cream/70">
-            Flying into Munich or Zurich? We arrange private chauffeur transfers from the airport
-            straight into Austria in one vehicle, with no border stop.
+            Munich (Germany) and Zurich (Switzerland) aren&apos;t Austrian airports, but both are
+            established cross-border pickup points. Flying into either one? We arrange private
+            chauffeur transfers from the airport straight into Austria in one vehicle, with no
+            border stop.
           </p>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {munichAirport && (
@@ -452,6 +582,16 @@ export default function AirportTransfersPage() {
             Airport instead? Submit your pickup details on the booking form and we&apos;ll confirm
             whether a cross-border transfer into Austria can be arranged.
           </p>
+        </div>
+      </section>
+
+      {/* Current Conditions */}
+      <section className="border-t border-brand-line bg-brand-cream">
+        <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
+          <div className="flex flex-wrap gap-3">
+            <WeatherWidget />
+            <AustriaTimeWidget />
+          </div>
         </div>
       </section>
 
