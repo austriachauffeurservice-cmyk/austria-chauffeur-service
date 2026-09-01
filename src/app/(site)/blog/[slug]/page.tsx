@@ -189,7 +189,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
           '@type': 'BlogPosting',
           headline: post.title,
           description: post.excerpt,
-          image: post.image ? `${siteUrl}${post.image}` : `${siteUrl}/opengraph-image`,
+          image: post.image ? `${siteUrl}${post.image}` : `${siteUrl}/images/blog-section.webp`,
           datePublished: post.publishedAt,
           dateModified,
           url: pageUrl,
