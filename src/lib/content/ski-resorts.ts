@@ -1009,8 +1009,10 @@ export const skiResorts: SkiResort[] = [
     highlights: [
       'A traditional ski-jumping village that has hosted FIS Ski Jumping World Cup events beneath the Bischofsmütze peak',
       'Part of the wider Ski Amadé network, with a quieter, family-oriented village center',
+      'Known for beginner- and intermediate-friendly slopes and a long-standing ski school tradition, popular with families',
     ],
-    hotelNote: 'Pickup and drop-off at hotels throughout Filzmoos village.',
+    hotelNote:
+      'Direct pickup and drive to hotels, chalets, apartments, and private residences throughout Filzmoos and the surrounding resort area.',
     attractions: [
       {
         name: 'Bischofsmütze',
@@ -1019,6 +1021,109 @@ export const skiResorts: SkiResort[] = [
       {
         name: 'Filzmoos Ski Jump',
         description: 'A World Cup-standard ski jump hill on the edge of the village.',
+      },
+    ],
+    seoTitle: 'Filzmoos Ski Transfer | Salzburg Airport Private Chauffeur',
+    seoDescription:
+      'Private ski transfers to Filzmoos from Salzburg Airport and Salzburg. Winter-ready vehicles, ski equipment space, and door-to-door service with fixed pricing.',
+    dropoffHint:
+      "Enter your Salzburg Airport, Salzburg, or other pickup location — we'll confirm availability and a fixed price for your Filzmoos transfer by email.",
+    routeOverview: {
+      start: 'Salzburg Airport (SZG)',
+      destination: 'Filzmoos',
+      driveTime: '~1h 20m',
+      service: 'Private transfer, door-to-door',
+      vehicles: 'Sedan, Executive Van, or Minibus',
+      luggage: 'Ski, snowboard, and standard travel luggage',
+    },
+    whyBookPoints: [
+      {
+        title: 'Direct to Your Accommodation',
+        description: 'No changing vehicles and no extra shuttle — travel directly from Salzburg Airport to your Filzmoos hotel, chalet, or private address.',
+      },
+      {
+        title: 'Fixed Price',
+        description: 'Price confirmed before the journey, based on your route, vehicle, and luggage.',
+      },
+      {
+        title: 'Ski & Snowboard Space',
+        description: 'Extra luggage and ski/board space available on request for winter sports equipment.',
+      },
+      {
+        title: 'Airport Pickup',
+        description: "Share your flight number and we'll coordinate pickup timing around your arrival.",
+      },
+      {
+        title: 'For Families & Groups',
+        description: 'Executive Vans and Minibuses available for larger parties, plus luggage and ski equipment.',
+      },
+    ],
+    airportGuidance: [
+      {
+        airport: 'Salzburg Airport (SZG)',
+        note: "Salzburg Airport is the established gateway for Filzmoos — around 100 km and roughly 1 hour 20 minutes away via the A10 Tauern Autobahn and the B320 into the Ennstal valley, the same route used for transfers starting in Salzburg itself. It's the airport with a direct, verified transfer route to Filzmoos, and the default choice for most bookings.",
+      },
+    ],
+    accommodationSection: {
+      heading: 'Filzmoos Hotel & Chalet Transfer',
+      description:
+        'We drive directly to hotels, chalets, apartments, and private residences throughout Filzmoos and the surrounding resort area — provide your exact address when requesting a quote.',
+    },
+    returnSection: {
+      heading: 'Filzmoos → Salzburg Airport: Return Transfers',
+      description:
+        "The same private service works in reverse for your departure. We collect you directly from your Filzmoos hotel, chalet, or apartment and drive you to Salzburg Airport or Salzburg city. Share your flight details when booking and we'll plan the pickup time around winter road conditions and airport check-in.",
+    },
+    relatedResortRoutes: [
+      { label: 'Salzburg Airport → Filzmoos', duration: '~1h 20m', href: '/routes/salzburg-airport-to-filzmoos' },
+      { label: 'Salzburg → Filzmoos', duration: '~1h 20m', href: '/routes/salzburg-to-filzmoos' },
+    ],
+    transferComparison: [
+      { option: 'Private chauffeur', bestFor: 'Door-to-door, families, groups, and ski luggage', tradeoff: 'Higher cost than a shared shuttle' },
+      { option: 'Shared ski shuttle', bestFor: 'Budget-conscious travelers on a fixed schedule', tradeoff: 'Shared stops, scheduled departure, and less flexibility' },
+    ],
+    familySection: {
+      heading: 'Family Ski Transfers to Filzmoos',
+      description:
+        "Filzmoos is a popular choice for family ski holidays, and traveling with children adds car seats, boosters, and extra luggage on top of ski equipment. Mention the number and ages of children, any child-seat needs, and your luggage and ski equipment when requesting a quote, and we'll assign an Executive Van or Minibus with enough space.",
+    },
+    groupSection: {
+      heading: 'Group Transfers to Filzmoos',
+      description:
+        'This route also suits ski groups and larger parties. Multiple vehicles or a Minibus can be arranged for bigger groups — provide your full itinerary, passenger count, and luggage when requesting a quote.',
+    },
+    faqs: [
+      {
+        question: 'How long does Salzburg Airport to Filzmoos take?',
+        answer: 'Around 1 hour 20 minutes in normal conditions. Winter weather and traffic can extend the journey.',
+      },
+      {
+        question: 'Can you pick me up from Salzburg Airport?',
+        answer: 'Yes. Your chauffeur meets you after arrivals and drives directly to your hotel, chalet, or private address in Filzmoos.',
+      },
+      {
+        question: 'Can I bring skis and a snowboard?',
+        answer: 'Yes. Mention your ski or snowboard equipment when booking so we can assign a vehicle with enough space.',
+      },
+      {
+        question: 'Do you provide transfers for families?',
+        answer: 'Yes. Executive Vans and Minibuses are available for families and groups, subject to availability.',
+      },
+      {
+        question: 'Can you provide a return transfer?',
+        answer: 'Yes — one-way and return journeys can both be requested.',
+      },
+      {
+        question: 'Do you offer child seats?',
+        answer: 'Yes. Child seats or booster seats are available on request — mention the age and height of your children when booking.',
+      },
+      {
+        question: 'Do you operate during winter weekends and holidays?',
+        answer: 'Yes, subject to availability. We recommend booking earlier during peak ski periods, particularly around Saturday changeovers and school holidays.',
+      },
+      {
+        question: 'Is there a direct transfer from Salzburg itself, not just the airport?',
+        answer: 'Yes — the same private transfer is available from Salzburg city, hotels, or private addresses, on the same route used from Salzburg Airport.',
       },
     ],
   },

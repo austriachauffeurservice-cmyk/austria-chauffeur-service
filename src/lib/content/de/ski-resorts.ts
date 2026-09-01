@@ -1008,8 +1008,10 @@ export const skiResorts: SkiResort[] = [
     highlights: [
       'Ein traditionelles Skisprungdorf, das FIS-Skisprung-Weltcups unterhalb der Bischofsmütze ausgetragen hat',
       'Teil des größeren Ski-Amadé-Netzwerks, mit einem ruhigeren, familienfreundlichen Ortszentrum',
+      'Bekannt für anfänger- und fortgeschrittenenfreundliche Pisten und eine lange Skischultradition, beliebt bei Familien',
     ],
-    hotelNote: 'Abholung und Ablieferung an Hotels im Dorf Filzmoos.',
+    hotelNote:
+      'Direkte Abholung und Fahrt zu Hotels, Chalets, Ferienwohnungen und Privatadressen in Filzmoos und der umliegenden Resortregion.',
     attractions: [
       {
         name: 'Bischofsmütze',
@@ -1018,6 +1020,109 @@ export const skiResorts: SkiResort[] = [
       {
         name: 'Filzmoos Skisprungschanze',
         description: 'Eine Weltcup-taugliche Sprungschanze am Ortsrand.',
+      },
+    ],
+    seoTitle: 'Skitransfer Filzmoos | Flughafen Salzburg Privater Chauffeur',
+    seoDescription:
+      'Private Skitransfers nach Filzmoos ab Flughafen Salzburg und Salzburg. Wintertaugliche Fahrzeuge, Platz für Skiausrüstung und Tür-zu-Tür-Service zum Festpreis.',
+    dropoffHint:
+      'Geben Sie Ihren Abholort am Flughafen Salzburg, in Salzburg oder anderswo an — wir bestätigen Verfügbarkeit und einen Festpreis für Ihren Filzmoos-Transfer per E-Mail.',
+    routeOverview: {
+      start: 'Flughafen Salzburg (SZG)',
+      destination: 'Filzmoos',
+      driveTime: '~1 Std. 20 Min.',
+      service: 'Privat, Tür zu Tür',
+      vehicles: 'Limousine, Executive Van oder Kleinbus',
+      luggage: 'Ski, Snowboard und normales Reisegepäck',
+    },
+    whyBookPoints: [
+      {
+        title: 'Direkt zu Ihrer Unterkunft',
+        description: 'Kein Fahrzeugwechsel und kein Shuttle — direkte Fahrt vom Flughafen Salzburg zu Ihrem Hotel, Chalet oder Ihrer Adresse in Filzmoos.',
+      },
+      {
+        title: 'Festpreis',
+        description: 'Der Preis wird vor der Fahrt bestätigt, basierend auf Strecke, Fahrzeug und Gepäck.',
+      },
+      {
+        title: 'Platz für Ski & Snowboard',
+        description: 'Zusätzlicher Stauraum für Ski- und Snowboardausrüstung ist auf Anfrage verfügbar.',
+      },
+      {
+        title: 'Flughafenabholung',
+        description: 'Teilen Sie uns Ihre Flugnummer mit, damit wir die Abholung auf Ihre Ankunft abstimmen können.',
+      },
+      {
+        title: 'Für Familien & Gruppen',
+        description: 'Executive Vans und Kleinbusse stehen für größere Gruppen sowie Gepäck und Skiausrüstung zur Verfügung.',
+      },
+    ],
+    airportGuidance: [
+      {
+        airport: 'Flughafen Salzburg (SZG)',
+        note: 'Der Flughafen Salzburg ist das etablierte Tor nach Filzmoos — rund 100 km und etwa 1 Stunde 20 Minuten entfernt über die A10 Tauernautobahn und die B320 ins Ennstal, dieselbe Strecke, die auch für Transfers ab Salzburg selbst genutzt wird. Es ist der Flughafen mit einer direkten, verifizierten Transferstrecke nach Filzmoos und die Standardwahl für die meisten Buchungen.',
+      },
+    ],
+    accommodationSection: {
+      heading: 'Filzmoos: Transfer zu Hotel & Chalet',
+      description:
+        'Wir fahren direkt zu Hotels, Chalets, Ferienwohnungen und Privatadressen in Filzmoos und der umliegenden Resortregion — geben Sie bei der Anfrage Ihre genaue Adresse an.',
+    },
+    returnSection: {
+      heading: 'Filzmoos → Flughafen Salzburg: Rücktransfer',
+      description:
+        'Derselbe private Service funktioniert auch für Ihre Abreise in umgekehrter Richtung. Wir holen Sie direkt von Ihrem Hotel, Chalet oder Ihrer Ferienwohnung in Filzmoos ab und fahren Sie zum Flughafen Salzburg oder nach Salzburg. Teilen Sie uns Ihre Flugdaten bei der Buchung mit, damit wir die Abholzeit um winterliche Straßenverhältnisse und den Check-in herum planen.',
+    },
+    relatedResortRoutes: [
+      { label: 'Flughafen Salzburg → Filzmoos', duration: '~1 Std. 20 Min.', href: '/de/routes/salzburg-airport-to-filzmoos' },
+      { label: 'Salzburg → Filzmoos', duration: '~1 Std. 20 Min.', href: '/de/routes/salzburg-to-filzmoos' },
+    ],
+    transferComparison: [
+      { option: 'Privater Chauffeur', bestFor: 'Tür zu Tür, Familien, Gruppen und Skigepäck', tradeoff: 'Höhere Kosten als ein Sammelshuttle' },
+      { option: 'Sammel-Skishuttle', bestFor: 'Preisbewusste Reisende mit festem Zeitplan', tradeoff: 'Gemeinsame Zwischenstopps, feste Abfahrtszeit und weniger Flexibilität' },
+    ],
+    familySection: {
+      heading: 'Familien-Skitransfer nach Filzmoos',
+      description:
+        'Filzmoos ist ein beliebtes Ziel für Familien-Skiurlaube, und Reisen mit Kindern bringt Kindersitze, Sitzerhöhungen und zusätzliches Gepäck neben der Skiausrüstung mit sich. Geben Sie bei der Anfrage die Anzahl und das Alter der Kinder, benötigte Kindersitze sowie Ihr Gepäck und Ihre Skiausrüstung an, und wir stellen einen Executive Van oder Kleinbus mit ausreichend Platz bereit.',
+    },
+    groupSection: {
+      heading: 'Gruppentransfers nach Filzmoos',
+      description:
+        'Diese Strecke eignet sich auch für Skigruppen und größere Gesellschaften. Für größere Gruppen können mehrere Fahrzeuge oder ein Kleinbus organisiert werden — geben Sie bei der Anfrage Ihre vollständige Reiseroute, Personenanzahl und Ihr Gepäck an.',
+    },
+    faqs: [
+      {
+        question: 'Wie lange dauert der Transfer vom Flughafen Salzburg nach Filzmoos?',
+        answer: 'Unter normalen Bedingungen etwa 1 Stunde 20 Minuten. Winterwetter und Verkehr können die Fahrzeit verlängern.',
+      },
+      {
+        question: 'Können Sie mich vom Flughafen Salzburg abholen?',
+        answer: 'Ja. Ihr Chauffeur empfängt Sie nach der Ankunft und fährt Sie direkt zu Ihrem Hotel, Chalet oder Ihrer Privatadresse in Filzmoos.',
+      },
+      {
+        question: 'Kann ich Ski und Snowboard mitnehmen?',
+        answer: 'Ja. Geben Sie Ihre Ski- oder Snowboardausrüstung bei der Buchung an, damit wir ein Fahrzeug mit ausreichend Platz einplanen können.',
+      },
+      {
+        question: 'Bieten Sie Transfers für Familien an?',
+        answer: 'Ja. Executive Vans und Kleinbusse stehen je nach Verfügbarkeit für Familien und Gruppen zur Verfügung.',
+      },
+      {
+        question: 'Bieten Sie einen Rücktransfer an?',
+        answer: 'Ja — einfache Fahrten und Rückfahrten können beide angefragt werden.',
+      },
+      {
+        question: 'Bieten Sie Kindersitze an?',
+        answer: 'Ja. Kindersitze oder Sitzerhöhungen sind auf Anfrage verfügbar — geben Sie Alter und Körpergröße Ihrer Kinder bei der Buchung an.',
+      },
+      {
+        question: 'Fahren Sie auch an Winterwochenenden und Feiertagen?',
+        answer: 'Ja, je nach Verfügbarkeit. Wir empfehlen eine frühzeitigere Buchung während der Hauptsaison, besonders rund um Samstags-Wechseltage und Schulferien.',
+      },
+      {
+        question: 'Gibt es einen direkten Transfer ab Salzburg selbst, nicht nur ab dem Flughafen?',
+        answer: 'Ja — derselbe private Transfer ist auch ab Salzburg, Hotels oder Privatadressen verfügbar, auf derselben Strecke wie ab dem Flughafen Salzburg.',
       },
     ],
   },

@@ -51,7 +51,11 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
   if (!resort) notFound()
 
   const pageUrl = `${siteUrl}/de/ski-transfers/${slug}`
-  const relatedPosts = findRelatedPosts([resort.name, resort.region])
+  // 'Skitransfers'/'Ski Transfers' (both appear in the DE data) rank above
+  // the bare region name so a ski-relevant guide outranks an unrelated
+  // same-region post (e.g. a cross-border article that happens to share the
+  // region tag) — see the Aug 2026 Filzmoos audit.
+  const relatedPosts = findRelatedPosts([resort.name, 'Skitransfers', 'Ski Transfers', resort.region])
 
   return (
     <>

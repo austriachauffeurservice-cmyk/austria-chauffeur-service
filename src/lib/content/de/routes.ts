@@ -1614,6 +1614,19 @@ export const routes: RoutePair[] = [
     crossBorder: true,
   },
   {
+    slug: 'graz-airport-to-vienna',
+    from: 'Flughafen Graz (GRZ)',
+    to: 'Wien',
+    distance: '~205 km',
+    driveTime: '~2 Std. 15 Min.',
+    routeDescription: 'Nördlich über die A2 Südautobahn, durch die Steiermark und Niederösterreich direkt nach Wien.',
+    whyBook: [
+      'Direkter Transfer für Geschäftsreisende mit Termin oder Hotel in Wien',
+      'Kein Zugwechsel oder Bahnhofstransfer mit Gepäck',
+      'Festpreis vor der Fahrt vereinbart, inklusive Flugverfolgung',
+    ],
+  },
+  {
     slug: 'graz-airport-to-maribor',
     from: 'Flughafen Graz (GRZ)',
     to: 'Maribor',

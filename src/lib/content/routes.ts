@@ -1625,6 +1625,19 @@ export const routes: RoutePair[] = [
     crossBorder: true,
   },
   {
+    slug: 'graz-airport-to-vienna',
+    from: 'Graz Airport (GRZ)',
+    to: 'Vienna',
+    distance: '~205km',
+    driveTime: '~2h 15m',
+    routeDescription: 'North via the A2 Süd Autobahn, climbing through Styria and Lower Austria directly into Vienna.',
+    whyBook: [
+      'Direct transfer for business travelers heading to a Vienna meeting or hotel',
+      'No train change or station transfer with luggage',
+      'Fixed price agreed before travel, with flight tracking included',
+    ],
+  },
+  {
     slug: 'graz-airport-to-maribor',
     from: 'Graz Airport (GRZ)',
     to: 'Maribor',
