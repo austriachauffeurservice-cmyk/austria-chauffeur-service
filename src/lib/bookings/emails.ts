@@ -7,6 +7,36 @@ function loc(booking: { locale?: string }): Locale {
   return booking.locale === 'de' ? 'de' : 'en'
 }
 
+const LUGGAGE_LABELS: Record<Locale, Record<string, string>> = {
+  en: { none: 'None / hand luggage only', '1-3': '1–3 bags', '4-6': '4–6 bags', '7+': '7+ bags' },
+  de: { none: 'Keines / nur Handgepäck', '1-3': '1–3 Koffer', '4-6': '4–6 Koffer', '7+': '7+ Koffer' },
+}
+
+const CHILD_SEAT_LABELS: Record<Locale, Record<string, string>> = {
+  en: { child_seat: 'Child seat', booster_seat: 'Booster seat', both: 'Child seat + booster seat' },
+  de: { child_seat: 'Kindersitz', booster_seat: 'Sitzerhöhung', both: 'Kindersitz + Sitzerhöhung' },
+}
+
+function journeyRows(booking: BookingEmailData, locale: Locale): string {
+  const isDe = locale === 'de'
+  const rows: string[] = []
+  if (booking.journeyType === 'return' && booking.returnDate) {
+    rows.push(
+      `<tr><td><strong>${isDe ? 'Rückfahrt' : 'Return'}</strong></td><td>${escapeHtml(booking.returnDate)}${booking.returnTime ? ` ${escapeHtml(booking.returnTime)}` : ''}</td></tr>`
+    )
+  }
+  if (booking.luggage) {
+    rows.push(`<tr><td><strong>${isDe ? 'Gepäck' : 'Luggage'}</strong></td><td>${escapeHtml(LUGGAGE_LABELS[locale][booking.luggage] || booking.luggage)}</td></tr>`)
+  }
+  if (booking.skiEquipment) {
+    rows.push(`<tr><td><strong>${isDe ? 'Skiausrüstung' : 'Ski/snowboard equipment'}</strong></td><td>${isDe ? 'Ja' : 'Yes'}</td></tr>`)
+  }
+  if (booking.childSeat) {
+    rows.push(`<tr><td><strong>${isDe ? 'Kindersitz' : 'Child seat'}</strong></td><td>${escapeHtml(CHILD_SEAT_LABELS[locale][booking.childSeat] || booking.childSeat)}</td></tr>`)
+  }
+  return rows.join('\n')
+}
+
 export function customerConfirmationEmail(booking: BookingEmailData) {
   if (loc(booking) === 'de') {
     const subject = 'Buchungsanfrage erhalten — Austria Chauffeur Service'
@@ -22,6 +52,7 @@ export function customerConfirmationEmail(booking: BookingEmailData) {
           <tr><td><strong>Fahrgäste</strong></td><td>${booking.passengers}</td></tr>
           <tr><td><strong>Fahrzeug</strong></td><td>${escapeHtml(booking.vehicleType)}</td></tr>
           ${booking.flightNumber ? `<tr><td><strong>Flug</strong></td><td>${escapeHtml(booking.flightNumber)}</td></tr>` : ''}
+          ${journeyRows(booking, 'de')}
         </table>
         <p>Referenz: ${booking.id}</p>
         <p>— Austria Chauffeur Service</p>
@@ -43,6 +74,7 @@ export function customerConfirmationEmail(booking: BookingEmailData) {
         <tr><td><strong>Passengers</strong></td><td>${booking.passengers}</td></tr>
         <tr><td><strong>Vehicle</strong></td><td>${escapeHtml(booking.vehicleType)}</td></tr>
         ${booking.flightNumber ? `<tr><td><strong>Flight</strong></td><td>${escapeHtml(booking.flightNumber)}</td></tr>` : ''}
+        ${journeyRows(booking, 'en')}
       </table>
       <p>Reference: ${booking.id}</p>
       <p>— Austria Chauffeur Service</p>
@@ -67,6 +99,7 @@ export function adminNotificationEmail(booking: BookingEmailData) {
         <tr><td><strong>Passengers</strong></td><td>${booking.passengers}</td></tr>
         <tr><td><strong>Vehicle</strong></td><td>${escapeHtml(booking.vehicleType)}</td></tr>
         ${booking.flightNumber ? `<tr><td><strong>Flight</strong></td><td>${escapeHtml(booking.flightNumber)}</td></tr>` : ''}
+        ${journeyRows(booking, 'en')}
         ${booking.notes ? `<tr><td><strong>Notes</strong></td><td>${escapeHtml(booking.notes)}</td></tr>` : ''}
       </table>
       <p>Booking id: ${booking.id}</p>

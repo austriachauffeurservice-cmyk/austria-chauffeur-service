@@ -22,6 +22,12 @@ type Props = {
   initialVehicleType: string
   initialFlightNumber: string
   initialTags: string[]
+  initialJourneyType: string
+  initialReturnDate: string
+  initialReturnTime: string
+  initialLuggage: string
+  initialSkiEquipment: boolean
+  initialChildSeat: string
 }
 
 type Partner = { id: string; name: string }
@@ -74,6 +80,12 @@ export function BookingEditForm({
   initialVehicleType,
   initialFlightNumber,
   initialTags,
+  initialJourneyType,
+  initialReturnDate,
+  initialReturnTime,
+  initialLuggage,
+  initialSkiEquipment,
+  initialChildSeat,
 }: Props) {
   const router = useRouter()
   const [status, setStatus] = useState(initialStatus)
@@ -92,6 +104,12 @@ export function BookingEditForm({
   const [passengers, setPassengers] = useState(String(initialPassengers))
   const [vehicleType, setVehicleType] = useState(initialVehicleType)
   const [flightNumber, setFlightNumber] = useState(initialFlightNumber)
+  const [journeyType, setJourneyType] = useState(initialJourneyType || 'one_way')
+  const [returnDate, setReturnDate] = useState(initialReturnDate)
+  const [returnTime, setReturnTime] = useState(initialReturnTime)
+  const [luggage, setLuggage] = useState(initialLuggage)
+  const [skiEquipment, setSkiEquipment] = useState(initialSkiEquipment)
+  const [childSeat, setChildSeat] = useState(initialChildSeat)
   const [tags, setTags] = useState<string[]>(initialTags)
   const [customTag, setCustomTag] = useState('')
   const [saving, setSaving] = useState(false)
@@ -145,6 +163,12 @@ export function BookingEditForm({
           passengers: Number(passengers) || 1,
           vehicle_type: vehicleType,
           flight_number: flightNumber,
+          journey_type: journeyType,
+          return_date: journeyType === 'return' ? returnDate || null : null,
+          return_time: journeyType === 'return' ? returnTime || null : null,
+          luggage: luggage || null,
+          ski_equipment: skiEquipment,
+          child_seat: childSeat || null,
           tags,
         }),
       })
@@ -308,6 +332,51 @@ export function BookingEditForm({
         <label style={labelStyle} htmlFor="flightNumber">Flight Number</label>
         <input id="flightNumber" value={flightNumber} onChange={(e) => setFlightNumber(e.target.value)} style={inputStyle} placeholder="e.g. OS 123" />
       </div>
+
+      <div>
+        <label style={labelStyle} htmlFor="journeyType">Journey Type</label>
+        <select id="journeyType" value={journeyType} onChange={(e) => setJourneyType(e.target.value)} style={{ ...inputStyle, cursor: 'pointer' }}>
+          <option value="one_way">One Way</option>
+          <option value="return">Return</option>
+        </select>
+      </div>
+      {journeyType === 'return' && (
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+          <div>
+            <label style={labelStyle} htmlFor="returnDate">Return Date</label>
+            <input id="returnDate" type="date" value={returnDate} onChange={(e) => setReturnDate(e.target.value)} style={inputStyle} />
+          </div>
+          <div>
+            <label style={labelStyle} htmlFor="returnTime">Return Time</label>
+            <input id="returnTime" type="time" value={returnTime} onChange={(e) => setReturnTime(e.target.value)} style={inputStyle} />
+          </div>
+        </div>
+      )}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
+        <div>
+          <label style={labelStyle} htmlFor="luggage">Luggage</label>
+          <select id="luggage" value={luggage} onChange={(e) => setLuggage(e.target.value)} style={{ ...inputStyle, cursor: 'pointer' }}>
+            <option value="">Not specified</option>
+            <option value="none">None / hand luggage only</option>
+            <option value="1-3">1–3 bags</option>
+            <option value="4-6">4–6 bags</option>
+            <option value="7+">7+ bags</option>
+          </select>
+        </div>
+        <div>
+          <label style={labelStyle} htmlFor="childSeat">Child Seat</label>
+          <select id="childSeat" value={childSeat} onChange={(e) => setChildSeat(e.target.value)} style={{ ...inputStyle, cursor: 'pointer' }}>
+            <option value="">Not needed</option>
+            <option value="child_seat">Child seat</option>
+            <option value="booster_seat">Booster seat</option>
+            <option value="both">Both</option>
+          </select>
+        </div>
+      </div>
+      <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: c.textMuted, cursor: 'pointer' }}>
+        <input type="checkbox" checked={skiEquipment} onChange={(e) => setSkiEquipment(e.target.checked)} />
+        Traveling with ski or snowboard equipment
+      </label>
 
       {message && (
         <p style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: message.ok ? c.green : c.red, margin: 0 }}>

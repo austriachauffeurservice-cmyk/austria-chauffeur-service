@@ -74,6 +74,14 @@ export type BorderArea = {
   bookingSteps?: string[]
   trust?: string
   faqs?: { question: string; answer: string }[]
+  // Replaces the booking form's generic cross-border example text (e.g.
+  // "Bratislava, Slovakia or Munich, Germany") with country-specific
+  // guidance, since a flagship country page already knows its own destination.
+  dropoffHint?: string
+  // A short note connecting to the destination-side airport, where the
+  // primary destination city has one worth mentioning separately from the
+  // route cards in `journeys`.
+  destinationAirportNote?: { heading: string; description: string; linkHref: string; linkLabel: string }
 }
 
 export type BorderCity = {
@@ -108,7 +116,13 @@ export type BorderCity = {
   whyChauffeur?: WhyChauffeurPoint[]
   borderInfo?: string
   returnInfo?: string
+  businessSection?: { heading: string; description: string }
+  dayTripSection?: { heading: string; description: string; linkHref?: string; linkLabel?: string }
   faqs?: { question: string; answer: string }[]
+  // Replaces the booking form's generic cross-border example text (e.g.
+  // "Bratislava, Slovakia or Munich, Germany") with destination-specific
+  // guidance, since a flagship destination page already knows its own city.
+  dropoffHint?: string
 }
 
 export const austrianCities: CityArea[] = [
@@ -754,7 +768,133 @@ export const borderCrossingDestinations: BorderArea[] = [
     cities: ['Prague', 'České Budějovice'],
     via: 'via Linz or Vienna',
     popularRoutes: ['Linz → Prague', 'Vienna → Prague', 'Linz → České Budějovice'],
-    note: 'Via Linz or Vienna',
+    note: 'Prague: around 3 hours from Vienna, 2.5 hours from Linz',
+    seoTitle: 'Austria to Czech Republic Chauffeur Transfers | Private & Fixed Price',
+    seoDescription:
+      'Private chauffeur transfers from Austria to the Czech Republic, including Prague and České Budějovice. Door-to-door service, fixed pricing and cross-border travel.',
+    dropoffHint:
+      'For a Czech Republic transfer, enter your exact destination — for example, "Prague, Czech Republic" or "České Budějovice, Czech Republic" — as your drop-off.',
+    intro: [
+      'The Czech Republic is one of the more common cross-border destinations from Austria, mainly through two corridors: Vienna to Prague in the east, and Linz to South Bohemia in the north. Prague, the Czech capital, is the main long-distance destination — around 310 km and roughly 3 hours 15 minutes from Vienna, or a shorter 215 km and about 2 hours 30 minutes from Linz. České Budějovice, the largest city in South Bohemia, is a natural connection from Upper Austria, around 145 km and 1 hour 45 minutes from Linz via the A7 Mühlkreis Autobahn.',
+      "A private chauffeur covers the whole trip in a single vehicle, whether you're starting from a Vienna or Linz hotel, Vienna International Airport, Linz Airport, or another Austrian city. The corridor is used for a mix of trips: business travelers attending meetings in Prague, visitors combining Vienna and Prague in one itinerary, families and groups travelling with luggage, and travelers connecting through Linz into South Bohemia. Pickup can be a hotel, private address, or airport arrivals hall; drop-off works the same way at the Czech end, in Prague or České Budějovice.",
+    ],
+    serviceIntro:
+      'Every Austria–Czech Republic booking is a direct, private transfer — no ride-sharing, no fixed departure times, and no need to arrange a separate leg on either side of the border. Pickup is available from Vienna or Linz hotels and private addresses, from Vienna International Airport (VIE) or Linz Airport (LNZ), or from other Austrian cities on request; drop-off works the same way in the Czech Republic, whether that\'s a Prague hotel, private address, or České Budějovice. Both one-way and return bookings are available, and the same vehicle and driver stay with you for the whole trip.',
+    destinationsHeading: 'Prague & České Budějovice — Our Czech Republic Destinations',
+    destinationsIntro:
+      'Prague is our main long-distance destination in the Czech Republic, reachable from both Vienna and Linz. České Budějovice, in South Bohemia, is a shorter journey and a natural connection from Linz and Upper Austria. We can also consider other Czech destinations on request.',
+    borderInfo:
+      "Austria and the Czech Republic are both part of the Schengen Area, so there's normally no routine border stop or passport check — the drive continues straight through, with no need to switch vehicles or drivers partway. Temporary spot checks are occasionally introduced, particularly around holiday weekends, so we recommend carrying valid photo ID regardless. The Vienna corridor crosses near Mikulov; the Linz corridor crosses near Wullowitz, where road signage changes from German to Czech as the route continues north.",
+    whyChauffeur: [
+      {
+        title: 'Door-to-Door, No Station or Parking',
+        description:
+          "No need to find parking in Vienna, Linz, or Prague, or navigate public transport with luggage — the car goes directly from where you start to where you're going.",
+      },
+      {
+        title: 'The Border Crossing Is Handled for You',
+        description:
+          'The vehicle and driver take care of the border crossing as part of the service — no separate transport to arrange on either side, and no vehicle switch partway.',
+      },
+      {
+        title: 'Fixed Price, Confirmed in Advance',
+        description:
+          'Pricing is confirmed by email before you travel and stays fixed regardless of traffic or minor route changes — no cross-border surcharge and no meter running.',
+      },
+      {
+        title: 'Flight-Aware for Airport Connections',
+        description:
+          'For Vienna Airport or Linz Airport pickups, we monitor the provided flight and adjust pickup timing if the flight is delayed or arrives early.',
+      },
+    ],
+    journeys: [
+      {
+        heading: 'Vienna to Prague Transfer',
+        distance: '~310km',
+        duration: '~3h 15m',
+        description:
+          'The main long-distance route on this corridor: central Vienna to Prague is around 310 km by road, typically following the A5 Weinviertel Autobahn through Mikulov onto the D52/D1 — normally about 3 hours 15 minutes door to door, though traffic and your exact destination in Prague can add to that.',
+        routeHref: '/routes/vienna-to-prague',
+      },
+      {
+        heading: 'Vienna Airport to Prague Transfer',
+        distance: '~330km',
+        duration: '~3h 15m',
+        description:
+          'A direct alternative to a connecting flight for VIE arrivals heading to Prague, following the same A5/Mikulov/D52/D1 corridor. The driver tracks your flight and meets you in the arrivals hall.',
+        routeHref: '/routes/vienna-airport-to-prague',
+      },
+      {
+        heading: 'Linz to Prague Transfer',
+        distance: '~215km',
+        duration: '~2h 30m',
+        description:
+          'A shorter northbound route for travelers starting in Upper Austria: Linz to Prague runs via the A7 Mühlkreis Autobahn, crossing near Wullowitz onto the D3 — around 2 hours 30 minutes door to door.',
+        routeHref: '/routes/linz-to-prague',
+      },
+      {
+        heading: 'Linz Airport to Prague Transfer',
+        distance: '~215km',
+        duration: '~2h 30m',
+        description:
+          'The same A7/Wullowitz/D3 corridor as the Linz to Prague route, timed around your Linz Airport arrival — the driver tracks your flight and meets you in the arrivals hall.',
+        routeHref: '/routes/linz-airport-to-prague',
+      },
+      {
+        heading: 'Linz to České Budějovice Transfer',
+        distance: '~145km',
+        duration: '~1h 45m',
+        description:
+          'The shortest of these routes: Linz to České Budějovice follows the same A7/Wullowitz/D3 corridor as the Prague route, but only as far as South Bohemia — around 1 hour 45 minutes door to door.',
+        routeHref: '/routes/linz-to-ceske-budejovice',
+      },
+    ],
+    bookingSteps: [
+      'Enter your pickup location and Czech Republic destination.',
+      'Add your travel date, time, and passenger count.',
+      'Note your luggage, and mention in the notes field if you need a child seat or booster seat.',
+      "If it's an airport pickup, include your flight number so the driver can track it.",
+      'We confirm availability and a fixed price by email — no payment is required to request a quote.',
+    ],
+    trust:
+      'Cross-border transfers are fulfilled through licensed chauffeur operators within our network. We confirm the assigned driver, vehicle, and fixed price before your journey, with one vehicle and driver handling the transfer from pickup to destination, including the border crossing.',
+    faqs: [
+      {
+        question: 'How long does a private transfer from Vienna to Prague take?',
+        answer:
+          'Around 3 hours 15 minutes door to door in normal traffic via the A5 Weinviertel Autobahn and D52/D1 — actual time depends on traffic, weather, and your exact destination in Prague.',
+      },
+      {
+        question: 'Can I book a transfer from Linz to Prague?',
+        answer: 'Yes — around 2 hours 30 minutes via the A7 Mühlkreis Autobahn and D3, a shorter route than from Vienna.',
+      },
+      {
+        question: 'Can you arrange transfers to České Budějovice?',
+        answer: 'Yes — around 1 hour 45 minutes from Linz via the same A7/D3 corridor, as far as South Bohemia.',
+      },
+      {
+        question: 'Can I book an airport transfer from Vienna Airport or Linz Airport to Prague?',
+        answer: 'Yes. Both routes are available, and we monitor your flight number to adjust pickup timing if needed.',
+      },
+      {
+        question: 'Do I need to change vehicles at the Austria–Czech Republic border?',
+        answer:
+          'No — both countries are Schengen members, so there is no routine stop or vehicle change. Carry valid photo ID regardless, in case of a temporary spot check.',
+      },
+      {
+        question: 'Can you pick me up from my hotel in Vienna or Linz?',
+        answer: 'Yes. Hotel and private-address pickup is standard across Vienna, Linz, and other Austrian cities — just provide the address when booking.',
+      },
+      {
+        question: 'Can I book a return transfer from the Czech Republic to Austria?',
+        answer: 'Yes — one-way and return bookings are both available; request both legs together so the journey can be planned around your schedule.',
+      },
+      {
+        question: 'Can I book a transfer for a family with luggage or child seats?',
+        answer:
+          'Yes. The Executive Van handles families with extra luggage, and child seats or booster seats are available on request at no extra charge.',
+      },
+    ],
   },
   {
     slug: 'slovakia',
@@ -766,8 +906,10 @@ export const borderCrossingDestinations: BorderArea[] = [
     seoTitle: 'Austria to Slovakia Transfer Service | Vienna ↔ Bratislava',
     seoDescription:
       'Private chauffeur transfer service between Austria and Slovakia — Vienna to Bratislava in under an hour, airport or city pickup, fixed price, no border vehicle switch.',
+    dropoffHint:
+      'For a Slovakia transfer, enter your exact destination — for example, "Bratislava, Slovakia" — as your drop-off. We will confirm availability and a fixed price by email.',
     intro: [
-      "Slovakia is the closest cross-border destination from Vienna — Bratislava sits about 80km east of the city center, typically around an hour away by road via the A4 and A6 motorways, though the exact time depends on traffic and your precise pickup location. A private chauffeur covers the whole trip in a single vehicle, whether you're starting from a Vienna hotel, Vienna International Airport, or another Austrian city.",
+      "Slovakia is one of the closest international destinations from Vienna, with Bratislava typically around an hour away by road — it sits about 80km east of the city center via the A4 and A6 motorways, though the exact time depends on traffic and your precise pickup location. A private chauffeur covers the whole trip in a single vehicle, whether you're starting from a Vienna hotel, Vienna International Airport, or another Austrian city.",
       "The corridor is used for a mix of trips: business travelers attending same-day meetings in Bratislava, visitors combining both capitals in one itinerary, families flying out of Bratislava Airport instead of Vienna, and day-trippers doing the round trip without an overnight stay. Pickup can be a hotel, private address, or airport arrivals hall; drop-off works the same way at the other end.",
     ],
     serviceIntro:
@@ -776,7 +918,7 @@ export const borderCrossingDestinations: BorderArea[] = [
     destinationsIntro:
       "Bratislava is our main Slovakia destination — close enough to Vienna for a same-day round trip, and well connected by the A4 and A6 motorways. We can also consider other destinations in Slovakia on request.",
     borderInfo:
-      "Austria and Slovakia are both part of the Schengen Area, so there's normally no routine border stop or passport check — the drive continues straight through, with no need to switch vehicles or drivers partway. Temporary spot checks are occasionally introduced, particularly around holiday weekends, so we recommend carrying valid photo ID regardless. After the border, road signage changes from German to Slovak as the route continues toward Bratislava.",
+      "Austria and Slovakia are both part of the Schengen Area, so there's normally no routine border stop or passport check — the drive continues straight through, with no need to switch vehicles or drivers partway. Temporary spot checks are occasionally introduced, particularly around holiday weekends, so we recommend carrying valid photo ID regardless.",
     whyChauffeur: [
       {
         title: 'Door-to-door, no station or parking',
@@ -791,7 +933,7 @@ export const borderCrossingDestinations: BorderArea[] = [
       {
         title: 'Fixed price, confirmed in advance',
         description:
-          'Pricing is confirmed by email before you travel and stays fixed regardless of traffic or minor route changes — no cross-border surcharge and no meter running.',
+          'The confirmed price stays fixed for the agreed journey, subject to changes requested by the passenger or significant changes to the booking — no cross-border surcharge and no meter running.',
       },
       {
         title: 'Flight-aware for airport connections',
@@ -803,24 +945,31 @@ export const borderCrossingDestinations: BorderArea[] = [
       {
         heading: 'Vienna to Bratislava Transfer',
         distance: '~80km',
-        duration: '~1 hour',
+        duration: 'typically 50–70 minutes',
         description:
-          "The most common route we offer on this corridor: central Vienna to Bratislava is around 80 km by road, typically following the A4 and A6 via Kittsee to the Slovak border — normally about an hour door to door, though traffic around Vienna or at the border can add to that. It's short enough for a same-day round trip, and one of the shortest capital-to-capital drives in Europe.",
+          "The most common route we offer on this corridor: central Vienna to Bratislava is around 80 km by road, typically following the A4 and A6 via Kittsee to the Slovak border — normally 50 to 70 minutes door to door, though traffic around Vienna or at the border can add to that. It's short enough for a same-day round trip, and one of the shortest capital-to-capital drives in Europe.",
         routeHref: '/routes/vienna-to-bratislava',
       },
       {
         heading: 'Vienna Airport to Bratislava Transfer',
         distance: '~65km',
-        duration: '~45 minutes',
+        duration: 'typically 45–60 minutes',
         description:
           'This route runs in both directions — arriving passengers at Vienna International Airport heading on into Slovakia, and Bratislava-based travelers connecting to a flight at Vienna Airport instead of flying from Bratislava directly. The driver tracks your flight and meets you in the arrivals hall; the same applies in reverse for a Bratislava pickup timed against a VIE departure.',
         routeHref: '/routes/vienna-airport-to-bratislava',
       },
     ],
+    destinationAirportNote: {
+      heading: 'Bratislava Airport (BTS)',
+      description:
+        'Bratislava Airport can be used as an alternative arrival or departure point for travelers based in Austria, particularly Vienna — sometimes a cheaper or more convenient fare than flying via Vienna. See our Bratislava destination page for BTS-specific transfer details.',
+      linkHref: '/service-areas/bratislava',
+      linkLabel: 'Bratislava destination & airport details →',
+    },
     bookingSteps: [
       'Enter your pickup location and Slovakia destination.',
       'Add your travel date, time, and passenger count.',
-      'Note your luggage, and mention in the notes field if you need a child seat or booster seat.',
+      'Add your luggage details and mention any child seat or booster-seat requirements.',
       "If it's an airport pickup, include your flight number so the driver can track it.",
       'We confirm availability and a fixed price by email — no payment is required to request a quote.',
     ],
@@ -830,12 +979,12 @@ export const borderCrossingDestinations: BorderArea[] = [
       {
         question: 'How long does a private transfer from Vienna to Bratislava take?',
         answer:
-          'Around 50–60 minutes door to door in normal traffic via the A4 and A6 motorways — it is one of the shortest international transfer routes from Austria.',
+          'Typically 50–70 minutes door to door in normal traffic via the A4 and A6 motorways — it is one of the shortest international transfer routes from Austria.',
       },
       {
         question: 'Can I book a transfer from Vienna Airport to Bratislava?',
         answer:
-          'Yes — around 45 minutes via the A4 and A6 motorways, and it works in both directions: VIE arrivals continuing into Slovakia, or a Bratislava pickup connecting to a flight at Vienna Airport.',
+          'Yes — typically 45–60 minutes via the A4 and A6 motorways, and it works in both directions: VIE arrivals continuing into Slovakia, or a Bratislava pickup connecting to a flight at Vienna Airport.',
       },
       {
         question: 'Do I need to change vehicles at the Austria–Slovakia border?',
@@ -867,6 +1016,11 @@ export const borderCrossingDestinations: BorderArea[] = [
         answer:
           'Yes — the service operates 24/7, so early-morning and late-night pickups, including overnight flight arrivals, are booked the same way as any other time slot.',
       },
+      {
+        question: 'Can I book a same-day Austria to Slovakia transfer?',
+        answer:
+          'Same-day requests can be submitted and are subject to chauffeur and vehicle availability. We recommend booking earlier during busy travel periods.',
+      },
     ],
   },
   {
@@ -875,7 +1029,7 @@ export const borderCrossingDestinations: BorderArea[] = [
     cities: ['Budapest', 'Sopron'],
     via: 'via Vienna or Burgenland',
     popularRoutes: ['Vienna → Budapest', 'Eisenstadt → Sopron', 'Wiener Neustadt → Sopron'],
-    note: 'Via Vienna or Burgenland',
+    note: 'Popular for Vienna and Burgenland pickups',
   },
   {
     slug: 'slovenia',
@@ -883,7 +1037,7 @@ export const borderCrossingDestinations: BorderArea[] = [
     cities: ['Ljubljana', 'Maribor'],
     via: 'via Graz or Klagenfurt',
     popularRoutes: ['Graz → Ljubljana', 'Klagenfurt → Ljubljana', 'Villach → Ljubljana'],
-    note: 'Via Graz or Klagenfurt',
+    note: 'Popular for Graz and Klagenfurt pickups',
   },
   {
     slug: 'italy',
@@ -891,7 +1045,7 @@ export const borderCrossingDestinations: BorderArea[] = [
     cities: ['Venice', 'Bolzano', 'Milan'],
     via: 'via Innsbruck / Brenner Pass',
     popularRoutes: ['Innsbruck → Bolzano', 'Innsbruck → Venice', 'Villach → Venice'],
-    note: 'Via Innsbruck / Brenner Pass',
+    note: 'Popular for Innsbruck and Villach pickups',
   },
   {
     slug: 'switzerland-liechtenstein',
@@ -899,7 +1053,7 @@ export const borderCrossingDestinations: BorderArea[] = [
     cities: ['Zurich', 'St. Gallen', 'Vaduz'],
     via: 'via Bregenz / Vorarlberg',
     popularRoutes: ['Bregenz → Zurich', 'Bregenz → St. Gallen', 'Bregenz → Vaduz'],
-    note: 'Via Bregenz / Vorarlberg',
+    note: 'Popular for Bregenz and Vorarlberg pickups',
   },
 ]
 
@@ -935,6 +1089,8 @@ export const borderCities: BorderCity[] = [
     country: 'Czech Republic',
     via: 'via Linz or Vienna',
     popularRoutes: ['Linz → Prague', 'Vienna → Prague'],
+    description:
+      'The Czech capital and by far the most-requested destination on this corridor — reachable from both Vienna and Linz, with hotel, private-address, and airport drop-off available.',
   },
   {
     slug: 'ceske-budejovice',
@@ -943,6 +1099,8 @@ export const borderCities: BorderCity[] = [
     country: 'Czech Republic',
     via: 'via Linz',
     popularRoutes: ['Linz → České Budějovice'],
+    description:
+      'The largest city in South Bohemia, just over the border from Upper Austria — a natural connection from Linz, whether for business, a hotel stay, or an onward journey.',
   },
   {
     slug: 'bratislava',
@@ -955,12 +1113,14 @@ export const borderCities: BorderCity[] = [
     seoDescription:
       'Private chauffeur transfers from Austria to Bratislava, including Vienna and Vienna Airport. Door-to-door service, fixed quotes, and direct cross-border travel.',
     description:
-      "Slovakia's capital, and our most-requested destination in the country — typically under an hour from central Vienna. Most bookings are for hotels in the Old Town, the castle district, or the riverside promenade along the Danube, plus arrivals and departures at Bratislava Airport (BTS); pickup and drop-off go directly to wherever you're staying. Wedding and private-event transport, part of our standard service offering, can also be arranged here.",
+      "Slovakia's capital, and our primary destination in the country — typically under an hour from central Vienna. Most bookings are for hotels in the Old Town, the castle district, or the riverside promenade along the Danube, plus arrivals and departures at Bratislava Airport (BTS); pickup and drop-off go directly to wherever you're staying. Wedding and private-event transport, part of our standard service offering, can also be arranged here.",
     intro:
       'Private chauffeur transfers from Vienna, Vienna Airport, and destinations across Austria to Bratislava, Slovakia. Door-to-door service, a fixed price confirmed before your journey, and no vehicle change at the border.',
+    dropoffHint:
+      'For a Bratislava transfer, enter your exact pickup and drop-off locations — for example, "Vienna Airport" to "Bratislava Old Town."',
     routeOverview: [
-      { route: 'Vienna → Bratislava', duration: '~50–70 minutes' },
-      { route: 'Vienna Airport → Bratislava', duration: '~45–60 minutes' },
+      { route: 'Vienna → Bratislava', distance: '~55–80km', duration: '~50–70 minutes' },
+      { route: 'Vienna Airport → Bratislava', distance: '~65km', duration: '~45–60 minutes' },
     ],
     pickupIntro:
       'We arrange private pickups from Vienna, Vienna International Airport, and other Austrian cities and regions on request.',
@@ -996,7 +1156,7 @@ export const borderCities: BorderCity[] = [
         },
         {
           label: 'Vienna Airport → Bratislava Airport',
-          description: 'Connecting between the two airports for an onward flight or ground transport.',
+          description: 'Private airport-to-airport transfer for travelers connecting between VIE and BTS for an onward flight or ground transport.',
         },
         {
           label: 'Bratislava Airport → Vienna',
@@ -1054,6 +1214,18 @@ export const borderCities: BorderCity[] = [
       "Your chauffeur and vehicle stay with you for the entire journey across the Austria–Slovakia border — there's no need to stop and change vehicles partway. Austria and Slovakia are both part of the Schengen Area, so there's normally no routine passport check at this border, although temporary border controls can be introduced, particularly around holiday periods. We recommend carrying valid photo ID regardless.",
     returnInfo:
       "One-way and return transfers are available between Bratislava, Vienna, and Vienna Airport — a return flight from Vienna Airport can be booked the same way as the outbound leg.",
+    businessSection: {
+      heading: 'Business Transfers Between Vienna & Bratislava',
+      description:
+        "Bratislava's short distance from Vienna makes it a practical same-day business destination — client meetings, conferences, or a return trip without needing to book a flight. Provide your itinerary and preferred timing when requesting a quote, and we'll confirm a fixed price for the round trip.",
+    },
+    dayTripSection: {
+      heading: 'Vienna to Bratislava Day Trips',
+      description:
+        'Because the journey is relatively short, Bratislava can be visited as a half-day or full-day trip from Vienna. A private chauffeur lets you choose your own departure and return times, without arranging separate station transfers or parking.',
+      linkHref: '/blog/vienna-to-bratislava-guide',
+      linkLabel: 'Read our Vienna to Bratislava guide →',
+    },
     faqs: [
       {
         question: 'How long does a private transfer from Vienna to Bratislava take?',
@@ -1087,6 +1259,10 @@ export const borderCities: BorderCity[] = [
       {
         question: 'Is the price fixed?',
         answer: 'Yes — we confirm a fixed price by email before your journey, based on your pickup, destination, vehicle, and passenger count.',
+      },
+      {
+        question: 'Can I book a same-day transfer?',
+        answer: 'Same-day requests can be submitted, subject to driver and vehicle availability. Earlier booking is recommended during peak periods.',
       },
     ],
   },

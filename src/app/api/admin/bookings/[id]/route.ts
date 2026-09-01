@@ -27,6 +27,12 @@ const EDITABLE_TRIP_FIELDS = [
   'passengers',
   'vehicle_type',
   'flight_number',
+  'journey_type',
+  'return_date',
+  'return_time',
+  'luggage',
+  'ski_equipment',
+  'child_seat',
 ] as const
 
 export async function PATCH(request: NextRequest, { params }: RouteParams) {
@@ -51,7 +57,7 @@ export async function PATCH(request: NextRequest, { params }: RouteParams) {
     const { data: before } = await supabase
       .from('bookings')
       .select(
-        'status, price_quote, assigned_driver, full_name, email, phone, pickup_location, dropoff_location, pickup_date, pickup_time, passengers, vehicle_type, flight_number'
+        'status, price_quote, assigned_driver, full_name, email, phone, pickup_location, dropoff_location, pickup_date, pickup_time, passengers, vehicle_type, flight_number, journey_type, return_date, return_time, luggage, ski_equipment, child_seat'
       )
       .eq('id', id)
       .single()

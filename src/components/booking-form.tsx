@@ -6,6 +6,7 @@ import type { VehicleType } from '@/lib/content/services'
 import type { Locale } from '@/lib/i18n'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
+type JourneyType = 'one_way' | 'return'
 
 const inputClass =
   'w-full rounded-sm border border-brand-line bg-white px-3.5 py-2.5 text-sm text-brand-ink placeholder:text-brand-ink-2/40 focus:border-brand-gold focus:outline-none focus:ring-1 focus:ring-brand-gold'
@@ -24,11 +25,21 @@ const strings: Record<
     pickupPlaceholder: string
     dropoffLocation: string
     dropoffPlaceholder: string
+    journeyType: string
+    oneWay: string
+    return: string
     date: string
     time: string
+    returnDate: string
+    returnTime: string
     passengers: string
     vehicle: string
     vehicleOptions: { value: VehicleType; label: string }[]
+    luggage: string
+    luggageOptions: { value: string; label: string }[]
+    skiEquipment: string
+    childSeat: string
+    childSeatOptions: { value: string; label: string }[]
     flightNumber: string
     notes: string
     notesPlaceholder: string
@@ -45,8 +56,9 @@ const strings: Record<
   en: {
     crossBorderHint: (a, b) => (
       <>
-        Cross-border trip? Just enter the destination — e.g. <span className="italic">&quot;{a}&quot;</span> or{' '}
-        <span className="italic">&quot;{b}&quot;</span> — as your drop-off.
+        For a cross-border journey, simply enter your destination — for example{' '}
+        <span className="italic">&quot;{a}&quot;</span> or <span className="italic">&quot;{b}&quot;</span> — as your
+        drop-off.
       </>
     ),
     hourlyHint:
@@ -58,34 +70,56 @@ const strings: Record<
     pickupPlaceholder: 'e.g. Vienna Airport',
     dropoffLocation: 'Drop-off Location',
     dropoffPlaceholder: 'e.g. Salzburg City Center',
+    journeyType: 'Journey Type',
+    oneWay: 'One Way',
+    return: 'Return',
     date: 'Date',
     time: 'Time',
+    returnDate: 'Return Date',
+    returnTime: 'Return Time',
     passengers: 'Passengers',
     vehicle: 'Vehicle',
     vehicleOptions: [
-      { value: 'sedan', label: 'Business Sedan' },
-      { value: 'luxury', label: 'Luxury Sedan' },
-      { value: 'van', label: 'Executive Van' },
-      { value: 'minibus', label: 'Minibus' },
+      { value: 'sedan', label: 'Business Sedan — up to 3 passengers' },
+      { value: 'luxury', label: 'Luxury Sedan — up to 3 passengers' },
+      { value: 'van', label: 'Executive Van — up to 7 passengers' },
+      { value: 'minibus', label: 'Minibus — up to 16 passengers' },
     ],
-    flightNumber: 'Flight Number (optional)',
+    luggage: 'Luggage (optional)',
+    luggageOptions: [
+      { value: '', label: 'Not sure / prefer to specify in notes' },
+      { value: 'none', label: 'None / hand luggage only' },
+      { value: '1-3', label: '1–3 bags' },
+      { value: '4-6', label: '4–6 bags' },
+      { value: '7+', label: '7+ bags' },
+    ],
+    skiEquipment: 'Traveling with ski or snowboard equipment',
+    childSeat: 'Child Seat / Booster (optional)',
+    childSeatOptions: [
+      { value: '', label: 'Not needed' },
+      { value: 'child_seat', label: 'Child seat' },
+      { value: 'booster_seat', label: 'Booster seat' },
+      { value: 'both', label: 'Both' },
+    ],
+    flightNumber: 'Flight Number (if applicable)',
     notes: 'Notes (optional)',
-    notesPlaceholder: 'Child seats, extra stops, border-crossing details, etc.',
+    notesPlaceholder: 'Children\'s ages/heights, extra stops, accessibility requirements, special requests, etc.',
     submit: 'Request a Fixed Quote',
     submitting: 'Sending...',
     genericError: 'Something went wrong. Please try again.',
     networkError: 'Network error. Please check your connection and try again.',
     successTitle: 'Request received',
     successBody:
-      'Thank you — we’ve emailed you a confirmation. Our team will follow up shortly with availability and pricing.',
+      'Thank you — we’ve emailed you a confirmation. Our team will follow up shortly with availability and pricing. Please check your inbox and spam folder if you don’t see our reply.',
     reference: 'Reference',
     submitAnother: 'Submit another request',
   },
   de: {
     crossBorderHint: (a, b) => (
       <>
-        Grenzüberschreitende Fahrt? Geben Sie einfach das Ziel ein — z. B. <span className="italic">&quot;{a}&quot;</span> oder{' '}
-        <span className="italic">&quot;{b}&quot;</span> — als Ablieferort.
+        Für eine grenzüberschreitende Fahrt geben Sie einfach Ihr Ziel ein — z. B.{' '}
+        <span className="italic">&quot;{a}&quot;</span> oder <span className="italic">&quot;{b}&quot;</span> — als
+        Ablieferort.
       </>
     ),
     hourlyHint:
@@ -97,26 +131,47 @@ const strings: Record<
     pickupPlaceholder: 'z. B. Flughafen Wien',
     dropoffLocation: 'Zielort',
     dropoffPlaceholder: 'z. B. Salzburg Stadtzentrum',
+    journeyType: 'Fahrtart',
+    oneWay: 'Einfache Fahrt',
+    return: 'Hin- und Rückfahrt',
     date: 'Datum',
     time: 'Uhrzeit',
+    returnDate: 'Rückfahrt-Datum',
+    returnTime: 'Rückfahrt-Uhrzeit',
     passengers: 'Fahrgäste',
     vehicle: 'Fahrzeug',
     vehicleOptions: [
-      { value: 'sedan', label: 'Business-Limousine' },
-      { value: 'luxury', label: 'Luxus-Limousine' },
-      { value: 'van', label: 'Executive Van' },
-      { value: 'minibus', label: 'Kleinbus' },
+      { value: 'sedan', label: 'Business-Limousine — bis zu 3 Personen' },
+      { value: 'luxury', label: 'Luxus-Limousine — bis zu 3 Personen' },
+      { value: 'van', label: 'Executive Van — bis zu 7 Personen' },
+      { value: 'minibus', label: 'Kleinbus — bis zu 16 Personen' },
     ],
-    flightNumber: 'Flugnummer (optional)',
+    luggage: 'Gepäck (optional)',
+    luggageOptions: [
+      { value: '', label: 'Nicht sicher / lieber im Notizfeld angeben' },
+      { value: 'none', label: 'Keines / nur Handgepäck' },
+      { value: '1-3', label: '1–3 Koffer' },
+      { value: '4-6', label: '4–6 Koffer' },
+      { value: '7+', label: '7+ Koffer' },
+    ],
+    skiEquipment: 'Reise mit Ski- oder Snowboardausrüstung',
+    childSeat: 'Kindersitz / Sitzerhöhung (optional)',
+    childSeatOptions: [
+      { value: '', label: 'Nicht benötigt' },
+      { value: 'child_seat', label: 'Kindersitz' },
+      { value: 'booster_seat', label: 'Sitzerhöhung' },
+      { value: 'both', label: 'Beides' },
+    ],
+    flightNumber: 'Flugnummer (falls zutreffend)',
     notes: 'Notizen (optional)',
-    notesPlaceholder: 'Kindersitze, zusätzliche Stopps, Details zum Grenzübertritt usw.',
+    notesPlaceholder: 'Alter/Größe der Kinder, zusätzliche Stopps, Barrierefreiheit, besondere Wünsche usw.',
     submit: 'Festpreis anfragen',
     submitting: 'Wird gesendet...',
     genericError: 'Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.',
     networkError: 'Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung und versuchen Sie es erneut.',
     successTitle: 'Anfrage erhalten',
     successBody:
-      'Vielen Dank — wir haben Ihnen eine Bestätigung per E-Mail gesendet. Unser Team meldet sich in Kürze mit Verfügbarkeit und Preis.',
+      'Vielen Dank — wir haben Ihnen eine Bestätigung per E-Mail gesendet. Unser Team meldet sich in Kürze mit Verfügbarkeit und Preis. Bitte prüfen Sie auch Ihren Spam-Ordner, falls Sie unsere Antwort nicht sehen.',
     reference: 'Referenz',
     submitAnother: 'Weitere Anfrage senden',
   },
@@ -179,6 +234,7 @@ function BookingFormInner({
   const [status, setStatus] = useState<Status>('idle')
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [referenceId, setReferenceId] = useState<string | null>(null)
+  const [journeyType, setJourneyType] = useState<JourneyType>('one_way')
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -200,6 +256,12 @@ function BookingFormInner({
       vehicleType: String(formData.get('vehicleType') || 'sedan') as VehicleType,
       flightNumber: String(formData.get('flightNumber') || ''),
       notes: String(formData.get('notes') || ''),
+      journeyType,
+      returnDate: journeyType === 'return' ? String(formData.get('returnDate') || '') : '',
+      returnTime: journeyType === 'return' ? String(formData.get('returnTime') || '') : '',
+      luggage: String(formData.get('luggage') || ''),
+      skiEquipment: formData.get('skiEquipment') === 'on',
+      childSeat: String(formData.get('childSeat') || ''),
       locale,
     }
 
@@ -221,6 +283,7 @@ function BookingFormInner({
       setReferenceId(data.id)
       setStatus('success')
       form.reset()
+      setJourneyType('one_way')
     } catch {
       setErrorMessage(t.networkError)
       setStatus('error')
@@ -300,6 +363,26 @@ function BookingFormInner({
         />
       </div>
 
+      <div className="sm:col-span-2">
+        <label className={labelClass}>{t.journeyType}</label>
+        <div className="flex gap-2">
+          {(['one_way', 'return'] as const).map((jt) => (
+            <button
+              key={jt}
+              type="button"
+              onClick={() => setJourneyType(jt)}
+              className={`rounded-sm border px-4 py-2 text-sm font-semibold transition-colors ${
+                journeyType === jt
+                  ? 'border-brand-gold bg-brand-gold/10 text-brand-ink'
+                  : 'border-brand-line bg-white text-brand-ink-2/70 hover:border-brand-gold'
+              }`}
+            >
+              {jt === 'one_way' ? t.oneWay : t.return}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div>
         <label className={labelClass} htmlFor="pickupDate">{t.date}</label>
         <input id="pickupDate" name="pickupDate" type="date" required min={today} className={inputClass} />
@@ -308,6 +391,19 @@ function BookingFormInner({
         <label className={labelClass} htmlFor="pickupTime">{t.time}</label>
         <input id="pickupTime" name="pickupTime" type="time" required className={inputClass} />
       </div>
+
+      {journeyType === 'return' && (
+        <>
+          <div>
+            <label className={labelClass} htmlFor="returnDate">{t.returnDate}</label>
+            <input id="returnDate" name="returnDate" type="date" required min={today} className={inputClass} />
+          </div>
+          <div>
+            <label className={labelClass} htmlFor="returnTime">{t.returnTime}</label>
+            <input id="returnTime" name="returnTime" type="time" required className={inputClass} />
+          </div>
+        </>
+      )}
 
       <div>
         <label className={labelClass} htmlFor="passengers">{t.passengers}</label>
@@ -320,6 +416,33 @@ function BookingFormInner({
             <option key={opt.value} value={opt.value}>{opt.label}</option>
           ))}
         </select>
+      </div>
+
+      <div>
+        <label className={labelClass} htmlFor="luggage">{t.luggage}</label>
+        <select id="luggage" name="luggage" defaultValue="" className={inputClass}>
+          {t.luggageOptions.map((opt) => (
+            <option key={opt.value} value={opt.value}>{opt.label}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label className={labelClass} htmlFor="childSeat">{t.childSeat}</label>
+        <select id="childSeat" name="childSeat" defaultValue="" className={inputClass}>
+          {t.childSeatOptions.map((opt) => (
+            <option key={opt.value} value={opt.value}>{opt.label}</option>
+          ))}
+        </select>
+      </div>
+
+      <div className="sm:col-span-2 flex items-center gap-2">
+        <input
+          id="skiEquipment"
+          name="skiEquipment"
+          type="checkbox"
+          className="h-4 w-4 rounded-sm border-brand-line text-brand-gold focus:ring-brand-gold"
+        />
+        <label htmlFor="skiEquipment" className="text-sm text-brand-ink-2">{t.skiEquipment}</label>
       </div>
 
       <div className="sm:col-span-2">

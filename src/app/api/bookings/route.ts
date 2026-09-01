@@ -39,6 +39,12 @@ export async function POST(request: NextRequest) {
       vehicle_type: input.vehicleType,
       flight_number: input.flightNumber || null,
       notes: input.notes || null,
+      journey_type: input.journeyType,
+      return_date: input.journeyType === 'return' ? input.returnDate || null : null,
+      return_time: input.journeyType === 'return' ? input.returnTime || null : null,
+      luggage: input.luggage || null,
+      ski_equipment: input.skiEquipment,
+      child_seat: input.childSeat || null,
       locale: input.locale,
     })
     .select('id')

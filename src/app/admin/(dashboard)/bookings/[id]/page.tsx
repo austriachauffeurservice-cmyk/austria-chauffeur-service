@@ -192,6 +192,29 @@ export default async function BookingDetailPage({ params }: Props) {
               </>
             )}
 
+            <div style={fieldLabel}>Journey Type</div>
+            <div style={fieldValue}>
+              {booking.journey_type === 'return' ? 'Return' : 'One Way'}
+              {booking.journey_type === 'return' && booking.return_date && (
+                <> — back {booking.return_date}{booking.return_time ? ` at ${booking.return_time}` : ''}</>
+              )}
+            </div>
+
+            {(booking.luggage || booking.ski_equipment || booking.child_seat) && (
+              <>
+                <div style={fieldLabel}>Luggage &amp; Equipment</div>
+                <div style={fieldValue}>
+                  {[
+                    booking.luggage && { none: 'None / hand luggage only', '1-3': '1–3 bags', '4-6': '4–6 bags', '7+': '7+ bags' }[booking.luggage as string],
+                    booking.ski_equipment && 'Ski/snowboard equipment',
+                    booking.child_seat && { child_seat: 'Child seat', booster_seat: 'Booster seat', both: 'Child seat + booster seat' }[booking.child_seat as string],
+                  ]
+                    .filter(Boolean)
+                    .join(' · ')}
+                </div>
+              </>
+            )}
+
             <div style={fieldLabel}>Customer Notes</div>
             <div style={{ ...fieldValue, whiteSpace: 'pre-wrap' }}>{booking.notes || '—'}</div>
 
@@ -237,6 +260,12 @@ export default async function BookingDetailPage({ params }: Props) {
               initialVehicleType={booking.vehicle_type}
               initialFlightNumber={booking.flight_number || ''}
               initialTags={tags}
+              initialJourneyType={booking.journey_type || 'one_way'}
+              initialReturnDate={booking.return_date || ''}
+              initialReturnTime={booking.return_time || ''}
+              initialLuggage={booking.luggage || ''}
+              initialSkiEquipment={Boolean(booking.ski_equipment)}
+              initialChildSeat={booking.child_seat || ''}
             />
           </div>
         </div>

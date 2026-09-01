@@ -47,6 +47,8 @@ export type BorderArea = {
   bookingSteps?: string[]
   trust?: string
   faqs?: { question: string; answer: string }[]
+  dropoffHint?: string
+  destinationAirportNote?: { heading: string; description: string; linkHref: string; linkLabel: string }
 }
 
 export type BorderCity = {
@@ -74,7 +76,10 @@ export type BorderCity = {
   whyChauffeur?: WhyChauffeurPoint[]
   borderInfo?: string
   returnInfo?: string
+  businessSection?: { heading: string; description: string }
+  dayTripSection?: { heading: string; description: string; linkHref?: string; linkLabel?: string }
   faqs?: { question: string; answer: string }[]
+  dropoffHint?: string
 }
 
 export const austrianCities: CityArea[] = [
@@ -720,7 +725,133 @@ export const borderCrossingDestinations: BorderArea[] = [
     cities: ['Prag', 'České Budějovice'],
     via: 'über Linz oder Wien',
     popularRoutes: ['Linz → Prag', 'Wien → Prag', 'Linz → České Budějovice'],
-    note: 'Über Linz oder Wien',
+    note: 'Prag: rund 3 Stunden ab Wien, 2,5 Stunden ab Linz',
+    seoTitle: 'Österreich–Tschechien Chauffeurtransfers | Privat & Festpreis',
+    seoDescription:
+      'Private Chauffeurtransfers von Österreich nach Tschechien, einschließlich Prag und České Budějovice. Tür-zu-Tür-Service, Festpreise und grenzüberschreitende Fahrten.',
+    dropoffHint:
+      'Geben Sie für einen Tschechien-Transfer Ihren genauen Zielort an — zum Beispiel „Prag, Tschechien" oder „České Budějovice, Tschechien" — als Ablieferung.',
+    intro: [
+      'Tschechien ist eines der häufigeren grenzüberschreitenden Ziele ab Österreich, hauptsächlich über zwei Korridore: Wien nach Prag im Osten und Linz nach Südböhmen im Norden. Prag, die tschechische Hauptstadt, ist das wichtigste Fernziel — rund 310 km und etwa 3 Stunden 15 Minuten ab Wien, oder kürzer mit 215 km und etwa 2 Stunden 30 Minuten ab Linz. České Budějovice, die größte Stadt Südböhmens, ist eine naheliegende Verbindung ab Oberösterreich, rund 145 km und 1 Stunde 45 Minuten ab Linz über die A7 Mühlkreisautobahn.',
+      'Ein privater Chauffeur übernimmt die gesamte Fahrt in einem Fahrzeug — ob Sie in einem Hotel in Wien oder Linz, am Flughafen Wien, am Flughafen Linz oder in einer anderen österreichischen Stadt starten. Der Korridor wird für unterschiedliche Fahrten genutzt: Geschäftsreisende mit Terminen in Prag, Besucher, die Wien und Prag in einer Reise verbinden, Familien und Gruppen mit Gepäck sowie Reisende, die über Linz nach Südböhmen weiterfahren. Die Abholung kann an einem Hotel, einer Privatadresse oder in der Ankunftshalle des Flughafens erfolgen; die Ablieferung funktioniert am tschechischen Ende genauso, in Prag oder České Budějovice.',
+    ],
+    serviceIntro:
+      'Jede Buchung zwischen Österreich und Tschechien ist ein direkter, privater Transfer — kein Mitfahrservice, keine festen Abfahrtszeiten und keine separate Etappe auf einer der beiden Seiten der Grenze. Die Abholung ist ab Hotels und Privatadressen in Wien oder Linz, ab dem Flughafen Wien (VIE) oder Flughafen Linz (LNZ) oder ab anderen österreichischen Städten auf Anfrage möglich; die Ablieferung funktioniert in Tschechien genauso, ob an einem Hotel in Prag, einer Privatadresse oder in České Budějovice. Sowohl einfache Fahrten als auch Rückfahrten sind buchbar, und dasselbe Fahrzeug mit demselben Fahrer begleitet Sie während der gesamten Reise.',
+    destinationsHeading: 'Prag & České Budějovice — Unsere Ziele in Tschechien',
+    destinationsIntro:
+      'Prag ist unser wichtigstes Fernziel in Tschechien, erreichbar sowohl ab Wien als auch ab Linz. České Budějovice in Südböhmen ist eine kürzere Fahrt und eine naheliegende Verbindung ab Linz und Oberösterreich. Weitere tschechische Ziele können wir auf Anfrage prüfen.',
+    borderInfo:
+      'Österreich und Tschechien sind beide Teil des Schengen-Raums, sodass normalerweise kein routinemäßiger Grenzstopp oder Passkontrolle stattfindet — die Fahrt geht durchgehend weiter, ohne Fahrzeug- oder Fahrerwechsel unterwegs. Gelegentlich werden vorübergehende Stichprobenkontrollen eingeführt, besonders an Feiertagswochenenden, weshalb wir empfehlen, in jedem Fall einen gültigen Lichtbildausweis mitzuführen. Der Wien-Korridor überquert die Grenze nahe Mikulov, der Linz-Korridor nahe Wullowitz, wo die Straßenbeschilderung von Deutsch auf Tschechisch wechselt, während die Strecke weiter nordwärts führt.',
+    whyChauffeur: [
+      {
+        title: 'Tür zu Tür, kein Bahnhof, kein Parkplatzsuchen',
+        description:
+          'Kein Parkplatzsuchen in Wien, Linz oder Prag und kein Umgang mit öffentlichen Verkehrsmitteln und Gepäck — das Fahrzeug bringt Sie direkt von Ihrem Start- zu Ihrem Zielort.',
+      },
+      {
+        title: 'Der Grenzübertritt wird für Sie erledigt',
+        description:
+          'Fahrzeug und Fahrer übernehmen den Grenzübertritt als Teil des Services — kein separater Transport auf einer der beiden Seiten und kein Fahrzeugwechsel unterwegs.',
+      },
+      {
+        title: 'Festpreis, im Voraus bestätigt',
+        description:
+          'Der Preis wird vor der Reise per E-Mail bestätigt und bleibt unabhängig von Verkehr oder kleineren Routenänderungen fest — kein Grenzüberschreitungszuschlag und kein Taxameter.',
+      },
+      {
+        title: 'Flugbewusst bei Flughafenanschlüssen',
+        description:
+          'Bei Abholungen am Flughafen Wien oder Flughafen Linz überwachen wir den angegebenen Flug und passen die Abholzeit bei Verspätung oder frühzeitiger Ankunft an.',
+      },
+    ],
+    journeys: [
+      {
+        heading: 'Transfer Wien nach Prag',
+        distance: '~310 km',
+        duration: '~3 Std. 15 Min.',
+        description:
+          'Die wichtigste Fernstrecke auf diesem Korridor: Von der Wiener Innenstadt nach Prag sind es rund 310 km, meist über die A5 Weinviertel Autobahn durch Mikulov auf die D52/D1 — normalerweise etwa 3 Stunden 15 Minuten Tür zu Tür, wobei Verkehr und Ihr genaues Ziel in Prag die Fahrzeit verlängern können.',
+        routeHref: '/de/routes/vienna-to-prague',
+      },
+      {
+        heading: 'Transfer Flughafen Wien nach Prag',
+        distance: '~330 km',
+        duration: '~3 Std. 15 Min.',
+        description:
+          'Eine direkte Alternative zu einem Anschlussflug für VIE-Ankünfte mit Ziel Prag, über denselben Korridor A5/Mikulov/D52/D1. Der Fahrer verfolgt Ihren Flug und empfängt Sie in der Ankunftshalle.',
+        routeHref: '/de/routes/vienna-airport-to-prague',
+      },
+      {
+        heading: 'Transfer Linz nach Prag',
+        distance: '~215 km',
+        duration: '~2 Std. 30 Min.',
+        description:
+          'Eine kürzere Nordstrecke für Reisende ab Oberösterreich: Linz nach Prag verläuft über die A7 Mühlkreisautobahn, überquert die Grenze nahe Wullowitz auf die D3 — rund 2 Stunden 30 Minuten Tür zu Tür.',
+        routeHref: '/de/routes/linz-to-prague',
+      },
+      {
+        heading: 'Transfer Flughafen Linz nach Prag',
+        distance: '~215 km',
+        duration: '~2 Std. 30 Min.',
+        description:
+          'Derselbe Korridor A7/Wullowitz/D3 wie die Strecke Linz–Prag, abgestimmt auf Ihre Ankunft am Flughafen Linz — der Fahrer verfolgt Ihren Flug und empfängt Sie in der Ankunftshalle.',
+        routeHref: '/de/routes/linz-airport-to-prague',
+      },
+      {
+        heading: 'Transfer Linz nach České Budějovice',
+        distance: '~145 km',
+        duration: '~1 Std. 45 Min.',
+        description:
+          'Die kürzeste dieser Strecken: Linz nach České Budějovice folgt demselben Korridor A7/Wullowitz/D3 wie die Prag-Strecke, jedoch nur bis Südböhmen — rund 1 Stunde 45 Minuten Tür zu Tür.',
+        routeHref: '/de/routes/linz-to-ceske-budejovice',
+      },
+    ],
+    bookingSteps: [
+      'Geben Sie Ihren Abholort und Ihr Ziel in Tschechien an.',
+      'Fügen Sie Reisedatum, Uhrzeit und Personenanzahl hinzu.',
+      'Geben Sie Ihr Gepäck an und vermerken Sie im Notizfeld, falls Sie einen Kindersitz oder eine Sitzerhöhung benötigen.',
+      'Bei einer Flughafenabholung geben Sie Ihre Flugnummer an, damit der Fahrer den Flug verfolgen kann.',
+      'Wir bestätigen Verfügbarkeit und einen Festpreis per E-Mail — für die Anfrage ist keine Zahlung erforderlich.',
+    ],
+    trust:
+      'Grenzüberschreitende Transfers werden über lizenzierte Chauffeurpartner in unserem Netzwerk durchgeführt. Wir bestätigen den zugewiesenen Fahrer, das Fahrzeug und den Festpreis vor Ihrer Reise, wobei ein Fahrzeug und ein Fahrer die gesamte Fahrt von der Abholung bis zum Ziel übernehmen, einschließlich des Grenzübertritts.',
+    faqs: [
+      {
+        question: 'Wie lange dauert ein privater Transfer von Wien nach Prag?',
+        answer:
+          'Unter normalen Verkehrsbedingungen etwa 3 Stunden 15 Minuten über die A5 Weinviertel Autobahn und die D52/D1 — die tatsächliche Zeit hängt von Verkehr, Wetter und Ihrem genauen Ziel in Prag ab.',
+      },
+      {
+        question: 'Kann ich einen Transfer von Linz nach Prag buchen?',
+        answer: 'Ja — etwa 2 Stunden 30 Minuten über die A7 Mühlkreisautobahn und die D3, eine kürzere Strecke als ab Wien.',
+      },
+      {
+        question: 'Bieten Sie Transfers nach České Budějovice an?',
+        answer: 'Ja — etwa 1 Stunde 45 Minuten ab Linz über denselben Korridor A7/D3, bis nach Südböhmen.',
+      },
+      {
+        question: 'Kann ich einen Flughafentransfer vom Flughafen Wien oder Flughafen Linz nach Prag buchen?',
+        answer: 'Ja. Beide Strecken sind verfügbar, und wir überwachen Ihre Flugnummer, um die Abholzeit bei Bedarf anzupassen.',
+      },
+      {
+        question: 'Muss ich an der Grenze zwischen Österreich und Tschechien das Fahrzeug wechseln?',
+        answer:
+          'Nein — beide Länder sind Schengen-Mitglieder, daher gibt es keinen routinemäßigen Stopp oder Fahrzeugwechsel. Führen Sie dennoch einen gültigen Lichtbildausweis mit, falls eine vorübergehende Stichprobenkontrolle stattfindet.',
+      },
+      {
+        question: 'Können Sie mich von meinem Hotel in Wien oder Linz abholen?',
+        answer: 'Ja. Die Abholung an Hotels und Privatadressen ist in Wien, Linz und anderen österreichischen Städten Standard — geben Sie einfach die Adresse bei der Buchung an.',
+      },
+      {
+        question: 'Kann ich einen Rücktransfer von Tschechien nach Österreich buchen?',
+        answer: 'Ja — einfache Fahrten und Rückfahrten sind beide buchbar; fragen Sie beide Etappen zusammen an, damit die Reise um Ihren Zeitplan geplant werden kann.',
+      },
+      {
+        question: 'Kann ich einen Transfer für eine Familie mit Gepäck oder Kindersitzen buchen?',
+        answer:
+          'Ja. Der Executive Van eignet sich für Familien mit zusätzlichem Gepäck, und Kindersitze oder Sitzerhöhungen sind auf Anfrage ohne Aufpreis erhältlich.',
+      },
+    ],
   },
   {
     slug: 'slovakia',
@@ -732,8 +863,10 @@ export const borderCrossingDestinations: BorderArea[] = [
     seoTitle: 'Österreich–Slowakei Transferservice | Wien ↔ Bratislava',
     seoDescription:
       'Privater Chauffeur-Transferservice zwischen Österreich und der Slowakei — Wien nach Bratislava in unter einer Stunde, Abholung ab Stadt oder Flughafen, Festpreis, kein Fahrzeugwechsel an der Grenze.',
+    dropoffHint:
+      'Geben Sie für einen Slowakei-Transfer Ihren genauen Zielort an — zum Beispiel „Bratislava, Slowakei" — als Ablieferung. Wir bestätigen Verfügbarkeit und einen Festpreis per E-Mail.',
     intro: [
-      'Die Slowakei ist das nächstgelegene grenzüberschreitende Ziel ab Wien — Bratislava liegt etwa 80 km östlich des Stadtzentrums, meist rund eine Stunde Fahrzeit über die Autobahnen A4 und A6, wobei die genaue Dauer vom Verkehr und Ihrem genauen Abholort abhängt. Ein privater Chauffeur legt die gesamte Strecke in einem einzigen Fahrzeug zurück, egal ob Sie ab einem Wiener Hotel, dem Flughafen Wien oder einer anderen österreichischen Stadt starten.',
+      'Die Slowakei ist eines der nächstgelegenen internationalen Ziele ab Wien, wobei Bratislava meist rund eine Stunde Fahrzeit entfernt ist — die Stadt liegt etwa 80 km östlich des Stadtzentrums über die Autobahnen A4 und A6, wobei die genaue Dauer vom Verkehr und Ihrem genauen Abholort abhängt. Ein privater Chauffeur legt die gesamte Strecke in einem einzigen Fahrzeug zurück, egal ob Sie ab einem Wiener Hotel, dem Flughafen Wien oder einer anderen österreichischen Stadt starten.',
       'Die Strecke wird für unterschiedliche Reisezwecke genutzt: Geschäftsreisende mit Terminen am selben Tag in Bratislava, Besucher, die beide Hauptstädte in einer Reise verbinden, Familien, die statt ab Wien lieber ab dem Flughafen Bratislava fliegen, und Tagesausflügler, die die Fahrt hin und zurück ohne Übernachtung machen. Die Abholung kann an einem Hotel, einer Privatadresse oder im Ankunftsbereich eines Flughafens erfolgen — die Ablieferung funktioniert am Zielort genauso.',
     ],
     serviceIntro:
@@ -742,7 +875,7 @@ export const borderCrossingDestinations: BorderArea[] = [
     destinationsIntro:
       'Bratislava ist unser Hauptziel in der Slowakei — nah genug an Wien für eine Rückfahrt am selben Tag und gut über die Autobahnen A4 und A6 angebunden. Weitere Ziele in der Slowakei prüfen wir gerne auf Anfrage.',
     borderInfo:
-      'Österreich und die Slowakei sind beide Teil des Schengen-Raums, daher gibt es an der Grenze normalerweise keinen routinemäßigen Halt oder eine Passkontrolle — die Fahrt geht durchgehend weiter, ohne dass Fahrzeug oder Fahrer unterwegs gewechselt werden müssen. Gelegentlich werden vorübergehende Stichprobenkontrollen eingeführt, insbesondere an Feiertagswochenenden, daher empfehlen wir, trotzdem einen gültigen Lichtbildausweis mitzuführen. Nach der Grenze wechselt die Straßenbeschilderung von Deutsch auf Slowakisch, während die Strecke weiter nach Bratislava führt.',
+      'Österreich und die Slowakei sind beide Teil des Schengen-Raums, daher gibt es an der Grenze normalerweise keinen routinemäßigen Halt oder eine Passkontrolle — die Fahrt geht durchgehend weiter, ohne dass Fahrzeug oder Fahrer unterwegs gewechselt werden müssen. Gelegentlich werden vorübergehende Stichprobenkontrollen eingeführt, insbesondere an Feiertagswochenenden, daher empfehlen wir, trotzdem einen gültigen Lichtbildausweis mitzuführen.',
     whyChauffeur: [
       {
         title: 'Tür zu Tür, kein Bahnhof, kein Parkplatzsuchen',
@@ -757,7 +890,7 @@ export const borderCrossingDestinations: BorderArea[] = [
       {
         title: 'Festpreis, im Voraus bestätigt',
         description:
-          'Der Preis wird vor der Fahrt per E-Mail bestätigt und bleibt unabhängig von Verkehr oder kleineren Routenänderungen fix — kein grenzüberschreitender Aufschlag und kein Taxameter.',
+          'Der bestätigte Preis bleibt für die vereinbarte Fahrt fix, vorbehaltlich vom Fahrgast gewünschter Änderungen oder wesentlicher Änderungen an der Buchung — kein grenzüberschreitender Aufschlag und kein Taxameter.',
       },
       {
         title: 'Flugüberwachung bei Flughafenanschlüssen',
@@ -769,20 +902,27 @@ export const borderCrossingDestinations: BorderArea[] = [
       {
         heading: 'Transfer Wien nach Bratislava',
         distance: '~80 km',
-        duration: '~1 Stunde',
+        duration: 'meist 50–70 Minuten',
         description:
-          'Die meistgenutzte Strecke dieses Korridors: vom Wiener Zentrum nach Bratislava sind es rund 80 km auf der Straße, meist über die Autobahnen A4 und A6 durch Kittsee bis zur slowakischen Grenze — normalerweise rund eine Stunde Tür zu Tür, wobei Verkehr rund um Wien oder an der Grenze die Fahrzeit verlängern kann. Kurz genug für eine Rückfahrt am selben Tag, und eine der kürzesten Hauptstadt-zu-Hauptstadt-Fahrten Europas.',
-        routeHref: '/routes/vienna-to-bratislava',
+          'Die meistgenutzte Strecke dieses Korridors: vom Wiener Zentrum nach Bratislava sind es rund 80 km auf der Straße, meist über die Autobahnen A4 und A6 durch Kittsee bis zur slowakischen Grenze — normalerweise 50 bis 70 Minuten Tür zu Tür, wobei Verkehr rund um Wien oder an der Grenze die Fahrzeit verlängern kann. Kurz genug für eine Rückfahrt am selben Tag, und eine der kürzesten Hauptstadt-zu-Hauptstadt-Fahrten Europas.',
+        routeHref: '/de/routes/vienna-to-bratislava',
       },
       {
         heading: 'Transfer Flughafen Wien nach Bratislava',
         distance: '~65 km',
-        duration: '~45 Minuten',
+        duration: 'meist 45–60 Minuten',
         description:
           'Diese Strecke funktioniert in beide Richtungen — ankommende Passagiere am Flughafen Wien, die weiter in die Slowakei reisen, und Reisende ab Bratislava, die statt eines Direktflugs ab Bratislava einen Anschlussflug ab dem Flughafen Wien nehmen. Der Fahrer verfolgt Ihren Flug und empfängt Sie im Ankunftsbereich; umgekehrt gilt dasselbe für eine Abholung in Bratislava, abgestimmt auf einen VIE-Abflug.',
-        routeHref: '/routes/vienna-airport-to-bratislava',
+        routeHref: '/de/routes/vienna-airport-to-bratislava',
       },
     ],
+    destinationAirportNote: {
+      heading: 'Flughafen Bratislava (BTS)',
+      description:
+        'Der Flughafen Bratislava kann als alternativer Ankunfts- oder Abflugort für Reisende mit Sitz in Österreich, insbesondere Wien, genutzt werden — manchmal zu einem günstigeren oder praktischeren Flugpreis als über Wien. Details zu BTS-spezifischen Transfers finden Sie auf unserer Bratislava-Zielseite.',
+      linkHref: '/de/service-areas/bratislava',
+      linkLabel: 'Bratislava: Ziel & Flughafendetails →',
+    },
     bookingSteps: [
       'Geben Sie Ihren Abholort und Ihren Zielort in der Slowakei an.',
       'Ergänzen Sie Reisedatum, Uhrzeit und Anzahl der Passagiere.',
@@ -796,12 +936,12 @@ export const borderCrossingDestinations: BorderArea[] = [
       {
         question: 'Wie lange dauert ein privater Transfer von Wien nach Bratislava?',
         answer:
-          'Bei normalem Verkehr rund 50–60 Minuten Tür zu Tür über die Autobahnen A4 und A6 — einer der kürzesten internationalen Transferwege ab Österreich.',
+          'Bei normalem Verkehr meist 50–70 Minuten Tür zu Tür über die Autobahnen A4 und A6 — einer der kürzesten internationalen Transferwege ab Österreich.',
       },
       {
         question: 'Kann ich einen Transfer vom Flughafen Wien nach Bratislava buchen?',
         answer:
-          'Ja — etwa 45 Minuten über die Autobahnen A4 und A6, und das funktioniert in beide Richtungen: Ankünfte am Flughafen Wien mit Ziel Slowakei oder eine Abholung in Bratislava mit Anschluss an einen Flug ab Wien.',
+          'Ja — meist 45–60 Minuten über die Autobahnen A4 und A6, und das funktioniert in beide Richtungen: Ankünfte am Flughafen Wien mit Ziel Slowakei oder eine Abholung in Bratislava mit Anschluss an einen Flug ab Wien.',
       },
       {
         question: 'Muss ich an der Grenze zwischen Österreich und der Slowakei das Fahrzeug wechseln?',
@@ -833,6 +973,11 @@ export const borderCrossingDestinations: BorderArea[] = [
         answer:
           'Ja — der Service ist rund um die Uhr verfügbar, daher werden frühmorgendliche und späte Abholungen, auch nach Nachtflügen, genauso gebucht wie jede andere Uhrzeit.',
       },
+      {
+        question: 'Kann ich einen Transfer von Österreich in die Slowakei am selben Tag buchen?',
+        answer:
+          'Anfragen am selben Tag sind möglich, abhängig von Fahrer- und Fahrzeugverfügbarkeit. In verkehrsreichen Zeiten empfehlen wir eine frühzeitigere Buchung.',
+      },
     ],
   },
   {
@@ -841,7 +986,7 @@ export const borderCrossingDestinations: BorderArea[] = [
     cities: ['Budapest', 'Sopron'],
     via: 'über Wien oder Burgenland',
     popularRoutes: ['Wien → Budapest', 'Eisenstadt → Sopron', 'Wiener Neustadt → Sopron'],
-    note: 'Über Wien oder Burgenland',
+    note: 'Beliebt für Abholungen ab Wien und dem Burgenland',
   },
   {
     slug: 'slovenia',
@@ -849,7 +994,7 @@ export const borderCrossingDestinations: BorderArea[] = [
     cities: ['Ljubljana', 'Maribor'],
     via: 'über Graz oder Klagenfurt',
     popularRoutes: ['Graz → Ljubljana', 'Klagenfurt → Ljubljana', 'Villach → Ljubljana'],
-    note: 'Über Graz oder Klagenfurt',
+    note: 'Beliebt für Abholungen ab Graz und Klagenfurt',
   },
   {
     slug: 'italy',
@@ -857,7 +1002,7 @@ export const borderCrossingDestinations: BorderArea[] = [
     cities: ['Venedig', 'Bozen', 'Mailand'],
     via: 'über Innsbruck / Brennerpass',
     popularRoutes: ['Innsbruck → Bozen', 'Innsbruck → Venedig', 'Villach → Venedig'],
-    note: 'Über Innsbruck / Brennerpass',
+    note: 'Beliebt für Abholungen ab Innsbruck und Villach',
   },
   {
     slug: 'switzerland-liechtenstein',
@@ -865,7 +1010,7 @@ export const borderCrossingDestinations: BorderArea[] = [
     cities: ['Zürich', 'St. Gallen', 'Vaduz'],
     via: 'über Bregenz / Vorarlberg',
     popularRoutes: ['Bregenz → Zürich', 'Bregenz → St. Gallen', 'Bregenz → Vaduz'],
-    note: 'Über Bregenz / Vorarlberg',
+    note: 'Beliebt für Abholungen ab Bregenz und Vorarlberg',
   },
 ]
 
@@ -901,6 +1046,8 @@ export const borderCities: BorderCity[] = [
     country: 'Tschechien',
     via: 'über Linz oder Wien',
     popularRoutes: ['Linz → Prag', 'Wien → Prag'],
+    description:
+      'Die tschechische Hauptstadt und mit Abstand das meistgefragte Ziel auf diesem Korridor — erreichbar sowohl ab Wien als auch ab Linz, mit Ablieferung an Hotel, Privatadresse oder Flughafen.',
   },
   {
     slug: 'ceske-budejovice',
@@ -909,6 +1056,8 @@ export const borderCities: BorderCity[] = [
     country: 'Tschechien',
     via: 'über Linz',
     popularRoutes: ['Linz → České Budějovice'],
+    description:
+      'Die größte Stadt Südböhmens, direkt hinter der Grenze zu Oberösterreich — eine naheliegende Verbindung ab Linz, ob für Geschäftsreisen, einen Hotelaufenthalt oder eine Weiterreise.',
   },
   {
     slug: 'bratislava',
@@ -921,12 +1070,14 @@ export const borderCities: BorderCity[] = [
     seoDescription:
       'Private Chauffeurtransfers von Österreich nach Bratislava, einschließlich Wien und Flughafen Wien. Tür-zu-Tür-Service, Festpreisangebote und direkte grenzüberschreitende Fahrten.',
     description:
-      'Die Hauptstadt der Slowakei und unser meistgefragtes Ziel im Land — meist unter einer Stunde vom Wiener Zentrum entfernt. Die meisten Buchungen betreffen Hotels in der Altstadt, das Burgviertel oder die Uferpromenade an der Donau sowie Ankünfte und Abflüge am Flughafen Bratislava (BTS); Abholung und Ablieferung erfolgen direkt an Ihrem Aufenthaltsort. Hochzeits- und Event-Transport, Teil unseres Standardangebots, kann auch hier organisiert werden.',
+      'Die Hauptstadt der Slowakei und unser primäres Ziel im Land — meist unter einer Stunde vom Wiener Zentrum entfernt. Die meisten Buchungen betreffen Hotels in der Altstadt, das Burgviertel oder die Uferpromenade an der Donau sowie Ankünfte und Abflüge am Flughafen Bratislava (BTS); Abholung und Ablieferung erfolgen direkt an Ihrem Aufenthaltsort. Hochzeits- und Event-Transport, Teil unseres Standardangebots, kann auch hier organisiert werden.',
     intro:
       'Private Chauffeurtransfers von Wien, dem Flughafen Wien und Zielen in ganz Österreich nach Bratislava, Slowakei. Tür-zu-Tür-Service, ein vor der Fahrt bestätigter Festpreis und kein Fahrzeugwechsel an der Grenze.',
+    dropoffHint:
+      'Geben Sie für einen Bratislava-Transfer Ihren genauen Abhol- und Zielort an — zum Beispiel „Flughafen Wien" bis „Bratislava Altstadt".',
     routeOverview: [
-      { route: 'Wien → Bratislava', duration: '~50–70 Minuten' },
-      { route: 'Flughafen Wien → Bratislava', duration: '~45–60 Minuten' },
+      { route: 'Wien → Bratislava', distance: '~55–80 km', duration: '~50–70 Minuten' },
+      { route: 'Flughafen Wien → Bratislava', distance: '~65 km', duration: '~45–60 Minuten' },
     ],
     pickupIntro:
       'Wir organisieren private Abholungen ab Wien, dem Flughafen Wien und anderen österreichischen Städten und Regionen auf Anfrage.',
@@ -948,7 +1099,7 @@ export const borderCities: BorderCity[] = [
       heading: 'Flughafen Wien nach Bratislava',
       description:
         'Ankunft am Flughafen Wien mit Weiterfahrt nach Bratislava? Ihr Chauffeur empfängt Sie in der Ankunftshalle, hilft beim Gepäck und fährt Sie direkt zu Ihrem Hotel, Ihrer Wohnadresse oder Geschäftsadresse in Bratislava — rund 45 Minuten über die Autobahnen A4 und A6.',
-      routeHref: '/routes/vienna-airport-to-bratislava',
+      routeHref: '/de/routes/vienna-airport-to-bratislava',
       routeLabel: 'Route Flughafen Wien nach Bratislava →',
     },
     destinationAirportSection: {
@@ -962,7 +1113,7 @@ export const borderCities: BorderCity[] = [
         },
         {
           label: 'Flughafen Wien → Flughafen Bratislava',
-          description: 'Verbindung zwischen den beiden Flughäfen für einen Anschlussflug oder Weitertransport.',
+          description: 'Privater Flughafen-zu-Flughafen-Transfer für Reisende mit Anschluss zwischen VIE und BTS, für einen Weiterflug oder Weitertransport.',
         },
         {
           label: 'Flughafen Bratislava → Wien',
@@ -974,12 +1125,12 @@ export const borderCities: BorderCity[] = [
       {
         label: 'Wien → Bratislava',
         description: 'Privater Stadt-zu-Stadt-Chauffeurtransfer.',
-        href: '/routes/vienna-to-bratislava',
+        href: '/de/routes/vienna-to-bratislava',
       },
       {
         label: 'Flughafen Wien → Bratislava',
         description: 'Direkte Flughafenabholung und Ablieferung an Hotel oder Wohnadresse.',
-        href: '/routes/vienna-airport-to-bratislava',
+        href: '/de/routes/vienna-airport-to-bratislava',
       },
       {
         label: 'Bratislava → Wien / Flughafen Wien',
@@ -1020,6 +1171,18 @@ export const borderCities: BorderCity[] = [
       'Ihr Chauffeur und Fahrzeug bleiben während der gesamten Fahrt über die Grenze zwischen Österreich und der Slowakei bei Ihnen — es ist kein Zwischenstopp zum Fahrzeugwechsel nötig. Österreich und die Slowakei sind beide Teil des Schengen-Raums, daher gibt es an dieser Grenze normalerweise keine routinemäßige Passkontrolle, allerdings können gelegentlich vorübergehende Grenzkontrollen eingeführt werden, insbesondere an Feiertagen. Wir empfehlen trotzdem, einen gültigen Lichtbildausweis mitzuführen.',
     returnInfo:
       'Einfache Fahrten und Hin- und Rückfahrten sind zwischen Bratislava, Wien und dem Flughafen Wien buchbar — ein Rückflug ab dem Flughafen Wien kann genauso gebucht werden wie die Hinfahrt.',
+    businessSection: {
+      heading: 'Geschäftsreisen zwischen Wien & Bratislava',
+      description:
+        'Die kurze Entfernung Bratislavas von Wien macht es zu einem praktischen Ziel für Geschäftsreisen am selben Tag — Kundentermine, Konferenzen oder eine Rückfahrt ohne Flugbuchung. Geben Sie bei der Anfrage Ihre Reiseroute und bevorzugte Zeitplanung an, und wir bestätigen einen Festpreis für die Hin- und Rückfahrt.',
+    },
+    dayTripSection: {
+      heading: 'Tagesausflüge von Wien nach Bratislava',
+      description:
+        'Da die Fahrt relativ kurz ist, lässt sich Bratislava als Halbtages- oder Tagesausflug ab Wien besuchen. Ein privater Chauffeur ermöglicht es Ihnen, Ihre eigene Abfahrts- und Rückkehrzeit zu wählen, ohne separate Bahnhofstransfers oder Parkplatzsuche.',
+      linkHref: '/de/blog/vienna-to-bratislava-guide',
+      linkLabel: 'Unseren Wien-Bratislava-Guide lesen →',
+    },
     faqs: [
       {
         question: 'Wie lange dauert ein privater Transfer von Wien nach Bratislava?',
@@ -1053,6 +1216,10 @@ export const borderCities: BorderCity[] = [
       {
         question: 'Ist der Preis fix?',
         answer: 'Ja — wir bestätigen einen Festpreis per E-Mail vor Ihrer Fahrt, basierend auf Abholort, Ziel, Fahrzeug und Personenzahl.',
+      },
+      {
+        question: 'Kann ich einen Transfer am selben Tag buchen?',
+        answer: 'Anfragen am selben Tag sind möglich, abhängig von Fahrer- und Fahrzeugverfügbarkeit. In verkehrsreichen Zeiten empfehlen wir eine frühzeitigere Buchung.',
       },
     ],
   },

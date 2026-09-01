@@ -334,7 +334,10 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
       whyChauffeur,
       borderInfo,
       returnInfo,
+      businessSection,
+      dayTripSection,
       faqs,
+      dropoffHint,
     } = location.data
     const hasRouteDistance = Boolean(routeOverview?.some((r) => r.distance))
     const pageUrl = `${siteUrl}/de/service-areas/${slug}`
@@ -392,7 +395,7 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
               <p className="mt-3 text-sm font-semibold text-brand-gold">{via}</p>
             </div>
             <div className="lg:col-span-5">
-              <HeroQuoteCard locale="de" dropoff={city} />
+              <HeroQuoteCard locale="de" dropoff={city} dropoffHint={dropoffHint} />
             </div>
           </div>
         </section>
@@ -401,6 +404,13 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
           <section className="border-b border-brand-line bg-white">
             <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
               <h2 className="font-display text-xl text-brand-ink">Streckenübersicht</h2>
+              <p className="mt-2 text-sm text-brand-ink-2/70">
+                Teil unseres{' '}
+                <Link href={`/de/service-areas/${countrySlug}`} className="font-semibold text-brand-ink hover:text-brand-gold hover:underline">
+                  grenzüberschreitenden Chauffeurservices Österreich → {country}
+                </Link>
+                .
+              </p>
               <div className="mt-6 overflow-x-auto">
                 <table className="w-full min-w-[420px] text-left text-sm">
                   <thead>
@@ -575,6 +585,11 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
                   </tbody>
                 </table>
               </div>
+              <p className="mt-3 text-xs text-brand-ink-2/60">
+                Die Gepäckkapazität variiert je nach Personenanzahl und Gepäckgröße. Bitte geben
+                Sie Ihre Gepäckanforderungen bei der Anfrage an, damit wir das passende Fahrzeug
+                zuweisen können.
+              </p>
             </div>
           </section>
         )}
@@ -584,6 +599,32 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
             <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
               <h2 className="font-display text-xl text-brand-ink">Rücktransfers ab {city}</h2>
               <p className="mt-4 max-w-2xl text-brand-ink-2/90">{returnInfo}</p>
+            </div>
+          </section>
+        )}
+
+        {isEnriched && businessSection && (
+          <section className="border-b border-brand-line bg-brand-cream">
+            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-xl text-brand-ink">{businessSection.heading}</h2>
+              <p className="mt-4 max-w-2xl text-brand-ink-2/90">{businessSection.description}</p>
+            </div>
+          </section>
+        )}
+
+        {isEnriched && dayTripSection && (
+          <section className="border-b border-brand-line bg-white">
+            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-xl text-brand-ink">{dayTripSection.heading}</h2>
+              <p className="mt-4 max-w-2xl text-brand-ink-2/90">{dayTripSection.description}</p>
+              {dayTripSection.linkHref && (
+                <Link
+                  href={dayTripSection.linkHref}
+                  className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+                >
+                  {dayTripSection.linkLabel}
+                </Link>
+              )}
             </div>
           </section>
         )}
@@ -630,6 +671,7 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
           title={`Buchen Sie Ihren Transfer nach ${city}`}
           description="Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
           dropoff={city}
+          dropoffHint={dropoffHint}
         />
       </>
     )
@@ -647,9 +689,11 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
     borderInfo,
     whyChauffeur,
     journeys,
+    destinationAirportNote,
     bookingSteps,
     trust,
     faqs,
+    dropoffHint,
   } = location.data
   const citiesInCountry = borderCities.filter((c) => c.countrySlug === location.data.slug)
   const pageUrl = `${siteUrl}/de/service-areas/${slug}`
@@ -703,7 +747,7 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
             <p className="mt-3 text-sm font-semibold text-brand-gold">{isEnriched ? note : `${note} · ${via}`}</p>
           </div>
           <div className="lg:col-span-5">
-            <HeroQuoteCard locale="de" title="Festpreisangebot anfragen" />
+            <HeroQuoteCard locale="de" title="Festpreisangebot anfragen" dropoffHint={dropoffHint} />
           </div>
         </div>
       </section>
@@ -798,6 +842,21 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
         </section>
       )}
 
+      {isEnriched && destinationAirportNote && (
+        <section className="border-y border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{destinationAirportNote.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{destinationAirportNote.description}</p>
+            <Link
+              href={destinationAirportNote.linkHref}
+              className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+            >
+              {destinationAirportNote.linkLabel}
+            </Link>
+          </div>
+        </section>
+      )}
+
       {isEnriched && borderInfo && (
         <section className="border-b border-brand-line bg-white">
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
@@ -849,7 +908,12 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 text-xs text-brand-ink-2/60">
+            <p className="mt-3 text-xs text-brand-ink-2/60">
+              Die tatsächliche Gepäckkapazität hängt von Personenanzahl und Gepäckgröße ab. Bitte
+              geben Sie Ihre Gepäckanforderungen bei der Anfrage an, damit wir das passende
+              Fahrzeug zuweisen können.
+            </p>
+            <p className="mt-2 text-xs text-brand-ink-2/60">
               <Link href="/de/fleet" className="underline decoration-brand-gold underline-offset-4 hover:text-brand-gold">
                 Alle Fahrzeugdetails auf der Fuhrpark-Seite →
               </Link>
@@ -909,9 +973,10 @@ export default async function LocationPageDe({ params }: { params: Promise<Param
       <BookingCta
         locale="de"
         pageType="country"
-        title={`Transfer Österreich → ${country} anfragen`}
-        description="Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
+        title={`Bereit für die Fahrt von Österreich nach ${country}?`}
+        description="Teilen Sie uns Abholort, Ziel, Reisedatum und Personenanzahl mit — wir bestätigen Verfügbarkeit und Ihren Festpreis per E-Mail."
         dropoff={country}
+        dropoffHint={dropoffHint}
       />
     </>
   )

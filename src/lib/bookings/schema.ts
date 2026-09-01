@@ -1,8 +1,11 @@
 import { z } from 'zod'
 
 export const vehicleTypes = ['sedan', 'van', 'luxury', 'minibus'] as const
+export const journeyTypes = ['one_way', 'return'] as const
+export const luggageOptions = ['none', '1-3', '4-6', '7+'] as const
+export const childSeatOptions = ['none', 'child_seat', 'booster_seat', 'both'] as const
 
-export const createBookingSchema = z.object({
+const baseBookingSchema = z.object({
   fullName: z.string().trim().min(2).max(120),
   email: z.email().trim().max(255),
   phone: z.string().trim().min(6).max(30),
@@ -14,7 +17,26 @@ export const createBookingSchema = z.object({
   vehicleType: z.enum(vehicleTypes).default('sedan'),
   flightNumber: z.string().trim().max(50).optional().or(z.literal('')),
   notes: z.string().trim().max(2000).optional().or(z.literal('')),
+  // Return-trip details — returnDate/returnTime are only required when
+  // journeyType is 'return', enforced by the .refine() below rather than
+  // here, since both createBookingSchema and manualBookingSchema need the
+  // same conditional check applied independently after .extend().
+  journeyType: z.enum(journeyTypes).default('one_way'),
+  returnDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Expected YYYY-MM-DD').optional().or(z.literal('')),
+  returnTime: z.string().regex(/^\d{2}:\d{2}(:\d{2})?$/, 'Expected HH:MM').optional().or(z.literal('')),
+  luggage: z.enum(luggageOptions).optional().or(z.literal('')),
+  skiEquipment: z.coerce.boolean().default(false),
+  childSeat: z.enum(childSeatOptions).optional().or(z.literal('')),
   locale: z.enum(['en', 'de']).default('en'),
+})
+
+function requireReturnDetails(data: { journeyType: string; returnDate?: string; returnTime?: string }) {
+  return data.journeyType !== 'return' || (Boolean(data.returnDate) && Boolean(data.returnTime))
+}
+
+export const createBookingSchema = baseBookingSchema.refine(requireReturnDetails, {
+  message: 'Return date and time are required for a return journey',
+  path: ['returnDate'],
 })
 
 export type CreateBookingInput = z.infer<typeof createBookingSchema>
@@ -22,14 +44,19 @@ export type CreateBookingInput = z.infer<typeof createBookingSchema>
 export const manualLeadSources = ['phone', 'whatsapp', 'email', 'other'] as const
 export const bookingStatuses = ['pending', 'confirmed', 'completed', 'cancelled'] as const
 
-export const manualBookingSchema = createBookingSchema.extend({
-  // Unlike the public booking form, a manually logged lead (e.g. from an
-  // email inquiry) doesn't always come with a callback number.
-  phone: z.string().trim().max(30).optional().or(z.literal('')),
-  source: z.enum(manualLeadSources).default('phone'),
-  status: z.enum(bookingStatuses).default('pending'),
-  priceQuote: z.string().trim().max(30).optional().or(z.literal('')),
-  sendConfirmationEmail: z.boolean().default(false),
-})
+export const manualBookingSchema = baseBookingSchema
+  .extend({
+    // Unlike the public booking form, a manually logged lead (e.g. from an
+    // email inquiry) doesn't always come with a callback number.
+    phone: z.string().trim().max(30).optional().or(z.literal('')),
+    source: z.enum(manualLeadSources).default('phone'),
+    status: z.enum(bookingStatuses).default('pending'),
+    priceQuote: z.string().trim().max(30).optional().or(z.literal('')),
+    sendConfirmationEmail: z.boolean().default(false),
+  })
+  .refine(requireReturnDetails, {
+    message: 'Return date and time are required for a return journey',
+    path: ['returnDate'],
+  })
 
 export type ManualBookingInput = z.infer<typeof manualBookingSchema>

@@ -347,7 +347,10 @@ export default async function LocationPage({ params }: { params: Promise<Params>
       whyChauffeur,
       borderInfo,
       returnInfo,
+      businessSection,
+      dayTripSection,
       faqs,
+      dropoffHint,
     } = location.data
     const hasRouteDistance = Boolean(routeOverview?.some((r) => r.distance))
     const pageUrl = `${siteUrl}/service-areas/${slug}`
@@ -406,7 +409,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
               <p className="mt-3 text-sm font-semibold text-brand-gold">{via}</p>
             </div>
             <div className="lg:col-span-5">
-              <HeroQuoteCard dropoff={city} />
+              <HeroQuoteCard dropoff={city} dropoffHint={dropoffHint} />
             </div>
           </div>
         </section>
@@ -415,6 +418,13 @@ export default async function LocationPage({ params }: { params: Promise<Params>
           <section className="border-b border-brand-line bg-white">
             <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
               <h2 className="font-display text-xl text-brand-ink">Route Overview</h2>
+              <p className="mt-2 text-sm text-brand-ink-2/70">
+                Part of our{' '}
+                <Link href={`/service-areas/${countrySlug}`} className="font-semibold text-brand-ink hover:text-brand-gold hover:underline">
+                  Austria → {country} cross-border chauffeur service
+                </Link>
+                .
+              </p>
               <div className="mt-6 overflow-x-auto">
                 <table className="w-full min-w-[420px] text-left text-sm">
                   <thead>
@@ -589,6 +599,11 @@ export default async function LocationPage({ params }: { params: Promise<Params>
                   </tbody>
                 </table>
               </div>
+              <p className="mt-3 text-xs text-brand-ink-2/60">
+                Luggage capacity varies with passenger count and bag size. Please include your
+                luggage requirements when requesting a quote so we can assign the appropriate
+                vehicle.
+              </p>
             </div>
           </section>
         )}
@@ -598,6 +613,32 @@ export default async function LocationPage({ params }: { params: Promise<Params>
             <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
               <h2 className="font-display text-xl text-brand-ink">Return Transfers from {city}</h2>
               <p className="mt-4 max-w-2xl text-brand-ink-2/90">{returnInfo}</p>
+            </div>
+          </section>
+        )}
+
+        {isEnriched && businessSection && (
+          <section className="border-b border-brand-line bg-brand-cream">
+            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-xl text-brand-ink">{businessSection.heading}</h2>
+              <p className="mt-4 max-w-2xl text-brand-ink-2/90">{businessSection.description}</p>
+            </div>
+          </section>
+        )}
+
+        {isEnriched && dayTripSection && (
+          <section className="border-b border-brand-line bg-white">
+            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-xl text-brand-ink">{dayTripSection.heading}</h2>
+              <p className="mt-4 max-w-2xl text-brand-ink-2/90">{dayTripSection.description}</p>
+              {dayTripSection.linkHref && (
+                <Link
+                  href={dayTripSection.linkHref}
+                  className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+                >
+                  {dayTripSection.linkLabel}
+                </Link>
+              )}
             </div>
           </section>
         )}
@@ -624,6 +665,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
           title={`Book your transfer to ${city}`}
           description="Submit your trip details and we'll confirm availability and pricing by email."
           dropoff={city}
+          dropoffHint={dropoffHint}
         />
       </>
     )
@@ -641,14 +683,19 @@ export default async function LocationPage({ params }: { params: Promise<Params>
     borderInfo,
     whyChauffeur,
     journeys,
+    destinationAirportNote,
     bookingSteps,
     trust,
     faqs,
+    dropoffHint,
   } = location.data
   const citiesInCountry = borderCities.filter((c) => c.countrySlug === location.data.slug)
   const pageUrl = `${siteUrl}/service-areas/${slug}`
   const relatedPosts = findRelatedPosts([country])
   const isEnriched = Boolean(intro && intro.length > 0)
+  // A handful of country names need a definite article in running English
+  // text ("to the Czech Republic") — everything else in our list doesn't.
+  const countryWithArticle = country === 'Czech Republic' ? 'the Czech Republic' : country
 
   return (
     <>
@@ -688,16 +735,16 @@ export default async function LocationPage({ params }: { params: Promise<Params>
               Cross-Border Transfers
             </p>
             <h1 className="font-display mt-2 text-3xl sm:text-4xl">
-              {isEnriched ? `Austria to ${country} Private Chauffeur Transfers` : `Austria → ${country}`}
+              {isEnriched ? `Austria to ${countryWithArticle} Private Chauffeur Transfers` : `Austria → ${country}`}
             </h1>
             <p className="mt-4 max-w-xl text-brand-cream/80">
-              Licensed for international pickups and drop-offs to {country} — no need to switch
-              vehicles at the border.
+              Licensed for international pickups and drop-offs to {countryWithArticle} — no need to
+              switch vehicles at the border.
             </p>
             <p className="mt-3 text-sm font-semibold text-brand-gold">{isEnriched ? note : `${note} · ${via}`}</p>
           </div>
           <div className="lg:col-span-5">
-            <HeroQuoteCard title="Request a Fixed Quote" />
+            <HeroQuoteCard title="Request a Fixed Quote" dropoffHint={dropoffHint} />
           </div>
         </div>
       </section>
@@ -718,7 +765,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
         <section className="border-b border-brand-line bg-brand-cream">
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
             <h2 className="font-display text-xl text-brand-ink">
-              Private Transfers from Austria to {country}
+              Private Transfers from Austria to {countryWithArticle}
             </h2>
             <p className="mt-4 text-brand-ink-2/90">{serviceIntro}</p>
           </div>
@@ -792,6 +839,21 @@ export default async function LocationPage({ params }: { params: Promise<Params>
         </section>
       )}
 
+      {isEnriched && destinationAirportNote && (
+        <section className="border-y border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{destinationAirportNote.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{destinationAirportNote.description}</p>
+            <Link
+              href={destinationAirportNote.linkHref}
+              className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+            >
+              {destinationAirportNote.linkLabel}
+            </Link>
+          </div>
+        </section>
+      )}
+
       {isEnriched && borderInfo && (
         <section className="border-b border-brand-line bg-white">
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
@@ -843,7 +905,12 @@ export default async function LocationPage({ params }: { params: Promise<Params>
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 text-xs text-brand-ink-2/60">
+            <p className="mt-3 text-xs text-brand-ink-2/60">
+              Actual luggage capacity depends on passenger count and bag size. Please include your
+              luggage requirements when requesting a quote so we can assign the appropriate
+              vehicle.
+            </p>
+            <p className="mt-2 text-xs text-brand-ink-2/60">
               <Link href="/fleet" className="underline decoration-brand-gold underline-offset-4 hover:text-brand-gold">
                 See full vehicle details on the fleet page →
               </Link>
@@ -902,9 +969,10 @@ export default async function LocationPage({ params }: { params: Promise<Params>
       <RelatedReading posts={relatedPosts} />
       <BookingCta
         pageType="country"
-        title={`Request your Austria → ${country} transfer`}
-        description="Submit your trip details and we'll confirm availability and pricing by email."
+        title={`Ready to Travel from Austria to ${country}?`}
+        description="Send us your pickup location, destination, travel date, and passenger details — we'll confirm availability and your fixed price by email."
         dropoff={country}
+        dropoffHint={dropoffHint}
       />
     </>
   )
