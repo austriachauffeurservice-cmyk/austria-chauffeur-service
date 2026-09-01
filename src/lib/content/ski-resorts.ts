@@ -306,7 +306,7 @@ export const skiResorts: SkiResort[] = [
     region: 'Salzburg',
     skiArea: 'Skicircus Saalbach-Hinterglemm-Leogang-Fieberbrunn',
     nearestAirports: [
-      { name: 'Salzburg Airport (SZG)', driveTime: '~1h 15m' },
+      { name: 'Salzburg Airport (SZG)', driveTime: '~1h 20m' },
       { name: 'Munich Airport (MUC)', driveTime: '~2h 15m' },
     ],
     popularRoutes: [

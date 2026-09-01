@@ -52,24 +52,81 @@ export function findRelatedPosts(names: string[], limit = 2): BlogPost[] {
 export const blogPosts: BlogPost[] = [
   {
     slug: 'vienna-airport-transfer-guide',
-    title: 'Vienna Airport Transfer: What to Actually Expect',
+    title: 'Vienna Airport Pickup & Transfer: Time, Options & Booking Guide',
     excerpt:
-      'How a private chauffeur pickup at Vienna International Airport works in practice — flight tracking, meet & greet, pricing, and which vehicle to pick.',
+      'Vienna Airport pickup and transfer guide covering travel times, private chauffeur, CAT, trains, buses, Bratislava transfers, luggage, flight tracking, and booking tips.',
     publishedAt: '2026-05-04',
-    readingTime: '7 min read',
+    readingTime: '13 min read',
     tags: ['Vienna', 'Airport Transfers'],
     image: '/images/blog/vienna-airport-chauffeur.webp',
     imageAlt: 'Private chauffeur meet and greet transfer service at Vienna International Airport',
+    seoTitle: 'Vienna Airport Pickup & Transfer: Time, Options & Booking Guide',
+    seoDescription:
+      'Vienna Airport pickup and transfer guide covering travel times, private chauffeur, CAT, trains, buses, Bratislava transfers, luggage, flight tracking and booking tips.',
     blocks: [
       {
         type: 'paragraph',
-        text: "Landing at Vienna International Airport (VIE) after a long flight, the last thing you want is to figure out transport on the spot. A private chauffeur transfer removes that decision entirely — the trip is arranged before you land, priced before you travel, and the only thing you need to do at the airport is walk to arrivals. Here's what that actually looks like in practice, from the moment you land to choosing the right vehicle for your trip.",
+        text: "Arriving at Vienna International Airport (VIE) and wondering how to reach your hotel, a business meeting, or another city in Austria? You've got several choices — train, airport bus, taxi, rental car, or a private chauffeur transfer. For some travelers, public transport is the obvious budget choice; for families, business travelers, and groups with luggage, a pre-booked private transfer is usually the easier one.",
       },
       {
-        type: 'image',
-        src: '/images/blog/vienna-airport-chauffeur.webp',
-        alt: 'Private chauffeur meet and greet transfer service at Vienna International Airport',
-        caption: 'Vienna International Airport (VIE) arrival pickup with professional meet & greet.',
+        type: 'paragraph',
+        text: "Vienna Airport is also more than just an airport for Vienna. Because of its location in eastern Austria, it's a practical arrival point for travelers continuing on to Bratislava, Graz, Salzburg, and other Austrian destinations — not only the city itself.",
+      },
+      { type: 'heading', text: 'Quick answer: Vienna Airport transfer' },
+      {
+        type: 'table',
+        headers: ['Journey / option', 'Typical time', 'Best for'],
+        rows: [
+          ['Vienna Airport → city centre', '~15–40 min depending on service/destination', 'Most travelers'],
+          ['Railjet → Wien Hauptbahnhof', '~15 min', 'Fast public transport'],
+          ['CAT by bus → Wien Mitte', '~21 min', 'Direct airport-city connection'],
+          ['Vienna Airport Bus → city', '~22–40 min depending on stop', 'Budget travelers'],
+          ['Private airport transfer', 'Traffic dependent', 'Door-to-door convenience'],
+          ['Vienna Airport → Bratislava', '~45–60 min in normal conditions', 'Cross-border travelers'],
+          ['Vienna Airport → Salzburg', '~2h 45m–3h', 'Long-distance transfer'],
+          ['Vienna Airport → Graz', '~2h 15m, traffic dependent', 'Direct city transfer'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "These are planning figures, not guarantees — traffic, weather, roadworks, and your exact destination can all change the final journey. As of 2026, Vienna's own airport transport information puts Railjet to Wien Hauptbahnhof at around 15 minutes, and the current CAT replacement bus at around 21 minutes to Wien Mitte — more on why CAT is currently running as a bus below.",
+      },
+      { type: 'heading', text: 'Vienna Airport transfer options compared' },
+      {
+        type: 'paragraph',
+        text: "There isn't one perfect option for everyone. Here's how the main choices compare.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Railjet — fastest rail option, ~15 min to Wien Hauptbahnhof, runs roughly twice an hour, good if your destination is near the main station or the U-Bahn network',
+          'CAT (City Airport Train) — currently running as a bus replacement service, ~21 min to Wien Mitte/Landstraße, up to five services an hour',
+          'Vienna Airport Bus — several routes across the city, useful outside normal daytime hours; roughly 22 min to Morzinplatz/Schwedenplatz, around 40 min to Hauptbahnhof/Westbahnhof',
+          'S-Bahn (S7/REX) — traditionally another affordable option, though its routing is currently affected by construction works (see below)',
+          'Taxi — available at the airport taxi rank, no pre-booking required',
+          'Private chauffeur transfer — pre-arranged, door-to-door, no connections or luggage handling in between',
+        ],
+      },
+      {
+        type: 'callout',
+        heading: 'A 2026–2027 update worth knowing before you travel',
+        text: "A major renovation of Vienna's S-Bahn main line is currently underway. The City Airport Train (CAT) has been running as a premium bus replacement service between the airport and Wien Mitte since 24 August 2026, taking around 21 minutes — not the train journey some travelers may remember. Separately, the normal S7/REX regional train routing has been affected by the same works since 7 September 2026. Both changes are scheduled to run through the end of October 2027. Railjet and the Vienna Airport Bus are unaffected, so it's worth checking the current setup rather than planning around an old S7 or CAT-train schedule.",
+      },
+      { type: 'heading', text: 'Private Vienna Airport transfer' },
+      {
+        type: 'paragraph',
+        text: "For travelers who want the simplest possible journey, a private transfer is hard to beat: Vienna Airport → private vehicle → hotel, with no train changes, no finding the right bus stop, and no dragging suitcases across platforms. If you're heading somewhere outside central Vienna, you also don't need to reach the city first and arrange a second vehicle — see our full [Airport Transfer service](/airport-transfers) for how pickup, flight tracking, and vehicle selection work across Austria.",
+      },
+      {
+        type: 'table',
+        headers: ['Feature', 'Airport taxi', 'Pre-booked private transfer'],
+        rows: [
+          ['Advance booking', 'Optional', 'Yes'],
+          ['Flight monitoring', 'Varies', 'Included'],
+          ['Fixed price agreed in advance', 'No', 'Yes'],
+          ['Vehicle selection', 'Limited', 'Can be specified'],
+          ['Cross-border journeys', 'Possible', 'Can be arranged'],
+        ],
       },
       { type: 'heading', text: 'What "meet & greet" actually looks like' },
       {
@@ -140,10 +197,52 @@ export const blogPosts: BlogPost[] = [
         type: 'paragraph',
         text: "The driver helps load and unload luggage as a standard part of the pickup, not an extra to request. For a group with more than the usual two or three bags per passenger — golf clubs, ski equipment, or oversized cases — mentioning it when booking means the right vehicle class is confirmed in advance rather than discovered as a problem at the curb.",
       },
+      {
+        type: 'paragraph',
+        text: "Worth distinguishing: this is luggage help as part of the transfer, not a dedicated airport porter service for the terminal itself. If you need assistance moving through the terminal before you even reach the driver — heavy or oversized baggage, mobility assistance — that's a separate airport service, so confirm what's actually included before assuming \"airport transfer\" covers it end to end.",
+      },
       { type: 'heading', text: 'Vienna as a launchpad for the rest of Austria' },
       {
         type: 'paragraph',
         text: "Because Vienna sits at the eastern edge of the country, a surprising number of trips that start here don't end here — the airport pickup is just the first leg of a longer itinerary that continues to Salzburg, Graz, or across a border entirely. Booking the full route as a single itinerary from the outset, rather than arranging each leg separately once you've landed, tends to be the simplest way to keep one vehicle and one point of contact for the whole trip.",
+      },
+      { type: 'subheading', text: 'Vienna Airport to Bratislava' },
+      {
+        type: 'paragraph',
+        text: "Bratislava is close enough to Vienna Airport that VIE is a genuinely practical airport for travelers staying in Slovakia, not just Vienna. Our [route data](/routes/vienna-airport-to-bratislava) puts it at around 65 km, typically 45–60 minutes by road. For the full comparison of transfer options into Slovakia — including the current cross-border document situation — see our [Austria–Slovakia Transfer Guide](/blog/austria-slovakia-transfer-guide); for the Vienna-specific version of that trip, our [Vienna to Bratislava guide](/blog/vienna-to-bratislava-guide) covers it in more depth.",
+      },
+      { type: 'subheading', text: 'Vienna Airport to Salzburg and Graz' },
+      {
+        type: 'paragraph',
+        text: "Salzburg is a considerably longer trip — around 300 km and 2h 45m–3h by road — so it's a long-distance transfer rather than a normal airport-city journey; the alternative is rail via Wien Hauptbahnhof. Graz is a shorter direct run, around 200 km and 2h 15m. Both work well as a direct one-way transfer straight from the terminal if you're not stopping in Vienna itself. If you're continuing on toward the Alps, our [Austria Ski Airport Guide](/blog/best-airports-austria-ski-resorts) helps weigh Vienna against Salzburg, Innsbruck, and Munich for specific ski resorts.",
+      },
+      { type: 'heading', text: 'Vienna Airport transfer for business travelers' },
+      {
+        type: 'paragraph',
+        text: "For business travel, predictability matters more than shaving off a few minutes. A single itinerary — airport to office, office to hotel, hotel to a conference venue, then back to the airport — can be coordinated as one booking rather than several separate ones, which matters most when multiple people are travelling on the same schedule. Companies with recurring travel can also look at centralized billing through our [Corporate Chauffeur Services](/corporate-accounts).",
+      },
+      { type: 'heading', text: 'Families, ski travelers, and events' },
+      {
+        type: 'paragraph',
+        text: "Families typically carry more than the passenger count suggests — suitcases, a stroller, child seats, and winter clothing add up fast. Give the full picture when booking (for example, 2 adults, 2 children, 4 suitcases, a stroller) rather than just a headcount, and mention child-seat requirements directly rather than assuming one is automatically included.",
+      },
+      {
+        type: 'paragraph',
+        text: "Vienna Airport isn't always the closest airport for Austria's western ski resorts, but it's still a useful gateway depending on your flights. If skis, snowboards, or boot bags are part of your luggage, disclose the exact count rather than booking by seats alone — a six-seat vehicle doesn't necessarily have room for six passengers plus full ski equipment. See our [Austria Ski Transfers](/ski-transfers) network for resort-specific transfer details.",
+      },
+      {
+        type: 'paragraph',
+        text: "The same coordinated-itinerary approach works well for weddings and events with international guests — a block of vehicles arranged around the venue address and arrival time removes the need for every guest to figure out local transport after a long flight.",
+      },
+      { type: 'heading', text: 'Late-night and early-morning transfers' },
+      {
+        type: 'paragraph',
+        text: "A late-night arrival or a very early departure is one of the strongest cases for pre-booking rather than relying on public transport, which can be less convenient outside normal daytime hours. For a departure transfer, don't simply subtract the drive time from your flight — work backward from hotel departure, road journey, airport arrival, check-in, and security, with extra buffer during winter, Christmas and New Year, or a busy weekend.",
+      },
+      { type: 'heading', text: 'What to include when booking' },
+      {
+        type: 'paragraph',
+        text: "For an accurate quote, provide your flight number, arrival date and time, passenger and luggage counts (including any ski equipment or a stroller), and the complete destination address — not just \"Vienna\" but the hotel name, street, and postcode. If you need a return transfer, include those details at the same time. You can [request a private Vienna Airport transfer](/booking) with all of this in one go, or browse the full [fleet](/fleet) or [service overview](/services) first if you're still deciding on a vehicle.",
       },
     ],
     faqs: [
@@ -167,11 +266,37 @@ export const blogPosts: BlogPost[] = [
         answer:
           'Yes — one-way, round-trip, and onward multi-city bookings (such as continuing straight to Bratislava, Budapest, Salzburg, or Graz) can all be arranged from the same airport pickup.',
       },
+      {
+        question: 'What is the best way to get from Vienna Airport to the city centre?',
+        answer:
+          'Railjet, CAT by bus, and the Vienna Airport Bus all provide useful public transport connections. A private transfer is the most convenient option for door-to-door travel without changing vehicles.',
+      },
+      {
+        question: 'Is the CAT train running in 2026?',
+        answer:
+          'The CAT train is currently replaced by a premium bus service due to Vienna S-Bahn infrastructure works. CAT by bus connects the airport with Wien Mitte in around 21 minutes and is scheduled to run through the end of October 2027.',
+      },
+      {
+        question: 'Does the S7 still run from Vienna Airport?',
+        answer:
+          "The normal S7/REX regional train routing has been affected by the same S-Bahn works since 7 September 2026. It's worth checking the current timetable rather than planning around the old route.",
+      },
+      {
+        question: 'Is there an airport porter service at Vienna Airport?',
+        answer:
+          "A private transfer includes luggage help as part of the pickup, but that's different from a dedicated terminal porter service. If you need assistance before you reach the driver, confirm that separately.",
+      },
+      {
+        question: 'Is Vienna Airport close to Bratislava?',
+        answer:
+          'Yes — around 65 km and typically 45–60 minutes by road, which makes VIE a practical airport for travelers staying in Bratislava as well as Vienna.',
+      },
     ],
     relatedPages: [
       { label: 'Chauffeur vs. Taxi vs. Uber in Austria: Which to Book?', href: '/blog/chauffeur-vs-taxi-vs-uber-austria' },
       { label: 'How Far in Advance Should You Book a Chauffeur in Austria?', href: '/blog/how-far-in-advance-book-chauffeur' },
       { label: 'Cross-Border Transfers from Austria: Comparing Every Route', href: '/blog/austria-cross-border-transfers-guide' },
+      { label: 'Austria–Slovakia Transfer Guide', href: '/blog/austria-slovakia-transfer-guide' },
       { label: 'Vienna to Bratislava: Two Capitals, One Short Drive', href: '/blog/vienna-to-bratislava-guide' },
       { label: 'Vienna Airport Transfer Details', href: '/airport-transfers/vienna-airport' },
       { label: 'Vienna Service Area', href: '/service-areas/vienna' },
@@ -319,19 +444,254 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
-    slug: 'salzburg-to-munich-transfer-options',
-    title: 'Salzburg to Munich: Comparing Your Transfer Options',
+    slug: 'austria-slovakia-transfer-guide',
+    title: 'Austria to Slovakia Transfer: Vienna, Bratislava & Cross-Border Options',
     excerpt:
-      'Private chauffeur, train, or rental car — an honest comparison for the Salzburg–Munich route, including realistic drive times.',
-    publishedAt: '2026-06-02',
-    readingTime: '6 min read',
-    tags: ['Cross-Border', 'Germany', 'Salzburg'],
-    image: '/images/blog/salzburg-munich-transfer.webp',
-    imageAlt: 'Salzburg to Munich private chauffeur transfer on Bavarian motorway',
+      'Compare Austria to Slovakia transfer options — Vienna to Bratislava travel times, airport transfers, private chauffeur services, public transport, and current cross-border travel advice.',
+    publishedAt: '2026-09-01',
+    readingTime: '13 min read',
+    tags: ['Cross-Border', 'Slovakia'],
+    seoTitle: 'Austria to Slovakia Transfer: Vienna, Bratislava & Cross-Border Options',
+    seoDescription:
+      'Compare Austria to Slovakia transfer options, Vienna to Bratislava travel times, airport transfers, private chauffeur services, public transport, and cross-border travel tips.',
     blocks: [
       {
         type: 'paragraph',
-        text: "Salzburg to Munich is about 140 km via the A8 motorway — roughly 90 minutes without heavy traffic. It is one of the most frequently traveled cross-border routes out of Austria, mostly because Munich Airport (MUC) has far more long-haul connections than Salzburg Airport, so travelers flying internationally often start or end their trip in Munich anyway. It's also one of the seven corridors covered in our [full cross-border transfers comparison](/blog/austria-cross-border-transfers-guide), if you're weighing it against other routes out of Austria.",
+        text: "Austria and Slovakia are two of Europe's closest neighboring countries, and the corridor between them carries far more than sightseeing traffic — airport connections, business trips, weddings, and group travel all use the same short crossing. Our [Vienna to Bratislava guide](/blog/vienna-to-bratislava-guide) covers that specific route in detail, including what the crossing itself looks like; this guide takes a wider view of Austria–Slovakia transfers as a whole, including Vienna Airport connections, business and event travel, and what's changed about crossing the border in 2026.",
+      },
+      {
+        type: 'paragraph',
+        text: "Travelers can cross by private chauffeur, train, bus, the Danube boat service, taxi, or rental car. The right choice depends on where you're starting, where you're going, how much luggage you're carrying, and whether a direct door-to-door journey is worth paying for.",
+      },
+      { type: 'heading', text: 'Quick answer: Austria to Slovakia transfer' },
+      {
+        type: 'table',
+        headers: ['Route / option', 'Approx. distance', 'Typical travel time', 'Best for'],
+        rows: [
+          ['Vienna → Bratislava by car', '~80 km', '~1 hour', 'Direct, door-to-door travel'],
+          ['Vienna → Bratislava by train', '—', '~1 hour', 'Budget/independent travel'],
+          ['Vienna → Bratislava by boat', '—', '~75 minutes', 'Leisure trips, day visits'],
+          ['Vienna Airport → Bratislava', '~65 km', '~45–60 min', 'International arrivals'],
+          ['Bratislava → Vienna Airport', '~65 km', '~45–60 min', 'Departing flights'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "These are planning figures rather than guarantees — actual time depends on traffic, your exact pickup point, and (as covered below) possible border checks. Some third-party sources quote Vienna–Bratislava slightly shorter, around 70 km; the figure varies depending on which points in each city are used for the calculation.",
+      },
+      { type: 'heading', text: 'Why private transfers work well on this corridor' },
+      {
+        type: 'paragraph',
+        text: "A cross-border transfer isn't quite the same as a normal city taxi ride — you're crossing between two countries, often with luggage, a flight schedule, or a business appointment waiting at the other end. Instead of airport → train station → train → taxi → hotel, a pre-booked private vehicle covers the whole journey as one leg: airport → private vehicle → destination. For families and groups, everyone travels together; for business travelers, the benefit is simpler still — fewer changes and less waiting.",
+      },
+      { type: 'heading', text: 'Vienna Airport to Bratislava' },
+      {
+        type: 'paragraph',
+        text: "Landing at Vienna International Airport (VIE) and continuing straight into Slovakia is one of the most commercially useful routes on this corridor. Our [route data](/routes/vienna-airport-to-bratislava) puts the distance at around 65 km, typically 45–60 minutes by road — genuinely convenient given the two cities are in different countries. For a closer look at how the airport pickup itself works, see our [Vienna Airport transfer guide](/blog/vienna-airport-transfer-guide).",
+      },
+      {
+        type: 'paragraph',
+        text: "A private transfer avoids finding a bus stop, waiting for a scheduled service, carrying luggage through a connection, or arranging a second taxi once you reach Bratislava — you go straight from arrivals to your hotel, office, or venue.",
+      },
+      { type: 'heading', text: 'Bratislava to Vienna Airport' },
+      {
+        type: 'paragraph',
+        text: "The return direction matters just as much, particularly for an international departure. By road, it's the same ~65 km and ~45–60 minutes as the outbound trip. Direct bus services also run this corridor in a broadly similar timeframe. Rail is the least direct option here — there's no simple one-seat train from central Bratislava to Vienna Airport, so a train journey typically means a change in Vienna itself, adding real time versus the road options.",
+      },
+      {
+        type: 'paragraph',
+        text: "For an important flight, don't calculate your pickup time by simply subtracting the drive time from departure. Build in time for airport check-in, security, baggage drop, and — as covered below — the possibility of a document check at the border itself.",
+      },
+      { type: 'heading', text: 'Vienna Airport vs Bratislava Airport' },
+      {
+        type: 'paragraph',
+        text: "If you're visiting Bratislava, don't assume Bratislava Airport (BTS) is automatically the better choice. Vienna Airport is close enough to Bratislava that it's a realistic option for travelers based there too — useful for long-haul connections, international routes, and business travelers whose flight schedule works better out of Vienna. BTS remains the better call when it has the flight you actually need. The right airport comes down to your airline, schedule, and fare, not distance alone.",
+      },
+      { type: 'heading', text: 'Crossing the border in 2026: what travelers should know' },
+      {
+        type: 'callout',
+        heading: "Don't assume Schengen membership means no checks",
+        text: "Austria and Slovakia are both Schengen countries, but Schengen membership doesn't prevent temporary internal border controls. Austria currently has temporary controls in place at its land borders with Slovakia, Hungary, Slovenia, and the Czech Republic — first reintroduced in December 2025 and repeatedly extended since, with the current measure running through 15 September 2026. Always carry a passport or national ID and check the current status before an important trip, since these measures have a long history of being renewed rather than allowed to lapse.",
+      },
+      {
+        type: 'paragraph',
+        text: "In practice, this means police can inspect vehicles and carry out document checks at crossing points rather than the crossing being entirely open, as it would be without the controls in place. It doesn't mean the border is closed or that every vehicle is stopped — but it does mean a document check is genuinely possible on a route that, for years, involved no stop at all.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Carry a valid passport or national ID for every traveler, adults and children included',
+          'Non-EU travelers should also carry any visa or residence documentation required for their nationality',
+          "Keep documents accessible — not buried at the bottom of a suitcase or ski bag",
+          'Build a little extra time into airport transfers and fixed-time events (weddings, meetings, flights) in case of a roadside check',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Two other EU-wide systems are also relevant in 2026, though they concern external Schengen borders (i.e. arriving from outside the Schengen Area) rather than the Austria–Slovakia crossing itself: the Entry/Exit System (EES) became fully operational in April 2026, replacing manual passport stamps with digital entry/exit records for non-EU travelers, and ETIAS — a pre-travel authorization for visa-exempt non-EU nationals — is expected to launch later in 2026. Neither changes what's needed for an internal Austria–Slovakia road trip, but they're worth knowing about if your itinerary also includes arriving in the Schengen Area from outside it.",
+      },
+      { type: 'heading', text: 'Vienna Airport rail connections in 2026–2027' },
+      {
+        type: 'paragraph',
+        text: "If your itinerary includes the City Airport Train (CAT) or S-Bahn into central Vienna, note that a major stretch of the line is currently under long-term renovation. The main closure runs between Praterstern and Hauptbahnhof through the end of October 2027, and the CAT is currently operating as a bus replacement service between Wien Mitte and the airport (around 21 minutes) rather than by rail. This doesn't affect road transfers, but it's worth checking the current setup before relying on a specific public-transport connection at Vienna Airport.",
+      },
+      { type: 'heading', text: 'Vienna to Bratislava by train and boat' },
+      {
+        type: 'paragraph',
+        text: "Public transport remains a strong alternative for independent travelers. Regional trains connect Vienna and Bratislava roughly every half hour, with a journey time of around an hour — a good option if you're travelling light, staying near a station, and comfortable navigating on your own. The [Twin City Liner](/blog/vienna-to-bratislava-guide) boat service on the Danube is a more leisurely alternative, typically around 75 minutes one-way (the return leg upstream can run a little longer); it suits a day trip better than an early-morning airport transfer.",
+      },
+      { type: 'heading', text: 'Private chauffeur service for Austria–Slovakia' },
+      {
+        type: 'paragraph',
+        text: "A private chauffeur transfer is a pre-arranged vehicle with a professional driver taking you directly between chosen addresses — Vienna hotel to Bratislava hotel, Vienna Airport to a Bratislava office, or any other combination. The route should always be quoted from the actual pickup and destination addresses rather than a generic city-to-city price, since the exact route can vary meaningfully on a cross-border trip.",
+      },
+      {
+        type: 'paragraph',
+        text: "This is particularly useful for companies with recurring cross-border travel — see our [Corporate Chauffeur service](/corporate-accounts) for how scheduled transfers and centralized billing work for businesses moving people regularly between Austria and Slovakia.",
+      },
+      { type: 'heading', text: 'Business travel between Austria and Slovakia' },
+      {
+        type: 'paragraph',
+        text: "Vienna and Bratislava are close enough that same-day meetings are entirely realistic — Vienna Airport to a Bratislava office, or a Vienna hotel to a Bratislava conference and back, without losing most of the day to travel. For multi-stop business itineraries, giving the operator the complete schedule up front — passenger names, pickup times, and every destination — makes coordination far easier than booking each leg separately.",
+      },
+      { type: 'heading', text: 'Weddings and events across the border' },
+      {
+        type: 'paragraph',
+        text: "Cross-border weddings and events create a particular transport challenge: guests staying in Vienna, Bratislava, and various hotels in between, all needing to reach one venue on one schedule. Rather than asking every guest to arrange their own transport, a block of vehicles coordinated around the venue address and arrival time keeps the day running smoothly — the same approach works for corporate events, conferences, and larger group tours.",
+      },
+      { type: 'heading', text: 'Families, groups, and luggage' },
+      {
+        type: 'paragraph',
+        text: "Families typically carry more than passenger count suggests — suitcases, a stroller, child seats, and winter clothing add up quickly. When requesting a quote, give the full picture rather than just a headcount: for example, 2 adults, 2 children, 4 suitcases, 2 cabin bags, and a stroller, rather than simply '4 passengers'. That lets the vehicle be matched to the actual luggage, not just the seat count.",
+      },
+      {
+        type: 'table',
+        headers: ['Group', 'Typical vehicle'],
+        rows: [
+          ['1–2 passengers', 'Premium sedan'],
+          ['3–4 passengers', 'Sedan or larger vehicle, depending on luggage'],
+          ['4–7 passengers', 'Executive van'],
+          ['Larger group', 'Minibus, depending on luggage'],
+        ],
+      },
+      { type: 'heading', text: 'Multi-city itineraries and onward travel' },
+      {
+        type: 'paragraph',
+        text: "Bratislava also sits roughly halfway along the wider Vienna–Bratislava–Budapest corridor, so a trip continuing further east can often be arranged as one coordinated itinerary rather than three separate bookings. If skiing in Austria is part of the same trip — either before or after the Slovakia leg — see our [Austria Ski Transfers](/ski-transfers) network for how airport and resort transfers work on that side of the trip.",
+      },
+      { type: 'heading', text: 'Rental car across the border' },
+      {
+        type: 'paragraph',
+        text: "A rental car offers independence, but cross-border use isn't automatically included — check the rental company's rules on cross-border permission, insurance coverage, and any toll or vignette requirements before you rely on it for an Austria–Slovakia trip. A private chauffeur sidesteps that administrative work entirely; you just provide the pickup and destination.",
+      },
+      { type: 'heading', text: 'What to include when booking' },
+      {
+        type: 'paragraph',
+        text: "For an accurate quote, provide the pickup address (city, hotel, or airport), the destination address, passenger and luggage counts, your travel date and time, a flight number if applicable, and return-journey details if you need one — that avoids unnecessary back-and-forth before a quote can be confirmed. For the wider set of corridors out of Austria beyond Slovakia, our [Cross-Border Transfers guide](/blog/austria-cross-border-transfers-guide) compares all seven main routes side by side.",
+      },
+      { type: 'heading', text: 'Where we operate in Slovakia' },
+      {
+        type: 'paragraph',
+        text: "Our [Bratislava service area](/service-areas/bratislava) and [Slovakia service area](/service-areas/slovakia) pages cover the destinations, journeys, and booking details specific to this side of the border in more depth — worth a look if Bratislava or a wider Slovak itinerary is your main destination rather than a single transfer.",
+      },
+      { type: 'heading', text: 'Common Austria–Slovakia transfer mistakes' },
+      {
+        type: 'list',
+        items: [
+          "Booking on distance alone — 65–80 km doesn't always mean exactly the same number of minutes; traffic and border checks both matter",
+          "Assuming Schengen means no possible stop — carry ID regardless of the current border-control status",
+          'Not checking a rental car’s cross-border rules before relying on one',
+          'Giving only a passenger count rather than the full luggage picture',
+          'Leaving an international airport transfer too late to absorb a delay',
+          'Providing only a city name rather than the exact hotel or venue address',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How far is Vienna from Bratislava?',
+        answer:
+          'By road, approximately 80 km, with a typical driving time of around one hour. Some third-party sources quote a slightly shorter distance depending on the exact points measured.',
+      },
+      {
+        question: 'How far is Bratislava from Vienna Airport?',
+        answer: 'Approximately 65 km by road, typically 45–60 minutes depending on traffic.',
+      },
+      {
+        question: 'Do I need a passport to travel from Austria to Slovakia?',
+        answer:
+          'Yes — carry a valid passport or national ID. Austria currently has temporary border controls in place at its Slovak border, with the current measure running through 15 September 2026, so a document check is genuinely possible even though both countries are in the Schengen Area.',
+      },
+      {
+        question: 'Are Austria and Slovakia in the Schengen Area?',
+        answer:
+          'Yes, both are Schengen members. That doesn’t prevent temporary internal border controls from being introduced, as is currently the case on this border.',
+      },
+      {
+        question: 'Is there a direct train from Vienna to Bratislava?',
+        answer: 'Yes — regional trains connect the two roughly every half hour, with a journey time of around one hour.',
+      },
+      {
+        question: 'Is there a boat from Vienna to Bratislava?',
+        answer: 'Yes, the Twin City Liner runs on the Danube, typically around 75 minutes one-way.',
+      },
+      {
+        question: 'Is there a direct train from Bratislava to Vienna Airport?',
+        answer:
+          "Not a simple one-seat journey — it typically involves a change in Vienna. A private transfer or direct bus is faster for this specific leg.",
+      },
+      {
+        question: 'Should I fly into Vienna Airport or Bratislava Airport?',
+        answer:
+          "It depends on your flight options rather than distance alone — Vienna Airport is close enough to Bratislava to be a realistic choice for travelers based there, particularly for long-haul or international connections.",
+      },
+      {
+        question: 'Can I book a private transfer from Vienna Airport to Bratislava?',
+        answer: 'Yes — a pre-booked private vehicle can take you directly from Vienna Airport to your Bratislava accommodation or office.',
+      },
+      {
+        question: 'Can a private chauffeur be booked for a wedding or event across the border?',
+        answer:
+          'Yes — vehicles can be coordinated around a venue address and arrival time for guests travelling from either country.',
+      },
+      {
+        question: 'Can companies arrange regular Austria–Slovakia transfers?',
+        answer: 'Yes — businesses with recurring cross-border travel can arrange scheduled transfers and centralized billing.',
+      },
+      {
+        question: 'Is a private transfer better than the train?',
+        answer:
+          "It depends on the traveler. The train is a strong, low-cost option for independent travel. A private transfer is more convenient for families, groups, business travelers, and anyone with heavy luggage or a tight schedule.",
+      },
+    ],
+    relatedPages: [
+      { label: 'Vienna to Bratislava: Two Capitals, One Short Drive', href: '/blog/vienna-to-bratislava-guide' },
+      { label: 'Cross-Border Transfers from Austria: Comparing Every Route', href: '/blog/austria-cross-border-transfers-guide' },
+      { label: 'Vienna Airport Transfer Guide', href: '/blog/vienna-airport-transfer-guide' },
+      { label: 'Bratislava Service Area', href: '/service-areas/bratislava' },
+      { label: 'Slovakia Service Area', href: '/service-areas/slovakia' },
+      { label: 'Corporate Chauffeur Service', href: '/corporate-accounts' },
+      { label: 'Austria Ski Transfers', href: '/ski-transfers' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
+    slug: 'salzburg-to-munich-transfer-options',
+    title: 'Salzburg to Munich Transfer: Distance, Time & Best Options',
+    excerpt:
+      'Compare Salzburg to Munich transfer options, travel time, distance, train, bus and private chauffeur services, plus airport, luggage and cross-border travel tips.',
+    publishedAt: '2026-06-02',
+    readingTime: '11 min read',
+    tags: ['Cross-Border', 'Germany', 'Salzburg'],
+    image: '/images/blog/salzburg-munich-transfer.webp',
+    imageAlt: 'Salzburg to Munich private chauffeur transfer on Bavarian motorway',
+    seoTitle: 'Salzburg to Munich Transfer: Distance, Time & Best Options',
+    seoDescription:
+      'Compare Salzburg to Munich transfer options, travel time, distance, train, bus and private chauffeur services, plus airport, luggage and cross-border travel tips.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "Salzburg to Munich is about 145 km via the A8 motorway — roughly 1h 30m without heavy traffic, though allow up to 2 hours on a busy weekend. It is one of the most frequently traveled cross-border routes out of Austria, mostly because Munich Airport (MUC) has far more long-haul connections than Salzburg Airport, so travelers flying internationally often start or end their trip in Munich anyway. It's also one of the seven corridors covered in our [full cross-border transfers comparison](/blog/austria-cross-border-transfers-guide), if you're weighing it against other routes out of Austria.",
       },
       {
         type: 'image',
@@ -339,12 +699,13 @@ export const blogPosts: BlogPost[] = [
         alt: 'Salzburg to Munich private chauffeur transfer on Bavarian motorway',
         caption: 'Comfortable cross-border transfer connecting Salzburg and Munich.',
       },
-      { type: 'heading', text: 'The three realistic options' },
+      { type: 'heading', text: 'The main options' },
       {
         type: 'list',
         items: [
           'Private chauffeur — one vehicle, door to door, no transfers; the practical choice with luggage, children, or an early flight',
           'Train (Railjet/EC) — direct connections roughly every hour, around 1.5–2 hours city center to city center, but you still need to get to and from each station',
+          'Long-distance bus — usually the cheapest option, though journey time and frequency depend on the operator and how far the arrival point is from your actual destination',
           'Rental car — flexible if you want to keep the car in Germany, but adds one-way rental fees and a car to park in central Munich',
         ],
       },
@@ -352,8 +713,9 @@ export const blogPosts: BlogPost[] = [
         type: 'table',
         headers: ['Option', 'Time (door to door)', 'Main Trade-off'],
         rows: [
-          ['Chauffeur', '~90 min', 'One vehicle the whole way, priced before you travel'],
+          ['Chauffeur', '~1h 30m', 'One vehicle the whole way, priced before you travel'],
           ['Train', '~1.5–2 hours + station transfers', 'Competitive on paper, slower once both ends are counted'],
+          ['Bus', 'Varies by operator', 'Usually cheapest, but check where it actually drops you off'],
           ['Rental car', 'Similar to chauffeur', 'One-way fee, cross-border insurance, parking in central Munich'],
         ],
       },
@@ -367,15 +729,29 @@ export const blogPosts: BlogPost[] = [
         type: 'paragraph',
         text: "Munich Airport is a major long-haul hub with direct connections across North America, Asia, and the Middle East that Salzburg Airport simply doesn't carry. For anyone flying internationally, comparing fares out of both airports before booking a flight is worth doing — a cheaper or more direct fare out of Munich, plus a 90-minute transfer, regularly beats flying via a connection out of Salzburg.",
       },
+      { type: 'heading', text: 'Salzburg Airport to Munich transfer' },
+      {
+        type: 'paragraph',
+        text: "Salzburg Airport is closer to Munich than many international travelers realize, so a traveler staying in Munich can sometimes fly into Salzburg and continue by road — useful when Salzburg has a better-timed flight, when Munich fares are expensive, or when a Salzburg visit or ski trip is already part of the plan. Instead of Salzburg Airport → Salzburg city → train → Munich → hotel, a private transfer covers it as Salzburg Airport → Munich hotel directly.",
+      },
+      { type: 'heading', text: 'Munich Airport to Salzburg transfer' },
+      {
+        type: 'paragraph',
+        text: "The reverse is equally common — travelers based in Salzburg often fly out of Munich specifically because of its much larger long-haul network. For an early flight, don't calculate the pickup by simply subtracting the drive time from departure; build in time for traffic, airport check-in, security, and baggage drop as well as the road journey itself. Provide your flight number when booking so pickup can be coordinated around the actual arrival if the flight is delayed.",
+      },
       { type: 'heading', text: 'When a chauffeur is worth it' },
       {
         type: 'paragraph',
-        text: 'For a solo traveler with one bag, the train is perfectly reasonable. For a family, a group with ski or golf equipment, or anyone catching an early-morning flight out of Munich, a private transfer removes the two connection points (getting to the station, then from the station to the airport) that make the train version slower than it looks on paper. See our comparison of [chauffeur vs taxi vs rideshare](/blog/chauffeur-vs-taxi-vs-uber-austria) for how that trade-off plays out on shorter trips, too.',
+        text: 'For a solo traveler with one bag, the train is perfectly reasonable. For a family, a group with ski or golf equipment, or anyone catching an early-morning flight out of Munich, a private transfer removes the two connection points (getting to the station, then from the station to the airport) that make the train version slower than it looks on paper. See our full [Airport Transfer service](/airport-transfers) for how pickup and flight tracking work across Austria, and our comparison of [chauffeur vs taxi vs rideshare](/blog/chauffeur-vs-taxi-vs-uber-austria) for how that trade-off plays out on shorter trips, too.',
       },
       { type: 'heading', text: 'Combining it with a Tyrol or Salzburgerland ski trip' },
       {
         type: 'paragraph',
-        text: 'Munich is also a realistic entry point for skiers heading into Tyrol if the flight options there work out better than Innsbruck or Salzburg directly. Our [Alpine and ski transfer guide](/blog/alpine-ski-transfer-guide) covers what changes about a transfer once ski bags and winter road conditions enter the picture, and our comparison of [Innsbruck vs Salzburg vs Munich as your ski airport](/blog/innsbruck-salzburg-munich-ski-airport-guide) breaks down when Munich is actually the better call.',
+        text: "Munich is also a realistic entry point for skiers heading into Tyrol if the flight options there work out better than Innsbruck or Salzburg directly. Our [Alpine and ski transfer guide](/blog/alpine-ski-transfer-guide) covers what changes about a transfer once ski bags and winter road conditions enter the picture, our comparison of [Innsbruck vs Salzburg vs Munich as your ski airport](/blog/innsbruck-salzburg-munich-ski-airport-guide) breaks down when Munich is actually the better call, and our [Best Airports for Ski Resorts in Austria](/blog/best-airports-austria-ski-resorts) covers the full picture beyond Tyrol. For resort-specific transfer details once you've picked an airport, see our [Austria Ski Transfers](/ski-transfers) network.",
+      },
+      {
+        type: 'paragraph',
+        text: "Ski equipment changes the vehicle calculation more than passenger count alone suggests — two travelers with two suitcases are easy to fit, but two travelers with ski bags, boot bags, and two large suitcases need considerably more room. When booking, give the full picture (for example, 2 passengers + 2 ski bags + 2 suitcases + 2 cabin bags) rather than just a headcount, so the right vehicle is confirmed in advance.",
       },
       { type: 'subheading', text: 'Tolls on either side of the border look different' },
       {
@@ -410,12 +786,22 @@ export const blogPosts: BlogPost[] = [
       { type: 'heading', text: 'Business travel on this corridor' },
       {
         type: 'paragraph',
-        text: "Salzburg and Munich are close enough that same-day business trips between the two are common, particularly given Munich's role as a broader business hub for southern Germany — a fixed-price round trip works the same way for a day of meetings as it does for a one-way airport connection.",
+        text: "Salzburg and Munich are close enough that same-day business trips between the two are common, particularly given Munich's role as a broader business hub for southern Germany — a fixed-price round trip works the same way for a day of meetings as it does for a one-way airport connection. For executives, the main benefit usually isn't speed but predictability: you can work during the journey rather than manage train platforms, connections, and luggage. Companies with recurring travel on this corridor can also look at centralized billing through our [Corporate Accounts](/corporate-accounts).",
+      },
+      { type: 'heading', text: 'Families on the Salzburg–Munich route' },
+      {
+        type: 'paragraph',
+        text: "Public transport can still work for a family, but a private vehicle removes the need to change trains and carry luggage, a stroller, and child seats through two stations. Tell the operator the number of adults and children, ages, any child-seat requirements, and the full luggage count — that makes vehicle planning straightforward rather than something worked out at the curb.",
+      },
+      { type: 'heading', text: 'What to include when booking' },
+      {
+        type: 'paragraph',
+        text: "For an accurate quote, provide the exact pickup address (hotel, airport terminal, or station), the full destination address, passenger and luggage counts, and — for any airport leg — your flight number so the operator can track it and adjust the pickup if the flight is delayed. If you're returning to Salzburg or continuing on to another city, mention that too, so the whole itinerary can be planned as one booking rather than several. Our [Private Chauffeur Service](/services) overview covers what's included across vehicle classes, or you can [request a Salzburg to Munich transfer quote](/booking) directly.",
       },
       { type: 'heading', text: 'What makes this route different from Austria\'s other cross-border corridors' },
       {
         type: 'paragraph',
-        text: "Compared to the eastern corridors toward Bratislava or Budapest, this one runs entirely between two well-developed motorway networks with no older infrastructure or ongoing roadworks to plan around, which is part of why it sees such consistent, predictable drive times regardless of season.",
+        text: "Compared to the eastern corridors toward Bratislava or Budapest, this one runs entirely between two well-developed motorway networks with no older infrastructure or ongoing roadworks to plan around, which is part of why it sees such consistent, predictable drive times regardless of season. If you're weighing a Slovakia leg against this one, our [Austria–Slovakia Transfer Guide](/blog/austria-slovakia-transfer-guide) covers that corridor — including its current cross-border document situation — in the same depth as this page.",
       },
     ],
     faqs: [
@@ -439,14 +825,41 @@ export const blogPosts: BlogPost[] = [
         answer:
           'For a solo traveler with light luggage, yes — direct Railjet/EC connections run roughly every hour. For families, groups with ski or golf equipment, or an early-morning flight, a private transfer avoids the two connection points at either station that add time in practice.',
       },
+      {
+        question: 'How far is Salzburg from Munich?',
+        answer: 'Approximately 145 km by road via the A8 motorway.',
+      },
+      {
+        question: 'Is there a bus from Salzburg to Munich?',
+        answer:
+          'Yes — long-distance buses connect the two cities and are usually the cheapest option, though journey time and frequency depend on the operator. Check where the bus actually drops you off relative to your final destination before booking.',
+      },
+      {
+        question: 'Can I book a private transfer from Salzburg Airport to Munich?',
+        answer:
+          'Yes — a private transfer can take you directly from Salzburg Airport to Munich without first travelling into Salzburg city.',
+      },
+      {
+        question: 'Can I book a private transfer from Munich Airport to Salzburg?',
+        answer:
+          'Yes — a private road transfer can take you directly from Munich Airport to your Salzburg hotel or another destination. Provide your flight number so the pickup can be tracked and adjusted for delays.',
+      },
+      {
+        question: 'Do I need a passport to travel from Salzburg to Munich?',
+        answer:
+          'Austria and Germany are both Schengen members, so there is normally no routine checkpoint, but temporary internal border controls can still be introduced by member states. Carry a valid passport or ID regardless.',
+      },
     ],
     relatedPages: [
       { label: 'Cross-Border Transfers from Austria: Comparing Every Route', href: '/blog/austria-cross-border-transfers-guide' },
+      { label: 'Austria–Slovakia Transfer Guide', href: '/blog/austria-slovakia-transfer-guide' },
       { label: 'Alpine & Ski Transfers: Getting to Tyrol\'s Resorts in Comfort', href: '/blog/alpine-ski-transfer-guide' },
       { label: 'Innsbruck vs Salzburg vs Munich: Which Airport for Your Ski Trip?', href: '/blog/innsbruck-salzburg-munich-ski-airport-guide' },
+      { label: 'Best Airports for Ski Resorts in Austria', href: '/blog/best-airports-austria-ski-resorts' },
       { label: "Austria's Vignette System, Explained", href: '/blog/austria-vignette-toll-guide' },
       { label: 'Salzburg Airport Transfer Details', href: '/airport-transfers/salzburg-airport' },
       { label: 'Munich Service Area', href: '/service-areas/munich' },
+      { label: 'Corporate Accounts', href: '/corporate-accounts' },
       { label: 'Start a Booking', href: '/booking' },
     ],
   },
@@ -574,7 +987,7 @@ export const blogPosts: BlogPost[] = [
       { label: 'Cross-Border Transfers from Austria: Comparing Every Route', href: '/blog/austria-cross-border-transfers-guide' },
       { label: "Alpine & Ski Transfers: Getting to Tyrol's Resorts in Comfort", href: '/blog/alpine-ski-transfer-guide' },
       { label: 'Why Businesses Choose Private Chauffeurs for Corporate Travel', href: '/blog/corporate-chauffeur-travel-austria' },
-      { label: 'Vienna Airport Transfer: What to Actually Expect', href: '/blog/vienna-airport-transfer-guide' },
+      { label: 'Vienna Airport Pickup & Transfer: Time, Options & Booking Guide', href: '/blog/vienna-airport-transfer-guide' },
       { label: 'Salzburg Festival Chauffeur Guide', href: '/blog/salzburg-festival-transfer-guide' },
       { label: 'Start a Booking', href: '/booking' },
     ],
@@ -704,7 +1117,7 @@ export const blogPosts: BlogPost[] = [
     relatedPages: [
       { label: 'Innsbruck vs Salzburg vs Munich: Which Airport for Your Ski Trip?', href: '/blog/innsbruck-salzburg-munich-ski-airport-guide' },
       { label: 'How Far in Advance Should You Book a Chauffeur in Austria?', href: '/blog/how-far-in-advance-book-chauffeur' },
-      { label: 'Salzburg to Munich: Comparing Your Transfer Options', href: '/blog/salzburg-to-munich-transfer-options' },
+      { label: 'Salzburg to Munich Transfer: Distance, Time & Best Options', href: '/blog/salzburg-to-munich-transfer-options' },
       { label: 'Innsbruck Airport Transfer Details', href: '/airport-transfers/innsbruck-airport' },
       { label: 'Salzburg Airport Transfer Details', href: '/airport-transfers/salzburg-airport' },
       { label: 'View the Fleet', href: '/fleet' },
@@ -1653,10 +2066,10 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedPages: [
-      { label: 'Salzburg to Munich: Comparing Your Transfer Options', href: '/blog/salzburg-to-munich-transfer-options' },
+      { label: 'Salzburg to Munich Transfer: Distance, Time & Best Options', href: '/blog/salzburg-to-munich-transfer-options' },
       { label: 'Salzburg Festival Chauffeur Guide', href: '/blog/salzburg-festival-transfer-guide' },
       { label: "Alpine & Ski Transfers: Getting to Tyrol's Resorts in Comfort", href: '/blog/alpine-ski-transfer-guide' },
-      { label: 'Vienna Airport Transfer: What to Actually Expect', href: '/blog/vienna-airport-transfer-guide' },
+      { label: 'Vienna Airport Pickup & Transfer: Time, Options & Booking Guide', href: '/blog/vienna-airport-transfer-guide' },
       { label: 'Salzburg Service Area', href: '/service-areas/salzburg' },
       { label: 'Start a Booking', href: '/booking' },
     ],
@@ -1923,7 +2336,7 @@ export const blogPosts: BlogPost[] = [
     relatedPages: [
       { label: 'Cross-Border Transfers from Austria: Comparing Every Route', href: '/blog/austria-cross-border-transfers-guide' },
       { label: 'Vienna to Bratislava: Two Capitals, One Short Drive', href: '/blog/vienna-to-bratislava-guide' },
-      { label: 'Salzburg to Munich: Comparing Your Transfer Options', href: '/blog/salzburg-to-munich-transfer-options' },
+      { label: 'Salzburg to Munich Transfer: Distance, Time & Best Options', href: '/blog/salzburg-to-munich-transfer-options' },
       { label: 'See All Services', href: '/services' },
       { label: 'Start a Booking', href: '/booking' },
     ],
@@ -2066,7 +2479,7 @@ export const blogPosts: BlogPost[] = [
     relatedPages: [
       { label: 'Vienna to Bratislava: Two Capitals, One Short Drive', href: '/blog/vienna-to-bratislava-guide' },
       { label: 'Vienna to Budapest: A Cross-Border Road Trip Guide', href: '/blog/vienna-to-budapest-guide' },
-      { label: 'Salzburg to Munich: Comparing Your Transfer Options', href: '/blog/salzburg-to-munich-transfer-options' },
+      { label: 'Salzburg to Munich Transfer: Distance, Time & Best Options', href: '/blog/salzburg-to-munich-transfer-options' },
       { label: 'Innsbruck to Italy: Crossing the Brenner Pass', href: '/blog/innsbruck-to-italy-brenner-pass-guide' },
       { label: 'Bregenz to Zurich: The Westernmost Cross-Border Route', href: '/blog/bregenz-to-zurich-guide' },
       { label: 'Linz to Prague: The Northern Cross-Border Route', href: '/blog/linz-to-prague-guide' },
@@ -2237,7 +2650,7 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedPages: [
       { label: 'Cross-Border Transfers from Austria: Comparing Every Route', href: '/blog/austria-cross-border-transfers-guide' },
-      { label: 'Vienna Airport Transfer: What to Actually Expect', href: '/blog/vienna-airport-transfer-guide' },
+      { label: 'Vienna Airport Pickup & Transfer: Time, Options & Booking Guide', href: '/blog/vienna-airport-transfer-guide' },
       { label: 'How Far in Advance Should You Book a Chauffeur in Austria?', href: '/blog/how-far-in-advance-book-chauffeur' },
       { label: 'View the Fleet', href: '/fleet' },
       { label: 'See All Services', href: '/services' },
@@ -2372,7 +2785,7 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedPages: [
       { label: 'Wedding Chauffeur & Transfer Service', href: '/wedding-transfers' },
-      { label: 'Vienna Airport Transfer: What to Actually Expect', href: '/blog/vienna-airport-transfer-guide' },
+      { label: 'Vienna Airport Pickup & Transfer: Time, Options & Booking Guide', href: '/blog/vienna-airport-transfer-guide' },
       { label: 'Salzburg Airport Transfer: What to Expect', href: '/blog/salzburg-airport-transfer-guide' },
       { label: 'Innsbruck Airport Transfer: What to Expect', href: '/blog/innsbruck-airport-transfer-guide' },
       { label: 'View the Fleet', href: '/fleet' },
@@ -2608,7 +3021,7 @@ export const blogPosts: BlogPost[] = [
     ],
     relatedPages: [
       { label: 'Salzburg Airport Transfer: What to Expect', href: '/blog/salzburg-airport-transfer-guide' },
-      { label: 'Salzburg to Munich: Comparing Your Transfer Options', href: '/blog/salzburg-to-munich-transfer-options' },
+      { label: 'Salzburg to Munich Transfer: Distance, Time & Best Options', href: '/blog/salzburg-to-munich-transfer-options' },
       { label: 'Chauffeur Service in Salzburg', href: '/service-areas/salzburg' },
       { label: 'View the Fleet', href: '/fleet' },
       { label: 'Start a Booking', href: '/booking' },
@@ -3197,7 +3610,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedPages: [
-      { label: 'Vienna Airport Transfer: What to Actually Expect', href: '/blog/vienna-airport-transfer-guide' },
+      { label: 'Vienna Airport Pickup & Transfer: Time, Options & Booking Guide', href: '/blog/vienna-airport-transfer-guide' },
       { label: 'How Far in Advance Should You Book a Chauffeur in Austria?', href: '/blog/how-far-in-advance-book-chauffeur' },
       { label: 'Salzburg Festival Chauffeur Guide', href: '/blog/salzburg-festival-transfer-guide' },
       { label: 'Vienna Service Area', href: '/service-areas/vienna' },
@@ -3331,7 +3744,7 @@ export const blogPosts: BlogPost[] = [
     relatedPages: [
       { label: 'Christmas Markets in Austria: A Chauffeur Guide', href: '/blog/austria-christmas-markets-transfer-guide' },
       { label: 'How Far in Advance Should You Book a Chauffeur in Austria?', href: '/blog/how-far-in-advance-book-chauffeur' },
-      { label: 'Vienna Airport Transfer: What to Actually Expect', href: '/blog/vienna-airport-transfer-guide' },
+      { label: 'Vienna Airport Pickup & Transfer: Time, Options & Booking Guide', href: '/blog/vienna-airport-transfer-guide' },
       { label: 'Vienna Service Area', href: '/service-areas/vienna' },
       { label: 'Luxury Sedan', href: '/fleet/luxury' },
       { label: 'Start a Booking', href: '/booking' },
@@ -3468,7 +3881,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedPages: [
-      { label: 'Salzburg to Munich: Comparing Your Transfer Options', href: '/blog/salzburg-to-munich-transfer-options' },
+      { label: 'Salzburg to Munich Transfer: Distance, Time & Best Options', href: '/blog/salzburg-to-munich-transfer-options' },
       { label: 'Innsbruck vs Salzburg vs Munich: Which Airport for Your Tyrol Ski Trip?', href: '/blog/innsbruck-salzburg-munich-ski-airport-guide' },
       { label: 'Munich Airport Transfers', href: '/airport-transfers/munich-airport' },
       { label: 'Munich Service Area', href: '/service-areas/munich' },
@@ -3761,15 +4174,15 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: 'innsbruck-airport-to-solden-transfer-guide',
-    title: 'Innsbruck Airport to Sölden: Private Ski Transfer Guide',
+    title: 'Innsbruck Airport to Sölden Transfer: Time, Distance & Best Options',
     excerpt:
-      'Travel from Innsbruck Airport to Sölden with a private ski transfer. Route distance, journey time, winter roads, ski luggage, vehicles, and booking tips.',
+      'Compare Innsbruck Airport to Sölden transfer options — journey time, distance, public transport, private chauffeur transfers, ski luggage tips, and booking advice.',
     publishedAt: '2026-09-03',
-    readingTime: '9 min read',
+    readingTime: '10 min read',
     tags: ['Ski Transfers', 'Tyrol'],
-    seoTitle: 'Innsbruck Airport to Sölden: Private Ski Transfer Guide',
+    seoTitle: 'Innsbruck Airport to Sölden Transfer: Time, Distance & Best Options',
     seoDescription:
-      'Travel from Innsbruck Airport to Sölden with a private ski transfer. Route distance, journey time, winter roads, ski luggage, vehicles and booking tips.',
+      'Compare Innsbruck Airport to Sölden transfer options — journey time, distance, public transport, private chauffeur transfers, ski luggage tips, and booking advice.',
     blocks: [
       {
         type: 'paragraph',
@@ -3790,7 +4203,39 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: "Approximate figures — actual journey time depends on traffic, snowfall, road conditions, and your exact accommodation. Our [route page for this journey](/routes/innsbruck-airport-to-soelden) lists the same distance and drive time.",
+        text: "Approximate figures — actual journey time depends on traffic, snowfall, road conditions, and your exact accommodation. Our [route page for this journey](/routes/innsbruck-airport-to-soelden) lists the same distance and drive time. (Some third-party sources put the distance closer to 83 km and 1h 15m — treat any figure in that range as normal; the exact number depends on which point in Sölden is used for the calculation.)",
+      },
+      { type: 'heading', text: 'Innsbruck Airport to Sölden: transfer options compared' },
+      {
+        type: 'paragraph',
+        text: "There are several practical ways to cover this route: a private chauffeur transfer, a taxi, train and bus, a shared shuttle, or a rental car. The right choice usually comes down to luggage, group size, and how much you value a direct door-to-door journey over cost.",
+      },
+      {
+        type: 'table',
+        headers: ['Option', 'Approx. journey time', 'Best for'],
+        rows: [
+          ['Private chauffeur transfer', '~1h 10m, door-to-door', 'Families, ski groups, heavy luggage'],
+          ['Taxi', '~1h 10m, no pre-booking needed', 'Flexible, spontaneous travel'],
+          ['Train + bus (via Ötztal-Bahnhof)', '~2h+ with connections', 'Solo travelers, light luggage'],
+          ['Shared shuttle', 'Varies by pickup schedule', 'Budget travelers, fewer bags'],
+          ['Rental car', '~1h 10m, self-drive', 'Trips exploring beyond Sölden'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "A private transfer is the only option that goes directly from the arrivals hall to your hotel door — see our full [Airport Transfer service](/airport-transfers) for how pickup, flight tracking, and vehicle selection work across Austria. There's no station to find, no vehicle change, and no carrying ski bags between connections.",
+      },
+      {
+        type: 'paragraph',
+        text: "Sölden doesn't have its own railway station. Public transport connects via Ötztal-Bahnhof at the entrance to the valley, with trains from Innsbruck roughly every 50 minutes and an onward valley bus timed around arrivals. That coordination helps, but between the flight, the train, and the bus connection, allow around 2 hours or more once every leg is factored in.",
+      },
+      {
+        type: 'paragraph',
+        text: "A shared shuttle service (marketed in the valley as the Ötztal Shuttle) can also be booked directly from the airport terminal or the train station, sitting somewhere between public transport and a fully private transfer. Check the exact pickup point, luggage allowance, and schedule flexibility before booking, since shared services run to fixed departure times rather than around your flight.",
+      },
+      {
+        type: 'paragraph',
+        text: "A rental car gives you flexibility if you're planning to explore beyond Sölden during the same trip, but it adds paperwork, a deposit, winter-tyre considerations, and parking to think about — worth weighing against a fixed-price transfer if the resort is your only stop.",
       },
       { type: 'heading', text: 'Why Innsbruck Airport is the best starting point for Sölden' },
       {
@@ -3860,6 +4305,10 @@ export const blogPosts: BlogPost[] = [
         heading: 'Travelling with ski bags?',
         text: "Mention them when requesting your quote so the appropriate vehicle can be assigned. An Executive Van is often the most practical choice for families or groups travelling with full ski equipment.",
       },
+      {
+        type: 'paragraph',
+        text: "If you're comparing more than one Tyrolean base for your trip, see our full [Austria Ski Transfers](/ski-transfers) hub for other resorts served by the same fleet and booking process.",
+      },
       { type: 'heading', text: 'Sölden hotel & chalet transfers' },
       {
         type: 'paragraph',
@@ -3868,11 +4317,16 @@ export const blogPosts: BlogPost[] = [
       { type: 'heading', text: 'What about Obergurgl and Hochgurgl?' },
       {
         type: 'paragraph',
-        text: "If you're staying further up the Ötztal valley, don't assume the Sölden transfer time applies exactly to your accommodation. Obergurgl and Hochgurgl are separate destinations farther along the valley — our [Innsbruck Airport to Obergurgl-Hochgurgl route](/routes/innsbruck-airport-to-obergurgl) lists approximately 90 km and 1h 30m.",
+        text: "If you're staying further up the Ötztal valley, don't assume the Sölden transfer time applies exactly to your accommodation. Obergurgl and Hochgurgl are separate destinations farther along the valley — our [Innsbruck Airport to Obergurgl-Hochgurgl route](/routes/innsbruck-airport-to-obergurgl) lists approximately 90 km and 1h 30m, and our [Obergurgl-Hochgurgl ski transfer page](/ski-transfers/obergurgl-hochgurgl) covers that resort in full.",
       },
       {
         type: 'paragraph',
         text: 'So when requesting a quote, provide the exact hotel or chalet rather than simply saying "Sölden area." That allows the journey to be priced and planned around the actual destination.',
+      },
+      { type: 'heading', text: "Sölden vs Seefeld: don't confuse the transfer times" },
+      {
+        type: 'paragraph',
+        text: "Seefeld is another popular Tyrolean base near Innsbruck Airport, but it's a completely different journey — our [Innsbruck Airport to Seefeld route](/routes/innsbruck-airport-to-seefeld) is only around 20–25 minutes, a fraction of the Sölden transfer. If you're researching Tyrolean ski resorts generally, don't assume transfer times are interchangeable between them; always check the specific resort you're booking.",
       },
       { type: 'heading', text: 'Sölden in winter: what can affect your transfer?' },
       {
@@ -3956,10 +4410,15 @@ export const blogPosts: BlogPost[] = [
           'Flexible pickup — your transfer is arranged around your flight and travel schedule rather than a public timetable',
         ],
       },
+      {
+        type: 'callout',
+        heading: 'What should be included in your quote?',
+        text: "Before comparing prices, check what's actually covered: airport pickup, flight tracking, meet & greet, luggage and ski equipment, tolls, and direct hotel drop-off. A low headline price can end up costing more once those are added on separately.",
+      },
       { type: 'heading', text: 'A simple Sölden transfer checklist' },
       {
         type: 'paragraph',
-        text: 'Before requesting your quote, have these details ready:',
+        text: 'Before requesting your quote on our [booking page](/booking), have these details ready:',
       },
       {
         type: 'list',
@@ -4015,6 +4474,16 @@ export const blogPosts: BlogPost[] = [
         answer:
           "If you're travelling with several passengers plus ski bags, boot bags, and normal luggage, an Executive Van can be the more practical choice. Vehicle selection should be based on luggage as well as passenger count.",
       },
+      {
+        question: 'Is there public transport from Innsbruck Airport to Sölden?',
+        answer:
+          'Yes. Sölden has no railway station of its own, so the usual route is train or bus into Ötztal-Bahnhof, then a coordinated valley bus onward — allow around 2 hours or more once every connection is factored in.',
+      },
+      {
+        question: 'Is there a direct train to Sölden?',
+        answer:
+          "No — the nearest station is Ötztal-Bahnhof, at the entrance to the valley. From there, a valley bus continues on to Sölden.",
+      },
     ],
     relatedPages: [
       { label: 'Innsbruck Airport → Sölden Route', href: '/routes/innsbruck-airport-to-soelden' },
@@ -4024,20 +4493,21 @@ export const blogPosts: BlogPost[] = [
       { label: 'Best Airports for Ski Resorts in Austria', href: '/blog/best-airports-austria-ski-resorts' },
       { label: 'Innsbruck vs Salzburg vs Munich: Which Airport for Your Tyrol Ski Trip?', href: '/blog/innsbruck-salzburg-munich-ski-airport-guide' },
       { label: 'Ski Transfer to St. Anton am Arlberg', href: '/ski-transfers/st-anton-am-arlberg' },
+      { label: 'Airport Transfers Across Austria', href: '/airport-transfers' },
       { label: 'Start a Booking', href: '/booking' },
     ],
   },
   {
     slug: 'salzburg-airport-to-saalbach-transfer-guide',
-    title: 'Salzburg Airport to Saalbach-Hinterglemm: Private Ski Transfer Guide',
+    title: 'Salzburg Airport to Saalbach Transfer: Time, Distance & Best Options',
     excerpt:
-      'Travel from Salzburg Airport to Saalbach-Hinterglemm by private ski transfer. Route distance, drive time, winter conditions, ski luggage, vehicles, and booking tips.',
+      'Compare Salzburg Airport to Saalbach transfer options — journey time, distance, bus and private chauffeur transfers, ski luggage tips, and booking advice.',
     publishedAt: '2026-09-05',
-    readingTime: '9 min read',
+    readingTime: '10 min read',
     tags: ['Ski Transfers', 'Salzburg'],
-    seoTitle: 'Salzburg Airport to Saalbach-Hinterglemm: Private Ski Transfer Guide',
+    seoTitle: 'Salzburg Airport to Saalbach Transfer: Time, Distance & Best Options',
     seoDescription:
-      'Travel from Salzburg Airport to Saalbach-Hinterglemm by private ski transfer. Route distance, drive time, winter conditions, ski luggage, vehicles and booking tips.',
+      'Compare Salzburg Airport to Saalbach transfer options — journey time, distance, bus and private chauffeur transfers, ski luggage tips, and booking advice.',
     blocks: [
       {
         type: 'paragraph',
@@ -4058,7 +4528,34 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: "Approximate figures — actual journey time depends on traffic, snowfall, winter road conditions, and the exact accommodation address. Our [route page for this journey](/routes/salzburg-airport-to-saalbach) lists the same distance and drive time.",
+        text: "Approximate figures — actual journey time depends on traffic, snowfall, winter road conditions, and the exact accommodation address. Our [route page for this journey](/routes/salzburg-airport-to-saalbach) lists the same distance and drive time. (Some third-party sources put the distance closer to 90 km depending on exactly which point in the valley they measure to — treat any figure within 85–90 km as normal.)",
+      },
+      { type: 'heading', text: 'Salzburg Airport to Saalbach: how to make the journey' },
+      {
+        type: 'paragraph',
+        text: "There are four practical ways to cover this route: a private chauffeur transfer, the public bus, a train-and-bus combination, or a rental car. The right choice usually comes down to luggage, group size, and how much you value a direct door-to-door journey over cost.",
+      },
+      {
+        type: 'table',
+        headers: ['Option', 'Approx. journey time', 'Best for'],
+        rows: [
+          ['Private chauffeur transfer', '~1h 20m, door-to-door', 'Families, ski groups, heavy luggage'],
+          ['Public bus (via Zell am See)', '~2.5–3h with connections', 'Light luggage, budget travel'],
+          ['Train + bus', '~3h, via Zell am See/Maishofen', 'Rail travelers, light luggage'],
+          ['Rental car', '~1h 20m, self-drive', 'Trips exploring beyond Saalbach'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "A private transfer is the only option that goes directly from the arrivals hall to your hotel door — see our full [Airport Transfer service](/airport-transfers) for how pickup, flight tracking, and vehicle selection work across Austria. There's no station to find, no vehicle change, and no carrying ski bags between connections.",
+      },
+      {
+        type: 'paragraph',
+        text: "Public transport is workable if you're travelling light. Saalbach-Hinterglemm doesn't have its own railway station — the nearest rail connection is Zell am See, where the local bus departs directly outside the train station and runs to Saalbach-Hinterglemm. Rail travelers typically connect through Salzburg and Zell am See before picking up that same bus; allow around 3 hours in total once connections are factored in.",
+      },
+      {
+        type: 'paragraph',
+        text: "A rental car gives you flexibility if you're planning to explore beyond Saalbach during the same trip, but it adds paperwork, a deposit, winter-tyre considerations, and parking to think about — worth weighing against a fixed-price transfer if the resort is your only stop.",
       },
       { type: 'heading', text: 'Why Salzburg Airport works so well for Saalbach' },
       {
@@ -4211,6 +4708,11 @@ export const blogPosts: BlogPost[] = [
           'Flexible schedule — travel according to your flight and holiday plans rather than a fixed public timetable',
         ],
       },
+      {
+        type: 'callout',
+        heading: 'What should be included in your quote?',
+        text: "Before comparing prices, check what's actually covered: airport pickup, flight tracking, meet & greet, luggage and ski equipment, tolls, and direct hotel drop-off. A low headline price can end up costing more once those are added on separately.",
+      },
       { type: 'heading', text: 'Saalbach transfer checklist' },
       {
         type: 'paragraph',
@@ -4270,6 +4772,16 @@ export const blogPosts: BlogPost[] = [
         answer:
           "If you're travelling with several ski bags, snowboard bags, and normal luggage, a larger vehicle may be more practical than choosing purely by passenger count.",
       },
+      {
+        question: 'Is there public transport from Salzburg Airport to Saalbach?',
+        answer:
+          'Yes. It typically involves a train or bus into Zell am See, then a local bus connection directly to Saalbach-Hinterglemm — allow around 3 hours in total including connections.',
+      },
+      {
+        question: 'Is there a direct train to Saalbach?',
+        answer:
+          "No — Saalbach-Hinterglemm doesn't have its own railway station. Travelers connect via Zell am See or Maishofen and continue by bus.",
+      },
     ],
     relatedPages: [
       { label: 'Salzburg Airport → Saalbach-Hinterglemm Route', href: '/routes/salzburg-airport-to-saalbach' },
@@ -4278,6 +4790,7 @@ export const blogPosts: BlogPost[] = [
       { label: 'Best Airports for Ski Resorts in Austria', href: '/blog/best-airports-austria-ski-resorts' },
       { label: 'Innsbruck vs Salzburg vs Munich: Which Airport for Your Tyrol Ski Trip?', href: '/blog/innsbruck-salzburg-munich-ski-airport-guide' },
       { label: 'Salzburg Airport → Zell am See Route', href: '/routes/salzburg-airport-to-zell-am-see' },
+      { label: 'Airport Transfers Across Austria', href: '/airport-transfers' },
       { label: 'Ski & Alpine Transfers', href: '/ski-transfers' },
       { label: 'Start a Booking', href: '/booking' },
     ],
