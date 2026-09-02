@@ -31,6 +31,11 @@ export type RoutePair = {
   flightTrackingSection?: { heading: string; description: string }
   relatedAirportRoutes?: { label: string; distance: string; duration: string; href: string }[]
   relatedRoutesHeading?: string
+  // Numbered airport-pickup walkthrough (see the Sept 2026 Seefeld route audit).
+  pickupSteps?: { title: string; description: string }[]
+  // Short "what determines the price" explainer — answers the "why isn't
+  // there a number on this page" question without publishing a rate card.
+  priceNote?: { heading: string; description: string }
   faqs?: { question: string; answer: string }[]
   // Replaces the booking form's generic cross-border example text (e.g.
   // "Bratislava, Slovakia or Munich, Germany") with route-specific guidance,
@@ -440,9 +445,9 @@ export const routes: RoutePair[] = [
     slug: 'salzburg-airport-to-filzmoos',
     from: 'Salzburg Airport (SZG)',
     to: 'Filzmoos',
-    distance: '~100km',
-    driveTime: '~1h 20m',
-    routeDescription: 'South via the A10 Tauern Autobahn to the Pongau exit, then the B320 into the Ennstal valley to Filzmoos.',
+    distance: '~75km',
+    driveTime: '~50m',
+    routeDescription: 'South via the A10 Tauern Autobahn, exiting at Eben im Pongau and continuing around 11km further into the Ennstal valley to Filzmoos.',
     whyBook: [
       "Direct to Filzmoos's hotels and chalets, avoiding a regional train and village shuttle",
       'Space for skis, boards, and luggage without the hassle of public transport',
@@ -450,7 +455,7 @@ export const routes: RoutePair[] = [
     ],
     seoTitle: 'Salzburg Airport to Filzmoos Transfer | Fixed Price',
     seoDescription:
-      'Private chauffeur transfer from Salzburg Airport to Filzmoos — around 100km, 1h20m, fixed price, winter-ready vehicles with ski/board space.',
+      'Private chauffeur transfer from Salzburg Airport to Filzmoos — around 75km, 50m, fixed price, winter-ready vehicles with ski/board space.',
   },
   {
     slug: 'munich-airport-to-innsbruck',
@@ -1119,14 +1124,52 @@ export const routes: RoutePair[] = [
       transferType: 'Private, door-to-door',
       vehicleNote: 'Sedan, Executive Van, or Minibus',
     },
+    dropoffHint:
+      "Enter your Seefeld hotel, chalet, apartment, or another address — we'll confirm availability and a fixed price by email.",
+    pickupSteps: [
+      {
+        title: 'Flight Details',
+        description: 'Provide your flight number when booking so your arrival can be tracked.',
+      },
+      {
+        title: 'Flight Monitoring',
+        description: 'Your flight is monitored, and the pickup time adjusts automatically if it lands early or late.',
+      },
+      {
+        title: 'Meet at Arrivals',
+        description: 'Your chauffeur waits in the arrivals area with a name board.',
+      },
+      {
+        title: 'Luggage Assistance',
+        description: 'Your driver helps load luggage, ski bags, and any additional equipment.',
+      },
+      {
+        title: 'Direct to Seefeld',
+        description: 'You travel directly via the B177 to your hotel, chalet, or private address — no stops, no vehicle change.',
+      },
+    ],
+    priceNote: {
+      heading: 'What Determines the Transfer Price?',
+      description:
+        'Your quote depends on the vehicle, passenger count, luggage and ski equipment, and the exact pickup and drop-off addresses. Submit these details through the booking form and a fixed price is confirmed by email before you travel — no payment is required to request a quote.',
+    },
+    routeExplanation: {
+      heading: 'Winter Travel from Innsbruck Airport to Seefeld',
+      description:
+        "The route climbs from the Inn Valley towards the Seefeld plateau via the B177 and Zirler Berg. In normal conditions it's a short, straightforward drive, but during winter, snowfall, traffic, and road conditions can add to the journey time — it's worth allowing a little extra buffer either side of the 20–25 minute typical drive, particularly for a tight airport connection.",
+    },
+    transferComparison: [
+      { option: 'Private chauffeur', bestFor: 'Direct to your accommodation, no connections', tradeoff: 'Higher cost than public transport' },
+      { option: 'Train + local bus', bestFor: 'Solo travelers with light luggage', tradeoff: 'A station change and onward connection to reach your accommodation' },
+    ],
     whyBookPoints: [
       {
         title: 'Direct to Your Hotel',
         description: 'Travel directly from Innsbruck Airport to your Seefeld accommodation without arranging separate connections.',
       },
       {
-        title: "One of Austria's Shortest Airport-to-Alps Transfers",
-        description: 'Seefeld is only around 22–25 km from Innsbruck Airport, making it a particularly convenient Tyrol arrival point.',
+        title: 'Short Airport-to-Resort Journey',
+        description: 'Seefeld is a relatively close destination to Innsbruck Airport, making a private transfer a convenient option for travelers continuing directly to their accommodation.',
       },
       {
         title: 'Meet & Greet at Arrivals',
@@ -1215,6 +1258,16 @@ export const routes: RoutePair[] = [
         question: 'What vehicle should I book?',
         answer:
           'Sedans suit smaller parties with standard luggage. Executive Vans and Minibuses are available for larger groups or passengers travelling with additional luggage or ski equipment.',
+      },
+      {
+        question: 'Is the Innsbruck Airport to Seefeld route suitable in winter?',
+        answer:
+          'Yes — it is a commonly used winter route, but snow, traffic, and road conditions on the climb via Zirler Berg can affect journey times. Allow extra time during busy winter periods, especially for a tight airport connection.',
+      },
+      {
+        question: 'How does the fixed-price quote work?',
+        answer:
+          'Submit your pickup and destination, travel date and time, passenger count, and luggage or ski equipment details through the booking form. Availability and a fixed price are then confirmed by email before you travel — no payment is required to request a quote.',
       },
     ],
   },
@@ -1880,10 +1933,10 @@ export const routes: RoutePair[] = [
     slug: 'salzburg-to-filzmoos',
     from: 'Salzburg',
     to: 'Filzmoos',
-    distance: '~100km',
-    driveTime: '~1h 20m',
+    distance: '~75km',
+    driveTime: '~50m',
     routeDescription:
-      'South via the A10 Tauern Autobahn to the Pongau exit, then the B320 into the Ennstal valley — the same corridor used from Salzburg Airport.',
+      'South via the A10 Tauern Autobahn, exiting at Eben im Pongau and continuing around 11km further into the Ennstal valley — the same corridor used from Salzburg Airport.',
     whyBook: [
       'Direct city-to-resort transfer without a station change',
       'Comfortable for families and groups traveling with ski equipment',

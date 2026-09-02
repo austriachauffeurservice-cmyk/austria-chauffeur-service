@@ -2,7 +2,7 @@ export const faqs = [
   {
     question: 'Bieten Sie grenzüberschreitende Transfers ab Österreich an?',
     answer:
-      'Ja. Wir sind lizenziert für internationale Abholungen und Ablieferungen nach Deutschland, Tschechien, Slowakei, Ungarn, Slowenien, Italien und in die Schweiz/Liechtenstein — Sie bleiben die ganze Fahrt über im selben Fahrzeug, kein Umsteigen an der Grenze.',
+      'Ja. Unsere lizenzierten Chauffeurpartner übernehmen internationale Abholungen und Ablieferungen nach Deutschland, Tschechien, Slowakei, Ungarn, Slowenien, Italien und in die Schweiz/Liechtenstein — Sie bleiben die ganze Fahrt über im selben Fahrzeug, kein Umsteigen an der Grenze.',
   },
   {
     question: 'Wie weit im Voraus sollte ich buchen?',
@@ -48,5 +48,20 @@ export const faqs = [
     question: 'Wie lautet Ihre Stornierungsbedingung?',
     answer:
       'Stornierungen mindestens 24 Stunden vor der geplanten Abholzeit sind vollständig kostenlos. Stornierungen innerhalb von 24 Stunden können je nach Strecke und reserviertem Fahrzeug eine Gebühr nach sich ziehen.',
+  },
+  {
+    question: 'Was kostet ein privater Chauffeur in Österreich?',
+    answer:
+      'Der Preis hängt von Strecke, Entfernung und Fahrzeugtyp ab — es gibt keine feste Preisliste, da ein kurzer Stadttransfer und eine lange grenzüberschreitende Fahrt unterschiedlich bepreist werden. Geben Sie Abholort, Ziel und Passagierzahl im Buchungsformular an, und wir bestätigen einen Festpreis per E-Mail, bevor Sie reisen.',
+  },
+  {
+    question: 'Kann ich einen Chauffeur vom Flughafen München nach Österreich buchen?',
+    answer:
+      'Ja. Der Flughafen München gehört neben Zürich zu den internationalen Flughäfen, die wir bedienen — nützlich, wenn Ihre Flugverbindungen über München besser passen als über einen österreichischen Flughafen, besonders für Skireisen nach Tirol und ins Salzburger Land.',
+  },
+  {
+    question: 'Kann ich einen privaten Fahrer für mehrere Tage buchen?',
+    answer:
+      'Ja. Mehrtägige Buchungen und Stundenbuchungen sind für Geschäftsreisen, Roadshows oder Reiserouten mit mehreren Stationen möglich — Fahrzeug und Fahrer werden für den benötigten Zeitraum gebucht, statt nur für eine einzelne Punkt-zu-Punkt-Fahrt.',
   },
 ]

@@ -156,8 +156,27 @@ export default async function LocationPage({ params }: { params: Promise<Params>
   if (!location) notFound()
 
   if (location.kind === 'city') {
-    const { city, region, airport, popularRoutes, note, hotels, hotelNote, attractions, relatedDayTour, heroImage, fleetImages } =
-      location.data
+    const {
+      city,
+      region,
+      airport,
+      popularRoutes,
+      note,
+      hotels,
+      hotelNote,
+      attractions,
+      relatedDayTour,
+      heroImage,
+      fleetImages,
+      intro,
+      airportNote,
+      journeys,
+      whyChauffeur,
+      bookingSteps,
+      faqs,
+      dropoffHint,
+    } = location.data
+    const isEnriched = Boolean(intro && intro.length > 0)
     const pageUrl = `${siteUrl}/service-areas/${slug}`
     const relatedPosts = findRelatedPosts([city, region])
     return (
@@ -178,6 +197,19 @@ export default async function LocationPage({ params }: { params: Promise<Params>
             attractions: attractions?.map((a) => a.name),
           })}
         />
+        {faqs && faqs.length > 0 && (
+          <JsonLd
+            data={{
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: faqs.map((f) => ({
+                '@type': 'Question',
+                name: f.question,
+                acceptedAnswer: { '@type': 'Answer', text: f.answer },
+              })),
+            }}
+          />
+        )}
         {heroImage && (
           <JsonLd
             data={{
@@ -219,7 +251,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
                 {note && <p className="mt-3 text-sm font-semibold text-brand-gold">{note}</p>}
               </div>
               <div className="lg:col-span-5">
-                <HeroQuoteCard dropoff={city} />
+                <HeroQuoteCard dropoff={city} dropoffHint={dropoffHint} />
               </div>
             </div>
           </section>
@@ -241,8 +273,18 @@ export default async function LocationPage({ params }: { params: Promise<Params>
                 {note && <p className="mt-3 text-sm font-semibold text-brand-gold">{note}</p>}
               </div>
               <div className="lg:col-span-5">
-                <HeroQuoteCard dropoff={city} />
+                <HeroQuoteCard dropoff={city} dropoffHint={dropoffHint} />
               </div>
+            </div>
+          </section>
+        )}
+
+        {isEnriched && intro && (
+          <section className="mx-auto max-w-4xl px-4 pt-16 sm:px-6">
+            <div className="space-y-4 text-brand-ink-2/90">
+              {intro.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
           </section>
         )}
@@ -253,6 +295,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
               <div>
                 <h2 className="font-display text-xl text-brand-ink">Nearest Airport</h2>
                 <AirportField text={airport} airports={airports} locale="en" />
+                {airportNote && <p className="mt-3 text-sm text-brand-ink-2/80">{airportNote}</p>}
               </div>
             )}
             <div>
@@ -315,7 +358,117 @@ export default async function LocationPage({ params }: { params: Promise<Params>
           </section>
         )}
 
+        {isEnriched && journeys && journeys.length > 0 && (
+          <section className="border-y border-brand-line bg-brand-cream">
+            <div className="mx-auto max-w-4xl divide-y divide-brand-line px-4 sm:px-6">
+              {journeys.map((journey) => (
+                <div key={journey.heading} className="py-12 first:pt-16 last:pb-16">
+                  <h2 className="font-display text-xl text-brand-ink">{journey.heading}</h2>
+                  <p className="mt-2 text-sm font-semibold text-brand-gold">
+                    {journey.distance} · {journey.duration}
+                  </p>
+                  <p className="mt-3 max-w-2xl text-brand-ink-2/90">{journey.description}</p>
+                  <Link
+                    href={journey.routeHref}
+                    className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+                  >
+                    See the full route →
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {isEnriched && whyChauffeur && whyChauffeur.length > 0 && (
+          <section className="border-b border-brand-line bg-white">
+            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-xl text-brand-ink">Why Book a Private Chauffeur</h2>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {whyChauffeur.map((point) => (
+                  <div key={point.title} className="rounded-sm border border-brand-line p-5">
+                    <p className="font-semibold text-brand-ink">{point.title}</p>
+                    <p className="mt-1.5 text-sm text-brand-ink-2/70">{point.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {isEnriched && (
+          <section className="border-b border-brand-line bg-brand-cream">
+            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-xl text-brand-ink">Vehicles &amp; Passenger Capacity</h2>
+              <div className="mt-6 overflow-x-auto">
+                <table className="w-full min-w-[480px] text-left text-sm">
+                  <thead>
+                    <tr className="border-b border-brand-line text-xs font-semibold uppercase tracking-wide text-brand-ink-2/60">
+                      <th className="pb-3 pr-4">Vehicle</th>
+                      <th className="pb-3 pr-4">Passengers</th>
+                      <th className="pb-3">Luggage</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-brand-line">
+                    {vehicles.map((v) => (
+                      <tr key={v.name}>
+                        <td className="py-3 pr-4 font-semibold text-brand-ink">{v.name}</td>
+                        <td className="py-3 pr-4 text-brand-ink-2/80">{v.passengers}</td>
+                        <td className="py-3 text-brand-ink-2/80">{v.luggage}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-3 text-xs text-brand-ink-2/60">
+                Actual luggage capacity depends on passenger count and bag size. Please include your
+                luggage or ski equipment when requesting a quote so we can assign the appropriate
+                vehicle.
+              </p>
+              <p className="mt-2 text-xs text-brand-ink-2/60">
+                <Link href="/fleet" className="underline decoration-brand-gold underline-offset-4 hover:text-brand-gold">
+                  See full vehicle details on the fleet page →
+                </Link>
+              </p>
+            </div>
+          </section>
+        )}
+
         <HotelsSection place={city} hotels={hotels} hotelNote={hotelNote} />
+
+        {isEnriched && faqs && faqs.length > 0 && (
+          <section className="border-t border-brand-line bg-brand-cream">
+            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-xl text-brand-ink">Frequently Asked Questions</h2>
+              <dl className="mt-6 divide-y divide-brand-line">
+                {faqs.map((f) => (
+                  <div key={f.question} className="py-6 first:pt-0">
+                    <dt className="font-display text-base text-brand-ink">{f.question}</dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-brand-ink-2/80">{f.answer}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+        )}
+
+        {isEnriched && bookingSteps && bookingSteps.length > 0 && (
+          <section className="border-t border-brand-line bg-white">
+            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-xl text-brand-ink">Booking Your {city} Transfer</h2>
+              <ol className="mt-6 space-y-3">
+                {bookingSteps.map((step, i) => (
+                  <li key={step} className="flex items-start gap-3 text-sm text-brand-ink-2/90">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-ink text-xs font-semibold text-white">
+                      {i + 1}
+                    </span>
+                    <span className="pt-0.5">{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+        )}
         <AttractionsSection place={city} attractions={attractions} />
         <LocationMap query={`${city}, ${region}, Austria`} label={`${city} on the Map`} />
         <RelatedReading posts={relatedPosts} />

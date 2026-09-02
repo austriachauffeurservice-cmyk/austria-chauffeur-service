@@ -8,12 +8,12 @@ const copy: Record<
   { icon: string; title: string; subtitle: string }[]
 > = {
   en: [
-    { icon: 'shield', title: 'Licensed Partner Network', subtitle: 'Passengers Covered by Insurance' },
+    { icon: 'shield', title: 'Licensed Chauffeur Partners', subtitle: 'Passengers Covered by Partner Insurance' },
     { icon: 'mail', title: 'No Payment Required to Request a Quote', subtitle: 'Confirmed by Email First' },
     { icon: 'clock', title: '24/7 Availability', subtitle: 'Booking & Support' },
   ],
   de: [
-    { icon: 'shield', title: 'Lizenziertes Partnernetzwerk', subtitle: 'Fahrgäste sind versichert' },
+    { icon: 'shield', title: 'Lizenzierte Chauffeurpartner', subtitle: 'Fahrgäste über den Partner versichert' },
     { icon: 'mail', title: 'Keine Zahlung für die Anfrage nötig', subtitle: 'Erst Bestätigung per E-Mail' },
     { icon: 'clock', title: '24/7 Verfügbarkeit', subtitle: 'Buchung & Support' },
   ],

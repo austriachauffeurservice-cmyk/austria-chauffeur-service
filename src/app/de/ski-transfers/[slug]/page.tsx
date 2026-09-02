@@ -125,15 +125,17 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
               {resort.heroHeading ?? `Privater Skitransfer nach ${resort.name}`}
             </h1>
             <p className="mt-4 max-w-xl text-brand-cream/80">
-              Wintertaugliche Fahrzeuge, erfahrene Chauffeure und ausreichend Platz für Ski und
-              Snowboards — vorab gebucht zum Festpreis.
+              {resort.heroSubtitle ??
+                'Wintertaugliche Fahrzeuge, erfahrene Chauffeure und ausreichend Platz für Ski und Snowboards — vorab gebucht zum Festpreis.'}
             </p>
             <p className="mt-3 text-sm font-semibold text-brand-gold">{resort.skiArea}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               {resort.nearestAirports.map((a) => (
                 <div key={a.name} className="rounded-sm border border-white/20 bg-white/5 px-3 py-2 text-xs">
                   <span className="text-brand-cream/70">{a.name.replace(/\s*\([A-Z]+\)$/, '')}: </span>
-                  <span className="font-semibold text-white">{a.driveTime}</span>
+                  <span className="font-semibold text-white">
+                    {a.distance ? `${a.distance} · ${a.driveTime}` : a.driveTime}
+                  </span>
                 </div>
               ))}
               <div className="rounded-sm border border-white/20 bg-white/5 px-3 py-2 text-xs">
@@ -170,7 +172,8 @@ export default async function SkiResortPageDe({ params }: { params: Promise<Para
                     ) : (
                       a.name
                     )}{' '}
-                    — {a.driveTime}
+                    — {a.distance ? `${a.distance}, ` : ''}
+                    {a.driveTime}
                   </li>
                 )
               })}

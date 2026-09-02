@@ -6,7 +6,7 @@ export type SkiResort = {
   name: string
   region: string
   skiArea: string
-  nearestAirports: { name: string; driveTime: string }[]
+  nearestAirports: { name: string; driveTime: string; distance?: string }[]
   popularRoutes: string[]
   highlights: string[]
   hotels?: Hotel[]
@@ -19,6 +19,9 @@ export type SkiResort = {
   seoTitle?: string
   seoDescription?: string
   heroHeading?: string
+  // Resort-specific hero subtitle — falls back to the shared generic line
+  // when unset (see the Sept 2026 Filzmoos AEO/GEO audit).
+  heroSubtitle?: string
   dropoffHint?: string
   routeOverview?: { start: string; destination: string; driveTime: string; service: string; vehicles: string; luggage: string }
   whyBookPoints?: { title: string; description: string }[]
@@ -1003,12 +1006,12 @@ export const skiResorts: SkiResort[] = [
     name: 'Filzmoos',
     region: 'Salzburg',
     skiArea: 'Ski Amadé — Filzmoos',
-    nearestAirports: [{ name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 20 Min.' }],
+    nearestAirports: [{ name: 'Flughafen Salzburg (SZG)', driveTime: '~50 Min.', distance: '~75 km' }],
     popularRoutes: ['Flughafen Salzburg → Filzmoos', 'Salzburg → Filzmoos'],
     highlights: [
+      'Ein kompaktes, familienfreundliches Skigebiet mit rund 20 km Pisten auf Rossbrand und Großberg — leicht überschaubar für Anfänger und Familien',
+      'Teil der Salzburger Sportwelt innerhalb des größeren Ski-Amadé-Netzwerks (860 km Pisten in 25 Skigebieten)',
       'Ein traditionelles Skisprungdorf, das FIS-Skisprung-Weltcups unterhalb der Bischofsmütze ausgetragen hat',
-      'Teil des größeren Ski-Amadé-Netzwerks, mit einem ruhigeren, familienfreundlichen Ortszentrum',
-      'Bekannt für anfänger- und fortgeschrittenenfreundliche Pisten und eine lange Skischultradition, beliebt bei Familien',
     ],
     hotelNote:
       'Direkte Abholung und Fahrt zu Hotels, Chalets, Ferienwohnungen und Privatadressen in Filzmoos und der umliegenden Resortregion.',
@@ -1022,15 +1025,18 @@ export const skiResorts: SkiResort[] = [
         description: 'Eine Weltcup-taugliche Sprungschanze am Ortsrand.',
       },
     ],
-    seoTitle: 'Skitransfer Filzmoos | Flughafen Salzburg Privater Chauffeur',
+    seoTitle: 'Flughafen Salzburg nach Filzmoos Skitransfer | Privater Chauffeur',
     seoDescription:
-      'Private Skitransfers nach Filzmoos ab Flughafen Salzburg und Salzburg. Wintertaugliche Fahrzeuge, Platz für Skiausrüstung und Tür-zu-Tür-Service zum Festpreis.',
+      'Privater Skitransfer vom Flughafen Salzburg nach Filzmoos zum Festpreis, mit Tür-zu-Tür-Service, Platz für Skigepäck, Flugverfolgung und Fahrzeugen für Familien und Gruppen.',
+    heroHeading: 'Flughafen Salzburg nach Filzmoos Skitransfer',
+    heroSubtitle:
+      'Private Tür-zu-Tür-Chauffeurtransfers vom Flughafen Salzburg und aus der Stadt Salzburg nach Filzmoos, mit Festpreisangeboten, Flugverfolgung und Platz für Ski und Snowboards.',
     dropoffHint:
       'Geben Sie Ihren Abholort am Flughafen Salzburg, in Salzburg oder anderswo an — wir bestätigen Verfügbarkeit und einen Festpreis für Ihren Filzmoos-Transfer per E-Mail.',
     routeOverview: {
       start: 'Flughafen Salzburg (SZG)',
       destination: 'Filzmoos',
-      driveTime: '~1 Std. 20 Min.',
+      driveTime: '~50 Min.',
       service: 'Privat, Tür zu Tür',
       vehicles: 'Limousine, Executive Van oder Kleinbus',
       luggage: 'Ski, Snowboard und normales Reisegepäck',
@@ -1060,7 +1066,7 @@ export const skiResorts: SkiResort[] = [
     airportGuidance: [
       {
         airport: 'Flughafen Salzburg (SZG)',
-        note: 'Der Flughafen Salzburg ist das etablierte Tor nach Filzmoos — rund 100 km und etwa 1 Stunde 20 Minuten entfernt über die A10 Tauernautobahn und die B320 ins Ennstal, dieselbe Strecke, die auch für Transfers ab Salzburg selbst genutzt wird. Es ist der Flughafen mit einer direkten, verifizierten Transferstrecke nach Filzmoos und die Standardwahl für die meisten Buchungen.',
+        note: 'Der Flughafen Salzburg ist das etablierte Tor nach Filzmoos — rund 75 km und etwa 50 Minuten entfernt über die A10 Tauernautobahn, mit Ausfahrt Eben im Pongau und weiteren rund 11 km ins Ennstal, dieselbe Strecke, die auch für Transfers ab Salzburg selbst genutzt wird. Es ist der nächstgelegene größere Flughafen zu Filzmoos und die Standardwahl für die meisten Buchungen.',
       },
     ],
     accommodationSection: {
@@ -1074,8 +1080,8 @@ export const skiResorts: SkiResort[] = [
         'Derselbe private Service funktioniert auch für Ihre Abreise in umgekehrter Richtung. Wir holen Sie direkt von Ihrem Hotel, Chalet oder Ihrer Ferienwohnung in Filzmoos ab und fahren Sie zum Flughafen Salzburg oder nach Salzburg. Teilen Sie uns Ihre Flugdaten bei der Buchung mit, damit wir die Abholzeit um winterliche Straßenverhältnisse und den Check-in herum planen.',
     },
     relatedResortRoutes: [
-      { label: 'Flughafen Salzburg → Filzmoos', duration: '~1 Std. 20 Min.', href: '/de/routes/salzburg-airport-to-filzmoos' },
-      { label: 'Salzburg → Filzmoos', duration: '~1 Std. 20 Min.', href: '/de/routes/salzburg-to-filzmoos' },
+      { label: 'Flughafen Salzburg → Filzmoos', duration: '~50 Min.', href: '/de/routes/salzburg-airport-to-filzmoos' },
+      { label: 'Salzburg → Filzmoos', duration: '~50 Min.', href: '/de/routes/salzburg-to-filzmoos' },
     ],
     transferComparison: [
       { option: 'Privater Chauffeur', bestFor: 'Tür zu Tür, Familien, Gruppen und Skigepäck', tradeoff: 'Höhere Kosten als ein Sammelshuttle' },
@@ -1093,8 +1099,24 @@ export const skiResorts: SkiResort[] = [
     },
     faqs: [
       {
+        question: 'Wie weit ist Filzmoos vom Flughafen Salzburg entfernt?',
+        answer: 'Filzmoos liegt etwa 75 km vom Flughafen Salzburg (SZG) entfernt. Ein privater Transfer dauert typischerweise rund 50 Minuten, wobei Schnee, Verkehr und Straßenverhältnisse die Fahrzeit verlängern können.',
+      },
+      {
+        question: 'Welcher Flughafen ist für Filzmoos am besten geeignet?',
+        answer: 'Der Flughafen Salzburg ist der nächstgelegene und praktischste Flughafen für Filzmoos, rund 75 km entfernt. Innsbruck und München sind beide deutlich weiter entfernt und bedeuten einen längeren Transfer.',
+      },
+      {
         question: 'Wie lange dauert der Transfer vom Flughafen Salzburg nach Filzmoos?',
-        answer: 'Unter normalen Bedingungen etwa 1 Stunde 20 Minuten. Winterwetter und Verkehr können die Fahrzeit verlängern.',
+        answer: 'Unter normalen Bedingungen etwa 50 Minuten. Winterwetter und Verkehr können die Fahrzeit verlängern.',
+      },
+      {
+        question: 'Ist Filzmoos gut für Familien geeignet?',
+        answer: 'Ja. Filzmoos ist ein kompaktes, leicht überschaubares Skigebiet, das bei Familien beliebt ist, mit langjähriger Skischultradition und größtenteils anfänger- und fortgeschrittenenfreundlichen Pisten auf Rossbrand und Großberg.',
+      },
+      {
+        question: 'Was passiert, wenn mein Flug Verspätung hat?',
+        answer: 'Geben Sie Ihre Flugnummer bei der Buchung an — Ihr Chauffeur verfolgt die Ankunft automatisch und passt die Abholzeit ohne Aufpreis an.',
       },
       {
         question: 'Können Sie mich vom Flughafen Salzburg abholen?',

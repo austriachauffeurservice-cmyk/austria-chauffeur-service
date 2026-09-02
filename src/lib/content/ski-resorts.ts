@@ -5,7 +5,7 @@ export type SkiResort = {
   name: string
   region: string
   skiArea: string
-  nearestAirports: { name: string; driveTime: string }[]
+  nearestAirports: { name: string; driveTime: string; distance?: string }[]
   popularRoutes: string[]
   highlights: string[]
   hotels?: Hotel[]
@@ -20,6 +20,9 @@ export type SkiResort = {
   seoTitle?: string
   seoDescription?: string
   heroHeading?: string
+  // Resort-specific hero subtitle — falls back to the shared generic line
+  // when unset (see the Sept 2026 Filzmoos AEO/GEO audit).
+  heroSubtitle?: string
   dropoffHint?: string
   routeOverview?: { start: string; destination: string; driveTime: string; service: string; vehicles: string; luggage: string }
   whyBookPoints?: { title: string; description: string }[]
@@ -1004,12 +1007,12 @@ export const skiResorts: SkiResort[] = [
     name: 'Filzmoos',
     region: 'Salzburg',
     skiArea: 'Ski Amadé — Filzmoos',
-    nearestAirports: [{ name: 'Salzburg Airport (SZG)', driveTime: '~1h 20m' }],
+    nearestAirports: [{ name: 'Salzburg Airport (SZG)', driveTime: '~50m', distance: '~75km' }],
     popularRoutes: ['Salzburg Airport → Filzmoos', 'Salzburg → Filzmoos'],
     highlights: [
+      'A compact, family-friendly ski area with around 20 km of pistes across the Rossbrand and Großberg mountains — easy to navigate for beginners and families',
+      'Part of the Salzburger Sportwelt within the wider Ski Amadé network (860 km of pistes across 25 resorts)',
       'A traditional ski-jumping village that has hosted FIS Ski Jumping World Cup events beneath the Bischofsmütze peak',
-      'Part of the wider Ski Amadé network, with a quieter, family-oriented village center',
-      'Known for beginner- and intermediate-friendly slopes and a long-standing ski school tradition, popular with families',
     ],
     hotelNote:
       'Direct pickup and drive to hotels, chalets, apartments, and private residences throughout Filzmoos and the surrounding resort area.',
@@ -1023,15 +1026,18 @@ export const skiResorts: SkiResort[] = [
         description: 'A World Cup-standard ski jump hill on the edge of the village.',
       },
     ],
-    seoTitle: 'Filzmoos Ski Transfer | Salzburg Airport Private Chauffeur',
+    seoTitle: 'Salzburg Airport to Filzmoos Ski Transfer | Private Chauffeur',
     seoDescription:
-      'Private ski transfers to Filzmoos from Salzburg Airport and Salzburg. Winter-ready vehicles, ski equipment space, and door-to-door service with fixed pricing.',
+      'Private Salzburg Airport to Filzmoos ski transfers with fixed pricing, door-to-door service, ski luggage space, flight monitoring and vehicles for families and groups.',
+    heroHeading: 'Salzburg Airport to Filzmoos Ski Transfer',
+    heroSubtitle:
+      'Private door-to-door chauffeur transfers from Salzburg Airport and Salzburg city to Filzmoos, with fixed-price quotes, flight monitoring, and space for skis and snowboards.',
     dropoffHint:
       "Enter your Salzburg Airport, Salzburg, or other pickup location — we'll confirm availability and a fixed price for your Filzmoos transfer by email.",
     routeOverview: {
       start: 'Salzburg Airport (SZG)',
       destination: 'Filzmoos',
-      driveTime: '~1h 20m',
+      driveTime: '~50m',
       service: 'Private transfer, door-to-door',
       vehicles: 'Sedan, Executive Van, or Minibus',
       luggage: 'Ski, snowboard, and standard travel luggage',
@@ -1061,7 +1067,7 @@ export const skiResorts: SkiResort[] = [
     airportGuidance: [
       {
         airport: 'Salzburg Airport (SZG)',
-        note: "Salzburg Airport is the established gateway for Filzmoos — around 100 km and roughly 1 hour 20 minutes away via the A10 Tauern Autobahn and the B320 into the Ennstal valley, the same route used for transfers starting in Salzburg itself. It's the airport with a direct, verified transfer route to Filzmoos, and the default choice for most bookings.",
+        note: "Salzburg Airport is the established gateway for Filzmoos — around 75 km and roughly 50 minutes away via the A10 Tauern Autobahn, exiting at Eben im Pongau and continuing around 11 km further into the Ennstal valley, the same route used for transfers starting in Salzburg itself. It's the closest major airport to Filzmoos and the default choice for most bookings.",
       },
     ],
     accommodationSection: {
@@ -1075,8 +1081,8 @@ export const skiResorts: SkiResort[] = [
         "The same private service works in reverse for your departure. We collect you directly from your Filzmoos hotel, chalet, or apartment and drive you to Salzburg Airport or Salzburg city. Share your flight details when booking and we'll plan the pickup time around winter road conditions and airport check-in.",
     },
     relatedResortRoutes: [
-      { label: 'Salzburg Airport → Filzmoos', duration: '~1h 20m', href: '/routes/salzburg-airport-to-filzmoos' },
-      { label: 'Salzburg → Filzmoos', duration: '~1h 20m', href: '/routes/salzburg-to-filzmoos' },
+      { label: 'Salzburg Airport → Filzmoos', duration: '~50m', href: '/routes/salzburg-airport-to-filzmoos' },
+      { label: 'Salzburg → Filzmoos', duration: '~50m', href: '/routes/salzburg-to-filzmoos' },
     ],
     transferComparison: [
       { option: 'Private chauffeur', bestFor: 'Door-to-door, families, groups, and ski luggage', tradeoff: 'Higher cost than a shared shuttle' },
@@ -1094,8 +1100,24 @@ export const skiResorts: SkiResort[] = [
     },
     faqs: [
       {
+        question: 'How far is Filzmoos from Salzburg Airport?',
+        answer: 'Filzmoos is approximately 75 km from Salzburg Airport (SZG). A private transfer typically takes around 50 minutes, though snow, traffic and road conditions can increase journey time.',
+      },
+      {
+        question: 'What is the best airport for Filzmoos?',
+        answer: "Salzburg Airport is the closest and most practical airport for Filzmoos, around 75 km away by road. Innsbruck and Munich are both considerably further and involve a longer transfer.",
+      },
+      {
         question: 'How long does Salzburg Airport to Filzmoos take?',
-        answer: 'Around 1 hour 20 minutes in normal conditions. Winter weather and traffic can extend the journey.',
+        answer: 'Around 50 minutes in normal conditions. Winter weather and traffic can extend the journey.',
+      },
+      {
+        question: 'Is Filzmoos good for families?',
+        answer: "Yes. Filzmoos is a compact, easy-to-navigate ski area popular with families, with a long-standing ski school tradition and mostly beginner- and intermediate-friendly slopes across the Rossbrand and Großberg mountains.",
+      },
+      {
+        question: 'What happens if my flight is delayed?',
+        answer: "Provide your flight number when booking and your chauffeur tracks the arrival automatically, adjusting the pickup time at no extra charge.",
       },
       {
         question: 'Can you pick me up from Salzburg Airport?',

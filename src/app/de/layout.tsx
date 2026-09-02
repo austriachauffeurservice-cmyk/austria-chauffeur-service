@@ -24,7 +24,7 @@ const playfairDisplay = Playfair_Display({
 
 const deTitle = "Privater Chauffeurservice Österreich | Flughafen- & Stadttransfers";
 const deDescription =
-  "Privater Chauffeurservice in ganz Österreich — Flughafentransfers, Stadt-zu-Stadt-Fahrten und grenzüberschreitende Fahrten. Festpreise, geprüfte Chauffeurpartner.";
+  "Privater Chauffeurservice in ganz Österreich — Flughafen-, Stadt-zu-Stadt-, Ski- und grenzüberschreitende Transfers in 7 Nachbarländer. Festpreise, professionelle Fahrer, inklusive Flugverfolgung.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

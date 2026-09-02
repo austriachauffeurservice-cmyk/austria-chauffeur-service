@@ -25,6 +25,11 @@ export type RoutePair = {
   flightTrackingSection?: { heading: string; description: string }
   relatedAirportRoutes?: { label: string; distance: string; duration: string; href: string }[]
   relatedRoutesHeading?: string
+  // Numbered airport-pickup walkthrough (see the Sept 2026 Seefeld route audit).
+  pickupSteps?: { title: string; description: string }[]
+  // Short "what determines the price" explainer — answers the "why isn't
+  // there a number on this page" question without publishing a rate card.
+  priceNote?: { heading: string; description: string }
   faqs?: { question: string; answer: string }[]
   dropoffHint?: string
 }
@@ -431,9 +436,9 @@ export const routes: RoutePair[] = [
     slug: 'salzburg-airport-to-filzmoos',
     from: 'Flughafen Salzburg (SZG)',
     to: 'Filzmoos',
-    distance: '~100 km',
-    driveTime: '~1 Std. 20 Min.',
-    routeDescription: 'Südlich über die A10 Tauernautobahn bis zur Ausfahrt Pongau, dann über die B320 ins Ennstal nach Filzmoos.',
+    distance: '~75 km',
+    driveTime: '~50 Min.',
+    routeDescription: 'Südlich über die A10 Tauernautobahn, Ausfahrt Eben im Pongau, dann rund 11 km weiter ins Ennstal nach Filzmoos.',
     whyBook: [
       'Direkt zu Hotels und Chalets in Filzmoos, ohne Regionalzug oder Ortsbus',
       'Platz für Ski, Snowboards und Gepäck ohne den Aufwand öffentlicher Verkehrsmittel',
@@ -441,7 +446,7 @@ export const routes: RoutePair[] = [
     ],
     seoTitle: 'Flughafen Salzburg nach Filzmoos Transfer | Festpreis',
     seoDescription:
-      'Privater Chauffeurtransfer vom Flughafen Salzburg nach Filzmoos — etwa 100 km, 1 Std. 20 Min., Festpreis, winterfeste Fahrzeuge mit Platz für Ski und Snowboards.',
+      'Privater Chauffeurtransfer vom Flughafen Salzburg nach Filzmoos — etwa 75 km, 50 Min., Festpreis, winterfeste Fahrzeuge mit Platz für Ski und Snowboards.',
   },
   {
     slug: 'munich-airport-to-innsbruck',
@@ -1110,14 +1115,52 @@ export const routes: RoutePair[] = [
       transferType: 'Privat, Tür zu Tür',
       vehicleNote: 'Limousine, Executive Van oder Kleinbus',
     },
+    dropoffHint:
+      'Geben Sie Ihr Hotel, Chalet, Apartment oder eine andere Adresse in Seefeld an — wir bestätigen Verfügbarkeit und einen Festpreis per E-Mail.',
+    pickupSteps: [
+      {
+        title: 'Flugdaten',
+        description: 'Geben Sie Ihre Flugnummer bei der Buchung an, damit Ihre Ankunft verfolgt werden kann.',
+      },
+      {
+        title: 'Flugverfolgung',
+        description: 'Ihr Flug wird überwacht, und die Abholzeit passt sich bei früher oder späterer Ankunft automatisch an.',
+      },
+      {
+        title: 'Empfang in der Ankunftshalle',
+        description: 'Ihr Chauffeur wartet im Ankunftsbereich mit einem Namensschild.',
+      },
+      {
+        title: 'Hilfe beim Gepäck',
+        description: 'Ihr Fahrer hilft beim Verladen von Gepäck, Skitaschen und zusätzlicher Ausrüstung.',
+      },
+      {
+        title: 'Direkt nach Seefeld',
+        description: 'Sie fahren direkt über die B177 zu Ihrem Hotel, Chalet oder Ihrer Privatadresse — ohne Zwischenstopp, ohne Fahrzeugwechsel.',
+      },
+    ],
+    priceNote: {
+      heading: 'Was bestimmt den Transferpreis?',
+      description:
+        'Ihr Angebot hängt vom Fahrzeug, der Personenzahl, Gepäck und Skiausrüstung sowie den genauen Abhol- und Zieladressen ab. Geben Sie diese Angaben im Buchungsformular an — ein Festpreis wird dann vor der Reise per E-Mail bestätigt, ohne dass für die Anfrage eine Zahlung erforderlich ist.',
+    },
+    routeExplanation: {
+      heading: 'Winterreise vom Flughafen Innsbruck nach Seefeld',
+      description:
+        'Die Strecke führt über die B177 und den Zirler Berg vom Inntal hinauf auf das Seefelder Plateau. Unter normalen Bedingungen ist es eine kurze, unkomplizierte Fahrt, aber im Winter können Schneefall, Verkehr und Straßenverhältnisse die Fahrzeit verlängern — es lohnt sich, etwas zusätzlichen Puffer zur üblichen Fahrzeit von 20–25 Minuten einzuplanen, besonders bei einem knappen Flughafenanschluss.',
+    },
+    transferComparison: [
+      { option: 'Privater Chauffeur', bestFor: 'Direkt zu Ihrer Unterkunft, ohne Umstieg', tradeoff: 'Höhere Kosten als öffentliche Verkehrsmittel' },
+      { option: 'Zug + Regionalbus', bestFor: 'Alleinreisende mit leichtem Gepäck', tradeoff: 'Bahnhofswechsel und Anschlussfahrt zu Ihrer Unterkunft' },
+    ],
     whyBookPoints: [
       {
         title: 'Direkt zu Ihrem Hotel',
         description: 'Reisen Sie direkt vom Flughafen Innsbruck zu Ihrer Unterkunft in Seefeld, ohne separate Anschlüsse zu organisieren.',
       },
       {
-        title: 'Einer der kürzesten Flughafen-zu-Alpen-Transfers Österreichs',
-        description: 'Seefeld liegt nur rund 22–25 km vom Flughafen Innsbruck entfernt — ein besonders praktischer Ankunftsort für Tirol.',
+        title: 'Kurze Fahrt vom Flughafen zum Skigebiet',
+        description: 'Seefeld liegt relativ nah am Flughafen Innsbruck, was einen privaten Transfer zu einer praktischen Option für die direkte Weiterfahrt zur Unterkunft macht.',
       },
       {
         title: 'Persönlicher Empfang in der Ankunftshalle',
@@ -1206,6 +1249,16 @@ export const routes: RoutePair[] = [
         question: 'Welches Fahrzeug sollte ich buchen?',
         answer:
           'Limousinen eignen sich für kleinere Gruppen mit normalem Gepäck. Executive Vans und Kleinbusse stehen für größere Gruppen oder zusätzliches Gepäck und Skiausrüstung zur Verfügung.',
+      },
+      {
+        question: 'Ist die Strecke vom Flughafen Innsbruck nach Seefeld im Winter geeignet?',
+        answer:
+          'Ja — es ist eine häufig genutzte Winterstrecke, aber Schnee, Verkehr und Straßenverhältnisse auf der Auffahrt über den Zirler Berg können die Fahrzeit beeinflussen. Planen Sie in der Hauptwintersaison etwas zusätzliche Zeit ein, besonders bei einem knappen Flughafenanschluss.',
+      },
+      {
+        question: 'Wie funktioniert das Festpreisangebot?',
+        answer:
+          'Geben Sie Abhol- und Zielort, Reisedatum und -zeit, Personenzahl sowie Gepäck- oder Skiausrüstungsdetails im Buchungsformular an. Verfügbarkeit und ein Festpreis werden dann vor der Reise per E-Mail bestätigt — für die Anfrage ist keine Zahlung erforderlich.',
       },
     ],
   },
@@ -1868,10 +1921,10 @@ export const routes: RoutePair[] = [
     slug: 'salzburg-to-filzmoos',
     from: 'Salzburg',
     to: 'Filzmoos',
-    distance: '~100 km',
-    driveTime: '~1 Std. 20 Min.',
+    distance: '~75 km',
+    driveTime: '~50 Min.',
     routeDescription:
-      'Südlich über die A10 Tauernautobahn bis zur Ausfahrt Pongau, dann über die B320 ins Ennstal — derselbe Korridor wie ab dem Flughafen Salzburg.',
+      'Südlich über die A10 Tauernautobahn, Ausfahrt Eben im Pongau, dann rund 11 km weiter ins Ennstal — derselbe Korridor wie ab dem Flughafen Salzburg.',
     whyBook: [
       'Direkter Stadt-zu-Resort-Transfer ohne Umsteigen',
       'Komfortabel für Familien und Gruppen mit Skiausrüstung',

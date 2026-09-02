@@ -8,6 +8,7 @@ import { airports } from '@/lib/content/airports'
 import { austrianCities } from '@/lib/content/service-areas'
 import { skiResorts } from '@/lib/content/ski-resorts'
 import { matchLocationText, matchSkiResortText } from '@/lib/content/link-match'
+import { vehicles } from '@/lib/content/services'
 import { siteName, siteUrl } from '@/lib/content/site'
 import { BookingCta } from '@/components/booking-cta'
 import { HeroQuoteCard } from '@/components/hero-quote-card'
@@ -175,6 +176,24 @@ export default async function RoutePage({ params }: { params: Promise<Params> })
         </section>
       )}
 
+      {route.pickupSteps && route.pickupSteps.length > 0 && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">How Your {route.from} Pickup Works</h2>
+            <ol className="mt-6 grid gap-4 sm:grid-cols-2">
+              {route.pickupSteps.map((step, i) => (
+                <li key={step.title} className="rounded-sm border border-brand-line bg-brand-cream p-5">
+                  <span className="font-display text-xs font-semibold text-brand-gold">
+                    {String(i + 1).padStart(2, '0')} — {step.title}
+                  </span>
+                  <p className="mt-1.5 text-sm text-brand-ink-2/80">{step.description}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
+
       {route.routeExplanation && (
         <section className="border-b border-brand-line bg-white">
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
@@ -208,6 +227,15 @@ export default async function RoutePage({ params }: { params: Promise<Params> })
           </ul>
         )}
       </section>
+
+      {route.priceNote && (
+        <section className="border-b border-brand-line bg-brand-cream">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">{route.priceNote.heading}</h2>
+            <p className="mt-4 max-w-2xl text-brand-ink-2/90">{route.priceNote.description}</p>
+          </div>
+        </section>
+      )}
 
       {route.originComparison && (
         <section className="border-y border-brand-line bg-brand-cream">
@@ -299,6 +327,38 @@ export default async function RoutePage({ params }: { params: Promise<Params> })
           <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
             <h2 className="font-display text-xl text-brand-ink">{route.luggageNote.heading}</h2>
             <p className="mt-4 max-w-2xl text-brand-ink-2/90">{route.luggageNote.description}</p>
+          </div>
+        </section>
+      )}
+
+      {route.routeOverview && (
+        <section className="border-b border-brand-line bg-white">
+          <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+            <h2 className="font-display text-xl text-brand-ink">Which Vehicle Should You Choose?</h2>
+            <div className="mt-6 overflow-x-auto">
+              <table className="w-full min-w-[480px] text-left text-sm">
+                <thead>
+                  <tr className="border-b border-brand-line text-xs uppercase tracking-wide text-brand-ink-2/60">
+                    <th className="py-2 pr-4 font-semibold">Vehicle</th>
+                    <th className="py-2 pr-4 font-semibold">Passengers</th>
+                    <th className="py-2 font-semibold">Luggage</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-brand-line">
+                  {vehicles.map((v) => (
+                    <tr key={v.name}>
+                      <td className="py-3 pr-4 font-semibold text-brand-ink">{v.name}</td>
+                      <td className="py-3 pr-4 text-brand-ink-2/80">{v.passengers}</td>
+                      <td className="py-3 text-brand-ink-2/80">{v.luggage}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 text-xs text-brand-ink-2/60">
+              Ski equipment and extra luggage can affect the appropriate vehicle choice — include your
+              equipment details when requesting a quote.
+            </p>
           </div>
         </section>
       )}

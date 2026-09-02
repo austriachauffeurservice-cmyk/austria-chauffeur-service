@@ -2,7 +2,7 @@ export const siteUrl = 'https://austriachauffeurservice.com'
 export const siteName = 'Austria Chauffeur Service'
 export const homeTitle = 'Private Chauffeur Service Austria | Fixed-Price Airport & City Transfers'
 export const siteDescription =
-  'Private chauffeur service across Austria — airport pickups, city-to-city transfers, and cross-border trips to 7 neighboring countries. Fixed pricing, licensed drivers, booked in minutes.'
+  'Private chauffeur service across Austria — airport, city-to-city, ski and cross-border transfers to 7 neighboring countries. Fixed pricing, professional drivers, flight tracking included.'
 
 export const contactEmail = 'booking@austriachauffeurservice.com'
 export const contactAddress = 'Kärntner Straße 51, 1010 Wien, Austria'

@@ -36,6 +36,16 @@ export type CityArea = {
   // so other cities are unaffected. Falls back to the generic sitewide fleet
   // photo (images/fleet/{type}.webp) for any type left out of the map.
   fleetImages?: Partial<Record<'sedan' | 'luxury' | 'van' | 'minibus', string>>
+  // Flagship enrichment fields — optional so only specifically differentiated
+  // city pages (see the Sept 2026 Klagenfurt commercial-depth audit) render
+  // the expanded sections; other cities keep the original compact layout.
+  intro?: string[]
+  airportNote?: string
+  journeys?: Journey[]
+  whyChauffeur?: WhyChauffeurPoint[]
+  bookingSteps?: string[]
+  faqs?: { question: string; answer: string }[]
+  dropoffHint?: string
 }
 
 export type Journey = {
@@ -366,6 +376,137 @@ export const austrianCities: CityArea[] = [
       'Klagenfurt → Villach',
     ],
     hotelNote: 'Pickup and drop-off at hotels across the Altstadt and along the Wörthersee lakefront.',
+    seoTitle: 'Chauffeur Service in Klagenfurt | Airport, City & Cross-Border Transfers',
+    seoDescription:
+      'Private chauffeur service in Klagenfurt — airport transfers, Wörthersee, Villach and Graz routes, and cross-border transfers to Ljubljana. Fixed pricing, flight tracking.',
+    dropoffHint:
+      "Enter your Klagenfurt hotel, Wörthersee address, or another destination — we'll confirm availability and a fixed price by email.",
+    intro: [
+      "Klagenfurt sits at the eastern end of the Wörthersee, close enough to the Slovenian border that a private transfer to Ljubljana is a same-day option rather than a long-haul trip. That geography is what makes this more than a standalone city stop — most journeys through Klagenfurt connect it to the lake, to Villach and Graz, or across the border into Slovenia.",
+      'A private chauffeur transfer covers all of it as one booking: airport pickup, a direct hotel or lakefront drop-off, an onward domestic route, or a cross-border trip — in the same vehicle, with a fixed price agreed before you travel.',
+    ],
+    airportNote:
+      'Klagenfurt Airport (KLU) is around 4 km north of the city center, roughly 10 minutes by car depending on your exact destination. Flight tracking is included for airport pickups, so a delayed arrival adjusts the pickup time automatically at no extra charge.',
+    journeys: [
+      {
+        heading: 'Klagenfurt to Ljubljana, Slovenia',
+        distance: '~85km',
+        duration: '~1h',
+        description:
+          "Klagenfurt's closest major cross-border route. A private transfer goes directly from your Klagenfurt hotel or the airport to Ljubljana in one vehicle — no shared ride, no station change, and the same fixed price agreed before you travel.",
+        routeHref: '/routes/klagenfurt-to-ljubljana',
+      },
+      {
+        heading: 'Klagenfurt to Villach',
+        distance: '~40km',
+        duration: '~30m',
+        description:
+          'A short, direct run across the Carinthian lake district — practical for connecting onward to the Faaker See area or Italy.',
+        routeHref: '/routes/klagenfurt-airport-to-villach',
+      },
+      {
+        heading: 'Klagenfurt to Graz',
+        distance: '~140km',
+        duration: '~1h 30m',
+        description: "A direct cross-region run between Austria's second- and sixth-largest cities via the A2 Süd Autobahn.",
+        routeHref: '/routes/graz-to-klagenfurt',
+      },
+      {
+        heading: 'Klagenfurt to Velden am Wörthersee',
+        distance: '~20km',
+        duration: '~20m',
+        description:
+          'The classic Wörthersee lakefront run — a short private transfer for a hotel stay, a lakeside dinner, or an onward pickup along the lake.',
+        routeHref: '/routes/klagenfurt-to-velden',
+      },
+      {
+        heading: 'Klagenfurt Airport to Bad Kleinkirchheim',
+        distance: '~55km',
+        duration: '~55m',
+        description: 'West via the A2 and B93 through the Nockberge mountains — a direct ski transfer without a shuttle change.',
+        routeHref: '/routes/klagenfurt-airport-to-bad-kleinkirchheim',
+      },
+      {
+        heading: 'Klagenfurt Airport to Nassfeld',
+        distance: '~65km',
+        duration: '~1h',
+        description: 'West via the A2 and the Gailtal valley — a direct transfer for skiers with equipment and luggage.',
+        routeHref: '/routes/klagenfurt-airport-to-nassfeld',
+      },
+      {
+        heading: 'Klagenfurt Airport to Turracher Höhe',
+        distance: '~75km',
+        duration: '~1h 15m',
+        description: 'Northwest up to the pass-top village of Turracher Höhe — one of the longer regional ski transfers from KLU.',
+        routeHref: '/routes/klagenfurt-airport-to-turracher-hoehe',
+      },
+    ],
+    whyChauffeur: [
+      {
+        title: 'Fixed Price',
+        description: 'Confirmed by email before you travel, whether the trip is a short airport run or a cross-border transfer to Ljubljana.',
+      },
+      {
+        title: 'Flight Tracking',
+        description: 'Airport pickups are timed against your actual flight, not the scheduled arrival — a delay adjusts the pickup automatically.',
+      },
+      {
+        title: 'Door-to-Door',
+        description: 'Direct pickup and drop-off at your hotel, a Wörthersee address, or any private address across Klagenfurt and Carinthia.',
+      },
+      {
+        title: 'Cross-Border Capability',
+        description: 'The same vehicle continues into Slovenia for a Ljubljana transfer — no vehicle change or shared ride at the border.',
+      },
+      {
+        title: 'Ski & Luggage Space',
+        description: 'Executive Van and Minibus options cover ski equipment and extra luggage for trips to the regional ski resorts.',
+      },
+      {
+        title: 'Hourly & Multi-Stop Hire',
+        description: 'A vehicle and driver on standby for meetings, sightseeing, or a multi-stop day around Carinthia — billed by the hour.',
+      },
+    ],
+    bookingSteps: [
+      'Tell us your pickup and destination — the airport, a Klagenfurt hotel, a Wörthersee address, or an onward city — plus your date, time, and passenger count.',
+      "We check availability and confirm a fixed price by email. No payment or card details are needed to request a quote.",
+      'Your chauffeur meets you at the agreed pickup point and drives you directly to your destination.',
+    ],
+    faqs: [
+      {
+        question: 'Do you offer Klagenfurt Airport transfers?',
+        answer:
+          'Yes. Private transfers can be arranged to and from Klagenfurt Airport (KLU), around 4 km from the city center, with flight tracking included for airport pickups.',
+      },
+      {
+        question: 'Can I book a transfer from Klagenfurt to Ljubljana?',
+        answer: 'Yes — a private cross-border transfer to Ljubljana is around 85 km and typically takes about an hour.',
+      },
+      {
+        question: 'Can you pick me up from my Klagenfurt hotel?',
+        answer: 'Yes. Provide the hotel name or full address as the pickup or drop-off location when requesting your quote.',
+      },
+      {
+        question: 'Do you cover the Wörthersee area?',
+        answer: 'Yes. Pickup and drop-off is available at hotels and addresses along the Wörthersee lakefront, including Velden.',
+      },
+      {
+        question: 'What vehicles are available?',
+        answer: 'Business Sedan, Luxury Sedan, Executive Van, and Minibus options are available, subject to availability.',
+      },
+      {
+        question: 'Can I request a child seat?',
+        answer: 'Yes. Mention the age and height of your children when booking so the correct seat can be prepared.',
+      },
+      {
+        question: 'Can I book an hourly chauffeur for a day around Carinthia?',
+        answer: 'Yes. Hourly hire and multi-stop journeys can be requested — mention your planned stops and timing in the notes field.',
+      },
+      {
+        question: 'What happens if my flight is delayed?',
+        answer: 'Provide your flight number when booking and the pickup time adjusts automatically to your actual arrival, at no extra charge.',
+      },
+    ],
     attractions: [
       {
         name: 'Minimundus',

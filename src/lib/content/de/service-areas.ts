@@ -16,6 +16,16 @@ export type CityArea = {
   relatedDayTour?: { slug: string; label: string }
   heroImage?: { src: string; alt: string; title?: string; description?: string }
   fleetImages?: Partial<Record<'sedan' | 'luxury' | 'van' | 'minibus', string>>
+  // Flagship enrichment fields — optional so only specifically differentiated
+  // city pages (see the Sept 2026 Klagenfurt commercial-depth audit) render
+  // the expanded sections; other cities keep the original compact layout.
+  intro?: string[]
+  airportNote?: string
+  journeys?: Journey[]
+  whyChauffeur?: WhyChauffeurPoint[]
+  bookingSteps?: string[]
+  faqs?: { question: string; answer: string }[]
+  dropoffHint?: string
 }
 
 export type Journey = {
@@ -323,6 +333,135 @@ export const austrianCities: CityArea[] = [
       'Klagenfurt → Villach',
     ],
     hotelNote: 'Abholung und Ablieferung an Hotels in der Altstadt und entlang der Wörthersee-Uferpromenade.',
+    seoTitle: 'Chauffeurservice in Klagenfurt | Flughafen-, Stadt- & Grenztransfers',
+    seoDescription:
+      'Privater Chauffeurservice in Klagenfurt — Flughafentransfers, Strecken nach Wörthersee, Villach und Graz sowie grenzüberschreitende Transfers nach Ljubljana. Festpreise, Flugverfolgung.',
+    dropoffHint:
+      'Geben Sie Ihr Hotel in Klagenfurt, eine Adresse am Wörthersee oder ein anderes Ziel an — wir bestätigen Verfügbarkeit und einen Festpreis per E-Mail.',
+    intro: [
+      'Klagenfurt liegt am östlichen Ende des Wörthersees, nah genug an der slowenischen Grenze, dass ein privater Transfer nach Ljubljana ein Tagesausflug statt einer Fernreise ist. Diese Lage macht die Stadt zu mehr als einem einzelnen Zwischenstopp — die meisten Fahrten über Klagenfurt verbinden sie mit dem See, mit Villach und Graz oder grenzüberschreitend mit Slowenien.',
+      'Ein privater Chauffeurtransfer deckt all das als eine Buchung ab: Flughafenabholung, direkte Ablieferung am Hotel oder am Seeufer, eine Weiterfahrt innerhalb Österreichs oder eine grenzüberschreitende Fahrt — im selben Fahrzeug, zu einem vor der Reise vereinbarten Festpreis.',
+    ],
+    airportNote:
+      'Der Flughafen Klagenfurt (KLU) liegt rund 4 km nördlich der Stadt, je nach genauem Ziel etwa 10 Minuten Fahrzeit. Bei Flughafenabholungen ist Flugverfolgung inklusive, sodass sich die Abholzeit bei Verspätung automatisch und ohne Aufpreis anpasst.',
+    journeys: [
+      {
+        heading: 'Klagenfurt nach Ljubljana, Slowenien',
+        distance: '~85 km',
+        duration: '~1 Std.',
+        description:
+          'Klagenfurts nächstgelegene grenzüberschreitende Hauptstrecke. Ein privater Transfer fährt direkt von Ihrem Hotel in Klagenfurt oder vom Flughafen nach Ljubljana — in einem Fahrzeug, ohne Umsteigen, zum vor der Reise vereinbarten Festpreis.',
+        routeHref: '/de/routes/klagenfurt-to-ljubljana',
+      },
+      {
+        heading: 'Klagenfurt nach Villach',
+        distance: '~40 km',
+        duration: '~30 Min.',
+        description: 'Eine kurze, direkte Fahrt durch die Kärntner Seenlandschaft — praktisch für die Weiterfahrt zum Faaker See oder nach Italien.',
+        routeHref: '/de/routes/klagenfurt-airport-to-villach',
+      },
+      {
+        heading: 'Klagenfurt nach Graz',
+        distance: '~140 km',
+        duration: '~1 Std. 30 Min.',
+        description: 'Eine direkte Fahrt zwischen Österreichs zweit- und sechstgrößter Stadt über die A2 Südautobahn.',
+        routeHref: '/de/routes/graz-to-klagenfurt',
+      },
+      {
+        heading: 'Klagenfurt nach Velden am Wörthersee',
+        distance: '~20 km',
+        duration: '~20 Min.',
+        description: 'Die klassische Fahrt ans Wörthersee-Ufer — ein kurzer privater Transfer für einen Hotelaufenthalt, ein Abendessen am See oder eine Weiterfahrt entlang des Sees.',
+        routeHref: '/de/routes/klagenfurt-to-velden',
+      },
+      {
+        heading: 'Flughafen Klagenfurt nach Bad Kleinkirchheim',
+        distance: '~55 km',
+        duration: '~55 Min.',
+        description: 'Westlich über die A2 und B93 durch die Nockberge — ein direkter Skitransfer ohne Shuttle-Wechsel.',
+        routeHref: '/de/routes/klagenfurt-airport-to-bad-kleinkirchheim',
+      },
+      {
+        heading: 'Flughafen Klagenfurt nach Nassfeld',
+        distance: '~65 km',
+        duration: '~1 Std.',
+        description: 'Westlich über die A2 und das Gailtal — ein direkter Transfer für Skifahrer mit Ausrüstung und Gepäck.',
+        routeHref: '/de/routes/klagenfurt-airport-to-nassfeld',
+      },
+      {
+        heading: 'Flughafen Klagenfurt nach Turracher Höhe',
+        distance: '~75 km',
+        duration: '~1 Std. 15 Min.',
+        description: 'Nordwestlich hinauf zum Passdorf Turracher Höhe — einer der längeren regionalen Skitransfers ab KLU.',
+        routeHref: '/de/routes/klagenfurt-airport-to-turracher-hoehe',
+      },
+    ],
+    whyChauffeur: [
+      {
+        title: 'Festpreis',
+        description: 'Vor der Fahrt per E-Mail bestätigt, egal ob es sich um eine kurze Flughafenfahrt oder einen grenzüberschreitenden Transfer nach Ljubljana handelt.',
+      },
+      {
+        title: 'Flugverfolgung',
+        description: 'Flughafenabholungen richten sich nach Ihrem tatsächlichen Flug, nicht der geplanten Ankunft — bei Verspätung passt sich die Abholung automatisch an.',
+      },
+      {
+        title: 'Tür zu Tür',
+        description: 'Direkte Abholung und Ablieferung an Ihrem Hotel, einer Adresse am Wörthersee oder jeder Privatadresse in Klagenfurt und Kärnten.',
+      },
+      {
+        title: 'Grenzüberschreitend',
+        description: 'Dasselbe Fahrzeug fährt weiter nach Slowenien für einen Transfer nach Ljubljana — kein Fahrzeugwechsel oder Sammeltransport an der Grenze.',
+      },
+      {
+        title: 'Platz für Ski & Gepäck',
+        description: 'Executive Van und Kleinbus decken Skiausrüstung und zusätzliches Gepäck für Fahrten zu den regionalen Skigebieten ab.',
+      },
+      {
+        title: 'Stunden- & Mehrstopp-Buchungen',
+        description: 'Fahrzeug und Fahrer auf Abruf für Termine, Besichtigungen oder einen Tag mit mehreren Stationen in Kärnten — stundenweise abgerechnet.',
+      },
+    ],
+    bookingSteps: [
+      'Geben Sie Abhol- und Zielort an — den Flughafen, ein Hotel in Klagenfurt, eine Adresse am Wörthersee oder eine Weiterfahrt — sowie Datum, Uhrzeit und Personenzahl.',
+      'Wir prüfen die Verfügbarkeit und bestätigen einen Festpreis per E-Mail. Für die Anfrage sind keine Zahlung oder Kartendaten nötig.',
+      'Ihr Chauffeur trifft Sie am vereinbarten Abholort und fährt Sie direkt zu Ihrem Ziel.',
+    ],
+    faqs: [
+      {
+        question: 'Bieten Sie Transfers zum Flughafen Klagenfurt an?',
+        answer:
+          'Ja. Private Transfers können zum und vom Flughafen Klagenfurt (KLU) arrangiert werden, rund 4 km vom Stadtzentrum entfernt, mit inkludierter Flugverfolgung bei Flughafenabholungen.',
+      },
+      {
+        question: 'Kann ich einen Transfer von Klagenfurt nach Ljubljana buchen?',
+        answer: 'Ja — ein privater grenzüberschreitender Transfer nach Ljubljana beträgt rund 85 km und dauert typischerweise etwa eine Stunde.',
+      },
+      {
+        question: 'Können Sie mich von meinem Hotel in Klagenfurt abholen?',
+        answer: 'Ja. Geben Sie bei der Anfrage den Hotelnamen oder die vollständige Adresse als Abhol- oder Zielort an.',
+      },
+      {
+        question: 'Decken Sie das Wörthersee-Gebiet ab?',
+        answer: 'Ja. Abholung und Ablieferung sind an Hotels und Adressen entlang des Wörthersee-Ufers möglich, einschließlich Velden.',
+      },
+      {
+        question: 'Welche Fahrzeuge stehen zur Verfügung?',
+        answer: 'Business-Limousine, Luxus-Limousine, Executive Van und Kleinbus stehen je nach Verfügbarkeit zur Verfügung.',
+      },
+      {
+        question: 'Kann ich einen Kindersitz anfordern?',
+        answer: 'Ja. Geben Sie Alter und Körpergröße Ihrer Kinder bei der Buchung an, damit der passende Sitz vorbereitet werden kann.',
+      },
+      {
+        question: 'Kann ich einen stundenweisen Chauffeur für einen Tag in Kärnten buchen?',
+        answer: 'Ja. Stundenbuchungen und Mehrstopp-Fahrten können angefragt werden — geben Sie Ihre geplanten Stationen und den Zeitplan im Notizfeld an.',
+      },
+      {
+        question: 'Was passiert, wenn mein Flug Verspätung hat?',
+        answer: 'Geben Sie Ihre Flugnummer bei der Buchung an — die Abholzeit passt sich automatisch an Ihre tatsächliche Ankunft an, ohne Aufpreis.',
+      },
+    ],
     attractions: [
       {
         name: 'Minimundus',

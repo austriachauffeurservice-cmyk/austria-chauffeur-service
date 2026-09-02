@@ -2,7 +2,7 @@ export const faqs = [
   {
     question: 'Do you offer cross-border transfers from Austria?',
     answer:
-      'Yes. We are licensed for international pickups and drop-offs to Germany, Czech Republic, Slovakia, Hungary, Slovenia, Italy, and Switzerland/Liechtenstein — you stay in the same vehicle the whole way, no switching at the border.',
+      'Yes. Our licensed chauffeur partners handle international pickups and drop-offs to Germany, Czech Republic, Slovakia, Hungary, Slovenia, Italy, and Switzerland/Liechtenstein — you stay in the same vehicle the whole way, no switching at the border.',
   },
   {
     question: 'How far in advance should I book?',
@@ -48,5 +48,20 @@ export const faqs = [
     question: 'What is your cancellation policy?',
     answer:
       'Cancellations made at least 24 hours before the scheduled pickup time are completely free. Cancellations within 24 hours may incur a fee depending on the specific route and vehicle reserved.',
+  },
+  {
+    question: 'How much does a private chauffeur in Austria cost?',
+    answer:
+      'Price depends on the route, distance, and vehicle type — there is no fixed rate card, since a short city transfer and a long cross-border trip are priced differently. Submit your pickup, destination, and passenger details through the booking form and we will confirm a fixed price by email before you travel.',
+  },
+  {
+    question: 'Can I book a chauffeur from Munich Airport to Austria?',
+    answer:
+      'Yes. Munich Airport is one of the international airports we serve, alongside Zurich — useful if your flight connections work out better via Munich than an Austrian airport, particularly for ski trips into Tyrol and Salzburgerland.',
+  },
+  {
+    question: 'Can I book a private driver for several days?',
+    answer:
+      'Yes. Multi-day and hourly hire can be arranged for business trips, roadshows, or touring itineraries with several stops — the vehicle and driver are booked for the period you need rather than a single point-to-point transfer.',
   },
 ]
