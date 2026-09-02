@@ -4796,6 +4796,783 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    slug: 'salzburg-airport-to-kitzbuehel-transfer-guide',
+    title: 'Salzburg Airport to Kitzbühel Transfer: Distance, Time & Options',
+    excerpt:
+      'Salzburg Airport to Kitzbühel transfer guide — distance, driving time, route options, train and bus alternatives, ski luggage tips and private airport transfers.',
+    publishedAt: '2026-09-02',
+    readingTime: '10 min read',
+    tags: ['Ski Transfers', 'Salzburg', 'Tyrol'],
+    seoTitle: 'Salzburg Airport to Kitzbühel Transfer | Distance, Time & Options',
+    seoDescription:
+      'Salzburg Airport to Kitzbühel transfer guide: distance, driving time, route options, train and bus alternatives, ski luggage tips and private airport transfers.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "Flying into Salzburg Airport (SZG) and heading to Kitzbühel? It's one of the more accessible Alpine resorts from Salzburg — the road journey is short compared with many other ski destinations, and you have several ways to make it: a private chauffeur transfer, taxi, bus, or train.",
+      },
+      {
+        type: 'paragraph',
+        text: "For a couple travelling light, public transport can be perfectly reasonable. For families, groups, or anyone with ski equipment and multiple suitcases, the options aren't equally convenient — this guide covers the distance, journey time, route choice, and every transfer option so you can pick the right one.",
+      },
+      { type: 'heading', text: 'Salzburg Airport to Kitzbühel: Quick Facts' },
+      {
+        type: 'table',
+        headers: ['Detail', 'Typical information'],
+        rows: [
+          ['Distance', '~75 km by our route data (up to ~81 km via the alternate route below)'],
+          ['Typical driving time', '~1h 15m (allow up to 1h 30m in winter or heavy traffic)'],
+          ['Main route', 'B178 Loferer Straße via Unken and Waidring'],
+          ['Public transport', '~3 hours or more, with at least one connection'],
+          ['Kitzbühel train stations', 'Kitzbühel, Kitzbühel Hahnenkamm, Kitzbühel Schwarzsee'],
+          ['Vignette required', 'Yes, on Austrian motorway sections'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Our own route data for this journey — the same figures used on our [Salzburg Airport to Kitzbühel route page](/routes/salzburg-airport-to-kitzbuehel) — puts it at approximately 75 km and 1 hour 15 minutes via the B178 through Unken and Waidring, entirely within Austria. Kitzbühel's official tourism site describes a different route via a short stretch through Bad Reichenhall in Germany, listing around 81 km and roughly 1.5 hours. Both are real, driveable routes; the difference comes down to which road is used, not one figure being wrong.",
+      },
+      { type: 'heading', text: 'How Far Is Salzburg Airport From Kitzbühel?' },
+      {
+        type: 'paragraph',
+        text: "The road distance is approximately 75–81 km, depending on the exact route and your destination within Kitzbühel. The most direct option follows the B178 Loferer Straße southwest through Unken and Waidring, staying inside Austria the whole way. An alternative route — the one described on Kitzbühel's own tourism site — briefly crosses into Germany via the A1 and Bad Reichenhall before rejoining the B178 at Lofer.",
+      },
+      {
+        type: 'paragraph',
+        text: "If you're staying in central Kitzbühel, either route works well. If your accommodation is near Hahnenkamm, Schwarzsee, or Jochberg, the final distance and best approach can vary slightly — worth mentioning your exact address when requesting a transfer.",
+      },
+      { type: 'heading', text: 'How Long Does the Transfer Take?' },
+      {
+        type: 'paragraph',
+        text: "In good conditions, the drive takes around 1 hour 15 minutes on our established route, or up to 1.5 hours via the Bad Reichenhall alternative. A sensible planning window is 1 hour 15 minutes to 1 hour 30 minutes — treat the lower end as a best-case figure rather than a guarantee.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Snow and winter road conditions',
+          'Traffic around Salzburg and St. Johann in Tirol',
+          'Saturday ski-season changeover traffic',
+          'Roadworks',
+          'Your exact hotel, chalet, or apartment location',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "For a private transfer, your driver can account for the day's conditions and choose the more sensible route. If you're arriving during a peak ski period, it's worth allowing extra time rather than planning around the fastest theoretical drive.",
+      },
+      { type: 'heading', text: 'A Note on the Driving Route and the Vignette' },
+      {
+        type: 'paragraph',
+        text: "Whichever route is used, Austrian motorway and expressway sections require a valid vignette — Kitzbühel's tourism site specifically flags this for drivers. On a private chauffeur booking, the vignette and road charges are already built into the vehicle and price, so there's nothing to arrange separately.",
+      },
+      { type: 'heading', text: 'Transfer Options Compared' },
+      {
+        type: 'paragraph',
+        text: "There are four realistic ways to make this journey: a private chauffeur transfer, a taxi, a bus, or a train. The right one depends on your luggage, group size, and how much you value going directly to your accommodation.",
+      },
+      {
+        type: 'table',
+        headers: ['Option', 'Approx. time', 'Door-to-door', 'Best for'],
+        rows: [
+          ['Private chauffeur', '~1h 15m–1h 30m', 'Yes', 'Families, groups, ski equipment'],
+          ['Taxi', '~1h 15m–1h 30m', 'Yes', 'Direct travel, no pre-booking'],
+          ['Bus', '~3 hours, with a connection', 'No', 'Budget travellers, light luggage'],
+          ['Train', '~3 hours or more, with a connection', 'No', 'Rail travellers, light luggage'],
+        ],
+      },
+      { type: 'heading', text: 'Private Salzburg Airport to Kitzbühel Transfer' },
+      {
+        type: 'paragraph',
+        text: "A private transfer is the simplest option for travellers who want door-to-door convenience: arrive at Salzburg Airport, meet your driver, load your luggage, and travel directly to your hotel, chalet, or apartment — no station changes, no carrying ski bags between connections. See our full [Airport Transfer service](/airport-transfers/salzburg-airport) for how pickup and flight tracking work, and our [Kitzbühel ski transfer page](/ski-transfers/kitzbuehel) for everything specific to this resort.",
+      },
+      {
+        type: 'paragraph',
+        text: "Provide your flight number when booking so the arrival can be tracked — if the flight is delayed, the pickup time adjusts automatically. A good booking request should also include your passenger count, luggage, ski or snowboard equipment, and your exact Kitzbühel address.",
+      },
+      { type: 'heading', text: 'Bus and Train From Salzburg Airport' },
+      {
+        type: 'paragraph',
+        text: "There's no direct bus or train from Salzburg Airport to Kitzbühel — both involve at least one connection, typically via Salzburg itself and onward through Lofer or St. Johann in Tirol, and current journey planners show a total travel time of around 3 hours or more.",
+      },
+      {
+        type: 'paragraph',
+        text: "Once you reach Kitzbühel, the town is well served locally: it has three railway stations — Kitzbühel, Kitzbühel Hahnenkamm (by the cable car), and Kitzbühel Schwarzsee — plus a regional bus network. The connection itself is the main added time, not the local network once you arrive.",
+      },
+      { type: 'heading', text: 'Ski Equipment and Luggage' },
+      {
+        type: 'paragraph',
+        text: "Kitzbühel is a major Alpine destination, so ski luggage is a normal part of this route. A vehicle that comfortably seats four passengers doesn't automatically have room for four passengers plus full ski equipment — when requesting a quote, state your exact luggage, not just a passenger count.",
+      },
+      {
+        type: 'callout',
+        heading: 'Booking with ski equipment?',
+        text: "Say '2 passengers, 2 suitcases, 2 ski bags' rather than just '2 passengers' — that lets the right vehicle be assigned in advance. An Executive Van is often the practical choice once ski bags, boots, and helmets enter the picture.",
+      },
+      { type: 'heading', text: 'Families Travelling to Kitzbühel' },
+      {
+        type: 'paragraph',
+        text: "Families often carry more than the passenger count suggests — a stroller, child seats, winter clothing, and children's own ski equipment on top of normal luggage. Mention children's ages and any child-seat requirements when booking, and a private transfer removes the need to manage all of that through a bus or train connection.",
+      },
+      { type: 'heading', text: 'Return Transfer: Kitzbühel to Salzburg Airport' },
+      {
+        type: 'paragraph',
+        text: "The return journey is the same route in reverse, at the same approximate distance and time. If your flight leaves in the morning, build in time for hotel checkout, the drive, winter traffic, and airport check-in — don't calculate the pickup by simply subtracting the drive time from your departure. Booking both legs together at the same time can make the whole trip easier to plan.",
+      },
+      { type: 'heading', text: 'Salzburg vs Innsbruck vs Munich for Kitzbühel' },
+      {
+        type: 'table',
+        headers: ['Airport', 'Approx. distance', 'Approx. drive time'],
+        rows: [
+          ['Salzburg Airport (SZG)', '~75–81 km', '~1h 15m–1h 30m'],
+          ['Innsbruck Airport (INN)', '~90–96 km', '~1h'],
+          ['Munich Airport (MUC)', '~165 km, cross-border', '~2h'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Innsbruck Airport is closest by drive time despite the slightly longer distance, and Munich is the furthest but often has more international flight options. Salzburg remains a genuinely practical choice for many travellers, particularly when flight timing or price favours it. For a broader comparison across Austria's ski regions, see our [Austria ski airport guide](/blog/best-airports-austria-ski-resorts).",
+      },
+      { type: 'heading', text: 'Why Choose a Private Transfer Over Public Transport?' },
+      {
+        type: 'paragraph',
+        text: "Kitzbühel has a genuinely good local rail and bus network — this isn't about public transport being unreliable. The difference is what happens between the airport and that network.",
+      },
+      {
+        type: 'table',
+        headers: ['', 'Private transfer', 'Public transport'],
+        rows: [
+          ['Route', 'Direct to your accommodation', 'Requires at least one connection'],
+          ['Luggage', 'Loaded once, unloaded once', 'Carried between connections'],
+          ['Ski equipment', 'Vehicle selected to fit it', 'Depends on available space'],
+          ['Schedule', 'Arranged around your flight', 'Fixed timetable'],
+          ['Cost', 'Higher', 'Lower'],
+        ],
+      },
+      { type: 'heading', text: 'What Determines the Transfer Price?' },
+      {
+        type: 'paragraph',
+        text: "There's no single fixed rate for this route — the price depends on the vehicle, passenger count, luggage and ski equipment, the exact pickup and drop-off address, and the date. Submit these details through the booking form and a fixed price is confirmed by email before you travel; no payment is required to request a quote. Our [pricing guide](/blog/how-chauffeur-pricing-works) explains the factors in more detail.",
+      },
+      { type: 'heading', text: 'When Should You Book?' },
+      {
+        type: 'paragraph',
+        text: "For a normal weekday, short notice is often fine. For Christmas, New Year, February school holidays, or a Saturday resort changeover, book earlier — larger vehicles in particular have less spare availability during peak weeks. Our [booking lead-time guide](/blog/how-far-in-advance-book-chauffeur) covers this in more detail across different routes and seasons.",
+      },
+      { type: 'heading', text: 'What to Include When Requesting a Quote' },
+      {
+        type: 'list',
+        items: [
+          'Flight number, airline, and arrival date/time',
+          'Number of adults and children',
+          'Number of suitcases and cabin bags',
+          'Ski or snowboard bag count',
+          'Child seat requirements, if any',
+          'Your exact Kitzbühel hotel, chalet, or address',
+          'Whether you need a return transfer',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How far is Salzburg Airport from Kitzbühel?',
+        answer:
+          'Approximately 75 km on the direct B178 route through Unken and Waidring, or around 81 km on the alternate route via Bad Reichenhall described by Kitzbühel Tourism. Both are real routes; the exact figure depends on which one is used.',
+      },
+      {
+        question: 'How long does Salzburg Airport to Kitzbühel take?',
+        answer: 'Around 1 hour 15 minutes in normal conditions, up to 1.5 hours via the alternate route or during busy winter periods.',
+      },
+      {
+        question: 'Is there a direct train from Salzburg Airport to Kitzbühel?',
+        answer:
+          'No — you first need to reach Salzburg itself, then continue by train with at least one connection. Total journey time is typically around 3 hours or more.',
+      },
+      {
+        question: 'Is there a direct bus from Salzburg Airport to Kitzbühel?',
+        answer: 'No direct service — bus journeys involve a connection and take roughly 3 hours in total.',
+      },
+      {
+        question: 'Is a private transfer worth it for a ski trip?',
+        answer:
+          'For travellers with ski equipment, families, or groups, yes — it removes the connections and luggage handling that make public transport slower in practice than the timetable suggests.',
+      },
+      {
+        question: 'Can I be dropped off directly at my chalet or hotel?',
+        answer: 'Yes — provide the exact address when requesting your quote, whether that’s central Kitzbühel, Hahnenkamm, or Schwarzsee.',
+      },
+      {
+        question: 'Can I bring skis or a snowboard?',
+        answer: "Yes. State your exact ski or snowboard bag count when booking so the right vehicle can be assigned — an Executive Van is often the practical choice.",
+      },
+      {
+        question: 'What is the best airport for Kitzbühel?',
+        answer:
+          'Innsbruck is closest by drive time (~1h), Salzburg is a genuinely practical alternative (~1h 15m–1h 30m), and Munich is furthest (~2h) but sometimes offers better international flight options.',
+      },
+      {
+        question: 'How much does a Salzburg Airport to Kitzbühel transfer cost?',
+        answer:
+          'Price depends on the vehicle, passenger count, luggage, and exact addresses — there is no fixed rate card. Submit your details for a fixed quote confirmed by email before you travel.',
+      },
+      {
+        question: 'Can I book a return transfer from Kitzbühel to Salzburg Airport?',
+        answer: 'Yes — one-way and return transfers can both be arranged, and booking both together at once can simplify planning.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Salzburg Airport → Kitzbühel Route', href: '/routes/salzburg-airport-to-kitzbuehel' },
+      { label: 'Kitzbühel Ski Transfer', href: '/ski-transfers/kitzbuehel' },
+      { label: 'Salzburg Airport Transfer Details', href: '/airport-transfers/salzburg-airport' },
+      { label: 'Best Airports for Ski Resorts in Austria', href: '/blog/best-airports-austria-ski-resorts' },
+      { label: 'How Chauffeur Pricing Works', href: '/blog/how-chauffeur-pricing-works' },
+      { label: 'How Far in Advance Should You Book a Chauffeur?', href: '/blog/how-far-in-advance-book-chauffeur' },
+      { label: 'Austria Ski Transfers', href: '/ski-transfers' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
+    slug: 'salzburg-airport-to-filzmoos-transfer-guide',
+    title: 'Salzburg Airport to Filzmoos Transfer: Distance, Time & Options',
+    excerpt:
+      'Salzburg Airport to Filzmoos transfer guide covering distance, driving time, route options, public transport, ski equipment, family travel and private airport transfers.',
+    publishedAt: '2026-09-02',
+    readingTime: '9 min read',
+    tags: ['Ski Transfers', 'Salzburg'],
+    seoTitle: 'Salzburg Airport to Filzmoos Transfer | Distance, Time & Options',
+    seoDescription:
+      'Salzburg Airport to Filzmoos transfer guide covering distance, driving time, route options, public transport, ski equipment, family travel and private airport transfers.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "Flying into Salzburg Airport (SZG) for a ski holiday or Alpine getaway in Filzmoos? It's one of the more convenient mountain destinations to reach by road — the journey is short compared with many Austrian ski resorts, which is part of why Salzburg is such a popular arrival airport for visitors staying in Filzmoos and the wider Dachstein region.",
+      },
+      {
+        type: 'paragraph',
+        text: "How far is Filzmoos from Salzburg Airport, how long does the transfer take, and is it better to book a private transfer, take a taxi, use public transport, or rent a car? The answer depends on your group, luggage, and how much door-to-door convenience you want — this guide covers all of it.",
+      },
+      { type: 'heading', text: 'Salzburg Airport to Filzmoos: Quick Facts' },
+      {
+        type: 'table',
+        headers: ['Route', 'Approx. distance', 'Typical driving time', 'Best for'],
+        rows: [
+          ['Salzburg Airport → Filzmoos', '~75 km', '~50 min', 'Private transfer, taxi, rental car'],
+          ['Filzmoos → Salzburg Airport', '~75 km', '~50 min', 'Private return transfer'],
+          ['Public transport', '—', 'Usually longer, with connections', 'Budget travellers'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "These are the same figures used on our [Salzburg Airport to Filzmoos route page](/routes/salzburg-airport-to-filzmoos) — allow around 50 minutes for a direct road transfer in normal conditions, and more during winter weekends, Christmas, New Year, or heavy snowfall.",
+      },
+      { type: 'heading', text: 'How Far Is Filzmoos from Salzburg Airport?' },
+      {
+        type: 'paragraph',
+        text: "The road distance is approximately 75 km, via the A10 Tauern Autobahn and the Ennstal valley. Filzmoos is close enough to Salzburg Airport that a direct transfer is genuinely practical, unlike some Alpine resorts where the airport-to-resort leg eats up a large part of a short ski break.",
+      },
+      {
+        type: 'paragraph',
+        text: "The exact distance and journey time still depend on your accommodation — central Filzmoos, somewhere near the lifts, or a chalet slightly outside the village. Give the exact hotel, chalet, or address when requesting a transfer rather than just \"Filzmoos.\"",
+      },
+      { type: 'heading', text: 'How Long Does the Transfer Take?' },
+      {
+        type: 'paragraph',
+        text: "A direct road journey normally takes around 50 minutes in good conditions. Treat that as a realistic planning figure, not a guarantee — traffic leaving Salzburg, roadworks, weather, and winter road conditions can all add time.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Winter snowfall and road conditions',
+          'Saturday ski-season changeover traffic',
+          'Christmas, New Year, and school holiday periods',
+          'Roadworks',
+          'Your exact destination in Filzmoos',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "For a ski holiday transfer, plan around a realistic one-hour window rather than the fastest theoretical drive, and allow extra buffer during peak winter periods.",
+      },
+      { type: 'heading', text: 'Transfer Options Compared' },
+      {
+        type: 'paragraph',
+        text: "There are several ways to make this journey: a private airport transfer, a taxi, public bus, a train-and-bus combination, or a rental car. The right one depends on your luggage, group size, and how much you value going directly to your accommodation.",
+      },
+      {
+        type: 'table',
+        headers: ['Option', 'Approx. time', 'Door-to-door', 'Best for'],
+        rows: [
+          ['Private transfer', '~50 min', 'Yes', 'Families, groups, ski equipment'],
+          ['Taxi', '~50 min', 'Yes', 'Direct travel, no pre-booking'],
+          ['Public bus', 'Longer, with connections', 'No', 'Budget travellers, light luggage'],
+          ['Train + bus', 'Longer, with connections', 'No', 'Rail travellers, light luggage'],
+          ['Rental car', '~50 min', 'Yes', 'Independent trips exploring the wider region'],
+        ],
+      },
+      { type: 'heading', text: 'Private Salzburg Airport to Filzmoos Transfer' },
+      {
+        type: 'paragraph',
+        text: "A private transfer is the simplest option for door-to-door convenience: land at Salzburg Airport, meet your driver, load your luggage, and travel directly to your hotel, chalet, or apartment — no changing vehicles, no working out a connection after a flight. See our [Salzburg Airport Transfer guide](/airport-transfers/salzburg-airport) for how pickup and flight tracking work, and our [Filzmoos ski transfer page](/ski-transfers/filzmoos) for everything specific to this resort.",
+      },
+      {
+        type: 'paragraph',
+        text: "Provide your flight number when booking so the arrival can be tracked, along with your passenger count, luggage, ski or snowboard equipment, and exact destination address.",
+      },
+      { type: 'heading', text: 'Public Transport to Filzmoos' },
+      {
+        type: 'paragraph',
+        text: "Filzmoos isn't directly served by a mainline railway station, so a public-transport journey generally means combining travel into Salzburg with a regional rail or bus connection onward — workable for a light-luggage traveller, but noticeably longer than driving directly, and less practical once ski bags, a stroller, or several suitcases enter the picture.",
+      },
+      { type: 'heading', text: 'Ski Equipment and Luggage' },
+      {
+        type: 'paragraph',
+        text: "Filzmoos is a ski destination, so equipment is a normal part of this route. A vehicle that comfortably seats a group doesn't automatically have room for that group plus full ski gear — when requesting a quote, state your exact luggage and equipment, not just a passenger count.",
+      },
+      {
+        type: 'callout',
+        heading: 'Booking with ski equipment?',
+        text: "Say '4 passengers, 4 suitcases, 2 ski bags' rather than just '4 passengers' — that lets the right vehicle be assigned in advance. An Executive Van or Minibus is often the practical choice once ski bags, boots, and helmets are added to normal luggage.",
+      },
+      { type: 'heading', text: 'Families Travelling to Filzmoos' },
+      {
+        type: 'paragraph',
+        text: "Families typically carry more than the passenger count suggests — a stroller, child seats, winter clothing, and children's own ski equipment. Mention children's ages and any child-seat requirements when booking; a private transfer removes the need to manage all of that through a bus or train connection.",
+      },
+      { type: 'heading', text: 'Return Transfer: Filzmoos to Salzburg Airport' },
+      {
+        type: 'paragraph',
+        text: "The return journey is the same route and roughly the same time. If your flight leaves in the morning, build in time for hotel checkout, the drive, winter traffic, and airport check-in — don't calculate the pickup by simply subtracting the drive time from your departure. Booking both legs together can make the whole trip easier to plan.",
+      },
+      { type: 'heading', text: 'Why Salzburg Airport Works Well for Filzmoos' },
+      {
+        type: 'paragraph',
+        text: "Filzmoos's relatively short road journey from Salzburg Airport is a genuine advantage for a short ski break — spending several hours on transport after landing eats into a trip that might only be three or four nights long. For a wider comparison of airports across Austria's ski regions, see our [Austria ski airport guide](/blog/best-airports-austria-ski-resorts).",
+      },
+      { type: 'heading', text: 'What Determines the Transfer Price?' },
+      {
+        type: 'paragraph',
+        text: "There's no single fixed rate for this route — price depends on the vehicle, passenger count, luggage and ski equipment, the exact pickup and drop-off address, and the date. Submit these details through the booking form and a fixed price is confirmed by email before you travel; no payment is required to request a quote. Our [pricing guide](/blog/how-chauffeur-pricing-works) explains the factors in more detail.",
+      },
+      { type: 'heading', text: 'When Should You Book?' },
+      {
+        type: 'paragraph',
+        text: "For a normal weekday, short notice is often fine. For Christmas, New Year, February school holidays, or a Saturday resort changeover, book earlier — larger vehicles in particular have less spare availability during peak weeks. Our [booking lead-time guide](/blog/how-far-in-advance-book-chauffeur) covers this across different routes and seasons.",
+      },
+      { type: 'heading', text: 'What to Include When Requesting a Quote' },
+      {
+        type: 'list',
+        items: [
+          'Flight number, airline, and arrival date/time',
+          'Number of adults and children',
+          'Number of suitcases and cabin bags',
+          'Ski or snowboard bag count',
+          'Child seat requirements, if any',
+          'Your exact Filzmoos hotel, chalet, or address',
+          'Whether you need a return transfer',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How far is Filzmoos from Salzburg Airport?',
+        answer: 'Approximately 75 km by road, via the A10 Tauern Autobahn and the Ennstal valley.',
+      },
+      {
+        question: 'How long does Salzburg Airport to Filzmoos take?',
+        answer: 'Around 50 minutes in normal conditions. Winter weather and traffic can extend the journey.',
+      },
+      {
+        question: 'Is there a direct transfer from Salzburg Airport to Filzmoos?',
+        answer: 'Yes — a private airport transfer can take you directly from Salzburg Airport to your Filzmoos hotel, chalet, apartment, or private address.',
+      },
+      {
+        question: 'Can I travel from Salzburg Airport to Filzmoos by public transport?',
+        answer: "Yes, but it generally requires a connection via Salzburg, since Filzmoos isn't directly served by a mainline railway station — the journey takes noticeably longer than driving directly.",
+      },
+      {
+        question: 'Can I bring skis or a snowboard?',
+        answer: "Yes. State your exact ski or snowboard bag count when booking so the right vehicle can be assigned — an Executive Van or Minibus is often the practical choice.",
+      },
+      {
+        question: 'Can families book child seats?',
+        answer: 'Yes. Request a child seat or booster when booking and provide the age and height of your children.',
+      },
+      {
+        question: 'How much does a Salzburg Airport to Filzmoos transfer cost?',
+        answer: 'Price depends on the vehicle, passenger count, luggage, and exact addresses — there is no fixed rate card. Submit your details for a fixed quote confirmed by email before you travel.',
+      },
+      {
+        question: 'Can I book a return transfer from Filzmoos to Salzburg Airport?',
+        answer: 'Yes — one-way and return transfers can both be arranged, and booking both together can simplify planning.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Salzburg Airport → Filzmoos Route', href: '/routes/salzburg-airport-to-filzmoos' },
+      { label: 'Filzmoos Ski Transfer', href: '/ski-transfers/filzmoos' },
+      { label: 'Salzburg Airport Transfer Details', href: '/airport-transfers/salzburg-airport' },
+      { label: 'Best Airports for Ski Resorts in Austria', href: '/blog/best-airports-austria-ski-resorts' },
+      { label: 'How Chauffeur Pricing Works', href: '/blog/how-chauffeur-pricing-works' },
+      { label: 'How Far in Advance Should You Book a Chauffeur?', href: '/blog/how-far-in-advance-book-chauffeur' },
+      { label: 'Austria Ski Transfers', href: '/ski-transfers' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
+    slug: 'salzburg-airport-to-schladming-transfer-guide',
+    title: 'Salzburg Airport to Schladming Transfer: Distance, Time & Options',
+    excerpt:
+      'Salzburg Airport to Schladming transfer guide covering distance, driving time, routes, train and bus options, ski luggage, family travel and private transfers.',
+    publishedAt: '2026-09-02',
+    readingTime: '9 min read',
+    tags: ['Ski Transfers', 'Salzburg'],
+    seoTitle: 'Salzburg Airport to Schladming Transfer | Distance, Time & Options',
+    seoDescription:
+      'Salzburg Airport to Schladming transfer guide covering distance, driving time, routes, train and bus options, ski luggage, family travel and private transfers.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "Flying into Salzburg Airport (SZG) for a ski holiday in Schladming? One of the best-known destinations in the Schladming-Dachstein region, Schladming is reachable from Salzburg by a road journey that's manageable compared with many other Austrian ski resorts.",
+      },
+      {
+        type: 'paragraph',
+        text: "You can make the trip by private airport transfer, taxi, train, bus, or rental car. For a solo traveller with light luggage, public transport can be a reasonable choice. For families, groups, and ski travellers with several suitcases and equipment, a private Salzburg Airport to Schladming transfer usually offers a much simpler door-to-door journey — this guide covers distance, time, routes, and every option in between.",
+      },
+      { type: 'heading', text: 'Salzburg Airport to Schladming: Quick Facts' },
+      {
+        type: 'table',
+        headers: ['Route', 'Approx. distance', 'Typical driving time', 'Best for'],
+        rows: [
+          ['Salzburg Airport → Schladming', '~90 km', '~1h 15m', 'Private transfer, taxi, rental car'],
+          ['Schladming → Salzburg Airport', '~90 km', '~1h 15m', 'Return airport transfer'],
+          ['Public transport', '—', 'Usually 2 hours or more, with connections', 'Budget travellers'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "These are the same figures used on our [Salzburg Airport to Schladming route page](/routes/salzburg-airport-to-schladming). Treat approximately 90 km and around 1h 15m as the practical planning figures, allowing up to 1h 30m during winter traffic, weekend ski-season changeovers, or heavy snowfall.",
+      },
+      { type: 'heading', text: 'How Far Is Salzburg Airport from Schladming?' },
+      {
+        type: 'paragraph',
+        text: "The road distance is approximately 90 km, via the A10 Tauern Autobahn and the B320 Ennstal Straße directly into Schladming. The exact figure varies slightly depending on your destination — central Schladming, the Planai area, Rohrmoos, or a chalet slightly outside the centre — so it's worth giving your exact accommodation address when requesting a transfer rather than just \"Schladming.\"",
+      },
+      { type: 'heading', text: 'How Long Does the Transfer Take?' },
+      {
+        type: 'paragraph',
+        text: "A direct drive normally takes around 1 hour 15 minutes in good conditions. Treat that as a realistic planning figure rather than a guarantee — traffic leaving Salzburg, roadworks, weather, and the final Alpine approach into the Schladming-Dachstein area can all add time, particularly during a busy winter Saturday.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Winter snowfall and road conditions',
+          'Saturday ski-season changeover traffic',
+          'Christmas, New Year, and February school holidays',
+          'Roadworks',
+          'Your exact destination within Schladming-Dachstein',
+        ],
+      },
+      { type: 'heading', text: 'Transfer Options Compared' },
+      {
+        type: 'paragraph',
+        text: "There are five realistic ways to make this journey: a private airport transfer, a taxi, train, bus, or rental car. The right one depends on your luggage, group size, and how much you value going directly to your accommodation.",
+      },
+      {
+        type: 'table',
+        headers: ['Option', 'Approx. time', 'Door-to-door', 'Best for'],
+        rows: [
+          ['Private transfer', '~1h 15m', 'Yes', 'Families, groups, ski equipment'],
+          ['Taxi', '~1h 15m', 'Yes', 'Direct travel, no pre-booking'],
+          ['Train', '~2h+, with a connection', 'No', 'Rail travellers, light luggage'],
+          ['Bus', '~2h+, with a connection', 'No', 'Budget travellers, light luggage'],
+          ['Rental car', '~1h 15m', 'Yes', 'Independent trips exploring the wider region'],
+        ],
+      },
+      { type: 'heading', text: 'Private Salzburg Airport to Schladming Transfer' },
+      {
+        type: 'paragraph',
+        text: "A private transfer is the simplest option for door-to-door convenience: land at Salzburg Airport, meet your driver, load your luggage, and travel directly to your hotel, chalet, or apartment — no changing vehicles, no working out a connection after a flight. See our [Salzburg Airport Transfer guide](/airport-transfers/salzburg-airport) for how pickup and flight tracking work, and our [Schladming ski transfer page](/ski-transfers/schladming) for everything specific to this resort.",
+      },
+      {
+        type: 'paragraph',
+        text: "Provide your flight number when booking so the arrival can be tracked, along with your passenger count, luggage, ski or snowboard equipment, and exact destination address.",
+      },
+      { type: 'heading', text: 'Train and Bus to Schladming' },
+      {
+        type: 'paragraph',
+        text: "Salzburg Airport doesn't have direct rail access, so a train journey means connecting via Salzburg's own railway network before continuing towards Schladming — manageable for a light-luggage traveller, but current journey planners typically show a total travel time of two hours or more once the connection is factored in. Bus travel follows a similar pattern: workable, but noticeably longer than driving directly.",
+      },
+      { type: 'heading', text: 'Ski Equipment and Luggage' },
+      {
+        type: 'paragraph',
+        text: "Schladming is a major winter sports destination, so ski equipment is a normal part of this route. A vehicle that comfortably seats a group doesn't automatically have room for that group plus full ski gear — when requesting a quote, state your exact luggage and equipment, not just a passenger count.",
+      },
+      {
+        type: 'callout',
+        heading: 'Booking with ski equipment?',
+        text: "Say '4 adults, 2 children, 5 suitcases, 2 ski bags and 1 snowboard bag' rather than just a headcount — that lets the right vehicle be assigned in advance. An Executive Van or Minibus is often the practical choice once ski bags, boots, and helmets are added to normal luggage.",
+      },
+      { type: 'heading', text: 'Families Travelling to Schladming' },
+      {
+        type: 'paragraph',
+        text: "Families typically carry more than the passenger count suggests — a stroller, child seats, winter clothing, and children's own ski equipment. Mention children's ages and any child-seat requirements when booking; a private transfer removes the need to manage all of that through a train or bus connection.",
+      },
+      { type: 'heading', text: 'Return Transfer: Schladming to Salzburg Airport' },
+      {
+        type: 'paragraph',
+        text: "The return journey is the same route and roughly the same time. If your flight leaves in the morning, build in time for hotel checkout, the drive, winter traffic, and airport check-in — don't calculate the pickup by simply subtracting the drive time from your departure. Booking both legs together can make the whole trip easier to plan.",
+      },
+      { type: 'heading', text: 'Salzburg or Another Airport for Schladming?' },
+      {
+        type: 'paragraph',
+        text: "Salzburg is a genuinely practical airport for Schladming given the road connection, but the best choice isn't determined by distance alone — flight availability, price, and arrival time all matter too. For a wider comparison of airports across Austria's ski regions, see our [Austria ski airport guide](/blog/best-airports-austria-ski-resorts).",
+      },
+      { type: 'heading', text: 'What Determines the Transfer Price?' },
+      {
+        type: 'paragraph',
+        text: "There's no single fixed rate for this route — price depends on the vehicle, passenger count, luggage and ski equipment, the exact pickup and drop-off address, and the date. Submit these details through the booking form and a fixed price is confirmed by email before you travel; no payment is required to request a quote. Our [pricing guide](/blog/how-chauffeur-pricing-works) explains the factors in more detail.",
+      },
+      { type: 'heading', text: 'When Should You Book?' },
+      {
+        type: 'paragraph',
+        text: "For a normal weekday, short notice is often fine. For Christmas, New Year, February school holidays, or a Saturday resort changeover, book earlier — larger vehicles in particular have less spare availability during peak weeks. Our [booking lead-time guide](/blog/how-far-in-advance-book-chauffeur) covers this across different routes and seasons.",
+      },
+      { type: 'heading', text: 'What to Include When Requesting a Quote' },
+      {
+        type: 'list',
+        items: [
+          'Flight number, airline, and arrival date/time',
+          'Number of adults and children',
+          'Number of suitcases and cabin bags',
+          'Ski or snowboard bag count',
+          'Child seat requirements, if any',
+          'Your exact Schladming hotel, chalet, or address',
+          'Whether you need a return transfer',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How far is Schladming from Salzburg Airport?',
+        answer: 'Approximately 90 km by road, via the A10 Tauern Autobahn and the B320 Ennstal Straße.',
+      },
+      {
+        question: 'How long does Salzburg Airport to Schladming take?',
+        answer: 'Around 1 hour 15 minutes in normal conditions, allowing up to 1 hour 30 minutes during winter traffic or heavy snowfall.',
+      },
+      {
+        question: 'Is there a direct transfer from Salzburg Airport to Schladming?',
+        answer: 'Yes — a private airport transfer can take you directly from Salzburg Airport to your Schladming hotel, chalet, apartment, or private address.',
+      },
+      {
+        question: 'Is there public transport from Salzburg Airport to Schladming?',
+        answer: "Yes, but it requires a connection via Salzburg's rail network, and typically takes two hours or more in total — noticeably longer than driving directly.",
+      },
+      {
+        question: 'Can I bring skis or a snowboard?',
+        answer: "Yes. State your exact ski or snowboard bag count when booking so the right vehicle can be assigned — an Executive Van or Minibus is often the practical choice.",
+      },
+      {
+        question: 'Can families book child seats?',
+        answer: 'Yes. Request a child seat or booster when booking and provide the age and height of your children.',
+      },
+      {
+        question: 'How much does a Salzburg Airport to Schladming transfer cost?',
+        answer: 'Price depends on the vehicle, passenger count, luggage, and exact addresses — there is no fixed rate card. Submit your details for a fixed quote confirmed by email before you travel.',
+      },
+      {
+        question: 'Can I book a return transfer from Schladming to Salzburg Airport?',
+        answer: 'Yes — one-way and return transfers can both be arranged, and booking both together can simplify planning.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Salzburg Airport → Schladming Route', href: '/routes/salzburg-airport-to-schladming' },
+      { label: 'Schladming Ski Transfer', href: '/ski-transfers/schladming' },
+      { label: 'Salzburg Airport Transfer Details', href: '/airport-transfers/salzburg-airport' },
+      { label: 'Best Airports for Ski Resorts in Austria', href: '/blog/best-airports-austria-ski-resorts' },
+      { label: 'How Chauffeur Pricing Works', href: '/blog/how-chauffeur-pricing-works' },
+      { label: 'How Far in Advance Should You Book a Chauffeur?', href: '/blog/how-far-in-advance-book-chauffeur' },
+      { label: 'Austria Ski Transfers', href: '/ski-transfers' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
+    slug: 'salzburg-airport-to-obertauern-transfer-guide',
+    title: 'Salzburg Airport to Obertauern Transfer: Distance, Time & Ski Options',
+    excerpt:
+      'Salzburg Airport to Obertauern transfer guide covering distance, driving time, routes, ski transfers, public transport, luggage, families and private airport transfers.',
+    publishedAt: '2026-09-02',
+    readingTime: '9 min read',
+    tags: ['Ski Transfers', 'Salzburg'],
+    seoTitle: 'Salzburg Airport to Obertauern Transfer | Distance, Time & Ski Options',
+    seoDescription:
+      'Salzburg Airport to Obertauern transfer guide covering distance, driving time, routes, ski transfers, public transport, luggage, families and private airport transfers.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "Flying into Salzburg Airport (SZG) for a ski trip to Obertauern? Obertauern is one of Austria's highest and snow-surest resorts, known for its compact Tauern Circuit and a road connection from Salzburg that's manageable compared with many other Alpine destinations.",
+      },
+      {
+        type: 'paragraph',
+        text: "You can make the journey by private airport transfer, taxi, public transport, or rental car. For a light-luggage solo traveller, public transport can work. For families, groups, and skiers carrying suitcases and equipment, a private Salzburg Airport to Obertauern transfer usually means a simpler door-to-door trip — this guide covers distance, time, routes, and every option in between.",
+      },
+      { type: 'heading', text: 'Salzburg Airport to Obertauern: Quick Facts' },
+      {
+        type: 'table',
+        headers: ['Route', 'Approx. distance', 'Typical driving time', 'Best for'],
+        rows: [
+          ['Salzburg Airport → Obertauern', '~90 km', '~1h 15m', 'Private transfer, taxi, rental car'],
+          ['Obertauern → Salzburg Airport', '~90 km', '~1h 15m', 'Return airport transfer'],
+          ['Public transport', '—', 'Usually longer, with connections', 'Budget travellers'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "These match the figures on our [Salzburg Airport to Obertauern route page](/routes/salzburg-airport-to-obertauern). Treat approximately 90 km and around 1h 15m as practical planning figures, allowing up to 1h 30m during winter snowfall, weekend ski traffic, or the final climb up the Radstädter Tauern pass road into the resort.",
+      },
+      { type: 'heading', text: 'How Far Is Obertauern from Salzburg Airport?' },
+      {
+        type: 'paragraph',
+        text: "The road distance is approximately 90 km, via the A10 Tauern Autobahn to the Radstadt exit, then the B99 Radstädter Tauern Straße up to Obertauern. Obertauern sits at a high Alpine elevation, so the final section is a genuine mountain-pass climb rather than a flat run-in — give your exact hotel, chalet, or apartment address when booking rather than just \"Obertauern,\" since the resort is spread across several access points.",
+      },
+      { type: 'heading', text: 'How Long Does the Transfer Take?' },
+      {
+        type: 'paragraph',
+        text: "A direct drive normally takes around 1 hour 15 minutes in good conditions. That's a realistic planning figure, not a guarantee — the climb up to Obertauern's altitude means snow, ice, and heavy ski-season traffic can add real time, especially on a winter Saturday changeover.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Snowfall and road conditions on the Radstädter Tauern pass',
+          'Saturday ski-season changeover traffic',
+          'Christmas, New Year, and February school holidays',
+          'Roadworks on the A10 or B99',
+          'Your exact accommodation within Obertauern',
+        ],
+      },
+      { type: 'heading', text: 'Transfer Options Compared' },
+      {
+        type: 'paragraph',
+        text: "There are four realistic ways to make this journey: a private airport transfer, a taxi, public transport, or a rental car. The right choice depends on your luggage, group size, and how much you value going straight to your accommodation without a connection.",
+      },
+      {
+        type: 'table',
+        headers: ['Option', 'Approx. time', 'Door-to-door', 'Best for'],
+        rows: [
+          ['Private transfer', '~1h 15m', 'Yes', 'Families, groups, ski equipment'],
+          ['Taxi', '~1h 15m', 'Yes', 'Direct travel, no pre-booking'],
+          ['Public transport', 'Longer, with connections', 'No', 'Budget travellers, light luggage'],
+          ['Rental car', '~1h 15m', 'Yes', 'Independent trips beyond Obertauern'],
+        ],
+      },
+      { type: 'heading', text: 'Private Salzburg Airport to Obertauern Transfer' },
+      {
+        type: 'paragraph',
+        text: "A private transfer is the simplest door-to-door option: land at Salzburg Airport, meet your driver, load your luggage, and travel directly to your hotel, chalet, or apartment — no changing vehicles, no working out a public-transport connection after a flight. See our [Salzburg Airport Transfer guide](/airport-transfers/salzburg-airport) for how pickup and flight tracking work, and our [Obertauern ski transfer page](/ski-transfers/obertauern) for everything specific to this resort.",
+      },
+      {
+        type: 'paragraph',
+        text: "Provide your flight number when booking so the arrival can be tracked, along with your passenger count, luggage, ski or snowboard equipment, and exact destination address.",
+      },
+      { type: 'heading', text: 'Public Transport to Obertauern' },
+      {
+        type: 'paragraph',
+        text: "Obertauern doesn't have its own railway station, so a public-transport journey from Salzburg Airport means connecting through Salzburg's transport network before a further onward leg to the resort. This is manageable for a light-luggage traveller, but it takes noticeably longer than driving directly once the connection and waiting time are factored in, and it's less practical with ski equipment.",
+      },
+      { type: 'heading', text: 'Ski Equipment and Luggage' },
+      {
+        type: 'paragraph',
+        text: "Obertauern is a serious winter-sports destination — reliably snow-sure from late autumn to spring — so ski equipment is standard on this route. A vehicle that seats your group comfortably doesn't automatically have room for that group's full ski gear too. When requesting a quote, state your exact luggage and equipment, not just a passenger count.",
+      },
+      {
+        type: 'callout',
+        heading: 'Booking with ski equipment?',
+        text: "Say '4 adults, 2 children, 5 suitcases, 2 ski bags and 1 snowboard bag' rather than just a headcount — that lets the right vehicle be assigned in advance. An Executive Van or Minibus is often the practical choice once ski bags, boots, and helmets are added to normal luggage.",
+      },
+      { type: 'heading', text: 'Families Travelling to Obertauern' },
+      {
+        type: 'paragraph',
+        text: "Families typically carry more than the passenger count suggests — a stroller, child seats, winter clothing, and children's own ski equipment. Mention children's ages and any child-seat requirements when booking; a private transfer keeps the whole family together rather than managing connections with winter luggage in tow.",
+      },
+      { type: 'heading', text: 'Return Transfer: Obertauern to Salzburg Airport' },
+      {
+        type: 'paragraph',
+        text: "The return journey follows the same route and takes roughly the same time. If your flight leaves in the morning, build in time for hotel checkout, the descent from altitude, winter traffic, and airport check-in — don't calculate the pickup by simply subtracting the drive time from your departure. Booking both legs together can make the whole trip easier to plan.",
+      },
+      { type: 'heading', text: 'Salzburg or Another Airport for Obertauern?' },
+      {
+        type: 'paragraph',
+        text: "Salzburg is a genuinely convenient airport for Obertauern given the road connection, but the best choice isn't distance alone — flight availability, price, and arrival time matter too. For a wider comparison of airports across Austria's ski regions, see our [Austria ski airport guide](/blog/best-airports-austria-ski-resorts).",
+      },
+      { type: 'heading', text: 'What Determines the Transfer Price?' },
+      {
+        type: 'paragraph',
+        text: "There's no single fixed rate for this route — price depends on the vehicle, passenger count, luggage and ski equipment, the exact pickup and drop-off address, and the date. Submit these details through the booking form and a fixed price is confirmed by email before you travel; no payment is required to request a quote. Our [pricing guide](/blog/how-chauffeur-pricing-works) explains the factors in more detail.",
+      },
+      { type: 'heading', text: 'When Should You Book?' },
+      {
+        type: 'paragraph',
+        text: "For a normal weekday, short notice is often fine. For Christmas, New Year, February school holidays, or a Saturday resort changeover, book earlier — larger vehicles in particular have less spare availability during peak weeks given Obertauern's reliably long season. Our [booking lead-time guide](/blog/how-far-in-advance-book-chauffeur) covers this across different routes and seasons.",
+      },
+      { type: 'heading', text: 'What to Include When Requesting a Quote' },
+      {
+        type: 'list',
+        items: [
+          'Flight number, airline, and arrival date/time',
+          'Number of adults and children',
+          'Number of suitcases and cabin bags',
+          'Ski or snowboard bag count',
+          'Child seat requirements, if any',
+          'Your exact Obertauern hotel, chalet, or address',
+          'Whether you need a return transfer',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How far is Obertauern from Salzburg Airport?',
+        answer: 'Approximately 90 km by road, via the A10 Tauern Autobahn and the B99 Radstädter Tauern Straße.',
+      },
+      {
+        question: 'How long does Salzburg Airport to Obertauern take?',
+        answer: 'Around 1 hour 15 minutes in normal conditions, allowing up to 1 hour 30 minutes during winter traffic or snowfall on the Radstädter Tauern pass road.',
+      },
+      {
+        question: 'Is there a direct transfer from Salzburg Airport to Obertauern?',
+        answer: 'Yes — a private airport transfer can take you directly from Salzburg Airport to your Obertauern hotel, chalet, apartment, or private address.',
+      },
+      {
+        question: 'Is there public transport from Salzburg Airport to Obertauern?',
+        answer: "Yes, but it requires a connection via Salzburg's transport network and generally takes noticeably longer than driving directly.",
+      },
+      {
+        question: 'Can I bring skis or a snowboard?',
+        answer: "Yes. State your exact ski or snowboard bag count when booking so the right vehicle can be assigned — an Executive Van or Minibus is often the practical choice.",
+      },
+      {
+        question: 'Can families book child seats?',
+        answer: 'Yes. Request a child seat or booster when booking and provide the age and height of your children.',
+      },
+      {
+        question: 'How much does a Salzburg Airport to Obertauern transfer cost?',
+        answer: 'Price depends on the vehicle, passenger count, luggage, and exact addresses — there is no fixed rate card. Submit your details for a fixed quote confirmed by email before you travel.',
+      },
+      {
+        question: 'Can I book a return transfer from Obertauern to Salzburg Airport?',
+        answer: 'Yes — one-way and return transfers can both be arranged, and booking both together can simplify planning.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Salzburg Airport → Obertauern Route', href: '/routes/salzburg-airport-to-obertauern' },
+      { label: 'Obertauern Ski Transfer', href: '/ski-transfers/obertauern' },
+      { label: 'Salzburg Airport Transfer Details', href: '/airport-transfers/salzburg-airport' },
+      { label: 'Best Airports for Ski Resorts in Austria', href: '/blog/best-airports-austria-ski-resorts' },
+      { label: 'How Chauffeur Pricing Works', href: '/blog/how-chauffeur-pricing-works' },
+      { label: 'How Far in Advance Should You Book a Chauffeur?', href: '/blog/how-far-in-advance-book-chauffeur' },
+      { label: 'Austria Ski Transfers', href: '/ski-transfers' },
+      { label: 'All Routes', href: '/routes' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
     slug: 'vienna-airport-to-salzburg-transfer-guide',
     title: 'Vienna Airport to Salzburg: Private Chauffeur Transfer Guide',
     excerpt:

@@ -707,7 +707,7 @@ export const routes: RoutePair[] = [
     from: 'Salzburg Airport (SZG)',
     to: 'Schladming',
     distance: '~90km',
-    driveTime: '~1h',
+    driveTime: '~1h 15m',
     routeDescription: 'South via A10 Tauern Autobahn and B320 Ennstal Straße directly to Schladming.',
     whyBook: [
       'Direct gateway access to Planai and the Ski Amadé 4-Mountain area',
@@ -720,7 +720,7 @@ export const routes: RoutePair[] = [
     from: 'Salzburg Airport (SZG)',
     to: 'Obertauern',
     distance: '~90km',
-    driveTime: '~1h 10m',
+    driveTime: '~1h 15m',
     routeDescription: 'South via A10 Tauern Autobahn to Radstadt exit, up B99 Radstädter Tauern Straße to Obertauern.',
     whyBook: [
       'Direct transfer to snow-sure high altitude pass resort',

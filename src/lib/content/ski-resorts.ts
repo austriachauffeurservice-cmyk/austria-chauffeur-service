@@ -460,7 +460,7 @@ export const skiResorts: SkiResort[] = [
     region: 'Salzburg',
     skiArea: 'Obertauern (Tauern Circuit)',
     nearestAirports: [
-      { name: 'Salzburg Airport (SZG)', driveTime: '~1h 20m' },
+      { name: 'Salzburg Airport (SZG)', driveTime: '~1h 15m' },
       { name: 'Klagenfurt Airport (KLU)', driveTime: '~1h 30m' },
     ],
     popularRoutes: [
@@ -489,7 +489,7 @@ export const skiResorts: SkiResort[] = [
     region: 'Styria',
     skiArea: 'Ski Amadé — Planai / Hochwurzen / Dachstein-Glacier / Hauser Kaibling',
     nearestAirports: [
-      { name: 'Salzburg Airport (SZG)', driveTime: '~1h 30m' },
+      { name: 'Salzburg Airport (SZG)', driveTime: '~1h 15m' },
       { name: 'Graz Airport (GRZ)', driveTime: '~1h 30m' },
       { name: 'Innsbruck Airport (INN)', driveTime: '~2h 15m' },
     ],

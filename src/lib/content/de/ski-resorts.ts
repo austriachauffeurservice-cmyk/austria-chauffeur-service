@@ -459,7 +459,7 @@ export const skiResorts: SkiResort[] = [
     region: 'Salzburg',
     skiArea: 'Obertauern (Tauernrunde)',
     nearestAirports: [
-      { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 20 Min.' },
+      { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 15 Min.' },
       { name: 'Flughafen Klagenfurt (KLU)', driveTime: '~1 Std. 30 Min.' },
     ],
     popularRoutes: [
@@ -488,7 +488,7 @@ export const skiResorts: SkiResort[] = [
     region: 'Steiermark',
     skiArea: 'Ski Amadé — Planai / Hochwurzen / Dachsteingletscher / Hauser Kaibling',
     nearestAirports: [
-      { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 30 Min.' },
+      { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 15 Min.' },
       { name: 'Flughafen Graz (GRZ)', driveTime: '~1 Std. 30 Min.' },
       { name: 'Flughafen Innsbruck (INN)', driveTime: '~2 Std. 15 Min.' },
     ],
