@@ -21,7 +21,7 @@ export async function generateMetadata({
   if (!tour) return {}
 
   const canonical = `/de/day-tours/${slug}`
-  const title = `Tagesausflug ${tour.name} ab ${tour.startingPoints[0].from}`
+  const title = `Privater Chauffeur-Tagesausflug nach ${tour.name} ab ${tour.startingPoints[0].from}`
   const description = `${tour.tagline} Privater Chauffeur-Tagesausflug, ${tour.startingPoints[0].driveTime} ab ${tour.startingPoints[0].from}, Festpreise.`
   return {
     title: { absolute: title },

@@ -319,6 +319,7 @@ export default async function BookingDetailPage({ params }: Props) {
           <a
             href={`/admin/bookings/${booking.id}/document?type=quote`}
             target="_blank"
+            rel="noopener"
             style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 16px', background: c.goldTint, border: `1px solid ${c.goldBorder}`, borderRadius: 8, color: c.gold, fontSize: 13, textDecoration: 'none' }}
           >
             <FontAwesomeIcon icon={faFileLines} /> Quote PDF
@@ -326,6 +327,7 @@ export default async function BookingDetailPage({ params }: Props) {
           <a
             href={`/admin/bookings/${booking.id}/document?type=invoice`}
             target="_blank"
+            rel="noopener"
             style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 16px', background: c.goldTint, border: `1px solid ${c.goldBorder}`, borderRadius: 8, color: c.gold, fontSize: 13, textDecoration: 'none' }}
           >
             <FontAwesomeIcon icon={faFileInvoice} /> Invoice PDF
@@ -333,6 +335,7 @@ export default async function BookingDetailPage({ params }: Props) {
           <a
             href={`/admin/bookings/${booking.id}/document?type=receipt`}
             target="_blank"
+            rel="noopener"
             style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '8px 16px', background: c.goldTint, border: `1px solid ${c.goldBorder}`, borderRadius: 8, color: c.gold, fontSize: 13, textDecoration: 'none' }}
           >
             <FontAwesomeIcon icon={faReceipt} /> Receipt PDF

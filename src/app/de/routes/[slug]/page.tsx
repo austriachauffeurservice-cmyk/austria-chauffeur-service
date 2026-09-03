@@ -30,7 +30,7 @@ export async function generateMetadata({
   if (!route) return {}
 
   const canonical = `/de/routes/${slug}`
-  const title = route.seoTitle ?? `Transfer ${route.from} nach ${route.to}`
+  const title = route.seoTitle ?? `Privater Transfer ${route.from} nach ${route.to}`
   const description =
     route.seoDescription ??
     `Privater Chauffeurtransfer von ${route.from} nach ${route.to}. ${route.distance}, ${route.driveTime} Fahrzeit, Festpreise.`
@@ -114,7 +114,7 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
               {route.crossBorder ? 'Grenzüberschreitende Strecke' : 'Beliebte Strecke'}
             </p>
             <h1 className="font-display mt-2 text-3xl sm:text-4xl">
-              {route.from} → {route.to}
+              {route.from} nach {route.to}
             </h1>
             <p className="mt-4 max-w-xl text-brand-cream/80">{route.routeDescription}</p>
             <p className="mt-3 text-sm font-semibold text-brand-gold">
@@ -207,7 +207,7 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
 
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
         <h2 className="font-display text-xl text-brand-ink">
-          {route.whyBookPoints ? `Warum einen Transfer ${route.from} → ${route.to} buchen?` : 'Warum diese Strecke privat buchen'}
+          {route.whyBookPoints ? `Warum einen Transfer ${route.from} nach ${route.to} buchen?` : 'Warum diese Strecke privat buchen'}
         </h2>
         {route.whyBookPoints ? (
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -495,7 +495,7 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
       <BookingCta
         locale="de"
         pageType="route"
-        title={`Festpreis-Transfer ${route.from} → ${route.to} anfragen`}
+        title={`Festpreis-Transfer ${route.from} nach ${route.to} anfragen`}
         description="Senden Sie Ihre Reisedaten und wir bestätigen Verfügbarkeit und Preis per E-Mail."
         pickup={route.from}
         dropoff={route.to}

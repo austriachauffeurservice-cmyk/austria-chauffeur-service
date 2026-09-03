@@ -84,7 +84,7 @@ export const skiResorts: SkiResort[] = [
         note: 'Der Flughafen München liegt rund 165 km von Kitzbühel entfernt, mit einer Fahrzeit von etwa 2 Stunden über die A8 Richtung Inntaldreieck und die A93/B173 durch Kufstein. Er lohnt sich vor allem für Langstrecken- oder internationale Anschlüsse, die an den kleineren österreichischen Flughäfen nicht verfügbar sind — auch wenn es sich um eine längere, grenzüberschreitende Fahrt handelt. Reisende aus Übersee empfinden Münchens größeres Streckennetz oft als lohnenden Ausgleich für die zusätzliche Fahrzeit.',
       },
     ],
-    seoTitle: 'Kitzbühel Skitransfers: Privater Flughafen-Chauffeurservice',
+    seoTitle: 'Kitzbühel Flughafentransfer | Privater Ski-Chauffeurservice',
     seoDescription:
       'Privater Skitransfer nach Kitzbühel ab Flughafen Innsbruck, Salzburg und München. Tür-zu-Tür-Service, Festpreise und Platz für Ski und Snowboards.',
     heroHeading: 'Kitzbühel Skitransfers: Privater Flughafen-Chauffeurservice',

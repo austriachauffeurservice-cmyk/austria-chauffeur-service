@@ -431,6 +431,108 @@ export const routes: RoutePair[] = [
       'Komfortabel für Wintersportler und Wellnessgäste im Sommer gleichermaßen',
       'Fester, transparenter Preis inklusive Überwachung von Flugverspätungen',
     ],
+    seoTitle: 'Transfer Flughafen Salzburg nach Bad Gastein | Privater Chauffeur',
+    seoDescription:
+      'Privater Chauffeurtransfer vom Flughafen Salzburg nach Bad Gastein. Tür-zu-Tür-Service, Flugüberwachung, Festpreise. ~95 km, ~1 Std. 15 Min.',
+    dropoffHint:
+      'Geben Sie Ihr Hotel, Chalet oder Ihre Adresse in Bad Gastein als Ziel an. Wir bestätigen Verfügbarkeit und Festpreis per E-Mail.',
+    routeOverview: {
+      road: 'A10 Tauernautobahn über die B167 Gasteinertal',
+      transferType: 'Privat, Tür zu Tür',
+      vehicleNote: 'Limousine, Executive Van oder Kleinbus',
+    },
+    routeExplanation: {
+      heading: 'Die Fahrt vom Flughafen Salzburg nach Bad Gastein',
+      description:
+        'Vom Flughafen Salzburg führt die Fahrt südlich über die A10 Tauernautobahn, bevor sie über die B167 das Gasteinertal hinauf nach Bad Gastein führt — ein historischer Belle-Époque-Kurort auf einem Thermalwasserfall, steil in den Hang gebaut. Unter normalen Bedingungen dauert die Fahrt etwa 1 Stunde 15 Minuten, wobei winterliches Wetter und Talverkehr die Fahrzeit verlängern können.',
+    },
+    originAlternative: {
+      heading: 'Warum der Flughafen Salzburg das praktische Tor nach Bad Gastein ist',
+      description:
+        'Der Flughafen Salzburg ist der nächstgelegene große Flughafen zu Bad Gastein und dem Gasteinertal, bei einem inländischen Transfer ganz ohne Grenzübertritt. Auch der Flughafen Innsbruck wird von manchen Reisenden genutzt, ist mit etwa 2 Stunden 15 Minuten jedoch deutlich weiter entfernt — Salzburg ist für die meisten Buchungen die direktere Option.',
+    },
+    whyBookPoints: [
+      { title: 'Tür zu Tür', description: 'Ihr Chauffeur bringt Sie direkt vom Flughafen Salzburg zu Ihrer Unterkunft in Bad Gastein.' },
+      { title: 'Kein Zugumstieg', description: 'Kein Bus zum Bahnhof, kein Umsteigen auf den Zug — reisen Sie die ganze Strecke im selben privaten Fahrzeug.' },
+      { title: 'Skifreundliche Fahrzeugplanung', description: 'Teilen Sie uns Ski, Snowboards und zusätzliches Gepäck bei der Buchung mit.' },
+      { title: 'Festpreis', description: 'Ihr Transferpreis wird vor der Fahrt bestätigt.' },
+      { title: 'Flexible Abholung', description: 'Ihre Flughafenabholung wird auf Ihre Ankunft abgestimmt.' },
+      { title: 'Rücktransfer', description: 'Buchen Sie auch Bad Gastein → Flughafen Salzburg.' },
+    ],
+    flightTrackingSection: {
+      heading: 'Flughafenabholung & Flugüberwachung',
+      description:
+        'Geben Sie bei der Buchung Ihre Flugnummer an, und wir überwachen die geplante Ankunft am Flughafen Salzburg. Bei Verspätung oder frühzeitiger Ankunft wird die Abholzeit entsprechend angepasst.',
+    },
+    destinationCoverage: {
+      heading: 'Abholung an Hotel & Chalet in Bad Gastein',
+      intro:
+        'Bad Gastein ist ein kompakter, steil gebauter Hangort — Ihr Hotel liegt möglicherweise nicht direkt am Bahnhof. Geben Sie bei der Anfrage Ihre genaue Unterkunft an. Wir fahren direkt zu:',
+      items: ['Hotels in Bad Gastein', 'Spahotels', 'Chalets', 'Ferienwohnungen', 'Privatadressen'],
+    },
+    luggageNote: {
+      heading: 'Reisen Sie mit Skiausrüstung oder zusätzlichem Gepäck?',
+      description:
+        'Bad Gastein gehört zum Skiverbund Ski Amadé, Skiausrüstung ist auf dieser Strecke im Winter also normal. Geben Sie bei der Buchung Ihre Ski- und Snowboardtaschen, Skischuhe sowie eventuelle Kinderausrüstung zusätzlich zu Ihren normalen Koffern an — ein passendes Fahrzeug kann eingeplant werden, nicht nur nach Personenzahl.',
+    },
+    familySection: {
+      heading: 'Familientransfer',
+      description:
+        'Reisen mit Kindern bringt Kindersitze, Sitzerhöhungen, Kinderwagen und Skiausrüstung zusätzlich zu den normalen Koffern mit sich. Geben Sie bei der Anfrage die Anzahl und das Alter der Kinder, benötigte Kindersitze sowie Ihr Gepäck an, und wir stellen je nach Verfügbarkeit einen Executive Van oder Kleinbus mit ausreichend Platz bereit.',
+    },
+    groupSection: {
+      heading: 'Gruppentransfers nach Bad Gastein',
+      description:
+        'Diese Strecke eignet sich auch für Skigruppen, Wellnessgruppen und größere Freundesgruppen, die die Thermen besuchen. Für größere Gruppen können mehrere Fahrzeuge oder ein Kleinbus organisiert werden — geben Sie bei der Anfrage Ihre vollständige Reiseroute, Personenanzahl und Ihr Gepäck an.',
+    },
+    winterSection: {
+      heading: 'Flughafen Salzburg nach Bad Gastein im Winter',
+      description:
+        'Schneefall, vereiste Straßen und Verkehr rund um Samstags-Wechseltage, Weihnachten/Neujahr und die Februar-Ferien können diese Fahrt verlängern — auch bei frühmorgendlichen Flughafenankünften. Planen Sie bei starkem Schneefall oder verkehrsreicher Hauptsaison zusätzliche Zeit ein, statt von einer festen Fahrzeit von 1 Std. 15 Min. auszugehen.',
+      linkHref: '/de/blog/salzburg-airport-to-bad-gastein-transfer-guide',
+      linkLabel: 'Unseren vollständigen Bad-Gastein-Transferguide lesen →',
+    },
+    returnSection: {
+      heading: 'Bad Gastein → Flughafen Salzburg',
+      description:
+        'Derselbe private Service funktioniert auch für Ihre Abreise in umgekehrter Richtung. Wir holen Sie direkt von Ihrem Hotel, Chalet oder Ihrer Ferienwohnung in Bad Gastein ab und bringen Sie zum Flughafen Salzburg. Teilen Sie uns bei der Buchung Ihre Flugzeit, Ihr Gepäck und Ihre bevorzugte Abholzeit mit — planen Sie zusätzlichen Puffer für winterliche Straßenverhältnisse und den Check-in ein.',
+    },
+    transferComparison: [
+      { option: 'Privater Chauffeur', bestFor: 'Direkte Flughafenabholung, Hoteltransfer und Skigepäck', tradeoff: 'Höhere Kosten als öffentliche Verkehrsmittel' },
+      { option: 'Zug + Umstieg', bestFor: 'Kostenbewusste Reisende, die einen Flughafenbus und einen Bahnhofswechsel in Kauf nehmen', tradeoff: 'Längere Gesamtreise, mehr Gepäckaufwand und fester Fahrplan' },
+    ],
+    relatedRoutesHeading: 'Weitere Ski- & Wellness-Transferstrecken',
+    relatedAirportRoutes: [
+      { label: 'Flughafen Salzburg → Schladming', distance: '~90 km', duration: '~1 Std. 15 Min.', href: '/de/routes/salzburg-airport-to-schladming' },
+      { label: 'Flughafen Salzburg → Obertauern', distance: '~90 km', duration: '~1 Std. 15 Min.', href: '/de/routes/salzburg-airport-to-obertauern' },
+      { label: 'Flughafen Salzburg → Zell am See', distance: '~80 km', duration: '~1 Std. 15 Min.', href: '/de/routes/salzburg-airport-to-zell-am-see' },
+    ],
+    faqs: [
+      {
+        question: 'Wie weit ist Bad Gastein vom Flughafen Salzburg entfernt?',
+        answer: 'Die Straßenentfernung beträgt etwa 95 km über die A10 Tauernautobahn und die B167 das Gasteinertal hinauf.',
+      },
+      {
+        question: 'Wie lange dauert der Transfer?',
+        answer: 'Unter normalen Bedingungen rund 1 Stunde 15 Minuten, bei winterlichem Verkehr oder starkem Schneefall bis zu 1 Stunde 30 Minuten.',
+      },
+      {
+        question: 'Kann ich mit Ski reisen?',
+        answer: 'Ja. Teilen Sie uns Ihre Ski- oder Snowboardausrüstung bei der Buchung mit, damit wir ein geeignetes Fahrzeug einplanen können.',
+      },
+      {
+        question: 'Können Sie mich direkt zu meinem Hotel bringen?',
+        answer: 'Ja. Wir fahren direkt zu Ihrem Hotel, Spahotel, Chalet, Ihrer Ferienwohnung oder Privatadresse in Bad Gastein.',
+      },
+      {
+        question: 'Bieten Sie Rücktransfers an?',
+        answer: 'Ja. Wir holen Sie von Ihrer Unterkunft in Bad Gastein ab und bringen Sie zum Flughafen Salzburg.',
+      },
+      {
+        question: 'Können Familien ein größeres Fahrzeug buchen?',
+        answer: 'Ja. Executive Vans und Kleinbusse stehen je nach Verfügbarkeit für Familien und größere Gruppen zur Verfügung.',
+      },
+    ],
   },
   {
     slug: 'salzburg-airport-to-filzmoos',
@@ -705,6 +807,108 @@ export const routes: RoutePair[] = [
       'Festpreis inklusive Tauernautobahn-Mautgebühren',
       'Direkte Ablieferung am Hotel, ohne Skiausrüstung im Zug zu transportieren',
     ],
+    seoTitle: 'Transfer Flughafen Salzburg nach Schladming | Privater Chauffeur',
+    seoDescription:
+      'Privater Chauffeurtransfer vom Flughafen Salzburg nach Schladming. Tür-zu-Tür-Service, Flugüberwachung, Festpreise. ~90 km, ~1 Std. 15 Min.',
+    dropoffHint:
+      'Geben Sie Ihr Hotel, Chalet oder Ihre Adresse in Schladming als Ziel an. Wir bestätigen Verfügbarkeit und Festpreis per E-Mail.',
+    routeOverview: {
+      road: 'A10 Tauernautobahn über die B320 Ennstal Straße',
+      transferType: 'Privat, Tür zu Tür',
+      vehicleNote: 'Limousine, Executive Van oder Kleinbus',
+    },
+    routeExplanation: {
+      heading: 'Die Fahrt vom Flughafen Salzburg nach Schladming',
+      description:
+        'Vom Flughafen Salzburg führt die Fahrt südlich über die A10 Tauernautobahn, bevor sie über die B320 Ennstal Straße direkt nach Schladming führt — eine lebendige Marktgemeinde am Fuß der Planai-Weltcup-Abfahrt, mit drei benachbarten Bergen im Skiverbund Ski Amadé. Unter normalen Bedingungen dauert die Fahrt etwa 1 Stunde 15 Minuten, wobei winterliches Wetter und Wechseltag-Verkehr die Fahrzeit verlängern können.',
+    },
+    originAlternative: {
+      heading: 'Warum der Flughafen Salzburg das praktische Tor nach Schladming ist',
+      description:
+        'Der Flughafen Salzburg ist der nächstgelegene große Flughafen zu Schladming, bei einem inländischen Transfer ganz ohne Grenzübertritt. Der Flughafen Graz bietet eine ähnliche Fahrzeit, während der Flughafen Innsbruck mit etwa 2 Stunden 15 Minuten deutlich weiter entfernt ist — Salzburg ist für die meisten Buchungen die kürzeste, direkteste Option.',
+    },
+    whyBookPoints: [
+      { title: 'Tür zu Tür', description: 'Ihr Chauffeur bringt Sie direkt vom Flughafen Salzburg zu Ihrer Unterkunft in Schladming.' },
+      { title: 'Kein Zugumstieg', description: 'Kein Regionalzug, kein Ortsbus — reisen Sie die ganze Strecke im selben privaten Fahrzeug.' },
+      { title: 'Skifreundliche Fahrzeugplanung', description: 'Teilen Sie uns Ski, Snowboards und zusätzliches Gepäck bei der Buchung mit.' },
+      { title: 'Festpreis', description: 'Ihr Transferpreis wird vor der Fahrt bestätigt.' },
+      { title: 'Flexible Abholung', description: 'Ihre Flughafenabholung wird auf Ihre Ankunft abgestimmt.' },
+      { title: 'Rücktransfer', description: 'Buchen Sie auch Schladming → Flughafen Salzburg.' },
+    ],
+    flightTrackingSection: {
+      heading: 'Flughafenabholung & Flugüberwachung',
+      description:
+        'Geben Sie bei der Buchung Ihre Flugnummer an, und wir überwachen die geplante Ankunft am Flughafen Salzburg. Bei Verspätung oder frühzeitiger Ankunft wird die Abholzeit entsprechend angepasst.',
+    },
+    destinationCoverage: {
+      heading: 'Abholung an Hotel & Chalet in Schladming-Dachstein',
+      intro:
+        'Ihr Ziel ist nicht zwangsläufig „Schladming" selbst — auch Rohrmoos und Haus im Ennstal sind üblich. Geben Sie bei der Anfrage Ihre genaue Unterkunft an. Wir fahren direkt zu:',
+      items: ['Hotels in Schladming', 'Chalets in Rohrmoos', 'Ferienwohnungen', 'Privatadressen', 'Haus im Ennstal (auf Anfrage)'],
+    },
+    luggageNote: {
+      heading: 'Reisen Sie mit Skiausrüstung oder zusätzlichem Gepäck?',
+      description:
+        'Schladming ist ein bedeutendes Ski-Amadé-Ziel, Skiausrüstung ist auf dieser Strecke im Winter also normal. Geben Sie bei der Buchung Ihre Ski- und Snowboardtaschen, Skischuhe sowie eventuelle Kinderausrüstung zusätzlich zu Ihren normalen Koffern an — ein passendes Fahrzeug kann eingeplant werden, nicht nur nach Personenzahl.',
+    },
+    familySection: {
+      heading: 'Familien-Skitransfer',
+      description:
+        'Reisen mit Kindern bringt Kindersitze, Sitzerhöhungen, Kinderwagen und Skiausrüstung zusätzlich zu den normalen Koffern mit sich. Geben Sie bei der Anfrage die Anzahl und das Alter der Kinder, benötigte Kindersitze sowie Ihr Gepäck an, und wir stellen je nach Verfügbarkeit einen Executive Van oder Kleinbus mit ausreichend Platz bereit.',
+    },
+    groupSection: {
+      heading: 'Gruppentransfers nach Schladming',
+      description:
+        'Diese Strecke eignet sich auch für Skigruppen, Firmengruppen und größere Freundesgruppen. Für größere Gruppen können mehrere Fahrzeuge oder ein Kleinbus organisiert werden — geben Sie bei der Anfrage Ihre vollständige Reiseroute, Personenanzahl und Ihr Gepäck an.',
+    },
+    winterSection: {
+      heading: 'Flughafen Salzburg nach Schladming im Winter',
+      description:
+        'Schneefall, vereiste Straßen und Verkehr rund um Samstags-Wechseltage, Weihnachten/Neujahr und die Februar-Ferien können diese Fahrt verlängern — auch bei frühmorgendlichen Flughafenankünften. Planen Sie bei starkem Schneefall oder verkehrsreicher Hauptsaison zusätzliche Zeit ein, statt von einer festen Fahrzeit von 1 Std. 15 Min. auszugehen.',
+      linkHref: '/de/blog/salzburg-airport-to-schladming-transfer-guide',
+      linkLabel: 'Unseren vollständigen Schladming-Transferguide lesen →',
+    },
+    returnSection: {
+      heading: 'Schladming → Flughafen Salzburg',
+      description:
+        'Derselbe private Service funktioniert auch für Ihre Abreise in umgekehrter Richtung. Wir holen Sie direkt von Ihrem Hotel, Chalet oder Ihrer Ferienwohnung in Schladming ab und bringen Sie zum Flughafen Salzburg. Teilen Sie uns bei der Buchung Ihre Flugzeit, Ihr Gepäck und Ihre bevorzugte Abholzeit mit — planen Sie zusätzlichen Puffer für winterliche Straßenverhältnisse und den Check-in ein.',
+    },
+    transferComparison: [
+      { option: 'Privater Chauffeur', bestFor: 'Direkte Flughafenabholung, Hoteltransfer und Skigepäck', tradeoff: 'Höhere Kosten als öffentliche Verkehrsmittel' },
+      { option: 'Zug + Umstieg', bestFor: 'Kostenbewusste Reisende, die einen Bahnhofswechsel in Kauf nehmen', tradeoff: 'Längere Gesamtreise, mehr Gepäckaufwand und fester Fahrplan' },
+    ],
+    relatedRoutesHeading: 'Weitere Skitransfer-Strecken',
+    relatedAirportRoutes: [
+      { label: 'Flughafen Salzburg → Obertauern', distance: '~90 km', duration: '~1 Std. 15 Min.', href: '/de/routes/salzburg-airport-to-obertauern' },
+      { label: 'Flughafen Salzburg → Bad Gastein', distance: '~95 km', duration: '~1 Std. 15 Min.', href: '/de/routes/salzburg-airport-to-bad-gastein' },
+      { label: 'Flughafen Graz → Schladming', distance: '~100 km', duration: '~1 Std. 30 Min.', href: '/de/routes/graz-airport-to-schladming' },
+    ],
+    faqs: [
+      {
+        question: 'Wie weit ist Schladming vom Flughafen Salzburg entfernt?',
+        answer: 'Die Straßenentfernung beträgt etwa 90 km über die A10 Tauernautobahn und die B320 Ennstal Straße.',
+      },
+      {
+        question: 'Wie lange dauert der Transfer?',
+        answer: 'Unter normalen Bedingungen rund 1 Stunde 15 Minuten, bei winterlichem Verkehr oder starkem Schneefall bis zu 1 Stunde 30 Minuten.',
+      },
+      {
+        question: 'Kann ich mit Ski reisen?',
+        answer: 'Ja. Teilen Sie uns Ihre Ski- oder Snowboardausrüstung bei der Buchung mit, damit wir ein geeignetes Fahrzeug einplanen können.',
+      },
+      {
+        question: 'Können Sie mich direkt zu meinem Hotel bringen?',
+        answer: 'Ja. Wir fahren direkt zu Ihrem Hotel, Chalet, Ihrer Ferienwohnung oder Privatadresse in Schladming oder Rohrmoos.',
+      },
+      {
+        question: 'Bieten Sie Rücktransfers an?',
+        answer: 'Ja. Wir holen Sie von Ihrer Unterkunft in Schladming ab und bringen Sie zum Flughafen Salzburg.',
+      },
+      {
+        question: 'Können Familien ein größeres Fahrzeug buchen?',
+        answer: 'Ja. Executive Vans und Kleinbusse stehen je nach Verfügbarkeit für Familien und größere Gruppen zur Verfügung.',
+      },
+    ],
   },
   {
     slug: 'salzburg-airport-to-obertauern',
@@ -717,6 +921,102 @@ export const routes: RoutePair[] = [
       'Direkter Transfer zum schneesicheren Passresort in Höhenlage',
       'Wintertaugliche Fahrzeuge für winterliche Bergstraßen',
       'Alles inklusive zum Festpreis, mit Überwachung von Flugverspätungen',
+    ],
+    seoTitle: 'Transfer Flughafen Salzburg nach Obertauern | Privater Chauffeur',
+    seoDescription:
+      'Privater Chauffeurtransfer vom Flughafen Salzburg nach Obertauern. Tür-zu-Tür-Service, Flugüberwachung, Festpreise. ~90 km, ~1 Std. 15 Min.',
+    dropoffHint:
+      'Geben Sie Ihr Hotel, Chalet oder Ihre Adresse in Obertauern als Ziel an. Wir bestätigen Verfügbarkeit und Festpreis per E-Mail.',
+    routeOverview: {
+      road: 'A10 Tauernautobahn über die B99 Radstädter Tauernstraße',
+      transferType: 'Privat, Tür zu Tür',
+      vehicleNote: 'Limousine, Executive Van oder Kleinbus',
+    },
+    routeExplanation: {
+      heading: 'Die Fahrt vom Flughafen Salzburg nach Obertauern',
+      description:
+        'Vom Flughafen Salzburg führt die Fahrt südlich über die A10 Tauernautobahn bis zur Ausfahrt Radstadt, dann die B99 Radstädter Tauernstraße hinauf nach Obertauern — eines der höchstgelegenen und schneesichersten Skigebiete Österreichs, auf dem Tauernpass gelegen, mit der Tauernrunde als Ski-zurück-zum-Ort-Rundkurs. Der letzte Abschnitt ist eine echte Passfahrt, und unter normalen Bedingungen dauert die Fahrt etwa 1 Stunde 15 Minuten, wobei winterliches Wetter die Fahrzeit verlängern kann.',
+    },
+    originAlternative: {
+      heading: 'Warum der Flughafen Salzburg das praktische Tor nach Obertauern ist',
+      description:
+        'Der Flughafen Salzburg ist der nächstgelegene große Flughafen zu Obertauern, bei einem inländischen Transfer ganz ohne Grenzübertritt. Auch der Flughafen Klagenfurt wird von manchen Reisenden genutzt, ist mit etwa 1 Stunde 30 Minuten jedoch weiter entfernt — Salzburg ist für die meisten Buchungen die direktere Option.',
+    },
+    whyBookPoints: [
+      { title: 'Tür zu Tür', description: 'Ihr Chauffeur bringt Sie direkt vom Flughafen Salzburg zu Ihrer Unterkunft in Obertauern.' },
+      { title: 'Passfahrt souverän gemeistert', description: 'Die letzte Steigung nach Obertauern ist eine echte Passstraße — überlassen Sie die winterliche Fahrt einem erfahrenen lokalen Chauffeur.' },
+      { title: 'Skifreundliche Fahrzeugplanung', description: 'Teilen Sie uns Ski, Snowboards und zusätzliches Gepäck bei der Buchung mit.' },
+      { title: 'Festpreis', description: 'Ihr Transferpreis wird vor der Fahrt bestätigt.' },
+      { title: 'Flexible Abholung', description: 'Ihre Flughafenabholung wird auf Ihre Ankunft abgestimmt.' },
+      { title: 'Rücktransfer', description: 'Buchen Sie auch Obertauern → Flughafen Salzburg.' },
+    ],
+    flightTrackingSection: {
+      heading: 'Flughafenabholung & Flugüberwachung',
+      description:
+        'Geben Sie bei der Buchung Ihre Flugnummer an, und wir überwachen die geplante Ankunft am Flughafen Salzburg. Bei Verspätung oder frühzeitiger Ankunft wird die Abholzeit entsprechend angepasst.',
+    },
+    luggageNote: {
+      heading: 'Reisen Sie mit Skiausrüstung oder zusätzlichem Gepäck?',
+      description:
+        'Obertauern ist von Spätherbst bis Frühling verlässlich schneesicher, Skiausrüstung ist auf dieser Strecke also Standard. Geben Sie bei der Buchung Ihre Ski- und Snowboardtaschen, Skischuhe sowie eventuelle Kinderausrüstung zusätzlich zu Ihren normalen Koffern an — ein passendes Fahrzeug kann eingeplant werden, nicht nur nach Personenzahl.',
+    },
+    familySection: {
+      heading: 'Familien-Skitransfer',
+      description:
+        'Reisen mit Kindern bringt Kindersitze, Sitzerhöhungen, Kinderwagen und Skiausrüstung zusätzlich zu den normalen Koffern mit sich. Geben Sie bei der Anfrage die Anzahl und das Alter der Kinder, benötigte Kindersitze sowie Ihr Gepäck an, und wir stellen je nach Verfügbarkeit einen Executive Van oder Kleinbus mit ausreichend Platz bereit.',
+    },
+    groupSection: {
+      heading: 'Gruppentransfers nach Obertauern',
+      description:
+        'Diese Strecke eignet sich auch für Skigruppen, Firmengruppen und größere Freundesgruppen. Für größere Gruppen können mehrere Fahrzeuge oder ein Kleinbus organisiert werden — geben Sie bei der Anfrage Ihre vollständige Reiseroute, Personenanzahl und Ihr Gepäck an.',
+    },
+    winterSection: {
+      heading: 'Flughafen Salzburg nach Obertauern im Winter',
+      description:
+        'Obertauerns Höhenlage bedeutet, dass winterliche Bedingungen hier stärker ins Gewicht fallen als bei manch anderem Resort-Transfer. Schneefall, vereiste Straßen und Verkehr rund um Samstags-Wechseltage, Weihnachten/Neujahr und die Februar-Ferien können diese Fahrt verlängern — auch bei frühmorgendlichen Flughafenankünften. Planen Sie bei starkem Schneefall zusätzliche Zeit ein, statt von einer festen Fahrzeit von 1 Std. 15 Min. auszugehen.',
+      linkHref: '/de/blog/salzburg-airport-to-obertauern-transfer-guide',
+      linkLabel: 'Unseren vollständigen Obertauern-Transferguide lesen →',
+    },
+    returnSection: {
+      heading: 'Obertauern → Flughafen Salzburg',
+      description:
+        'Derselbe private Service funktioniert auch für Ihre Abreise in umgekehrter Richtung. Wir holen Sie direkt von Ihrem Hotel, Chalet oder Ihrer Ferienwohnung in Obertauern ab und bringen Sie zum Flughafen Salzburg. Teilen Sie uns bei der Buchung Ihre Flugzeit, Ihr Gepäck und Ihre bevorzugte Abholzeit mit — planen Sie zusätzlichen Puffer für winterliche Straßenverhältnisse und den Check-in ein.',
+    },
+    transferComparison: [
+      { option: 'Privater Chauffeur', bestFor: 'Direkte Flughafenabholung, Hoteltransfer und Skigepäck', tradeoff: 'Höhere Kosten als öffentliche Verkehrsmittel' },
+      { option: 'Öffentliche Verkehrsmittel', bestFor: 'Kostenbewusste Reisende, die Umstiege in Kauf nehmen', tradeoff: 'Längere Gesamtreise und mit Skiausrüstung weniger praktisch' },
+    ],
+    relatedRoutesHeading: 'Weitere Skitransfer-Strecken',
+    relatedAirportRoutes: [
+      { label: 'Flughafen Salzburg → Schladming', distance: '~90 km', duration: '~1 Std. 15 Min.', href: '/de/routes/salzburg-airport-to-schladming' },
+      { label: 'Flughafen Salzburg → Bad Gastein', distance: '~95 km', duration: '~1 Std. 15 Min.', href: '/de/routes/salzburg-airport-to-bad-gastein' },
+      { label: 'Flughafen Salzburg → Zell am See', distance: '~80 km', duration: '~1 Std. 15 Min.', href: '/de/routes/salzburg-airport-to-zell-am-see' },
+    ],
+    faqs: [
+      {
+        question: 'Wie weit ist Obertauern vom Flughafen Salzburg entfernt?',
+        answer: 'Die Straßenentfernung beträgt etwa 90 km über die A10 Tauernautobahn und die B99 Radstädter Tauernstraße.',
+      },
+      {
+        question: 'Wie lange dauert der Transfer?',
+        answer: 'Unter normalen Bedingungen rund 1 Stunde 15 Minuten, bei winterlichem Verkehr oder Schneefall auf der Passstraße bis zu 1 Stunde 30 Minuten.',
+      },
+      {
+        question: 'Kann ich mit Ski reisen?',
+        answer: 'Ja. Teilen Sie uns Ihre Ski- oder Snowboardausrüstung bei der Buchung mit, damit wir ein geeignetes Fahrzeug einplanen können.',
+      },
+      {
+        question: 'Können Sie mich direkt zu meinem Hotel bringen?',
+        answer: 'Ja. Wir fahren direkt zu Ihrem Hotel, Chalet, Ihrer Ferienwohnung oder Privatadresse in Obertauern.',
+      },
+      {
+        question: 'Bieten Sie Rücktransfers an?',
+        answer: 'Ja. Wir holen Sie von Ihrer Unterkunft in Obertauern ab und bringen Sie zum Flughafen Salzburg.',
+      },
+      {
+        question: 'Können Familien ein größeres Fahrzeug buchen?',
+        answer: 'Ja. Executive Vans und Kleinbusse stehen je nach Verfügbarkeit für Familien und größere Gruppen zur Verfügung.',
+      },
     ],
   },
   {

@@ -4,7 +4,7 @@ import { adminNotificationEmail, customerConfirmationEmail } from '@/lib/booking
 import { createServiceRoleClient } from '@/lib/supabase/server'
 import { getResendClient, getBookingFromAddress, getAdminNotificationAddress } from '@/lib/resend'
 import { dispatchTenantWebhookAndRecord } from '@/lib/bookings/webhook'
-import { flagIfDuplicate } from '@/lib/bookings/duplicates'
+import { flagIfDuplicate, isSubmittingTooFast } from '@/lib/bookings/duplicates'
 
 export async function POST(request: NextRequest) {
   let body: unknown
@@ -23,6 +23,14 @@ export async function POST(request: NextRequest) {
   }
 
   const input = parsed.data
+
+  if (await isSubmittingTooFast(input.email)) {
+    return NextResponse.json(
+      { error: 'Too many booking requests from this email address. Please try again later.' },
+      { status: 429 }
+    )
+  }
+
   const supabase = createServiceRoleClient()
 
   const { data: booking, error: insertError } = await supabase

@@ -85,7 +85,7 @@ export const skiResorts: SkiResort[] = [
         note: "Munich Airport is around 165 km from Kitzbühel, with a drive of roughly 2 hours via the A8 towards the Inntal Dreieck and A93/B173 through Kufstein. It's worth considering for long-haul or international connections not available at the smaller Austrian airports, even though it's a longer, cross-border journey — travelers arriving from overseas often find Munich's wider flight network outweighs the extra driving time.",
       },
     ],
-    seoTitle: 'Kitzbühel Ski Transfers: Private Airport Chauffeur Service',
+    seoTitle: 'Kitzbühel Airport Transfer | Private Ski Chauffeur Service',
     seoDescription:
       'Private ski transfer to Kitzbühel from Innsbruck, Salzburg, and Munich Airport. Door-to-door service, fixed pricing, and space for skis and snowboards.',
     heroHeading: 'Kitzbühel Ski Transfers: Private Airport Chauffeur Service',

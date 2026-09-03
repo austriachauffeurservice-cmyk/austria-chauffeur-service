@@ -581,13 +581,13 @@ export default function AdminDashboard() {
                         {/* PDF Printable Generators */}
                         <td style={{ padding: '12px 14px', whiteSpace: 'nowrap' }}>
                           <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                            <a href={`/admin/bookings/${b.id}/document?type=quote`} target="_blank" className="doc-btn" title="View/Print Quotation PDF">
+                            <a href={`/admin/bookings/${b.id}/document?type=quote`} target="_blank" rel="noopener" className="doc-btn" title="View/Print Quotation PDF">
                               <FontAwesomeIcon icon={faFileLines} /> Quote PDF
                             </a>
-                            <a href={`/admin/bookings/${b.id}/document?type=invoice`} target="_blank" className="doc-btn" title="View/Print Tax Invoice PDF">
+                            <a href={`/admin/bookings/${b.id}/document?type=invoice`} target="_blank" rel="noopener" className="doc-btn" title="View/Print Tax Invoice PDF">
                               <FontAwesomeIcon icon={faFileInvoice} /> Invoice PDF
                             </a>
-                            <a href={`/admin/bookings/${b.id}/document?type=receipt`} target="_blank" className="doc-btn" title="View/Print Payment Receipt PDF">
+                            <a href={`/admin/bookings/${b.id}/document?type=receipt`} target="_blank" rel="noopener" className="doc-btn" title="View/Print Payment Receipt PDF">
                               <FontAwesomeIcon icon={faReceipt} /> Receipt PDF
                             </a>
                           </div>

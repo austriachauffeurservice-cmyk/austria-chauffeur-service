@@ -59,8 +59,8 @@ export default function CorporateAccountsPageDe() {
             Gemacht für Unternehmen, Agenturen und Concierge-Teams
           </h1>
           <p className="mt-4 max-w-xl text-brand-cream/80">
-            Wenn Sie regelmäßig Chauffeurtransfers buchen — für ein Unternehmen, ein Reisebüro
-            oder eine Hotelrezeption — bietet Ihnen ein Firmenkonto gesammelte Rechnungsstellung,
+            Sie buchen regelmäßig Chauffeurtransfers — für ein Unternehmen, ein Reisebüro oder
+            eine Hotelrezeption. Ein Firmenkonto bietet Ihnen dafür gesammelte Rechnungsstellung,
             priorisierte Bearbeitung und einen zentralen Ansprechpartner statt einzelner Buchungen.
           </p>
         </div>

@@ -62,7 +62,7 @@ export const vehicles = [
   },
   {
     ...vehiclesEn[2],
-    name: 'Executive Van',
+    name: 'Executive-Van',
     passengers: 'Bis zu 7',
     luggage: '6–7 Gepäckstücke',
     description:

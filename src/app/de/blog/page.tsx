@@ -5,7 +5,7 @@ import { blogPosts } from '@/lib/content/de/blog'
 import { siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: 'Blog & Reiseratgeber',
   description:
     'Leitfäden zu Flughafentransfers, grenzüberschreitenden Strecken und privatem Chauffeurreisen in Österreich und den Nachbarländern.',
   alternates: { canonical: '/de/blog', languages: { en: '/blog', de: '/de/blog', 'x-default': '/blog' } },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     siteName,
     locale: 'de_AT',
     url: `${siteUrl}/de/blog`,
-    title: 'Blog',
+    title: 'Blog & Reiseratgeber',
     description:
       'Leitfäden zu Flughafentransfers, grenzüberschreitenden Strecken und privatem Chauffeurreisen in Österreich und den Nachbarländern.',
   },

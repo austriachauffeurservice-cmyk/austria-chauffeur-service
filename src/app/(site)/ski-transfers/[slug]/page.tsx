@@ -29,7 +29,7 @@ export async function generateMetadata({
   if (!resort) return {}
 
   const canonical = `/ski-transfers/${slug}`
-  const title = resort.seoTitle ?? `Ski Transfer to ${resort.name}`
+  const title = resort.seoTitle ?? `Ski Transfer to ${resort.name} | Private Chauffeur Service`
   const description =
     resort.seoDescription ??
     `Private airport-to-resort chauffeur transfer to ${resort.name}, ${resort.region}. Winter-ready vehicles, ski/board space, fixed pricing from ${resort.nearestAirports[0].name}.`

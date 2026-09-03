@@ -440,6 +440,108 @@ export const routes: RoutePair[] = [
       'Comfortable ride for winter ski and summer wellness guests',
       'Fixed transparent price with flight delay tracking included',
     ],
+    seoTitle: 'Salzburg Airport to Bad Gastein Transfer | Private Chauffeur',
+    seoDescription:
+      'Private chauffeur transfer from Salzburg Airport to Bad Gastein. Door-to-door service, flight tracking, fixed pricing. ~95km, ~1h 15m.',
+    dropoffHint:
+      'Enter your Bad Gastein hotel, chalet, or address as the destination. We will confirm availability and a fixed price by email.',
+    routeOverview: {
+      road: 'A10 Tauern Autobahn via B167 Gasteinertal',
+      transferType: 'Private, door-to-door',
+      vehicleNote: 'Sedan, Executive Van, or Minibus',
+    },
+    routeExplanation: {
+      heading: 'The Drive from Salzburg Airport to Bad Gastein',
+      description:
+        'From Salzburg Airport, the route heads south on the A10 Tauern Autobahn before turning onto the B167 and climbing the Gastein Valley to Bad Gastein — a historic Belle Époque spa town built on a thermal waterfall, steeply terraced into the hillside. Under normal conditions the drive takes around 1 hour 15 minutes, though winter weather and valley traffic can extend the journey.',
+    },
+    originAlternative: {
+      heading: 'Why Salzburg Airport Is the Practical Gateway to Bad Gastein',
+      description:
+        'Salzburg Airport is the closest major airport to Bad Gastein and the Gastein Valley, on a domestic transfer that stays entirely within Austria. Innsbruck Airport is also used by some travelers, but at around 2 hours 15 minutes it is a considerably longer drive — Salzburg is the more direct option for most bookings.',
+    },
+    whyBookPoints: [
+      { title: 'Door-to-Door', description: 'Your chauffeur takes you directly from Salzburg Airport to your Bad Gastein accommodation.' },
+      { title: 'No Train Connection', description: 'Skip the airport-to-station bus and the train change — travel in one private vehicle the whole way.' },
+      { title: 'Ski-Friendly Vehicle Planning', description: 'Tell us about skis, snowboards, and additional luggage when booking.' },
+      { title: 'Fixed Price', description: 'Your transfer price is confirmed before travel.' },
+      { title: 'Flexible Pickup', description: 'Your airport pickup is arranged around your arrival.' },
+      { title: 'Return Transfer', description: 'Book Bad Gastein → Salzburg Airport as well.' },
+    ],
+    flightTrackingSection: {
+      heading: 'Airport Pickup & Flight Tracking',
+      description:
+        'Provide your flight number when booking and we monitor the scheduled arrival at Salzburg Airport. If your flight is early or delayed, pickup timing is adjusted accordingly.',
+    },
+    destinationCoverage: {
+      heading: 'Bad Gastein Hotel & Chalet Pickup',
+      intro:
+        'Bad Gastein is a compact, steeply-built hillside town — your hotel may not be right next to the railway station. Provide your exact accommodation when requesting your quote. We drive directly to:',
+      items: ['Bad Gastein hotels', 'Spa hotels', 'Chalets', 'Apartments', 'Private residences'],
+    },
+    luggageNote: {
+      heading: 'Traveling with Ski Equipment or Extra Luggage?',
+      description:
+        "Bad Gastein is part of the Ski Amadé network, so ski equipment is a normal part of this route in winter. Let us know about ski bags, snowboards, boots, and any child equipment when booking, alongside your regular suitcases — a vehicle can be assigned that fits everything, not just the passenger count.",
+    },
+    familySection: {
+      heading: 'Family Transfers',
+      description:
+        "Traveling with children adds car seats, boosters, strollers, and ski equipment on top of regular suitcases. Mention the number and ages of children, any child-seat needs, and your luggage when requesting a quote, and we'll assign an Executive Van or Minibus with enough space, subject to availability.",
+    },
+    groupSection: {
+      heading: 'Group Transfers to Bad Gastein',
+      description:
+        'This route also suits ski groups, wellness groups, and larger parties of friends visiting the thermal spas. Multiple vehicles or a Minibus can be arranged for bigger groups — provide your full itinerary, passenger count, and luggage when requesting a quote.',
+    },
+    winterSection: {
+      heading: 'Salzburg Airport to Bad Gastein in Winter',
+      description:
+        'Snowfall, icy roads, and traffic around Saturday changeovers, Christmas/New Year, and February school holidays can all add time to this drive, including for early-morning airport arrivals. Allow additional time during heavy snowfall or peak ski-season traffic rather than assuming a fixed 1h 15m journey.',
+      linkHref: '/blog/salzburg-airport-to-bad-gastein-transfer-guide',
+      linkLabel: 'Read our full Bad Gastein transfer guide →',
+    },
+    returnSection: {
+      heading: 'Bad Gastein → Salzburg Airport',
+      description:
+        'The same private service works in reverse for your departure. We collect you directly from your hotel, chalet, or apartment in Bad Gastein and take you to Salzburg Airport. Share your flight time, luggage, and preferred pickup time when booking — allow extra buffer for winter road conditions and airport check-in.',
+    },
+    transferComparison: [
+      { option: 'Private chauffeur', bestFor: 'Direct airport pickup, hotel drop-off, and ski luggage', tradeoff: 'Higher cost than public transport' },
+      { option: 'Train + connection', bestFor: 'Budget-conscious travelers comfortable with an airport bus and a station change', tradeoff: 'Longer total journey, more luggage handling, and a fixed timetable' },
+    ],
+    relatedRoutesHeading: 'More Ski & Spa Transfer Routes',
+    relatedAirportRoutes: [
+      { label: 'Salzburg Airport → Schladming', distance: '~90km', duration: '~1h 15m', href: '/routes/salzburg-airport-to-schladming' },
+      { label: 'Salzburg Airport → Obertauern', distance: '~90km', duration: '~1h 15m', href: '/routes/salzburg-airport-to-obertauern' },
+      { label: 'Salzburg Airport → Zell am See', distance: '~80km', duration: '~1h 15m', href: '/routes/salzburg-airport-to-zell-am-see' },
+    ],
+    faqs: [
+      {
+        question: 'How far is Bad Gastein from Salzburg Airport?',
+        answer: 'The road distance is approximately 95 km, via the A10 Tauern Autobahn and the B167 up the Gastein Valley.',
+      },
+      {
+        question: 'How long does the transfer take?',
+        answer: 'Around 1 hour 15 minutes in normal conditions, allowing up to 1 hour 30 minutes during winter traffic or heavy snowfall.',
+      },
+      {
+        question: 'Can I travel with skis?',
+        answer: 'Yes. Tell us your ski or snowboard equipment when booking so we can plan a suitable vehicle.',
+      },
+      {
+        question: 'Can you take me directly to my hotel?',
+        answer: 'Yes. We drive directly to your hotel, spa hotel, chalet, apartment, or private address in Bad Gastein.',
+      },
+      {
+        question: 'Do you offer return transfers?',
+        answer: 'Yes. We collect you from your Bad Gastein accommodation and drive you to Salzburg Airport.',
+      },
+      {
+        question: 'Can families book a larger vehicle?',
+        answer: 'Yes. Executive Vans and Minibuses are available for families and larger groups, subject to availability.',
+      },
+    ],
   },
   {
     slug: 'salzburg-airport-to-filzmoos',
@@ -714,6 +816,108 @@ export const routes: RoutePair[] = [
       'Fixed rate including Tauern motorway toll fees',
       'Direct hotel drop-off without carrying ski gear on public trains',
     ],
+    seoTitle: 'Salzburg Airport to Schladming Transfer | Private Chauffeur',
+    seoDescription:
+      'Private chauffeur transfer from Salzburg Airport to Schladming. Door-to-door service, flight tracking, fixed pricing. ~90km, ~1h 15m.',
+    dropoffHint:
+      'Enter your Schladming hotel, chalet, or address as the destination. We will confirm availability and a fixed price by email.',
+    routeOverview: {
+      road: 'A10 Tauern Autobahn via B320 Ennstal Straße',
+      transferType: 'Private, door-to-door',
+      vehicleNote: 'Sedan, Executive Van, or Minibus',
+    },
+    routeExplanation: {
+      heading: 'The Drive from Salzburg Airport to Schladming',
+      description:
+        'From Salzburg Airport, the route runs south on the A10 Tauern Autobahn before joining the B320 Ennstal Straße directly into Schladming — a working market town at the base of the Planai World Cup downhill course, with three neighboring mountains linked into the Ski Amadé network. Under normal conditions the drive takes around 1 hour 15 minutes, though winter weather and Saturday changeover traffic can extend the journey.',
+    },
+    originAlternative: {
+      heading: 'Why Salzburg Airport Is the Practical Gateway to Schladming',
+      description:
+        'Salzburg Airport is the closest major airport to Schladming, on a domestic transfer that stays entirely within Austria. Graz Airport is a similar drive time, while Innsbruck Airport is considerably further at around 2 hours 15 minutes — Salzburg is the shortest, most direct option for most bookings.',
+    },
+    whyBookPoints: [
+      { title: 'Door-to-Door', description: 'Your chauffeur takes you directly from Salzburg Airport to your Schladming accommodation.' },
+      { title: 'No Train Connection', description: 'Skip the regional train and village bus — travel in one private vehicle the whole way.' },
+      { title: 'Ski-Friendly Vehicle Planning', description: 'Tell us about skis, snowboards, and additional luggage when booking.' },
+      { title: 'Fixed Price', description: 'Your transfer price is confirmed before travel.' },
+      { title: 'Flexible Pickup', description: 'Your airport pickup is arranged around your arrival.' },
+      { title: 'Return Transfer', description: 'Book Schladming → Salzburg Airport as well.' },
+    ],
+    flightTrackingSection: {
+      heading: 'Airport Pickup & Flight Tracking',
+      description:
+        'Provide your flight number when booking and we monitor the scheduled arrival at Salzburg Airport. If your flight is early or delayed, pickup timing is adjusted accordingly.',
+    },
+    destinationCoverage: {
+      heading: 'Schladming-Dachstein Hotel & Chalet Pickup',
+      intro:
+        'Your destination isn\'t necessarily "Schladming" itself — Rohrmoos and Haus im Ennstal are common too. Provide your exact accommodation when requesting your quote. We drive directly to:',
+      items: ['Schladming hotels', 'Rohrmoos chalets', 'Apartments', 'Private residences', 'Haus im Ennstal (on request)'],
+    },
+    luggageNote: {
+      heading: 'Traveling with Ski Equipment or Extra Luggage?',
+      description:
+        "Schladming is a major Ski Amadé destination, so ski equipment is a normal part of this route in winter. Let us know about ski bags, snowboards, boots, and any child equipment when booking, alongside your regular suitcases — a vehicle can be assigned that fits everything, not just the passenger count.",
+    },
+    familySection: {
+      heading: 'Family Ski Transfers',
+      description:
+        "Traveling with children adds car seats, boosters, strollers, and ski equipment on top of regular suitcases. Mention the number and ages of children, any child-seat needs, and your luggage when requesting a quote, and we'll assign an Executive Van or Minibus with enough space, subject to availability.",
+    },
+    groupSection: {
+      heading: 'Group Transfers to Schladming',
+      description:
+        'This route also suits ski groups, corporate groups, and larger parties of friends. Multiple vehicles or a Minibus can be arranged for bigger groups — provide your full itinerary, passenger count, and luggage when requesting a quote.',
+    },
+    winterSection: {
+      heading: 'Salzburg Airport to Schladming in Winter',
+      description:
+        'Snowfall, icy roads, and traffic around Saturday changeovers, Christmas/New Year, and February school holidays can all add time to this drive, including for early-morning airport arrivals. Allow additional time during heavy snowfall or peak ski-season traffic rather than assuming a fixed 1h 15m journey.',
+      linkHref: '/blog/salzburg-airport-to-schladming-transfer-guide',
+      linkLabel: 'Read our full Schladming transfer guide →',
+    },
+    returnSection: {
+      heading: 'Schladming → Salzburg Airport',
+      description:
+        'The same private service works in reverse for your departure. We collect you directly from your hotel, chalet, or apartment in Schladming and take you to Salzburg Airport. Share your flight time, luggage, and preferred pickup time when booking — allow extra buffer for winter road conditions and airport check-in.',
+    },
+    transferComparison: [
+      { option: 'Private chauffeur', bestFor: 'Direct airport pickup, hotel drop-off, and ski luggage', tradeoff: 'Higher cost than public transport' },
+      { option: 'Train + connection', bestFor: 'Budget-conscious travelers comfortable with a station change', tradeoff: 'Longer total journey, more luggage handling, and a fixed timetable' },
+    ],
+    relatedRoutesHeading: 'More Ski Transfer Routes',
+    relatedAirportRoutes: [
+      { label: 'Salzburg Airport → Obertauern', distance: '~90km', duration: '~1h 15m', href: '/routes/salzburg-airport-to-obertauern' },
+      { label: 'Salzburg Airport → Bad Gastein', distance: '~95km', duration: '~1h 15m', href: '/routes/salzburg-airport-to-bad-gastein' },
+      { label: 'Graz Airport → Schladming', distance: '~100km', duration: '~1h 30m', href: '/routes/graz-airport-to-schladming' },
+    ],
+    faqs: [
+      {
+        question: 'How far is Schladming from Salzburg Airport?',
+        answer: 'The road distance is approximately 90 km, via the A10 Tauern Autobahn and the B320 Ennstal Straße.',
+      },
+      {
+        question: 'How long does the transfer take?',
+        answer: 'Around 1 hour 15 minutes in normal conditions, allowing up to 1 hour 30 minutes during winter traffic or heavy snowfall.',
+      },
+      {
+        question: 'Can I travel with skis?',
+        answer: 'Yes. Tell us your ski or snowboard equipment when booking so we can plan a suitable vehicle.',
+      },
+      {
+        question: 'Can you take me directly to my hotel?',
+        answer: 'Yes. We drive directly to your hotel, chalet, apartment, or private address in Schladming or Rohrmoos.',
+      },
+      {
+        question: 'Do you offer return transfers?',
+        answer: 'Yes. We collect you from your Schladming accommodation and drive you to Salzburg Airport.',
+      },
+      {
+        question: 'Can families book a larger vehicle?',
+        answer: 'Yes. Executive Vans and Minibuses are available for families and larger groups, subject to availability.',
+      },
+    ],
   },
   {
     slug: 'salzburg-airport-to-obertauern',
@@ -726,6 +930,102 @@ export const routes: RoutePair[] = [
       'Direct transfer to snow-sure high altitude pass resort',
       'Winter-ready vehicles suited to mountain driving conditions',
       'All-inclusive fixed price with flight delay monitoring',
+    ],
+    seoTitle: 'Salzburg Airport to Obertauern Transfer | Private Chauffeur',
+    seoDescription:
+      'Private chauffeur transfer from Salzburg Airport to Obertauern. Door-to-door service, flight tracking, fixed pricing. ~90km, ~1h 15m.',
+    dropoffHint:
+      'Enter your Obertauern hotel, chalet, or address as the destination. We will confirm availability and a fixed price by email.',
+    routeOverview: {
+      road: 'A10 Tauern Autobahn via B99 Radstädter Tauern Straße',
+      transferType: 'Private, door-to-door',
+      vehicleNote: 'Sedan, Executive Van, or Minibus',
+    },
+    routeExplanation: {
+      heading: 'The Drive from Salzburg Airport to Obertauern',
+      description:
+        'From Salzburg Airport, the route runs south on the A10 Tauern Autobahn to the Radstadt exit, then climbs the B99 Radstädter Tauern Straße up to Obertauern — one of Austria\'s highest and most snow-sure resorts, sitting on the Tauern Pass with the Tauern Circuit ski-back-to-village layout. The final section is a genuine mountain-pass climb, and under normal conditions the drive takes around 1 hour 15 minutes, though winter weather can extend the journey.',
+    },
+    originAlternative: {
+      heading: 'Why Salzburg Airport Is the Practical Gateway to Obertauern',
+      description:
+        'Salzburg Airport is the closest major airport to Obertauern, on a domestic transfer that stays entirely within Austria. Klagenfurt Airport is also used by some travelers, but at around 1 hour 30 minutes it is a longer drive — Salzburg is the more direct option for most bookings.',
+    },
+    whyBookPoints: [
+      { title: 'Door-to-Door', description: 'Your chauffeur takes you directly from Salzburg Airport to your Obertauern accommodation.' },
+      { title: 'Mountain-Pass Driving Handled', description: 'The final climb to Obertauern is a genuine pass road — leave the winter driving to an experienced local chauffeur.' },
+      { title: 'Ski-Friendly Vehicle Planning', description: 'Tell us about skis, snowboards, and additional luggage when booking.' },
+      { title: 'Fixed Price', description: 'Your transfer price is confirmed before travel.' },
+      { title: 'Flexible Pickup', description: 'Your airport pickup is arranged around your arrival.' },
+      { title: 'Return Transfer', description: 'Book Obertauern → Salzburg Airport as well.' },
+    ],
+    flightTrackingSection: {
+      heading: 'Airport Pickup & Flight Tracking',
+      description:
+        'Provide your flight number when booking and we monitor the scheduled arrival at Salzburg Airport. If your flight is early or delayed, pickup timing is adjusted accordingly.',
+    },
+    luggageNote: {
+      heading: 'Traveling with Ski Equipment or Extra Luggage?',
+      description:
+        "Obertauern is reliably snow-sure from late autumn to spring, so ski equipment is standard on this route. Let us know about ski bags, snowboards, boots, and any child equipment when booking, alongside your regular suitcases — a vehicle can be assigned that fits everything, not just the passenger count.",
+    },
+    familySection: {
+      heading: 'Family Ski Transfers',
+      description:
+        "Traveling with children adds car seats, boosters, strollers, and ski equipment on top of regular suitcases. Mention the number and ages of children, any child-seat needs, and your luggage when requesting a quote, and we'll assign an Executive Van or Minibus with enough space, subject to availability.",
+    },
+    groupSection: {
+      heading: 'Group Transfers to Obertauern',
+      description:
+        'This route also suits ski groups, corporate groups, and larger parties of friends. Multiple vehicles or a Minibus can be arranged for bigger groups — provide your full itinerary, passenger count, and luggage when requesting a quote.',
+    },
+    winterSection: {
+      heading: 'Salzburg Airport to Obertauern in Winter',
+      description:
+        "Obertauern's altitude means winter conditions matter more here than on many other resort transfers. Snowfall, icy roads, and traffic around Saturday changeovers, Christmas/New Year, and February school holidays can all add time to this drive, including for early-morning airport arrivals. Allow additional time during heavy snowfall rather than assuming a fixed 1h 15m journey.",
+      linkHref: '/blog/salzburg-airport-to-obertauern-transfer-guide',
+      linkLabel: 'Read our full Obertauern transfer guide →',
+    },
+    returnSection: {
+      heading: 'Obertauern → Salzburg Airport',
+      description:
+        'The same private service works in reverse for your departure. We collect you directly from your hotel, chalet, or apartment in Obertauern and take you to Salzburg Airport. Share your flight time, luggage, and preferred pickup time when booking — allow extra buffer for winter road conditions and airport check-in.',
+    },
+    transferComparison: [
+      { option: 'Private chauffeur', bestFor: 'Direct airport pickup, hotel drop-off, and ski luggage', tradeoff: 'Higher cost than public transport' },
+      { option: 'Public transport', bestFor: 'Budget-conscious travelers comfortable with connections', tradeoff: 'Longer total journey and less practical with ski equipment' },
+    ],
+    relatedRoutesHeading: 'More Ski Transfer Routes',
+    relatedAirportRoutes: [
+      { label: 'Salzburg Airport → Schladming', distance: '~90km', duration: '~1h 15m', href: '/routes/salzburg-airport-to-schladming' },
+      { label: 'Salzburg Airport → Bad Gastein', distance: '~95km', duration: '~1h 15m', href: '/routes/salzburg-airport-to-bad-gastein' },
+      { label: 'Salzburg Airport → Zell am See', distance: '~80km', duration: '~1h 15m', href: '/routes/salzburg-airport-to-zell-am-see' },
+    ],
+    faqs: [
+      {
+        question: 'How far is Obertauern from Salzburg Airport?',
+        answer: 'The road distance is approximately 90 km, via the A10 Tauern Autobahn and the B99 Radstädter Tauern Straße.',
+      },
+      {
+        question: 'How long does the transfer take?',
+        answer: 'Around 1 hour 15 minutes in normal conditions, allowing up to 1 hour 30 minutes during winter traffic or snowfall on the pass road.',
+      },
+      {
+        question: 'Can I travel with skis?',
+        answer: 'Yes. Tell us your ski or snowboard equipment when booking so we can plan a suitable vehicle.',
+      },
+      {
+        question: 'Can you take me directly to my hotel?',
+        answer: 'Yes. We drive directly to your hotel, chalet, apartment, or private address in Obertauern.',
+      },
+      {
+        question: 'Do you offer return transfers?',
+        answer: 'Yes. We collect you from your Obertauern accommodation and drive you to Salzburg Airport.',
+      },
+      {
+        question: 'Can families book a larger vehicle?',
+        answer: 'Yes. Executive Vans and Minibuses are available for families and larger groups, subject to availability.',
+      },
     ],
   },
   {

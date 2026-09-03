@@ -73,9 +73,9 @@ export default function DiplomaticTransfersPageDe() {
             Diskreter Transport für Wiens diplomatische Gemeinschaft
           </h1>
           <p className="mt-4 max-w-xl text-brand-cream/80">
-            Wien beherbergt das Vienna International Centre — einen von vier Sitzen der
-            Vereinten Nationen — sowie OPEC, die OSZE und Dutzende Botschaften. Zuverlässiger,
-            diskreter Transport ist hier Routine, keine Sonderanfrage.
+            Wien beherbergt das Vienna International Centre, einen von vier Sitzen der Vereinten
+            Nationen. Auch OPEC, die OSZE und Dutzende Botschaften haben hier ihren Sitz.
+            Zuverlässiger, diskreter Transport ist hier Routine, keine Sonderanfrage.
           </p>
         </div>
       </section>

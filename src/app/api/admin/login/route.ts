@@ -1,9 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { ADMIN_SESSION_COOKIE, createSessionToken, verifyPassword } from '@/lib/admin/auth'
 import { createServiceRoleClient } from '@/lib/supabase/server'
-import { logActivity } from '@/lib/admin/activity-log'
+import { countRecentFailedLogins, isLoginLockedOut, logActivity } from '@/lib/admin/activity-log'
 
 export async function POST(request: NextRequest) {
+  // Brute-force guard: checked before touching credentials at all, so a
+  // locked-out IP can't use response timing to tell a wrong password from
+  // a lockout. Counts recent 'login_failed' entries already written to
+  // admin_activity_log — no new state needed.
+  const recentFailures = await countRecentFailedLogins(request)
+  if (isLoginLockedOut(recentFailures)) {
+    return NextResponse.json(
+      { error: 'Too many failed login attempts. Try again in a few minutes.' },
+      { status: 429 }
+    )
+  }
+
   let body: { email?: string; password?: string }
   try {
     body = await request.json()
