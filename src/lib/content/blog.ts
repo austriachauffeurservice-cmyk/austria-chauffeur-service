@@ -4924,13 +4924,13 @@ export const blogPosts: BlogPost[] = [
         headers: ['Airport', 'Approx. distance', 'Approx. drive time'],
         rows: [
           ['Salzburg Airport (SZG)', '~75–81 km', '~1h 15m–1h 30m'],
-          ['Innsbruck Airport (INN)', '~90–96 km', '~1h'],
+          ['Innsbruck Airport (INN)', '~96 km', '~1h 15m'],
           ['Munich Airport (MUC)', '~165 km, cross-border', '~2h'],
         ],
       },
       {
         type: 'paragraph',
-        text: "Innsbruck Airport is closest by drive time despite the slightly longer distance, and Munich is the furthest but often has more international flight options. Salzburg remains a genuinely practical choice for many travellers, particularly when flight timing or price favours it. For a broader comparison across Austria's ski regions, see our [Austria ski airport guide](/blog/best-airports-austria-ski-resorts).",
+        text: "Salzburg and Innsbruck airports are broadly comparable by drive time despite the distance difference, and Munich is the furthest but often has more international flight options. Salzburg remains a genuinely practical choice for many travellers, particularly when flight timing or price favours it. For a broader comparison across Austria's ski regions, see our [Austria ski airport guide](/blog/best-airports-austria-ski-resorts).",
       },
       { type: 'heading', text: 'Why Choose a Private Transfer Over Public Transport?' },
       {
@@ -5564,6 +5564,372 @@ export const blogPosts: BlogPost[] = [
       { label: 'Salzburg Airport → Obertauern Route', href: '/routes/salzburg-airport-to-obertauern' },
       { label: 'Obertauern Ski Transfer', href: '/ski-transfers/obertauern' },
       { label: 'Salzburg Airport Transfer Details', href: '/airport-transfers/salzburg-airport' },
+      { label: 'Best Airports for Ski Resorts in Austria', href: '/blog/best-airports-austria-ski-resorts' },
+      { label: 'How Chauffeur Pricing Works', href: '/blog/how-chauffeur-pricing-works' },
+      { label: 'How Far in Advance Should You Book a Chauffeur?', href: '/blog/how-far-in-advance-book-chauffeur' },
+      { label: 'Austria Ski Transfers', href: '/ski-transfers' },
+      { label: 'All Routes', href: '/routes' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
+    slug: 'salzburg-airport-to-bad-gastein-transfer-guide',
+    title: 'Salzburg Airport to Bad Gastein Transfer: Distance, Time & Options',
+    excerpt:
+      'Salzburg Airport to Bad Gastein transfer guide covering distance, driving time, train and bus options, ski equipment, winter travel, families and private transfers.',
+    publishedAt: '2026-09-03',
+    readingTime: '10 min read',
+    tags: ['Ski Transfers', 'Salzburg'],
+    seoTitle: 'Salzburg Airport to Bad Gastein Transfer | Distance, Time & Options',
+    seoDescription:
+      'Salzburg Airport to Bad Gastein transfer guide covering distance, driving time, train and bus options, ski equipment, winter travel, families and private transfers.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "Flying into Salzburg Airport (SZG) for a trip to Bad Gastein? This historic Belle Époque spa town in the Gastein Valley is well known for its thermal springs, dramatic hillside setting, and access to the Ski Amadé network — and the road journey from Salzburg is one of the more practical airport-to-Alps transfers in the region.",
+      },
+      {
+        type: 'paragraph',
+        text: "You can make the trip by private airport transfer, taxi, train, bus, or rental car. For a light-luggage traveller comfortable with connections, the train can work. For families, groups, and ski travellers carrying suitcases and equipment, a private Salzburg Airport to Bad Gastein transfer usually means a much simpler door-to-door journey — this guide covers distance, time, routes, and every option in between.",
+      },
+      { type: 'heading', text: 'Salzburg Airport to Bad Gastein: Quick Facts' },
+      {
+        type: 'table',
+        headers: ['Route', 'Approx. distance', 'Typical journey', 'Best for'],
+        rows: [
+          ['Salzburg Airport → Bad Gastein', '~95km', '~1h 15m–1h 30m by road', 'Private transfer, taxi, rental car'],
+          ['Bad Gastein → Salzburg Airport', '~95km', '~1h 15m–1h 30m by road', 'Return airport transfer'],
+          ['Train (via Salzburg Hbf connection)', '—', 'Roughly 1h 45m–2h 30m+, depending on the connection', 'Rail travellers, light luggage'],
+          ['Bus connections', '—', 'Often 3-4 hours, with transfers', 'Budget travellers'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "These match the figures on our [Salzburg Airport to Bad Gastein route page](/routes/salzburg-airport-to-bad-gastein). Treat approximately 95 km and around 1h 15m as practical road-journey planning figures, allowing up to 1h 30m during winter traffic or heavy snowfall in the Gastein Valley.",
+      },
+      { type: 'heading', text: 'How Far Is Bad Gastein from Salzburg Airport?' },
+      {
+        type: 'paragraph',
+        text: "The road distance is approximately 95 km, via the A10 Tauern Autobahn and the B167 up the Gastein Valley. Bad Gastein itself is a compact, steeply-built hillside town, so your exact accommodation — central Bad Gastein, near the railway station, near the ski lifts, or a chalet elsewhere in the valley — is worth stating clearly when booking rather than just \"Bad Gastein.\"",
+      },
+      { type: 'heading', text: 'How Long Does the Transfer Take?' },
+      {
+        type: 'paragraph',
+        text: "A direct drive normally takes around 1 hour 15 minutes in good conditions, with some route-planning tools showing a faster estimate under ideal traffic. Treat 1h 15m to 1h 30m as the realistic planning window — traffic around Salzburg, weather, and the final valley approach can all add time, particularly on a busy winter weekend.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Winter snowfall and road conditions in the Gastein Valley',
+          'Saturday ski-season changeover traffic',
+          'Christmas, New Year, and February school holidays',
+          'Roadworks',
+          'Your exact accommodation within Bad Gastein',
+        ],
+      },
+      { type: 'heading', text: 'Transfer Options Compared' },
+      {
+        type: 'paragraph',
+        text: "There are five realistic ways to make this journey: a private airport transfer, a taxi, train, bus, or rental car. The right one depends on your luggage, group size, and how much you value going directly to your accommodation without a connection.",
+      },
+      {
+        type: 'table',
+        headers: ['Option', 'Approx. journey', 'Door-to-door', 'Best for'],
+        rows: [
+          ['Private transfer', '~1h 15m–1h 30m', 'Yes', 'Families, groups, ski equipment'],
+          ['Taxi', '~1h 15m–1h 30m', 'Yes', 'Direct travel, no pre-booking'],
+          ['Train (via Salzburg Hbf)', 'Roughly 1h 45m–2h 30m+', 'No', 'Rail travellers, light luggage'],
+          ['Bus', 'Often 3-4 hours', 'No', 'Budget travellers, light luggage'],
+          ['Rental car', '~1h 15m–1h 30m', 'Yes', 'Independent trips beyond Bad Gastein'],
+        ],
+      },
+      { type: 'heading', text: 'Private Salzburg Airport to Bad Gastein Transfer' },
+      {
+        type: 'paragraph',
+        text: "A private transfer is the simplest door-to-door option: land at Salzburg Airport, meet your driver, load your luggage, and travel directly to your hotel, chalet, or apartment — no bus to Salzburg's main station, no changing to a train, no working out the final leg from the Bad Gastein station to your accommodation. See our [Salzburg Airport Transfer guide](/airport-transfers/salzburg-airport) for how pickup and flight tracking work, and our [Bad Gastein ski transfer page](/ski-transfers/bad-gastein) for everything specific to this resort.",
+      },
+      {
+        type: 'paragraph',
+        text: "Provide your flight number when booking so the arrival can be tracked, along with your passenger count, luggage, ski or snowboard equipment, and exact destination address.",
+      },
+      { type: 'heading', text: 'Train and Bus to Bad Gastein' },
+      {
+        type: 'paragraph',
+        text: "Salzburg Airport doesn't have a direct rail connection, so a train journey means a bus or taxi transfer to Salzburg Hauptbahnhof first, then a train onward to Bad Gastein. Once at the station, the onward rail journey itself can be reasonably quick, but the airport-to-Hbf connection and any waiting time between services mean the total door-to-door journey typically runs well over the direct driving time — and you still need a final leg from Bad Gastein's station to your actual accommodation. Bus-only itineraries tend to require more connections again, and can take considerably longer.",
+      },
+      { type: 'heading', text: 'Ski Equipment and Luggage' },
+      {
+        type: 'paragraph',
+        text: "Bad Gastein is part of the Ski Amadé network, so ski equipment is a normal part of this route in winter. A vehicle that comfortably seats a group doesn't automatically have room for that group plus full ski gear — when requesting a quote, state your exact luggage and equipment, not just a passenger count.",
+      },
+      {
+        type: 'callout',
+        heading: 'Booking with ski equipment?',
+        text: "Say '4 adults, 2 children, 5 suitcases, 2 ski bags and 1 snowboard bag' rather than just a headcount — that lets the right vehicle be assigned in advance. An Executive Van or Minibus is often the practical choice once ski bags, boots, and helmets are added to normal luggage.",
+      },
+      { type: 'heading', text: 'Families Travelling to Bad Gastein' },
+      {
+        type: 'paragraph',
+        text: "Families typically carry more than the passenger count suggests — a stroller, child seats, winter clothing, and children's own ski equipment. Mention children's ages and any child-seat requirements when booking; a private transfer keeps the whole family together rather than managing a station-to-hotel connection with winter luggage in tow.",
+      },
+      { type: 'heading', text: 'Return Transfer: Bad Gastein to Salzburg Airport' },
+      {
+        type: 'paragraph',
+        text: "The return journey follows the same route and takes roughly the same time. If your flight leaves in the morning, build in time for hotel checkout, the drive, winter traffic, and airport check-in — don't calculate the pickup by simply subtracting the drive time from your departure. Booking both legs together can make the whole trip easier to plan.",
+      },
+      { type: 'heading', text: 'Salzburg or Another Airport for Bad Gastein?' },
+      {
+        type: 'paragraph',
+        text: "Salzburg is a genuinely convenient airport for Bad Gastein given the road connection, but the best choice isn't distance alone — flight availability, price, and arrival time matter too. For a wider comparison of airports across Austria's ski regions, see our [Austria ski airport guide](/blog/best-airports-austria-ski-resorts).",
+      },
+      { type: 'heading', text: 'What Determines the Transfer Price?' },
+      {
+        type: 'paragraph',
+        text: "There's no single fixed rate for this route — price depends on the vehicle, passenger count, luggage and ski equipment, the exact pickup and drop-off address, and the date. Submit these details through the booking form and a fixed price is confirmed by email before you travel; no payment is required to request a quote. Our [pricing guide](/blog/how-chauffeur-pricing-works) explains the factors in more detail.",
+      },
+      { type: 'heading', text: 'When Should You Book?' },
+      {
+        type: 'paragraph',
+        text: "For a normal weekday, short notice is often fine. For Christmas, New Year, February school holidays, or a Saturday resort changeover, book earlier — larger vehicles in particular have less spare availability during peak weeks. Our [booking lead-time guide](/blog/how-far-in-advance-book-chauffeur) covers this across different routes and seasons.",
+      },
+      { type: 'heading', text: 'What to Include When Requesting a Quote' },
+      {
+        type: 'list',
+        items: [
+          'Flight number, airline, and arrival date/time',
+          'Number of adults and children',
+          'Number of suitcases and cabin bags',
+          'Ski or snowboard bag count',
+          'Child seat requirements, if any',
+          'Your exact Bad Gastein hotel, chalet, or address',
+          'Whether you need a return transfer',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How far is Bad Gastein from Salzburg Airport?',
+        answer: 'Approximately 95 km by road, via the A10 Tauern Autobahn and the B167 up the Gastein Valley.',
+      },
+      {
+        question: 'How long does Salzburg Airport to Bad Gastein take?',
+        answer: 'Around 1 hour 15 minutes in normal road conditions, allowing up to 1 hour 30 minutes during winter traffic or heavy snowfall.',
+      },
+      {
+        question: 'Is there a direct transfer from Salzburg Airport to Bad Gastein?',
+        answer: 'Yes — a private airport transfer can take you directly from Salzburg Airport to your Bad Gastein hotel, chalet, apartment, or private address.',
+      },
+      {
+        question: 'Is there a direct train from Salzburg Airport to Bad Gastein?',
+        answer: "Not directly. You first need to connect to Salzburg Hauptbahnhof by bus or taxi, then take a train onward to Bad Gastein — the total door-to-door journey typically takes noticeably longer than driving directly.",
+      },
+      {
+        question: 'Is there a direct bus from Salzburg Airport to Bad Gastein?',
+        answer: 'No simple direct bus route exists — bus-based itineraries generally require connections and can take considerably longer than the road journey.',
+      },
+      {
+        question: 'Can I bring skis or a snowboard?',
+        answer: "Yes. State your exact ski or snowboard bag count when booking so the right vehicle can be assigned — an Executive Van or Minibus is often the practical choice.",
+      },
+      {
+        question: 'Can families book child seats?',
+        answer: 'Yes. Request a child seat or booster when booking and provide the age and height of your children.',
+      },
+      {
+        question: 'How much does a Salzburg Airport to Bad Gastein transfer cost?',
+        answer: 'Price depends on the vehicle, passenger count, luggage, and exact addresses — there is no fixed rate card. Submit your details for a fixed quote confirmed by email before you travel.',
+      },
+      {
+        question: 'Can I book a return transfer from Bad Gastein to Salzburg Airport?',
+        answer: 'Yes — one-way and return transfers can both be arranged, and booking both together can simplify planning.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Salzburg Airport → Bad Gastein Route', href: '/routes/salzburg-airport-to-bad-gastein' },
+      { label: 'Bad Gastein Ski Transfer', href: '/ski-transfers/bad-gastein' },
+      { label: 'Salzburg Airport Transfer Details', href: '/airport-transfers/salzburg-airport' },
+      { label: 'Best Airports for Ski Resorts in Austria', href: '/blog/best-airports-austria-ski-resorts' },
+      { label: 'How Chauffeur Pricing Works', href: '/blog/how-chauffeur-pricing-works' },
+      { label: 'How Far in Advance Should You Book a Chauffeur?', href: '/blog/how-far-in-advance-book-chauffeur' },
+      { label: 'Austria Ski Transfers', href: '/ski-transfers' },
+      { label: 'All Routes', href: '/routes' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
+    slug: 'innsbruck-airport-to-kitzbuehel-transfer-guide',
+    title: 'Innsbruck Airport to Kitzbühel Transfer: Distance, Time & Options',
+    excerpt:
+      'Innsbruck Airport to Kitzbühel transfer guide covering distance, driving time, train options, ski transfers, luggage, families and private airport transfers.',
+    publishedAt: '2026-09-03',
+    readingTime: '10 min read',
+    tags: ['Ski Transfers', 'Innsbruck'],
+    seoTitle: 'Innsbruck Airport to Kitzbühel Transfer | Distance, Time & Options',
+    seoDescription:
+      'Innsbruck Airport to Kitzbühel transfer guide covering distance, driving time, train options, ski transfers, luggage, families and private airport transfers.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "Flying into Innsbruck Airport (INN) for a trip to Kitzbühel? This world-famous ski town — home to the Hahnenkamm downhill and the Streif piste — is one of the more accessible Alpine resorts from Tyrol's main airport, with a road connection that stays entirely within Austria.",
+      },
+      {
+        type: 'paragraph',
+        text: "You can make the journey by private airport transfer, taxi, train, or rental car. For a light-luggage traveller comfortable with a rail connection, the train can be a reasonable option. For families, ski groups, and travellers carrying suitcases or sports equipment, a private Innsbruck Airport to Kitzbühel transfer is usually the simpler choice because it's direct and door-to-door.",
+      },
+      { type: 'heading', text: 'Innsbruck Airport to Kitzbühel: Quick Facts' },
+      {
+        type: 'table',
+        headers: ['Route', 'Approx. distance', 'Typical journey', 'Best for'],
+        rows: [
+          ['Innsbruck Airport → Kitzbühel', '~96 km', '~1h 15m–1h 30m by road', 'Private transfer, taxi, rental car'],
+          ['Kitzbühel → Innsbruck Airport', '~96 km', '~1h 15m–1h 30m by road', 'Return airport transfer'],
+          ['Train (via Innsbruck Hbf, transfer in Wörgl)', '—', 'Best case around 1h 45m including the airport connection', 'Public transport'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "These match the figures on our [Innsbruck Airport to Kitzbühel route page](/routes/innsbruck-airport-to-kitzbuehel). Treat approximately 96 km and around 1h 15m as practical road-journey planning figures, allowing up to 1h 30m during winter traffic or heavy snowfall.",
+      },
+      { type: 'heading', text: 'How Far Is Kitzbühel from Innsbruck Airport?' },
+      {
+        type: 'paragraph',
+        text: "The road distance is approximately 96 km, via the A12 Inntal Autobahn and the B170/B161 into Kitzbühel. Kitzbühel isn't a single pickup point — your accommodation might be in the town centre, near Hahnenkamm, at Schwarzsee, or in neighbouring Kirchberg — so give your exact hotel, chalet, or apartment address when booking rather than just \"Kitzbühel.\"",
+      },
+      { type: 'heading', text: 'How Long Does the Transfer Take?' },
+      {
+        type: 'paragraph',
+        text: "A direct drive normally takes around 1 hour 15 minutes in good conditions. Treat 1h 15m to 1h 30m as the realistic planning window — traffic through the Inn Valley, weather, and Saturday ski-season changeovers can all add time.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Winter snowfall and road conditions',
+          'Saturday ski-season changeover traffic',
+          'Christmas, New Year, and February school holidays',
+          'Roadworks on the A12',
+          'Your exact accommodation within Kitzbühel or Kirchberg',
+        ],
+      },
+      { type: 'heading', text: 'Transfer Options Compared' },
+      {
+        type: 'paragraph',
+        text: "There are four realistic ways to make this journey: a private airport transfer, a taxi, train, or rental car. The right one depends on your luggage, group size, and how much you value going directly to your accommodation without a connection.",
+      },
+      {
+        type: 'table',
+        headers: ['Option', 'Approx. journey', 'Door-to-door', 'Best for'],
+        rows: [
+          ['Private transfer', '~1h 15m–1h 30m', 'Yes', 'Families, groups, ski equipment'],
+          ['Taxi', '~1h 15m–1h 30m', 'Yes', 'Direct travel, no pre-booking'],
+          ['Train (via Innsbruck Hbf, transfer in Wörgl)', 'Best case ~1h 45m+', 'No', 'Rail travellers, light luggage'],
+          ['Rental car', '~1h 15m–1h 30m', 'Yes', 'Independent trips beyond Kitzbühel'],
+        ],
+      },
+      { type: 'heading', text: 'Private Innsbruck Airport to Kitzbühel Transfer' },
+      {
+        type: 'paragraph',
+        text: "A private transfer is the simplest door-to-door option: land at Innsbruck Airport, meet your driver, load your luggage, and travel directly to your hotel, chalet, or apartment — no bus to Innsbruck's main station, no changing trains at Wörgl, no working out the final leg from a Kitzbühel station to your accommodation. See our [Innsbruck Airport Transfer guide](/airport-transfers/innsbruck-airport) for how pickup and flight tracking work, and our [Kitzbühel ski transfer page](/ski-transfers/kitzbuehel) for everything specific to this resort.",
+      },
+      {
+        type: 'paragraph',
+        text: "Provide your flight number when booking so the arrival can be tracked, along with your passenger count, luggage, ski or snowboard equipment, and exact destination address.",
+      },
+      { type: 'heading', text: 'Train to Kitzbühel' },
+      {
+        type: 'paragraph',
+        text: "Innsbruck Airport doesn't have its own railway station, so a train journey means a shuttle or taxi to Innsbruck Hauptbahnhof first, then a train onward towards Kitzbühel with a change at Wörgl. Kitzbühel itself has three stations — Kitzbühel, Kitzbühel Hahnenkamm, and Kitzbühel Schwarzsee — which gives rail travellers some flexibility, but the airport connection and the Wörgl change mean the total door-to-door journey typically runs noticeably longer than driving directly, and you may still need a final leg from the station to your actual accommodation.",
+      },
+      { type: 'heading', text: 'Ski Equipment and Luggage' },
+      {
+        type: 'paragraph',
+        text: "Kitzbühel is one of Austria's major ski destinations, so ski equipment is a normal part of this route in winter. A vehicle that comfortably seats a group doesn't automatically have room for that group plus full ski gear — when requesting a quote, state your exact luggage and equipment, not just a passenger count.",
+      },
+      {
+        type: 'callout',
+        heading: 'Booking with ski equipment?',
+        text: "Say '4 adults, 2 children, 5 suitcases, 2 ski bags and 1 snowboard bag' rather than just a headcount — that lets the right vehicle be assigned in advance. An Executive Van or Minibus is often the practical choice once ski bags, boots, and helmets are added to normal luggage.",
+      },
+      { type: 'heading', text: 'Families Travelling to Kitzbühel' },
+      {
+        type: 'paragraph',
+        text: "Families typically carry more than the passenger count suggests — a stroller, child seats, winter clothing, and children's own ski equipment. Mention children's ages and any child-seat requirements when booking; a private transfer keeps the whole family together rather than managing a station-to-hotel connection with winter luggage in tow.",
+      },
+      { type: 'heading', text: 'Return Transfer: Kitzbühel to Innsbruck Airport' },
+      {
+        type: 'paragraph',
+        text: "The return journey follows the same route and takes roughly the same time. If your flight leaves in the morning, build in time for hotel checkout, the drive, winter traffic, and airport check-in — don't calculate the pickup by simply subtracting the drive time from your departure. Booking both legs together can make the whole trip easier to plan.",
+      },
+      { type: 'heading', text: 'Innsbruck or Salzburg Airport for Kitzbühel?' },
+      {
+        type: 'paragraph',
+        text: "Innsbruck is one of the practical airport gateways for Kitzbühel, and a domestic transfer with no border crossing. Salzburg Airport is somewhat closer on the map (around 75–81 km, depending on the exact route), but the two airports work out broadly similar by drive time once you account for real-world traffic and conditions — so the better choice usually comes down to flight availability, price, and arrival time rather than distance alone. For a wider comparison of airports across Austria's ski regions, see our [Austria ski airport guide](/blog/best-airports-austria-ski-resorts).",
+      },
+      { type: 'heading', text: 'What Determines the Transfer Price?' },
+      {
+        type: 'paragraph',
+        text: "There's no single fixed rate for this route — price depends on the vehicle, passenger count, luggage and ski equipment, the exact pickup and drop-off address, and the date. Submit these details through the booking form and a fixed price is confirmed by email before you travel; no payment is required to request a quote. Our [pricing guide](/blog/how-chauffeur-pricing-works) explains the factors in more detail.",
+      },
+      { type: 'heading', text: 'When Should You Book?' },
+      {
+        type: 'paragraph',
+        text: "For a normal weekday, short notice is often fine. For Christmas, New Year, February school holidays, or a Saturday resort changeover, book earlier — larger vehicles in particular have less spare availability during peak weeks. Our [booking lead-time guide](/blog/how-far-in-advance-book-chauffeur) covers this across different routes and seasons.",
+      },
+      { type: 'heading', text: 'What to Include When Requesting a Quote' },
+      {
+        type: 'list',
+        items: [
+          'Flight number, airline, and arrival date/time',
+          'Number of adults and children',
+          'Number of suitcases and cabin bags',
+          'Ski or snowboard bag count',
+          'Child seat requirements, if any',
+          'Your exact Kitzbühel or Kirchberg hotel, chalet, or address',
+          'Whether you need a return transfer',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How far is Kitzbühel from Innsbruck Airport?',
+        answer: 'Approximately 96 km by road, via the A12 Inntal Autobahn and the B170/B161.',
+      },
+      {
+        question: 'How long does Innsbruck Airport to Kitzbühel take?',
+        answer: 'Around 1 hour 15 minutes in normal conditions, allowing up to 1 hour 30 minutes during winter traffic or heavy snowfall.',
+      },
+      {
+        question: 'Is there a direct transfer from Innsbruck Airport to Kitzbühel?',
+        answer: 'Yes — a private airport transfer can take you directly from Innsbruck Airport to your Kitzbühel or Kirchberg hotel, chalet, apartment, or private address.',
+      },
+      {
+        question: 'Is there a direct train from Innsbruck Airport to Kitzbühel?',
+        answer: 'Not directly. You first need to connect to Innsbruck Hauptbahnhof by shuttle or taxi, then take a train onward with a change at Wörgl — the total door-to-door journey typically takes noticeably longer than driving directly.',
+      },
+      {
+        question: 'Can I bring skis or a snowboard?',
+        answer: "Yes. State your exact ski or snowboard bag count when booking so the right vehicle can be assigned — an Executive Van or Minibus is often the practical choice.",
+      },
+      {
+        question: 'Can families book child seats?',
+        answer: 'Yes. Request a child seat or booster when booking and provide the age and height of your children.',
+      },
+      {
+        question: 'Is Innsbruck or Salzburg Airport better for Kitzbühel?',
+        answer: 'Salzburg is somewhat closer on the map, but the two airports work out broadly similar by drive time in practice — flight availability, price, and arrival time usually matter more than distance alone.',
+      },
+      {
+        question: 'How much does an Innsbruck Airport to Kitzbühel transfer cost?',
+        answer: 'Price depends on the vehicle, passenger count, luggage, and exact addresses — there is no fixed rate card. Submit your details for a fixed quote confirmed by email before you travel.',
+      },
+      {
+        question: 'Can I book a return transfer from Kitzbühel to Innsbruck Airport?',
+        answer: 'Yes — one-way and return transfers can both be arranged, and booking both together can simplify planning.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Innsbruck Airport → Kitzbühel Route', href: '/routes/innsbruck-airport-to-kitzbuehel' },
+      { label: 'Kitzbühel Ski Transfer', href: '/ski-transfers/kitzbuehel' },
+      { label: 'Innsbruck Airport Transfer Details', href: '/airport-transfers/innsbruck-airport' },
       { label: 'Best Airports for Ski Resorts in Austria', href: '/blog/best-airports-austria-ski-resorts' },
       { label: 'How Chauffeur Pricing Works', href: '/blog/how-chauffeur-pricing-works' },
       { label: 'How Far in Advance Should You Book a Chauffeur?', href: '/blog/how-far-in-advance-book-chauffeur' },

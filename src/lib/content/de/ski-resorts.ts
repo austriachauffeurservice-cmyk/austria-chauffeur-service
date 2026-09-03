@@ -41,7 +41,7 @@ export const skiResorts: SkiResort[] = [
     region: 'Tirol',
     skiArea: 'Kitzbüheler Alpen (SkiWelt / KitzSki)',
     nearestAirports: [
-      { name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std.' },
+      { name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std. 15 Min.' },
       { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 15 Min.' },
       { name: 'Flughafen München (MUC)', driveTime: '~2 Std.' },
     ],
@@ -426,7 +426,7 @@ export const skiResorts: SkiResort[] = [
     region: 'Salzburg',
     skiArea: 'Ski Amadé — Gasteinertal (Stubnerkogel / Schlossalm)',
     nearestAirports: [
-      { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 20 Min.' },
+      { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 15 Min.' },
       { name: 'Flughafen Innsbruck (INN)', driveTime: '~2 Std. 15 Min.' },
     ],
     popularRoutes: [

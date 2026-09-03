@@ -178,8 +178,8 @@ export const routes: RoutePair[] = [
     slug: 'innsbruck-airport-to-kitzbuehel',
     from: 'Innsbruck Airport (INN)',
     to: 'Kitzbühel',
-    distance: '~90km',
-    driveTime: '~1h',
+    distance: '~96km',
+    driveTime: '~1h 15m',
     routeDescription:
       'East via the A12 Inntal Autobahn before continuing toward Kitzbühel via the B170/B161 — a direct airport-to-resort journey through Tyrol.',
     whyBook: [
@@ -189,7 +189,7 @@ export const routes: RoutePair[] = [
     ],
     seoTitle: 'Innsbruck Airport to Kitzbühel Transfer | Private Chauffeur',
     seoDescription:
-      'Private chauffeur transfer from Innsbruck Airport to Kitzbühel. Door-to-door service, flight tracking, fixed pricing. ~90km, ~1 hour.',
+      'Private chauffeur transfer from Innsbruck Airport to Kitzbühel. Door-to-door service, flight tracking, fixed pricing. ~96km, ~1h 15m.',
     dropoffHint:
       'Enter your Kitzbühel or Kirchberg hotel, chalet, or address as the destination. We will confirm availability and a fixed price by email.',
     routeOverview: {
@@ -200,7 +200,7 @@ export const routes: RoutePair[] = [
     routeExplanation: {
       heading: 'The Drive from Innsbruck Airport to Kitzbühel',
       description:
-        'From Innsbruck Airport, the journey heads east through the Inn Valley before continuing toward the Kitzbühel area. The main route uses the A12 Inntal Autobahn before connecting onto the B170/B161 regional roads into the resort. Under normal conditions, the drive takes around an hour, although winter weather and traffic can extend the journey.',
+        'From Innsbruck Airport, the journey heads east through the Inn Valley before continuing toward the Kitzbühel area. The main route uses the A12 Inntal Autobahn before connecting onto the B170/B161 regional roads into the resort. Under normal conditions, the drive takes around 1 hour 15 minutes, although winter weather and traffic can extend the journey.',
     },
     originAlternative: {
       heading: 'Why Innsbruck Airport Is a Convenient Gateway to Kitzbühel',
@@ -225,9 +225,9 @@ export const routes: RoutePair[] = [
       options: [
         {
           label: 'Innsbruck Airport (INN)',
-          distance: '~90km',
-          driveTime: '~1h',
-          bestFor: 'The shortest journey and the default choice for most Kitzbühel bookings',
+          distance: '~96km',
+          driveTime: '~1h 15m',
+          bestFor: 'The default choice for most Kitzbühel bookings, and a domestic transfer with no border crossing',
         },
         {
           label: 'Salzburg Airport (SZG)',
@@ -269,7 +269,7 @@ export const routes: RoutePair[] = [
     winterSection: {
       heading: 'Innsbruck Airport to Kitzbühel in Winter',
       description:
-        'Snowfall, icy roads, and traffic around Saturday changeovers, Christmas/New Year, and February school holidays can all add time to this drive, including for early-morning airport arrivals. Allow additional time during periods of heavy snowfall or peak ski-season traffic rather than assuming a fixed one-hour journey.',
+        'Snowfall, icy roads, and traffic around Saturday changeovers, Christmas/New Year, and February school holidays can all add time to this drive, including for early-morning airport arrivals. Allow additional time during periods of heavy snowfall or peak ski-season traffic rather than assuming a fixed journey time.',
       linkHref: '/blog/alpine-ski-transfer-guide',
       linkLabel: 'Read our Alpine & ski transfer guide →',
     },
@@ -292,11 +292,11 @@ export const routes: RoutePair[] = [
     faqs: [
       {
         question: 'How far is Innsbruck Airport from Kitzbühel?',
-        answer: 'The road distance is approximately 90 km.',
+        answer: 'The road distance is approximately 96 km.',
       },
       {
         question: 'How long does the transfer take?',
-        answer: 'Around 1 hour in normal conditions. Traffic and winter weather can extend this.',
+        answer: 'Around 1 hour 15 minutes in normal conditions. Traffic and winter weather can extend this.',
       },
       {
         question: 'Can I travel with skis?',
@@ -1224,7 +1224,7 @@ export const routes: RoutePair[] = [
         "The same private chauffeur service is available from hotels and private addresses in central Innsbruck. If you're staying in the city before continuing to Seefeld, enter your hotel or address as the pickup point when booking.",
     },
     relatedAirportRoutes: [
-      { label: 'Kitzbühel', distance: '~90km', duration: '~1h', href: '/routes/innsbruck-airport-to-kitzbuehel' },
+      { label: 'Kitzbühel', distance: '~96km', duration: '~1h 15m', href: '/routes/innsbruck-airport-to-kitzbuehel' },
       { label: 'St. Anton am Arlberg', distance: '~100km', duration: '~1h 10m', href: '/routes/innsbruck-airport-to-st-anton' },
       { label: 'Sölden', distance: '~85km', duration: '~1h 10m', href: '/routes/innsbruck-airport-to-soelden' },
       { label: 'Mayrhofen', distance: '~75km', duration: '~1h', href: '/routes/innsbruck-airport-to-mayrhofen' },
@@ -1431,7 +1431,7 @@ export const routes: RoutePair[] = [
     relatedRoutesHeading: 'More Ways to Reach Kitzbühel',
     relatedAirportRoutes: [
       { label: 'Salzburg Airport → Kitzbühel', distance: '~75km', duration: '~1h 15m', href: '/routes/salzburg-airport-to-kitzbuehel' },
-      { label: 'Innsbruck Airport → Kitzbühel', distance: '~90km', duration: '~1h', href: '/routes/innsbruck-airport-to-kitzbuehel' },
+      { label: 'Innsbruck Airport → Kitzbühel', distance: '~96km', duration: '~1h 15m', href: '/routes/innsbruck-airport-to-kitzbuehel' },
       { label: 'Munich Airport → Kitzbühel (cross-border)', distance: '~165km', duration: '~2h', href: '/routes/munich-airport-to-kitzbuehel' },
     ],
     faqs: [
@@ -1474,8 +1474,8 @@ export const routes: RoutePair[] = [
     slug: 'innsbruck-to-kitzbuehel',
     from: 'Innsbruck',
     to: 'Kitzbühel',
-    distance: '~90km',
-    driveTime: '~1h',
+    distance: '~96km',
+    driveTime: '~1h 15m',
     routeDescription:
       'East on the A12 Inntal Autobahn before turning onto the B170/B161 into Kitzbühel, the same route used from Innsbruck Airport.',
     whyBook: [
