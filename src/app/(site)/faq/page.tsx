@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { JsonLd } from '@/components/json-ld'
 import { faqs } from '@/lib/content/faq'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Frequently Asked Questions',
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/faq', languages: { en: '/faq', de: '/de/faq', 'x-default': '/faq' } },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'en_US',
     url: `${siteUrl}/faq`,

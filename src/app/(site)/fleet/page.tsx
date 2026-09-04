@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { vehicles } from '@/lib/content/services'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Our Fleet',
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/fleet', languages: { en: '/fleet', de: '/de/fleet', 'x-default': '/fleet' } },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'en_US',
     url: `${siteUrl}/fleet`,

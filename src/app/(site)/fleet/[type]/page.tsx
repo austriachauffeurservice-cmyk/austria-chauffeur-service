@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
 import { vehicles } from '@/lib/content/services'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 
 type Params = { type: string }
 
@@ -31,7 +31,7 @@ export async function generateMetadata({
       canonical,
       languages: { en: canonical, de: `/de/fleet/${type}`, 'x-default': canonical },
     },
-    openGraph: { type: 'website', siteName, locale: 'en_US', url: `${siteUrl}${canonical}`, title, description },
+    openGraph: { type: 'website', siteName, locale: 'en_US', url: `${siteUrl}${canonical}`, title, description, images: [defaultOgImage] },
   }
 }
 

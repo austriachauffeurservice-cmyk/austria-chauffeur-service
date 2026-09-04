@@ -5,7 +5,7 @@ import { vehicles } from '@/lib/content/services'
 import { routes } from '@/lib/content/routes'
 import { borderCrossingDestinations } from '@/lib/content/service-areas'
 import { skiResorts } from '@/lib/content/ski-resorts'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 import { BookingCta } from '@/components/booking-cta'
 import { HeroQuoteCard } from '@/components/hero-quote-card'
 
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/services', languages: { en: '/services', de: '/de/services', 'x-default': '/services' } },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'en_US',
     url: `${siteUrl}/services`,

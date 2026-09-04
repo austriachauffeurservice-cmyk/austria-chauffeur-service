@@ -9,7 +9,7 @@ import { austrianCities } from '@/lib/content/de/service-areas'
 import { skiResorts } from '@/lib/content/de/ski-resorts'
 import { matchLocationText, matchSkiResortText } from '@/lib/content/link-match'
 import { vehicles } from '@/lib/content/de/services'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 import { localizedHref } from '@/lib/i18n'
 import { BookingCta } from '@/components/booking-cta'
 import { HeroQuoteCard } from '@/components/hero-quote-card'
@@ -41,7 +41,7 @@ export async function generateMetadata({
       canonical,
       languages: { en: `/routes/${slug}`, de: canonical, 'x-default': `/routes/${slug}` },
     },
-    openGraph: { type: 'website', siteName, locale: 'de_AT', url: `${siteUrl}${canonical}`, title, description },
+    openGraph: { type: 'website', siteName, locale: 'de_AT', url: `${siteUrl}${canonical}`, title, description, images: [defaultOgImage] },
   }
 }
 

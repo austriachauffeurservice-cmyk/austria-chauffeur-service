@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { testimonials } from '@/lib/content/testimonials'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'What to Expect',
@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/reviews', languages: { en: '/reviews', de: '/de/reviews', 'x-default': '/reviews' } },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'en_US',
     url: `${siteUrl}/reviews`,

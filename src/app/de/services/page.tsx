@@ -5,7 +5,7 @@ import { vehicles } from '@/lib/content/de/services'
 import { routes } from '@/lib/content/de/routes'
 import { borderCrossingDestinations } from '@/lib/content/de/service-areas'
 import { skiResorts } from '@/lib/content/de/ski-resorts'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 import { BookingCta } from '@/components/booking-cta'
 import { HeroQuoteCard } from '@/components/hero-quote-card'
 
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     'Jeder Österreich-Transferservice an einem Ort — Flughafenabholungen, Stadt-zu-Stadt-Fahrten, grenzüberschreitende Fahrten und Stundenbuchung. Festpreise, professionelle Fahrer, Fuhrpark vom Sedan bis zum Kleinbus.',
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'de_AT',
     url: `${siteUrl}/de/services`,

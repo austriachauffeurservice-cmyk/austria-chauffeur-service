@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { routes } from '@/lib/content/de/routes'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Beliebte Chauffeur-Strecken',
@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/de/routes', languages: { en: '/routes', de: '/de/routes', 'x-default': '/routes' } },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'de_AT',
     url: `${siteUrl}/de/routes`,

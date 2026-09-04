@@ -7,7 +7,17 @@ export const siteDescription =
 export const contactEmail = 'booking@austriachauffeurservice.com'
 export const contactAddress = 'Kärntner Straße 51, 1010 Wien, Austria'
 
-export const whatsappNumber = '+973 3442 7708'
+// Site-wide fallback for the og:image / twitter:image social-share preview
+// on pages that don't have a more specific image of their own (a blog post's
+// own `image` field, a service area's `heroImage`, etc. always win over this).
+export const defaultOgImage = {
+  url: '/images/hero/vienna-austria-cityscape-chauffeur-service.webp',
+  width: 1200,
+  height: 630,
+  alt: "Vienna, Austria skyline with St. Stephen's Cathedral — Austria Chauffeur Service",
+}
+
+export const whatsappNumber = '+966 59 020 9905'
 const whatsappDigits = whatsappNumber.replace(/[^\d]/g, '')
 export function whatsappLink(message: string) {
   return `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(message)}`

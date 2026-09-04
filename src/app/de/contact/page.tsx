@@ -4,10 +4,10 @@ import Image from 'next/image'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { JsonLd } from '@/components/json-ld'
 import { LocationMap } from '@/components/location-map'
-import { siteName, contactAddress, contactEmail, siteUrl, whatsappLink, whatsappNumber } from '@/lib/content/site'
+import { siteName, contactAddress, contactEmail, defaultOgImage, siteUrl, whatsappLink, whatsappNumber } from '@/lib/content/site'
 
 export const metadata: Metadata = {
-  title: 'Kontakt zu Austria Chauffeur Service | Privaten Transfer buchen',
+  title: 'Kontakt | Privaten Transfer buchen',
   description:
     'Kontaktieren Sie Austria Chauffeur Service für private Flughafen-, Stadt-zu-Stadt-, Ski- und grenzüberschreitende Transfers. Verfügbarkeit und Festpreis per E-Mail oder WhatsApp anfragen.',
   alternates: {
@@ -16,10 +16,11 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'de_AT',
     url: `${siteUrl}/de/contact`,
-    title: 'Kontakt zu Austria Chauffeur Service | Privaten Transfer buchen',
+    title: 'Kontakt | Privaten Transfer buchen',
     description:
       'Kontaktieren Sie Austria Chauffeur Service für private Flughafen-, Stadt-zu-Stadt-, Ski- und grenzüberschreitende Transfers. Verfügbarkeit und Festpreis per E-Mail oder WhatsApp anfragen.',
   },

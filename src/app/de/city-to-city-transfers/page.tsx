@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { JsonLd } from '@/components/json-ld'
 import { austrianCities } from '@/lib/content/de/service-areas'
 import { routes } from '@/lib/content/de/routes'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 import { BookingCta } from '@/components/booking-cta'
 
 export const metadata: Metadata = {
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'de_AT',
     url: `${siteUrl}/de/city-to-city-transfers`,

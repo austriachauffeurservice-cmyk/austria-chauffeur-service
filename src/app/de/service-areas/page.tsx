@@ -7,7 +7,7 @@ import { AustriaTimeWidget } from '@/components/austria-time-widget'
 import { austrianCities, borderCities, borderCrossingDestinations } from '@/lib/content/de/service-areas'
 import { airports } from '@/lib/content/de/airports'
 import { skiResorts } from '@/lib/content/de/ski-resorts'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Einsatzgebiete in ganz Österreich',
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     'Private Chauffeurabdeckung in allen neun österreichischen Bundesländern, plus lizenzierte grenzüberschreitende Transfers nach Deutschland, Tschechien, Slowakei, Ungarn, Slowenien, Italien und in die Schweiz.',
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'de_AT',
     url: `${siteUrl}/de/service-areas`,

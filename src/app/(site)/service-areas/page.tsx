@@ -7,7 +7,7 @@ import { AustriaTimeWidget } from '@/components/austria-time-widget'
 import { austrianCities, borderCities, borderCrossingDestinations } from '@/lib/content/service-areas'
 import { airports } from '@/lib/content/airports'
 import { skiResorts } from '@/lib/content/ski-resorts'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Service Areas Across Austria',
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/service-areas', languages: { en: '/service-areas', de: '/de/service-areas', 'x-default': '/service-areas' } },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'en_US',
     url: `${siteUrl}/service-areas`,

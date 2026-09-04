@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/json-ld'
 import { dayTours } from '@/lib/content/de/day-tours'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 
 type Params = { slug: string }
 
@@ -30,7 +30,7 @@ export async function generateMetadata({
       canonical,
       languages: { en: `/day-tours/${slug}`, de: canonical, 'x-default': `/day-tours/${slug}` },
     },
-    openGraph: { type: 'website', siteName, locale: 'de_AT', url: `${siteUrl}${canonical}`, title, description },
+    openGraph: { type: 'website', siteName, locale: 'de_AT', url: `${siteUrl}${canonical}`, title, description, images: [defaultOgImage] },
   }
 }
 

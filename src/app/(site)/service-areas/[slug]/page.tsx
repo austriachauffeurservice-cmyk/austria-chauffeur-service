@@ -12,7 +12,7 @@ import {
   borderCities,
   borderCrossingDestinations,
 } from '@/lib/content/service-areas'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 import { findRelatedPosts } from '@/lib/content/blog'
 import { routes } from '@/lib/content/routes'
 import { airports } from '@/lib/content/airports'
@@ -67,7 +67,7 @@ export async function generateMetadata({
       title,
       description,
       alternates: { canonical, languages },
-      openGraph: { type: 'website', siteName, locale: 'en_US', url, title, description },
+      openGraph: { type: 'website', siteName, locale: 'en_US', url, title, description, images: [defaultOgImage] },
     }
   }
 
@@ -81,7 +81,7 @@ export async function generateMetadata({
       title,
       description,
       alternates: { canonical, languages },
-      openGraph: { type: 'website', siteName, locale: 'en_US', url, title, description },
+      openGraph: { type: 'website', siteName, locale: 'en_US', url, title, description, images: [defaultOgImage] },
     }
   }
 
@@ -94,7 +94,7 @@ export async function generateMetadata({
     title,
     description,
     alternates: { canonical, languages },
-    openGraph: { type: 'website', siteName, locale: 'en_US', url, title, description },
+    openGraph: { type: 'website', siteName, locale: 'en_US', url, title, description, images: [defaultOgImage] },
   }
 }
 

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { JsonLd } from '@/components/json-ld'
 import { faqs } from '@/lib/content/de/faq'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Häufig gestellte Fragen',
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     'Antworten auf häufige Fragen zu Buchung, Preisen, grenzüberschreitenden Transfers und Fahrzeugen bei Austria Chauffeur Service.',
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'de_AT',
     url: `${siteUrl}/de/faq`,

@@ -9,7 +9,7 @@ import { HeroQuoteCard } from '@/components/hero-quote-card'
 import { skiResorts } from '@/lib/content/de/ski-resorts'
 import { routes } from '@/lib/content/de/routes'
 import { airports } from '@/lib/content/de/airports'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 import { findRelatedPosts } from '@/lib/content/de/blog'
 import { matchAirportField } from '@/lib/content/link-match'
 import { localizedHref } from '@/lib/i18n'
@@ -41,7 +41,7 @@ export async function generateMetadata({
       canonical,
       languages: { en: `/ski-transfers/${slug}`, de: canonical, 'x-default': `/ski-transfers/${slug}` },
     },
-    openGraph: { type: 'website', siteName, locale: 'de_AT', url: `${siteUrl}${canonical}`, title, description },
+    openGraph: { type: 'website', siteName, locale: 'de_AT', url: `${siteUrl}${canonical}`, title, description, images: [defaultOgImage] },
   }
 }
 

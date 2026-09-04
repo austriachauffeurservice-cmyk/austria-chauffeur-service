@@ -4,19 +4,20 @@ import Image from 'next/image'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { JsonLd } from '@/components/json-ld'
 import { LocationMap } from '@/components/location-map'
-import { siteName, contactAddress, contactEmail, siteUrl, whatsappLink, whatsappNumber } from '@/lib/content/site'
+import { siteName, contactAddress, contactEmail, defaultOgImage, siteUrl, whatsappLink, whatsappNumber } from '@/lib/content/site'
 
 export const metadata: Metadata = {
-  title: 'Contact Austria Chauffeur Service | Book a Private Transfer',
+  title: 'Contact Us | Book a Private Transfer',
   description:
     'Contact Austria Chauffeur Service for private airport, city-to-city, ski and cross-border transfers. Request availability and a fixed price by email or WhatsApp.',
   alternates: { canonical: '/contact', languages: { en: '/contact', de: '/de/contact', 'x-default': '/contact' } },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'en_US',
     url: `${siteUrl}/contact`,
-    title: 'Contact Austria Chauffeur Service | Book a Private Transfer',
+    title: 'Contact Us | Book a Private Transfer',
     description:
       'Contact Austria Chauffeur Service for private airport, city-to-city, ski and cross-border transfers. Request availability and a fixed price by email or WhatsApp.',
   },

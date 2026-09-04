@@ -9,7 +9,7 @@ import { airports } from '@/lib/content/airports'
 import { routes } from '@/lib/content/routes'
 import { skiResorts } from '@/lib/content/ski-resorts'
 import { vehicles } from '@/lib/content/services'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 import { BookingCta } from '@/components/booking-cta'
 import { matchPopularRoute, normalizeLabel } from '@/lib/content/link-match'
 
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'en_US',
     url: `${siteUrl}/airport-transfers`,

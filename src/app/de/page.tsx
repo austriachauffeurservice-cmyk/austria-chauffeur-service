@@ -28,7 +28,7 @@ const featuredDestinationSlugs = [
 
 export const metadata: Metadata = {
   description:
-    'Buchen Sie private Chauffeurtransfers in ganz Österreich, einschließlich Flughafentransfers, Stadt-zu-Stadt-Fahrten und grenzüberschreitenden Transfers in die Nachbarländer — jede Fahrt durchgeführt von einem lizenzierten, geprüften Chauffeurpartner.',
+    'Private Chauffeurtransfers in ganz Österreich — Flughafen-, Stadt- und grenzüberschreitende Fahrten, durchgeführt von lizenzierten Chauffeurpartnern.',
   alternates: {
     canonical: '/de',
     languages: { en: '/', de: '/de', 'x-default': '/' },
@@ -58,7 +58,7 @@ export default function HomePageDe() {
           url: siteUrl,
           image: `${siteUrl}/logo.webp`,
           description:
-            'Buchen Sie private Chauffeurtransfers in ganz Österreich, einschließlich Flughafentransfers, Stadt-zu-Stadt-Fahrten und grenzüberschreitenden Transfers in die Nachbarländer — jede Fahrt durchgeführt von einem lizenzierten, geprüften Chauffeurpartner.',
+            'Private Chauffeurtransfers in ganz Österreich — Flughafen-, Stadt- und grenzüberschreitende Fahrten, durchgeführt von lizenzierten Chauffeurpartnern.',
           areaServed: areaServedCountries.map((name) => ({ '@type': 'Country', name })),
           openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',
@@ -272,7 +272,7 @@ export default function HomePageDe() {
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-brand-line bg-brand-cream shadow-md lg:col-span-5 group">
               <Image
                 src="/images/why-choose-us.webp"
-                alt="Chauffeur-Navigation und luxuriöses Armaturenbrett in Österreich"
+                alt="Armaturenbrett eines luxuriösen Chauffeurfahrzeugs"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-w-1024px) 100vw, 40vw"
@@ -505,7 +505,7 @@ export default function HomePageDe() {
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-brand-line bg-white shadow-md lg:col-span-5 group">
               <Image
                 src="/images/testimonials.webp"
-                alt="Gast entspannt auf dem Rücksitz einer luxuriösen Mercedes-Limousine mit Chauffeur in Wien, Österreich"
+                alt="Gast entspannt im Fond einer luxuriösen Chauffeur-Limousine in Wien"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-w-1024px) 100vw, 40vw"

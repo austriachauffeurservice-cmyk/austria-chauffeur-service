@@ -277,7 +277,7 @@ export default function HomePage() {
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-brand-line bg-brand-cream shadow-md lg:col-span-5 group">
               <Image
                 src="/images/why-choose-us.webp"
-                alt="Chauffeur navigation and luxury dashboard cockpit in Austria"
+                alt="Luxury chauffeur vehicle dashboard, Austria"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-w-1024px) 100vw, 40vw"
@@ -525,7 +525,7 @@ export default function HomePage() {
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-brand-line bg-white shadow-md lg:col-span-5 group">
               <Image
                 src="/images/testimonials.webp"
-                alt="Client relaxing in the backseat of a luxury chauffeur driven Mercedes sedan in Vienna, Austria"
+                alt="Client relaxing in a luxury chauffeur sedan in Vienna"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-w-1024px) 100vw, 40vw"

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { blogPosts } from '@/lib/content/de/blog'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Blog & Reiseratgeber',
@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/de/blog', languages: { en: '/blog', de: '/de/blog', 'x-default': '/blog' } },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'de_AT',
     url: `${siteUrl}/de/blog`,

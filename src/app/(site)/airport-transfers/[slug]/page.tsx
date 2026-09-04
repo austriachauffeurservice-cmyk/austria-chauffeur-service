@@ -9,7 +9,7 @@ import { airports } from '@/lib/content/airports'
 import { austrianCities } from '@/lib/content/service-areas'
 import { routes } from '@/lib/content/routes'
 import { vehicles } from '@/lib/content/services'
-import { siteName, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 import { findRelatedPosts } from '@/lib/content/blog'
 
 type Params = { slug: string }
@@ -39,7 +39,7 @@ export async function generateMetadata({
       canonical,
       languages: { en: canonical, de: `/de/airport-transfers/${slug}`, 'x-default': canonical },
     },
-    openGraph: { type: 'website', siteName, locale: 'en_US', url: `${siteUrl}${canonical}`, title, description },
+    openGraph: { type: 'website', siteName, locale: 'en_US', url: `${siteUrl}${canonical}`, title, description, images: [defaultOgImage] },
   }
 }
 

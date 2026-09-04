@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { siteName, contactEmail, siteUrl } from '@/lib/content/site'
+import { defaultOgImage, siteName, contactEmail, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Corporate Accounts & Travel Partners',
@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'en_US',
     url: `${siteUrl}/corporate-accounts`,

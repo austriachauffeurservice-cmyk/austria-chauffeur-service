@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { contactAddress, contactEmail, siteName, siteUrl } from '@/lib/content/site'
+import { contactAddress, contactEmail, defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Impressum',
@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'en_US',
     url: `${siteUrl}/impressum`,

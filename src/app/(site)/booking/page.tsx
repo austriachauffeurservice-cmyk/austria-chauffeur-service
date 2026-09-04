@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Breadcrumbs } from '@/components/breadcrumbs'
 import { BookingForm } from '@/components/booking-form'
 import { BookingTrustStrip } from '@/components/booking-trust-strip'
-import { siteName, siteUrl, contactEmail } from '@/lib/content/site'
+import { defaultOgImage, siteName, siteUrl, contactEmail } from '@/lib/content/site'
 
 export const metadata: Metadata = {
   title: 'Book a Transfer',
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/booking', languages: { en: '/booking', de: '/de/booking', 'x-default': '/booking' } },
   openGraph: {
     type: 'website',
+    images: [defaultOgImage],
     siteName,
     locale: 'en_US',
     url: `${siteUrl}/booking`,
