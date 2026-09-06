@@ -46,6 +46,15 @@ export const airports: Airport[] = [
       'Der Flughafen Wien-Schwechat (VIE) ist Österreichs wichtigstes internationales Tor und unser Hauptsitz — deshalb ist es der Flughafen, an dem wir die meisten Abholungen durchführen, egal ob Lang-, Europa- oder Regionalstrecke, unabhängig vom Terminal nach demselben Ablauf.',
       'Die meisten Buchungen sind ein direkter Transfer ins Wiener Zentrum, aber der Flughafen verbindet auch direkt weiter — nach Salzburg, in andere österreichische Städte und über die Grenze nach Bratislava oder Budapest, ohne das Fahrzeug zu wechseln.',
     ],
+    destinationSections: [
+      {
+        heading: 'Konferenz- und Eventankünfte',
+        description:
+          'Wien hat einen dichten Kalender an Konferenzen, Messen und Firmenveranstaltungen, und der Flughafen Wien ist meist der Ankunftsort für die Gäste dieser Veranstaltungen. Derselbe private Transfer deckt die Fahrt vom Flughafen zum Veranstaltungsort ab — ob Hotel, Kongresszentrum oder direkt zur Location.',
+        linkHref: '/de/event-transportation',
+        linkLabel: 'Eventtransport →',
+      },
+    ],
     useCases: [
       {
         title: 'Hotel oder Privatadresse in Wien',

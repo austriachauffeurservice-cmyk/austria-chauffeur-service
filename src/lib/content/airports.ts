@@ -59,6 +59,15 @@ export const airports: Airport[] = [
       "Vienna International Airport (VIE) is Austria's main international gateway and our head-office base, so it's the airport we handle the most pickups from — arrivals from long-haul, European, and regional flights, met the same way regardless of terminal.",
       "Most bookings are a direct transfer into central Vienna, but the airport also connects straight onward: to Salzburg, to other Austrian cities, and across the border to Bratislava or Budapest without changing vehicles.",
     ],
+    destinationSections: [
+      {
+        heading: 'Conference & Event Arrivals',
+        description:
+          "Vienna hosts a steady calendar of conferences, trade fairs, and corporate events, and Vienna Airport is the usual arrival point for guests attending them. The same private transfer covers the airport-to-venue journey, whether that's a hotel, a conference centre, or an event venue directly.",
+        linkHref: '/event-transportation',
+        linkLabel: 'Event Transportation →',
+      },
+    ],
     useCases: [
       {
         title: 'Hotel or private address in Vienna',
