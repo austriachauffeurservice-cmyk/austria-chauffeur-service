@@ -75,6 +75,7 @@ export default async function DayTourPageDe({ params }: { params: Promise<Params
             Tagesausflug {tour.name} ab {tour.startingPoints[0].from}
           </h1>
           <p className="mt-4 max-w-xl text-brand-cream/80">{tour.tagline}</p>
+          <p className="mt-3 text-sm font-semibold text-brand-gold">{tour.duration}</p>
         </div>
       </section>
 
@@ -166,7 +167,7 @@ export default async function DayTourPageDe({ params }: { params: Promise<Params
             href={`/de/booking?to=${encodeURIComponent(`Tagesausflug ${tour.name}`)}`}
             className="shrink-0 rounded-sm bg-brand-ink px-7 py-3.5 text-sm font-semibold text-white hover:bg-brand-gold"
           >
-            Transfer anfragen
+            Festpreis anfragen
           </Link>
         </div>
       </section>

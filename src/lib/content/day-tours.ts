@@ -6,6 +6,11 @@ export type DayTour = {
   region: string
   tagline: string
   startingPoints: { from: string; distance: string; driveTime: string }[]
+  // Approximate total day length for the primary (first) starting point —
+  // derived transparently from that starting point's round-trip drive time
+  // plus a realistic sightseeing window, not a fixed operational promise.
+  // See the Oct 2026 /day-tours conversion audit.
+  duration: string
   highlights: string[]
   itinerary: string[]
   attractions: Attraction[]
@@ -27,6 +32,7 @@ export const dayTours: DayTour[] = [
       { from: 'Salzburg', distance: '~70km', driveTime: '~1h' },
       { from: 'Vienna', distance: '~280km', driveTime: '~3h 30m' },
     ],
+    duration: 'Approx. 8–9 hours from Salzburg (longer from Vienna — an early departure is recommended; ask when requesting your quote)',
     highlights: [
       'A UNESCO World Heritage village on the edge of an alpine lake',
       "The world's oldest known salt mine, still open for tours",
@@ -70,6 +76,7 @@ export const dayTours: DayTour[] = [
       { from: 'Vienna', distance: '~80km to Krems', driveTime: '~1h' },
       { from: 'Vienna', distance: '~100km to Melk', driveTime: '~1h 15m' },
     ],
+    duration: 'Approx. 8–9 hours',
     highlights: [
       'Melk Abbey, one of the most significant Baroque buildings in Austria',
       'Dürnstein, the town where Richard the Lionheart was once imprisoned',
@@ -112,6 +119,7 @@ export const dayTours: DayTour[] = [
     startingPoints: [
       { from: 'Vienna', distance: '~295km', driveTime: '~2h 45m' },
     ],
+    duration: 'Approx. 11–12 hours (early start recommended — an overnight stay is worth considering for a more relaxed pace)',
     highlights: [
       'The historic Altstadt, a UNESCO World Heritage site',
       'Hohensalzburg Fortress overlooking the city',

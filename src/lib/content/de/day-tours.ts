@@ -6,6 +6,7 @@ export type DayTour = {
   region: string
   tagline: string
   startingPoints: { from: string; distance: string; driveTime: string }[]
+  duration: string
   highlights: string[]
   itinerary: string[]
   attractions: Attraction[]
@@ -23,6 +24,7 @@ export const dayTours: DayTour[] = [
       { from: 'Salzburg', distance: '~70 km', driveTime: '~1 Std.' },
       { from: 'Wien', distance: '~280 km', driveTime: '~3 Std. 30 Min.' },
     ],
+    duration: 'Ca. 8–9 Stunden ab Salzburg (ab Wien entsprechend länger — früher Aufbruch empfohlen; fragen Sie bei Ihrer Anfrage nach Details)',
     highlights: [
       'Ein UNESCO-Weltkulturerbe-Dorf am Rand eines Alpensees',
       'Das älteste bekannte Salzbergwerk der Welt, noch heute für Führungen geöffnet',
@@ -66,6 +68,7 @@ export const dayTours: DayTour[] = [
       { from: 'Wien', distance: '~80 km nach Krems', driveTime: '~1 Std.' },
       { from: 'Wien', distance: '~100 km nach Melk', driveTime: '~1 Std. 15 Min.' },
     ],
+    duration: 'Ca. 8–9 Stunden',
     highlights: [
       'Stift Melk, eines der bedeutendsten Barockbauwerke Österreichs',
       'Dürnstein, die Stadt, in der Richard Löwenherz einst gefangen gehalten wurde',
@@ -108,6 +111,7 @@ export const dayTours: DayTour[] = [
     startingPoints: [
       { from: 'Wien', distance: '~295 km', driveTime: '~2 Std. 45 Min.' },
     ],
+    duration: 'Ca. 11–12 Stunden (früher Start empfohlen — für ein entspannteres Tempo lohnt sich eine Übernachtung)',
     highlights: [
       'Die historische Altstadt, ein UNESCO-Weltkulturerbe',
       'Festung Hohensalzburg über der Stadt',
