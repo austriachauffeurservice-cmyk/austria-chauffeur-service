@@ -133,6 +133,10 @@ export type BorderCity = {
   // destination with real cross-border wedding demand gets its own pointer
   // rather than that page trying to cover every border city's specifics.
   weddingSection?: { heading: string; description: string; linkHref?: string; linkLabel?: string }
+  // Only set where real GSC demand for group/multi-passenger transfers to
+  // this specific destination has been identified — see the Sept 2026 GSC
+  // gap review. Points reuse the same bullet-list treatment as whyChauffeur.
+  groupTransferSection?: { heading: string; description: string; points?: string[]; linkHref?: string; linkLabel?: string }
   faqs?: { question: string; answer: string }[]
   // Replaces the booking form's generic cross-border example text (e.g.
   // "Bratislava, Slovakia or Munich, Germany") with destination-specific
@@ -1378,6 +1382,19 @@ export const borderCities: BorderCity[] = [
         "Wedding and private-event transport between Vienna and Bratislava is part of our standard service — coordinated pickups for the couple and guests, hotel-to-venue transfers, and multi-vehicle timing for wedding parties crossing the border in one trip.",
       linkHref: '/blog/vienna-bratislava-wedding-transfer-guide',
       linkLabel: 'Read our Vienna–Bratislava wedding transfer guide →',
+    },
+    groupTransferSection: {
+      heading: 'Group Airport Transfers to Bratislava',
+      description:
+        "A group airport transfer from Vienna to Bratislava works the same way as a standard pickup, just with a vehicle sized for the group — one direct journey, no shared shuttle stops, and everyone's luggage handled in the same vehicle rather than split across cars. This applies equally to Vienna Airport arrivals continuing into Slovakia and to groups departing from a Bratislava hotel or business address back to Austria.",
+      points: [
+        'Vienna Airport pickup for the full group in one vehicle',
+        'Executive Van (up to 7) or Minibus (up to 16) for larger parties',
+        'One driver, one fixed price, no separate taxis to coordinate',
+        'Return transfers booked the same way as the outbound leg',
+      ],
+      linkHref: '/fleet',
+      linkLabel: 'Compare vehicles for group transfers →',
     },
     faqs: [
       {

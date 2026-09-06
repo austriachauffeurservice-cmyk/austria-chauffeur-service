@@ -503,6 +503,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
       businessSection,
       dayTripSection,
       weddingSection,
+      groupTransferSection,
       faqs,
       dropoffHint,
     } = location.data
@@ -808,6 +809,33 @@ export default async function LocationPage({ params }: { params: Promise<Params>
                   className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
                 >
                   {weddingSection.linkLabel}
+                </Link>
+              )}
+            </div>
+          </section>
+        )}
+
+        {isEnriched && groupTransferSection && (
+          <section className="border-b border-brand-line bg-white">
+            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-xl text-brand-ink">{groupTransferSection.heading}</h2>
+              <p className="mt-4 max-w-2xl text-brand-ink-2/90">{groupTransferSection.description}</p>
+              {groupTransferSection.points && groupTransferSection.points.length > 0 && (
+                <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                  {groupTransferSection.points.map((point) => (
+                    <li key={point} className="flex items-start gap-2 text-sm text-brand-ink-2/80">
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-gold" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {groupTransferSection.linkHref && (
+                <Link
+                  href={groupTransferSection.linkHref}
+                  className="mt-4 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+                >
+                  {groupTransferSection.linkLabel}
                 </Link>
               )}
             </div>

@@ -11,7 +11,7 @@ import { routes } from '@/lib/content/routes'
 import { airports } from '@/lib/content/airports'
 import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 import { findRelatedPosts } from '@/lib/content/blog'
-import { matchAirportField } from '@/lib/content/link-match'
+import { matchAirportField, normalizeLabel } from '@/lib/content/link-match'
 
 type Params = { slug: string }
 
@@ -257,7 +257,9 @@ export default async function SkiResortPage({ params }: { params: Promise<Params
         {resort.airportGuidance && resort.airportGuidance.length > 0 && (
           <div className="mt-10">
             <h2 className="font-display text-xl text-brand-ink">
-              Which Airport Is Best for {resort.name}?
+              {resort.airportGuidance.length === 1
+                ? `Getting to ${resort.name} from ${normalizeLabel(resort.airportGuidance[0].airport)}`
+                : `Which Airport Is Best for ${resort.name}?`}
             </h2>
             <div className="mt-4 space-y-4">
               {resort.airportGuidance.map((g) => {
@@ -278,6 +280,19 @@ export default async function SkiResortPage({ params }: { params: Promise<Params
                 )
               })}
             </div>
+            {resort.nearbyResorts && resort.nearbyResorts.length > 0 && (
+              <div className="mt-6 flex flex-wrap gap-2">
+                {resort.nearbyResorts.map((r) => (
+                  <Link
+                    key={r.href}
+                    href={r.href}
+                    className="rounded-sm border border-brand-line px-3 py-1.5 text-sm text-brand-ink hover:border-brand-gold hover:text-brand-gold"
+                  >
+                    {r.label}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         )}
 

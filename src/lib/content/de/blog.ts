@@ -578,6 +578,153 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    slug: 'austria-private-transfer-cost-guide',
+    title: 'Was kostet ein privater Flughafentransfer in Österreich?',
+    excerpt:
+      'Was die Kosten eines privaten Flughafentransfers in Österreich tatsächlich bestimmt — Strecke, Fahrzeug, Personenanzahl und Gepäck — und wie Sie ein Festpreisangebot erhalten.',
+    publishedAt: '2026-09-06',
+    readingTime: '7 Min. Lesezeit',
+    tags: ['Buchungstipps'],
+    seoTitle: 'Kosten privater Flughafentransfer Österreich | Festpreisangebot',
+    seoDescription:
+      'Erfahren Sie, was die Kosten eines privaten Flughafentransfers in Österreich bestimmt — Strecke, Fahrzeug, Personen und Gepäck. Jetzt persönliches Festpreisangebot anfragen.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: 'Für einen privaten Flughafentransfer in Österreich gibt es keine feste Preisliste — der Preis hängt von Ihrer genauen Strecke, dem benötigten Fahrzeug sowie Personenanzahl und Gepäck ab. Fest ist dagegen der Ablauf: Sie teilen uns Ihre Reisedaten einmal mit, und wir bestätigen einen Preis per E-Mail, bevor Sie reisen — ganz ohne Zahlung nur für die Anfrage.',
+      },
+      { type: 'heading', text: 'Was bestimmt den Preis?' },
+      {
+        type: 'paragraph',
+        text: 'Nur wenige Faktoren verändern tatsächlich, was ein Transfer kostet — alles andere ist entweder bereits inklusive oder spielt hier keine Rolle.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Strecke und Entfernung — eine kurze Fahrt vom Flughafen in die Stadt wird anders bepreist als ein längerer grenzüberschreitender oder alpiner Transfer',
+          'Fahrzeugtyp — Business-Limousine, Luxus-Limousine, Executive-Van oder Kleinbus',
+          'Personenanzahl und Gepäck, einschließlich Skiausrüstung, was das zugewiesene Fahrzeug beeinflussen kann',
+          'Ob die Fahrt einfach oder als Hin- und Rückfahrt gebucht wird',
+        ],
+      },
+      {
+        type: 'callout',
+        heading: 'Was den Preis NICHT verändert',
+        text: 'Österreichische Straßenmaut und Vignettengebühren sind bereits in Ihrem Festpreisangebot enthalten und werden nicht nachträglich berechnet — es gibt kein laufendes Taxameter und keinen Grenzzuschlag.',
+      },
+      { type: 'heading', text: 'Flughafen-zu-Stadt-Transfers' },
+      {
+        type: 'paragraph',
+        text: 'Ein Transfer vom Flughafen direkt in die zugehörige Stadt — Flughafen Wien ins Wiener Zentrum, Flughafen Salzburg in die Altstadt oder Flughafen Innsbruck ins Stadtzentrum — ist meist der unkompliziertere Preisfall: eine kürzere, planbare Strecke ohne Grenzübertritt. Details zu den einzelnen Transfers finden Sie auf unseren Seiten zu [Flughafen Wien](/de/airport-transfers/vienna-airport), [Flughafen Salzburg](/de/airport-transfers/salzburg-airport) und [Flughafen Innsbruck](/de/airport-transfers/innsbruck-airport), oder in unserer vollständigen Übersicht [Flughafentransfers](/de/airport-transfers) für alle bedienten Flughäfen.',
+      },
+      { type: 'heading', text: 'Flughafen-zu-Skigebiet-Transfers' },
+      {
+        type: 'paragraph',
+        text: 'Ein Transfer vom Flughafen zu einem alpinen Skigebiet ist preislich ein anderer Fall als ein Stadttransfer — vor allem wegen der Entfernung, da viele Skigebiete deutlich weiter vom nächsten Flughafen entfernt liegen, sowie wegen winterlicher Straßenverhältnisse und Skiausrüstung, die das zugewiesene Fahrzeug beeinflussen können. Unsere vollständige Übersicht [Ski- & Alpintransfers](/de/ski-transfers) zeigt jedes bediente Skigebiet mit dem jeweils nächstgelegenen Flughafen.',
+      },
+      { type: 'heading', text: 'Preise für Limousine, Van und Kleinbus' },
+      {
+        type: 'paragraph',
+        text: 'Die Fahrzeugwahl beeinflusst Ihren Preis, weil sie bestimmt, welches Fahrzeug und welcher Fahrer für Ihre Fahrt eingeplant werden — eine separate veröffentlichte Preisliste je Fahrzeug gibt es jedoch nicht, da Fahrzeug, Strecke und Personenanzahl gemeinsam in einem einzigen Angebot bestätigt werden.',
+      },
+      {
+        type: 'table',
+        headers: ['Fahrzeug', 'Passagiere', 'Gepäck'],
+        rows: [
+          ['Business-Limousine', 'Bis zu 3', '2–3 Gepäckstücke'],
+          ['Luxus-Limousine', 'Bis zu 3', '2–3 Gepäckstücke'],
+          ['Executive-Van', 'Bis zu 7', '6–7 Gepäckstücke'],
+          ['Kleinbus', 'Bis zu 16', 'Große Kapazität'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Details zu jedem Fahrzeug finden Sie in unserem [gesamten Fuhrpark](/de/fleet), einschließlich [Business-Limousine](/de/fleet/sedan), [Luxus-Limousine](/de/fleet/luxury), [Executive-Van](/de/fleet/van) und [Kleinbus](/de/fleet/minibus).',
+      },
+      { type: 'heading', text: 'Privater Transfer vs. Sammelshuttle' },
+      {
+        type: 'paragraph',
+        text: 'Ein Sammelshuttle teilt seine Kosten auf mehrere Fahrgäste und mehrere Zwischenstopps auf, was sich meist in einem niedrigeren Preis niederschlägt — ein privater Transfer wird ausschließlich für Ihre eigene Fahrt kalkuliert.',
+      },
+      {
+        type: 'table',
+        headers: ['Faktor', 'Privater Chauffeur', 'Sammelshuttle'],
+        rows: [
+          ['Streckenführung', 'Direkt von Ihrer Abholung zu Ihrem Ziel', 'Mehrere Zwischenstopps für andere Fahrgäste'],
+          ['Abholzeit', 'Abgestimmt auf Ihren Flug', 'Feste Abfahrtszeiten'],
+          ['Privatsphäre', 'Nur Ihre eigene Gruppe', 'Gemeinsam mit anderen Reisenden'],
+          ['Gepäck', 'Nur für Ihre Gruppe eingeplant', 'Begrenzt durch geteilten Platz'],
+        ],
+      },
+      { type: 'heading', text: 'Was ist inklusive?' },
+      {
+        type: 'list',
+        items: [
+          'Ein per E-Mail bestätigter Festpreis vor der Reise',
+          'Keine Zahlung nur für die Anfrage erforderlich',
+          'Flugüberwachung und persönlicher Empfang am Flughafen',
+          'Maut- und Vignettengebühren bereits im Angebot enthalten',
+          'Kein Taxameter und kein Grenzzuschlag',
+        ],
+      },
+      { type: 'heading', text: 'Welche Angaben brauche ich für ein Angebot?' },
+      {
+        type: 'paragraph',
+        text: 'Ein paar Angaben genügen, um einen Festpreis per E-Mail zu erhalten:',
+      },
+      {
+        type: 'list',
+        items: [
+          'Abholort und Ziel',
+          'Datum und Uhrzeit der Fahrt',
+          'Anzahl der Passagiere',
+          'Gepäck, einschließlich eventueller Skiausrüstung',
+          'Fahrzeugpräferenz, falls vorhanden',
+          'Ob die Fahrt einfach oder als Hin- und Rückfahrt gebucht wird',
+          'Ihre Flugnummer, bei Flughafenabholungen',
+        ],
+      },
+      { type: 'heading', text: 'So fragen Sie ein Festpreisangebot an' },
+      {
+        type: 'paragraph',
+        text: 'Teilen Sie uns Ihre Reisedaten über unsere [Buchungsseite](/de/booking) mit, und wir bestätigen Verfügbarkeit und einen Festpreis per E-Mail — ohne Zahlung oder Kreditkartendaten nur für die Anfrage.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'Was kostet ein privater Flughafentransfer in Österreich?',
+        answer: 'Es gibt keine feste Preisliste — der Preis hängt von Strecke, Fahrzeug, Personenanzahl und Gepäck ab. Teilen Sie uns Ihre Reisedaten mit, und wir bestätigen einen Festpreis per E-Mail vor Ihrer Reise.',
+      },
+      {
+        question: 'Ist ein privater Chauffeur teurer als ein Sammeltransfer?',
+        answer: 'In der Regel ja, da ein Sammelshuttle seine Kosten auf mehrere Fahrgäste und Zwischenstopps aufteilt — ein privater Transfer wird ausschließlich für Ihre Fahrt kalkuliert, mit direkter Strecke und ohne weitere Abholungen unterwegs.',
+      },
+      {
+        question: 'Beeinflusst der Fahrzeugtyp den Preis?',
+        answer: 'Ja. Ein größeres Fahrzeug für mehr Passagiere oder Gepäck wird anders bepreist als eine Standardlimousine und wird als Teil Ihres Angebots bestätigt.',
+      },
+      {
+        question: 'Beeinflusst Gepäck den Transferpreis?',
+        answer: 'Ja, insbesondere Skiausrüstung oder eine größere Gruppe — dies kann das zugewiesene Fahrzeug beeinflussen und sollte bei der Anfrage erwähnt werden.',
+      },
+      {
+        question: 'Kann ich vor der Buchung ein Festpreisangebot erhalten?',
+        answer: 'Ja, immer. Wir bestätigen einen Festpreis per E-Mail vor Ihrer Reise, und für die Anfrage ist keine Zahlung erforderlich.',
+      },
+      {
+        question: 'Wie fordere ich ein Transferangebot an?',
+        answer: 'Teilen Sie uns Abholort, Ziel, Datum, Uhrzeit, Personenanzahl und Gepäck über unsere Buchungsseite mit, und wir bestätigen Verfügbarkeit und Preis per E-Mail.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Flughafentransfers Österreich', href: '/de/airport-transfers' },
+      { label: 'Ski- & Alpintransfers Österreich', href: '/de/ski-transfers' },
+      { label: 'Fuhrpark ansehen', href: '/de/fleet' },
+      { label: 'Wie weit im Voraus sollten Sie einen Chauffeur in Österreich buchen?', href: '/de/blog/how-far-in-advance-book-chauffeur' },
+      { label: 'Buchung starten', href: '/de/booking' },
+    ],
+  },
+  {
     slug: 'austria-slovakia-transfer-guide',
     title: 'Österreich nach Slowakei Transfer: Wien, Bratislava & Grenzüberschreitende Optionen',
     excerpt:

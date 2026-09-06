@@ -89,6 +89,7 @@ export type BorderCity = {
   businessSection?: { heading: string; description: string }
   dayTripSection?: { heading: string; description: string; linkHref?: string; linkLabel?: string }
   weddingSection?: { heading: string; description: string; linkHref?: string; linkLabel?: string }
+  groupTransferSection?: { heading: string; description: string; points?: string[]; linkHref?: string; linkLabel?: string }
   faqs?: { question: string; answer: string }[]
   dropoffHint?: string
 }
@@ -1329,6 +1330,19 @@ export const borderCities: BorderCity[] = [
         'Hochzeits- und Veranstaltungstransfers zwischen Wien und Bratislava gehören zu unserem Standardangebot — koordinierte Abholungen für Brautpaar und Gäste, Transfers vom Hotel zur Location und die Abstimmung mehrerer Fahrzeuge für Hochzeitsgesellschaften, die die Grenze gemeinsam überqueren.',
       linkHref: '/de/blog/vienna-bratislava-wedding-transfer-guide',
       linkLabel: 'Unseren Wien-Bratislava-Hochzeitstransfer-Guide lesen →',
+    },
+    groupTransferSection: {
+      heading: 'Gruppen-Flughafentransfer nach Bratislava',
+      description:
+        'Ein Gruppentransfer vom Flughafen Wien nach Bratislava funktioniert genauso wie eine Standardabholung, nur mit einem auf die Gruppengröße abgestimmten Fahrzeug — eine direkte Fahrt, kein Shuttle-Zwischenstopp, und das Gepäck aller Mitreisenden im selben Fahrzeug statt auf mehrere Autos verteilt. Das gilt sowohl für Ankünfte am Flughafen Wien mit Weiterfahrt in die Slowakei als auch für Gruppen, die von einem Hotel oder einer Geschäftsadresse in Bratislava zurück nach Österreich fahren.',
+      points: [
+        'Abholung der gesamten Gruppe am Flughafen Wien in einem Fahrzeug',
+        'Executive-Van (bis zu 7) oder Kleinbus (bis zu 16) für größere Gruppen',
+        'Ein Fahrer, ein Festpreis, keine separaten Taxis zu koordinieren',
+        'Rücktransfers werden genauso gebucht wie die Hinfahrt',
+      ],
+      linkHref: '/de/fleet',
+      linkLabel: 'Fahrzeuge für Gruppentransfers vergleichen →',
     },
     faqs: [
       {

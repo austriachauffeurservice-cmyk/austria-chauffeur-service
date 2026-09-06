@@ -28,6 +28,7 @@ export type SkiResort = {
   accommodationSection?: { heading: string; description: string }
   returnSection?: { heading: string; description: string }
   relatedResortRoutes?: { label: string; duration: string; href?: string }[]
+  nearbyResorts?: { label: string; href: string }[]
   transferComparison?: { option: string; bestFor: string; tradeoff: string }[]
   familySection?: { heading: string; description: string }
   groupSection?: { heading: string; description: string }
@@ -862,6 +863,16 @@ export const skiResorts: SkiResort[] = [
         description: 'Der Hausberg des Katschbergs, mit familienfreundlichem, überwiegend nordseitigem Gelände.',
       },
     ],
+    airportGuidance: [
+      {
+        airport: 'Flughafen Salzburg (SZG)',
+        note: 'Der Flughafen Salzburg ist der praktische Ausgangspunkt für den Katschberg, rund 1 Stunde 40 Minuten entfernt über die A10 Tauernautobahn — dieselbe Strecke, die auch für unsere Transfers nach Bad Gastein und Obertauern genutzt wird, bevor es weiter über die Tauernstrecke geht. Ein privater Chauffeur holt Sie nach der Ankunft ab und bringt Sie direkt zu Ihrem Hotel oder Chalet am Katschberg, mit winterfesten Fahrzeugen und Platz für Skiausrüstung für die letzte Etappe über den Pass. Derselbe Service gilt auch für Ihren Rücktransfer zum Flughafen Salzburg.',
+      },
+    ],
+    nearbyResorts: [
+      { label: 'Bad Gastein', href: '/de/ski-transfers/bad-gastein' },
+      { label: 'Obertauern', href: '/de/ski-transfers/obertauern' },
+    ],
   },
   {
     slug: 'damuels-mellau',
@@ -956,6 +967,16 @@ export const skiResorts: SkiResort[] = [
         name: 'Maria Alm',
         description: 'Ein traditioneller Wallfahrtsort und der Hauptausgangspunkt für das Skigebiet Hochkönig.',
       },
+    ],
+    airportGuidance: [
+      {
+        airport: 'Flughafen Salzburg (SZG)',
+        note: 'Der Flughafen Salzburg ist der nächstgelegene große Flughafen für Hochkönig, rund 1 Stunde 10 Minuten entfernt — eine der kürzeren Flughafen-Resort-Fahrten im Ski-Amadé-Netzwerk. Ein privater Chauffeur empfängt Sie nach der Ankunft und bringt Sie direkt zu Ihrem Hotel oder Chalet in Maria Alm, Dienten oder Mühlbach am Hochkönig, mit winterfesten Fahrzeugen und Platz für Skiausrüstung. Derselbe Service gilt auch für Ihren Rücktransfer zum Flughafen Salzburg für Ihren Rückflug.',
+      },
+    ],
+    nearbyResorts: [
+      { label: 'Flachau/Wagrain', href: '/de/ski-transfers/flachau-wagrain' },
+      { label: 'Obertauern', href: '/de/ski-transfers/obertauern' },
     ],
   },
   {

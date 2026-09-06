@@ -590,6 +590,153 @@ export const blogPosts: BlogPost[] = [
     ],
   },
   {
+    slug: 'austria-private-transfer-cost-guide',
+    title: 'How Much Does a Private Airport Transfer Cost in Austria?',
+    excerpt:
+      'What actually determines the price of a private airport transfer in Austria — route, vehicle, passengers and luggage — plus how to get a fixed quote before you travel.',
+    publishedAt: '2026-09-06',
+    readingTime: '7 min read',
+    tags: ['Booking Tips'],
+    seoTitle: 'Private Airport Transfer Cost in Austria | Get a Fixed Quote',
+    seoDescription:
+      'Find out what determines the cost of a private airport transfer in Austria — route, vehicle, passengers and luggage all factor in. Request a personalised fixed-price quote.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "There's no fixed rate card for a private airport transfer in Austria — price depends on your exact route, the vehicle you need, and how many passengers and bags you're travelling with. What is fixed is the process: you submit your trip details once, and we confirm a price by email before you travel, with no payment required just to ask.",
+      },
+      { type: 'heading', text: 'What Determines the Price?' },
+      {
+        type: 'paragraph',
+        text: "A few factors genuinely change what a transfer costs — everything else is either included already or doesn't apply here.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Route and distance — a short airport-to-city run prices differently from a longer cross-border or Alpine transfer',
+          'Vehicle type — Business Sedan, Luxury Sedan, Executive Van, or Minibus',
+          'Passenger count and luggage, including ski equipment, which can change which vehicle is assigned',
+          'Whether the journey is one-way or return',
+        ],
+      },
+      {
+        type: 'callout',
+        heading: "What doesn't change the price",
+        text: 'Austrian road tolls and vignette fees are already built into your fixed quote, not added afterward, and there\'s no meter running and no cross-border surcharge.',
+      },
+      { type: 'heading', text: 'Airport-to-City Transfers' },
+      {
+        type: 'paragraph',
+        text: "A transfer from an airport straight into its own city — Vienna Airport into central Vienna, Salzburg Airport into the Altstadt, or Innsbruck Airport into the city centre — is usually the more straightforward pricing case: a shorter, predictable distance with no border crossing involved. See our [Vienna Airport](/airport-transfers/vienna-airport), [Salzburg Airport](/airport-transfers/salzburg-airport), and [Innsbruck Airport](/airport-transfers/innsbruck-airport) pages for what each transfer covers, or the full [Airport Transfers](/airport-transfers) hub for every airport we serve.",
+      },
+      { type: 'heading', text: 'Airport-to-Ski-Resort Transfers' },
+      {
+        type: 'paragraph',
+        text: "A transfer from an airport to an Alpine ski resort is a different pricing case from a city transfer — mainly because of distance, since many resorts sit well beyond the nearest airport, and because winter road conditions and ski equipment can affect which vehicle is assigned. See our full [Ski & Alpine Transfers](/ski-transfers) hub for every resort we serve and its nearest airport.",
+      },
+      { type: 'heading', text: 'Sedan, Van and Minibus Pricing' },
+      {
+        type: 'paragraph',
+        text: "Vehicle choice affects your price because it affects which vehicle and driver are assigned to your journey — but there's no separate published per-vehicle rate, since vehicle, route, and passenger count are all confirmed together in a single quote.",
+      },
+      {
+        type: 'table',
+        headers: ['Vehicle', 'Passengers', 'Luggage'],
+        rows: [
+          ['Business Sedan', 'Up to 3', '2–3 bags'],
+          ['Luxury Sedan', 'Up to 3', '2–3 bags'],
+          ['Executive Van', 'Up to 7', '6–7 bags'],
+          ['Minibus', 'Up to 16', 'Large capacity'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'See the [full fleet](/fleet) for details on each vehicle, including the [Business Sedan](/fleet/sedan), [Luxury Sedan](/fleet/luxury), [Executive Van](/fleet/van), and [Minibus](/fleet/minibus).',
+      },
+      { type: 'heading', text: 'Private Transfer vs Shared Shuttle' },
+      {
+        type: 'paragraph',
+        text: 'A shared shuttle divides its cost across multiple passengers and multiple stops, which is usually reflected in a lower price — a private transfer is priced for your journey alone.',
+      },
+      {
+        type: 'table',
+        headers: ['Factor', 'Private Chauffeur', 'Shared Shuttle'],
+        rows: [
+          ['Routing', 'Direct, your pickup to your destination', 'Multiple stops for other passengers'],
+          ['Pickup time', 'Set around your flight', 'Fixed departure times'],
+          ['Privacy', 'Just your own group', 'Shared with other travelers'],
+          ['Luggage', 'Handled for your group alone', 'Limited by shared space'],
+        ],
+      },
+      { type: 'heading', text: 'What Is Included?' },
+      {
+        type: 'list',
+        items: [
+          'A fixed price confirmed by email before you travel',
+          'No payment required to request a quote',
+          'Flight tracking and a meet & greet at the airport',
+          'Tolls and vignette fees already included in the quote',
+          'No meter, and no cross-border surcharge',
+        ],
+      },
+      { type: 'heading', text: 'What Information Do I Need for a Quote?' },
+      {
+        type: 'paragraph',
+        text: 'A few details are enough to get a fixed price back by email:',
+      },
+      {
+        type: 'list',
+        items: [
+          'Pickup location and destination',
+          'Date and time of travel',
+          'Number of passengers',
+          'Luggage, including any ski equipment',
+          'Vehicle preference, if you have one',
+          'Whether the journey is one-way or return',
+          'Your flight number, for airport pickups',
+        ],
+      },
+      { type: 'heading', text: 'How to Request a Private Transfer Quote' },
+      {
+        type: 'paragraph',
+        text: 'Submit your trip details through our [booking page](/booking) and we confirm availability and a fixed price by email — no payment or credit card details are required just to ask.',
+      },
+    ],
+    faqs: [
+      {
+        question: 'How much does a private airport transfer in Austria cost?',
+        answer: "There's no fixed rate card — price depends on the route, vehicle, passenger count, and luggage. Submit your trip details and we confirm a fixed price by email before you travel.",
+      },
+      {
+        question: 'Is a private chauffeur more expensive than a shared transfer?',
+        answer: 'Typically yes, since a shared shuttle divides its cost across multiple passengers and stops — a private transfer is priced for your journey alone, with a direct route and no other pickups along the way.',
+      },
+      {
+        question: 'Does the vehicle type affect the price?',
+        answer: 'Yes. A larger vehicle for more passengers or luggage is priced differently from a standard sedan, and is confirmed as part of your quote.',
+      },
+      {
+        question: 'Does luggage affect the transfer price?',
+        answer: "Yes, particularly ski equipment or a larger group — it can affect which vehicle is assigned, so it's worth mentioning when requesting a quote.",
+      },
+      {
+        question: 'Can I get a fixed quote before booking?',
+        answer: 'Yes, always. We confirm a fixed price by email before your journey, and no payment is required just to request one.',
+      },
+      {
+        question: 'How do I request a transfer quote?',
+        answer: 'Submit your pickup, destination, date, time, passenger count, and luggage details through our booking page, and we confirm availability and price by email.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Austria Airport Transfers', href: '/airport-transfers' },
+      { label: 'Austria Ski Transfers', href: '/ski-transfers' },
+      { label: 'View the Fleet', href: '/fleet' },
+      { label: 'How Far in Advance Should You Book a Chauffeur in Austria?', href: '/blog/how-far-in-advance-book-chauffeur' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
     slug: 'austria-slovakia-transfer-guide',
     title: 'Austria to Slovakia Transfer: Vienna, Bratislava & Cross-Border Options',
     excerpt:

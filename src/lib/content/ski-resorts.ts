@@ -29,6 +29,11 @@ export type SkiResort = {
   accommodationSection?: { heading: string; description: string }
   returnSection?: { heading: string; description: string }
   relatedResortRoutes?: { label: string; duration: string; href?: string }[]
+  // A short list of nearby resorts on the same transfer corridor — for
+  // resorts without their own airport route page, this is the natural way
+  // to point readers toward comparable, more differentiated content nearby
+  // rather than leaving "getting here" content as a dead end.
+  nearbyResorts?: { label: string; href: string }[]
   transferComparison?: { option: string; bestFor: string; tradeoff: string }[]
   familySection?: { heading: string; description: string }
   groupSection?: { heading: string; description: string }
@@ -863,6 +868,16 @@ export const skiResorts: SkiResort[] = [
         description: 'The main ski mountain above the Katschberg, with family-friendly, mostly north-facing terrain.',
       },
     ],
+    airportGuidance: [
+      {
+        airport: 'Salzburg Airport (SZG)',
+        note: 'Salzburg Airport is the practical starting point for Katschberg, around 1 hour 40 minutes away via the A10 Tauern Autobahn — the same motorway corridor used for our Bad Gastein and Obertauern transfers before continuing further along the Tauern route. A private chauffeur collects you at arrivals and drives directly to your Katschberg hotel or chalet, with winter-ready vehicles and room for ski equipment for the final stretch over the pass. The same service covers your return transfer to Salzburg Airport.',
+      },
+    ],
+    nearbyResorts: [
+      { label: 'Bad Gastein', href: '/ski-transfers/bad-gastein' },
+      { label: 'Obertauern', href: '/ski-transfers/obertauern' },
+    ],
   },
   {
     slug: 'damuels-mellau',
@@ -957,6 +972,16 @@ export const skiResorts: SkiResort[] = [
         name: 'Maria Alm Village',
         description: 'A traditional pilgrimage village and the main base for the Hochkönig ski area.',
       },
+    ],
+    airportGuidance: [
+      {
+        airport: 'Salzburg Airport (SZG)',
+        note: "Salzburg Airport is the closest major airport to Hochkönig, around 1 hour 10 minutes away — one of the shorter airport-to-resort drives in the Ski Amadé network. A private chauffeur meets you at arrivals and drives directly to your hotel or chalet in Maria Alm, Dienten, or Mühlbach am Hochkönig, with winter-ready vehicles and space for ski equipment. The same service covers your return transfer to Salzburg Airport for your departure flight.",
+      },
+    ],
+    nearbyResorts: [
+      { label: 'Flachau/Wagrain', href: '/ski-transfers/flachau-wagrain' },
+      { label: 'Obertauern', href: '/ski-transfers/obertauern' },
     ],
   },
   {
