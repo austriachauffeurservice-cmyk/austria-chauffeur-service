@@ -662,12 +662,12 @@ export const skiResorts: SkiResort[] = [
     region: 'Tirol',
     skiArea: 'SkiWelt Wilder Kaiser–Brixental',
     nearestAirports: [
-      { name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std. 15 Min.' },
+      { name: 'Flughafen Innsbruck (INN)', driveTime: '~1 Std.' },
       { name: 'Flughafen Salzburg (SZG)', driveTime: '~1 Std. 25 Min.' },
       { name: 'Flughafen München (MUC)', driveTime: '~1 Std. 30 Min.' },
     ],
     popularRoutes: [
-      'Flughafen Innsbruck → SkiWelt',
+      'Flughafen Innsbruck → SkiWelt Wilder Kaiser-Brixental',
       'Flughafen Salzburg → SkiWelt',
       'Flughafen München → SkiWelt (grenzüberschreitend)',
     ],

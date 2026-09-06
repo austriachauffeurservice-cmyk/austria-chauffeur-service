@@ -128,6 +128,11 @@ export type BorderCity = {
   returnInfo?: string
   businessSection?: { heading: string; description: string }
   dayTripSection?: { heading: string; description: string; linkHref?: string; linkLabel?: string }
+  // Only set where a dedicated wedding-transfer guide exists for this city —
+  // /wedding-transfers itself stays Austria-domestic in framing, so a flagship
+  // destination with real cross-border wedding demand gets its own pointer
+  // rather than that page trying to cover every border city's specifics.
+  weddingSection?: { heading: string; description: string; linkHref?: string; linkLabel?: string }
   faqs?: { question: string; answer: string }[]
   // Replaces the booking form's generic cross-border example text (e.g.
   // "Bratislava, Slovakia or Munich, Germany") with destination-specific
@@ -1366,6 +1371,13 @@ export const borderCities: BorderCity[] = [
         'Because the journey is relatively short, Bratislava can be visited as a half-day or full-day trip from Vienna. A private chauffeur lets you choose your own departure and return times, without arranging separate station transfers or parking.',
       linkHref: '/blog/vienna-to-bratislava-guide',
       linkLabel: 'Read our Vienna to Bratislava guide →',
+    },
+    weddingSection: {
+      heading: 'Planning a Wedding in Bratislava?',
+      description:
+        "Wedding and private-event transport between Vienna and Bratislava is part of our standard service — coordinated pickups for the couple and guests, hotel-to-venue transfers, and multi-vehicle timing for wedding parties crossing the border in one trip.",
+      linkHref: '/blog/vienna-bratislava-wedding-transfer-guide',
+      linkLabel: 'Read our Vienna–Bratislava wedding transfer guide →',
     },
     faqs: [
       {

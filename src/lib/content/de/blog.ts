@@ -430,8 +430,150 @@ export const blogPosts: BlogPost[] = [
       { label: 'Wien nach Budapest: Ein grenzüberschreitender Roadtrip-Guide', href: '/de/blog/vienna-to-budapest-guide' },
       { label: 'Warum Unternehmen auf private Chauffeure für Geschäftsreisen setzen', href: '/de/blog/corporate-chauffeur-travel-austria' },
       { label: 'Das österreichische Vignettensystem erklärt', href: '/de/blog/austria-vignette-toll-guide' },
+      { label: 'Hochzeitstransfers zwischen Wien und Bratislava', href: '/de/blog/vienna-bratislava-wedding-transfer-guide' },
       { label: 'Details zum Flughafentransfer Wien', href: '/de/airport-transfers/vienna-airport' },
       { label: 'Servicegebiet Bratislava', href: '/de/service-areas/bratislava' },
+      { label: 'Buchung starten', href: '/de/booking' },
+    ],
+  },
+  {
+    slug: 'vienna-bratislava-wedding-transfer-guide',
+    title: 'Hochzeitstransfers zwischen Wien und Bratislava',
+    excerpt:
+      'Privater Chauffeurservice für Hochzeiten zwischen Wien und Bratislava — Flughafenabholungen für Gäste, Transfers vom Hotel zur Location, Gruppenkoordination und die Grenzüberquerung selbst.',
+    publishedAt: '2026-09-06',
+    readingTime: '8 Min. Lesezeit',
+    tags: ['Hochzeiten', 'Grenzüberschreitend', 'Slowakei'],
+    image: '/images/blog/wedding-chauffeur-austria.webp',
+    imageAlt: 'Hochzeits-Chauffeurfahrzeug für einen grenzüberschreitenden Transfer von Wien nach Bratislava',
+    seoTitle: 'Hochzeitstransfer Wien nach Bratislava | Privater Chauffeur',
+    seoDescription:
+      'Planen Sie eine Hochzeit in Bratislava? Buchen Sie private Chauffeur- und Hochzeitstransfers zwischen Wien und Bratislava für Brautpaar, Gäste und Gruppen.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: 'Eine Hochzeit, die sich über Wien und Bratislava erstreckt, kommt häufiger vor, als man bei den rund 60 km zwischen beiden Hauptstädten vermuten würde — österreichisch-slowakische Familien, Destination Weddings in der Altstadt oder auf Schlössern rund um Bratislava, und Gäste, die am Flughafen Wien landen, einfach weil er deutlich mehr internationale Verbindungen hat als der Flughafen Bratislava (BTS). Die Transportfrage dahinter unterscheidet sich von einem gewöhnlichen grenzüberschreitenden Transfer: Es reist nicht eine Person einmal, sondern eine Hochzeitsgesellschaft in Gruppen, nach einem festen Zeitplan, oft mehrmals am selben Tag über die Grenze.',
+      },
+      { type: 'heading', text: 'Hochzeitstransfers zwischen Wien und Bratislava' },
+      {
+        type: 'paragraph',
+        text: 'Dies ist die hochzeitsspezifische Variante des [Transfers von Wien nach Bratislava](/de/blog/vienna-to-bratislava-guide) — derselbe private Tür-zu-Tür-Service, abgestimmt auf den tatsächlichen Ablauf eines Hochzeitstages statt auf eine einzelne Flughafenabholung. Das bedeutet mehrere Abholungen statt einer, eine Rückfahrt, die noch am selben Abend stattfinden kann statt erst Tage später, und einen einzigen Ansprechpartner für alle Fahrzeuge, statt dass Gäste ihren Transport selbst organisieren. Es ist Teil unseres bestehenden [grenzüberschreitenden Services in die Slowakei](/de/service-areas/bratislava), kein separates Angebot.',
+      },
+      { type: 'heading', text: 'Flughafentransfers für Hochzeitsgäste' },
+      {
+        type: 'paragraph',
+        text: 'Die meisten Hochzeitsgäste reisen mit dem Flugzeug an, und der Flughafen Wien (VIE) ist auch für eine Hochzeit in Bratislava meist der praktischere Ankunftsort — er bietet deutlich mehr internationale Verbindungen als der Flughafen Bratislava, sodass Gäste aus weiter entfernten Orten eher in Wien landen und die Weiterfahrt in die Slowakei benötigen. Wir übernehmen aber auch die Abholung direkt am Flughafen Bratislava für Gäste, die auf diesem Weg anreisen, sowie Hotelabholungen in beiden Städten für Gäste, die bereits vor Ort sind.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Flughafen Wien (VIE) — der übliche Ankunftsort für die meisten internationalen Gäste',
+          'Flughafen Bratislava (BTS) — direkte Abholung für Gäste, die auf diesem Weg anreisen',
+          'Hotels in Wien und Bratislava — Abholung für Gäste, die bereits in einer der beiden Städte wohnen',
+          'Gruppen, die mit demselben Flug ankommen, als eine gemeinsame Abholung statt einzelner Taxifahrten',
+        ],
+      },
+      { type: 'heading', text: 'Transfers vom Hotel zur Hochzeitslocation' },
+      {
+        type: 'paragraph',
+        text: 'Zwischen Hotel, Trauung, Feier und Flughafen legt eine Hochzeitsgesellschaft meist mehrere Etappen zurück statt nur einer — liegen Trauung und Feier an unterschiedlichen Orten, kommt eine weitere Etappe hinzu. Wir planen Reihenfolge und Zeitabstimmung als Teil der Buchung, damit Gäste zwischen den Orten wechseln können, ohne eigene Taxis zu organisieren oder unbekannte Straßen zwischen einem österreichischen Hotel und einer slowakischen Location selbst zu befahren. Teilen Sie uns Ihre Adressen und ungefähren Zeiten bei der Anfrage mit, und wir bestätigen, dass der Ablauf innerhalb Ihres Tages funktioniert.',
+      },
+      { type: 'heading', text: 'Privater Transfer für das Brautpaar' },
+      {
+        type: 'paragraph',
+        text: 'Für das Brautpaar kann eine Luxus-Limousine als eigenes Hochzeitsauto gebucht werden — abgestimmt auf Ihren Trauungsablauf, genau wie bei einer rein österreichischen Hochzeit, nur dass die Fahrt die Grenze als Teil derselben Strecke überquert, statt an ihr zu enden. Mehr dazu, wie das Hochzeitsauto in den restlichen Tagesablauf passt, in unserem [Hochzeitstransfer-Service](/de/wedding-transfers).',
+      },
+      { type: 'heading', text: 'Gruppentransport für die Hochzeitsgesellschaft' },
+      {
+        type: 'paragraph',
+        text: 'Hochzeitsgesellschaften reisen selten in einem einzigen Fahrzeug. Ein Executive-Van bietet Platz für bis zu 7 Personen, ein Kleinbus für bis zu 16 — beide mit Raum für das zusätzliche Gepäck, das eine Hochzeitsreise meist mit sich bringt, zusätzlich zu den gewöhnlichen Koffern. Mehrere Fahrzeuge können unter einer einzigen Buchung koordiniert werden, statt separat organisiert zu werden, mit Abholzeiten, die so abgestimmt sind, dass die gesamte Gesellschaft gemeinsam ankommt.',
+      },
+      {
+        type: 'table',
+        headers: ['Fahrzeug', 'Passagiere', 'Typische Nutzung'],
+        rows: [
+          ['Luxus-Limousine', 'Bis zu 3', 'Das Brautpaar oder eine kleine VIP-Gruppe'],
+          ['Executive-Van', 'Bis zu 7', 'Engste Familie oder eine kleine Gästegruppe'],
+          ['Kleinbus', 'Bis zu 16', 'Eine vollständige Gästegruppe, die gemeinsam reist'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Eine ausführlichere Aufschlüsselung der Fahrzeuganzahl je Gästezahl finden Sie in unserem [Leitfaden zur Hochzeitstransfer-Planung](/de/blog/wedding-transfer-planning-guide) — dieselbe Logik gilt unabhängig davon, ob die Hochzeit in Österreich bleibt oder in die Slowakei führt.',
+      },
+      { type: 'heading', text: 'Hochzeitstransfer vom Flughafen Wien nach Bratislava' },
+      {
+        type: 'paragraph',
+        text: 'Die häufigste Buchung für eine Hochzeit in Bratislava ist der [Transfer vom Flughafen Wien nach Bratislava](/de/routes/vienna-airport-to-bratislava) selbst — rund 65 km und in der Regel 45–60 Minuten über die Autobahnen A4 und A6. Bei einer Hochzeit liegt der Unterschied zu einem gewöhnlichen Flughafentransfer vor allem in der Buchung selbst: mehrere Gäste auf unterschiedlichen Flügen, die am selben Nachmittag landen, jeweils mit demselben Zielort an Hotel oder Location — koordiniert als Gruppe statt einzeln gebucht.',
+      },
+      { type: 'heading', text: 'Grenzüberschreitende Hochzeitsreise' },
+      {
+        type: 'paragraph',
+        text: 'Österreich und die Slowakei gehören beide zum Schengen-Raum, daher gibt es an der Grenze normalerweise keine routinemäßige Passkontrolle — Ihr Chauffeur und Fahrzeug bleiben die gesamte Fahrt über bei Ihnen, ohne Zwischenstopp zum Fahrzeugwechsel. Gelegentlich können vorübergehende Grenzkontrollen eingeführt werden, insbesondere an Feiertagen, weshalb jeder Gast unabhängig vom Schengen-Status einen gültigen Lichtbildausweis mitführen sollte. Die vollständigen Details zur Grenzüberquerung finden Sie auf unserer [Servicegebiet-Seite Bratislava](/de/service-areas/bratislava).',
+      },
+      { type: 'heading', text: 'Ihre Hochzeitstransporte planen' },
+      {
+        type: 'paragraph',
+        text: 'Hochzeitstransport funktioniert am besten, wenn er um den Tag selbst herum geplant wird, statt als Reihe einzelner Transfers gebucht zu werden. Folgende Angaben sind bei der Anfrage hilfreich:',
+      },
+      {
+        type: 'list',
+        items: [
+          'Zeiten von Trauung und Feier, und ob beide an derselben Location oder an unterschiedlichen Orten stattfinden',
+          'Wie viele Gäste Transport benötigen und ob sie gemeinsam oder auf getrennten Flügen anreisen',
+          'Zeitpunkt der Rückfahrt — noch am selben Abend oder an einem späteren Tag',
+          'Zusätzliches Gepäck — Kleidersäcke, Geschenke oder Übernachtungsgepäck für eine länger bleibende Gruppe',
+          'Eine Ansprechperson, mit der wir die Abholzeiten am Tag selbst abstimmen können',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'Wir bestätigen einen Festpreis und einen vollständigen Fahrzeugplan per E-Mail vor dem Hochzeitstag, basierend auf diesen Angaben — am Morgen der Hochzeit selbst muss nichts mehr organisiert werden.',
+      },
+      { type: 'heading', text: 'Warum ein privater Chauffeur?' },
+      {
+        type: 'list',
+        items: [
+          'Ein einziger Ansprechpartner für alle Fahrzeuge, statt dass Gäste ihren Transport selbst organisieren',
+          'Kein Fahrzeugwechsel an der Grenze zwischen Österreich und der Slowakei',
+          'Festpreis, vor dem Tag bestätigt, einmalig für die gesamte Gruppe vereinbart',
+          'Professionelle, formell gekleidete Fahrer und gepflegt präsentierte Fahrzeuge',
+          'Abholzeiten, abgestimmt auf Ihren tatsächlichen Trauungsablauf statt auf einen festen Fahrplan',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Bieten Sie Hochzeitstransfers von Wien nach Bratislava an?',
+        answer: 'Ja — Hochzeits- und Veranstaltungstransport zwischen Wien und Bratislava gehört zu unserem Standardangebot, für das Brautpaar, Gäste und ganze Hochzeitsgesellschaften.',
+      },
+      {
+        question: 'Können Sie Hochzeitsgäste am Flughafen Wien abholen?',
+        answer: 'Ja. Der Flughafen Wien ist der häufigste Ankunftsort für internationale Gäste, und wir koordinieren Abholungen für Gäste, die mit demselben oder unterschiedlichen Flügen landen.',
+      },
+      {
+        question: 'Können Sie Gruppen von Hochzeitsgästen transportieren?',
+        answer: 'Ja. Executive-Vans (bis zu 7) und Kleinbusse (bis zu 16) stehen zur Verfügung, und mehrere Fahrzeuge können unter einer Buchung für größere Gruppen koordiniert werden.',
+      },
+      {
+        question: 'Können Sie Rücktransfers organisieren?',
+        answer: 'Ja — Rücktransfers können für denselben Abend oder einen späteren Tag gebucht werden, je nach Ihrem Hochzeitsablauf.',
+      },
+      {
+        question: 'Können wir mehrere Fahrzeuge buchen?',
+        answer: 'Ja. Mehrere Fahrzeuge werden unter einer Buchung mit einem einzigen Ansprechpartner koordiniert, statt separat organisiert zu werden.',
+      },
+      {
+        question: 'Bieten Sie Transfers vom Hotel zur Location an?',
+        answer: 'Ja. Wir planen die Abfolge zwischen Hotels, Trauung, Feier und Flughafen als Teil der Buchung, einschließlich Locations in Wien oder Bratislava.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Wien nach Bratislava: Zwei Hauptstädte, eine kurze Fahrt', href: '/de/blog/vienna-to-bratislava-guide' },
+      { label: 'Hochzeitstransfer-Planung: Wie viele Fahrzeuge braucht Ihr Tag wirklich?', href: '/de/blog/wedding-transfer-planning-guide' },
+      { label: 'Hochzeitstransfer-Service', href: '/de/wedding-transfers' },
+      { label: 'Servicegebiet Bratislava', href: '/de/service-areas/bratislava' },
+      { label: 'Details zum Flughafentransfer Wien', href: '/de/airport-transfers/vienna-airport' },
       { label: 'Buchung starten', href: '/de/booking' },
     ],
   },

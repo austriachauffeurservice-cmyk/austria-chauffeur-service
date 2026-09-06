@@ -88,6 +88,7 @@ export type BorderCity = {
   returnInfo?: string
   businessSection?: { heading: string; description: string }
   dayTripSection?: { heading: string; description: string; linkHref?: string; linkLabel?: string }
+  weddingSection?: { heading: string; description: string; linkHref?: string; linkLabel?: string }
   faqs?: { question: string; answer: string }[]
   dropoffHint?: string
 }
@@ -1321,6 +1322,13 @@ export const borderCities: BorderCity[] = [
         'Da die Fahrt relativ kurz ist, lässt sich Bratislava als Halbtages- oder Tagesausflug ab Wien besuchen. Ein privater Chauffeur ermöglicht es Ihnen, Ihre eigene Abfahrts- und Rückkehrzeit zu wählen, ohne separate Bahnhofstransfers oder Parkplatzsuche.',
       linkHref: '/de/blog/vienna-to-bratislava-guide',
       linkLabel: 'Unseren Wien-Bratislava-Guide lesen →',
+    },
+    weddingSection: {
+      heading: 'Hochzeit in Bratislava geplant?',
+      description:
+        'Hochzeits- und Veranstaltungstransfers zwischen Wien und Bratislava gehören zu unserem Standardangebot — koordinierte Abholungen für Brautpaar und Gäste, Transfers vom Hotel zur Location und die Abstimmung mehrerer Fahrzeuge für Hochzeitsgesellschaften, die die Grenze gemeinsam überqueren.',
+      linkHref: '/de/blog/vienna-bratislava-wedding-transfer-guide',
+      linkLabel: 'Unseren Wien-Bratislava-Hochzeitstransfer-Guide lesen →',
     },
     faqs: [
       {

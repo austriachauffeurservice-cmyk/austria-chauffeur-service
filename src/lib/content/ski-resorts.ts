@@ -663,12 +663,12 @@ export const skiResorts: SkiResort[] = [
     region: 'Tyrol',
     skiArea: 'SkiWelt Wilder Kaiser–Brixental',
     nearestAirports: [
-      { name: 'Innsbruck Airport (INN)', driveTime: '~1h 15m' },
+      { name: 'Innsbruck Airport (INN)', driveTime: '~1h' },
       { name: 'Salzburg Airport (SZG)', driveTime: '~1h 25m' },
       { name: 'Munich Airport (MUC)', driveTime: '~1h 30m' },
     ],
     popularRoutes: [
-      'Innsbruck Airport → SkiWelt',
+      'Innsbruck Airport → SkiWelt Wilder Kaiser-Brixental',
       'Salzburg Airport → SkiWelt',
       'Munich Airport → SkiWelt (cross-border)',
     ],

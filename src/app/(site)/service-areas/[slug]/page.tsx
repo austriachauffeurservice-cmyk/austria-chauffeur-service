@@ -502,6 +502,7 @@ export default async function LocationPage({ params }: { params: Promise<Params>
       returnInfo,
       businessSection,
       dayTripSection,
+      weddingSection,
       faqs,
       dropoffHint,
     } = location.data
@@ -790,6 +791,23 @@ export default async function LocationPage({ params }: { params: Promise<Params>
                   className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
                 >
                   {dayTripSection.linkLabel}
+                </Link>
+              )}
+            </div>
+          </section>
+        )}
+
+        {isEnriched && weddingSection && (
+          <section className="border-b border-brand-line bg-brand-cream">
+            <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+              <h2 className="font-display text-xl text-brand-ink">{weddingSection.heading}</h2>
+              <p className="mt-4 max-w-2xl text-brand-ink-2/90">{weddingSection.description}</p>
+              {weddingSection.linkHref && (
+                <Link
+                  href={weddingSection.linkHref}
+                  className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+                >
+                  {weddingSection.linkLabel}
                 </Link>
               )}
             </div>

@@ -442,8 +442,150 @@ export const blogPosts: BlogPost[] = [
       { label: 'Vienna to Budapest: A Cross-Border Road Trip Guide', href: '/blog/vienna-to-budapest-guide' },
       { label: 'Why Businesses Choose Private Chauffeurs for Corporate Travel', href: '/blog/corporate-chauffeur-travel-austria' },
       { label: "Austria's Vignette System, Explained", href: '/blog/austria-vignette-toll-guide' },
+      { label: 'Vienna to Bratislava Wedding Transfers', href: '/blog/vienna-bratislava-wedding-transfer-guide' },
       { label: 'Vienna Airport Transfer Details', href: '/airport-transfers/vienna-airport' },
       { label: 'Bratislava Service Area', href: '/service-areas/bratislava' },
+      { label: 'Start a Booking', href: '/booking' },
+    ],
+  },
+  {
+    slug: 'vienna-bratislava-wedding-transfer-guide',
+    title: 'Vienna to Bratislava Wedding Transfers',
+    excerpt:
+      'Private chauffeur transport for weddings between Vienna and Bratislava — airport pickups for guests, hotel-to-venue transfers, group coordination, and the cross-border crossing itself.',
+    publishedAt: '2026-09-06',
+    readingTime: '8 min read',
+    tags: ['Weddings', 'Cross-Border', 'Slovakia'],
+    image: '/images/blog/wedding-chauffeur-austria.webp',
+    imageAlt: 'Wedding chauffeur vehicle for a Vienna to Bratislava cross-border wedding transfer',
+    seoTitle: 'Vienna to Bratislava Wedding Transfer | Private Chauffeur',
+    seoDescription:
+      'Planning a wedding in Bratislava? Arrange private chauffeur and wedding transfers between Vienna and Bratislava for couples, guests and groups.',
+    blocks: [
+      {
+        type: 'paragraph',
+        text: "A wedding that spans Vienna and Bratislava is more common than the roughly 60 km between the two capitals might suggest — Austrian and Slovak families intermarrying, destination weddings in Bratislava's Old Town or castle venues, and guests flying into Vienna Airport simply because it has more international connections than Bratislava Airport (BTS). The transport question that comes with it is different from a standard cross-border transfer: it isn't one traveler making one trip, it's a wedding party moving in groups, on a fixed schedule, often across the border more than once in a day.",
+      },
+      { type: 'heading', text: 'Vienna to Bratislava Wedding Transfers' },
+      {
+        type: 'paragraph',
+        text: "This is the wedding-specific version of the [Vienna to Bratislava transfer](/blog/vienna-to-bratislava-guide) — the same private, door-to-door service, coordinated around a wedding day's actual schedule rather than a single airport pickup. That means multiple pickups instead of one, a return leg that might happen the same night rather than the same week, and a single point of contact managing every vehicle instead of guests arranging their own transport separately. It's part of our standard [cross-border service into Slovakia](/service-areas/bratislava), not a separate offering.",
+      },
+      { type: 'heading', text: 'Wedding Guest Airport Transfers' },
+      {
+        type: 'paragraph',
+        text: 'Most wedding guests arrive by air rather than by road, and Vienna International Airport (VIE) is usually the more practical arrival point even for a Bratislava wedding — it carries substantially more international routes than Bratislava Airport, so guests travelling from further afield are more likely to land in Vienna and need the onward leg into Slovakia. We also arrange pickups directly from Bratislava Airport for guests who do fly in that way, and hotel pickups in either city for guests already staying locally.',
+      },
+      {
+        type: 'list',
+        items: [
+          'Vienna Airport (VIE) — the default arrival point for most international guests',
+          'Bratislava Airport (BTS) — direct pickup for guests flying in this way',
+          'Vienna and Bratislava hotels — pickup for guests already staying in either city',
+          'Groups arriving on the same flight, coordinated as a single pickup rather than separate taxis',
+        ],
+      },
+      { type: 'heading', text: 'Hotel-to-Venue Wedding Transfers' },
+      {
+        type: 'paragraph',
+        text: "Between the hotel, the ceremony, the reception, and the airport, most wedding parties move through several stops rather than one — and if the ceremony and reception are at different locations, that's an additional leg again. We plan the sequence and timing as part of the booking, so guests move between locations without arranging their own taxis or navigating unfamiliar roads between an Austrian hotel and a Slovak venue. Share your venue addresses and rough timings when requesting a quote and we'll confirm the sequence works within your day.",
+      },
+      { type: 'heading', text: 'Private Transfer for the Couple' },
+      {
+        type: 'paragraph',
+        text: 'For the couple, a Luxury Sedan can be arranged as the dedicated bridal car — timed to your ceremony schedule the same way it would be for an Austria-only wedding, just crossing the border as part of the same journey rather than stopping at it. See our [wedding chauffeur service](/wedding-transfers) for how the bridal car fits alongside the rest of the day.',
+      },
+      { type: 'heading', text: 'Group Wedding Transportation' },
+      {
+        type: 'paragraph',
+        text: "Wedding parties rarely travel in one vehicle. An Executive Van covers up to 7 passengers, and a Minibus covers up to 16 — both with room for the extra luggage a wedding trip usually brings, on top of ordinary suitcases. Multiple vehicles can be coordinated under a single booking rather than arranged separately, with pickup times set so the whole party arrives together.",
+      },
+      {
+        type: 'table',
+        headers: ['Vehicle', 'Passengers', 'Typical Use'],
+        rows: [
+          ['Luxury Sedan', 'Up to 3', 'The couple, or a small VIP party'],
+          ['Executive Van', 'Up to 7', 'Immediate family or a small guest group'],
+          ['Minibus', 'Up to 16', 'A full guest party moving together'],
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'For a fuller breakdown of vehicle count against guest numbers, see our [wedding transfer planning guide](/blog/wedding-transfer-planning-guide) — the same logic applies whether the wedding stays in Austria or crosses into Slovakia.',
+      },
+      { type: 'heading', text: 'Vienna Airport to Bratislava Wedding Transfer' },
+      {
+        type: 'paragraph',
+        text: 'The single most common booking for a Bratislava wedding is the [Vienna Airport to Bratislava route](/routes/vienna-airport-to-bratislava) itself — around 65 km and typically 45–60 minutes via the A4 and A6 motorways. For a wedding specifically, the difference from a standard airport transfer is mainly in how it\'s booked: several guests on different flights landing across the same afternoon, each needing the same onward drop-off at a hotel or venue, coordinated as a set rather than booked one at a time.',
+      },
+      { type: 'heading', text: 'Cross-Border Wedding Travel' },
+      {
+        type: 'paragraph',
+        text: "Austria and Slovakia are both part of the Schengen Area, so there's normally no routine passport check at the border — your chauffeur and vehicle stay with you the entire way, with no stop to change vehicles. Temporary border controls can occasionally be introduced, particularly around holiday periods, so every guest should carry valid photo ID regardless of Schengen status. See our [Bratislava service area page](/service-areas/bratislava) for the full picture of what the crossing itself involves.",
+      },
+      { type: 'heading', text: 'Planning Your Wedding Transportation' },
+      {
+        type: 'paragraph',
+        text: "Wedding transport works best when it's planned around the day itself, rather than booked as a series of one-off transfers. A few things worth sharing when you request a quote:",
+      },
+      {
+        type: 'list',
+        items: [
+          "Ceremony and reception times, and whether they're at the same venue or different ones",
+          "How many guests need transport, and whether they're arriving together or on separate flights",
+          'Return timing — the same night, or a later day',
+          'Luggage beyond the ordinary — garment bags, gifts, or overnight bags for a group staying on',
+          'A single contact person we can coordinate pickup times with on the day',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: 'We confirm a fixed price and a full vehicle plan by email before the day, based on this information — nothing is left to arrange on the morning of the wedding itself.',
+      },
+      { type: 'heading', text: 'Why Choose a Private Chauffeur?' },
+      {
+        type: 'list',
+        items: [
+          'One point of contact for every vehicle, instead of guests arranging their own transport',
+          'No vehicle change at the Austria–Slovakia border',
+          'Fixed pricing confirmed before the day, agreed once for the whole group',
+          'Professional, formally dressed drivers and presented vehicles',
+          "Pickup times built around your actual ceremony schedule, not a fixed timetable",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can you provide wedding transfers from Vienna to Bratislava?',
+        answer: 'Yes — wedding and private-event transport between Vienna and Bratislava is part of our standard service, covering the couple, guests, and full wedding parties.',
+      },
+      {
+        question: 'Can you pick up wedding guests at Vienna Airport?',
+        answer: 'Yes. Vienna Airport is the most common arrival point for international guests, and we coordinate pickups for guests landing on the same or different flights.',
+      },
+      {
+        question: 'Can you transport groups of wedding guests?',
+        answer: 'Yes. Executive Vans (up to 7) and Minibuses (up to 16) are available, and multiple vehicles can be coordinated under a single booking for larger parties.',
+      },
+      {
+        question: 'Can you arrange return transfers?',
+        answer: 'Yes — return transfers can be booked for the same night or a later day, whichever suits your wedding schedule.',
+      },
+      {
+        question: 'Can we book multiple vehicles?',
+        answer: 'Yes. Multiple vehicles are coordinated under one booking with a single point of contact, rather than arranged separately.',
+      },
+      {
+        question: 'Can you provide hotel-to-venue transfers?',
+        answer: 'Yes. We plan the sequence between hotels, ceremony, reception, and the airport as part of the booking, including venues in either Vienna or Bratislava.',
+      },
+    ],
+    relatedPages: [
+      { label: 'Vienna to Bratislava: Two Capitals, One Short Drive', href: '/blog/vienna-to-bratislava-guide' },
+      { label: 'Wedding Transfer Planning: How Many Vehicles Does Your Day Actually Need?', href: '/blog/wedding-transfer-planning-guide' },
+      { label: 'Wedding Chauffeur & Transfer Service', href: '/wedding-transfers' },
+      { label: 'Bratislava Service Area', href: '/service-areas/bratislava' },
+      { label: 'Vienna Airport Transfer Details', href: '/airport-transfers/vienna-airport' },
       { label: 'Start a Booking', href: '/booking' },
     ],
   },

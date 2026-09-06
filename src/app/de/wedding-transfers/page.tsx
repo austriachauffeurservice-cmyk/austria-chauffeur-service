@@ -104,6 +104,16 @@ export default function WeddingTransfersPageDe() {
             Kleinbus — komplettes Gästeshuttle
           </Link>
         </div>
+
+        <h2 className="font-display mt-12 text-xl text-brand-ink">Grenzüberschreitende Hochzeiten</h2>
+        <p className="mt-3 text-sm text-brand-ink-2/80">
+          Planen Sie eine Hochzeit mit Grenzübertritt? Unser{' '}
+          <Link href="/de/blog/vienna-bratislava-wedding-transfer-guide" className="font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold">
+            Hochzeitstransfer-Guide Wien–Bratislava
+          </Link>{' '}
+          behandelt Gästeabholungen am Flughafen, Transfers vom Hotel zur Location und die
+          Koordination von Gruppen über die Grenze zwischen Österreich und der Slowakei.
+        </p>
       </section>
 
       <BookingCta

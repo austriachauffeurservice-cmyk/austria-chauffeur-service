@@ -325,6 +325,123 @@ export const routes: RoutePair[] = [
     ],
   },
   {
+    slug: 'innsbruck-airport-to-skiwelt',
+    from: 'Innsbruck Airport (INN)',
+    to: 'SkiWelt Wilder Kaiser-Brixental',
+    distance: '~80km',
+    driveTime: '~1h',
+    routeDescription:
+      'North from Innsbruck Airport via the A12 Inntal Autobahn, then onto regional roads into the Wilder Kaiser villages — Söll, Ellmau, Going, Scheffau, and Westendorf are all reached from the same corridor.',
+    whyBook: [
+      'Direct to any SkiWelt village — no shuttle stops or vehicle changes',
+      'One fixed price agreed before travel',
+      'Winter-ready vehicles with room for skis and boards',
+    ],
+    seoTitle: 'Innsbruck Airport to SkiWelt Transfer | Private Chauffeur',
+    seoDescription:
+      'Private chauffeur transfer from Innsbruck Airport to SkiWelt, including Söll, Ellmau, Going and Scheffau. Door-to-door service with comfortable, winter-ready vehicles.',
+    dropoffHint:
+      'Enter your Söll, Ellmau, Going, Scheffau, or Westendorf hotel, chalet, or address as the destination. We will confirm availability and a fixed price by email.',
+    routeOverview: {
+      road: 'A12 Inntal Autobahn via regional roads into the Wilder Kaiser villages',
+      transferType: 'Private, door-to-door',
+      vehicleNote: 'Sedan, Executive Van, or Minibus',
+    },
+    routeExplanation: {
+      heading: 'Innsbruck Airport to SkiWelt Transfer',
+      description:
+        "SkiWelt Wilder Kaiser-Brixental is one of Austria's largest lift-linked ski areas, spanning the villages of Söll, Ellmau, Going, Scheffau, and Westendorf. A private chauffeur collects you at Innsbruck Airport and drives directly to your accommodation in whichever village you're staying — no shuttle bus, no transfer at a central point, and no need to arrange a second vehicle once you land. The same private service also covers your return transfer back to the airport.",
+    },
+    whyBookPoints: [
+      { title: 'Door-to-Door', description: 'Your chauffeur takes you directly from Innsbruck Airport to your accommodation in any SkiWelt village.' },
+      { title: 'Ski-Friendly Vehicle Planning', description: 'Tell us about skis, snowboards, and additional luggage when booking.' },
+      { title: 'No Shuttle Connection', description: 'Stay in the same private vehicle throughout the journey.' },
+      { title: 'Fixed Price', description: 'Your transfer price is confirmed before travel.' },
+      { title: 'Flexible Pickup', description: 'Your airport pickup is arranged around your arrival.' },
+      { title: 'Return Transfer', description: 'Book SkiWelt → Innsbruck Airport as well.' },
+    ],
+    flightTrackingSection: {
+      heading: 'Airport Pickup & Flight Tracking',
+      description:
+        'Share your flight number when you book, and we track your scheduled arrival into Innsbruck Airport automatically. If your flight lands early or late, your chauffeur adjusts the pickup time to match.',
+    },
+    destinationCoverage: {
+      heading: 'Transfers to SkiWelt Villages',
+      intro:
+        "SkiWelt links five villages under one lift pass, and your transfer can be arranged directly to whichever one you're staying in — not just a central pickup point:",
+      items: ['Söll', 'Ellmau', 'Going', 'Scheffau', 'Westendorf'],
+    },
+    winterSection: {
+      heading: 'Innsbruck Airport to SkiWelt in Winter',
+      description:
+        'Snowfall, icy roads, and Saturday changeover traffic can all add time to this drive, including for early-morning airport arrivals. Allow extra time during heavy snowfall or peak ski-season weeks rather than assuming a fixed journey time.',
+      linkHref: '/ski-transfers',
+      linkLabel: 'See all Austria ski transfers →',
+    },
+    returnSection: {
+      heading: 'SkiWelt → Innsbruck Airport',
+      description:
+        'The same private service works for your departure. We collect you directly from your hotel, chalet, or apartment in Söll, Ellmau, Going, Scheffau, or Westendorf and drive you to Innsbruck Airport. Share your flight time and preferred pickup time when booking — allow extra buffer for winter road conditions and airport check-in.',
+    },
+    luggageNote: {
+      heading: 'Ski Equipment & Luggage',
+      description:
+        "Let us know your ski bags, snowboard bags, boots, helmets, and any additional luggage when requesting your transfer. A vehicle that comfortably seats your group doesn't automatically have room for a full set of ski equipment as well — we assign the vehicle based on passengers and luggage together, not passengers alone.",
+    },
+    familySection: {
+      heading: 'Family Ski Transfers',
+      description:
+        "Traveling with children means car seats, strollers, and ski equipment on top of ordinary suitcases. Tell us the number and ages of children, any car-seat requirements, and your luggage and ski equipment when requesting a quote, and we'll assign an Executive Van or Minibus with enough space, subject to availability.",
+    },
+    groupSection: {
+      heading: 'Group Transfers to SkiWelt',
+      description:
+        'This route also suits ski clubs, corporate groups, and larger parties sharing a chalet. Multiple vehicles or a Minibus can be arranged for bigger groups — share your full passenger count, luggage, and village destination when requesting a quote.',
+    },
+    transferComparison: [
+      { option: 'Private chauffeur', bestFor: 'Direct airport pickup and village-specific hotel drop-off', tradeoff: 'Higher cost than public transport' },
+      { option: 'Public transport', bestFor: 'Budget-conscious travelers comfortable with connections', tradeoff: 'A regional train plus a connecting bus into the SkiWelt villages, more luggage handling, and a fixed timetable' },
+    ],
+    originAlternative: {
+      heading: 'Innsbruck Airport to Söll',
+      description:
+        "Söll is SkiWelt's main gateway village and the most common starting point for the wider ski area — many visitors base themselves here or in one of the four neighboring villages. The transfer from Innsbruck Airport to Söll runs the same route as the wider SkiWelt area, with your chauffeur driving directly to your Söll hotel, chalet, or apartment rather than a central drop-off point in the village.",
+    },
+    relatedRoutesHeading: 'More Innsbruck Airport Ski Transfers',
+    relatedAirportRoutes: [
+      { label: 'Innsbruck Airport → Kitzbühel', distance: '~96km', duration: '~1h 15m', href: '/routes/innsbruck-airport-to-kitzbuehel' },
+      { label: 'Innsbruck Airport → Sölden', distance: '~85km', duration: '~1h 10m', href: '/routes/innsbruck-airport-to-soelden' },
+      { label: 'Innsbruck Airport → Seefeld in Tirol', distance: '~22–25km', duration: '~20–25m', href: '/routes/innsbruck-airport-to-seefeld' },
+      { label: 'Innsbruck Airport → St. Anton am Arlberg', distance: '~100km', duration: '~1h 10m', href: '/routes/innsbruck-airport-to-st-anton' },
+    ],
+    faqs: [
+      {
+        question: 'How do I get from Innsbruck Airport to SkiWelt?',
+        answer: 'A private chauffeur meets you at Innsbruck Airport and drives you directly to your accommodation in Söll, Ellmau, Going, Scheffau, or Westendorf — no shuttle bus or transfer at a central point.',
+      },
+      {
+        question: 'How long is the transfer from Innsbruck Airport to Söll?',
+        answer: 'Around an hour in normal conditions. Traffic and winter weather can extend this.',
+      },
+      {
+        question: 'Can you transfer ski equipment?',
+        answer: 'Yes. Tell us your ski bags, snowboards, boots, and helmets when booking so we can assign a vehicle with enough space.',
+      },
+      {
+        question: 'Can I book a private transfer for my family?',
+        answer: 'Yes. Executive Vans and Minibuses are available for families and larger groups, subject to availability — mention car-seat needs when requesting a quote.',
+      },
+      {
+        question: 'Do you provide return transfers?',
+        answer: 'Yes. We collect you from your SkiWelt accommodation and drive you back to Innsbruck Airport for your departure flight.',
+      },
+      {
+        question: 'Which SkiWelt villages can you serve?',
+        answer: 'Söll, Ellmau, Going, Scheffau, and Westendorf — your chauffeur drives directly to your hotel, chalet, or apartment in any of the five.',
+      },
+    ],
+  },
+  {
     slug: 'innsbruck-airport-to-st-anton',
     from: 'Innsbruck Airport (INN)',
     to: 'St. Anton am Arlberg',

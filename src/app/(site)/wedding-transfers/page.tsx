@@ -104,6 +104,15 @@ export default function WeddingTransfersPage() {
             Minibus — full guest shuttle
           </Link>
         </div>
+
+        <h2 className="font-display mt-12 text-xl text-brand-ink">Cross-Border Weddings</h2>
+        <p className="mt-3 text-sm text-brand-ink-2/80">
+          Planning a wedding that involves a border crossing? See our{' '}
+          <Link href="/blog/vienna-bratislava-wedding-transfer-guide" className="font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold">
+            Vienna–Bratislava wedding transfer guide
+          </Link>{' '}
+          for guest airport pickups, hotel-to-venue transfers, and group coordination across the Austria–Slovakia border.
+        </p>
       </section>
 
       <BookingCta

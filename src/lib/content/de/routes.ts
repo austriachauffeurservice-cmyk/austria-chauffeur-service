@@ -316,6 +316,123 @@ export const routes: RoutePair[] = [
     ],
   },
   {
+    slug: 'innsbruck-airport-to-skiwelt',
+    from: 'Flughafen Innsbruck (INN)',
+    to: 'SkiWelt Wilder Kaiser-Brixental',
+    distance: '~80 km',
+    driveTime: '~1 Std.',
+    routeDescription:
+      'Nordwärts vom Flughafen Innsbruck über die A12 Inntalautobahn, dann weiter über Regionalstraßen in die Wilder-Kaiser-Orte — Söll, Ellmau, Going, Scheffau und Westendorf sind alle über dieselbe Strecke erreichbar.',
+    whyBook: [
+      'Direkt zu jedem SkiWelt-Ort — kein Shuttle-Halt, kein Fahrzeugwechsel',
+      'Ein Festpreis, vor der Fahrt vereinbart',
+      'Winterfeste Fahrzeuge mit Platz für Ski und Snowboards',
+    ],
+    seoTitle: 'Transfer Flughafen Innsbruck nach SkiWelt | Privater Chauffeur',
+    seoDescription:
+      'Privater Chauffeurtransfer vom Flughafen Innsbruck zur SkiWelt, inklusive Söll, Ellmau, Going und Scheffau. Tür-zu-Tür-Service mit komfortablen, winterfesten Fahrzeugen.',
+    dropoffHint:
+      'Geben Sie Ihr Hotel, Chalet oder Ihre Adresse in Söll, Ellmau, Going, Scheffau oder Westendorf als Ziel an. Wir bestätigen Verfügbarkeit und Festpreis per E-Mail.',
+    routeOverview: {
+      road: 'A12 Inntalautobahn über Regionalstraßen in die Wilder-Kaiser-Orte',
+      transferType: 'Privat, Tür zu Tür',
+      vehicleNote: 'Limousine, Executive-Van oder Kleinbus',
+    },
+    routeExplanation: {
+      heading: 'Transfer vom Flughafen Innsbruck zur SkiWelt',
+      description:
+        'Die SkiWelt Wilder Kaiser-Brixental ist eines der größten liftverbundenen Skigebiete Österreichs und umfasst die Orte Söll, Ellmau, Going, Scheffau und Westendorf. Ein privater Chauffeur holt Sie am Flughafen Innsbruck ab und bringt Sie direkt zu Ihrer Unterkunft im jeweiligen Ort — kein Shuttlebus, kein Umstieg an einem zentralen Punkt, und kein zweites Fahrzeug nach der Landung nötig. Derselbe private Service gilt auch für Ihren Rücktransfer zum Flughafen.',
+    },
+    whyBookPoints: [
+      { title: 'Tür zu Tür', description: 'Ihr Chauffeur bringt Sie direkt vom Flughafen Innsbruck zu Ihrer Unterkunft in jedem SkiWelt-Ort.' },
+      { title: 'Skifreundliche Fahrzeugplanung', description: 'Teilen Sie uns Ski, Snowboards und zusätzliches Gepäck bei der Buchung mit.' },
+      { title: 'Kein Shuttle-Wechsel', description: 'Bleiben Sie während der gesamten Fahrt im selben privaten Fahrzeug.' },
+      { title: 'Festpreis', description: 'Ihr Transferpreis wird vor der Fahrt bestätigt.' },
+      { title: 'Flexible Abholung', description: 'Ihre Flughafenabholung wird auf Ihre Ankunft abgestimmt.' },
+      { title: 'Rücktransfer', description: 'Buchen Sie auch SkiWelt → Flughafen Innsbruck.' },
+    ],
+    flightTrackingSection: {
+      heading: 'Flughafenabholung & Flugüberwachung',
+      description:
+        'Teilen Sie uns bei der Buchung Ihre Flugnummer mit, und wir verfolgen Ihre geplante Ankunft am Flughafen Innsbruck automatisch. Landet Ihr Flug früher oder später, passt Ihr Chauffeur die Abholzeit entsprechend an.',
+    },
+    destinationCoverage: {
+      heading: 'Transfers zu den SkiWelt-Orten',
+      intro:
+        'Die SkiWelt verbindet fünf Orte unter einem einzigen Skipass, und Ihr Transfer kann direkt zu dem Ort gebucht werden, in dem Sie übernachten — nicht nur zu einem zentralen Abholpunkt:',
+      items: ['Söll', 'Ellmau', 'Going', 'Scheffau', 'Westendorf'],
+    },
+    winterSection: {
+      heading: 'Flughafen Innsbruck nach SkiWelt im Winter',
+      description:
+        'Schneefall, vereiste Straßen und Verkehr rund um Samstags-Wechseltage können diese Fahrt verlängern — auch bei frühmorgendlichen Flughafenankünften. Planen Sie bei starkem Schneefall oder in der Hauptsaison zusätzliche Zeit ein, statt von einer festen Fahrzeit auszugehen.',
+      linkHref: '/de/ski-transfers',
+      linkLabel: 'Alle Skitransfers in Österreich ansehen →',
+    },
+    returnSection: {
+      heading: 'SkiWelt → Flughafen Innsbruck',
+      description:
+        'Derselbe private Service funktioniert auch für Ihre Abreise in umgekehrter Richtung. Wir holen Sie direkt von Ihrem Hotel, Chalet oder Ihrer Ferienwohnung in Söll, Ellmau, Going, Scheffau oder Westendorf ab und bringen Sie zum Flughafen Innsbruck. Teilen Sie uns bei der Buchung Ihre Flugzeit und bevorzugte Abholzeit mit — planen Sie zusätzlichen Puffer für winterliche Straßenverhältnisse und den Check-in ein.',
+    },
+    luggageNote: {
+      heading: 'Skiausrüstung & Gepäck',
+      description:
+        'Geben Sie bei der Anfrage Ihre Ski- und Snowboardtaschen, Skischuhe, Helme sowie zusätzliches Gepäck an. Ein Fahrzeug, das bequem Platz für Ihre Gruppe bietet, hat nicht automatisch auch Platz für die komplette Skiausrüstung — wir wählen das Fahrzeug anhand von Personenanzahl und Gepäck gemeinsam aus, nicht nur nach Personenanzahl.',
+    },
+    familySection: {
+      heading: 'Familien-Skitransfer',
+      description:
+        'Reisen mit Kindern bringt Kindersitze, Kinderwagen und Skiausrüstung zusätzlich zu den normalen Koffern mit sich. Teilen Sie uns bei der Anfrage die Anzahl und das Alter der Kinder, benötigte Kindersitze sowie Ihr Gepäck und Ihre Skiausrüstung mit, und wir stellen je nach Verfügbarkeit einen Executive-Van oder Kleinbus mit ausreichend Platz bereit.',
+    },
+    groupSection: {
+      heading: 'Gruppentransfers zur SkiWelt',
+      description:
+        'Diese Strecke eignet sich auch für Skiclubs, Firmengruppen und größere Gruppen, die sich ein Chalet teilen. Für größere Gruppen können mehrere Fahrzeuge oder ein Kleinbus organisiert werden — geben Sie bei der Anfrage Ihre vollständige Personenanzahl, Ihr Gepäck und den gewünschten Ort an.',
+    },
+    transferComparison: [
+      { option: 'Privater Chauffeur', bestFor: 'Direkte Flughafenabholung und ortsgenauer Hoteltransfer', tradeoff: 'Höhere Kosten als öffentliche Verkehrsmittel' },
+      { option: 'Öffentliche Verkehrsmittel', bestFor: 'Kostenbewusste Reisende, die Umstiege in Kauf nehmen', tradeoff: 'Regionalzug plus Anschlussbus in die SkiWelt-Orte, mehr Gepäckaufwand und fester Fahrplan' },
+    ],
+    originAlternative: {
+      heading: 'Flughafen Innsbruck nach Söll',
+      description:
+        'Söll ist der wichtigste Ausgangsort der SkiWelt und der häufigste Startpunkt für das gesamte Skigebiet — viele Gäste wohnen hier oder in einem der vier benachbarten Orte. Der Transfer vom Flughafen Innsbruck nach Söll verläuft über dieselbe Strecke wie für die gesamte SkiWelt, wobei Ihr Chauffeur Sie direkt zu Ihrem Hotel, Chalet oder Ihrer Ferienwohnung in Söll bringt — statt zu einem zentralen Abholpunkt im Ort.',
+    },
+    relatedRoutesHeading: 'Weitere Skitransfer-Strecken ab Flughafen Innsbruck',
+    relatedAirportRoutes: [
+      { label: 'Flughafen Innsbruck → Kitzbühel', distance: '~96 km', duration: '~1 Std. 15 Min.', href: '/de/routes/innsbruck-airport-to-kitzbuehel' },
+      { label: 'Flughafen Innsbruck → Sölden', distance: '~85 km', duration: '~1 Std. 10 Min.', href: '/de/routes/innsbruck-airport-to-soelden' },
+      { label: 'Flughafen Innsbruck → Seefeld in Tirol', distance: '~22–25 km', duration: '~20–25 Min.', href: '/de/routes/innsbruck-airport-to-seefeld' },
+      { label: 'Flughafen Innsbruck → St. Anton am Arlberg', distance: '~100 km', duration: '~1 Std. 10 Min.', href: '/de/routes/innsbruck-airport-to-st-anton' },
+    ],
+    faqs: [
+      {
+        question: 'Wie komme ich vom Flughafen Innsbruck zur SkiWelt?',
+        answer: 'Ein privater Chauffeur empfängt Sie am Flughafen Innsbruck und bringt Sie direkt zu Ihrer Unterkunft in Söll, Ellmau, Going, Scheffau oder Westendorf — ohne Shuttlebus oder Umstieg an einem zentralen Punkt.',
+      },
+      {
+        question: 'Wie lange dauert der Transfer vom Flughafen Innsbruck nach Söll?',
+        answer: 'Unter normalen Bedingungen etwa eine Stunde. Verkehr und winterliches Wetter können dies verlängern.',
+      },
+      {
+        question: 'Können Sie Skiausrüstung transportieren?',
+        answer: 'Ja. Teilen Sie uns bei der Buchung Ihre Ski- und Snowboardtaschen, Skischuhe und Helme mit, damit wir ein Fahrzeug mit ausreichend Platz einplanen können.',
+      },
+      {
+        question: 'Kann ich einen privaten Transfer für meine Familie buchen?',
+        answer: 'Ja. Executive Vans und Kleinbusse stehen je nach Verfügbarkeit für Familien und größere Gruppen zur Verfügung — teilen Sie uns bei der Anfrage benötigte Kindersitze mit.',
+      },
+      {
+        question: 'Bieten Sie Rücktransfers an?',
+        answer: 'Ja. Wir holen Sie von Ihrer Unterkunft in der SkiWelt ab und bringen Sie zurück zum Flughafen Innsbruck für Ihren Rückflug.',
+      },
+      {
+        question: 'Welche SkiWelt-Orte können Sie bedienen?',
+        answer: 'Söll, Ellmau, Going, Scheffau und Westendorf — Ihr Chauffeur bringt Sie direkt zu Ihrem Hotel, Chalet oder Ihrer Ferienwohnung in jedem der fünf Orte.',
+      },
+    ],
+  },
+  {
     slug: 'innsbruck-airport-to-st-anton',
     from: 'Flughafen Innsbruck (INN)',
     to: 'St. Anton am Arlberg',

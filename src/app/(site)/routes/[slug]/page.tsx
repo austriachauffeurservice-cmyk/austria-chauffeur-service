@@ -359,6 +359,12 @@ export default async function RoutePage({ params }: { params: Promise<Params> })
               Ski equipment and extra luggage can affect the appropriate vehicle choice — include your
               equipment details when requesting a quote.
             </p>
+            <Link
+              href="/fleet"
+              className="mt-4 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+            >
+              See full vehicle specifications →
+            </Link>
           </div>
         </section>
       )}

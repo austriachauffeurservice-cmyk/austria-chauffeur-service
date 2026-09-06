@@ -361,6 +361,12 @@ export default async function RoutePageDe({ params }: { params: Promise<Params> 
               Skiausrüstung und zusätzliches Gepäck können die passende Fahrzeugwahl beeinflussen —
               geben Sie Ihre Ausrüstungsdetails bei der Anfrage an.
             </p>
+            <Link
+              href="/de/fleet"
+              className="mt-4 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+            >
+              Alle Fahrzeugdaten ansehen →
+            </Link>
           </div>
         </section>
       )}
