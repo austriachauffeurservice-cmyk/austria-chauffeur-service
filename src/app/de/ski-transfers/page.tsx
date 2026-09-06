@@ -25,7 +25,26 @@ export const metadata: Metadata = {
   },
 }
 
+// Regions ordered by how many resorts they contain (derived from the actual
+// data below), so the largest, most-searched clusters (Tirol, Salzburg) lead
+// and every resort — including the less-discoverable ones — gets a labelled
+// section rather than being buried in one long undifferentiated grid.
+const regionPriority = ['Tirol', 'Salzburg', 'Vorarlberg', 'Kärnten', 'Steiermark']
+
+function groupByRegion<T extends { region: string }>(items: T[]): { region: string; items: T[] }[] {
+  const regions = Array.from(new Set(items.map((r) => r.region))).sort((a, b) => {
+    const ai = regionPriority.indexOf(a)
+    const bi = regionPriority.indexOf(b)
+    if (ai !== -1 && bi !== -1) return ai - bi
+    if (ai !== -1) return -1
+    if (bi !== -1) return 1
+    return a.localeCompare(b)
+  })
+  return regions.map((region) => ({ region, items: items.filter((r) => r.region === region) }))
+}
+
 export default function SkiTransfersPageDe() {
+  const groups = groupByRegion(skiResorts)
   return (
     <>
       <section className="border-b border-brand-line bg-brand-ink text-white">
@@ -50,24 +69,33 @@ export default function SkiTransfersPageDe() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {skiResorts.map((r) => (
-            <Link
-              key={r.slug}
-              href={`/de/ski-transfers/${r.slug}`}
-              className="group rounded-sm border border-brand-line bg-white p-6 transition-colors hover:border-brand-gold hover:shadow-sm"
-            >
-              <p className="text-xs font-semibold uppercase tracking-wide text-brand-gold">
-                {r.region}
-              </p>
-              <h2 className="font-display mt-1 text-xl text-brand-ink group-hover:text-brand-gold">
-                {r.name}
+        <div className="space-y-14">
+          {groups.map((group) => (
+            <div key={group.region}>
+              <h2 className="font-display text-xl text-brand-ink border-b border-brand-line pb-3">
+                {group.region}
               </h2>
-              <p className="mt-2 text-sm text-brand-ink-2/70">{r.skiArea}</p>
-              <p className="mt-4 text-xs font-semibold text-brand-ink-2/60">
-                Nächster Flughafen: {r.nearestAirports[0].name} ({r.nearestAirports[0].driveTime})
-              </p>
-            </Link>
+              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {group.items.map((r) => (
+                  <Link
+                    key={r.slug}
+                    href={`/de/ski-transfers/${r.slug}`}
+                    className="group rounded-sm border border-brand-line bg-white p-6 transition-colors hover:border-brand-gold hover:shadow-sm"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-wide text-brand-gold">
+                      {r.region}
+                    </p>
+                    <h3 className="font-display mt-1 text-xl text-brand-ink group-hover:text-brand-gold">
+                      {r.name}
+                    </h3>
+                    <p className="mt-2 text-sm text-brand-ink-2/70">{r.skiArea}</p>
+                    <p className="mt-4 text-xs font-semibold text-brand-ink-2/60">
+                      Nächster Flughafen: {r.nearestAirports[0].name} ({r.nearestAirports[0].driveTime})
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </section>

@@ -13,6 +13,18 @@ import { testimonials } from '@/lib/content/de/testimonials'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/de/service-areas'
 import { areaServedCountries, contactEmail, siteName, siteUrl } from '@/lib/content/site'
 
+const pageDescription =
+  'Privater Chauffeurservice in Österreich für Flughafentransfers, Geschäftsfahrten und grenzüberschreitende Fahrten. Festpreise, lizenzierte Chauffeure — jetzt anfragen.'
+
+const serviceHrefs = [
+  '/de/airport-transfers',
+  '/de/city-to-city-transfers',
+  '/de/service-areas',
+  '/de/corporate-transfers',
+  '/de/wedding-transfers',
+  '/de/ski-transfers',
+]
+
 const featuredDestinationSlugs = [
   'vienna',
   'salzburg',
@@ -27,11 +39,24 @@ const featuredDestinationSlugs = [
 ]
 
 export const metadata: Metadata = {
-  description:
-    'Private Chauffeurtransfers in ganz Österreich — Flughafen-, Stadt- und grenzüberschreitende Fahrten, durchgeführt von lizenzierten Chauffeurpartnern.',
+  title: 'Chauffeurservice Österreich | Privater Chauffeur & Fahrservice',
+  description: pageDescription,
   alternates: {
     canonical: '/de',
     languages: { en: '/', de: '/de', 'x-default': '/' },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'de_AT',
+    url: `${siteUrl}/de`,
+    siteName,
+    title: 'Chauffeurservice Österreich | Privater Chauffeur & Fahrservice',
+    description: pageDescription,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Chauffeurservice Österreich | Privater Chauffeur & Fahrservice',
+    description: pageDescription,
   },
 }
 
@@ -57,8 +82,7 @@ export default function HomePageDe() {
           name: siteName,
           url: siteUrl,
           image: `${siteUrl}/logo.webp`,
-          description:
-            'Private Chauffeurtransfers in ganz Österreich — Flughafen-, Stadt- und grenzüberschreitende Fahrten, durchgeführt von lizenzierten Chauffeurpartnern.',
+          description: pageDescription,
           areaServed: areaServedCountries.map((name) => ({ '@type': 'Country', name })),
           openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',
@@ -94,10 +118,10 @@ export default function HomePageDe() {
         <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-24">
           <div className="flex flex-col justify-center">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-brand-gold">
-              Privater Chauffeurservice
+              Privater Fahrservice in Österreich
             </p>
             <h1 className="font-display mt-4 text-4xl leading-tight sm:text-5xl">
-              Überall in Österreich.
+              Chauffeurservice in ganz Österreich.
               <br />
               Auch über die Grenze.
             </h1>
@@ -169,8 +193,12 @@ export default function HomePageDe() {
           </h2>
         </div>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {serviceTypes.map((s) => (
-            <div key={s.title} className="rounded-sm border border-brand-line bg-white overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300">
+          {serviceTypes.map((s, i) => (
+            <Link
+              key={s.title}
+              href={serviceHrefs[i] ?? '/de/services'}
+              className="rounded-sm border border-brand-line bg-white overflow-hidden flex flex-col group hover:shadow-md transition-shadow duration-300"
+            >
               <div className="relative aspect-[16/9] w-full overflow-hidden bg-brand-cream border-b border-brand-line">
                 <Image
                   src={s.image}
@@ -193,8 +221,16 @@ export default function HomePageDe() {
                   </p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
+        </div>
+        <div className="mt-8">
+          <Link
+            href="/de/services"
+            className="text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+          >
+            Chauffeurservice im Detail →
+          </Link>
         </div>
       </section>
 
@@ -584,6 +620,14 @@ export default function HomePageDe() {
           Skiausrüstung oder ungewöhnlich großem Gepäck die Details in Ihrer Anfrage an, damit wir
           das passende Fahrzeug zuweisen können.
         </p>
+        <div className="mt-4">
+          <Link
+            href="/de/fleet"
+            className="text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+          >
+            Alle Fahrzeuge ansehen →
+          </Link>
+        </div>
       </section>
 
       {/* Popular Routes */}

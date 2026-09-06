@@ -686,6 +686,12 @@ export const skiResorts: SkiResort[] = [
         description: 'Ein Familien- und Wassererlebnispark oberhalb von Söll, beliebt im Winter wie im Sommer.',
       },
     ],
+    seoTitle: 'Söll & SkiWelt Flughafentransfer | Privater Ski-Chauffeur',
+    seoDescription:
+      'Private Flughafentransfers nach Söll, Ellmau, Going, Scheffau und Westendorf — den fünf Orten der SkiWelt. Festpreise, winterfeste Fahrzeuge.',
+    heroHeading: 'SkiWelt Transferservice — Söll, Ellmau, Going, Scheffau & Westendorf',
+    heroSubtitle:
+      'Private Transfers nach Söll, Ellmau, Going, Scheffau und Westendorf — den fünf verbundenen Orten der SkiWelt Wilder Kaiser-Brixental, einem der größten Skigebiete Österreichs.',
   },
   {
     slug: 'alpbach',

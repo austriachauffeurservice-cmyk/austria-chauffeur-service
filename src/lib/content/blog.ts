@@ -60,9 +60,9 @@ export const blogPosts: BlogPost[] = [
     tags: ['Vienna', 'Airport Transfers'],
     image: '/images/blog/vienna-airport-chauffeur.webp',
     imageAlt: 'Private chauffeur meet and greet transfer service at Vienna International Airport',
-    seoTitle: 'Vienna Airport Pickup & Transfer: Time, Options & Booking Guide',
+    seoTitle: 'Vienna Airport Transfer: Private Chauffeur & Pickup Guide',
     seoDescription:
-      'Vienna Airport pickup and transfer guide covering travel times, private chauffeur, CAT, trains, buses, Bratislava transfers, luggage, flight tracking and booking tips.',
+      'Book a private Vienna Airport transfer with a professional chauffeur. Travel times, vehicle options, luggage, flight tracking and Bratislava connections covered.',
     blocks: [
       {
         type: 'paragraph',
@@ -312,9 +312,9 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2026-05-18',
     readingTime: '6 min read',
     tags: ['Cross-Border', 'Slovakia'],
-    seoTitle: 'Vienna to Bratislava: Transfer, Border & Travel Guide',
+    seoTitle: 'Vienna to Bratislava Transfer: Private Chauffeur & Travel Guide',
     seoDescription:
-      'Planning a Vienna to Bratislava trip? Learn about the route, border crossing, travel options, journey time, Bratislava Airport, and private transfers.',
+      'Planning a Vienna to Bratislava trip? Compare private chauffeur transfers, journey time, border crossing details, and Vienna Airport to Bratislava connections.',
     blocks: [
       {
         type: 'paragraph',
@@ -323,6 +323,10 @@ export const blogPosts: BlogPost[] = [
       {
         type: 'paragraph',
         text: "The short distance makes the route useful for far more than sightseeing. Travelers use it for Bratislava Airport connections, business meetings, weekend trips, and same-day visits to both capitals. If you're traveling privately, a chauffeur can take you directly between hotels, residences, airports, and business addresses without changing vehicles at the border.",
+      },
+      {
+        type: 'paragraph',
+        text: "This guide covers the Vienna city-to-Bratislava drive in detail. If you're flying into Vienna Airport specifically, see the dedicated [Vienna Airport to Bratislava transfer](/routes/vienna-airport-to-bratislava) page for airport-specific pickup details and pricing.",
       },
       { type: 'heading', text: 'Do you need your passport?' },
       {
@@ -4180,9 +4184,9 @@ export const blogPosts: BlogPost[] = [
     publishedAt: '2026-09-03',
     readingTime: '10 min read',
     tags: ['Ski Transfers', 'Tyrol'],
-    seoTitle: 'Innsbruck Airport to Sölden Transfer: Time, Distance & Best Options',
+    seoTitle: 'Innsbruck Airport to Sölden Transfer | Private Chauffeur',
     seoDescription:
-      'Compare Innsbruck Airport to Sölden transfer options — journey time, distance, public transport, private chauffeur transfers, ski luggage tips, and booking advice.',
+      'Travel from Innsbruck Airport to Sölden with a private chauffeur — journey time, distance, vehicle options, ski luggage tips, and door-to-door booking advice.',
     blocks: [
       {
         type: 'paragraph',

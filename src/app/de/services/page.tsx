@@ -9,19 +9,21 @@ import { defaultOgImage, siteName, siteUrl } from '@/lib/content/site'
 import { BookingCta } from '@/components/booking-cta'
 import { HeroQuoteCard } from '@/components/hero-quote-card'
 
+const servicesTitle = 'Chauffeurservice-Leistungen | Flughafen-, Firmen- & Skitransfers'
+const servicesDescription =
+  'Unser Chauffeurservice in Österreich im Überblick: Flughafenabholungen, Stadt-zu-Stadt-Fahrten, grenzüberschreitende Fahrten und Stundenbuchung. Festpreise, professionelle Fahrer, Fuhrpark vom Sedan bis zum Kleinbus.'
+
 export const metadata: Metadata = {
-  title: 'Österreich Transferservice | Flughafen, Stadt & Grenzüberschreitend',
-  description:
-    'Jeder Österreich-Transferservice an einem Ort — Flughafenabholungen, Stadt-zu-Stadt-Fahrten, grenzüberschreitende Fahrten und Stundenbuchung. Festpreise, professionelle Fahrer, Fuhrpark vom Sedan bis zum Kleinbus.',
+  title: servicesTitle,
+  description: servicesDescription,
   openGraph: {
     type: 'website',
     images: [defaultOgImage],
     siteName,
     locale: 'de_AT',
     url: `${siteUrl}/de/services`,
-    title: 'Österreich Transferservice | Flughafen, Stadt & Grenzüberschreitend',
-    description:
-      'Jeder Österreich-Transferservice an einem Ort — Flughafenabholungen, Stadt-zu-Stadt-Fahrten, grenzüberschreitende Fahrten und Stundenbuchung. Festpreise, professionelle Fahrer, Fuhrpark vom Sedan bis zum Kleinbus.',
+    title: servicesTitle,
+    description: servicesDescription,
   },
   alternates: {
     canonical: '/de/services',
@@ -80,7 +82,7 @@ export default function ServicesPageDe() {
               Unsere Leistungen
             </p>
             <h1 className="font-display mt-2 max-w-2xl text-3xl text-brand-ink sm:text-4xl">
-              Privater Chauffeurservice in Österreich
+              Chauffeurservice für Flughafentransfers, Geschäftsfahrten &amp; individuelle Fahrten
             </h1>
             <p className="mt-4 max-w-xl text-brand-ink-2/80">
               Flughafentransfers, Stadt-zu-Stadt-Fahrten, grenzüberschreitende Reisen,
