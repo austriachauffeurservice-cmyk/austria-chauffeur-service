@@ -55,6 +55,12 @@ export default function BookingPageDe() {
         beide willkommen.
       </p>
       <p className="mt-2 max-w-xl text-sm text-brand-ink-2/70">
+        Es gibt keine allgemeine Preisliste, da eine kurze Stadtfahrt und eine lange
+        grenzüberschreitende oder alpine Fahrt sehr unterschiedlich bepreist werden — deshalb
+        bestätigen wir einen Festpreis für Ihre konkrete Strecke und Ihr Fahrzeug, statt eine Zahl
+        zu veröffentlichen, die auf Ihre Fahrt gar nicht zutreffen würde.
+      </p>
+      <p className="mt-2 max-w-xl text-sm text-brand-ink-2/70">
         Benötigen Sie Hilfe vor dem Absenden Ihrer Anfrage? Schreiben Sie an{' '}
         <a href={`mailto:${contactEmail}`} className="font-semibold text-brand-gold hover:underline">
           {contactEmail}

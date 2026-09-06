@@ -55,6 +55,11 @@ export default function BookingPage() {
         welcome.
       </p>
       <p className="mt-2 max-w-xl text-sm text-brand-ink-2/70">
+        There&apos;s no generic rate card, since a short city transfer and a long cross-border or
+        Alpine trip are priced very differently — that&apos;s why we confirm a fixed price for your
+        specific route and vehicle rather than publish a number that wouldn&apos;t apply to your trip.
+      </p>
+      <p className="mt-2 max-w-xl text-sm text-brand-ink-2/70">
         Need help before submitting your request? Email{' '}
         <a href={`mailto:${contactEmail}`} className="font-semibold text-brand-gold hover:underline">
           {contactEmail}

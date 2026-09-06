@@ -1,9 +1,10 @@
 'use client'
 
-import { Suspense, useState, type FormEvent, type ReactNode } from 'react'
+import { Suspense, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import { useSearchParams } from 'next/navigation'
 import type { VehicleType } from '@/lib/content/services'
 import type { Locale } from '@/lib/i18n'
+import { trackEvent } from '@/lib/analytics'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 type JourneyType = 'one_way' | 'return'
@@ -235,6 +236,13 @@ function BookingFormInner({
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [referenceId, setReferenceId] = useState<string | null>(null)
   const [journeyType, setJourneyType] = useState<JourneyType>('one_way')
+  const hasTrackedStart = useRef(false)
+
+  function handleFormFocus() {
+    if (hasTrackedStart.current) return
+    hasTrackedStart.current = true
+    trackEvent('form_start', { form_name: 'booking' })
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -276,6 +284,7 @@ function BookingFormInner({
         const data = await res.json().catch(() => ({}))
         setErrorMessage(data?.issues?.[0]?.message || data?.error || t.genericError)
         setStatus('error')
+        trackEvent('form_submit_error', { form_name: 'booking', reason: 'validation_or_server' })
         return
       }
 
@@ -284,9 +293,11 @@ function BookingFormInner({
       setStatus('success')
       form.reset()
       setJourneyType('one_way')
+      trackEvent('form_submit', { form_name: 'booking', vehicle_type: payload.vehicleType, journey_type: payload.journeyType })
     } catch {
       setErrorMessage(t.networkError)
       setStatus('error')
+      trackEvent('form_submit_error', { form_name: 'booking', reason: 'network' })
     }
   }
 
@@ -312,7 +323,7 @@ function BookingFormInner({
   const today = new Date().toISOString().slice(0, 10)
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} onFocusCapture={handleFormFocus} className="grid gap-4 sm:grid-cols-2">
       <div className="sm:col-span-2">
         {dropoffHint ? (
           <p className="text-xs text-brand-ink-2/70">{dropoffHint}</p>

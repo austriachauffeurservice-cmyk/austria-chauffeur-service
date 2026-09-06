@@ -118,7 +118,21 @@ export default function CorporateTransfersPage() {
           </Link>
         </div>
 
-        <div className="mt-10 rounded-sm border border-brand-line bg-brand-cream p-6">
+        <div className="mt-10 rounded-sm border border-brand-line p-6">
+          <p className="font-semibold text-brand-ink">Organizing transport for a conference or company event?</p>
+          <p className="mt-1.5 text-sm text-brand-ink-2/70">
+            For a one-off scheduled event rather than ongoing hourly hire, see our dedicated
+            event transportation service.
+          </p>
+          <Link
+            href="/event-transportation"
+            className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+          >
+            Event Transportation →
+          </Link>
+        </div>
+
+        <div className="mt-6 rounded-sm border border-brand-line bg-brand-cream p-6">
           <p className="font-semibold text-brand-ink">Booking regularly for your company?</p>
           <p className="mt-1.5 text-sm text-brand-ink-2/70">
             Set up a corporate account for consolidated invoicing and priority dispatch.

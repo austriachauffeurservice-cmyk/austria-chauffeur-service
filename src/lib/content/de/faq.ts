@@ -5,6 +5,11 @@ export const faqs = [
       'Ja. Unsere lizenzierten Chauffeurpartner übernehmen internationale Abholungen und Ablieferungen nach Deutschland, Tschechien, Slowakei, Ungarn, Slowenien, Italien und in die Schweiz/Liechtenstein — Sie bleiben die ganze Fahrt über im selben Fahrzeug, kein Umsteigen an der Grenze.',
   },
   {
+    question: 'Wer stellt tatsächlich meinen Fahrer und mein Fahrzeug?',
+    answer:
+      'Austria Chauffeur Service nimmt Ihre Buchung entgegen und koordiniert sie, die eigentliche Fahrt wird jedoch von einem unabhängigen, eigenständig gewerberechtlich befugten Chauffeurpartner durchgeführt — dasselbe Partnernetzwerk-Modell, das in unserem gesamten Einsatzgebiet gilt. Sie haben für Buchung und Support einen einzigen Ansprechpartner; Fahrzeug und Fahrer für die Fahrt selbst stellt der zugewiesene Partner.',
+  },
+  {
     question: 'Wie weit im Voraus sollte ich buchen?',
     answer:
       'Wir empfehlen, mindestens 24 Stunden im Voraus zu buchen, besonders bei grenzüberschreitenden Fahrten oder größeren Fahrzeugen. Senden Sie Ihre Anfrage über das Buchungsformular — wir bestätigen Verfügbarkeit und Preis per E-Mail.',

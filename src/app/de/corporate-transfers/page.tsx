@@ -118,7 +118,21 @@ export default function CorporateTransfersPageDe() {
           </Link>
         </div>
 
-        <div className="mt-10 rounded-sm border border-brand-line bg-brand-cream p-6">
+        <div className="mt-10 rounded-sm border border-brand-line p-6">
+          <p className="font-semibold text-brand-ink">Organisieren Sie den Transport für eine Konferenz oder Firmenveranstaltung?</p>
+          <p className="mt-1.5 text-sm text-brand-ink-2/70">
+            Für eine einmalige geplante Veranstaltung statt laufender Stundenbuchung empfehlen
+            wir unseren eigenen Eventtransport-Service.
+          </p>
+          <Link
+            href="/de/event-transportation"
+            className="mt-3 inline-block text-sm font-semibold text-brand-ink underline decoration-brand-gold underline-offset-4 hover:text-brand-gold"
+          >
+            Eventtransport →
+          </Link>
+        </div>
+
+        <div className="mt-6 rounded-sm border border-brand-line bg-brand-cream p-6">
           <p className="font-semibold text-brand-ink">Buchen Sie regelmäßig für Ihr Unternehmen?</p>
           <p className="mt-1.5 text-sm text-brand-ink-2/70">
             Richten Sie ein Firmenkonto für gesammelte Rechnungsstellung und priorisierte

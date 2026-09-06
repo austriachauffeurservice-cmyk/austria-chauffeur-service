@@ -11,7 +11,7 @@ import { serviceTypes, vehicles } from '@/lib/content/de/services'
 import { faqs } from '@/lib/content/de/faq'
 import { testimonials } from '@/lib/content/de/testimonials'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/de/service-areas'
-import { areaServedCountries, contactEmail, siteName, siteUrl } from '@/lib/content/site'
+import { areaServedCountries, contactEmail, siteName, siteUrl, whatsappLink } from '@/lib/content/site'
 
 const pageDescription =
   'Privater Chauffeurservice in Österreich für Flughafentransfers, Geschäftsfahrten und grenzüberschreitende Fahrten. Festpreise, lizenzierte Chauffeure — jetzt anfragen.'
@@ -65,7 +65,7 @@ const popularRoutes: { label: string; distance: string; duration: string; href: 
   { label: 'Wien → Bratislava', distance: '~80 km', duration: '~1 Std.', href: '/de/routes/vienna-to-bratislava' },
   { label: 'Flughafen Wien → Bratislava', distance: '~65 km', duration: '~45–60 Min.', href: '/de/routes/vienna-airport-to-bratislava' },
   { label: 'Salzburg → München', distance: '~145 km', duration: '~1 Std. 30 Min.', href: '/de/routes/salzburg-to-munich' },
-  { label: 'Flughafen Innsbruck → Kitzbühel', distance: '~90 km', duration: '~1 Std.', href: '/de/routes/innsbruck-airport-to-kitzbuehel' },
+  { label: 'Flughafen Innsbruck → Kitzbühel', distance: '~96 km', duration: '~1 Std. 15 Min.', href: '/de/routes/innsbruck-airport-to-kitzbuehel' },
   { label: 'Wien → Budapest', distance: '~245 km', duration: '~2 Std. 30 Min.–3 Std.', href: '/de/routes/vienna-to-budapest' },
   { label: 'Wien → Prag', distance: '~310 km', duration: '~3 Std. 15 Min.', href: '/de/routes/vienna-to-prague' },
   { label: 'Bregenz → Flughafen Zürich', distance: '~120 km', duration: '~1 Std. 15 Min.', href: '/de/routes/bregenz-to-zurich-airport' },
@@ -145,13 +145,24 @@ export default function HomePageDe() {
                 Einsatzgebiet ansehen
               </Link>
             </div>
-            <a
-              href={`mailto:${contactEmail}`}
-              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-cream/80 hover:text-brand-gold"
-            >
-              <ServiceIcon name="mail" className="h-4 w-4" />
-              Heute noch nötig? E-Mail: {contactEmail}
-            </a>
+            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
+              <a
+                href={whatsappLink('Hallo, ich benötige heute noch einen privaten Transfer.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-cream/80 hover:text-brand-gold"
+              >
+                <ServiceIcon name="message" className="h-4 w-4" />
+                Heute noch nötig? Per WhatsApp anfragen
+              </a>
+              <a
+                href={`mailto:${contactEmail}`}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-cream/80 hover:text-brand-gold"
+              >
+                <ServiceIcon name="mail" className="h-4 w-4" />
+                E-Mail: {contactEmail}
+              </a>
+            </div>
             <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-6 text-sm">
               <div>
                 <dt className="text-brand-gold">9</dt>
@@ -438,7 +449,7 @@ export default function HomePageDe() {
                     <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3 transform transition-all duration-500 hover:scale-105 hover:bg-white/10">
                       <p className="text-[9px] uppercase tracking-wider text-emerald-400 font-medium flex justify-between">
                         <span>Schritt 3: Servicestatus</span>
-                        <span className="font-semibold font-mono">FESTPREIS</span>
+                        <span className="font-semibold font-mono">BEISPIELPREIS</span>
                       </p>
                       <p className="text-white text-xs font-semibold mt-0.5 flex justify-between">
                         <span>Chauffeur bereit</span>

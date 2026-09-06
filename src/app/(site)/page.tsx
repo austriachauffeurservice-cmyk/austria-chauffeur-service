@@ -11,7 +11,7 @@ import { faqs } from '@/lib/content/faq'
 import { blogPosts } from '@/lib/content/blog'
 import { testimonials } from '@/lib/content/testimonials'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
-import { areaServedCountries, contactEmail, siteName, siteUrl } from '@/lib/content/site'
+import { areaServedCountries, contactEmail, siteName, siteUrl, whatsappLink } from '@/lib/content/site'
 
 const featuredDestinationSlugs = [
   'vienna',
@@ -31,7 +31,7 @@ const popularRoutes: { label: string; distance: string; duration: string; href: 
   { label: 'Vienna → Bratislava', distance: '~80km', duration: '~1h', href: '/routes/vienna-to-bratislava' },
   { label: 'Vienna Airport → Bratislava', distance: '~65km', duration: '~45–60m', href: '/routes/vienna-airport-to-bratislava' },
   { label: 'Salzburg → Munich', distance: '~145km', duration: '~1h 30m', href: '/routes/salzburg-to-munich' },
-  { label: 'Innsbruck Airport → Kitzbühel', distance: '~90km', duration: '~1h', href: '/routes/innsbruck-airport-to-kitzbuehel' },
+  { label: 'Innsbruck Airport → Kitzbühel', distance: '~96km', duration: '~1h 15m', href: '/routes/innsbruck-airport-to-kitzbuehel' },
   { label: 'Vienna → Budapest', distance: '~245km', duration: '~2h 30m–3h', href: '/routes/vienna-to-budapest' },
   { label: 'Vienna → Prague', distance: '~310km', duration: '~3h 15m', href: '/routes/vienna-to-prague' },
   { label: 'Bregenz → Zurich Airport', distance: '~120km', duration: '~1h 15m', href: '/routes/bregenz-to-zurich-airport' },
@@ -124,13 +124,24 @@ export default function HomePage() {
                 View Coverage Area
               </Link>
             </div>
-            <a
-              href={`mailto:${contactEmail}`}
-              className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-cream/80 hover:text-brand-gold"
-            >
-              <ServiceIcon name="mail" className="h-4 w-4" />
-              Need it today? Email {contactEmail}
-            </a>
+            <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
+              <a
+                href={whatsappLink("Hi, I'd like to request a private transfer today.")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-cream/80 hover:text-brand-gold"
+              >
+                <ServiceIcon name="message" className="h-4 w-4" />
+                Need it today? WhatsApp us
+              </a>
+              <a
+                href={`mailto:${contactEmail}`}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-cream/80 hover:text-brand-gold"
+              >
+                <ServiceIcon name="mail" className="h-4 w-4" />
+                Email {contactEmail}
+              </a>
+            </div>
             <dl className="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-6 text-sm">
               <div>
                 <dt className="text-brand-gold">9</dt>
@@ -418,7 +429,7 @@ export default function HomePage() {
                     <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3 transform transition-all duration-500 hover:scale-105 hover:bg-white/10">
                       <p className="text-[9px] uppercase tracking-wider text-emerald-400 font-medium flex justify-between">
                         <span>Step 3: Service Status</span>
-                        <span className="font-semibold font-mono">FIXED RATE</span>
+                        <span className="font-semibold font-mono">EXAMPLE FARE</span>
                       </p>
                       <p className="text-white text-xs font-semibold mt-0.5 flex justify-between">
                         <span>Chauffeur Ready</span>

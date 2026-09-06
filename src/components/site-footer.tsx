@@ -1,8 +1,11 @@
+'use client'
+
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
 import { austrianCities, borderCrossingDestinations } from '@/lib/content/service-areas'
 import { contactAddress, contactEmail, licensingInfo, whatsappLink, whatsappNumber } from '@/lib/content/site'
 import { localizedHref, type Locale } from '@/lib/i18n'
+import { trackEvent } from '@/lib/analytics'
 
 const copy: Record<
   Locale,
@@ -101,7 +104,11 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
             </p>
             <p className="flex items-center gap-2">
               <span className="text-brand-gold shrink-0">✉️</span>
-              <a href={`mailto:${contactEmail}`} className="hover:text-white transition-colors duration-300">
+              <a
+                href={`mailto:${contactEmail}`}
+                onClick={() => trackEvent('email_click', { location: 'footer' })}
+                className="hover:text-white transition-colors duration-300"
+              >
                 {contactEmail}
               </a>
             </p>
@@ -111,6 +118,7 @@ export function SiteFooter({ locale = 'en' }: { locale?: Locale }) {
                 href={whatsappLink(t.whatsappMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent('whatsapp_click', { location: 'footer' })}
                 className="hover:text-white transition-colors duration-300"
               >
                 WhatsApp: {whatsappNumber}

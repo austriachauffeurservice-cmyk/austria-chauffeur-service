@@ -18,6 +18,7 @@ export type BookingCtaPageType =
   | 'country'
   | 'corporate'
   | 'wedding'
+  | 'event'
   | 'general'
 
 const emailLink = (locale: Locale) => (
@@ -38,6 +39,7 @@ const emailBlurbs: Record<Locale, Record<BookingCtaPageType, (email: ReactNode) 
     country: (email) => <>Planning a cross-border trip? Email your pickup, destination, and travel dates to {email}.</>,
     corporate: (email) => <>Need a multi-stop itinerary or recurring booking? Email the details to {email} and we&apos;ll put together a plan.</>,
     wedding: (email) => <>Planning a wedding? Send your ceremony and reception details to {email}.</>,
+    event: (email) => <>Planning transport for a conference, exhibition, or event? Send your event date, venue, and guest details to {email}.</>,
     general: (email) => <>Prefer to book by email? Send your trip details to {email}.</>,
   },
   de: {
@@ -48,6 +50,7 @@ const emailBlurbs: Record<Locale, Record<BookingCtaPageType, (email: ReactNode) 
     country: (email) => <>Planen Sie eine grenzüberschreitende Fahrt? Senden Sie Abholort, Ziel und Reisedaten an {email}.</>,
     corporate: (email) => <>Mehrstufige Reiseroute oder wiederkehrende Buchung? Senden Sie die Details an {email} — wir erstellen einen Plan.</>,
     wedding: (email) => <>Planen Sie eine Hochzeit? Senden Sie Ihre Trauungs- und Feierdetails an {email}.</>,
+    event: (email) => <>Planen Sie den Transport für eine Konferenz, Messe oder Veranstaltung? Senden Sie Datum, Veranstaltungsort und Gästedetails an {email}.</>,
     general: (email) => <>Lieber per E-Mail buchen? Senden Sie Ihre Reisedaten an {email}.</>,
   },
 }

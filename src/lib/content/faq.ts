@@ -5,6 +5,11 @@ export const faqs = [
       'Yes. Our licensed chauffeur partners handle international pickups and drop-offs to Germany, Czech Republic, Slovakia, Hungary, Slovenia, Italy, and Switzerland/Liechtenstein — you stay in the same vehicle the whole way, no switching at the border.',
   },
   {
+    question: 'Who actually provides my driver and vehicle?',
+    answer:
+      'Austria Chauffeur Service takes and coordinates your booking, but the transfer itself is carried out by an independent, separately licensed chauffeur partner — the same partner-network model used across our entire coverage area. You deal with a single point of contact for booking and support; your assigned partner provides the vehicle and driver for the drive itself.',
+  },
+  {
     question: 'How far in advance should I book?',
     answer:
       'We recommend booking at least 24 hours in advance, especially for cross-border trips or larger vehicles. Submit your request through the booking form and we will confirm availability and pricing by email.',

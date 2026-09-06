@@ -1,7 +1,10 @@
+'use client'
+
 import Link from 'next/link'
 import { ServiceIcon } from '@/components/service-icon'
 import { contactEmail, whatsappLink } from '@/lib/content/site'
 import { localizedHref, type Locale } from '@/lib/i18n'
+import { trackEvent } from '@/lib/analytics'
 
 const strings: Record<Locale, { email: string; book: string; whatsapp: string; whatsappMessage: string }> = {
   en: {
@@ -24,6 +27,7 @@ export function MobileActionBar({ locale = 'en' }: { locale?: Locale }) {
     <div className="fixed inset-x-0 bottom-0 z-50 flex border-t border-brand-line bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.08)] md:hidden">
       <a
         href={`mailto:${contactEmail}`}
+        onClick={() => trackEvent('email_click', { location: 'mobile_bar' })}
         className="flex flex-1 items-center justify-center gap-1.5 border-r border-brand-line py-3.5 text-xs font-semibold text-brand-ink sm:text-sm sm:gap-2"
       >
         <ServiceIcon name="mail" className="h-4 w-4" />
@@ -33,6 +37,7 @@ export function MobileActionBar({ locale = 'en' }: { locale?: Locale }) {
         href={whatsappLink(t.whatsappMessage)}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackEvent('whatsapp_click', { location: 'mobile_bar' })}
         className="flex flex-1 items-center justify-center gap-1.5 border-r border-brand-line bg-[#25D366] py-3.5 text-xs font-semibold text-white sm:text-sm sm:gap-2"
       >
         <ServiceIcon name="message" className="h-4 w-4" />
@@ -40,6 +45,7 @@ export function MobileActionBar({ locale = 'en' }: { locale?: Locale }) {
       </a>
       <Link
         href={localizedHref('/booking', locale)}
+        onClick={() => trackEvent('cta_click', { location: 'mobile_bar', cta_label: t.book })}
         className="flex flex-1 items-center justify-center gap-1.5 bg-brand-gold py-3.5 text-xs font-semibold text-brand-ink sm:text-sm sm:gap-2"
       >
         {t.book}

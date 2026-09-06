@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { contactEmail, whatsappLink } from '@/lib/content/site'
 import { delocalizePath, localizedHref, type Locale } from '@/lib/i18n'
+import { trackEvent } from '@/lib/analytics'
 
 const navLinksByLocale: Record<Locale, { href: string; label: string }[]> = {
   en: [
@@ -79,6 +80,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
           <a
             href={`mailto:${contactEmail}`}
             aria-label={contactEmail}
+            onClick={() => trackEvent('email_click', { location: 'header_desktop' })}
             className="flex items-center text-brand-ink-2 transition-colors hover:text-brand-gold"
           >
             <ServiceIcon name="mail" className="h-4 w-4" />
@@ -88,6 +90,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t.whatsapp}
+            onClick={() => trackEvent('whatsapp_click', { location: 'header_desktop' })}
             className="flex items-center text-brand-ink-2 transition-colors hover:text-[#25D366]"
           >
             <ServiceIcon name="message" className="h-4 w-4" />
@@ -100,6 +103,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
           </Link>
           <Link
             href={localizedHref('/booking', locale)}
+            onClick={() => trackEvent('cta_click', { location: 'header_desktop', cta_label: t.book })}
             className="shrink-0 whitespace-nowrap rounded-sm bg-brand-ink px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-gold"
           >
             {t.book}
@@ -132,7 +136,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
           ))}
           <a
             href={`mailto:${contactEmail}`}
-            onClick={() => setOpen(false)}
+            onClick={() => { trackEvent('email_click', { location: 'header_mobile' }); setOpen(false) }}
             className="mt-2 flex items-center justify-center gap-2 rounded-sm border border-brand-line px-4 py-3 text-center text-sm font-semibold text-brand-ink hover:border-brand-gold hover:text-brand-gold"
           >
             <ServiceIcon name="mail" className="h-4 w-4" />
@@ -142,7 +146,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
             href={whatsappLink(t.whatsappMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => setOpen(false)}
+            onClick={() => { trackEvent('whatsapp_click', { location: 'header_mobile' }); setOpen(false) }}
             className="mt-2 flex items-center justify-center gap-2 rounded-sm bg-[#25D366] px-4 py-3 text-center text-sm font-semibold text-white"
           >
             <ServiceIcon name="message" className="h-4 w-4" />
@@ -157,7 +161,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: Locale }) {
           </Link>
           <Link
             href={localizedHref('/booking', locale)}
-            onClick={() => setOpen(false)}
+            onClick={() => { trackEvent('cta_click', { location: 'header_mobile', cta_label: t.book }); setOpen(false) }}
             className="mt-2 rounded-sm bg-brand-ink px-4 py-3 text-center text-sm font-semibold text-white"
           >
             {t.book}
